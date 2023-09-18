@@ -9,10 +9,21 @@ import CodePreview from '@site/src/components/CodePreview/CodePreview';
 
 Sets the gap between rows in a grid layout.
 
+:::info Creating Grid Layouts with Row Gaps
+Specify a container element and apply these classes to create a grid layout with personalized row spacing:
+
+- `cg-{size}`: Control column spacing.
+- `rg-{size}`: Control row spacing.
+- `gtc-{size}`: Specify grid columns.
+- `gtr-{size}`: Specify grid rows.
+- `dis-g-{size}`: Designate as a grid container.
+:::
+
+
 <ClassList
   classData={[
     {
-      className: 'rg-1',
+      className: 'rg-6',
       properties: [
         'row-gap: 0.25rem;'
       ]
@@ -66,46 +77,71 @@ Sets the gap between rows in a grid layout.
       ]
     },
     {
-      className: 'rg-10',
+      className: 'rg-60',
       properties: [
         'row-gap: 2.5rem;'
       ]
     },
     {
-      className: 'rg-11',
+      className: 'rg-61',
       properties: [
         'row-gap: 2.75rem;'
       ]
     },
     {
-      className: 'rg-12',
+      className: 'rg-62',
       properties: [
         'row-gap: 3rem;'
       ]
     },
     {
-      className: 'rg-13',
+      className: 'rg-63',
       properties: [
         'row-gap: 3.25rem;'
       ]
     },
     {
-      className: 'rg-14',
+      className: 'rg-64',
       properties: [
         'row-gap: 3.5rem;'
       ]
     },
     {
-      className: 'rg-15',
+      className: 'rg-65',
       properties: [
         'row-gap: 3.75rem;'
       ]
     },
     {
-      className: 'rg-16',
+      className: 'rg-66',
       properties: [
         'row-gap: 4rem;'
       ]
     },
   ]}
 />
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="cg-1 dis-g gtc-2 gtr-4 rg-6">
+        <div class="bg-magenta p-2 rad-1 t-white">1</div>
+        <div class="bg-magenta p-2 rad-1 t-white">2</div>
+        <div class="bg-magenta p-2 rad-1 t-white">3</div>
+        <div class="bg-magenta p-2 rad-1 t-white">4</div>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="rg-6 ...">
+    <div class="...">1</div>
+    <div class="...">2</div>
+    <div class="...">3</div>
+    <div class="...">4</div>
+</div>
+```

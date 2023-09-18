@@ -9,6 +9,11 @@ import CodePreview from '@site/src/components/CodePreview/CodePreview';
 
 Sets the height of an element's content box.
 
+:::info Precise Height Control
+You may utilize `h-full` to establish an element's height as a full 100% of its parent container, or employ `h-half` to achieve a 50% height allocation.
+:::
+
+
 <ClassList
   classData={[
     {
@@ -157,3 +162,22 @@ Sets the height of an element's content box.
     },
   ]}
 />
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="bg-magenta h-5 mr-1 mt-auto p-1 rad-1 t-white">h-5</div>
+    <div class="bg-magenta h-10 mr-1 mt-auto p-1 rad-1 t-white">h-10</div>
+    <div class="bg-magenta h-20 mr-1 mt-auto p-1 rad-1 t-white">h-20</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="h-5 ...">h-5</div>
+<div class="h-10 ...">h-10</div>
+<div class="h-20 ...">h-20</div>
+```

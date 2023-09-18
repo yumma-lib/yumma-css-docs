@@ -1,0 +1,45 @@
+---
+title: Breakpoints
+sidebar_position: 1
+---
+
+# Breakpoints
+
+Controls layout adjustments at specific screen widths for responsive web design.
+
+### Responsive Breakpoints
+
+Responsive breakpoints allow you to create flexible and adaptable layouts for your web projects. These breakpoints provide fine-grained control over your layout's behavior on different devices.
+
+:::caution Utilizing Breakpoints
+To make use of the following classes effectively, you should include a `row` class in the main container `<div>`. This ensures proper alignment and spacing of your columns. Here's an example of how to structure your layout:
+
+```html
+<div class="gap-1 row">
+    <div class="col-12-xsm col-3-lg col-6-md">
+        <!-- ... -->
+    </div>
+    <!-- ... -->
+</div>
+:::
+
+#### Available Breakpoints
+
+- `col-{size}-xsm`: Extra Small Screens
+- `col-{size}-sm`: Small Screens
+- `col-{size}-md`: Medium Screens
+- `col-{size}-lg`: Large Screens
+- `col-{size}-xlg`: Extra Large Screens
+
+#### Customizable Breakpoints
+
+Breakpoints are defined as Sass variables, making them easy to customize to suit your project's needs. Here's how the breakpoints are defined:
+
+```scss
+$breakpoints: (
+    "xsm": 0,
+    "sm": 480px,
+    "md": 720px,
+    "lg": 960px,
+    "xlg": 1200px,
+);

@@ -12,34 +12,132 @@ Controls vertical overflow behavior.
 <ClassList
   classData={[
     {
-      className: 'ovf-auto',
+      className: 'ovf-y-auto',
       properties: [
-        'overflow-y: auto;'
+        'overflow-x: auto;'
       ]
     },
     {
-      className: 'ovf-c',
+      className: 'ovf-y-c',
       properties: [
-        'overflow-y: clip;'
+        'overflow-x: clip;'
       ]
     },
     {
-      className: 'ovf-h',
+      className: 'ovf-y-h',
       properties: [
-        'overflow-y: hidden;'
+        'overflow-x: hidden;'
       ]
     },
     {
-      className: 'ovf-s',
+      className: 'ovf-y-s',
       properties: [
-        'overflow-y: scroll;'
+        'overflow-x: scroll;'
       ]
     },
     {
-      className: 'ovf-v',
+      className: 'ovf-y-v',
       properties: [
-        'overflow-y: visible;'
+        'overflow-x: visible;'
       ]
     },
   ]}
 />
+
+### Basic examples
+
+#### Auto
+
+<CodePreview
+  htmlContent={`
+    <div class="mb-4 ovf-y-auto h-12 bc-magenta p-1">
+        <p class="t-magenta">Overflow Y Auto</p>
+        <p>
+          In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey. Some soared gracefully, while others spiraled with wild exuberance. The lone tree beside him seemed to share Ren's vigil, its branches reaching skyward. Its roots, hidden beneath the pristine surface, anchored it to this enigmatic world. Ren felt a kinship with the tree, both silent witnesses to the cosmic spectacle. Patient and at peace, Ren awaited his own connection to the boundless flow of existence.
+        </p>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="ovf-y-auto...">
+    <p class="...">
+      In an endless white expanse, Ren stood by a solitary tree. ...
+    </p>
+</div>
+```
+
+#### Clip
+
+<CodePreview
+  htmlContent={`
+    <div class="mb-4 ovf-y-c h-12 bc-magenta p-1">
+        <p class="t-magenta">Overflow Y Clip</p>
+        <p>
+          In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey. Some soared gracefully, while others spiraled with wild exuberance. The lone tree beside him seemed to share Ren's vigil, its branches reaching skyward. Its roots, hidden beneath the pristine surface, anchored it to this enigmatic world. Ren felt a kinship with the tree, both silent witnesses to the cosmic spectacle. Patient and at peace, Ren awaited his own connection to the boundless flow of existence.
+        </p>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="ovf-y-c...">
+    <p class="...">
+      In an endless white expanse, Ren stood by a solitary tree. ...
+    </p>
+</div>
+```
+
+#### Hidden
+
+<CodePreview
+  htmlContent={`
+    <div class="mb-4 ovf-y-h h-12 bc-magenta p-1">
+        <p class="t-magenta">Overflow Y Hidden</p>
+        <p>
+          In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey. Some soared gracefully, while others spiraled with wild exuberance. The lone tree beside him seemed to share Ren's vigil, its branches reaching skyward. Its roots, hidden beneath the pristine surface, anchored it to this enigmatic world. Ren felt a kinship with the tree, both silent witnesses to the cosmic spectacle. Patient and at peace, Ren awaited his own connection to the boundless flow of existence.
+        </p>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="ovf-y-h...">
+    <p class="...">
+      In an endless white expanse, Ren stood by a solitary tree. ...
+    </p>
+</div>
+```
+
+#### Scroll
+
+<CodePreview
+  htmlContent={`
+    <div class="mb-4 ovf-y-s h-12 bc-magenta p-1">
+        <p class="t-magenta">Overflow Y Scroll</p>
+        <p>
+          In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey. Some soared gracefully, while others spiraled with wild exuberance. The lone tree beside him seemed to share Ren's vigil, its branches reaching skyward. Its roots, hidden beneath the pristine surface, anchored it to this enigmatic world. Ren felt a kinship with the tree, both silent witnesses to the cosmic spectacle. Patient and at peace, Ren awaited his own connection to the boundless flow of existence.
+        </p>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="ovf-y-s...">
+    <p class="...">
+      In an endless white expanse, Ren stood by a solitary tree. ...
+    </p>
+</div>
+```

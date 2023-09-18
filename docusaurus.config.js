@@ -1,25 +1,21 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+require('dotenv').config();
+
+const onyxTheme = require('./src/themes/onyx-theme');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Yumma CSS',
   tagline: 'An essential CSS library for streamlined UI development.',
   favicon: 'img/favicon.ico',
-
   url: 'https://your-docusaurus-test-site.com',
-
   baseUrl: '/',
-
   organizationName: 'rrenildopereiraa',
   projectName: 'yumma-css-docs',
-
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -33,6 +29,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
+          editUrl: "https://github.com/rrenildopereiraa/yumma-css-docs",
           // includeCurrentVersion: false
         },
         blog: false,
@@ -46,6 +43,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 5,
+      },
 
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
@@ -92,8 +93,20 @@ const config = {
         },
       },
       prism: {
-        theme: require('./src/themes/yumma-light.js'),
-        darkTheme: require('./src/themes/yumma-dark.js'),
+        theme: onyxTheme.light,
+        darkTheme: onyxTheme.dark,
+      },
+      algolia: {
+        appId: process.env.ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_API_KEY,
+        indexName: 'yummacss',
+        contextualSearch: true,
+        externalUrlRegex: 'external\\.com|domain\\.com',
+        replaceSearchResultPathname: {
+          from: '/docs/',
+          to: '/',
+        },
+        searchParameters: {},
       },
     }),
 };

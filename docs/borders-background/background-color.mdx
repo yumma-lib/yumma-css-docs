@@ -3,9 +3,8 @@ title: Background Color
 sidebar_position: 1
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import CodePreview from '@site/src/components/CodePreview/CodePreview';
-import ColorPalette from '@site/src/components/ColorPalette/ColorPalette';
+import ClassList from "@site/src/components/ClassList/ClassList";
+import CodePreview from "@site/src/components/CodePreview/CodePreview";
 
 # Background Color
 
@@ -17,85 +16,63 @@ The following are some of the available background color classes in Yumma CSS:
 
 These classes use predefined color values to set the background color of the respective elements. By applying these classes, you can quickly change the background color of your components and sections.
 
+:::info Color Variations for Light and Dark Backgrounds
+You have access to 6 shades of both dark and light colors. This means you can use classes like `bg-l-red-1` through `bg-l-{color}-6` for light backgrounds and `bg-d-red-1` through `bg-d-{color}-6` for dark backgrounds.
+:::
+
 <ClassList
   classData={[
     {
-      className: 'bg-red',
-      properties: [
-        'background-color: #f26d50;'
-      ]
+      className: "bg-red",
+      properties: ["background-color: #f26d50;"],
     },
     {
-      className: 'bg-orange',
-      properties: [
-        'background-color: #f68e55;'
-      ]
+      className: "bg-orange",
+      properties: ["background-color: #f68e55;"],
     },
     {
-      className: 'bg-yellow',
-      properties: [
-        'background-color: #fff467;'
-      ]
+      className: "bg-yellow",
+      properties: ["background-color: #fff467;"],
     },
     {
-      className: 'bg-green',
-      properties: [
-        'background-color: #3bb878;'
-      ]
+      className: "bg-green",
+      properties: ["background-color: #3bb878;"],
     },
     {
-      className: 'bg-teal',
-      properties: [
-        'background-color: #1abbb4;'
-      ]
+      className: "bg-teal",
+      properties: ["background-color: #1abbb4;"],
     },
     {
-      className: 'bg-aqua',
-      properties: [
-        'background-color: #00bff3;'
-      ]
+      className: "bg-aqua",
+      properties: ["background-color: #00bff3;"],
     },
     {
-      className: 'bg-blue',
-      properties: [
-        'background-color: #438cca;'
-      ]
+      className: "bg-blue",
+      properties: ["background-color: #438cca;"],
     },
     {
-      className: 'bg-violet',
-      properties: [
-        'background-color: #855fa8;'
-      ]
+      className: "bg-violet",
+      properties: ["background-color: #855fa8;"],
     },
     {
-      className: 'bg-magenta',
-      properties: [
-        'background-color: #a863a8;'
-      ]
+      className: "bg-magenta",
+      properties: ["background-color: #a863a8;"],
     },
     {
-      className: 'bg-pink',
-      properties: [
-        'background-color: #f06ea9;'
-      ]
+      className: "bg-pink",
+      properties: ["background-color: #f06ea9;"],
     },
     {
-      className: 'bg-gray',
-      properties: [
-        'background-color: #999999;'
-      ]
+      className: "bg-gray",
+      properties: ["background-color: #999999;"],
     },
     {
-      className: 'bg-white',
-      properties: [
-        'background-color: white;'
-      ]
+      className: "bg-white",
+      properties: ["background-color: white;"],
     },
     {
-      className: 'bg-black',
-      properties: [
-        'background-color: black;'
-      ]
+      className: "bg-black",
+      properties: ["background-color: black;"],
     },
   ]}
 />
@@ -104,8 +81,109 @@ These classes use predefined color values to set the background color of the res
 
 In addition to the standard background colors, Yumma CSS provides a convenient way to generate shades of each color. The component below displays a grid of light and dark shades for each background color:
 
-:::info Note about Color Variations
-You have access to 6 shades of both dark and light colors. This means you can use classes like `bg-l-red-1` through `bg-l-<color>-6` for light backgrounds and `bg-d-red-1` through `bg-d-<color>-6` for dark backgrounds.
+:::caution Avoiding Black and White Shades
+Please be advised that the provided color variations do not encompass shades of `black` or `white`. As a result, the utilization of classes such as `bg-l-black-6` or `bg-d-white-6` is not applicable within this context.
 :::
 
-<ColorPalette />
+#### Dark colors
+
+<ClassList
+  classData={[
+    {
+      className: "bg-d-red-{level}",
+      properties: ["background-color: #f26d50;"],
+    },
+    {
+      className: "bg-d-orange-{level}",
+      properties: ["background-color: #f68e55;"],
+    },
+    {
+      className: "bg-d-yellow-{level}",
+      properties: ["background-color: #fff467;"],
+    },
+    {
+      className: "bg-d-green-{level}",
+      properties: ["background-color: #3bb878;"],
+    },
+    {
+      className: "bg-d-teal-{level}",
+      properties: ["background-color: #1abbb4;"],
+    },
+    {
+      className: "bg-d-aqua-{level}",
+      properties: ["background-color: #00bff3;"],
+    },
+    {
+      className: "bg-d-blue-{level}",
+      properties: ["background-color: #438cca;"],
+    },
+    {
+      className: "bg-d-violet-{level}",
+      properties: ["background-color: #855fa8;"],
+    },
+    {
+      className: "bg-d-magenta-{level}",
+      properties: ["background-color: #a863a8;"],
+    },
+    {
+      className: "bg-d-pink-{level}",
+      properties: ["background-color: #f06ea9;"],
+    },
+    {
+      className: "bg-d-gray-{level}",
+      properties: ["background-color: #999999;"],
+    },
+  ]}
+/>
+
+#### Light colors
+
+<ClassList
+  classData={[
+    {
+      className: "bg-l-red-{level}",
+      properties: ["background-color: #f26d50;"],
+    },
+    {
+      className: "bg-l-orange-{level}",
+      properties: ["background-color: #f68e55;"],
+    },
+    {
+      className: "bg-l-yellow-{level}",
+      properties: ["background-color: #fff467;"],
+    },
+    {
+      className: "bg-l-green-{level}",
+      properties: ["background-color: #3bb878;"],
+    },
+    {
+      className: "bg-l-teal-{level}",
+      properties: ["background-color: #1abbb4;"],
+    },
+    {
+      className: "bg-l-aqua-{level}",
+      properties: ["background-color: #00bff3;"],
+    },
+    {
+      className: "bg-l-blue-{level}",
+      properties: ["background-color: #438cca;"],
+    },
+    {
+      className: "bg-l-violet-{level}",
+      properties: ["background-color: #855fa8;"],
+    },
+    {
+      className: "bg-l-magenta-{level}",
+      properties: ["background-color: #a863a8;"],
+    },
+    {
+      className: "bg-l-pink-{level}",
+      properties: ["background-color: #f06ea9;"],
+    },
+    {
+      className: "bg-l-gray-{level}",
+      properties: ["background-color: #999999;"],
+    },
+  ]}
+/>
+

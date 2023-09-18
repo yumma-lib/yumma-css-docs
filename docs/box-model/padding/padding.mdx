@@ -2,6 +2,9 @@
 title: Padding
 ---
 
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
 Adds space inside an element's content box.
 
 <ClassList
@@ -96,3 +99,22 @@ Adds space inside an element's content box.
     }
   ]}
 />
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="bg-magenta mr-1 p-1 rad-1 t-white">p-1</div>
+    <div class="bg-magenta mr-1 p-2 rad-1 t-white">p-2</div>
+    <div class="bg-magenta mr-1 p-3 rad-1 t-white">p-3</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="p-1 ...">p-1</div>
+<div class="p-2 ...">p-2</div>
+<div class="p-3 ...">p-3</div>
+```

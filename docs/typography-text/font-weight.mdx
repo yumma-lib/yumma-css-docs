@@ -14,19 +14,19 @@ Defines the thickness of the font characters.
     {
       className: 'fw-100',
       properties: [
-        'font-weight: 200;'
+        'font-weight: 100;'
       ]
     },
     {
       className: 'fw-200',
       properties: [
-        'font-weight: 400;'
+        'font-weight: 200;'
       ]
     },
     {
       className: 'fw-300',
       properties: [
-        'font-weight: 600;'
+        'font-weight: 300;'
       ]
     },
     {
@@ -67,3 +67,24 @@ Defines the thickness of the font characters.
     },
   ]}
 />
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <p class="fs-sm fw-100">Font weight 100</p>
+    <p class="fs-md fw-400">Font weight 400</p>
+    <p class="fs-lg fw-600">Font weight 600</p>
+    <p class="fs-xlg fw-900">Font weight 900</p>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<p class="fw-sm ...">Font weight 100</p>
+<p class="fw-md ...">Font weight 400</p>
+<p class="fw-lg ...">Font weight 600</p>
+<p class="fw-xlg ...">Font weight 900</p>
+```

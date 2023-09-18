@@ -51,17 +51,25 @@ Creates a shadow effect around an element's box.
   ]}
 />
 
-### Basic usage
+### Basic example
 
 <CodePreview
   htmlContent={`
-  <div class="ins">
-    <div class="bs-xlg h-6 mt-1 p-2 rad-1 w-6"></div>
-  </div>
+    <div class="bg-white bs-xlg h-6 mr-1 p-2 rad-2 w-6"></div>
+    <div class="bg-white bs-lg h-6 mr-1 p-2 rad-2 w-6"></div>
+    <div class="bg-white bs-md h-6 mr-1 p-2 rad-2 w-6"></div>
+    <div class="bg-white bs-sm h-6 mr-1 p-2 rad-2 w-6"></div>
+    <div class="bg-white bs-xsm h-6 mr-1 p-2 rad-2 w-6"></div>
   `}
-  sidePadding={false}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
 />
 
 ```html
-<div class="bs-xlg h-6 mt-1 p-2 w-6"></div>
+<div class="bs-xlg ..."></div>
+<div class="bs-lg ..."></div>
+<div class="bs-md ..."></div>
+<div class="bs-sm ..."></div>
+<div class="bs-xsm ..."></div>
 ```

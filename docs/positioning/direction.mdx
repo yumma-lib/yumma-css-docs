@@ -7,6 +7,8 @@ import CodePreview from '@site/src/components/CodePreview/CodePreview';
 
 # Direction
 
+Controls the direction of the flexible items within a container.
+
 <ClassList
   classData={[
     {
@@ -41,3 +43,24 @@ import CodePreview from '@site/src/components/CodePreview/CodePreview';
     },
   ]}
 />
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="bg-magenta dir-l h-6 p-1 pos-a pos-t rad-1 w-6"></div>
+    <div class="bg-magenta dir-r dir-t h-6 p-1 pos-a rad-1 w-6"></div>
+    <div class="bg-magenta dir-b dir-l h-6 p-1 pos-a rad-1 w-6"></div>
+    <div class="bg-magenta dir-b dir-r h-6 p-1 pos-a rad-1 w-6"></div>
+  `}
+  isPadded = {false}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="dir-l ..."></div>
+<div class="dir-b dir-l ..."></div>
+<div class="dir-b dir-r ..."></div>
+<div class="dir-r dir-t ..."></div>
+```

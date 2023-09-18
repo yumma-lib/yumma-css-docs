@@ -9,12 +9,16 @@ import CodePreview from '@site/src/components/CodePreview/CodePreview';
 
 Sets the color of all four borders of an element.
 
+:::info Utilizing Color Shades
+You can use different color shades in your website or application like `bg-l-magenta-4` or `bg-l-magenta-4`
+:::
+
 <ClassList
   classData={[
     {
       className: 'bc-red',
       properties: [
-        'background-color: #f26d50;',
+        'border-color: #f26d50;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -22,7 +26,7 @@ Sets the color of all four borders of an element.
     {
       className: 'bc-orange',
       properties: [
-        'background-color: #f68e55;',
+        'border-color: #f68e55;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -30,7 +34,7 @@ Sets the color of all four borders of an element.
     {
       className: 'bc-yellow',
       properties: [
-        'background-color: #fff467;',
+        'border-color: #fff467;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -38,7 +42,7 @@ Sets the color of all four borders of an element.
     {
       className: 'bc-green',
       properties: [
-        'background-color: #3bb878;',
+        'border-color: #3bb878;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -46,7 +50,7 @@ Sets the color of all four borders of an element.
     {
       className: 'bc-teal',
       properties: [
-        'background-color: #1abbb4;',
+        'border-color: #1abbb4;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -54,7 +58,7 @@ Sets the color of all four borders of an element.
     {
       className: 'bc-aqua',
       properties: [
-        'background-color: #00bff3;',
+        'border-color: #00bff3;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -62,7 +66,7 @@ Sets the color of all four borders of an element.
     {
       className: 'bc-blue',
       properties: [
-        'background-color: #438cca;',
+        'border-color: #438cca;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -70,7 +74,7 @@ Sets the color of all four borders of an element.
     {
       className: 'bc-violet',
       properties: [
-        'background-color: #855fa8;',
+        'border-color: #855fa8;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -78,7 +82,7 @@ Sets the color of all four borders of an element.
     {
       className: 'bc-magenta',
       properties: [
-        'background-color: #a863a8;',
+        'border-color: #a863a8;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -86,7 +90,7 @@ Sets the color of all four borders of an element.
     {
       className: 'bc-pink',
       properties: [
-        'background-color: #f06ea9;',
+        'border-color: #f06ea9;',
         'border-style: solid;',
         'border-width: 1px;'
       ]
@@ -118,21 +122,17 @@ Sets the color of all four borders of an element.
   ]}
 />
 
-### Basic usage
+### Basic example
 
 <CodePreview
   htmlContent={`
-  <div class="jc-c row">
-    <div class="b-4 bc-magenta bg-d-magenta-6 h-6 p-2 w-6"></div>
-  </div>
+    <div class="b-4 bc-magenta bc-magenta bg-white h-6 p-2 w-6"></div>
   `}
-  sidePadding={false}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
 />
 
 ```html
-<div class="b-4 bc-magenta bg-d-magenta-6 h-6 p-2 w-6"></div>
+<div class="bc-magenta ..."></div>
 ```
-
-:::info Did you know
-You can use different color shades in your website or application like `bg-l-magenta-4` or `bg-l-magenta-4`
-:::

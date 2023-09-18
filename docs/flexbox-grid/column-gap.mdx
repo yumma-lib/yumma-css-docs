@@ -9,6 +9,17 @@ import CodePreview from '@site/src/components/CodePreview/CodePreview';
 
 Sets the gap between columns in a grid layout.
 
+:::info Creating Grid Layouts with Column Gaps
+Specify a container element and apply the following classes to achieve a precise grid layout with fine-grained column spacing:
+
+- `cg-{size}`: Control column spacing.
+- `rg-{size}`: Control row spacing.
+- `gtc-{size}`: Specify grid columns.
+- `gtr-{size}`: Specify grid rows.
+- `dis-g-{size}`: Designate as a grid container.
+:::
+
+
 <ClassList
   classData={[
     {
@@ -110,3 +121,27 @@ Sets the gap between columns in a grid layout.
   ]}
 />
 
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="cg-6 dis-g gtc-2 gtr-4 rg-1">
+      <div class="bg-magenta p-2 rad-1 t-white">1</div>
+      <div class="bg-magenta p-2 rad-1 t-white">2</div>
+      <div class="bg-magenta p-2 rad-1 t-white">3</div>
+      <div class="bg-magenta p-2 rad-1 t-white">4</div>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="cg-6 ...">
+  <div class="...">1</div>
+  <div class="...">2</div>
+  <div class="...">3</div>
+  <div class="...">4</div>
+</div>
+```

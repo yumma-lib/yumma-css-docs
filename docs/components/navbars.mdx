@@ -8,28 +8,37 @@ import CodePreview from '@site/src/components/CodePreview/CodePreview';
 
 Top horizontal bars provide seamless navigation for an enhanced user experience
 
-## Simple Navbar
+## Default Navbar
 
 Use these navbars to create a clear and easily accessible menu at the top of your website or application, allowing users to navigate through different sections, explore content, and reach important pages with ease.
 
+:::caution Customizing the Default Navbar
+This is a pre-built navbar component and certain styles, such as background color, cannot be changed. These styles are intended to maintain a consistent and cohesive design. For extensive customization, consider creating a custom navbar from scratch, or explore our other navbar components.
+:::
+
 <CodePreview
   htmlContent={`
-  <nav class="mb-4 nav-blue">
-      <h2 class="nav-l t-white">Navbar</h2>
+    <nav class="nav-white">
+      <h1 class="nav-l">Yumma</h1>
       <ul class="dis-f">
-          <li class="ml-1 t-white"><a href="#">Help</a></li>
-          <li class="ml-1 t-white"><a href="#">Contacts</a></li>
+        <li class="ml-1 t-h-magenta"><a href="#">Docs</a></li>
+        <li class="ml-1 t-h-magenta"><a href="#">Blog</a></li>
+        <li class="ml-1 t-h-magenta"><a href="#">About</a></li>
       </ul>
-  </nav>
+    </nav>
   `}
+  isPadded = {false}
+  isCentered = {false}
+  isVersion = '0.0.1'
 />
 
-```html title="index.html"
-<nav class="mb-4 nav-blue bg-yellow-2 t-white">
-    <h2 class="nav-l">Navbar</h2>
-    <ul class="dis-f">
-        <li class="ml-1 t-h-black"><a href="#">Link A</a></li>
-        <li class="ml-1 t-h-black"><a href="#">Link B</a></li>
-    </ul>
+```html
+<nav class="nav-white">
+  <h1 class="nav-l">Yumma</h1>
+  <ul class="dis-f">
+    <li class="ml-1 t-h-magenta"><a href="#">Docs</a></li>
+    <li class="ml-1 t-h-magenta"><a href="#">Blog</a></li>
+    <li class="ml-1 t-h-magenta"><a href="#">About</a></li>
+  </ul>
 </nav>
 ```

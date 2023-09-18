@@ -15,7 +15,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-red',
       properties: [
-        'background-color: #f26d50;',
+        'border-color: #f26d50;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -23,7 +23,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-orange',
       properties: [
-        'background-color: #f68e55;',
+        'border-color: #f68e55;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -31,7 +31,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-yellow',
       properties: [
-        'background-color: #fff467;',
+        'border-color: #fff467;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -39,7 +39,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-green',
       properties: [
-        'background-color: #3bb878;',
+        'border-color: #3bb878;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -47,7 +47,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-teal',
       properties: [
-        'background-color: #1abbb4;',
+        'border-color: #1abbb4;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -55,7 +55,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-aqua',
       properties: [
-        'background-color: #00bff3;',
+        'border-color: #00bff3;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -63,7 +63,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-blue',
       properties: [
-        'background-color: #438cca;',
+        'border-color: #438cca;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -71,7 +71,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-violet',
       properties: [
-        'background-color: #855fa8;',
+        'border-color: #855fa8;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -79,7 +79,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-magenta',
       properties: [
-        'background-color: #a863a8;',
+        'border-color: #a863a8;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -87,7 +87,7 @@ Sets the color of the left border of an element.
     {
       className: 'bc-l-pink',
       properties: [
-        'background-color: #f06ea9;',
+        'border-color: #f06ea9;',
         'border-style: solid;',
         'border-left-color: 1px;'
       ]
@@ -119,17 +119,17 @@ Sets the color of the left border of an element.
   ]}
 />
 
-### Basic usage
+### Basic example
 
 <CodePreview
-  htmlContent = {`
-  <div class="jc-c row">
-    <div class="b-4 bc-l-l-magenta-6 bc-magenta bg-d-magenta-6 h-6 p-2 w-6"></div>
-  </div>
+  htmlContent={`
+    <div class="b-4 bc-l-l-magenta-6 bc-magenta bg-white h-6 p-2 w-6"></div>
   `}
-  sidePadding={false}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
 />
 
 ```html
-<div class="b-4 bc-l-l-magenta-4 bg-d-magenta-6 h-6 p-2 w-6"></div>
+<div class="bc-l-l-magenta-6 ..."></div>
 ```

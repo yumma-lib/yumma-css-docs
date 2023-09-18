@@ -1,10 +1,12 @@
 :root {
     --class-list-bg-light: #fefeff;
     --class-list-bg-dark: #1b1b1d;
+
     --class-item-bg-light: #fff;
     --class-item-bg-dark: #282a36;
-    --class-item-textcolor-light: #181818;
-    --class-item-textcolor-dark: #ffffff;
+    
+    --class-item-text-light: #181818;
+    --class-item-text-dark: #ffffff;
 }
 
 .classList {
@@ -24,7 +26,7 @@
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     background-color: var(--class-item-bg-light);
-    color: var(--class-item-textcolor-light);
+    color: var(--class-item-text-light);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -49,11 +51,11 @@
 
 [data-theme='dark'] .classItem {
     background-color: var(--class-item-bg-dark);
-    color: var(--class-item-textcolor-dark);
+    color: var(--class-item-text-dark);
     border: 1px solid #606770;
 }
 
 [data-theme='dark'] .propertyCode {
     background-color: #20222b;
-    color: var(--class-item-textcolor-dark);
+    color: var(--class-item-text-dark);
 }
