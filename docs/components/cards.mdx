@@ -1,0 +1,36 @@
+---
+title: Cards
+---
+
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Cards
+
+Versatile containers that elegantly present content in a well-structured and visually appealing way
+
+## Card
+
+Use these cards to present organised content, combining text, images and interactive elements to present information in an attractive and structured way, ideal for displaying product details, articles or user profiles.
+
+<CodePreview
+  htmlContent={`
+    <div class="card">
+        <h1 class="card-t">Card title</h1>
+        <p class="card-b">This is the body of the card. You can write whatever you want here and even add some
+            links
+            <a href="#">links</a> you would like them added.
+        </p>
+    </div>
+  `}
+  sidePadding={true}
+/>
+
+```html title="index.html"
+<div class="card">
+    <h1 class="card-t">Card title</h1>
+    <p class="card-b">This is the body of the card. You can write whatever you want here and even add some
+        links
+        <a href="#">links</a> you would like them added.
+    </p>
+</div>
+```

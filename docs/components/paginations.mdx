@@ -1,0 +1,95 @@
+---
+title: Paginations
+---
+
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Paginations
+
+Navigation components that make it easy to browse through pages or sections
+
+## Simple Pagination
+
+Use these paginations to divide content into manageable sections or pages, enabling users to navigate through lengthy lists, articles, or search results effectively, enhancing user experience and accessibility.
+
+<CodePreview
+  htmlContent={`
+  <div class="ins">
+    <nav>
+      <ul class="dis-if mt-2">
+          <li>
+              <a class="bc-h-blue bc-l-gray-6 ml-0 p-1 rad-bl-1 rad-tl-1 t-d-gray-5 t-h-blue" href="#">Prev</a>
+          </li>
+          <li>
+              <a class="bc-h-blue bc-l-gray-6 p-1 rad-br-1 rad-tr-1 t-d-gray-5 t-h-blue" href="#">Next</a>
+          </li>
+      </ul>
+    </nav>
+  </div>
+  `}
+/>
+
+```html title="index.html"
+<nav>
+    <ul class="dis-if mt-2">
+        <li>
+            <a class="bc-h-blue bc-l-gray-6 ml-0 p-1 rad-bl-1 rad-tl-1 t-d-gray-5 t-h-blue" href="#">Prev</a>
+        </li>
+        <li>
+            <a class="bc-h-blue bc-l-gray-6 p-1 rad-br-1 rad-tr-1 t-d-gray-5 t-h-blue" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+```
+
+## Numbered Pagination
+
+Use this pagination with numbers to provide clear and intuitive navigation for browsing through multiple pages or sections, displaying page numbers for quick reference and seamless content exploration.
+
+<CodePreview
+  htmlContent={`
+  <div class="ins">
+    <nav>
+        <ul class="dis-if mt-2">
+            <li>
+                <a class="bc-l-gray-6 bg-h-l-gray-6 ml-0 p-1 rad-tl-1 rad-bl-1 t-d-gray-5 t-h-d-gray-5" href="#">«</a>
+            </li>
+            <li>
+                <a class="bc-l-gray-6 bg-h-l-gray-6 p-1 t-d-gray-5 t-h-d-gray-5" href="#">1</a>
+            </li>
+            <li>
+                <a class="bc-blue bg-h-l-blue-5 bg-l-blue-6 p-1 t-blue t-h-d-blue-4" href="#">2</a>
+            </li>
+            <li>
+                <a class="bc-l-gray-6 bg-h-l-gray-6 p-1 t-d-gray-5 t-h-d-gray-5" href="#">3</a>
+            </li>
+            <li>
+                <a class="bc-l-gray-6 bg-h-l-gray-6 p-1 rad-br-1 rad-tr-1 t-d-gray-5 t-h-d-gray-5" href="#">»</a>
+            </li>
+        </ul>
+    </nav>
+  </div>
+  `}
+/>
+
+```html title="index.html"
+<nav>
+    <ul class="dis-if mt-2">
+        <li>
+            <a class="bc-l-gray-6 bg-h-l-gray-6 ml-0 p-1 rad-tl-1 rad-bl-1 t-d-gray-5 t-h-d-gray-5" href="#">«</a>
+        </li>
+        <li>
+            <a class="bc-l-gray-6 bg-h-l-gray-6 p-1 t-d-gray-5 t-h-d-gray-5" href="#">1</a>
+        </li>
+        <li>
+            <a class="bc-blue bg-h-l-blue-5 bg-l-blue-6 p-1 t-blue t-h-d-blue-4" href="#">2</a>
+        </li>
+        <li>
+            <a class="bc-l-gray-6 bg-h-l-gray-6 p-1 t-d-gray-5 t-h-d-gray-5" href="#">3</a>
+        </li>
+        <li>
+            <a class="bc-l-gray-6 bg-h-l-gray-6 p-1 rad-br-1 rad-tr-1 t-d-gray-5 t-h-d-gray-5" href="#">»</a>
+        </li>
+    </ul>
+</nav>
+```

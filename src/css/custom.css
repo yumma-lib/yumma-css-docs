@@ -1,0 +1,35 @@
+:root {
+  --ifm-color-primary: #dd0987;
+  --ifm-color-primary-dark: #bc0672;
+  --ifm-color-primary-darker: #a00560;
+  --ifm-color-primary-darkest: #84044b;
+  --ifm-color-primary-light: #f016a3;
+  --ifm-color-primary-lighter: #f42db4;
+  --ifm-color-primary-lightest: #f64fcb;
+  --ifm-footer-background-color: #ffffff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #dd0987;
+  --ifm-color-primary-dark: #bc0672;
+  --ifm-color-primary-darker: #a00560;
+  --ifm-color-primary-darkest: #84044b;
+  --ifm-color-primary-light: #f016a3;
+  --ifm-color-primary-lighter: #f42db4;
+  --ifm-color-primary-lightest: #f64fcb;
+  --ifm-footer-background-color: #1b1b1d;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Yumma CSS Selectors */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,700;1,600&display=swap");
+
+* {
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
