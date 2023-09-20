@@ -20,7 +20,7 @@ const GridSection = () => {
             <div className={styles.gridBox}>
                 <img src={codeImage} alt="Code" />
                 <h2>Productivity</h2>
-                <p>Get Yumma CSS snippets in your VS code and boost your development with <a href='https://marketplace.visualstudio.com/items?itemName=yumma-css-helper.yumma-css-helper'>Yumma CSS Helper</a>.</p>
+                <p>Get Yumma CSS snippets in your VS code and boost your development with <a href='https://marketplace.visualstudio.com/items?itemName=yumma-css.yumma-css-helper'>Yumma CSS Helper</a>.</p>
             </div>
         </div>
     );
