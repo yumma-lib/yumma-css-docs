@@ -12,7 +12,7 @@ const config = {
   favicon: 'img/favicon.ico',
   url: 'https://yummacss.netlify.app',
   baseUrl: '/',
-  organizationName: 'rrenildopereiraa',
+  organizationName: 'yumma-lib',
   projectName: 'yumma-css-docs',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
