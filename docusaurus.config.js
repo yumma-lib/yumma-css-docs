@@ -29,7 +29,7 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-          editUrl: "https://github.com/rrenildopereiraa/yumma-css-docs",
+          editUrl: "https://github.com/yumma-lib/yumma-css-docs",
           // includeCurrentVersion: false
         },
         blog: false,
