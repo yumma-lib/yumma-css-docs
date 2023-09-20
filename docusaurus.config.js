@@ -10,7 +10,7 @@ const config = {
   title: 'Yumma CSS',
   tagline: 'A CSS library for streamlined UI development.',
   favicon: 'img/favicon.ico',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://yummacss.netlify.net',
   baseUrl: '/',
   organizationName: 'rrenildopereiraa',
   projectName: 'yumma-css-docs',
