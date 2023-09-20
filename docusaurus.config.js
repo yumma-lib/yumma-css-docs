@@ -47,7 +47,6 @@ const config = {
         minHeadingLevel: 2,
         maxHeadingLevel: 5,
       },
-
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'Yumma CSS',
@@ -71,7 +70,6 @@ const config = {
           },
           {
             type: 'docsVersionDropdown',
-
             position: 'right'
           },
           {
@@ -95,18 +93,6 @@ const config = {
       prism: {
         theme: onyxTheme.light,
         darkTheme: onyxTheme.dark,
-      },
-      algolia: {
-        appId: process.env.ALGOLIA_APP_ID,
-        apiKey: process.env.ALGOLIA_API_KEY,
-        indexName: 'yummacss',
-        contextualSearch: true,
-        externalUrlRegex: 'external\\.com|domain\\.com',
-        replaceSearchResultPathname: {
-          from: '/docs/',
-          to: '/',
-        },
-        searchParameters: {},
       },
     }),
 };
