@@ -8,7 +8,7 @@ const onyxTheme = require('./src/themes/onyx-theme');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Yumma CSS',
-  tagline: 'An essential CSS library for streamlined UI development.',
+  tagline: 'A CSS library for streamlined UI development.',
   favicon: 'img/favicon.ico',
   url: 'https://your-docusaurus-test-site.com',
   baseUrl: '/',
