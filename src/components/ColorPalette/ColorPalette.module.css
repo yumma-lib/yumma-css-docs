@@ -52,3 +52,15 @@
 .colorSwatchContainer:hover::after {
     opacity: 1;
 }
+
+@media (max-width: 768px) {
+    .colorLine {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .colorSwatchContainer {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
