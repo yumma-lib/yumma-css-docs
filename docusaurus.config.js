@@ -94,6 +94,20 @@ const config = {
         theme: onyxTheme.light,
         darkTheme: onyxTheme.dark,
       },
+      algolia: {
+        appId: process.env.APP_ID,
+        apiKey: process.env.API_KEY,
+        indexName: 'yummacss',
+        contextualSearch: true,
+        externalUrlRegex: 'external\\.com|domain\\.com',
+        searchParameters: {},
+        searchPagePath: 'search',
+
+        replaceSearchResultPathname: {
+          from: '/docs/',
+          to: '/',
+        },
+      },
     }),
 };
 
