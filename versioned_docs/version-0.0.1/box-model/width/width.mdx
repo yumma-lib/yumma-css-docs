@@ -1,0 +1,183 @@
+---
+title: Width
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Width
+
+Sets the width of an element's content box.
+
+:::info Precise Width Control
+You can use `w-full` to set an element's width to 100% of its parent container or `w-half` for a 50% width allocation.
+:::
+
+
+<ClassList
+  classData={[
+    {
+      className: 'w-0',
+      properties: [
+        'width: 0rem;'
+      ]
+    },
+    {
+      className: 'w-1',
+      properties: [
+        'width: 0.25rem;'
+      ]
+    },
+    {
+      className: 'w-2',
+      properties: [
+        'width: 0.5rem;'
+      ]
+    },
+    {
+      className: 'w-3',
+      properties: [
+        'width: 1rem;'
+      ]
+    },
+    {
+      className: 'w-4',
+      properties: [
+        'width: 1.5rem;'
+      ]
+    },
+    {
+      className: 'w-5',
+      properties: [
+        'width: 2rem;'
+      ]
+    },
+    {
+      className: 'w-10',
+      properties: [
+        'width: 4.5rem;'
+      ]
+    },
+    {
+      className: 'w-20',
+      properties: [
+        'width: 9.5rem;'
+      ]
+    },
+    {
+      className: 'w-30',
+      properties: [
+        'width: 14.5rem;'
+      ]
+    },
+    {
+      className: 'w-40',
+      properties: [
+        'width: 19.5rem;'
+      ]
+    },
+    {
+      className: 'w-50',
+      properties: [
+        'width: 24.5rem;'
+      ]
+    },
+    {
+      className: 'w-55',
+      properties: [
+        'width: 25rem;'
+      ]
+    },
+    {
+      className: 'w-60',
+      properties: [
+        'width: 25.5rem;'
+      ]
+    },
+    {
+      className: 'w-65',
+      properties: [
+        'width: 26rem;'
+      ]
+    },
+    {
+      className: 'w-70',
+      properties: [
+        'width: 26.5rem;'
+      ]
+    },
+    {
+      className: 'w-75',
+      properties: [
+        'width: 27rem;'
+      ]
+    },
+    {
+      className: 'w-80',
+      properties: [
+        'width: 27.5rem;'
+      ]
+    },
+    {
+      className: 'w-85',
+      properties: [
+        'width: 28rem;'
+      ]
+    },
+    {
+      className: 'w-90',
+      properties: [
+        'width: 28.5rem;'
+      ]
+    },
+    {
+      className: 'w-95',
+      properties: [
+        'width: 29rem;'
+      ]
+    },
+    {
+      className: 'w-100',
+      properties: [
+        'width: 29.5rem;'
+      ]
+    },
+    {
+      className: 'w-auto',
+      properties: [
+        'width: auto;'
+      ]
+    },
+    {
+      className: 'w-full',
+      properties: [
+        'width: 100%;'
+      ]
+    },
+    {
+      className: 'w-half',
+      properties: [
+        'width: 50%;'
+      ]
+    },
+  ]}
+/>
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="bg-magenta mr-1 p-1 rad-1 t-white w-5">w-5</div>
+    <div class="bg-magenta mr-1 p-1 rad-1 t-white w-10">w-10</div>
+    <div class="bg-magenta mr-1 p-1 rad-1 t-white w-20">w-20</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="w-5 ...">w-5</div>
+<div class="w-10 ...">w-10</div>
+<div class="w-20 ...">w-20</div>
+```

@@ -1,0 +1,195 @@
+---
+title: Display
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Display
+
+Specifies the rendering behavior of an element.
+
+<ClassList
+  classData={[
+    {
+      className: 'dis-b',
+      properties: [
+        'display: block;'
+      ]
+    },
+    {
+      className: 'dis-f',
+      properties: [
+        'display: flex;'
+      ]
+    },
+    {
+      className: 'dis-g',
+      properties: [
+        'display: grid;'
+      ]
+    },
+    {
+      className: 'dis-i',
+      properties: [
+        'display: inline;'
+      ]
+    },
+    {
+      className: 'dis-ib',
+      properties: [
+        'display: inline-block;'
+      ]
+    },
+    {
+      className: 'dis-if',
+      properties: [
+        'display: inline-flex;'
+      ]
+    },
+    {
+      className: 'dis-none',
+      properties: [
+        'display: none;'
+      ]
+    },
+  ]}
+/>
+
+### Basic examples
+
+#### Block
+
+<CodePreview
+  htmlContent={`
+    <div class="dis-b">
+      <h2>Block-Level Heading</h2>
+      <p>This is a block-level element. It takes up the full width of its parent container and starts on a new line.</p>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="dis-b">
+  <h2>Block-Level Heading</h2>
+  <p>This is a block-level element. It takes up the full width of its parent container and starts on a new line.</p>
+</div>
+```
+
+#### Flex
+
+<CodePreview
+  htmlContent={`
+    <nav class="dis-f">
+      <a class="mr-1" href="#">Home</a>
+      <a class="mr-1" href="#">About</a>
+      <a class="mr-1" href="#">Services</a>
+      <a class="mr-1" href="#">Contact</a>
+    </nav>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
+/>
+
+```html
+<nav class="dis-f ...">
+  <a class="..." href="#">Home</a>
+  <a class="..." href="#">About</a>
+  <a class="..." href="#">Services</a>
+  <a class="..." href="#">Contact</a>
+</nav>
+```
+
+#### Grid
+
+<CodePreview
+  htmlContent={`
+    <div class="cg-6 dis-g gtc-3 gtr-4 rg-2">
+      <div class="bg-magenta p-2 rad-1 t-white">1</div>
+      <div class="bg-magenta p-2 rad-1 t-white">2</div>
+      <div class="bg-magenta p-2 rad-1 t-white">3</div>
+      <div class="bg-magenta p-2 rad-1 t-white">4</div>
+      <div class="bg-magenta p-2 rad-1 t-white">5</div>
+      <div class="bg-magenta p-2 rad-1 t-white">6</div>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="dis-g ...">
+  <div class="...">1</div>
+  <div class="...">2</div>
+  <div class="...">3</div>
+  <div class="...">4</div>
+  <div class="...">5</div>
+  <div class="...">6</div>
+</div>
+```
+
+#### Inline
+
+<CodePreview
+  htmlContent={`
+    <p>This is a <span class="bg-magenta dis-i t-white">highlighted</span> word within a paragraph.</p>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<p>This is a <span class="dis-i ...">highlighted</span> word within a paragraph.</p>
+```
+
+#### Inline Flex
+
+<CodePreview
+  htmlContent={`
+    <div class="dis-if">
+      <span class="mr-1">Item 1</span>
+      <span class="mr-1">Item 2</span>
+      <span class="mr-1">Item 3</span>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="dis-if ...">
+  <span class="...">Item 1</span>
+  <span class="...">Item 2</span>
+  <span class="...">Item 3</span>
+</div>
+```
+
+#### None
+
+<CodePreview
+  htmlContent={`
+    <div class="col-3">
+      <div class="bg-magenta dis-none p-2 rad-1 t-white">1</div>
+      <div class="bg-magenta p-2 rad-1 t-white">2</div>
+      <div class="bg-magenta p-2 rad-1 t-white">3</div>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="...">
+  <div class="dis-none ...">1</div>
+  <div class="...">2</div>
+  <div class="...">3</div>
+</div>
+```

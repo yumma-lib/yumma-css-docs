@@ -1,0 +1,120 @@
+---
+title: Padding
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+Adds space inside an element's content box.
+
+<ClassList
+  classData={[
+    {
+      className: 'p-0',
+      properties: ['padding: 0rem;']
+    },
+    {
+      className: 'p-1',
+      properties: ['padding: 0.75rem;']
+    },
+    {
+      className: 'p-2',
+      properties: ['padding: 1.5rem;']
+    },
+    {
+      className: 'p-3',
+      properties: ['padding: 3rem;']
+    },
+    {
+      className: 'p-4',
+      properties: ['padding: 4.5rem;']
+    },
+    {
+      className: 'p-5',
+      properties: ['padding: 6rem;']
+    },
+    {
+      className: 'p-10',
+      properties: ['padding: 13.5rem;']
+    },
+    {
+      className: 'p-20',
+      properties: ['padding: 28.5rem;']
+    },
+    {
+      className: 'p-30',
+      properties: ['padding: 43.5rem;']
+    },
+    {
+      className: 'p-40',
+      properties: ['padding: 58.5rem;']
+    },
+    {
+      className: 'p-50',
+      properties: ['padding: 73.5rem;']
+    },
+    {
+      className: 'p-55',
+      properties: ['padding: 75rem;']
+    },
+    {
+      className: 'p-60',
+      properties: ['padding: 76.5rem;']
+    },
+    {
+      className: 'p-65',
+      properties: ['padding: 78rem;']
+    },
+    {
+      className: 'p-70',
+      properties: ['padding: 79.5rem;']
+    },
+    {
+      className: 'p-75',
+      properties: ['padding: 81rem;']
+    },
+    {
+      className: 'p-80',
+      properties: ['padding: 82.5rem;']
+    },
+    {
+      className: 'p-85',
+      properties: ['padding: 84rem;']
+    },
+    {
+      className: 'p-90',
+      properties: ['padding: 85.5rem;']
+    },
+    {
+      className: 'p-95',
+      properties: ['padding: 87rem;']
+    },
+    {
+      className: 'p-100',
+      properties: ['padding: 88.5rem;']
+    },
+    {
+      className: 'p-auto',
+      properties: ['padding: auto;']
+    }
+  ]}
+/>
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="bg-magenta mr-1 p-1 rad-1 t-white">p-1</div>
+    <div class="bg-magenta mr-1 p-2 rad-1 t-white">p-2</div>
+    <div class="bg-magenta mr-1 p-3 rad-1 t-white">p-3</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.0.1'
+/>
+
+```html
+<div class="p-1 ...">p-1</div>
+<div class="p-2 ...">p-2</div>
+<div class="p-3 ...">p-3</div>
+```
