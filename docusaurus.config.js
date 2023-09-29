@@ -30,7 +30,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
-          includeCurrentVersion: false
+          includeCurrentVersion: true,
         },
         blog: false,
         theme: {
@@ -79,7 +79,7 @@ const config = {
             position: 'right',
             label: 'Twitter'
           }
-        ],
+        ], 
       },
       footer: {
         logo: {
