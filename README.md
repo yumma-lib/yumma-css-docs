@@ -6,8 +6,8 @@ This documentation provides detailed information on how to use Yumma CSS to crea
 
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
-- [Support](#support)
 - [License](#license)
+- [Support](#support)
 
 ## Introduction
 
