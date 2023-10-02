@@ -30,7 +30,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
-          includeCurrentVersion: true,
+          
         },
         blog: false,
         theme: {
@@ -67,10 +67,6 @@ const config = {
             sidebarId: 'docsSidebar',
             position: 'left',
             label: 'Contribute',
-          },
-          {
-            type: 'docsVersionDropdown',
-            position: 'right'
           },
           {
             href: "https://twitter.com/yummacss",
