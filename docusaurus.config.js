@@ -30,7 +30,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
-          includeCurrentVersion: true
+          includeCurrentVersion: false
         },
         blog: false,
         theme: {
@@ -100,13 +100,8 @@ const config = {
         apiKey: process.env.API_KEY,
         indexName: 'yummacss',
         contextualSearch: true,
-        externalUrlRegex: 'external\\.com|domain\\.com',
-        searchParameters: {},
-        searchPagePath: 'search',
-        replaceSearchResultPathname: {
-          from: '/docs/',
-          to: '/',
-        },
+        externalUrlRegex: "external\\.com|domain\\.com",
+        searchParameters: {}
       },
     }),
 };
