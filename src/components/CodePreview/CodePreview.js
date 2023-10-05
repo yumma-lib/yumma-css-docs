@@ -15,7 +15,7 @@ const CodePreview = ({ htmlContent, isPadded = false, isCentered = false, isVers
     align-items: ${isCentered ? 'center' : 'flex-start'};
     ${isPadded ? 'padding: 12px 14px;' : ''}
   `;
-  const cdnURL = `https://unpkg.com/yummacss@${isVersion}/dist/yumma.css`;
+  const cdnURL = `https://cdn.jsdelivr.net/gh/rrenildopereiraa/yumma-css@${isVersion}/dist/yumma.css`;
 
   const iframeHtml = `
     <html>
