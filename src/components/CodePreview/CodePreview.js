@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const CodePreview = ({ htmlContent, isPadded = false, isCentered = false, isVersion = '' }) => {
-  const preventDefaultOnClick = event => {
-    if (event.target.tagName === 'A' && event.target.getAttribute('href') === '#') {
+  const preventDefaultOnClick = (event) => {
+    const { target } = event;
+    if (target.tagName === 'A' && target.getAttribute('href') === '#') {
       event.preventDefault();
     }
   };
@@ -53,8 +55,17 @@ const CodePreview = ({ htmlContent, isPadded = false, isCentered = false, isVers
       sandbox="allow-scripts allow-same-origin"
       style={iframeStyle}
       srcDoc={iframeHtml}
+      title="Code Preview"
+      rel="noopener noreferrer"
     />
   );
+};
+
+CodePreview.propTypes = {
+  htmlContent: PropTypes.string.isRequired,
+  isPadded: PropTypes.bool,
+  isCentered: PropTypes.bool,
+  isVersion: PropTypes.string,
 };
 
 export default CodePreview;
