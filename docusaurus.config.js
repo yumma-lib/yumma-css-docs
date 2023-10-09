@@ -84,12 +84,13 @@ const config = {
       },
       footer: {
         logo: {
-          alt: 'Created with ❤️ by rrenildopereiraa',
-          src: '#',
+          alt: 'Yumma CSS logo',
+          src: '/img/yumma-css.png',
           href: 'https://buymeacoffee.com/rrenildoo',
-          width: 160,
-          height: 51,
+          width: 35,
+          height: 35,
         },
+        copyright: `Copyright © ${new Date().getFullYear()} Yumma CSS. By rrenildopereiraa.`,
       },
       prism: {
         theme: onyxTheme.light,
