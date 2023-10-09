@@ -87,10 +87,10 @@ const config = {
           alt: 'Yumma CSS logo',
           src: '/img/yumma-css.png',
           href: 'https://buymeacoffee.com/rrenildoo',
-          width: 35,
-          height: 35,
+          width: 60,
+          height: 60,
         },
-        copyright: `Copyright © ${new Date().getFullYear()} Yumma CSS. By rrenildopereiraa.`,
+        copyright: `© ${new Date().getFullYear()} Yumma CSS | Created with ❤️ by rrenildopereiraa`,
       },
       prism: {
         theme: onyxTheme.light,
