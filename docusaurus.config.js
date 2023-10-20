@@ -77,8 +77,7 @@ const config = {
           },
           {
             type: 'docsVersionDropdown',
-            position: 'right',
-            label: 'Canary'
+            position: 'right'
           }
         ], 
       },
