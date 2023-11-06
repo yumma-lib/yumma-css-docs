@@ -19,7 +19,7 @@ To get started with Yumma CSS, please visit the [official documentation](https:/
 
 ### Integrate via CDN
 ```html
-<link rel="stylesheet" href="https://unpkg.com/yummacss/dist/yumma.css" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/yummacss/public/css/yumma.min.css" crossorigin="anonymous">
 ```
 
 ### Install via NPM

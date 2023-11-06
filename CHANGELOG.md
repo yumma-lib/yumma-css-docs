@@ -38,3 +38,20 @@ All notable changes to the Yumma CSS Documentation will be documented in this fi
 
 - None
 
+## v0.2.0
+
+### Added
+
+- Added new classes and selectors for Height, Margin, Padding, and Width properties.
+
+### Changed
+
+- None
+
+### Fixed
+
+- None
+
+### Deprecated
+
+- None
