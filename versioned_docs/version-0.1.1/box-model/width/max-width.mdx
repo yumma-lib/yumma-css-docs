@@ -1,0 +1,23 @@
+---
+title: Max Width
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Max Width
+
+Defines the maximum width an element can have.
+
+<ClassList 
+  baseClassName='max-w-' 
+  propertyName='max-width' 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'}
+  ]} 
+/>
