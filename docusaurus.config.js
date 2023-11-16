@@ -33,15 +33,15 @@ const config = {
           includeCurrentVersion: true,
           versions: {
             '0.1.1': {
-              label: '0.1.1',
+              label: 'v0.1.1',
               path: '0.1.1',
             },
             '0.1.0': {
-              label: '0.1.0',
+              label: 'v0.1.0',
               path: '0.1.0',
             },
             '0.0.1': {
-              label: '0.0.1',
+              label: 'v0.0.1',
               path: '0.0.1',
             },
             current: {
