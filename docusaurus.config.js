@@ -69,11 +69,11 @@ const config = {
             label: 'Contribute',
           },
           {
-            href: "https://twitter.com/yummacss",
+            href: "https://yummacss-editor.vercel.app/",
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'right',
-            label: 'Twitter'
+            label: 'Web Editor'
           },
           {
             type: 'docsVersionDropdown',
