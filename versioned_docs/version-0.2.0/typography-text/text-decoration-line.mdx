@@ -1,0 +1,80 @@
+---
+title: Text Decoration Line
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Text Decoration Line
+
+Adds visual styling to text decorations.
+
+<ClassList
+  classData={[
+    {
+      className: 'tdl-none',
+      properties: [
+        'text-decoration-line: none;'
+      ]
+    },
+    {
+      className: 'tdl-lt',
+      properties: [
+        'text-decoration-line: line-through;'
+      ]
+    },
+    {
+      className: 'tdl-u',
+      properties: [
+        'text-decoration-line: underline;'
+      ]
+    },
+  ]}
+/>
+
+### Basic examples
+
+#### No Text Decoration
+
+<CodePreview
+  htmlContent={`
+    <p class="tdl-none">No Text Decoration</p>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<p class="tdl-none ...">No Text Decoration</p>
+```
+
+#### Line through
+
+<CodePreview
+  htmlContent={`
+    <p class="tdl-lt">Line Through</p>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<p class="tdl-lt ...">Line Through</p>
+```
+
+#### Underline
+
+<CodePreview
+  htmlContent={`
+    <p class="tdl-u">Underline</p>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<p class="tdl-u ...">Underline</p>
+```

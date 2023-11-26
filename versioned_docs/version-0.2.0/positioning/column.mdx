@@ -1,0 +1,140 @@
+---
+title: Column
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Column
+
+Defines how many columns an element should be divided into and their width.
+
+:::info Responsive Column Classes
+For instance, `col-xsm` is for extra-small screens, `col-sm` for small screens, `col-md` for medium screens, `col-lg` for large screens, and `col-xlg` for extra-large screens. This flexibility enables easy layout adjustments for various devices, eliminating the need for separate CSS for each screen size.
+:::
+
+<ClassList
+  classData={[
+    {
+      className: 'col-1',
+      properties: [
+        'columns: 1;'
+      ]
+    },
+    {
+      className: 'col-2',
+      properties: [
+        'columns: 2;'
+      ]
+    },
+    {
+      className: 'col-3',
+      properties: [
+        'columns: 3;'
+      ]
+    },
+    {
+      className: 'col-4',
+      properties: [
+        'columns: 4;'
+      ]
+    },
+    {
+      className: 'col-5',
+      properties: [
+        'columns: 5;'
+      ]
+    },
+    {
+      className: 'col-6',
+      properties: [
+        'columns: 6;'
+      ]
+    },
+    {
+      className: 'cols-7',
+      properties: [
+        'columns: 7;'
+      ]
+    },
+    {
+      className: 'cols-8',
+      properties: [
+        'columns: 8;'
+      ]
+    },
+    {
+      className: 'cols-9',
+      properties: [
+        'columns: 9;'
+      ]
+    },
+    {
+      className: 'cols-10',
+      properties: [
+        'columns: 10;'
+      ]
+    },
+    {
+      className: 'cols-11',
+      properties: [
+        'columns: 11;'
+      ]
+    },
+    {
+      className: 'cols-12',
+      properties: [
+        'columns: 12;'
+      ]
+    },
+    {
+      className: 'cols-13',
+      properties: [
+        'columns: 13;'
+      ]
+    },
+    {
+      className: 'cols-14',
+      properties: [
+        'columns: 14;'
+      ]
+    },
+    {
+      className: 'cols-15',
+      properties: [
+        'columns: 15;'
+      ]
+    },
+    {
+      className: 'cols-16',
+      properties: [
+        'columns: 16;'
+      ]
+    },
+  ]}
+/>
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="col-4">
+      <div class="bg-magenta p-1 rad-1 t-white">1</div>
+      <div class="bg-magenta p-1 rad-1 t-white">2</div>
+      <div class="bg-magenta p-1 rad-1 t-white">3</div>
+      <div class="bg-magenta p-1 rad-1 t-white">4</div>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.2.0'
+/>
+
+```html
+<div class="col-4 ...">
+  <div class="...">1</div>
+  <div class="...">2</div>
+  <div class="...">3</div>
+  <div class="...">4</div>
+</div>
+```

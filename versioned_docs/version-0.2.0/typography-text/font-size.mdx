@@ -1,0 +1,60 @@
+---
+title: Font Size
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Font Size
+
+Specifies the size of the font.
+
+<ClassList
+  classData={[
+    {
+      className: 'fs-sm',
+      properties: [
+        'font-size: 0.75rem;'
+      ]
+    },
+    {
+      className: 'fs-md',
+      properties: [
+        'font-size: 1.75rem;'
+      ]
+    },
+    {
+      className: 'fs-lg',
+      properties: [
+        'font-size: 2rem;'
+      ]
+    },
+    {
+      className: 'fs-xlg',
+      properties: [
+        'font-size: 3rem;'
+      ]
+    },
+  ]}
+/>
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <p class="fs-sm">Small Text</p>
+    <p class="fs-md">Medium Text</p>
+    <p class="fs-lg">Large Text</p>
+    <p class="fs-xlg">Extra Large Text</p>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '0.2.0'
+/>
+
+```html
+<p class="fs-sm ...">Small Text</p>
+<p class="fs-md ...">Medium Text</p>
+<p class="fs-lg ...">Large Text</p>
+<p class="fs-xlg ...">Extra Large Text</p>
+```

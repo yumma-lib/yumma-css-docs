@@ -1,0 +1,23 @@
+---
+title: Min Width
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Min Width
+
+Defines the minimum width an element can have.
+
+<ClassList 
+  baseClassName='min-w-' 
+  propertyName='min-width' 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'}
+  ]} 
+/>

@@ -31,7 +31,12 @@ const config = {
           routeBasePath: '/',
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
           includeCurrentVersion: true,
+          lastVersion: 'current',
           versions: {
+            '0.2.0': {
+              label: 'v0.2.0',
+              path: '0.2.0',
+            },
             '0.1.1': {
               label: 'v0.1.1',
               path: '0.1.1',
@@ -45,7 +50,7 @@ const config = {
               path: '0.0.1',
             },
             current: {
-              label: 'Unreleased'
+              label: 'Canary'
             },
           },
         },
@@ -79,22 +84,20 @@ const config = {
             label: 'Docs',
           },
           {
-            href: "https://github.com/rrenildopereiraa/yumma-css",
-            type: 'docSidebar',
-            sidebarId: 'docsSidebar',
-            position: 'left',
-            label: 'Contribute',
-          },
-          {
             href: "https://yummacss-editor.vercel.app/",
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
-            position: 'right',
+            position: 'left',
             label: 'Web Editor'
           },
           {
             type: 'docsVersionDropdown',
             position: 'right'
+          },
+          {
+            type: 'html',
+            position: 'right',
+            value: '<a href="https://github.com/yumma-lib/yumma-css" target="_blank" rel="noreferrer noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>',
           }
         ], 
       },

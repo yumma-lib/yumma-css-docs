@@ -1,0 +1,96 @@
+---
+title: Border Radius
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Border Radius
+
+Applies the same radius to all corners of an element.
+
+<ClassList
+  classData={[
+    {
+      className: 'rad-0',
+      properties: [
+        'border-radius: 0px;'
+      ]
+    },
+    {
+      className: 'rad-1',
+      properties: [
+        'border-radius: 8px;'
+      ]
+    },
+    {
+      className: 'rad-2',
+      properties: [
+        'border-radius: 16px;'
+      ]
+    },
+    {
+      className: 'rad-3',
+      properties: [
+        'border-radius: 32px;'
+      ]
+    },
+    {
+      className: 'rad-4',
+      properties: [
+        'border-radius: 48px;'
+      ]
+    },
+    {
+      className: 'rad-5',
+      properties: [
+        'border-radius: 64px;'
+      ]
+    },
+    {
+      className: 'rad-6',
+      properties: [
+        'border-radius: 80px;'
+      ]
+    },
+    {
+      className: 'rad-7',
+      properties: [
+        'border-radius: 96px;'
+      ]
+    },
+    {
+      className: 'rad-8',
+      properties: [
+        'border-radius: 112px;'
+      ]
+    },
+    {
+      className: 'rad-full',
+      properties: [
+        'border-radius: 100%;'
+      ]
+    },
+    {
+      className: 'rad-half',
+      properties: [
+        'border-radius: 50%;'
+      ]
+    },
+  ]}
+/>
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="bg-magenta h-6 p-2 rad-2 w-6"></div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<div class="rad-2 ..."></div>
+```

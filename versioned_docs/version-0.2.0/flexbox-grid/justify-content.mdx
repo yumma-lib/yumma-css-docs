@@ -1,0 +1,165 @@
+---
+title: Justify Content
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Justify Content
+
+Aligns flex or grid items horizontally.
+
+<ClassList
+  classData={[
+    {
+      className: 'jc-c',
+      properties: [
+        'justify-content: center;'
+      ]
+    },
+    {
+      className: 'jc-sa',
+      properties: [
+        'justify-content: space-around;'
+      ]
+    },
+    {
+      className: 'jc-sb',
+      properties: [
+        'justify-content: space-between;'
+      ]
+    },
+    {
+      className: 'jc-se',
+      properties: [
+        'justify-content: space-evenly;'
+      ]
+    },
+    {
+      className: 'jc-s',
+      properties: [
+        'justify-content: start;'
+      ]
+    },
+  ]}
+/>
+
+### Basic examples
+
+#### Center
+
+<CodePreview
+  htmlContent={`
+    <div class="dis-f jc-c mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<div class="jc-c ...">
+  <div class="..."></div>
+  <div class="..."></div>
+  <div class="..."></div>
+</div>
+```
+
+---
+
+#### Space around
+
+<CodePreview
+  htmlContent={`
+    <div class="dis-f jc-sa mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<div class="jc-sa ...">
+  <div class="..."></div>
+  <div class="..."></div>
+  <div class="..."></div>
+</div>
+```
+
+---
+
+#### Space between
+
+<CodePreview
+  htmlContent={`
+    <div class="dis-f jc-sb mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<div class="jc-sb ...">
+  <div class="..."></div>
+  <div class="..."></div>
+  <div class="..."></div>
+</div>
+```
+
+---
+
+#### Space end
+
+<CodePreview
+  htmlContent={`
+    <div class="dis-f jc-se mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<div class="jc-se ...">
+  <div class="..."></div>
+  <div class="..."></div>
+  <div class="..."></div>
+</div>
+```
+
+---
+
+<CodePreview
+  htmlContent={`
+    <div class="dis-f jc-s mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = '0.2.0'
+/>
+
+#### Start
+
+```html
+<div class="jc-s ...">
+  <div class="..."></div>
+  <div class="..."></div>
+  <div class="..."></div>
+</div>
+```

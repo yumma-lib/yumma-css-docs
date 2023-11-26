@@ -1,0 +1,100 @@
+---
+title: Opacity
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Opacity
+
+Adjusts the transparency of an element.
+
+<ClassList
+  classData={[
+    {
+      className: 'o-10',
+      properties: [
+        'opacity: 0.1;'
+      ]
+    },
+    {
+      className: 'o-20',
+      properties: [
+        'opacity: 0.2;'
+      ]
+    },
+    {
+      className: 'o-30',
+      properties: [
+        'opacity: 0.3;'
+      ]
+    },
+    {
+      className: 'o-40',
+      properties: [
+        'opacity: 0.4;'
+      ]
+    },
+    {
+      className: 'o-50',
+      properties: [
+        'opacity: 0.5;'
+      ]
+    },
+    {
+      className: 'o-60',
+      properties: [
+        'opacity: 0.6;'
+      ]
+    },
+    {
+      className: 'o-70',
+      properties: [
+        'opacity: 0.7;'
+      ]
+    },
+    {
+      className: 'o-80',
+      properties: [
+        'opacity: 0.8;'
+      ]
+    },
+    {
+      className: 'o-90',
+      properties: [
+        'opacity: 0.9;'
+      ]
+    },
+    {
+      className: 'o-100',
+      properties: [
+        'opacity: 1;'
+      ]
+    },
+  ]}
+/>
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="o-10 bg-magenta h-6 mr-1 p-1 rad-1 w-6"></div>
+    <div class="o-20 bg-magenta h-6 mr-1 p-1 rad-1 w-6"></div>
+    <div class="o-40 bg-magenta h-6 mr-1 p-1 rad-1 w-6"></div>
+    <div class="o-60 bg-magenta h-6 mr-1 p-1 rad-1 w-6"></div>
+    <div class="o-80 bg-magenta h-6 mr-1 p-1 rad-1 w-6"></div>
+    <div class="o-100 bg-magenta h-6 mr-1 p-1 rad-1 w-6"></div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<div class="o-10 ..."></div>
+<div class="o-20 ..."></div>
+<div class="o-40 ..."></div>
+<div class="o-60 ..."></div>
+<div class="o-80 ..."></div>
+<div class="o-100 ..."></div>
+```

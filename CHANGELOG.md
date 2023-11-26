@@ -55,3 +55,26 @@ All notable changes to the Yumma CSS Documentation will be documented in this fi
 ### Deprecated
 
 - None
+
+## v0.3.0
+
+### Added
+
+- Added canary version
+- Added GitHub icon to navbar (v0.2.0+)
+- Added web editor to navbar (coming soon)
+- Updated color palette page
+
+### Changed
+
+- Removed code preview for Flex wrap pages
+- Contribute link removed from navbar
+
+### Fixed
+
+- Fixed Breakpoints page code blocks
+- Fixed some pages using wrong CDN version
+
+### Deprecated
+
+- None
