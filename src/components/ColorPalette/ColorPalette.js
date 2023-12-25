@@ -16,19 +16,20 @@ const ColorPalette = ({ colorData }) => (
             <div key={color.color} style={{ width: '100%' }}>
                 <div className={styles.colorLineTitle}>{color.color}</div>
                 <div className={styles.colorLine}>
-                    {color.swatch.map((hexValue, index) => {
-                        if (index < 6) {
+                    {color.swatch.map((hexValue, i) => {
+                        if (i < 6) {
+                            const reverse = 6 - i;
                             return (
                                 <ColorSwatch
-                                    key={index}
+                                    key={i}
                                     hexValue={hexValue}
-                                    dataTooltip={`bg-l-${color.color.toLowerCase()}-${index + 1}`}
+                                    dataTooltip={`bg-l-${color.color.toLowerCase()}-${reverse}`}
                                 />
                             );
-                        } else if (index === 6) {
+                        } else if (i === 6) {
                             return (
                                 <ColorSwatch
-                                    key={index}
+                                    key={i}
                                     hexValue={hexValue}
                                     dataTooltip={`bg-${color.color.toLowerCase()}`}
                                 />
@@ -36,9 +37,9 @@ const ColorPalette = ({ colorData }) => (
                         } else {
                             return (
                                 <ColorSwatch
-                                    key={index}
+                                    key={i}
                                     hexValue={hexValue}
-                                    dataTooltip={`bg-d-${color.color.toLowerCase()}-${index - 6}`}
+                                    dataTooltip={`bg-d-${color.color.toLowerCase()}-${i - 6}`}
                                 />
                             );
                         }

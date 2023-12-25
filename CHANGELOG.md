@@ -78,3 +78,21 @@ All notable changes to the Yumma CSS Documentation will be documented in this fi
 ### Deprecated
 
 - None
+
+## v0.3.1
+
+### Added
+
+- New theme added.
+
+### Changed
+
+- Changed font family.
+
+### Fixed
+
+- Fixed palette displaying wrong light variation classes.
+
+### Deprecated
+
+- None

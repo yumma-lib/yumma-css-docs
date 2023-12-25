@@ -3,12 +3,12 @@
 
 require('dotenv').config();
 
-const onyxTheme = require('./src/themes/onyx-theme');
+const vortyx = require('./src/themes/vortyx');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Yumma CSS',
-  tagline: 'A CSS library for streamlined UI development.',
+  tagline: 'The documentation site for Yumma CSS.',
   favicon: 'img/favicon.ico',
   url: 'https://yummacss.vercel.app',
   baseUrl: '/',
@@ -112,8 +112,8 @@ const config = {
         copyright: `© ${new Date().getFullYear()} Yumma CSS | Created with ❤️ by rrenildopereiraa`,
       },
       prism: {
-        theme: onyxTheme.light,
-        darkTheme: onyxTheme.dark,
+        theme: vortyx.light,
+        darkTheme: vortyx.dark,
       },
       algolia: {
         appId: process.env.APP_ID,

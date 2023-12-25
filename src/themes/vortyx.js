@@ -1,4 +1,4 @@
-var darkOnyx = {
+var darkVortyx = {
     "plain": {
         "backgroundColor": "rgb(40, 42, 54)", // Background color
     },
@@ -16,7 +16,7 @@ var darkOnyx = {
                 "tag"
             ],
             "style": {
-                "color": "rgb(126, 231, 135)", // HTML tags
+                "color": "rgb(146, 113, 177)", // HTML tags
             }
         },
         {
@@ -24,7 +24,7 @@ var darkOnyx = {
                 "attr-name"
             ],
             "style": {
-                "color": "rgb(86, 156, 214)", // Attribute names
+                "color": "rgb(168, 99, 168)", // Attribute names
             }
         },
         {
@@ -32,7 +32,7 @@ var darkOnyx = {
                 "attr-value"
             ],
             "style": {
-                "color": "rgb(165, 214, 255)", // Attribute values
+                "color": "rgb(219, 188, 214)", // Attribute values
             }
         },
         {
@@ -40,7 +40,7 @@ var darkOnyx = {
                 "string"
             ],
             "style": {
-                "color": "rgb(165, 214, 255)", // Strings
+                "color": "rgb(255, 255, 255)", // Strings
             }
         },
         {
@@ -48,7 +48,7 @@ var darkOnyx = {
                 "function"
             ],
             "style": {
-                "color": "rgb(197, 134, 192)", // NPM Functions
+                "color": "rgb(146, 113, 177)", // NPM Functions
             }
         },
         {
@@ -56,7 +56,7 @@ var darkOnyx = {
                 "builtin"
             ],
             "style": {
-                "color": "rgb(42, 170, 255)", // Built-in functions
+                "color": "rgb(146, 113, 177)", // Built-in functions
             }
         },
         {
@@ -64,7 +64,7 @@ var darkOnyx = {
                 "variable",
             ],
             "style": {
-                "color": "rgb(121, 192, 255)", // Variables
+                "color": "rgb(168, 99, 168)", // Variables
             }
         },
         {
@@ -72,7 +72,7 @@ var darkOnyx = {
                 "property",
             ],
             "style": {
-                "color": "rgb(121, 192, 255)", // CSS properties
+                "color": "rgb(168, 99, 168)", // CSS properties
             }
         },
         {
@@ -80,7 +80,7 @@ var darkOnyx = {
                 "comment",
             ],
             "style": {
-                "color": "rgb(115, 116, 123)", // HTML comments
+                "color": "rgb(105, 106, 114)", // HTML comments
             }
         },
         {
@@ -88,7 +88,7 @@ var darkOnyx = {
                 "keyword",
             ],
             "style": {
-                "color": "rgb(197, 134, 192)", // Keywords, including @mixin, @media, @content
+                "color": "rgb(119, 82, 113)", // Keywords, including @mixin, @media, @content
             }
         },
         {
@@ -96,7 +96,7 @@ var darkOnyx = {
                 "operator",
             ],
             "style": {
-                "color": "rgb(219, 222, 225)", // Parentheses and Curly Brackets
+                "color": "rgb(128, 128, 128)", // Parentheses and Curly Brackets
             }
         },
         {
@@ -104,13 +104,13 @@ var darkOnyx = {
                 "class-name",
             ],
             "style": {
-                "color": "rgb(219, 222, 225)", // Text next to @mixin
+                "color": "rgb(219, 188, 214)", // Text next to @mixin
             }
         },
     ]
 };
 
-var lightOnyx = {
+var lightVortyx = {
     "plain": {
         "backgroundColor": "rgb(246, 248, 250)", // Background color
     },
@@ -176,7 +176,7 @@ var lightOnyx = {
                 "variable",
             ],
             "style": {
-                "color": "rgb(121, 192, 255)", // Variables
+                "color": "rgb(168, 99, 168)", // Variables
             }
         },
         {
@@ -184,7 +184,7 @@ var lightOnyx = {
                 "property",
             ],
             "style": {
-                "color": "rgb(121, 192, 255)", // CSS properties
+                "color": "rgb(168, 99, 168)", // CSS properties
             }
         },
         {
@@ -223,6 +223,6 @@ var lightOnyx = {
 };
 
 module.exports = {
-    dark: darkOnyx,
-    light: lightOnyx,
+    dark: darkVortyx,
+    light: lightVortyx,
 };
