@@ -88,7 +88,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Web Editor'
+            label: 'Playground'
           },
           {
             type: 'docsVersionDropdown',
