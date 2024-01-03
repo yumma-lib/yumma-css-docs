@@ -30,29 +30,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
-          includeCurrentVersion: true,
-          lastVersion: 'current',
-          versions: {
-            '0.2.0': {
-              label: 'v0.2.0',
-              path: '0.2.0',
-            },
-            '0.1.1': {
-              label: 'v0.1.1',
-              path: '0.1.1',
-            },
-            '0.1.0': {
-              label: 'v0.1.0',
-              path: '0.1.0',
-            },
-            '0.0.1': {
-              label: 'v0.0.1',
-              path: '0.0.1',
-            },
-            current: {
-              label: 'Canary'
-            },
-          },
+          includeCurrentVersion: false,
         },
         blog: false,
         theme: {

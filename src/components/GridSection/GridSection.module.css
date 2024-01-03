@@ -20,6 +20,7 @@
     background-color: var(--grid-section-bg-light);
     color: var(--grid-section-text-light);
     border: 1px solid #ccc;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .gridBox:hover {

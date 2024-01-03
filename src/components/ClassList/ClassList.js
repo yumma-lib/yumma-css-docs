@@ -1,25 +1,23 @@
 import React from 'react';
 import styles from './ClassList.module.css';
 
-function generateClassData(baseClassName, propertyName, range, increment, unit, additionalClasses) {
+function generateClassData(baseClassName, propertyNames, range, increment, unit, additionalClasses) {
     const classData = [];
 
     for (let i = 0; i <= range; i++) {
+        const properties = propertyNames.map(propertyName => `${propertyName}: ${i * increment}${unit};`);
         classData.push({
             className: `${baseClassName}${i}`,
-            properties: [
-                `${propertyName}: ${i * increment}${unit};`
-            ]
+            properties: properties
         });
     }
 
     if (additionalClasses) {
         additionalClasses.forEach((additionalClass) => {
+            const properties = propertyNames.map(propertyName => `${propertyName}: ${additionalClass.value};`);
             classData.push({
                 className: `${baseClassName}${additionalClass.name}`,
-                properties: [
-                    `${propertyName}: ${additionalClass.value};`
-                ]
+                properties: properties
             });
         });
     }
@@ -27,8 +25,8 @@ function generateClassData(baseClassName, propertyName, range, increment, unit, 
     return classData;
 }
 
-const ClassList = ({ classData, baseClassName, propertyName, range, increment, unit, additionalClasses }) => {
-    const data = classData || generateClassData(baseClassName, propertyName, range, increment, unit, additionalClasses);
+const ClassList = ({ classData, baseClassName, propertyNames, range, increment, unit, additionalClasses }) => {
+    const data = classData || generateClassData(baseClassName, propertyNames, range, increment, unit, additionalClasses);
 
     return (
         <div className={styles.classList}>

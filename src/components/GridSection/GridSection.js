@@ -15,7 +15,7 @@ const GridSection = () => {
             <div className={styles.gridBox}>
                 <img src={screenImage} alt="Screen" />
                 <h2>Responsiveness</h2>
-                <p>Customize your design elements with the help of a <a href='base-layout/breakpoints'>responsive</a> design system.</p>
+                <p>Customize your design elements with the help of a <a href='utilities/layout/breakpoints'>responsive</a> design system.</p>
             </div>
             <div className={styles.gridBox}>
                 <img src={codeImage} alt="Code" />
