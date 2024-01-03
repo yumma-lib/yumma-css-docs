@@ -132,7 +132,7 @@ All notable changes to the Yumma CSS Documentation will be documented in this fi
 ### Changed
 - Updated display class syntax from `dis-{value}` to `d-{value}`.
 - Updated hover state class syntax from `{value}-h-{value}` to `h:{value}`.
-- Updated `greet()` function name to `showVer()`
+- Updated `greet()` function name to `showVer()`.
 - Color palettes now use RGB.
 - Alert component redesigned.
 - Badge component redesigned.
