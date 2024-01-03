@@ -12,12 +12,10 @@ Interactive elements designed to act and encourage greater user engagement.
 
 <CodePreview
   htmlContent={`
-    <div class="ins">
-        <button class="btn-black t-white">Button</button>
-    </div>
+    <button class="btn-black t-white">Button</button>
   `}
   isPadded = {true}
-  isCentered = {false}
+  isCentered = {true}
   isVersion = '1.0.0'
 />
 
@@ -29,7 +27,7 @@ Interactive elements designed to act and encourage greater user engagement.
 
 <CodePreview
   htmlContent={`
-    <button class="btn-otl-gray mr-1 mt-1 t-gray">Outlined</button>
+    <button class="btn-otl-gray h:t-white mr-1 mt-1 t-gray">Outlined</button>
   `}
   isPadded = {true}
   isCentered = {true}
@@ -37,7 +35,7 @@ Interactive elements designed to act and encourage greater user engagement.
 />
 
 ```html
-<button class="btn-otl-gray t-h-white t-gray">Outlined </button>
+<button class="btn-otl-gray h:t-white mr-1 mt-1 t-gray">Outlined</button>
 ```
 
 ### Complement
@@ -60,7 +58,7 @@ Interactive elements designed to act and encourage greater user engagement.
 <CodePreview
   htmlContent={`
     <button class="btn-black mb-1 t-white w-full">Block</button>
-    <button class="btn-otl-black mb-1 t-h-white t-black w-full">Outlined</button>
+    <button class="btn-otl-black mb-1 h:t-white t-black w-full">Outlined</button>
     <button class="btn-cmp-gray mb-1 w-full">Complement</button>
   `}
   isPadded = {true}
@@ -70,6 +68,6 @@ Interactive elements designed to act and encourage greater user engagement.
 
 ```html
 <button class="btn-black mb-1 t-white w-full">Block</button>
-<button class="btn-otl-black mb-1 t-h-white t-black w-full">Outlined</button>
+<button class="btn-otl-black mb-1 h:t-white t-black w-full">Outlined</button>
 <button class="btn-cmp-gray mb-1 w-full">Complement</button>
 ```
