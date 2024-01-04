@@ -144,3 +144,17 @@ All notable changes to the Yumma CSS Documentation will be documented in this fi
 ### Deprecated
 - Removed `break-all` and `keep-all` properties from **Overflow Wrap** classes.
 - Canary version option removed.
+
+## v1.0.1
+
+### Added
+- None
+
+### Changed
+- Changing Height and Width viewports from dynamic to standard.
+
+### Fixed
+- None
+
+### Deprecated
+- None
