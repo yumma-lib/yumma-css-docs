@@ -1,0 +1,54 @@
+---
+title: Introduction
+sidebar_position: 1
+slug: /
+---
+
+import GridSection from '@site/src/components/GridSection/GridSection';
+
+# Introduction
+
+Yumma CSS, created by [Renildo Pereira](https://www.youtube.com/watch?v=iS05_AV22qA), is a lightweight and streamlined CSS library that provides a comprehensive set of tools and functionalities to simplify web development.
+
+## Getting started
+
+<GridSection />
+
+## Installation
+
+### Install via NPM
+
+```bash title="Terminal"
+npm install yummacss
+```
+
+```html title="index.html"
+<link rel="stylesheet" href="node_modules/yummacss/dist/yumma.css">
+```
+
+---
+
+### Integrate via CDN
+
+#### Standard
+
+Use this option for improved readability.
+
+```html title="index.html"
+<link rel="stylesheet" href="https://unpkg.com/yummacss/dist/yumma.css" crossorigin="anonymous">
+```
+
+#### Minified
+
+Use this option for faster loading.
+
+```html title="index.html"
+<link rel="stylesheet" href="https://unpkg.com/yummacss/public/css/yumma.min.css" crossorigin="anonymous">
+```
+
+## Version Display
+To display the Yumma CSS version in your console, import the following code snippet and call the `showVer` function:
+
+```js
+const { showVer } = require('./node_modules/yummacss/index');
+```

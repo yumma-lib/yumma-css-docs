@@ -158,3 +158,17 @@ All notable changes to the Yumma CSS Documentation will be documented in this fi
 
 ### Deprecated
 - None
+
+## v1.0.2
+
+### Added
+- The Direction page is now divided according to its properties.
+
+### Changed
+- Removed basic examples for the direction pages.
+
+### Fixed
+- None
+
+### Deprecated
+- None
