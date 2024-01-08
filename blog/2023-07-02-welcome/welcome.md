@@ -21,8 +21,6 @@ Yumma CSS was created with a clear mission in mind:
 - **Playground:** Experience Yumma CSS up close and personal with our  [online editor](https://yummacss-editor.vercel.app).
 - **VS Code Extension:** Boost your productivity with our [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=yumma-css-helper.yumma-css-helper).
 
-![Docusaurus Plushie](./yummacss-docs-banner.png)
-
 ## Socials
 
 Keep up to date with the latest news from Yumma CSS by following us on our social media pages:

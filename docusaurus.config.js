@@ -34,7 +34,7 @@ const config = {
         },
         blog: {
           postsPerPage: 5,
-          blogSidebarTitle: 'All our blogs',
+          blogSidebarTitle: 'All blogs',
           showReadingTime: true,
           blogSidebarCount: 50,
         },
