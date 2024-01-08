@@ -5,7 +5,7 @@ authors: rrenildopereiraa
 tags: [documentation, blog, yummacss]
 ---
 
-Hello everyone! I'm excited to introduce Yumma CSS, a CSS library designed to make the process of developing open source websites smoother and more enjoyable.
+Hello everyone! I'm excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a CSS library designed to make the process of developing open source websites smoother and more enjoyable.
 
 ## Why Yumma CSS?
 
@@ -27,6 +27,8 @@ Keep up to date with the latest news from Yumma CSS by following us on our socia
 
 - [Follow us on Twitter](https://twitter.com/yummacss)
 - [Join our Discord](https://discord.gg/2MUw2g6FCn)
+
+![Welcome Banner](./welcome.png)
 
 ## Get started today
 
