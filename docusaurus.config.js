@@ -32,7 +32,12 @@ const config = {
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
           includeCurrentVersion: false,
         },
-        blog: false,
+        blog: {
+          postsPerPage: 5,
+          blogSidebarTitle: 'All our blogs',
+          showReadingTime: true,
+          blogSidebarCount: 50,
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -60,6 +65,10 @@ const config = {
             sidebarId: 'docsSidebar',
             position: 'left',
             label: 'Docs',
+          },
+          {
+            label: 'Blog',
+            to: '/blog',
           },
           {
             href: "https://yummacss-editor.vercel.app/",
