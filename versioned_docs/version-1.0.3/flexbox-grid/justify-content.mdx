@@ -1,0 +1,207 @@
+---
+title: Justify Content
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Justify Content
+
+Aligns flex or grid items horizontally.
+
+<ClassList
+  classData={[
+    {
+      "className": "ai-c",
+      "properties": [
+        "align-items: center;"
+      ]
+    },
+    {
+      "className": "ai-s",
+      "properties": [
+        "align-items: start;"
+      ]
+    },
+    {
+      "className": "ai-e",
+      "properties": [
+        "align-items: end;"
+      ]
+    },
+    {
+      "className": "ai-fs",
+      "properties": [
+        "align-items: flex-start;"
+      ]
+    },
+    {
+      "className": "ai-fe",
+      "properties": [
+        "align-items: flex-end;"
+      ]
+    },
+    {
+      "className": "ai-l",
+      "properties": [
+        "align-items: left;"
+      ]
+    },
+    {
+      "className": "ai-r",
+      "properties": [
+        "align-items: right;"
+      ]
+    },
+    {
+      "className": "ai-n",
+      "properties": [
+        "align-items: normal;"
+      ]
+    },
+    {
+      "className": "ai-sb",
+      "properties": [
+        "align-items: space-between;"
+      ]
+    },
+    {
+      "className": "ai-sa",
+      "properties": [
+        "align-items: space-around;"
+      ]
+    },
+    {
+      "className": "ai-se",
+      "properties": [
+        "align-items: space-evenly;"
+      ]
+    },
+    {
+      "className": "ai-stretch",
+      "properties": [
+        "align-items: stretch;"
+      ]
+    },
+  ]}
+/>
+
+### Basic examples
+
+#### Center
+
+<CodePreview
+  htmlContent={`
+    <div class="d-f jc-c mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="d-f jc-c mb-1">
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+</div>
+```
+
+---
+
+#### Space around
+
+<CodePreview
+  htmlContent={`
+    <div class="d-f jc-sa mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="d-f jc-sa mb-1">
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+</div>
+```
+
+---
+
+#### Space between
+
+<CodePreview
+  htmlContent={`
+    <div class="d-f jc-sb mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="d-f jc-sb mb-1">
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+</div>
+```
+
+---
+
+#### Space end
+
+<CodePreview
+  htmlContent={`
+    <div class="d-f jc-se mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="d-f jc-se mb-1">
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+</div>
+```
+
+---
+
+<CodePreview
+  htmlContent={`
+    <div class="d-f jc-s mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = 'latest'
+/>
+
+#### Start
+
+```html
+<div class="d-f jc-s mb-1">
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+</div>
+```

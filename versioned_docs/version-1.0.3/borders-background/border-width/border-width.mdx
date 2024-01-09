@@ -1,0 +1,66 @@
+---
+title: Border Width
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import CodePreview from '@site/src/components/CodePreview/CodePreview';
+
+# Border Width
+
+Sets the width of all four borders of an element.
+
+<ClassList
+  classData={[
+    {
+      className: 'b-0',
+      properties: ['border-width: 0px;'],
+    },
+    {
+      className: 'b-1',
+      properties: ['border-width: 1px;'],
+    },
+    {
+      className: 'b-2',
+      properties: ['border-width: 2px;'],
+    },
+    {
+      className: 'b-3',
+      properties: ['border-width: 4px;'],
+    },
+    {
+      className: 'b-4',
+      properties: ['border-width: 6px;'],
+    },
+    {
+      className: 'b-5',
+      properties: ['border-width: 8px;'],
+    },
+    {
+      className: 'b-6',
+      properties: ['border-width: 10px;'],
+    },
+    {
+      className: 'b-7',
+      properties: ['border-width: 12px;'],
+    },
+    {
+      className: 'b-8',
+      properties: ['border-width: 14px;'],
+    },
+  ]}
+/>
+
+### Basic example
+
+<CodePreview
+  htmlContent={`
+    <div class="b-4 bc-magenta bg-white h-6 p-2 w-6"></div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="b-4 bc-magenta bg-white h-6 p-2 w-6"></div>
+```
