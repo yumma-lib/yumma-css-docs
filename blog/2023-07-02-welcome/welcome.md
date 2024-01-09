@@ -7,6 +7,8 @@ tags: [documentation, blog, yummacss]
 
 Hello everyone! I'm excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a CSS library designed to make the process of developing open source websites smoother and more enjoyable.
 
+<!-- truncate -->
+
 ## Why Yumma CSS?
 
 Yumma CSS was created with a clear mission in mind:
