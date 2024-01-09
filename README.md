@@ -22,13 +22,13 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/yummacss/yummacss" style="text-decoration: none;">
+  <a href="https://www.npmjs.com/yummacss/yummacss">
     <img src="https://img.shields.io/npm/v/yummacss.svg" alt="npm version">
   </a>
-  <a href="https://www.npmjs.com/yummacss/yummacss" style="text-decoration: none;">
+  <a href="https://www.npmjs.com/yummacss/yummacss">
     <img src="https://img.shields.io/npm/dt/yummacss.svg" alt="Downloads">
   </a>
-  <a href="https://opensource.org/licenses/MIT" style="text-decoration: none;">
+  <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
   </a>
 </p>
