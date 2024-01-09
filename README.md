@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://yummacss.vercel.app/">
-    <img src="https://i.ibb.co/C66DXZQ/Yumma-CSS-Logo.png" alt="Yumma CSS logo">
+    <img src="https://yummacss.vercel.app/img/yumma-css.png" width="64" alt="Yumma CSS Logo">
   </a>
 </p>
 
