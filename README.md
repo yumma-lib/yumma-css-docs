@@ -35,7 +35,7 @@
 
 ## Getting Started
 
-You can use [npm](https://www.npmjs.com/yummacss/yummacss) to include the Yumma CSS in your project, or you can add it using [jsDelivr](https://www.jsdelivr.com/):
+You can use [npm](https://www.npmjs.com/yummacss) to include the Yumma CSS in your project, or you can add it using [jsDelivr](https://www.jsdelivr.com/):
 
 ### cdn
 ```
