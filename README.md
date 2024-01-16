@@ -23,12 +23,12 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/yummacss/">
-    <img src="https://img.shields.io/npm/v/yummacss.svg" alt="npm version">
+    <img src="https://img.shields.io/npm/v/yummacss" alt="npm version">
   </a>
   <a href="https://www.npmjs.com/yummacss/">
-    <img src="https://img.shields.io/npm/dt/yummacss.svg" alt="Downloads">
+    <img src="https://img.shields.io/npm/dt/yummacss" alt="Downloads">
   </a>
-  <a href="https://opensource.org/licenses/MIT">
+  <a href="https://github.com/yumma-lib/yumma-css-docs?tab=MIT-1-ov-file">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
   </a>
 </p>
