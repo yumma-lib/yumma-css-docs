@@ -22,7 +22,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/yummacss">
+  <a href="https://www.npmjs.com/package/yummacss?activeTab=versions">
     <img src="https://img.shields.io/npm/v/yummacss" alt="npm version">
   </a>
   <a href="https://www.npmjs.com/yummacss">
