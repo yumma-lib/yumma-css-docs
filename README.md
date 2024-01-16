@@ -22,10 +22,10 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/yummacss/yummacss">
+  <a href="https://www.npmjs.com/">
     <img src="https://img.shields.io/npm/v/yummacss.svg" alt="npm version">
   </a>
-  <a href="https://www.npmjs.com/yummacss/yummacss">
+  <a href="https://www.npmjs.com/">
     <img src="https://img.shields.io/npm/dt/yummacss.svg" alt="Downloads">
   </a>
   <a href="https://opensource.org/licenses/MIT">
@@ -43,7 +43,7 @@ You can use [npm](https://www.npmjs.com/yummacss) to include the Yumma CSS in yo
 ```
 
 ### npm
-```
+```bash
 npm install yummacss
 ```
 
