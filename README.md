@@ -22,10 +22,10 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/">
+  <a href="https://www.npmjs.com/yummacss/">
     <img src="https://img.shields.io/npm/v/yummacss.svg" alt="npm version">
   </a>
-  <a href="https://www.npmjs.com/">
+  <a href="https://www.npmjs.com/yummacss/">
     <img src="https://img.shields.io/npm/dt/yummacss.svg" alt="Downloads">
   </a>
   <a href="https://opensource.org/licenses/MIT">
