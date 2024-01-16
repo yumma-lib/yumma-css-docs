@@ -28,7 +28,7 @@
   <a href="https://www.npmjs.com/yummacss">
     <img src="https://img.shields.io/npm/dt/yummacss" alt="Downloads">
   </a>
-  <a href="https://github.com/yumma-lib/yumma-css-docs?tab=MIT-1-ov-file">
+  <a href="https://github.com/yumma-lib/yumma-css-docs?tab=MIT-1-ov-file#readme">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
   </a>
 </p>
