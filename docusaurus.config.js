@@ -84,7 +84,7 @@ const config = {
           {
             type: 'html',
             position: 'right',
-            value: '<a href="https://github.com/yumma-lib/yumma-css" target="_blank" rel="noreferrer noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>',
+            value: '<a href="https://github.com/yumma-lib" target="_blank" rel="noreferrer noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>',
           }
         ], 
       },
