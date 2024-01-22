@@ -1,10 +1,9 @@
 ---
 title: Introduction
 sidebar_position: 1
-slug: /
 ---
 
-import GridSection from '@site/src/components/GridSection/GridSection';
+import CardSection from '@site/src/components/CardSection/CardSection';
 
 # Introduction
 
@@ -12,7 +11,26 @@ Yumma CSS, created by [Renildo Pereira](https://rrenildopereiraa.github.io/renil
 
 ## Getting started
 
-<GridSection />
+<CardSection
+  cardData={[
+    {
+      cardIcon: `${require('@site/static/img/IntroductionPage/button.png').default}`,
+      cardTitle: 'Components',
+      cardDesc: 'Explore our components to add buttons, navbars, cards, and other elements to your interface.',
+    },
+    {
+      cardIcon: `${require('@site/static/img/IntroductionPage/screen.png').default}`,
+      cardTitle: 'Responsiveness',
+      cardDesc: 'Customize your design elements with the help of a responsive design system.',
+    },
+    {
+      cardIcon: `${require('@site/static/img/IntroductionPage/code.png').default}`,
+      cardTitle: 'Productivity',
+      cardDesc: 'Get Yumma CSS snippets in your VS code and boost your development with Yumma CSS Helper.',
+    },
+  ]}
+/>
+
 
 ## Installation
 

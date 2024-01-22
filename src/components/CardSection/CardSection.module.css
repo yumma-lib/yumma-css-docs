@@ -6,13 +6,13 @@
     --grid-section-text-dark: #ffffff;
 }
 
-.gridContainer {
+.cnn {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
-.gridBox {
+.card {
     padding: 16px;
     text-align: center;
     border-radius: 8px;
@@ -23,24 +23,24 @@
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.gridBox:hover {
+.card:hover {
     transform: scale(0.98);
 }
 
-[data-theme='dark'] .gridBox {
+[data-theme='dark'] .card {
     background-color: var(--grid-section-bg-dark);
     color: var(--grid-section-text-dark);
     border: 1px solid #606770;
 }
 
 @media (max-width: 768px) {
-    .gridContainer {
+    .cnn {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
-    .gridContainer {
+    .cnn {
         grid-template-columns: repeat(1, 1fr);
     }
 }
