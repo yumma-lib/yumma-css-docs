@@ -7,7 +7,7 @@ const CardSection = ({ cardData }) => {
         <div className={styles.cnn}>
             {cardData.map((card, index) => (
                 <div className={styles.card} key={index}>
-                    <img src={card.cardIcon} alt={card.cardTitle} />
+                    <img src={card.cardIcon} />
                     <h2>{card.cardTitle}</h2>
                     <p>{card.cardDesc}</p>
                 </div>

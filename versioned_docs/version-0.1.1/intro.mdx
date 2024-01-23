@@ -1,7 +1,6 @@
 ---
 title: Introduction
 sidebar_position: 1
-slug: /
 ---
 
 import CardSection from '@site/src/components/CardSection/CardSection';
@@ -17,17 +16,17 @@ Get ready to work with Yumma CSS and the tools that come with it:
 <CardSection
   cardData={[
     {
-      cardIcon: `${require('@site/static/img/IntroductionPage/button.png').default}`,
+      cardIcon: `${require('@site/static/img/IndexPage/components.png').default}`,
       cardTitle: 'Components',
       cardDesc: 'Explore our components to add buttons, navbars, cards, and other elements to your interface.',
     },
     {
-      cardIcon: `${require('@site/static/img/IntroductionPage/screen.png').default}`,
+      cardIcon: `${require('@site/static/img/IndexPage/responsiveness.png').default}`,
       cardTitle: 'Responsiveness',
       cardDesc: 'Customize your design elements with the help of a responsive design system.',
     },
     {
-      cardIcon: `${require('@site/static/img/IntroductionPage/code.png').default}`,
+      cardIcon: `${require('@site/static/img/IndexPage/productivity.png').default}`,
       cardTitle: 'Productivity',
       cardDesc: 'Get Yumma CSS snippets in your VS code and boost your development with Yumma CSS Helper.',
     },
@@ -43,28 +42,41 @@ Are you a visual learner? Here it is our 1-minute [video tutorial](https://rreni
 * Install the CSS library using npm by running the following command in the directory where your project is located:
 npm install `yummacss`:
 
-```bash title="Terminal"
+```bash
 npm install yummacss
 ```
 
 * In your HTML file's `<head>` section, add a `<head>` tag to include the compiled CSS file.
 
-```html title="index.html"
+```html
 <link rel="stylesheet" href="node_modules/yummacss/dist/yumma.css">
 ```
-
----
 
 ### Integrate via CDN
 
 * Add a `<link>` tag to include the CSS library directly from the CDN in your HTML file's `<head>` section.
 
-```html title="index.html"
+```html
 <link rel="stylesheet" href="https://unpkg.com/yummacss/dist/yumma.css" crossorigin="anonymous">
 ```
 
-* If you prefer to utilize an older version, you can effortlessly augment your file's `<head>` section in the CDN by incorporating the specific version number for example:
+#### Minified CSS
+For faster loading, you can also include the minified version of the CSS:
 
-```html title="index.html"
-<link rel="stylesheet" href="https://unpkg.com/yummacss@v1.0/dist/yumma.css">
+```html
+<link rel="stylesheet" href="https://unpkg.com/yummacss/public/css/yumma.min.css" crossorigin="anonymous">
+```
+
+### Stylesheet Options
+
+Choose the stylesheet option that suits your needs:
+
+- **`yumma.css`**: Use this option for improved readability.
+- **`yumma.min.css`**: Use this option for faster loading.
+
+## Version Display
+To display the Yumma CSS version in your console, import the following code snippet and call the `greet` function:
+
+```js
+const { greet } = require('./node_modules/yummacss/index');
 ```
