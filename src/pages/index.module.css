@@ -1,18 +1,16 @@
 :root {
-  --index-bg-light: #f6f8fa;
-  --index-bg-dark: #242526;
-
-  --index-light-border-color: #ccc;
-
-  --index-text-light: #f6f8fa;
-  --index-text-dark: #282a36;
-
-  --index-dark-border-color: #606770;
+  --bg-light: #f6f8fa;
+  --bg-dark: #242526;
+  --border-color-light: #ccc;
+  --text-light: #f6f8fa;
+  --text-dark: #282a36;
+  --border-color-dark: #606770;
+  --primary-color: var(--ifm-color-primary);
 }
 
 pre {
   margin-top: 2rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color-light);
   background: white;
   box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
@@ -24,80 +22,64 @@ pre {
   justify-content: center;
   text-align: center;
   height: 20rem;
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color-light);
   box-shadow: 1px 3px 5px -3px rgba(0, 0, 0, 0.1);
 
-  .heroTitle {
+  .heroTitle,
+  .heroDesc,
+  .featureTitle {
     margin-bottom: 0.625rem;
+    color: var(--text-dark);
+  }
+
+  .heroTitle {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--index-text-dark);
   }
 
   .heroDesc {
-    margin-bottom: 0.625rem;
     font-size: 1.5rem;
-    color: var(--index-text-dark);
   }
 }
 
 .featureSection {
-  background-color: var(--index-bg-light);
+  background-color: var(--bg-light);
   text-align: center;
   height: auto;
-  padding: 4rem 18rem 4rem 18rem;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .featureTitle {
     margin-bottom: 3rem;
     font-size: 3rem;
     font-weight: 700;
-    color: var(--index-text-dark);
+    color: var(--text-dark);
   }
 
-  @media (max-width: 768px) {
-    padding: 4rem 2rem 4rem 2rem;
+  @media (min-width: 768px) {
+    padding: 4rem 18rem;
   }
 }
 
 .btnPrimary {
   display: flex;
   padding: 0.75rem 1.5rem;
-  border: none;
-  line-height: 1.5;
-  font-size: 1.2em;
-  font-weight: bold;
-  margin-top: 1rem;
-  border-radius: 0.25rem;
-  box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-color: var(--ifm-color-primary);
-  color: var(--class-item-text-dark);
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.btnPrimary:hover {
-  transform: scale(0.98);
-  color: var(--index-text-light);
-  text-decoration: none;
-}
-
-.btnSecondary {
-  display: flex;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  line-height: 1.5;
+  color: var(--text-light);
+  background-color: var(--primary-color);
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 1rem;
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-color: var(--index-dark-border-color);
-  color: var(--class-item-text-dark);
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
+.btnPrimary:hover,
 .btnSecondary:hover {
   transform: scale(0.98);
-  color: var(--index-text-light);
+  color: var(--text-light);
   text-decoration: none;
 }
 
@@ -106,24 +88,23 @@ pre {
   .heroTitle,
   .heroDesc,
   .featureTitle {
-    color: var(--index-text-light);
+    color: var(--text-light);
   }
 
   pre,
-  .heroSection
-  {
-    border-color: var(--index-dark-border-color);
+  .heroSection {
+    border-color: var(--border-color-dark);
   }
 
   pre {
-    background-color: var(--index-text-dark);
+    background-color: var(--text-dark);
   }
 
   .featureSection {
-    background-color: var(--index-bg-dark);
+    background-color: var(--bg-dark);
   }
 
   .sectionTitle {
-    color: var(--index-text-dark);
+    color: var(--text-dark);
   }
 }

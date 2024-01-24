@@ -52,7 +52,7 @@ const Index = () => {
 
             <div className={styles.heroSection}>
                 <h1 className={styles.heroTitle}>Quick Start</h1>
-                <h1 className={styles.heroDesc}>Start by including Yumma CSS in your project</h1>
+                <p className={styles.heroDesc}>Start by including Yumma CSS in your project</p>
                 <pre>npm install yummacss@latest</pre>
             </div>
         </div>
