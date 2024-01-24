@@ -89,7 +89,7 @@ const config = {
       },
       footer: {
         logo: {
-          alt: 'Yumma CSS logo',
+          alt: 'Yumma CSS',
           src: '/img/yumma-css.png',
           href: 'https://buymeacoffee.com/rrenildoo',
           width: 60,
