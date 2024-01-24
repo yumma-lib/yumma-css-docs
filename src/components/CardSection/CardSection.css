@@ -1,12 +1,12 @@
 :root {
     --card-section-bg-light: #fefeff;
     --card-section-bg-dark: #282a36;
-    
+
     --card-section-text-light: #181818;
     --card-section-text-dark: #ffffff;
 }
 
-.cnn {
+.card-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -21,6 +21,15 @@
     color: var(--card-section-text-light);
     border: 1px solid #ccc;
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: 64px;
+        width: 64px;
+    }
 }
 
 .card:hover {
@@ -34,13 +43,13 @@
 }
 
 @media (max-width: 768px) {
-    .cnn {
+    .card-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 480px) {
-    .cnn {
+    .card-grid {
         grid-template-columns: repeat(1, 1fr);
     }
 }

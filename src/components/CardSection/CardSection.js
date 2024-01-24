@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './CardSection.module.css';
+import './CardSection.css';
 
 const CardSection = ({ cardData }) => {
     return (
-        <div className={styles.cnn}>
+        <div className='card-grid'>
             {cardData.map((card, index) => (
-                <div className={styles.card} key={index}>
+                <div className='card' key={index}>
                     <img src={card.cardIcon} />
                     <h2>{card.cardTitle}</h2>
                     <p>{card.cardDesc}</p>
