@@ -3,7 +3,7 @@
     --card-section-bg-dark: #282a36;
 
     --card-section-text-light: #181818;
-    --card-section-text-dark: #ffffff;
+    --card-section-text-dark: white;
 }
 
 .card-grid {
@@ -20,7 +20,6 @@
     background-color: var(--card-section-bg-light);
     color: var(--card-section-text-light);
     border: 1px solid #ccc;
-    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 
     img {
         display: block;

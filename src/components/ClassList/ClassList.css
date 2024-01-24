@@ -6,7 +6,7 @@
     --class-item-bg-dark: #282a36;
     
     --class-item-text-light: #181818;
-    --class-item-text-dark: #ffffff;
+    --class-item-text-dark: white;
 }
 
 .classList {

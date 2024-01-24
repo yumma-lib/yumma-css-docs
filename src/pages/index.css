@@ -10,13 +10,6 @@
   --index-dark-border-color: #606770;
 }
 
-pre {
-  margin-top: 2rem;
-  border: 1px solid #ccc;
-  background: white;
-  box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-
 .heroSection {
   display: flex;
   flex-direction: column;
@@ -109,9 +102,7 @@ pre {
     color: var(--index-text-light);
   }
 
-  pre,
-  .heroSection
-  {
+  .heroSection {
     border-color: var(--index-dark-border-color);
   }
 

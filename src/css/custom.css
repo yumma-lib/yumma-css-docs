@@ -1,5 +1,28 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
 
+:root {
+  --ifm-color-primary: #dd0987;
+  --ifm-color-primary-dark: #bc0672;
+  --ifm-color-primary-darker: #a00560;
+  --ifm-color-primary-darkest: #84044b;
+  --ifm-color-primary-light: #f016a3;
+  --ifm-color-primary-lighter: #f42db4;
+  --ifm-color-primary-lightest: #f64fcb;
+  --ifm-footer-background-color: white;
+  --ifm-code-font-size: 95%;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #dd0987;
+  --ifm-color-primary-dark: #bc0672;
+  --ifm-color-primary-darker: #a00560;
+  --ifm-color-primary-darkest: #84044b;
+  --ifm-color-primary-light: #f016a3;
+  --ifm-color-primary-lighter: #f42db4;
+  --ifm-color-primary-lightest: #f64fcb;
+  --ifm-footer-background-color: #1b1b1d;
+}
+
 body {
   font-family: system-ui, sans-serif;
   font-weight: 500;
@@ -19,29 +42,20 @@ html {
   scroll-behavior: smooth;
 }
 
-[data-theme='dark'] i {
-  color: #ffffff;
-}
-
-:root {
-  --ifm-color-primary: #dd0987;
-  --ifm-color-primary-dark: #bc0672;
-  --ifm-color-primary-darker: #a00560;
-  --ifm-color-primary-darkest: #84044b;
-  --ifm-color-primary-light: #f016a3;
-  --ifm-color-primary-lighter: #f42db4;
-  --ifm-color-primary-lightest: #f64fcb;
-  --ifm-footer-background-color: #ffffff;
-  --ifm-code-font-size: 95%;
+pre {
+  margin-top: 2rem;
+  border: 1px solid #ccc;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #dd0987;
-  --ifm-color-primary-dark: #bc0672;
-  --ifm-color-primary-darker: #a00560;
-  --ifm-color-primary-darkest: #84044b;
-  --ifm-color-primary-light: #f016a3;
-  --ifm-color-primary-lighter: #f42db4;
-  --ifm-color-primary-lightest: #f64fcb;
-  --ifm-footer-background-color: #1b1b1d;
+  i {
+    color: white;
+  }
+
+  pre {
+    border-color: #606770;
+    background-color: white;
+  }
 }
