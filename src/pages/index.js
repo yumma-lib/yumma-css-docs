@@ -1,5 +1,5 @@
 import React from "react";
-import styles from './index.css';
+import './index.css';
 import Link from "@docusaurus/Link";
 import CardSection from '@site/src/components/CardSection/CardSection';
 
