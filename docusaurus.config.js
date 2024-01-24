@@ -33,7 +33,7 @@ const config = {
         },
         blog: {
           postsPerPage: 5,
-          blogSidebarTitle: 'All blogs',
+          blogSidebarTitle: 'Latest blogs',
           showReadingTime: true,
           blogSidebarCount: 50,
         },
@@ -55,7 +55,7 @@ const config = {
       navbar: {
         title: 'Yumma CSS',
         logo: {
-          alt: 'Yumma CSS Logo',
+          alt: 'yummacss_logo',
           src: 'img/yumma-css.png',
         },
         items: [
@@ -89,7 +89,7 @@ const config = {
       },
       footer: {
         logo: {
-          alt: 'Yumma CSS',
+          alt: 'yummacss_logo',
           src: '/img/yumma-css.png',
           href: 'https://buymeacoffee.com/rrenildoo',
           width: 60,
