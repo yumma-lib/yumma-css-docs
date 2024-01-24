@@ -1,10 +1,8 @@
 :root {
     --class-list-bg-light: #fefeff;
     --class-list-bg-dark: #1b1b1d;
-
     --class-item-bg-light: #fff;
     --class-item-bg-dark: #282a36;
-    
     --class-item-text-light: #181818;
     --class-item-text-dark: white;
 }
