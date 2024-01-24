@@ -1,19 +1,19 @@
 import React from "react";
-import styles from './index.module.css';
+import styles from './index.css';
 import Link from "@docusaurus/Link";
 import CardSection from '@site/src/components/CardSection/CardSection';
 
 const Index = () => {
     return (
         <div>
-            <div className={styles.heroSection}>
-                <h1 className={styles.heroTitle}>Yumma CSS</h1>
-                <p className={styles.heroDesc}>Lightweight and streamlined CSS library</p>
-                <div><Link to='/docs/intro' className={styles.btnPrimary}>Get Started</Link></div>
+            <div className='heroSection'>
+                <h1 className='heroTitle'>Yumma CSS</h1>
+                <p className='heroDesc'>Lightweight and streamlined CSS library</p>
+                <div><Link to='/docs/intro' className='btnPrimary'>Get Started</Link></div>
             </div>
 
-            <section className={styles.featureSection}>
-                <h1 className={styles.featureTitle}>Key Features</h1>
+            <section className='featureSection'>
+                <h1 className='featureTitle'>Key Features</h1>
                 <CardSection
                     cardData={[
                         {
@@ -50,9 +50,9 @@ const Index = () => {
                 />
             </section>
 
-            <div className={styles.heroSection}>
-                <h1 className={styles.heroTitle}>Quick Start</h1>
-                <p className={styles.heroDesc}>Start by including Yumma CSS in your project</p>
+            <div className='heroSection'>
+                <h1 className='heroTitle'>Quick Start</h1>
+                <p className='heroDesc'>Start by including Yumma CSS in your project</p>
                 <pre>npm install yummacss@latest</pre>
             </div>
         </div>
