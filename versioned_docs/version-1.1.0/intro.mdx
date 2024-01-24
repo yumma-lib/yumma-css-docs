@@ -1,0 +1,71 @@
+---
+title: Introduction
+sidebar_position: 1
+---
+
+import CardSection from '@site/src/components/CardSection/CardSection';
+
+# Introduction
+
+Yumma CSS, created by [Renildo Pereira](https://rrenildopereiraa.github.io/renildo/), is a lightweight and streamlined CSS library that provides a comprehensive set of tools and functionalities to simplify web development.
+
+## Getting started
+
+<CardSection
+  cardData={[
+    {
+      cardIcon: `${require('@site/static/img/IndexPage/components.png').default}`,
+      cardTitle: 'Components',
+      cardDesc: 'Explore our components to add buttons, navbars, cards, and other elements to your interface.',
+    },
+    {
+      cardIcon: `${require('@site/static/img/IndexPage/responsiveness.png').default}`,
+      cardTitle: 'Responsiveness',
+      cardDesc: 'Customize your design elements with the help of a responsive design system.',
+    },
+    {
+      cardIcon: `${require('@site/static/img/IndexPage/productivity.png').default}`,
+      cardTitle: 'Productivity',
+      cardDesc: 'Get Yumma CSS snippets in your VS code and boost your development with Yumma CSS Helper.',
+    },
+  ]}
+/>
+
+## Installation
+
+### Install via NPM
+
+```bash
+npm install yummacss
+```
+
+```html
+<link rel="stylesheet" href="node_modules/yummacss/dist/yumma.css">
+```
+
+---
+
+### Integrate via CDN
+
+#### Standard
+
+Use this option for improved readability.
+
+```html
+<link href="https://cdn.jsdelivr.net/npm/yummacss/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">
+```
+
+#### Minified
+
+Use this option for faster loading.
+
+```html
+<link href="https://cdn.jsdelivr.net/npm/yummacss/dist/yumma.css" rel="stylesheet" crossorigin="anonymous">
+```
+
+## Version Display
+To display the Yumma CSS version in your console, import the following code snippet and call the `showVer` function:
+
+```js
+const { showVer } = require('./node_modules/yummacss/index');
+```
