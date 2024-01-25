@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CodePreview = ({ htmlContent, isPadded = false, isCentered = false, isVersion = '' }) => {
-  const preventDefaultOnClick = (event) => {
+const ClassPreview = ({ htmlContent, isPadded = false, isCentered = false, isVersion = '' }) => {
+  const noRightClick = (event) => {
     const { target } = event;
     if (target.tagName === 'A' && target.getAttribute('href') === '#') {
       event.preventDefault();
@@ -32,7 +32,7 @@ const CodePreview = ({ htmlContent, isPadded = false, isCentered = false, isVers
           }
         </style>
         <script>
-          window.addEventListener('click', ${preventDefaultOnClick});
+          window.addEventListener('click', ${noRightClick});
         </script>
       </head>
       <body>
@@ -44,9 +44,9 @@ const CodePreview = ({ htmlContent, isPadded = false, isCentered = false, isVers
   const iframeStyle = {
     width: '100%',
     height: '200px',
-    border: 'none',
-    backgroundColor: '#f6f8fa',
-    boxShadow: '0 1px 2px 0 rgba(0,0,0,.1)',
+    border: '1px solid #ccc',
+    backgroundColor: '#f9f9f9',
+    boxShadow: 'rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
     borderRadius: '8px'
   };
 
@@ -55,17 +55,16 @@ const CodePreview = ({ htmlContent, isPadded = false, isCentered = false, isVers
       sandbox="allow-scripts allow-same-origin"
       style={iframeStyle}
       srcDoc={iframeHtml}
-      title="Code Preview"
       rel="noopener noreferrer"
     />
   );
 };
 
-CodePreview.propTypes = {
+ClassPreview.propTypes = {
   htmlContent: PropTypes.string.isRequired,
   isPadded: PropTypes.bool,
   isCentered: PropTypes.bool,
   isVersion: PropTypes.string,
 };
 
-export default CodePreview;
+export default ClassPreview;

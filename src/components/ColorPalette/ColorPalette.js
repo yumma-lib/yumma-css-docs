@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ColorPalette.css';
+import styles from './ColorPalette.module.css';
 
 const ColorSwatch = ({ hexValue, dataTooltip }) => (
     <div
@@ -11,11 +11,11 @@ const ColorSwatch = ({ hexValue, dataTooltip }) => (
 );
 
 const ColorPalette = ({ colorData }) => (
-    <div className='colorPalette'>
+    <div className={styles.colorPalette}>
         {colorData.map((color) => (
             <div key={color.color} style={{ width: '100%' }}>
-                <div className='colorLineTitle'>{color.color}</div>
-                <div className='colorLine'>
+                <div className={styles.colorLineTitle}>{color.color}</div>
+                <div className={styles.colorLine}>
                     {color.swatch.map((hexValue, i) => {
                         if (i < 6) {
                             const reverse = 6 - i;

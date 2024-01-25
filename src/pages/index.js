@@ -1,20 +1,20 @@
 import React from "react";
-import './index.css';
+import styles from './index.modules.css';
 import Link from "@docusaurus/Link";
-import CardGrid from '@site/src/components/CardGrid/CardGrid';
+import CardFeature from '@site/src/components/CardFeature/CardFeature';
 
 const Index = () => {
     return (
         <div>
-            <div className='yummaHero'>
-                <h1 className='yummaTitle'>Yumma CSS</h1>
-                <p className='yummaDescription'>Lightweight and streamlined CSS library</p>
+            <div className={styles.yummaHero}>
+                <h1 className={styles.yummaTitle}>Yumma CSS</h1>
+                <p className={styles.yummaDescription}>Lightweight and streamlined CSS library</p>
                 <Link to='docs/intro' class="button button--lg button--primary">Get Started</Link>
             </div>
 
-            <section className='yummaFeatures'>
+            <section className={styles.yummaFeatures}>
                 <h1>Awesome Features</h1>
-                <CardGrid
+                <CardFeature
                     cardData={[
                         {
                             icon: `${require('@site/static/img/IndexPage/components.png').default}`,
@@ -50,9 +50,9 @@ const Index = () => {
                 />
             </section>
 
-            <div className='yummaHero'>
-                <h1 className='yummaTitle'>Quick Start</h1>
-                <p className='yummaDescription'>Start by including Yumma CSS in your project</p>
+            <div className={styles.yummaHero}>
+                <h1 className={styles.yummaTitle}>Quick Start</h1>
+                <p className={styles.yummaDescription}>Start by including Yumma CSS in your project</p>
                 <pre>npm install yummacss@latest</pre>
             </div>
         </div>
