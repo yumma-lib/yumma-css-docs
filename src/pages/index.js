@@ -1,7 +1,7 @@
 import React from "react";
 import './index.css';
 import Link from "@docusaurus/Link";
-import CardSection from '@site/src/components/CardSection/CardSection';
+import CardGrid from '@site/src/components/CardGrid/CardGrid';
 
 const Index = () => {
     return (
@@ -14,7 +14,7 @@ const Index = () => {
 
             <section className='featureSection'>
                 <h1 className='featureTitle'>Key Features</h1>
-                <CardSection
+                <CardGrid
                     cardData={[
                         {
                             cardIcon: `${require('@site/static/img/IndexPage/components.png').default}`,

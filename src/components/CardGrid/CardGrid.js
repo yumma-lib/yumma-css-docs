@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './CardSection.css';
+import './CardGrid.css';
 
-const CardSection = ({ cardData }) => {
+const CardGrid = ({ cardData }) => {
     return (
         <div className='card-grid'>
             {cardData.map((card, index) => (
@@ -16,7 +16,7 @@ const CardSection = ({ cardData }) => {
     );
 };
 
-CardSection.propTypes = {
+CardGrid.propTypes = {
     cardData: PropTypes.arrayOf(
         PropTypes.shape({
             cardIcon: PropTypes.string.isRequired,
@@ -26,4 +26,4 @@ CardSection.propTypes = {
     ).isRequired,
 };
 
-export default CardSection;
+export default CardGrid;

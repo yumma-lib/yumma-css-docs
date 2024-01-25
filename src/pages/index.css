@@ -62,7 +62,7 @@
   margin-top: 1rem;
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-color: var(--ifm-color-primary);
+  background-color: #dd0987;
   color: #f6f8fa;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
