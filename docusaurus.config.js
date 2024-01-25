@@ -30,6 +30,7 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
           includeCurrentVersion: false,
+          routeBasePath: '/'
         },
         blog: {
           postsPerPage: 5,
