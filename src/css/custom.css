@@ -44,7 +44,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* pre {
+pre {
   margin-top: 2rem;
   border: 1px solid #ccc;
   background-color: white;
@@ -60,4 +60,4 @@ html {
     border-color: #606770;
     background-color: #282a36;
   }
-} */
+}
