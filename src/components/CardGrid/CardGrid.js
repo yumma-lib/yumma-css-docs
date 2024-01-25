@@ -5,11 +5,11 @@ import './CardGrid.css';
 const CardGrid = ({ cardData }) => {
     return (
         <div className='card-grid'>
-            {cardData.map((card, index) => (
-                <div className='card' key={index}>
-                    <img src={card.cardIcon} />
-                    <h2>{card.cardTitle}</h2>
-                    <p>{card.cardDesc}</p>
+            {cardData.map((card, i) => (
+                <div className='card' key={i}>
+                    <img src={card.icon} />
+                    <h2>{card.title}</h2>
+                    <p>{card.description}</p>
                 </div>
             ))}
         </div>
@@ -19,9 +19,9 @@ const CardGrid = ({ cardData }) => {
 CardGrid.propTypes = {
     cardData: PropTypes.arrayOf(
         PropTypes.shape({
-            cardIcon: PropTypes.string.isRequired,
-            cardTitle: PropTypes.string.isRequired,
-            cardDesc: PropTypes.string.isRequired,
+            icon: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
         })
     ).isRequired,
 };
