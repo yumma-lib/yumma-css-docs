@@ -2,8 +2,8 @@ img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 4rem;
-    width: 4rem;
+    height: 64px;
+    width: 64px;
 }
 
 .card-grid {
