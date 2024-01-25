@@ -5,7 +5,8 @@
   justify-content: center;
   text-align: center;
   height: 20rem;
-  border: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   box-shadow: 1px 3px 5px -3px rgba(0, 0, 0, 0.1);
 
   .yummaTitle {
@@ -37,17 +38,12 @@
 }
 
 [data-theme='dark'] {
-
-  .yummaTitle,
-  .yummaDescription,
-  .featureTitle {
-    color: white;
-  }
-
   .yummaHero {
     border-color: #606770;
   }
+}
 
+[data-theme='dark'] {
   .yummaFeatures {
     background-color: #242526;
   }
