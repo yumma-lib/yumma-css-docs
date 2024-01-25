@@ -32,7 +32,7 @@ body {
 
 i {
   font-size: 18px;
-  color: var(--ifm-footer-background-color);
+  color: #1c1e21;
   transition: color 0.2s ease-in-out;
 }
 
@@ -58,6 +58,6 @@ pre {
 
   pre {
     border-color: #606770;
-    background-color: white;
+    background-color: #282a36;
   }
 }
