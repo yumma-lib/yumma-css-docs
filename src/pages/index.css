@@ -1,12 +1,9 @@
 :root {
   --index-bg-light: #f6f8fa;
   --index-bg-dark: #242526;
-
   --index-light-border-color: #ccc;
-
   --index-text-light: #f6f8fa;
   --index-text-dark: #282a36;
-
   --index-dark-border-color: #606770;
 }
 
@@ -24,13 +21,11 @@
     margin-bottom: 0.625rem;
     font-size: 3rem;
     font-weight: 700;
-    color: #282a36;
   }
 
   .heroDesc {
     margin-bottom: 0.625rem;
     font-size: 1.5rem;
-    color: #282a36;
   }
 }
 
@@ -44,7 +39,6 @@
     margin-bottom: 3rem;
     font-size: 3rem;
     font-weight: 700;
-    color: #282a36;
   }
 
   @media (max-width: 768px) {
@@ -62,14 +56,12 @@
   margin-top: 1rem;
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-color: #dd0987;
-  color: #f6f8fa;
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  background-color: var(--ifm-color-primary);
+  color: white;
 }
 
 .btnPrimary:hover {
-  transform: scale(0.98);
-  color: #f6f8fa;
+  color: white;
   text-decoration: none;
 }
 
@@ -78,7 +70,7 @@
   .heroTitle,
   .heroDesc,
   .featureTitle {
-    color: #f6f8fa;
+    color: white;
   }
 
   .heroSection {
@@ -87,9 +79,5 @@
 
   .featureSection {
     background-color: #242526;
-  }
-
-  .sectionTitle {
-    color: #282a36;
   }
 }

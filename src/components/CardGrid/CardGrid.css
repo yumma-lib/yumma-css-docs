@@ -10,7 +10,7 @@
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     background-color: #fefeff;
-    color: #181818;
+    
     border: 1px solid #ccc;
 
     img {
@@ -24,7 +24,6 @@
 
 [data-theme='dark'] .card {
     background-color: #282a36;
-    color: #fefeff;
     border: 1px solid #606770;
 }
 
