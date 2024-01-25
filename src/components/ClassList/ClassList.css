@@ -1,15 +1,6 @@
-:root {
-    --class-list-bg-light: #fefeff;
-    --class-list-bg-dark: #1b1b1d;
-    --class-item-bg-light: #fff;
-    --class-item-bg-dark: #282a36;
-    --class-item-text-light: #181818;
-    --class-item-text-dark: white;
-}
-
 .classList {
     padding: 10px;
-    background-color: var(--class-list-bg-light);
+    background-color: white;
     max-height: 300px;
     overflow-y: auto;
 }
@@ -23,8 +14,8 @@
     margin-bottom: 5px;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    background-color: var(--class-item-bg-light);
-    color: var(--class-item-text-light);
+    background-color: #fefeff;
+    color: #181818;
 }
 
 .className {
@@ -42,16 +33,16 @@
 }
 
 [data-theme='dark'] .classList {
-    background-color: var(--class-list-bg-dark);
+    background-color: #1b1b1d;
 }
 
 [data-theme='dark'] .classItem {
-    background-color: var(--class-item-bg-dark);
-    color: var(--class-item-text-dark);
+    background-color: #282a36;
+    color: white;
     border: 1px solid #606770;
 }
 
 [data-theme='dark'] .propertyCode {
     background-color: #20222b;
-    color: var(--class-item-text-dark);
+    color: white;
 }

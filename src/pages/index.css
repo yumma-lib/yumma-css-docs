@@ -24,18 +24,18 @@
     margin-bottom: 0.625rem;
     font-size: 3rem;
     font-weight: 700;
-    color: var(--index-text-dark);
+    color: #282a36;
   }
 
   .heroDesc {
     margin-bottom: 0.625rem;
     font-size: 1.5rem;
-    color: var(--index-text-dark);
+    color: #282a36;
   }
 }
 
 .featureSection {
-  background-color: var(--index-bg-light);
+  background-color: #f6f8fa;
   text-align: center;
   height: auto;
   padding: 4rem 18rem 4rem 18rem;
@@ -44,7 +44,7 @@
     margin-bottom: 3rem;
     font-size: 3rem;
     font-weight: 700;
-    color: var(--index-text-dark);
+    color: #282a36;
   }
 
   @media (max-width: 768px) {
@@ -63,34 +63,13 @@
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   background-color: var(--ifm-color-primary);
-  color: var(--class-item-text-dark);
+  color: #f6f8fa;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .btnPrimary:hover {
   transform: scale(0.98);
-  color: var(--index-text-light);
-  text-decoration: none;
-}
-
-.btnSecondary {
-  display: flex;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  line-height: 1.5;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 1rem;
-  border-radius: 0.25rem;
-  box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  background-color: var(--index-dark-border-color);
-  color: var(--class-item-text-dark);
-  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-.btnSecondary:hover {
-  transform: scale(0.98);
-  color: var(--index-text-light);
+  color: #f6f8fa;
   text-decoration: none;
 }
 
@@ -99,22 +78,22 @@
   .heroTitle,
   .heroDesc,
   .featureTitle {
-    color: var(--index-text-light);
+    color: #f6f8fa;
   }
 
   .heroSection {
-    border-color: var(--index-dark-border-color);
+    border-color: #606770;
   }
 
   pre {
-    background-color: var(--index-text-dark);
+    background-color: #282a36;
   }
 
   .featureSection {
-    background-color: var(--index-bg-dark);
+    background-color: #242526;
   }
 
   .sectionTitle {
-    color: var(--index-text-dark);
+    color: #282a36;
   }
 }
