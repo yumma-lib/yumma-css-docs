@@ -8,17 +8,17 @@
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   box-shadow: 1px 3px 5px -3px rgba(0, 0, 0, 0.1);
+}
 
-  .yummaTitle {
-    margin-bottom: 0.625rem;
-    font-size: 3rem;
-    font-weight: 700;
-  }
+.yummaHero .yummaTitle {
+  margin-bottom: 0.625rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
 
-  .yummaDescription {
-    margin-bottom: 0.625rem;
-    font-size: 1.5rem;
-  }
+.yummaHero .yummaDescription {
+  margin-bottom: 0.625rem;
+  font-size: 1.5rem;
 }
 
 .yummaFeatures {
@@ -29,20 +29,18 @@
   text-align: center;
   background-color: #f6f8fa;
   padding: 4rem 18rem 4rem 18rem;
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .yummaFeatures {
     padding: 4rem 2rem 4rem 2rem;
   }
 }
 
-[data-theme='dark'] {
-  .yummaHero {
-    border-color: #606770;
-  }
+[data-theme='dark'] .yummaHero {
+  border-color: #606770;
 }
 
-[data-theme='dark'] {
-  .yummaFeatures {
-    background-color: #242526;
-  }
+[data-theme='dark'] .yummaFeatures {
+  background-color: #242526;
 }
