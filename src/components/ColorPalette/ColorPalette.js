@@ -4,7 +4,7 @@ import styles from './ColorPalette.module.css';
 
 const ColorSwatch = ({ hexValue, dataTooltip }) => (
     <div
-        className='colorSwatchContainer'
+        className={styles.colorSwatchContainer}
         style={{ backgroundColor: hexValue }}
         data-tooltip={dataTooltip}
     />
