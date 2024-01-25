@@ -48,16 +48,14 @@ pre {
   margin-top: 2rem;
   border: 1px solid #ccc;
   background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-[data-theme='dark'] {
-  i {
-    color: white;
-  }
+[data-theme='dark'] i {
+  color: white;
+}
 
-  pre {
-    border-color: #606770;
-    background-color: #282a36;
-  }
+[data-theme='dark'] pre {
+  border-color: #606770;
+  background-color: #282a36;
 }

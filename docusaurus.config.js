@@ -51,6 +51,13 @@ const config = {
         minHeadingLevel: 2,
         maxHeadingLevel: 5,
       },
+      announcementBar: {
+        id: 'support_us',
+        content: '🥳 Yumma CSS 1.1 is out!',
+        backgroundColor: '#dd0987',
+        textColor: '#fff',
+        isCloseable: true
+      },
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'Yumma CSS',
@@ -85,7 +92,7 @@ const config = {
             position: 'right',
             value: '<a href="https://github.com/yumma-lib" target="_blank" rel="noreferrer noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>',
           }
-        ], 
+        ],
       },
       footer: {
         logo: {
@@ -113,3 +120,4 @@ const config = {
 };
 
 module.exports = config;
+
