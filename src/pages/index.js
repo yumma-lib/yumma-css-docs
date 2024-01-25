@@ -13,7 +13,7 @@ const Index = () => {
             </div>
 
             <section className='featureSection'>
-                <h1 className='featureTitle'>Key Features</h1>
+                <h1>Key Features</h1>
                 <CardGrid
                     cardData={[
                         {
