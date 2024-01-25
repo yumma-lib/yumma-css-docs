@@ -6,7 +6,7 @@ import CardGrid from '@site/src/components/CardGrid/CardGrid';
 const Index = () => {
     return (
         <div>
-            <div className='yummaSection'>
+            <div className='yummaHero'>
                 <h1 className='yummaTitle'>Yumma CSS</h1>
                 <p className='yummaDescription'>Lightweight and streamlined CSS library</p>
                 <Link to='docs/intro' class="button button--lg button--primary">Get Started</Link>
@@ -50,7 +50,7 @@ const Index = () => {
                 />
             </section>
 
-            <div className='yummaSection'>
+            <div className='yummaHero'>
                 <h1 className='yummaTitle'>Quick Start</h1>
                 <p className='yummaDescription'>Start by including Yumma CSS in your project</p>
                 <pre>npm install yummacss@latest</pre>

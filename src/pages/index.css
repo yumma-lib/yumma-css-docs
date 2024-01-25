@@ -1,4 +1,4 @@
-.yummaSection {
+.yummaHero {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,7 +44,7 @@
     color: white;
   }
 
-  .yummaSection {
+  .yummaHero {
     border-color: #606770;
   }
 
