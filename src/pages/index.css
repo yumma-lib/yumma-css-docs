@@ -1,12 +1,3 @@
-:root {
-  --index-bg-light: #f6f8fa;
-  --index-bg-dark: #242526;
-  --index-light-border-color: #ccc;
-  --index-text-light: #f6f8fa;
-  --index-text-dark: #282a36;
-  --index-dark-border-color: #606770;
-}
-
 .heroSection {
   display: flex;
   flex-direction: column;
