@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './index.modules.css';
 import Link from "@docusaurus/Link";
-import CardFeature from '@site/src/components/CardFeature/CardFeature';
+import GridList from '@site/src/components/GridList/GridList';
 
 const Index = () => {
     return (
@@ -14,7 +14,7 @@ const Index = () => {
 
             <section className={styles.yummaFeatures}>
                 <h1>Awesome Features</h1>
-                <CardFeature
+                <GridList
                     cardData={[
                         {
                             icon: `${require('@site/static/img/IndexPage/components.png').default}`,
