@@ -7,7 +7,7 @@ const CardGrid = ({ cardData }) => {
         <div className='card-grid'>
             {cardData.map((card, i) => (
                 <div className='card' key={i}>
-                    <img src={card.icon} />
+                    <img className='card-icon' src={card.icon} />
                     <h2>{card.title}</h2>
                     <p>{card.description}</p>
                 </div>
