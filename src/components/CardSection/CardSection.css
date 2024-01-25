@@ -28,10 +28,6 @@
     }
 }
 
-.card:hover {
-    transform: scale(0.98);
-}
-
 [data-theme='dark'] .card {
     background-color: var(--card-section-bg-dark);
     color: var(--card-section-text-dark);
