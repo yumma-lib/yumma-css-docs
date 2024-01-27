@@ -1,15 +1,18 @@
 import React from "react";
 import styles from './index.modules.css';
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Link from "@docusaurus/Link";
 import GridList from '@site/src/components/GridList/GridList';
 
 const Index = () => {
+    const { siteConfig } = useDocusaurusContext();
+
     return (
         <div>
             <div className={styles.yummaHero}>
-                <h1 className={styles.yummaTitle}>Yumma CSS</h1>
+                <h1 className={styles.yummaTitle}>{siteConfig.title}</h1>
                 <p className={styles.yummaDescription}>Lightweight and streamlined CSS library</p>
-                <Link to='docs/intro' class="button button--lg button--primary">Get Started</Link>
+                <Link className={styles.yummaButton} to='docs/intro'>Get Started</Link>
             </div>
 
             <section className={styles.yummaFeatures}>

@@ -21,6 +21,22 @@
   font-size: 1.5rem;
 }
 
+.yummaButton {
+  background-color: #dd0987;
+  line-height: 1.5;
+  padding: 0.8rem 2rem 0.8rem 2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  color: white;
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.yummaButton:hover {
+  color: white;
+  text-decoration: none;
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
+}
+
 .yummaFeatures {
   display: flex;
   flex-direction: column;
