@@ -184,6 +184,8 @@ Aligns flex or grid items horizontally.
 
 ---
 
+#### Start
+
 <ClassPreview
   htmlContent={`
     <div class="d-f jc-s mb-1">
@@ -196,10 +198,32 @@ Aligns flex or grid items horizontally.
   isVersion = '1.1.0'
 />
 
-#### Start
-
 ```html
 <div class="d-f jc-s mb-1">
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+  <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+</div>
+```
+
+---
+
+#### End
+
+<ClassPreview
+  htmlContent={`
+    <div class="d-f jc-e mb-1">
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+      <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
+    </div>
+  `}
+  isPadded = {true}
+  isVersion = '1.1.0'
+/>
+
+```html
+<div class="d-f jc-e mb-1">
   <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
   <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
   <div class="bg-magenta h-4 mr-1 rad-1 p-2 w-4"></div>
