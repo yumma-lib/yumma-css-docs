@@ -77,13 +77,6 @@ const config = {
             to: '/blog',
           },
           {
-            href: "https://yummacss-editor.vercel.app/",
-            type: 'docSidebar',
-            sidebarId: 'docsSidebar',
-            position: 'left',
-            label: 'Playground'
-          },
-          {
             type: 'docsVersionDropdown',
             position: 'right'
           }
