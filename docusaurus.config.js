@@ -86,11 +86,6 @@ const config = {
           {
             type: 'docsVersionDropdown',
             position: 'right'
-          },
-          {
-            type: 'html',
-            position: 'right',
-            value: '<a href="https://github.com/yumma-lib" target="_blank" rel="noreferrer noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>',
           }
         ],
       },
