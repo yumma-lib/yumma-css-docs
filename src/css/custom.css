@@ -10,7 +10,7 @@
   --ifm-color-primary-lightest: #f64fcb;
   --ifm-footer-background-color: white;
   --ifm-code-font-size: 95%;
-  --yumma-border-color: #ccc;
+  --yumma-border-color:#ccc;
 }
 
 [data-theme='dark'] {
@@ -22,6 +22,7 @@
   --ifm-color-primary-lighter: #f42db4;
   --ifm-color-primary-lightest: #f64fcb;
   --ifm-footer-background-color: #1b1b1d;
+  --ifm-navbar-background-color: #1b1b1d;
   --yumma-border-color: #606770;
 }
 
