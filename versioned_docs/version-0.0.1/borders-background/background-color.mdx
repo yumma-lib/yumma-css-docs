@@ -10,180 +10,175 @@ import ClassPreview from "@site/src/components/ClassPreview/ClassPreview";
 
 Background color is an essential aspect of web design, allowing you to set the backdrop for your content and create visually appealing layouts. In Yumma CSS, we offer a range of background color classes to help you customize your elements. These classes can be easily applied to any HTML element, enabling you to achieve the desired visual impact.
 
-## Color Classes
+## Base Colors
 
 The following are some of the available background color classes in Yumma CSS:
 
 These classes use predefined color values to set the background color of the respective elements. By applying these classes, you can quickly change the background color of your components and sections.
 
-:::info Color Variations for Light and Dark Backgrounds
-You have access to 6 shades of both dark and light colors. This means you can use classes like `bg-l-red-1` through `bg-l-{color}-6` for light backgrounds and `bg-d-red-1` through `bg-d-{color}-6` for dark backgrounds.
-:::
-
 <ClassList
   classData={[
     {
       className: "bg-red",
-      properties: ["background-color: #f26d50;"],
+      properties: ["background-color: #f26d50;"]
     },
     {
       className: "bg-orange",
-      properties: ["background-color: #f68e55;"],
+      properties: ["background-color: #f68e55;"]
     },
     {
       className: "bg-yellow",
-      properties: ["background-color: #fff467;"],
+      properties: ["background-color: #fff467;"]
     },
     {
       className: "bg-green",
-      properties: ["background-color: #3bb878;"],
+      properties: ["background-color: #3bb878;"]
     },
     {
       className: "bg-teal",
-      properties: ["background-color: #1abbb4;"],
+      properties: ["background-color: #1abbb4;"]
     },
     {
       className: "bg-aqua",
-      properties: ["background-color: #00bff3;"],
+      properties: ["background-color: #00bff3;"]
     },
     {
       className: "bg-blue",
-      properties: ["background-color: #438cca;"],
+      properties: ["background-color: #438cca;"]
     },
     {
       className: "bg-violet",
-      properties: ["background-color: #855fa8;"],
+      properties: ["background-color: #855fa8;"]
     },
     {
       className: "bg-magenta",
-      properties: ["background-color: #a863a8;"],
+      properties: ["background-color: #a863a8;"]
     },
     {
       className: "bg-pink",
-      properties: ["background-color: #f06ea9;"],
+      properties: ["background-color: #f06ea9;"]
     },
     {
       className: "bg-gray",
-      properties: ["background-color: #999999;"],
+      properties: ["background-color: #999999;"]
     },
     {
       className: "bg-white",
-      properties: ["background-color: white;"],
+      properties: ["background-color: white;"]
     },
     {
       className: "bg-black",
-      properties: ["background-color: black;"],
+      properties: ["background-color: black;"]
     },
   ]}
 />
 
-## Customizable Shades
+## Color Variations
 
 In addition to the standard background colors, Yumma CSS provides a convenient way to generate shades of each color. The component below displays a grid of light and dark shades for each background color:
 
-:::caution Avoiding Black and White Shades
-Please be advised that the provided color variations do not encompass shades of `black` or `white`. As a result, the utilization of classes such as `bg-l-black-6` or `bg-d-white-6` is not applicable within this context.
+:::info Color Variations for Light and Dark Backgrounds
+You have access to 6 shades of both dark and light colors. This means you can use classes like `bg-l-red-1` through `bg-l-{color}-6` for light backgrounds and `bg-d-red-1` through `bg-d-{color}-6` for dark backgrounds.
 :::
 
-#### Dark colors
-
-<ClassList
-  classData={[
-    {
-      className: "bg-d-red-{value}",
-      properties: ["background-color: #f26d50;"],
-    },
-    {
-      className: "bg-d-orange-{value}",
-      properties: ["background-color: #f68e55;"],
-    },
-    {
-      className: "bg-d-yellow-{value}",
-      properties: ["background-color: #fff467;"],
-    },
-    {
-      className: "bg-d-green-{value}",
-      properties: ["background-color: #3bb878;"],
-    },
-    {
-      className: "bg-d-teal-{value}",
-      properties: ["background-color: #1abbb4;"],
-    },
-    {
-      className: "bg-d-aqua-{value}",
-      properties: ["background-color: #00bff3;"],
-    },
-    {
-      className: "bg-d-blue-{value}",
-      properties: ["background-color: #438cca;"],
-    },
-    {
-      className: "bg-d-violet-{value}",
-      properties: ["background-color: #855fa8;"],
-    },
-    {
-      className: "bg-d-magenta-{value}",
-      properties: ["background-color: #a863a8;"],
-    },
-    {
-      className: "bg-d-pink-{value}",
-      properties: ["background-color: #f06ea9;"],
-    },
-    {
-      className: "bg-d-gray-{value}",
-      properties: ["background-color: #999999;"],
-    },
-  ]}
-/>
-
-#### Light colors
+#### Light Variations
 
 <ClassList
   classData={[
     {
       className: "bg-l-red-{value}",
-      properties: ["background-color: #f26d50;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-orange-{value}",
-      properties: ["background-color: #f68e55;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-yellow-{value}",
-      properties: ["background-color: #fff467;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-green-{value}",
-      properties: ["background-color: #3bb878;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-teal-{value}",
-      properties: ["background-color: #1abbb4;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-aqua-{value}",
-      properties: ["background-color: #00bff3;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-blue-{value}",
-      properties: ["background-color: #438cca;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-violet-{value}",
-      properties: ["background-color: #855fa8;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-magenta-{value}",
-      properties: ["background-color: #a863a8;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-pink-{value}",
-      properties: ["background-color: #f06ea9;"],
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
     {
       className: "bg-l-gray-{value}",
-      properties: ["background-color: #999999;"],
-    },
+      properties: ["background-color: mix(white, $v, $i * 10%);"]
+    }
   ]}
 />
 
+#### Dark Variations
+
+<ClassList
+  classData={[
+    {
+      className: "bg-d-red-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-orange-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-yellow-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-green-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-teal-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-aqua-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-blue-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-violet-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-magenta-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-pink-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    },
+    {
+      className: "bg-d-gray-{value}",
+      properties: ["background-color: mix(black, $v, $i * 10%);"]
+    }
+  ]}
+/>
