@@ -1,12 +1,12 @@
 ---
-title: Forms
+title: Input
 ---
 
 import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Forms
+# Inputs
 
-...
+Shows a form input box.
 
 ### Input
 
@@ -42,39 +42,40 @@ import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
 <ClassPreview
   codeData={`
-    <div class="h-1/1 ins">
+    <form method="post" action="/login">
       <div class="bc-l-gray-6 bg-white bs-sm p-4 rad-2">
         <p class="fw-700">Welcome back!</p>
         <div class="my-1">
-          <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="Username"></input>
+          <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" type="text" id="username" placeholder="Username"></input>
         </div>
         <div class="my-1">
-          <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="Password"></input>
+          <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" type="password" id="password" placeholder="Password"></input>
         </div>
         <div class="my-2">
-          <button class="btn-black fw-600 t-white w-full">Login</button>
+          <button class="btn-black fw-600 t-white w-full" type="submit">Login</button>
         </div>
       </div>
-    </div>
+    </form>
   `}
   isPadded = {true}
   isCentered = {true}
   isVersion = '1.1.0'
+  isHeight = '24rem'
 />
 
 ```html
-<div class="h-1/1 ins">
+<form method="post" action="/login">
   <div class="bc-l-gray-6 bg-white bs-sm p-4 rad-2">
     <p class="fw-700">Welcome back!</p>
     <div class="my-1">
-      <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="Username"></input>
+      <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" type="text" id="username" placeholder="Username"></input>
     </div>
     <div class="my-1">
-      <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="Password"></input>
+      <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" type="password" id="password" placeholder="Password"></input>
     </div>
     <div class="my-2">
-      <button class="btn-black fw-600 t-white w-full">Login</button>
+      <button class="btn-black fw-600 t-white w-full" type="submit">Login</button>
     </div>
   </div>
-</div>
+</form>
 ```
