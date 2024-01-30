@@ -1,5 +1,5 @@
 import React from 'react';
-import './ClassList.css';
+import styles from './ClassList.module.css';
 
 function generateClassData(baseClassName, propertyNames, range, increment, unit, additionalClasses) {
     const classData = [];
@@ -29,12 +29,12 @@ const ClassList = ({ classData, baseClassName, propertyNames, range, increment, 
     const data = classData || generateClassData(baseClassName, propertyNames, range, increment, unit, additionalClasses);
 
     return (
-        <div className='classList'>
+        <div className={styles.classList}>
             {data.map((classItem, index) => (
-                <div key={index} className='classItem'>
-                    <div className='className'>{classItem.className}</div>
-                    <div className='classProperties'>
-                        <code className={'propertyCode'}>
+                <div key={index} className={styles.classItem}>
+                    <div className={styles.className}>{classItem.className}</div>
+                    <div className={styles.classProperties}>
+                        <code className={styles.propertyCode}>
                             {classItem.properties.join('\n')}
                         </code>
                     </div>

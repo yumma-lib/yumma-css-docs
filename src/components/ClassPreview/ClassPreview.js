@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ClassPreview = ({ htmlContent, isPadded = false, isCentered = false, isVersion = '' }) => {
+const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersion = '' }) => {
   const noRightClick = (event) => {
     const { target } = event;
     if (target.tagName === 'A' && target.getAttribute('href') === '#') {
@@ -9,34 +9,25 @@ const ClassPreview = ({ htmlContent, isPadded = false, isCentered = false, isVer
     }
   };
 
-  const displayFlex = isCentered ? 'display: flex;' : '';
+  const flex = isCentered ? 'display: flex;' : '';
 
-  const containerStyles = `
-    ${displayFlex}
+  const styles = `
+    ${flex}
     justify-content: ${isCentered ? 'center' : 'flex-start'};
     align-items: ${isCentered ? 'center' : 'flex-start'};
     ${isPadded ? 'padding: 12px 14px;' : ''}
   `;
-  const cdnURL = `https://cdn.jsdelivr.net/gh/rrenildopereiraa/yumma-css@${isVersion}/dist/yumma.css`;
+  const stylesheet = `https://cdn.jsdelivr.net/npm/yummacss@${isVersion}/dist/yumma.css`;
 
-  const iframeHtml = `
+  const iframe = `
     <html>
       <head>
-        <link rel="stylesheet" href="${cdnURL}">
-        <style>
-          body {
-            margin: 0;
-          }
-          .container {
-            ${containerStyles}
-          }
-        </style>
-        <script>
-          window.addEventListener('click', ${noRightClick});
-        </script>
+        <link rel="stylesheet" href="${stylesheet}">
+        <style> body { margin: 0; } .container { ${styles} } </style>
+        <script> window.addEventListener('click', ${noRightClick}); </script>
       </head>
       <body>
-        <div class="container">${htmlContent}</div>
+        <div class="container">${codeData}</div>
       </body>
     </html>
   `;
@@ -54,14 +45,14 @@ const ClassPreview = ({ htmlContent, isPadded = false, isCentered = false, isVer
     <iframe
       sandbox="allow-scripts allow-same-origin"
       style={iframeStyle}
-      srcDoc={iframeHtml}
+      srcDoc={iframe}
       rel="noopener noreferrer"
     />
   );
 };
 
 ClassPreview.propTypes = {
-  htmlContent: PropTypes.string.isRequired,
+  codeData: PropTypes.string.isRequired,
   isPadded: PropTypes.bool,
   isCentered: PropTypes.bool,
   isVersion: PropTypes.string,
