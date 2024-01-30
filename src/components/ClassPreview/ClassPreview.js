@@ -36,7 +36,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     width: '100%',
     height: isHeight || '200px',
     border: '1px solid #ccc',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#fff',
     boxShadow: 'rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
     borderRadius: '8px'
   };
