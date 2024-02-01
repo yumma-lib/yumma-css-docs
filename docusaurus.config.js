@@ -53,7 +53,7 @@ const config = {
       },
       announcementBar: {
         id: 'support_us',
-        content: '🥳 Yumma CSS v1.1.0 is out!',
+        content: '🥳 New Input Components!',
         backgroundColor: '#dd0987',
         textColor: '#fff',
         isCloseable: true
