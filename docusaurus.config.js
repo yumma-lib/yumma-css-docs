@@ -52,7 +52,6 @@ const config = {
         maxHeadingLevel: 5,
       },
       announcementBar: {
-        id: 'support_us',
         content: '🧩 Added Input Components!',
         backgroundColor: '#dd0987',
         textColor: '#fff',
