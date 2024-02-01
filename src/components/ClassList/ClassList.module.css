@@ -1,6 +1,6 @@
 .classList {
     padding: 10px;
-    background-color: white;
+    background-color: transparent;
     max-height: 300px;
     overflow-y: auto;
 }
@@ -37,9 +37,9 @@
 }
 
 [data-theme='dark'] .classItem {
-    background-color: #282a36;
+    background-color: #20232a;
     color: white;
-    border: 1px solid #606770;
+    border: 1px solid #2d2f33;
 }
 
 [data-theme='dark'] .propertyCode {

@@ -4,35 +4,42 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 20rem;
+  height: 35rem;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   box-shadow: 1px 3px 5px -3px rgba(0, 0, 0, 0.1);
+  padding: 4rem 28rem;
+
+  img {
+    height: 128px;
+    width: 128px;
+  }
 }
 
 .yummaHero .yummaTitle {
   margin-bottom: 0.625rem;
   font-size: 3rem;
   font-weight: 700;
+  color: #f6f7f9;
 }
 
 .yummaHero .yummaDescription {
-  margin-bottom: 0.625rem;
+  margin-bottom: 2rem;
   font-size: 1.5rem;
 }
 
 .yummaButton {
   background-color: #dd0987;
   line-height: 1.5;
-  padding: 0.8rem 2rem 0.8rem 2rem;
+  padding: 0.8rem 2rem;
   font-weight: bold;
   border-radius: 12px;
-  color: white;
+  color: #f6f7f9;
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .yummaButton:hover {
-  color: white;
+  color: #f6f7f9;
   text-decoration: none;
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
@@ -44,19 +51,38 @@
   justify-content: center;
   text-align: center;
   background-color: #f6f8fa;
-  padding: 4rem 18rem 4rem 18rem;
+  padding: 4rem 18rem;
+}
+
+.yummaFeatures .yummaTitle {
+  margin-bottom: 0.625rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f6f7f9;
+}
+
+.yummaFeatures .yummaDescription {
+  margin-bottom: 0.625rem;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .yummaHero {
+    padding: 4rem 2rem;
+  }
 }
 
 @media (max-width: 768px) {
   .yummaFeatures {
-    padding: 4rem 2rem 4rem 2rem;
+    padding: 4rem 2rem;
   }
 }
 
 [data-theme='dark'] .yummaHero {
-  border-color: #606770;
+  background-color: #20232a;
+  border-color: #2d2f33;
 }
 
 [data-theme='dark'] .yummaFeatures {
-  background-color: #242526;
+  background-color: #171a20;
 }

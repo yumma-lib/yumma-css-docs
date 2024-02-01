@@ -10,7 +10,7 @@
   --ifm-color-primary-lightest: #f64fcb;
   --ifm-footer-background-color: white;
   --ifm-code-font-size: 95%;
-  --yumma-border-color:#ccc;
+  --yumma-border-color: #ccc;
 }
 
 [data-theme='dark'] {
@@ -23,7 +23,7 @@
   --ifm-color-primary-lightest: #f64fcb;
   --ifm-footer-background-color: #1b1b1d;
   --ifm-navbar-background-color: #1b1b1d;
-  --yumma-border-color: #606770;
+  --yumma-border-color: #2d2f33;
 }
 
 body {
@@ -57,6 +57,6 @@ pre {
 }
 
 [data-theme='dark'] pre {
-  border-color: #606770;
-  background-color: #282a36;
+  border-color: #2d2f33;
+  background-color: #20232a;
 }
