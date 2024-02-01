@@ -20,12 +20,13 @@
   margin-bottom: 0.625rem;
   font-size: 3rem;
   font-weight: 700;
-  color: #f6f7f9;
+  color: #2d323c;
 }
 
 .yummaHero .yummaDescription {
   margin-bottom: 2rem;
   font-size: 1.5rem;
+  color: #2d323c;
 }
 
 .yummaButton {
@@ -58,12 +59,13 @@
   margin-bottom: 0.625rem;
   font-size: 3rem;
   font-weight: 700;
-  color: #f6f7f9;
+  color: #2d323c;
 }
 
 .yummaFeatures .yummaDescription {
   margin-bottom: 2rem;
   font-size: 1.5rem;
+  color: #404756;
 }
 
 @media (max-width: 768px) {
@@ -81,6 +83,14 @@
 [data-theme='dark'] .yummaHero {
   background-color: #20232a;
   border-color: #2d2f33;
+}
+
+[data-theme='dark'] .yummaTitle {
+  color: #f6f7f9;
+}
+
+[data-theme='dark'] .yummaDescription {
+  color: #f6f7f9;
 }
 
 [data-theme='dark'] .yummaFeatures {
