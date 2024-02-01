@@ -53,7 +53,7 @@ const config = {
       },
       announcementBar: {
         id: 'support_us',
-        content: '🧩 New input components!',
+        content: '🧩 Added Input Components!',
         backgroundColor: '#dd0987',
         textColor: '#fff',
         isCloseable: true
