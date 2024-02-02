@@ -10,7 +10,7 @@ import ClassPreview from "@site/src/components/ClassPreview/ClassPreview";
 
 Defines the available colors to maintain design consistency across your website.
 
-### Shades of Colors
+## Shades
 
 <ColorPalette
   colorData={[
@@ -78,35 +78,28 @@ Defines the available colors to maintain design consistency across your website.
       color: 'Gray',
       swatch: [
         '#d6d6d6', '#cccccc', '#c2c2c2', '#b8b8b8', '#adadad', '#a3a3a3', '#999999', '#8a8a8a', '#7a7a7a', '#6b6b6b', '#5c5c5c', '#4d4d4d', '#3d3d3d',
-      ],
-    },
-    {
-      color: 'Lead',
-      swatch: [
-        '#b2b2b8', '#9f9fa7', '#8c8c95', '#797983', '#656571', '#525260', '#3f3f4e', '#393946', '#32323e', '#2c2c37', '#26262f', '#202027', '#19191f',
-      ],
-    },
+      ]
+    }
   ]}
 />
 
-### Customizable Color Palette
+### Base colors
 
 The foundations of our color palette are defined in Sass variables. Here's how the colors are defined:
 
 ```scss
 $base-colors: (
-    "red": rgb(242, 109, 80),
-    "orange": rgb(246, 142, 85),
-    "yellow": rgb(255, 244, 103),
-    "green": rgb(59, 184, 120),
-    "teal": rgb(26, 187, 180),
-    "aqua": rgb(0, 191, 243),
-    "blue": rgb(67, 140, 202),
-    "violet": rgb(133, 95, 168),
-    "magenta": rgb(168, 99, 168),
-    "pink": rgb(240, 110, 169),
-    "gray": rgb(153, 153, 153),
-    "lead": rgb(63, 63, 78),
+    "red": #f26d50,
+    "orange": #f68e55,
+    "yellow": #fff467,
+    "green": #3bb878,
+    "teal": #1abbb4,
+    "aqua": #00bff3,
+    "blue": #438cca,
+    "magenta": #855fa8,
+    "violet": #a863a8,
+    "pink": #f06ea9,
+    "gray": #999999
     "black": black,
     "white": white
 ) !default;
