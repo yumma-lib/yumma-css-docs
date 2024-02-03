@@ -6,20 +6,33 @@ import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
 # Navbars
 
-Top horizontal bars provide seamless navigation for an enhanced user experience
+Top horizontal bars for navigation
+
+:::info Custom Background Colors
+To customize the background color, you can use the base class `nav` and then specify the background color you want to use.
+:::
 
 ### Navbar
 
 <ClassPreview
   codeData={`
-    <nav class="nav-white">
-      <h1>Try Yumma CSS</h1>
-      <ul class="d-f">
-        <li class="ml-1 h:t-magenta"><a href="#">Docs</a></li>
-        <li class="ml-1 h:t-magenta"><a href="#">Editor</a></li>
-        <li class="ml-1 h:t-magenta"><a href="#">Playground</a></li>
+    <header class="nav-white">
+      <h1 class="fs-md t-lead">Portfolio</h1>
+      <ul class="d-none sm:d-f">
+        <li class="fw-500 ml-1 h:t-l-lead-4 t-lead"><a href="#">Blog</a></li>
+        <li class="fw-500 ml-1 h:t-l-lead-4 t-lead"><a href="#">Portfolio</a></li>
+        <li class="fw-500 ml-1 h:t-l-lead-4 t-lead"><a href="#">Contact</a></li>
       </ul>
-    </nav>
+      <div class="sm:d-none">
+        <button class="bc-l-gray-6 bg-white cg-2 fs-md h:bc-gray ins p-1 rad-1 t-lead">
+          <svg class="dim-4 t-d-gray-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" x2="21" y1="6" y2="6" />
+            <line x1="3" x2="21" y1="12" y2="12" />
+            <line x1="3" x2="21" y1="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </header>
   `}
   isPadded = {false}
   isCentered = {false}
@@ -27,41 +40,21 @@ Top horizontal bars provide seamless navigation for an enhanced user experience
 />
 
 ```html
-<nav class="nav-white">
-  <h1>Try Yumma CSS</h1>
-  <ul class="d-f">
-    <li class="ml-1 h:t-magenta"><a href="#">Docs</a></li>
-    <li class="ml-1 h:t-magenta"><a href="#">Editor</a></li>
-    <li class="ml-1 h:t-magenta"><a href="#">Playground</a></li>
+<header class="nav-white">
+  <h1 class="fs-md t-lead">Portfolio</h1>
+  <ul class="d-none sm:d-f">
+    <li class="fw-500 ml-1 h:t-l-lead-4 t-lead"><a href="#">Blog</a></li>
+    <li class="fw-500 ml-1 h:t-l-lead-4 t-lead"><a href="#">Portfolio</a></li>
+    <li class="fw-500 ml-1 h:t-l-lead-4 t-lead"><a href="#">Contact</a></li>
   </ul>
-</nav>
-```
-
-###  Colored
-
-<ClassPreview
-  codeData={`
-    <nav class="nav bg-gray">
-      <h1 class="t-white">Try Yumma CSS</h1>
-      <ul class="d-f">
-        <li class="ml-1 t-l-gray-6 h:t-white"><a href="#">Docs</a></li>
-        <li class="ml-1 t-l-gray-6 h:t-white"><a href="#">Editor</a></li>
-        <li class="ml-1 t-l-gray-6 h:t-white"><a href="#">Playground</a></li>
-      </ul>
-    </nav>
-  `}
-  isPadded = {false}
-  isCentered = {false}
-  isVersion = '1.1.0'
-/>
-
-```html
-<nav class="nav bg-gray">
-  <h1 class="t-white">Try Yumma CSS</h1>
-  <ul class="d-f">
-    <li class="ml-1 t-l-gray-6 h:t-white"><a href="#">Docs</a></li>
-    <li class="ml-1 t-l-gray-6 h:t-white"><a href="#">Editor</a></li>
-    <li class="ml-1 t-l-gray-6 h:t-white"><a href="#">Playground</a></li>
-  </ul>
-</nav>
+  <div class="sm:d-none">
+    <button class="bc-l-gray-6 bg-white cg-2 fs-md h:bc-gray ins p-1 rad-1 t-lead">
+      <svg class="dim-4 t-d-gray-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" x2="21" y1="6" y2="6" />
+        <line x1="3" x2="21" y1="12" y2="12" />
+        <line x1="3" x2="21" y1="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+</header>
 ```
