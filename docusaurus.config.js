@@ -77,7 +77,6 @@ const config = {
           },
           {
             label: 'Components',
-            to: '/components',
             items: [
               {
                 label: 'Alerts',
