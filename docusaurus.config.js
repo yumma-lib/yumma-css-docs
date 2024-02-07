@@ -76,6 +76,48 @@ const config = {
             to: '/blog',
           },
           {
+            label: 'Components',
+            to: '/components',
+            items: [
+              {
+                label: 'Alerts',
+                to: '/components/alerts',
+              },
+              {
+                label: 'Badges',
+                to: '/components/badges',
+              },
+              {
+                label: 'Buttons',
+                to: '/components/buttons',
+              },
+              {
+                label: 'Cards',
+                to: '/components/cards',
+              },
+              {
+                label: 'Footers',
+                to: '/components/footers',
+              },
+              {
+                label: 'Inputs',
+                to: '/components/inputs',
+              },
+              {
+                label: 'Navbars',
+                to: '/components/navbars',
+              },
+              {
+                label: 'Paginations',
+                to: '/components/paginations',
+              },
+              {
+                label: 'Tabs',
+                to: '/components/tabs',
+              }
+            ]
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right'
           }

@@ -44,3 +44,7 @@ pre {
   border-color: #2d2f33;
   background-color: #20232a;
 }
+
+[data-theme='dark'] .delimiter {
+  border-color: 1px solid #444950;
+}
