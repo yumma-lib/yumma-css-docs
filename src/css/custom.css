@@ -10,7 +10,6 @@
   --ifm-color-primary-lightest: #f64fcb;
   --ifm-footer-background-color: white;
   --ifm-code-font-size: 95%;
-  --yumma-border-color: #ccc;
 }
 
 [data-theme='dark'] {
@@ -23,22 +22,11 @@
   --ifm-color-primary-lightest: #f64fcb;
   --ifm-footer-background-color: #1b1b1d;
   --ifm-navbar-background-color: #1b1b1d;
-  --yumma-border-color: #2d2f33;
 }
 
 body {
   font-family: system-ui, sans-serif;
   font-weight: 500;
-}
-
-i {
-  font-size: 18px;
-  color: #1c1e21;
-  transition: color 0.2s ease-in-out;
-}
-
-i:hover {
-  color: var(--ifm-color-primary);
 }
 
 html {
@@ -50,10 +38,6 @@ pre {
   border: 1px solid #ccc;
   background-color: white;
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
-
-[data-theme='dark'] i {
-  color: white;
 }
 
 [data-theme='dark'] pre {
