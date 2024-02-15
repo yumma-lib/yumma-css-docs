@@ -4,8 +4,6 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from './index.modules.css';
 import logo from '@site/static/img/yumma-css.png';
 import GridList from '@site/src/components/GridList/GridList';
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
-
 
 const Index = () => {
     const { siteConfig } = useDocusaurusContext();

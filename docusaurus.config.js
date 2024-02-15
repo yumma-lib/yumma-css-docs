@@ -57,7 +57,6 @@ const config = {
         textColor: '#fff',
         isCloseable: true
       },
-      image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'Yumma CSS',
         logo: {
@@ -70,6 +69,10 @@ const config = {
             sidebarId: 'docsSidebar',
             position: 'left',
             label: 'Docs',
+          },
+          {
+            label: 'Playground',
+            to: '/playground',
           },
           {
             label: 'Blog',
