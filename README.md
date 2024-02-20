@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://yummacss.vercel.app/">
-    <img src="https://yummacss.vercel.app/img/yumma-css.png" width="64" alt="Yumma CSS Logo">
+  <a href="https://yummacss.com/">
+    <img src="https://yummacss.com/img/yumma-css.png" width="64" alt="Yumma CSS Logo">
   </a>
 </p>
 
@@ -9,14 +9,14 @@
 <p align="center">
   Lightweight and streamlined CSS library that provides a set of tools to simplify web development.
   <br>
-  <a href="https://yummacss.vercel.app/"><strong>Explore Yumma CSS Docs ↝</strong></a>
+  <a href="https://yummacss.com/"><strong>Explore Yumma CSS Docs ↝</strong></a>
   <br>
   <br>
-  <a href="https://yummacss-editor.vercel.app/">Try Yumma CSS</a>
+  <a href="https://yummacss.com/playground">Try Yumma CSS</a>
   •
   <a href="https://github.com/yumma-lib/yumma-css/issues">VS Code Extension</a>
   •
-  <a href="https://yummacss.vercel.app/blog">Blog</a>
+  <a href="https://yummacss.com/blog">Blog</a>
   •
   <a href="https://github.com/yumma-lib/yumma-css/issues">Issues</a>
 </p>
