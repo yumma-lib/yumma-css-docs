@@ -10,7 +10,7 @@ const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',
   favicon: 'img/favicon.ico',
-  url: 'https://yummacss.vercel.app',
+  url: 'https://yummacss.com',
   baseUrl: '/',
   organizationName: 'yumma-lib',
   projectName: 'yumma-css-docs',
