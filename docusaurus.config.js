@@ -46,6 +46,7 @@ const config = {
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+
     ({
       tableOfContents: {
         minHeadingLevel: 2,
@@ -147,8 +148,36 @@ const config = {
         externalUrlRegex: "external\\.com|domain\\.com",
         searchParameters: {}
       },
+      plugins: [
+        [
+          '@docusaurus/plugin-pwa',
+          {
+            pwaHead: [
+              {
+                tagName: 'meta',
+                name: 'theme-color',
+                content: 'rgb(221, 9, 135)',
+              },
+              {
+                tagName: 'link',
+                rel: 'apple-touch-icon',
+                href: 'static/img/icons/icon-192.png',
+              },
+              {
+                tagName: 'link',
+                rel: 'icon',
+                href: 'static/img/icons/icon-512.png',
+              },
+              {
+                tagName: 'link',
+                rel: 'manifest',
+                href: '/manifest.json',
+              }
+            ],
+          },
+        ],
+      ],
     }),
 };
 
 module.exports = config;
-
