@@ -62,7 +62,7 @@ const config = {
         title: 'Yumma CSS',
         logo: {
           alt: 'yummacss_logo',
-          src: 'static/img/yummacss.png',
+          src: '/img/yummacss.png',
         },
         items: [
           {
