@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://yummacss.com/">
-    <img src="https://yummacss.com/img/yumma-css.png" width="64" alt="Yumma CSS Logo">
+    <img src="https://yummacss.com/img/yummacss.png" width="64" alt="Yumma CSS Logo">
   </a>
 </p>
 

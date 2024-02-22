@@ -62,7 +62,7 @@ const config = {
         title: 'Yumma CSS',
         logo: {
           alt: 'yummacss_logo',
-          src: 'img/yumma-css.png',
+          src: 'img/yummacss.png',
         },
         items: [
           {
@@ -129,7 +129,7 @@ const config = {
       footer: {
         logo: {
           alt: 'yummacss_logo',
-          src: '/img/yumma-css.png',
+          src: '/img/yummacss.png',
           href: 'https://buymeacoffee.com/rrenildoo',
           width: 60,
           height: 60,
@@ -160,24 +160,50 @@ const config = {
             ],
             pwaHead: [
               {
+                tagName: 'link',
+                rel: 'icon',
+                href: 'img/yummacss.png',
+              },
+              {
+                tagName: 'link',
+                rel: 'manifest',
+                href: 'manifest.json',
+              },
+              {
                 tagName: 'meta',
                 name: 'theme-color',
                 content: 'rgb(221, 9, 135)',
               },
               {
+                tagName: 'meta',
+                name: 'apple-mobile-web-app-capable',
+                content: 'yes',
+              },
+              {
+                tagName: 'meta',
+                name: 'apple-mobile-web-app-status-bar-style',
+                content: '#fff',
+              },
+              {
                 tagName: 'link',
                 rel: 'apple-touch-icon',
-                href: '/static/img/icons/icon-180.png',
+                href: 'img/yummacss.png',
               },
               {
                 tagName: 'link',
-                rel: 'icon',
-                href: '/static/img/icons/icon-512.png',
+                rel: 'mask-icon',
+                href: 'img/yummacss.png',
+                color: 'rgb(221, 9, 135)',
               },
               {
-                tagName: 'link',
-                rel: 'manifest',
-                href: '/manifest.json',
+                tagName: 'meta',
+                name: 'msapplication-TileImage',
+                content: 'img/yummacss.png',
+              },
+              {
+                tagName: 'meta',
+                name: 'msapplication-TileColor',
+                content: '#fff',
               }
             ],
           },
