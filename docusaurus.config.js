@@ -9,7 +9,7 @@ const vortyx = require('./src/themes/vortyx');
 const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',
-  favicon: 'static/img/yummacss.ico',
+  favicon: '/img/yummacss.ico',
   url: 'https://yummacss.com',
   baseUrl: '/',
   organizationName: 'yumma-lib',
@@ -73,50 +73,50 @@ const config = {
           },
           {
             label: 'Playground',
-            to: '/playground',
+            to: '/playground'
           },
           {
             label: 'Blog',
-            to: '/blog',
+            to: '/blog'
           },
           {
             label: 'Components',
             items: [
               {
                 label: 'Alerts',
-                to: '/components/alerts',
+                to: '/components/alerts'
               },
               {
                 label: 'Badges',
-                to: '/components/badges',
+                to: '/components/badges'
               },
               {
                 label: 'Buttons',
-                to: '/components/buttons',
+                to: '/components/buttons'
               },
               {
                 label: 'Cards',
-                to: '/components/cards',
+                to: '/components/cards'
               },
               {
                 label: 'Footers',
-                to: '/components/footers',
+                to: '/components/footers'
               },
               {
                 label: 'Inputs',
-                to: '/components/inputs',
+                to: '/components/inputs'
               },
               {
                 label: 'Navbars',
-                to: '/components/navbars',
+                to: '/components/navbars'
               },
               {
                 label: 'Paginations',
-                to: '/components/paginations',
+                to: '/components/paginations'
               },
               {
                 label: 'Tabs',
-                to: '/components/tabs',
+                to: '/components/tabs'
               }
             ]
           },
