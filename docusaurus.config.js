@@ -161,7 +161,7 @@ const config = {
               {
                 tagName: 'link',
                 rel: 'icon',
-                href: 'static/img/yummacss.png',
+                href: '/img/yummacss.png',
               },
               {
                 tagName: 'link',
@@ -186,23 +186,13 @@ const config = {
               {
                 tagName: 'link',
                 rel: 'apple-touch-icon',
-                href: 'static/img/yummacss.png',
+                href: 'img/icons/icon-180.png',
               },
               {
                 tagName: 'link',
                 rel: 'mask-icon',
-                href: 'static/img/yummacss.png',
+                href: 'img/yummacss.png',
                 color: 'rgb(221, 9, 135)',
-              },
-              {
-                tagName: 'meta',
-                name: 'msapplication-TileImage',
-                content: 'static/img/yummacss.png',
-              },
-              {
-                tagName: 'meta',
-                name: 'msapplication-TileColor',
-                content: '#fff',
               }
             ],
           },
