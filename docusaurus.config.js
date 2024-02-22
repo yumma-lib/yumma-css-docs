@@ -9,7 +9,7 @@ const vortyx = require('./src/themes/vortyx');
 const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',
-  favicon: 'img/yummacss.ico',
+  favicon: 'static/img/yummacss.ico',
   url: 'https://yummacss.com',
   baseUrl: '/',
   organizationName: 'yumma-lib',
@@ -62,7 +62,7 @@ const config = {
         title: 'Yumma CSS',
         logo: {
           alt: 'yummacss_logo',
-          src: 'img/yummacss.png',
+          src: 'static/img/yummacss.png',
         },
         items: [
           {
@@ -161,7 +161,7 @@ const config = {
               {
                 tagName: 'link',
                 rel: 'icon',
-                href: 'img/yummacss.png',
+                href: 'static/img/yummacss.png',
               },
               {
                 tagName: 'link',
@@ -186,18 +186,18 @@ const config = {
               {
                 tagName: 'link',
                 rel: 'apple-touch-icon',
-                href: 'img/yummacss.png',
+                href: 'static/img/yummacss.png',
               },
               {
                 tagName: 'link',
                 rel: 'mask-icon',
-                href: 'img/yummacss.png',
+                href: 'static/img/yummacss.png',
                 color: 'rgb(221, 9, 135)',
               },
               {
                 tagName: 'meta',
                 name: 'msapplication-TileImage',
-                content: 'img/yummacss.png',
+                content: 'static/img/yummacss.png',
               },
               {
                 tagName: 'meta',
