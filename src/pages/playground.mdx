@@ -2,10 +2,35 @@
 title: Playground
 ---
 
+import { Sandpack } from "@codesandbox/sandpack-react";
+
 # Playground
+
 Welcome to our playground where you can play with Yumma CSS, try different styles, layouts and elements and see how they interact in real time.
 
-<iframe 
-    style={{ width: "100%", height: 1200, outline: "1px solid #252525", border: 0, borderRadius: 8, marginBottom: 16, zIndex: 100 }}
-    src="https://codesandbox.io/p/sandbox/jolly-breeze-4lqdv5?file=/src/index.js">
-</iframe>
+<Sandpack
+  template="static"
+  theme="dark"
+  files={{
+    "/index.html": {
+      code: `<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/yummacss/dist/yumma.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+  <div class="ins h-1/1">
+    <button class="btn-d-lead-2 t-white">
+      Hello World
+    </button>
+  </div>
+</body>
+</html>`,
+    },
+  }}
+  options={{
+    showNavigator: true,
+    showTabs: true,
+    editorHeight: 600,
+  }}
+/>
