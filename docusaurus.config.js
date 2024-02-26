@@ -153,7 +153,7 @@ const config = {
         logo: {
           alt: 'yummacss_logo',
           src: '/img/yummacss.png',
-          href: 'https://buymeacoffee.com/rrenildoo',
+          href: 'https://yummacss.com',
           width: 60,
           height: 60,
         },
