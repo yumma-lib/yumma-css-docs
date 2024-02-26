@@ -46,11 +46,10 @@ const config = {
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-
     ({
       tableOfContents: {
         minHeadingLevel: 2,
-        maxHeadingLevel: 5,
+        maxHeadingLevel: 5
       },
       announcementBar: {
         content: '🧩 Added Input Components!',
@@ -126,6 +125,20 @@ const config = {
           }
         ],
       },
+      head: {
+        links: [
+          {
+            rel: 'apple-touch-icon',
+            sizes: '180x180',
+            href: '/img/icons/icons-180x180.png'
+          },
+          {
+            rel: 'apple-touch-icon',
+            sizes: '152x152',
+            href: '/img/icons/icons-152x152.png'
+          }
+        ]
+      },
       footer: {
         logo: {
           alt: 'yummacss_logo',
@@ -147,57 +160,7 @@ const config = {
         contextualSearch: true,
         externalUrlRegex: "external\\.com|domain\\.com",
         searchParameters: {}
-      },
-      plugins: [
-        [
-          '@docusaurus/plugin-pwa',
-          {
-            offlineModeActivationStrategies: [
-              'appInstalled',
-              'standalone',
-              'queryString'
-            ],
-            pwaHead: [
-              {
-                tagName: 'link',
-                rel: 'icon',
-                href: '/img/yummacss.png'
-              },
-              {
-                tagName: 'link',
-                rel: 'manifest',
-                href: 'manifest.json'
-              },
-              {
-                tagName: 'meta',
-                name: 'theme-color',
-                content: 'rgb(221, 9, 135)'
-              },
-              {
-                tagName: 'meta',
-                name: 'apple-mobile-web-app-capable',
-                content: 'yes'
-              },
-              {
-                tagName: 'meta',
-                name: 'apple-mobile-web-app-status-bar-style',
-                content: '#fff'
-              },
-              {
-                tagName: 'link',
-                rel: 'apple-touch-icon',
-                href: '/img/icons/icon-180.png'
-              },
-              {
-                tagName: 'link',
-                rel: 'mask-icon',
-                href: '/img/yummacss.png',
-                color: 'rgb(221, 9, 135)'
-              }
-            ],
-          },
-        ],
-      ],
+      }
     }),
 };
 
