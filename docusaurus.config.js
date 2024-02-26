@@ -129,13 +129,23 @@ const config = {
         links: [
           {
             rel: 'apple-touch-icon',
+            sizes: '512x512',
+            href: '/img/icons/icon-512x512.png'
+          },
+          {
+            rel: 'apple-touch-icon',
+            sizes: '192x192',
+            href: '/img/icons/icon-192x192.png'
+          },
+          {
+            rel: 'apple-touch-icon',
             sizes: '180x180',
             href: '/img/icons/icon-180x180.png'
           },
           {
             rel: 'apple-touch-icon',
-            sizes: '152x152',
-            href: '/img/icons/icon-152x152.png'
+            sizes: '150x150',
+            href: '/img/icons/icon-150x150.png'
           }
         ]
       },
