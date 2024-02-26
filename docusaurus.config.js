@@ -130,12 +130,12 @@ const config = {
           {
             rel: 'apple-touch-icon',
             sizes: '180x180',
-            href: '/img/icons/icons-180x180.png'
+            href: '/img/icons/icon-180x180.png'
           },
           {
             rel: 'apple-touch-icon',
             sizes: '152x152',
-            href: '/img/icons/icons-152x152.png'
+            href: '/img/icons/icon-152x152.png'
           }
         ]
       },
