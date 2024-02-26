@@ -147,7 +147,7 @@ const config = {
           width: 60,
           height: 60,
         },
-        copyright: `© ${new Date().getFullYear()} Yumma CSS | Created with ❤️ by rrenildopereiraa`,
+        copyright: `© ${new Date().getFullYear()} Yumma CSS | Created with ❤️ by Renildo`,
       },
       prism: {
         theme: vortyx.light,
