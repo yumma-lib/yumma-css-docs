@@ -101,11 +101,11 @@ const config = {
               {
                 label: 'Footers',
                 to: '/components/footers'
-               },
-              // {
-              //   label: 'Inputs',
-              //   to: '/components/inputs'
-              // },
+              },
+              {
+                label: 'Inputs',
+                to: '/components/inputs'
+              },
               {
                 label: 'Navbars',
                 to: '/components/navbars'
