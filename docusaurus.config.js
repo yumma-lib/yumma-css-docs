@@ -52,7 +52,7 @@ const config = {
         maxHeadingLevel: 5
       },
       announcementBar: {
-        content: '🧩 Added Input Components!',
+        content: '🧩 Added Forms Components!',
         backgroundColor: '#dd0987',
         textColor: '#fff',
         isCloseable: true
@@ -103,8 +103,8 @@ const config = {
                 to: '/components/footers'
               },
               {
-                label: 'Inputs',
-                to: '/components/inputs'
+                label: 'Forms',
+                to: '/components/forms'
               },
               {
                 label: 'Navbars',

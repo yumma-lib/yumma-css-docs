@@ -42,7 +42,7 @@ pre {
 
 [data-theme='dark'] pre {
   border-color: #2d2f33;
-  background-color: #20232a;
+  background-color: #20232a !important;
 }
 
 [data-theme='dark'] .delimiter {
