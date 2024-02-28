@@ -126,30 +126,6 @@ const config = {
           }
         ],
       },
-      head: {
-        links: [
-          {
-            rel: 'apple-touch-icon',
-            sizes: '512x512',
-            href: '/img/icons/icon-512x512.png'
-          },
-          {
-            rel: 'apple-touch-icon',
-            sizes: '192x192',
-            href: '/img/icons/icon-192x192.png'
-          },
-          {
-            rel: 'apple-touch-icon',
-            sizes: '180x180',
-            href: '/img/icons/icon-180x180.png'
-          },
-          {
-            rel: 'apple-touch-icon',
-            sizes: '150x150',
-            href: '/img/icons/icon-150x150.png'
-          }
-        ]
-      },
       footer: {
         logo: {
           alt: 'yummacss_logo',
@@ -171,7 +147,52 @@ const config = {
         contextualSearch: true,
         externalUrlRegex: "external\\.com|domain\\.com",
         searchParameters: {}
-      }
+      },
+      plugins: [
+        [
+          '@docusaurus/plugin-pwa',
+          {
+            debug: true,
+            offlineModeActivationStrategies: [
+              'appInstalled',
+              'standalone',
+              'queryString',
+            ],
+            pwaHead: [
+              {
+                tagName: 'link',
+                rel: 'icon',
+                href: '/img/yummacss.png',
+              },
+              {
+                tagName: 'link',
+                rel: 'manifest',
+                href: '/manifest.json',
+              },
+              {
+                tagName: 'meta',
+                name: 'theme-color',
+                content: 'rgb(221, 9, 135)',
+              },
+              {
+                tagName: 'meta',
+                name: 'apple-mobile-web-app-capable',
+                content: 'yes',
+              },
+              {
+                tagName: 'meta',
+                name: 'apple-mobile-web-app-status-bar-style',
+                content: '#000',
+              },
+              {
+                tagName: 'link',
+                rel: 'apple-touch-icon',
+                href: '/img/yummacss.png',
+              }
+            ],
+          },
+        ],
+      ],
     }),
 };
 
