@@ -3,7 +3,8 @@ title: Row
 sidebar_position: 2
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassList from "@site/src/components/ClassList/ClassList";
+import ClassPreview from "@site/src/components/ClassPreview/ClassPreview";
 
 # Row
 
@@ -12,11 +13,8 @@ The `row` class is designed to create flexible and responsive row layouts within
 <ClassList
   classData={[
     {
-      className: 'row',
-      properties: [
-        'display: flex;',
-        'flex-flow: row wrap;',
-      ]
+      className: "row",
+      properties: ["display: flex;", "flex-flow: row wrap;"],
     },
   ]}
 />
@@ -33,9 +31,9 @@ To create a row layout, add the `row` class to a container element. Then, place 
   codeData={`
     
   `}
-  isPadded = {true}
-  isCentered = {false}
-  isVersion = 'latest'
+  isPadded={true}
+  isCentered={false}
+  isVersion="latest"
 />
 
 ```html
