@@ -57,6 +57,7 @@ const config = {
         textColor: '#fff',
         isCloseable: true
       },
+      image: 'img/yummacss-social-card.jpg',
       navbar: {
         title: 'Yumma CSS',
         logo: {
