@@ -164,34 +164,9 @@ const config = {
                 href: '/manifest.json',
               },
               {
-                src: '/img/meta/android-chrome-192x192.png',
-                sizes: '192x192',
-                type: 'image/png'
-              },
-              {
-                src: '/img/meta/android-chrome-512x512.png',
-                sizes: '512x512',
-                type: 'image/png'
-              },
-              {
-                src: '/img/meta/apple-touch-icon.png',
-                sizes: '180x180',
-                type: 'image/png'
-              },
-              {
-                src: '/img/meta/mstile-16x16.png',
-                sizes: '16x16',
-                type: 'image/png'
-              },
-              {
-                src: '/img/meta/mstile-32x32.png',
-                sizes: '32x32',
-                type: 'image/png'
-              },
-              {
-                src: '/img/meta/mstile-150x150.png',
-                sizes: '150x150',
-                type: 'image/png'
+                tagName: 'link',
+                rel: 'apple-touch-icon',
+                href: '/img/meta/apple-touch-icon.png',
               }
             ],
           },
