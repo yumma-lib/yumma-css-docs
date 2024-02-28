@@ -9,7 +9,7 @@ const vortyx = require('./src/themes/vortyx');
 const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',
-  favicon: '/img/yummacss.ico',
+  favicon: '/img/meta/favicon.ico',
   url: 'https://yummacss.com',
   baseUrl: '/',
   organizationName: 'yumma-lib',
