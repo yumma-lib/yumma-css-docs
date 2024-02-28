@@ -18,7 +18,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en']
   },
 
   presets: [
@@ -29,13 +29,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
-          includeCurrentVersion: false,
+          includeCurrentVersion: false
         },
         blog: {
           postsPerPage: 5,
           blogSidebarTitle: 'Latest blogs',
           showReadingTime: true,
-          blogSidebarCount: 50,
+          blogSidebarCount: 50
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -62,14 +62,14 @@ const config = {
         title: 'Yumma CSS',
         logo: {
           alt: 'yummacss_logo',
-          src: '/img/yummacss.png',
+          src: '/img/yummacss.png'
         },
         items: [
           {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Docs',
+            label: 'Docs'
           },
           {
             label: 'Playground',
@@ -132,13 +132,13 @@ const config = {
           src: '/img/yummacss.png',
           href: 'https://yummacss.com',
           width: 60,
-          height: 60,
+          height: 60
         },
         copyright: `© ${new Date().getFullYear()} Yumma CSS | Created with ❤️ by Renildo`,
       },
       prism: {
         theme: vortyx.light,
-        darkTheme: vortyx.dark,
+        darkTheme: vortyx.dark
       },
       algolia: {
         appId: process.env.APP_ID,
@@ -156,12 +156,12 @@ const config = {
               {
                 tagName: 'link',
                 rel: 'manifest',
-                href: '/manifest.json',
+                href: '/manifest.json'
               },
               {
                 tagName: 'link',
                 rel: 'apple-touch-icon',
-                href: '/img/meta/apple-touch-icon.png',
+                href: '/static/img/meta/apple-touch-icon.png'
               }
             ],
           },
