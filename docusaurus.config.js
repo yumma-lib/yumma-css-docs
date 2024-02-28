@@ -160,33 +160,38 @@ const config = {
             pwaHead: [
               {
                 tagName: 'link',
-                rel: 'icon',
-                href: '/img/yummacss.png',
-              },
-              {
-                tagName: 'link',
                 rel: 'manifest',
                 href: '/manifest.json',
               },
               {
-                tagName: 'meta',
-                name: 'theme-color',
-                content: 'rgb(221, 9, 135)',
+                src: '/img/meta/android-chrome-192x192.png',
+                sizes: '192x192',
+                type: 'image/png'
               },
               {
-                tagName: 'meta',
-                name: 'apple-mobile-web-app-capable',
-                content: 'yes',
+                src: '/img/meta/android-chrome-512x512.png',
+                sizes: '512x512',
+                type: 'image/png'
               },
               {
-                tagName: 'meta',
-                name: 'apple-mobile-web-app-status-bar-style',
-                content: '#000',
+                src: '/img/meta/apple-touch-icon.png',
+                sizes: '180x180',
+                type: 'image/png'
               },
               {
-                tagName: 'link',
-                rel: 'apple-touch-icon',
-                href: '/img/meta/apple-touch-icon.png',
+                src: '/img/meta/mstile-16x16.png',
+                sizes: '16x16',
+                type: 'image/png'
+              },
+              {
+                src: '/img/meta/mstile-32x32.png',
+                sizes: '32x32',
+                type: 'image/png'
+              },
+              {
+                src: '/img/meta/mstile-150x150.png',
+                sizes: '150x150',
+                type: 'image/png'
               }
             ],
           },
