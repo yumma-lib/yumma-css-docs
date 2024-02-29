@@ -155,13 +155,13 @@ const config = {
             pwaHead: [
               {
                 tagName: 'link',
-                rel: 'manifest',
-                href: '/manifest.json'
+                rel: 'apple-touch-icon',
+                href: '/img/meta/apple-touch-icon.png'
               },
               {
                 tagName: 'link',
-                rel: 'apple-touch-icon',
-                href: '/static/img/meta/apple-touch-icon.png'
+                rel: 'manifest',
+                href: '/manifest.json'
               }
             ],
           },
