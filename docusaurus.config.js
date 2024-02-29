@@ -156,12 +156,12 @@ const config = {
               {
                 tagName: 'link',
                 rel: 'apple-touch-icon',
-                href: '/img/meta/apple-touch-icon.png'
+                href: 'img/meta/apple-touch-icon.png'
               },
               {
                 tagName: 'link',
                 rel: 'manifest',
-                href: '/manifest.json'
+                href: 'manifest.json'
               }
             ],
           },
