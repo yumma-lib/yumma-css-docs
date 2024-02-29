@@ -53,9 +53,9 @@ const config = {
       },
       announcementBar: {
         content: '🧩 Added Forms Components!',
-        backgroundColor: '#dd0987',
+        backgroundColor: '#fff',
         textColor: '#fff',
-        isCloseable: true
+        isCloseable: false
       },
       image: 'img/yummacss-social-card.jpg',
       navbar: {
@@ -157,7 +157,6 @@ const config = {
               'standalone',
               'queryString',
             ],
-            swCustom: require.resolve('./src/sw.js'),
             pwaHead: [
               {
                 tagName: 'link',
