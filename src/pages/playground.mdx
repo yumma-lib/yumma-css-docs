@@ -3,33 +3,55 @@ title: Playground
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
-import { dracula } from "@codesandbox/sandpack-themes";
+import { aquaBlue } from "@codesandbox/sandpack-themes";
 
 # Playground
 
 Welcome to our playground where you can play with Yumma CSS, try different styles, layouts and elements and see how they interact in real time.
 
 <Sandpack
-  theme={dracula}
-  files={{
-    "/index.html": {
-      code: `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/yummacss/dist/yumma.css" rel="stylesheet" crossorigin="anonymous">
-</head>
-<body class="ins h-1/1">
-    <button class="btn-d-lead-2 t-white">Hello</button>
-</body>
-</html>`,
+ theme={aquaBlue}
+ files={{
+    "/App.js": {
+      code: `import React from "react";
+import Button from "./Button";
+
+function App() {
+   return (
+      <div className="ins h-1/1">
+         <Button />
+      </div>
+   );
+}
+
+export default App;
+`,
     },
-  }}
-  template="static"
-  options={{
+    "/Button.js": {
+      code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+function Button() {
+   return (
+      <button className="btn-d-blue-2 t-white">
+         Button
+      </button>
+   );
+}
+
+export default Button;
+`,
+    },
+ }}
+ customSetup={{
+    dependencies: {
+      "yummacss": "latest"
+    }
+ }}
+ template="react"
+ options={{
     showNavigator: true,
     showTabs: true,
     editorHeight: 600,
-  }}
+ }}
 />

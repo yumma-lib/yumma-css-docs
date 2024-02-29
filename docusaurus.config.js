@@ -53,7 +53,7 @@ const config = {
       },
       announcementBar: {
         content: '🧩 Added Forms Components!',
-        backgroundColor: '#fff',
+        backgroundColor: '#dd0987',
         textColor: '#000',
         isCloseable: false
       },
