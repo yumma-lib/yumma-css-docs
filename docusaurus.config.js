@@ -54,7 +54,7 @@ const config = {
       announcementBar: {
         content: '🧩 Added Forms Components!',
         backgroundColor: '#dd0987',
-        textColor: '#000',
+        textColor: '#fff',
         isCloseable: false
       },
       image: 'img/yummacss-social-card.jpg',
