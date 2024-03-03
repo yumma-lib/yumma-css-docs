@@ -147,67 +147,7 @@ const config = {
         contextualSearch: true,
         externalUrlRegex: "external\\.com|domain\\.com",
         searchParameters: {}
-      },
-      plugins: [
-        [
-          'pwa',
-          {
-            offlineModeActivationStrategies: [
-              'appInstalled',
-              'standalone',
-              'queryString',
-            ],
-            pwaHead: [
-              {
-                tagName: 'link',
-                rel: 'icon',
-                href: 'img/yummacss.png',
-              },
-              {
-                tagName: 'link',
-                rel: 'manifest',
-                href: 'manifest.json',
-              },
-              {
-                tagName: 'meta',
-                name: 'theme-color',
-                content: 'rgb(221, 9, 135)',
-              },
-              {
-                tagName: 'meta',
-                name: 'apple-mobile-web-app-capable',
-                content: 'yes',
-              },
-              {
-                tagName: 'meta',
-                name: 'apple-mobile-web-app-status-bar-style',
-                content: '#000',
-              },
-              {
-                tagName: 'link',
-                rel: 'apple-touch-icon',
-                href: 'img/apple-touch-icon.png',
-              },
-              {
-                tagName: 'link',
-                rel: 'mask-icon',
-                href: 'img/yummacss.png',
-                color: 'rgb(221, 9, 135)',
-              },
-              {
-                tagName: 'meta',
-                name: 'msapplication-TileImage',
-                content: 'img/yummacss.png',
-              },
-              {
-                tagName: 'meta',
-                name: 'msapplication-TileColor',
-                content: '#fff',
-              },
-            ],
-          },
-        ]
-      ],
+      }
     }),
 };
 
