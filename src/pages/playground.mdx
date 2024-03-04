@@ -99,25 +99,35 @@ export default Player;
 },
 
 "/PlayerContent.js": {
-code: `import React from "react";
-import { IoPlay, IoPlayBack, IoPlayForward } from "react-icons/io5";
+code: `import React, { useState } from "react";
+import { IoPlay, IoPause } from "react-icons/io5";
 
 import MediaItem from "./MediaItem";
 
 import "yummacss/dist/yumma.css";
 
 function PlayerContent() {
+   const [isPlaying, setIsPlaying] = useState(false);
+
+   const togglePlayPause = () => {
+      setIsPlaying(!isPlaying);
+   };
+
    return (
       <div>
          <div className="d-g gtc-2 h-full">
             <div className="d-f w-full jc-s">
                <div className="d-f ai-c gc-4">
-                  <MediaItem />
+                 <MediaItem />
                </div>
             </div>
             <div className="d-f w-full jc-e ai-c" style={{ gridColumn: 'auto' }}>
                <div className="dim-4 ins rad-8 bg-white p-1 c-p mr-1">
-                  <IoPlay size={30} className="t-black" />
+                 {isPlaying ? (
+                     <IoPause size={30} className="t-black" onClick={togglePlayPause} />
+                 ) : (
+                     <IoPlay size={30} className="t-black" onClick={togglePlayPause} />
+                 )}
                </div>
             </div>
          </div>
