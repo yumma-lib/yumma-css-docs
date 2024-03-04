@@ -14,12 +14,15 @@ Welcome to the playground page! Here you can play with Yumma CSS, try different 
  files={{
 "/App.js": {
 code: `import React from "react";
+
+import Layout from "./Layout";
 import Player from "./Player";
 
 function App() {
    return (
       <div>
-         <Player />
+        <Layout /> 
+        <Player />
       </div>
    );
 }
@@ -28,43 +31,51 @@ export default App;
 `,
 },
 
+"/Layout.js": {
+code: `import React from "react";
+
+import { IoMusicalNotes } from "react-icons/io5";
+
+import "yummacss/dist/yumma.css";
+
+function Layout() {
+   return (
+      <div>
+         <div className="h-1/1 bg-d-lead-6">
+            <div className="ins h-1/1">
+               <IoMusicalNotes color={'#fff'} size={100} />
+            </div>
+         </div>
+      </div>
+   );
+}
+
+export default Layout;
+`,
+},
+
 "/MediaItem.js": {
 code: `import React from "react";
+
 import "yummacss/dist/yumma.css";
 
 function MediaItem() {
    return (
       <div>
          <div className="d-f ai-c cg-3 c-p w-full rad-1">
-         <div className="pos-r min-h-3 min-w-3 ovf-h ml-1">
-            <img className="dim-10" src={'https://f4.bcbits.com/img/a3135145324_16.jpg'} alt="Media Item" style={{ aspectRatio: '1 / 1'}} />
-         </div>
-         <div className="d-f fd-c rg-1 ovf-h">
-            <p className="t-white">My Old Me</p>
-            <p className="t-l-lead-4 fs-sm">The Wiolets</p>
+            <div className="pos-r min-h-3 min-w-3 ovf-h ml-1">
+               <img className="dim-10" src={'https://f4.bcbits.com/img/a3135145324_16.jpg'} alt="Media Item" style={{ aspectRatio: '1 / 1'}} />
+            </div>
+            <div className="d-f fd-c rg-1 ovf-h">
+               <p className="t-white">My Old Me</p>
+               <p className="t-l-lead-4 fs-sm">The Wiolets</p>
+            </div>
          </div>
       </div>
-   </div>
    );
 }
 
 export default MediaItem;
-`,
-},
-
-"/FavoriteButton.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-function FavoriteButton() {
-   return (
-      <div className="">
-         // ...
-      </div>
-   );
-}
-
-export default FavoriteButton;
 `,
 },
 
@@ -92,7 +103,6 @@ code: `import React from "react";
 import { IoPlay, IoPlayBack, IoPlayForward } from "react-icons/io5";
 
 import MediaItem from "./MediaItem";
-import FavoriteButton from "./FavoriteButton";
 
 import "yummacss/dist/yumma.css";
 
@@ -103,9 +113,6 @@ function PlayerContent() {
             <div className="d-f w-full jc-s">
                <div className="d-f ai-c gc-4">
                   <MediaItem />
-                  <div className="d-done lg:d-f">
-                     <FavoriteButton />
-                  </div>
                </div>
             </div>
             <div className="d-f w-full jc-e ai-c" style={{ gridColumn: 'auto' }}>
