@@ -1,9 +1,10 @@
-import React from "react";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import styles from './index.modules.css';
-import logo from '@site/static/img/yummacss.png';
 import GridList from '@site/src/components/GridList/GridList';
+import logo from '@site/static/img/yummacss.png';
+import React from "react";
+
+import styles from './index.modules.css';
 
 const Index = () => {
     const { siteConfig } = useDocusaurusContext();
