@@ -11,7 +11,6 @@ const Index = () => {
 
     return (
         <div>
-
             <div className={styles.yummaHero}>
                 <div className={styles.cnn}>
                     <img className={styles.yummaHeroLogo} src={logo} alt="Yumma CSS Logo" />
@@ -70,7 +69,6 @@ const Index = () => {
                 <p className={styles.yummaDescription}>Start by including Yumma CSS in your project</p>
                 <pre>npm install yummacss@latest</pre>
             </section>
-
         </div>
     );
 };
