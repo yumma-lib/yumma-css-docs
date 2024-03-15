@@ -7,7 +7,7 @@
 <h3 align="center">Yumma CSS</h3>
 
 <p align="center">
-  Lightweight and streamlined CSS library that provides a set of tools to simplify web development.
+  Lightweight and streamlined CSS library that provides tools to simplify web development.
   <br>
   <a href="https://yummacss.com/"><strong>Explore Yumma CSS Docs ↝</strong></a>
   <br>
