@@ -31,6 +31,7 @@ const config = {
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
           includeCurrentVersion: false
         },
+
         blog: {
           postsPerPage: 5,
           blogSidebarTitle: 'Latest blogs',
@@ -52,10 +53,14 @@ const config = {
         maxHeadingLevel: 5
       },
       announcementBar: {
-        content: '🧩 Added Forms Components!',
+        content: '🧩 Added Form Components!',
         backgroundColor: '#dd0987',
         textColor: '#fff',
         isCloseable: false
+      },
+      colorMode: {
+        disableSwitch: true,
+        respectPrefersColorScheme: true,
       },
       image: 'img/yummacss-social-card.jpg',
       navbar: {

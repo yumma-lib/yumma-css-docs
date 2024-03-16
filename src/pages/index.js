@@ -15,7 +15,7 @@ const Index = () => {
                 <div className={styles.cnn}>
                     <img className={styles.yummaHeroLogo} src={logo} alt="Yumma CSS Logo" />
                     <h1 className={styles.yummaTitle}>{siteConfig.title}</h1>
-                    <p className={styles.yummaDescription}>The lightweight and streamlined library</p>
+                    <p className={styles.yummaDescription}>Build beautiful websites with small class names</p>
                     <Link className={styles.yummaButton} to='docs/intro'>Get Started</Link>
                 </div>
             </div>
