@@ -59,7 +59,6 @@ const config = {
         isCloseable: false
       },
       colorMode: {
-        disableSwitch: true,
         respectPrefersColorScheme: true,
       },
       image: 'img/yummacss-social-card.jpg',
