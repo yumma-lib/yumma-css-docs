@@ -136,17 +136,17 @@ const config = {
             title: 'Getting Started',
             items: [
               {
-                label: 'Playground',
-                to: '/playground'
-              },
-              {
-                label: 'Docs',
-                to: '/docs'
-              },
-              {
                 label: 'Blog',
                 to: '/blog'
               },
+              {
+                label: 'Docs',
+                to: '/docs/intro'
+              },
+              {
+                label: 'Playground',
+                to: '/playground'
+              }
             ],
           },
           {
@@ -175,7 +175,7 @@ const config = {
               },
               {
                 label: 'Customization',
-                href: '/fundamentals/appearance/color-palette'
+                href: '/docs/fundamentals/appearance/color-palette'
               }
             ],
           },
