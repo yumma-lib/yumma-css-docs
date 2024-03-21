@@ -1,4 +1,4 @@
-.yummaHero {
+.yma__hero {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,41 +11,58 @@
   padding: 4rem 28rem;
 }
 
-.yummaHero img {
+.yma__hero img {
   height: 128px;
   width: 128px;
 }
 
-.yummaHero .yummaTitle {
+.yma__hero .yma__heading {
   margin-bottom: 0.625rem;
   font-size: 3rem;
   font-weight: 700;
   color: #2d323c;
 }
 
-.yummaHero .yummaDescription {
+.yma__hero .yma__description {
   margin-bottom: 2rem;
   font-size: 1.5rem;
   color: #2d323c;
 }
 
-.yummaButton {
+.yma__Button {
   background-color: #dd0987;
   line-height: 1.5;
   padding: 0.8rem 2rem;
+  margin: 1rem;
   font-weight: bold;
   border-radius: 12px;
   color: #f6f7f9;
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.yummaButton:hover {
+.yma__Button:hover {
   color: #f6f7f9;
   text-decoration: none;
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
 
-.yummaFeatures {
+.yma__SecondaryButton {
+  background-color: #45484d;
+  line-height: 1.5;
+  padding: 0.8rem 2rem;
+  margin: 1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  color: #f6f7f9;
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.yma__SecondaryButton:hover {
+  color: #f6f7f9;
+  text-decoration: none;
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
+}
+.yma__section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,44 +72,44 @@
   padding: 4rem 18rem;
 }
 
-.yummaFeatures .yummaTitle {
+.yma__section .yma__heading {
   margin-bottom: 0.625rem;
   font-size: 3rem;
   font-weight: 700;
   color: #2d323c;
 }
 
-.yummaFeatures .yummaDescription {
+.yma__section .yma__description {
   margin-bottom: 2rem;
   font-size: 1.5rem;
   color: #404756;
 }
 
 @media (max-width: 768px) {
-  .yummaHero {
+  .yma__hero {
     padding: 4rem 2rem;
   }
 }
 
 @media (max-width: 768px) {
-  .yummaFeatures {
+  .yma__section {
     padding: 4rem 2rem;
   }
 }
 
-[data-theme='dark'] .yummaHero {
+[data-theme='dark'] .yma__hero {
   background-color: #20232a;
   border-color: #2d2f33;
 }
 
-[data-theme='dark'] .yummaTitle {
+[data-theme='dark'] .yma__heading {
   color: #f6f7f9;
 }
 
-[data-theme='dark'] .yummaDescription {
+[data-theme='dark'] .yma__description {
   color: #f6f7f9;
 }
 
-[data-theme='dark'] .yummaFeatures {
+[data-theme='dark'] .yma__section {
   background-color: #171a20;
 }

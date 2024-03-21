@@ -1,0 +1,78 @@
+---
+title: Align Items
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+# Align Items
+
+Aligns flex or grid items vertically.
+
+<ClassList
+  classData={[
+    {
+      className: 'ai-n',
+      properties: [
+        'align-items: normal;'
+      ]
+    },
+    {
+      className: 'ai-stretch',
+      properties: [
+        'align-items: stretch;'
+      ]
+    },
+    {
+      className: 'ai-c',
+      properties: [
+        'align-items: center;'
+      ]
+    },
+    {
+      className: 'ai-start',
+      properties: [
+        'align-items: start;'
+      ]
+    },
+    {
+      className: 'ai-e',
+      properties: [
+        'align-items: end;'
+      ]
+    },
+    {
+      className: 'ai-fs',
+      properties: [
+        'align-items: flex-start;'
+      ]
+    },
+    {
+      className: 'ai-fe',
+      properties: [
+        'align-items: flex-end;'
+      ]
+    },
+  ]}
+/>
+
+### Basic example
+
+<ClassPreview
+  codeData={`
+    <div class="ai-c bg-magenta h-16 ins mr-1 rad-1 t-white w-16">Center</div>
+    <div class="ai-e bg-magenta h-24 ins mr-1 rad-1 t-white w-16">End</div>
+    <div class="ai-start bg-magenta h-12 ins mr-1 rad-1 t-white w-16">Start</div>
+    <div class="ai-stretch bg-magenta h-20 ins mr-1 rad-1 t-white w-16">Stretch</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion='latest'
+/>
+
+```html
+<div class="ai-c bg-magenta h-16 ins mr-1 rad-1 t-white w-16">Center</div>
+<div class="ai-e bg-magenta h-24 ins mr-1 rad-1 t-white w-16">End</div>
+<div class="ai-start bg-magenta h-12 ins mr-1 rad-1 t-white w-16">Start</div>
+<div class="ai-stretch bg-magenta h-20 ins mr-1 rad-1 t-white w-16">Stretch</div>
+```

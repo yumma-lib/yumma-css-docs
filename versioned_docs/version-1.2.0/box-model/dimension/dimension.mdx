@@ -1,0 +1,45 @@
+---
+title: Dimension
+sidebar_position: 1
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+# Dimension
+
+Sets the height and the width of an element's content box.
+
+<ClassList 
+  baseClassName='dim-' 
+  propertyNames={['height', 'width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'},
+    {name: '1/1', value: '100dvh'},
+    {name: '1/2', value: '50dvh'},
+  ]} 
+/>
+
+### Basic example
+
+<ClassPreview
+  codeData={`
+    <div class="bg-magenta dim-5 ins mr-1 mt-auto p-1 rad-1 t-white">5</div>
+    <div class="bg-magenta dim-10 ins mr-1 mt-auto p-1 rad-1 t-white">10</div>
+    <div class="bg-magenta dim-20 ins mr-1 mt-auto p-1 rad-1 t-white">20</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="bg-magenta dim-5 ins mr-1 mt-auto p-1 rad-1 t-white">5</div>
+<div class="bg-magenta dim-10 ins mr-1 mt-auto p-1 rad-1 t-white">10</div>
+<div class="bg-magenta dim-20 ins mr-1 mt-auto p-1 rad-1 t-white">20</div>
+```

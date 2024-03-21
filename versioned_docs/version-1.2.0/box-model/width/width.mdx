@@ -1,0 +1,45 @@
+---
+title: Width
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+# Width
+
+Sets the width of an element's content box.
+
+<ClassList 
+  baseClassName='w-' 
+  propertyNames={['width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    { name: 'auto', value: 'auto' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' },
+    { name: 'fc', value: 'fit-content' },
+    { name: '1/1', value: '100dvw' },
+    { name: '2/1', value: '50dvw' }
+  ]} 
+/>
+
+### Basic example
+
+<ClassPreview
+  codeData={`
+    <div class="bg-magenta mr-1 p-1 rad-1 t-white w-5">5</div>
+    <div class="bg-magenta mr-1 p-1 rad-1 t-white w-10">10</div>
+    <div class="bg-magenta mr-1 p-1 rad-1 t-white w-20">20</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="bg-magenta mr-1 p-1 rad-1 t-white w-5">5</div>
+<div class="bg-magenta mr-1 p-1 rad-1 t-white w-10">10</div>
+<div class="bg-magenta mr-1 p-1 rad-1 t-white w-20">20</div>
+```

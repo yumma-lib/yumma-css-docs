@@ -1,28 +1,32 @@
+import styles from './index.modules.css';
+import logo from '@site/static/img/yummacss.png';
+
+import GridList from '@site/src/components/GridList/GridList';
+
+import React from "react";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import GridList from '@site/src/components/GridList/GridList';
-import logo from '@site/static/img/yummacss.png';
-import React from "react";
 
-import styles from './index.modules.css';
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 const Index = () => {
     const { siteConfig } = useDocusaurusContext();
 
     return (
         <div>
-            <div className={styles.yummaHero}>
-                <div className={styles.cnn}>
-                    <img className={styles.yummaHeroLogo} src={logo} alt="Yumma CSS Logo" />
-                    <h1 className={styles.yummaTitle}>{siteConfig.title}</h1>
-                    <p className={styles.yummaDescription}>Build beautiful websites with small class names</p>
-                    <Link className={styles.yummaButton} to='docs/intro'>Get Started</Link>
+            <div className={styles.yma__hero}>
+                <div>
+                    <img className={styles.yma__heroLogo} src={logo} alt="Yumma CSS Logo" />
+                    <h1 className={styles.yma__heading}>{siteConfig.title}</h1>
+                    <p className={styles.yma__description}>Build beautiful websites with small class names</p>
+                    <Link className={styles.yma__Button} to='/docs/intro'>Read Docs</Link>
+                    <Link className={styles.yma__SecondaryButton} to='/playground'>Try It Now</Link>
                 </div>
             </div>
 
-            <section className={styles.yummaFeatures}>
-                <h1 className={styles.yummaTitle}>Awesome Features</h1>
-                <p className={styles.yummaDescription}>Discover why Yumma CSS is so special</p>
+            <section className={styles.yma__section}>
+                <h1 className={styles.yma__heading}>Awesome Features</h1>
+                <p className={styles.yma__description}>Discover why Yumma CSS is so special</p>
                 <GridList
                     cardData={[
                         {
@@ -38,7 +42,7 @@ const Index = () => {
                         {
                             icon: `${require('@site/static/img/Homepage/productivity.png').default}`,
                             title: 'Productivity',
-                            description: 'Get Yumma CSS snippets in your VS code and boost your development with Yumma CSS Helper.'
+                            description: 'Get Yumma CSS Intelephense in your Visual Studio Code and boost your development.'
                         },
                         {
                             icon: `${require('@site/static/img/Homepage/themes.png').default}`,
@@ -59,17 +63,18 @@ const Index = () => {
                 />
             </section>
 
-            <section className={styles.yummaHero}>
-                <h1 className={styles.yummaTitle}>Interface Components</h1>
-                <p className={styles.yummaDescription}>Use or build your own interface components using classes like <code>d-f</code>, <code>nav-white</code>, <code>t-lead</code> and much more!</p>
+            <section className={styles.yma__hero}>
+                <h1 className={styles.yma__heading}>Interface Components</h1>
+                <p className={styles.yma__description}>Use or build your own interface components using classes like <code>d-f</code>, <code>nav-white</code>, <code>t-lead</code> and much more!</p>
+
             </section>
 
-            <section className={styles.yummaFeatures}>
-                <h1 className={styles.yummaTitle}>Quick Start</h1>
-                <p className={styles.yummaDescription}>Start by including Yumma CSS in your project</p>
-                <pre>npm install yummacss@latest</pre>
+            <section className={styles.yma__section}>
+                <h1 className={styles.yma__heading}>Getting Started</h1>
+                <p className={styles.yma__description}>Start by including Yumma CSS in your project</p>
+                <pre>npm i yummacss@latest</pre>
             </section>
-        </div>
+        </div >
     );
 };
 

@@ -27,7 +27,7 @@ Interactive elements designed to act and encourage greater user engagement.
 
 <ClassPreview
   codeData={`
-    <button class="btn-otl-gray h:t-white mr-1 mt-1 t-gray">Outlined</button>
+    <button class="btn-otl-black h:t-white mr-1 mt-1 t-black">Outlined</button>
   `}
   isPadded = {true}
   isCentered = {true}
@@ -35,39 +35,24 @@ Interactive elements designed to act and encourage greater user engagement.
 />
 
 ```html
-<button class="btn-otl-gray h:t-white mr-1 mt-1 t-gray">Outlined</button>
+<button class="btn-otl-black h:t-white mr-1 mt-1 t-black">Outlined</button>
 ```
 
 ### Complement
 
+:::warning Complement Buttons are Deprecated!
+Complement buttons are no longer available in the latest versions. If you want to use complement buttons, consider using Yumma CSS versions before to v1.1.0.
+:::
+
 <ClassPreview
   codeData={`
-    <button class="btn-cmp-gray mr-1 mt-1">Complement</button>
+    <button class="btn-cmp-gray h:t-white mr-1 mt-1 t-black">Complement</button>
   `}
   isPadded = {true}
   isCentered = {true}
-  isVersion = 'latest'
+  isVersion = '1.1.0'
 />
 
 ```html
-<button class="btn-cmp-gray mr-1 mt-1">Complement</button>
-``` 
-
-### Block
-
-<ClassPreview
-  codeData={`
-    <button class="btn-black mb-1 t-white w-full">Block</button>
-    <button class="btn-otl-black mb-1 h:t-white t-black w-full">Outlined</button>
-    <button class="btn-cmp-gray mb-1 w-full">Complement</button>
-  `}
-  isPadded = {true}
-  isCentered = {false}
-  isVersion = 'latest'
-/>
-
-```html
-<button class="btn-black mb-1 t-white w-full">Block</button>
-<button class="btn-otl-black mb-1 h:t-white t-black w-full">Outlined</button>
-<button class="btn-cmp-gray mb-1 w-full">Complement</button>
+<button class="btn-cmp-gray h:t-white mr-1 mt-1 t-black">Complement</button>
 ```

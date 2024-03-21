@@ -1,5 +1,6 @@
-import React from 'react';
 import styles from './ClassList.module.css';
+
+import React from 'react';
 
 function generateClassData(baseClassName, propertyNames, range, increment, unit, additionalClasses) {
     const classData = [];

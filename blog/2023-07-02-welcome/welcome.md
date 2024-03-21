@@ -1,8 +1,8 @@
 ---
-slug: introducing-yummacss
+slug: welcome-to-yummacss
 title: Welcome to Yumma CSS!
 authors: rrenildopereiraa
-tags: [documentation, blog, yummacss]
+tags: [guide, yummacss]
 ---
 
 Hello everyone! I'm excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a CSS library designed to make the process of developing open source websites smoother and more enjoyable.
@@ -19,21 +19,21 @@ Yumma CSS was created with a clear mission in mind:
 
 ## Features
 
-- **Documentation** Browse our comprehensive documentation [documentation](https://yummacss.com) to get started.
+- **Documentation** Browse our comprehensive [documentation](/docs/intro) to get started.
 - **Playground:** Experience Yumma CSS up close and with our [playground](https://yummacss.com/playground).
-- **VS Code Extension:** Boost your productivity with our [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=yumma-css-helper.yumma-css-helper).
+- **Our Extension:** Boost your productivity with [Yumma CSS Intelephense](/blog/introducing-yummacss-intelephense) on VS Code.
 
-## Socials
+## Connections
 
 Keep up to date with the latest news from Yumma CSS by following us on our social media pages:
 
-- [Follow us on Twitter](https://twitter.com/yummacss)
 - [Join our Discord](https://discord.gg/2MUw2g6FCn)
+- [Follow us on Twitter](https://twitter.com/yummacss)
 
-![Welcome Banner](./welcome.png)
+![Welcome Banner](./banner.png)
 
-## Get started today
+## Give it a try now
 
 ```bash
-npm install yummacss@latest
+npm i yummacss@latest
 ```

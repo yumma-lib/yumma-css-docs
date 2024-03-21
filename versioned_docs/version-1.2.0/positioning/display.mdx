@@ -1,0 +1,201 @@
+---
+title: Display
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+# Display
+
+Specifies the rendering behavior of an element.
+
+<ClassList
+  classData={[
+    {
+      className: 'd-b',
+      properties: [
+        'display: block;'
+      ]
+    },
+    {
+      className: 'd-i',
+      properties: [
+        'display: inline;'
+      ]
+    },
+    {
+      className: 'd-ib',
+      properties: [
+        'display: inline-block;'
+      ]
+    },
+    {
+      className: 'd-f',
+      properties: [
+        'display: flex;'
+      ]
+    },
+    {
+      className: 'd-if',
+      properties: [
+        'display: inline-flex;'
+      ]
+    },
+    {
+      className: 'd-g',
+      properties: [
+        'display: grid;'
+      ]
+    },
+    {
+      className: 'd-fr',
+      properties: [
+        'display: flow-root;'
+      ]
+    },
+    {
+      className: 'd-none',
+      properties: [
+        'display: none;'
+      ]
+    },
+  ]}
+/>
+
+### Basic examples
+
+#### Block
+
+<ClassPreview
+  codeData={`
+    <div class="d-b">
+      <h2>Block-Level Heading</h2>
+      <p>This is a block-level element. It takes up the full width of its parent container and starts on a new line.</p>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="d-b">
+  <h2>Block-Level Heading</h2>
+  <p>This is a block-level element. It takes up the full width of its parent container and starts on a new line.</p>
+</div>
+```
+
+#### Flex
+
+<ClassPreview
+  codeData={`
+    <nav class="d-f">
+      <a class="mr-1" href="#">Home</a>
+      <a class="mr-1" href="#">About</a>
+      <a class="mr-1" href="#">Services</a>
+      <a class="mr-1" href="#">Contact</a>
+    </nav>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<nav class="d-f">
+  <a class="mr-1" href="#">Home</a>
+  <a class="mr-1" href="#">About</a>
+  <a class="mr-1" href="#">Services</a>
+  <a class="mr-1" href="#">Contact</a>
+</nav>
+```
+
+#### Grid
+
+<ClassPreview
+  codeData={`
+    <div class="cg-6 d-g gtc-3 gtr-4 rg-2">
+      <div class="bg-magenta p-2 rad-1 t-white">1</div>
+      <div class="bg-magenta p-2 rad-1 t-white">2</div>
+      <div class="bg-magenta p-2 rad-1 t-white">3</div>
+      <div class="bg-magenta p-2 rad-1 t-white">4</div>
+      <div class="bg-magenta p-2 rad-1 t-white">5</div>
+      <div class="bg-magenta p-2 rad-1 t-white">6</div>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="cg-6 d-g gtc-3 gtr-4 rg-2">
+  <div class="bg-magenta p-2 rad-1 t-white">1</div>
+  <div class="bg-magenta p-2 rad-1 t-white">2</div>
+  <div class="bg-magenta p-2 rad-1 t-white">3</div>
+  <div class="bg-magenta p-2 rad-1 t-white">4</div>
+  <div class="bg-magenta p-2 rad-1 t-white">5</div>
+  <div class="bg-magenta p-2 rad-1 t-white">6</div>
+</div>
+```
+
+#### Inline
+
+<ClassPreview
+  codeData={`
+    <p>This is a <span class="bg-magenta d-i t-white">highlighted</span> word within a paragraph.</p>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = 'latest'
+/>
+
+```html
+<p>This is a <span class="bg-magenta d-i t-white">highlighted</span> word within a paragraph.</p>
+```
+
+#### Inline Flex
+
+<ClassPreview
+  codeData={`
+    <div class="d-if">
+      <span class="mr-1">Item 1</span>
+      <span class="mr-1">Item 2</span>
+      <span class="mr-1">Item 3</span>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="d-if">
+  <span class="mr-1">Item 1</span>
+  <span class="mr-1">Item 2</span>
+  <span class="mr-1">Item 3</span>
+</div>
+```
+
+#### None
+
+<ClassPreview
+  codeData={`
+    <div class="col-3">
+      <div class="bg-magenta d-none p-2 rad-1 t-white">1</div>
+      <div class="bg-magenta p-2 rad-1 t-white">2</div>
+      <div class="bg-magenta p-2 rad-1 t-white">3</div>
+    </div>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="col-3">
+  <div class="bg-magenta d-none p-2 rad-1 t-white">1</div>
+  <div class="bg-magenta p-2 rad-1 t-white">2</div>
+  <div class="bg-magenta p-2 rad-1 t-white">3</div>
+</div>
+```

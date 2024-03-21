@@ -1,0 +1,33 @@
+---
+title: List Style Type
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+# List Style Type
+
+Specifies the appearance of list item markers, allowing customization of the bullet or numbering style for ordered and unordered lists.
+
+<ClassList
+  classData={[
+    {
+        className: 'lst-d',
+        properties: [
+            'list-style-type: disc;'
+        ]
+    },
+    {
+        className: 'lst-c',
+        properties: [
+            'list-style-type: circle;'
+        ]
+    },
+    {
+        className: 'lst-s',
+        properties: [
+            'list-style-type: square;'
+        ]
+    }
+  ]}
+/>

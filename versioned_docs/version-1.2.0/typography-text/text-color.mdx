@@ -1,0 +1,146 @@
+---
+title: Text Color
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+# Text Color
+
+Sets the color of the text.
+
+<ClassList
+  classData={[
+    {
+      className: 't-red',
+      properties: [
+        'color: #f26d50;'
+      ]
+    },
+    {
+      className: 't-orange',
+      properties: [
+        'color: #f68e55;'
+      ]
+    },
+    {
+      className: 't-yellow',
+      properties: [
+        'color: #fff467;'
+      ]
+    },
+    {
+      className: 't-green',
+      properties: [
+        'color: #3bb878;'
+      ]
+    },
+    {
+      className: 't-teal',
+      properties: [
+        'color: #1abbb4;'
+      ]
+    },
+    {
+      className: 't-aqua',
+      properties: [
+        'color: #00bff3;'
+      ]
+    },
+    {
+      className: 't-blue',
+      properties: [
+        'color: #438cca;'
+      ]
+    },
+    {
+      className: 't-violet',
+      properties: [
+        'color: #855fa8;'
+      ]
+    },
+    {
+      className: 't-magenta',
+      properties: [
+        'color: #a863a8;'
+      ]
+    },
+    {
+      className: 't-pink',
+      properties: [
+        'color: #f06ea9;'
+      ]
+    },
+    {
+      className: 't-gray',
+      properties: [
+        'color: #999999;'
+      ]
+    },
+    {
+      className: 't-lead',
+      properties: [
+        'color: #3f3f4e;'
+      ]
+    },
+    {
+      className: 't-white',
+      properties: [
+        'color: white;'
+      ]
+    },
+    {
+      className: 't-black',
+      properties: [
+        'color: black;'
+      ]
+    },
+  ]}
+/>
+
+### Basic examples
+
+#### Base color
+
+<ClassPreview
+  codeData={`
+    <h2 class="t-magenta">Magenta text</h2>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<h2 class="t-magenta">Magenta text</h2>
+```
+
+#### Dark color
+
+<ClassPreview
+  codeData={`
+    <h2 class="t-d-magenta-4">Magenta text</h2>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<h2 class="t-d-magenta-4">Magenta text</h2>
+```
+
+#### Light color
+
+<ClassPreview
+  codeData={`
+    <h2 class="t-l-magenta-4">Magenta text</h2>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<h2 class="t-l-magenta-4">Magenta text</h2>
+```

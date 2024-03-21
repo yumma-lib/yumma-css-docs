@@ -36,7 +36,7 @@ const config = {
           postsPerPage: 5,
           blogSidebarTitle: 'Latest blogs',
           showReadingTime: true,
-          blogSidebarCount: 50
+          blogSidebarCount: 5
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -53,13 +53,13 @@ const config = {
         maxHeadingLevel: 5
       },
       announcementBar: {
-        content: '🧩 Added Form Components!',
-        backgroundColor: '#dd0987',
+        content: 'Announcing Yumma CSS 1.2!',
+        backgroundColor: '#272729',
         textColor: '#fff',
         isCloseable: false
       },
       colorMode: {
-        respectPrefersColorScheme: true,
+        respectPrefersColorScheme: true
       },
       image: 'img/yummacss-social-card.jpg',
       navbar: {
@@ -131,18 +131,87 @@ const config = {
         ],
       },
       footer: {
-        logo: {
-          alt: 'yummacss_logo',
-          src: '/img/yummacss.png',
-          href: 'https://yummacss.com',
-          width: 60,
-          height: 60
-        },
-        copyright: `© ${new Date().getFullYear()} Yumma CSS | Created with ❤️ by Renildo`,
+        links: [
+          {
+            title: 'Getting Started',
+            items: [
+              {
+                label: 'Playground',
+                to: '/playground'
+              },
+              {
+                label: 'Docs',
+                to: '/docs'
+              },
+              {
+                label: 'Blog',
+                to: '/blog'
+              },
+            ],
+          },
+          {
+            title: 'Releases',
+            items: [
+              {
+                label: 'Yumma CSS v1.2',
+                href: '/docs/intro'
+              },
+              {
+                label: 'Yumma CSS v1.1',
+                href: '/docs/1.1.0/intro'
+              },
+              {
+                label: 'Yumma CSS v1.0',
+                href: '/docs/1.0.0/intro'
+              }
+            ],
+          },
+          {
+            title: 'Resources',
+            items: [
+              {
+                label: 'What is new',
+                href: 'http://localhost:3000/blog/tags/update'
+              },
+              {
+                label: 'Customization',
+                href: '/fundamentals/appearance/color-palette'
+              }
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/yumma-lib'
+              },
+              {
+                label: 'Discord',
+                href: 'https://discordapp.com/invite/yummacss'
+              }
+            ],
+          },
+          {
+            title: 'Social',
+            items: [
+              {
+                label: 'YouTube',
+                href: 'https://youtube.com/@rrenildopereiraa'
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/yummacss'
+              }
+            ],
+          }
+        ],
+        copyright: `© ${new Date().getFullYear()} Yumma CSS | Designed by Renildo`,
       },
       prism: {
         theme: vortyx.light,
-        darkTheme: vortyx.dark
+        darkTheme: vortyx.dark,
+        additionalLanguages: ['sass', 'scss', 'bash'],
       },
       algolia: {
         appId: process.env.APP_ID,

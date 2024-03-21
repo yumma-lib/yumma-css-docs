@@ -1,0 +1,113 @@
+---
+title: Color Palette
+sidebar_position: 4
+---
+
+import ColorPalette from "@site/src/components/ColorPalette/ColorPalette";
+import ClassPreview from "@site/src/components/ClassPreview/ClassPreview";
+
+# Color Palette
+
+Defines the available colors to maintain design consistency across your website.
+
+## Shades
+
+<ColorPalette
+  colorData={[
+    {
+      color: 'Red',
+      swatch: [
+        '#efb1b1', '#eb9e9e', '#e78b8b', '#e37777', '#df6464', '#db5050', '#d73d3d', '#c23737', '#ac3131', '#972b2b', '#812525', '#6c1f1f', '#561818',
+      ],
+    },
+    {
+      color: 'Orange',
+      swatch: [
+        '#f3c3a1', '#f0b48a', '#eca472', '#e9955b', '#e68643', '#e3772c', '#e06814', '#ca5e12', '#b35310', '#9d490e', '#863e0c', '#70340a', '#5a2a08',
+      ],
+    },
+    {
+      color: 'Yellow',
+      swatch: [
+        '#edd99c', '#e9d083', '#e5c76a', '#e0bd51', '#dcb439', '#d7aa20', '#d3a107', '#be9106', '#a98106', '#947105', '#7f6104', '#6a5104', '#544003',
+      ],
+    },
+    {
+      color: 'Green',
+      swatch: [
+        '#a5e0bb', '#8fd8aa', '#79d099', '#62c888', '#4cc177', '#35b966', '#1fb155', '#1c9f4d', '#198e44', '#167c3c', '#136a33', '#10592b', '#0c4722',
+      ],
+    },
+    {
+      color: 'Teal',
+      swatch: [
+        '#a0dbd5', '#89d3ca', '#71cabf', '#59c1b5', '#41b8aa', '#2aafa0', '#12a695', '#109586', '#0e8577', '#0d7468', '#0b6459', '#09534b', '#07423c',
+      ],
+    },
+    {
+      color: 'Cyan',
+      swatch: [
+        '#9bdbe5', '#82d2df', '#69c8d9', '#50bfd2', '#37b6cc', '#1eadc5', '#05a4bf', '#0594ac', '#048399', '#047386', '#036273', '#035260', '#02424c',
+      ],
+    },
+    {
+      color: 'Blue',
+      swatch: [
+        '#aec8f1', '#9abaee', '#86aceb', '#729ee7', '#5d91e4', '#4983e0', '#3575dd', '#3069c7', '#2a5eb1', '#25529b', '#204685', '#1b3b6f', '#152f58',
+      ],
+    },
+    {
+      color: 'Indigo',
+      swatch: [
+        '#bdbef0', '#acaeec', '#9b9de8', '#8b8de4', '#7a7de1', '#6a6cdd', '#595cd9', '#5053c3', '#474aae', '#3e4098', '#353782', '#2d2e6d', '#242557',
+      ],
+    },
+    {
+      color: 'Violet',
+      swatch: [
+        '#cbbaf1', '#bea9ee', '#b198eb', '#a487e7', '#9775e4', '#8a64e0', '#7d53dd', '#714bc7', '#6442b1', '#583a9b', '#4b3285', '#3f2a6f', '#322158',
+      ],
+    },
+    {
+      color: 'Pink',
+      swatch: [
+        '#eeb3d0', '#eaa0c5', '#e58db9', '#e17aad', '#dd67a1', '#d85496', '#d4418a', '#bf3b7c', '#aa346e', '#942e61', '#7f2753', '#6a2145', '#551a37',
+      ],
+    },
+    {
+      color: 'Gray',
+      swatch: [
+        '#bfc2c7', '#b0b3b9', '#a0a4ab', '#90959d', '#80858f', '#707681', '#606773', '#565d68', '#4d525c', '#434851', '#3a3e45', '#30343a', '#26292e',
+      ],
+    },
+    {
+      color: 'Lead',
+      swatch: [
+        '#b2b2b8', '#9f9fa7', '#8c8c95', '#797983', '#656571', '#525260', '#3f3f4e', '#393946', '#32323e', '#2c2c37', '#26262f', '#202027', '#19191f',
+      ],
+    }
+  ]}
+/>
+
+## Base colors
+
+The foundations of our color palette are defined in Sass variables. Here's how the colors are defined:
+
+```scss
+// colors
+$ym-colors-red: rgb(215, 61, 61);
+$ym-colors-orange: rgb(224, 104, 20);
+$ym-colors-yellow: rgb(211, 161, 7);
+$ym-colors-green: rgb(31, 177, 85);
+$ym-colors-teal: rgb(18, 166, 149);
+$ym-colors-cyan: rgb(5, 164, 191);
+$ym-colors-blue: rgb(53, 117, 221);
+$ym-colors-indigo: rgb(89, 92, 217);
+$ym-colors-violet: rgb(125, 83, 221);
+$ym-colors-pink: rgb(212, 65, 138);
+$ym-colors-gray: rgb(96, 103, 115);
+$ym-colors-lead: rgb(63, 63, 78);
+$ym-colors-black: rgb(0, 0, 0);
+$ym-colors-white: rgb(255, 255, 255);
+$ym-colors-transparent: rgba(255, 255, 255, 0);
+```

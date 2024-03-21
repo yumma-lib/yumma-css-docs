@@ -1,0 +1,34 @@
+---
+title: Row
+sidebar_position: 2
+---
+
+import ClassList from "@site/src/components/ClassList/ClassList";
+import ClassPreview from "@site/src/components/ClassPreview/ClassPreview";
+
+# Row
+
+The `row` class is designed to create flexible and responsive row layouts within your web projects. It utilizes CSS Flexbox properties to create rows that automatically wrap when content exceeds the available space.
+
+<ClassList
+  classData={[
+    {
+      className: "row",
+      properties: ["display: flex;", "flex-flow: row wrap;"],
+    },
+  ]}
+/>
+
+### Creating Responsive Rows
+
+The `row` class simplifies the process of creating responsive row layouts. It allows you to place elements side by side in a row while ensuring that they automatically wrap to the next line when the screen width is insufficient.
+
+### Basic example
+
+To create a row layout, add the `row` class to a container element. Then, place your individual elements (columns) within the container. Here's an example:
+
+```html
+<div class="{breakpoint}:col-{value}">
+  <!-- ... -->
+</div>
+```

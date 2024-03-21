@@ -1,6 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './GridList.modules.css';
+
+import React from 'react';
+
+import PropTypes from 'prop-types';
 
 const GridList = ({ cardData }) => {
     return (
