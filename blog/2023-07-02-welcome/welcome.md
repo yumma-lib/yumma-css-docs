@@ -21,7 +21,7 @@ Yumma CSS was created with a clear mission in mind:
 
 - **Documentation** Browse our comprehensive [documentation](/docs/intro) to get started.
 - **Playground:** Experience Yumma CSS up close and with our [playground](https://yummacss.com/playground).
-- **Our Extension:** Boost your productivity with [Yumma CSS Intelephense](/blog/introducing-yummacss-intelephense) on VS Code.
+- **Our Extension:** Boost your productivity with Yumma CSS Intelephense on VS Code (Coming Soon).
 
 ## Connections
 
