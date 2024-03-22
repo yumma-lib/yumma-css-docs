@@ -1,8 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersion = '', isHeight }) => {
-  
+
   const noRightClick = (event) => {
     const { target } = event;
     if (target.tagName === 'A' && target.getAttribute('href') === '#') {
@@ -18,7 +18,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     align-items: ${isCentered ? 'center' : 'flex-start'};
     ${isPadded ? 'padding: 12px 14px;' : ''}
   `;
-  const stylesheet = `https://cdn.jsdelivr.net/gh/rrenildopereiraa/yumma-css@${isVersion}/dist/yumma.css`;
+  const stylesheet = `https://cdn.jsdelivr.net/npm/yummacss@${isVersion}/dist/yumma.css`;
 
   const iframe = `
     <html>
