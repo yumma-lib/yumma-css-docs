@@ -8,11 +8,9 @@ import { Sandpack } from "@codesandbox/sandpack-react";
 
 Welcome to the playground page! Here you can play with Yumma CSS, try different styles, Librarys and elements and see how they interact in real time using React.
 
-:::info Use the latest version
-Please note that Yumma CSS Playground will automatically use the latest available version of Yumma CSS.
-:::
-
-<Sandpack theme="auto" files={{
+<Sandpack
+   theme="auto"
+   files={{
 
 "/App.js": {
 code: `import React from "react";
@@ -27,14 +25,14 @@ const App = () => {
       <div>
          <Header appName="Yumma CSS" />
             <section class="lg:px-18 pos-r pt-4 px-8">
-               <div class="lg:py-18 mx-auto py-10 sm:py-16">
+               <div class="lg:py-18 mx-auto py-4 sm:py-16">
                   <div class="ta-c">
-                     <h1 class="fs-3xl">Simplicity Yumma CSS</h1>
+                     <h1 class="fs-3xl">Built Using Yumma CSS</h1>
                      <p class="fs-lg lh-5 mt-2 t-d-lead-1">
                         You can design minimalist components with Yumma CSS and integrate them into your projects!
                      </p>
                      <div class="cg-6 ins mt-3">
-                        <a href="/" class="btn-indigo fw-600 t-white">Get started</a>
+                        <a href="#" class="btn-indigo fw-600 t-white">Get started</a>
                      </div>
                   </div>
                </div>
@@ -53,45 +51,54 @@ code: `import React, { useState } from "react";
 
 import { IoMenu, IoClose } from "react-icons/io5";
 
+import clsx from 'clsx';
+
 const Header = ({ appName }) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
+   setShowDropdown(!showDropdown);
   };
 
+   const dropdown = clsx({
+      'fb-full': true,
+      'fg-1': true,
+      'ovf-h': true,
+      'sm:d-b': true,
+      'd-none': !showDropdown
+   });
+
   return (
-   <header className="bg-transparent d-f fw-w py-1 sm:fw-nw sm:jc-s sm:py-0 w-full zi-50">
+    <header className="bg-transparent d-f fw-w py-1 sm:fw-nw sm:jc-s sm:py-0 w-full zi-50">
       <nav className="lg:px-3 mx-auto pos-r px-1 sm:ai-c sm:d-f sm:jc-b sm:px-2 w-full">
-         <div className="ai-c d-f jc-b">
-            <a className="f-none fs-lg fw-600 t-d-lead-1" href="/">
-               {appName}
+        <div className="ai-c d-f jc-b">
+          <a className="f-none fs-lg fw-600 t-d-lead-1" href="#">
+            {appName}
+          </a>
+          <div className="ml-auto sm:d-none">
+            <button
+              className="c-p ai-c bg-transparent cg-2 d-f dim-9 fw-600 jc-c rad-1"
+              onClick={toggleDropdown}
+            >
+              {showDropdown ? <IoClose className="flex-shrink-0 size-4" /> : <IoMenu className="flex-shrink-0 size-4" />}
+            </button>
+          </div>
+        </div>
+        <div className={dropdown}>
+          <div className="cg-0 d-f fd-c mt-2 rg-4 sm:ai-c sm:cg-3 sm:fd-r sm:jc-e sm:mt-0 sm:rg-0">
+            <a className="fs-sm fw-600 h:t-indigo sm:py-2 t-d-lead-1" href="#">
+              Docs
             </a>
-            <div className="ml-auto sm:d-none">
-               <button className="c-p ai-c bg-transparent cg-2 d-f dim-9 fw-600 jc-c rad-1" onClick={toggleDropdown}>
-                  {showDropdown ?
-                  <IoClose className="flex-shrink-0 size-4" /> :
-                  <IoMenu className="flex-shrink-0 size-4" />}
-               </button>
-            </div>
-         </div>
-         {showDropdown && (
-         <div className="fb-full fg-1 ovf-h sm:d-b">
-            <div className="cg-0 d-f fd-c mt-2 rg-4 sm:ai-c sm:cg-3 sm:fd-r sm:jc-e sm:mt-0 sm:rg-0">
-               <a className="fs-sm fw-600 h:t-indigo sm:py-2 t-d-lead-1" href="/">
-                  Docs
-               </a>
-               <a className="fs-sm fw-600 h:t-indigo sm:py-2 t-d-lead-1" href="/">
-                  Playground
-               </a>
-               <a className="fs-sm fw-600 h:t-indigo sm:py-2 t-d-lead-1" href="/">
-                  Yumma CSS
-               </a>
-            </div>
-         </div>
-         )}
+            <a className="fs-sm fw-600 h:t-indigo sm:py-2 t-d-lead-1" href="#">
+              Playground
+            </a>
+            <a className="fs-sm fw-600 h:t-indigo sm:py-2 t-d-lead-1" href="#">
+              Examples
+            </a>
+          </div>
+        </div>
       </nav>
-   </header>
+    </header>
   );
 };
 
@@ -125,7 +132,8 @@ export default Footer;
 customSetup={{
    dependencies: {
    "yummacss": "latest",
-   "react-icons": "latest"
+   "react-icons": "latest",
+   "clsx": "latest"
 }
 }}
  template="react"
