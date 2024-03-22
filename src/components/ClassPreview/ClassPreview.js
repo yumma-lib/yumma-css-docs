@@ -19,7 +19,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     ${isPadded ? 'padding: 12px 14px;' : ''}
   `;
 
-  const stylesheet = `https://cdn.jsdelivr.net/npm/yummacss@${isVersion}/dist/yumma.css`;
+  const stylesheet = `https://cdn.jsdelivr.net/gh/rrenildopereiraa/yumma-css@${isVersion}/dist/yumma.css`;
 
   const iframe = `
     <html>
