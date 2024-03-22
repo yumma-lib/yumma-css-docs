@@ -1,24 +1,24 @@
-import { Sandpack } from "@codesandbox/sandpack-react";
+import styles from './index.modules.css';
+import logo from '@site/static/img/yummacss.png';
+
+import GridList from '@site/src/components/GridList/GridList';
+
+import React from "react";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import GridList from '@site/src/components/GridList/GridList';
-import logo from '@site/static/img/yummacss.png';
-import React from "react";
-
-import styles from './index.modules.css';
 
 const Index = () => {
     const { siteConfig } = useDocusaurusContext();
 
     return (
         <div>
-            <div className={styles.yma__hero}>
+            <div className={styles.yma__header}>
                 <div>
-                    <img className={styles.yma__heroLogo} src={logo} alt="Yumma CSS Logo" />
+                    <img src={logo} alt="Yumma CSS Logo" />
                     <h1 className={styles.yma__heading}>{siteConfig.title}</h1>
                     <p className={styles.yma__description}>Build beautiful websites with small class names</p>
-                    <Link className={styles.yma__Button} to='/docs/intro'>Read Docs</Link>
-                    <Link className={styles.yma__SecondaryButton} to='/playground'>Try It Now</Link>
+                    <Link className={styles.yma__primary__button} to='/docs/intro'>Read Docs</Link>
+                    <Link className={styles.yma__secondary__button} to='/playground'>Try It Now</Link>
                 </div>
             </div>
 
@@ -61,7 +61,7 @@ const Index = () => {
                 />
             </section>
 
-            <section className={styles.yma__hero}>
+            <section className={styles.yma__header}>
                 <h1 className={styles.yma__heading}>Interface Components</h1>
                 <p className={styles.yma__description}>Use or build your own interface components using classes like <code>d-f</code>, <code>nav-white</code>, <code>t-lead</code> and much more!</p>
 
