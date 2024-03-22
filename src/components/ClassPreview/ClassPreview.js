@@ -18,6 +18,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     align-items: ${isCentered ? 'center' : 'flex-start'};
     ${isPadded ? 'padding: 12px 14px;' : ''}
   `;
+  
   const stylesheet = `https://cdn.jsdelivr.net/npm/yummacss@${isVersion}/dist/yumma.css`;
 
   const iframe = `
