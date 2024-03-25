@@ -214,11 +214,11 @@ const config = {
         additionalLanguages: ['sass', 'scss', 'bash'],
       },
       algolia: {
-        appId: process.env.APP_ID,
-        apiKey: process.env.API_KEY,
+        appId: 'CVWK48NWBT',
+        apiKey: '3cb030e87cdc3320fd915c88121e2d0b',
         indexName: 'yummacss',
         contextualSearch: true,
-        externalUrlRegex: "external\\.com|domain\\.com",
+        externalUrlRegex: 'external\\.com|domain\\.com',
         searchParameters: {}
       }
     }),
