@@ -61,7 +61,7 @@ const config = {
       colorMode: {
         respectPrefersColorScheme: true
       },
-      image: 'img/yummacss-social-card.jpg',
+      image: 'img/yummacss-social-card.png',
       navbar: {
         title: 'Yumma CSS',
         logo: {
