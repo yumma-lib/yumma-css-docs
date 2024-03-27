@@ -30,7 +30,7 @@ Keep up to date with the latest news from Yumma CSS by following us on our socia
 - [Join our Discord](https://discord.gg/2MUw2g6FCn)
 - [Follow us on Twitter](https://twitter.com/yummacss)
 
-![Welcome Banner](./banner.png)
+![Welcome Banner](./welcome.png)
 
 ## Give it a try now
 
