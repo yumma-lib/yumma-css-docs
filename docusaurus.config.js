@@ -213,7 +213,7 @@ const config = {
       },
       algolia: {
         appId: 'CVWK48NWBT',
-        apiKey: '3cb030e87cdc3320fd915c88121e2d0b',
+        apiKey: '0eb21812ea5662cac2ffe85f43370304',
         indexName: 'yummacss',
         contextualSearch: true,
         externalUrlRegex: 'external\\.com|domain\\.com',
