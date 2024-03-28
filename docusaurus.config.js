@@ -215,9 +215,7 @@ const config = {
         appId: 'CVWK48NWBT',
         apiKey: '0eb21812ea5662cac2ffe85f43370304',
         indexName: 'yummacss',
-        contextualSearch: true,
-        externalUrlRegex: 'external\\.com|domain\\.com',
-        searchParameters: {}
+        contextualSearch: true
       }
     }),
 };
