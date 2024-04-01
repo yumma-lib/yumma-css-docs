@@ -225,7 +225,7 @@ const config = {
       '@docusaurus/plugin-sitemap',
       {
         lastmod: 'date',
-        changefreq: 'weekly',
+        changefreq: 'always',
         priority: 0.5,
         ignorePatterns: ['/tags/**'],
         filename: 'sitemap.xml',
