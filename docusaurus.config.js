@@ -18,7 +18,6 @@ const config = {
     defaultLocale: 'en',
     locales: ['en']
   },
-
   presets: [
     [
       'classic',
@@ -29,21 +28,25 @@ const config = {
           editUrl: "https://github.com/yumma-lib/yumma-css-docs/blob/release",
           includeCurrentVersion: false
         },
-
         blog: {
           postsPerPage: 5,
           blogSidebarTitle: 'Latest blogs',
           showReadingTime: true,
           blogSidebarCount: 5
         },
+        sitemap: {
+          lastmod: 'date',
+          changefreq: 'always',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
     ],
-    
   ],
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -218,20 +221,7 @@ const config = {
         indexName: 'yummacss',
         contextualSearch: true
       }
-    }),
-  
-  plugins: [
-    [
-      '@docusaurus/plugin-sitemap',
-      {
-        lastmod: 'date',
-        changefreq: 'always',
-        priority: 0.5,
-        ignorePatterns: ['/tags/**'],
-        filename: 'sitemap.xml',
-      },
-    ],
-  ],
+    })
 };
 
 module.exports = config;
