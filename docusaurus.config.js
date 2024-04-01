@@ -41,6 +41,7 @@ const config = {
         },
       }),
     ],
+    
   ],
 
   themeConfig:
@@ -218,6 +219,19 @@ const config = {
         contextualSearch: true
       }
     }),
+  
+  plugins: [
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        lastmod: 'date',
+        changefreq: 'weekly',
+        priority: 0.5,
+        ignorePatterns: ['/tags/**'],
+        filename: 'sitemap.xml',
+      },
+    ],
+  ],
 };
 
 module.exports = config;
