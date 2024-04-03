@@ -22,27 +22,6 @@
   --ifm-background-color: rgb(23, 26, 32) !important;
   --ifm-navbar-background-color: rgb(23, 26, 32);
   --ifm-footer-background-color: rgb(23, 26, 32);
-
-  .navbar {
-    border: none;
-  }
-
-  .pagination-nav__link {
-    border: none;
-  }
-
-  .dropdown__menu {
-    background-color: #20232a;
-  }
-
-  .dropdown__link:hover {
-    background-color: #1a1c22;
-  }
-
-  pre {
-    border-color: #2d2f33;
-    background-color: #20232a !important;
-  }
 }
 
 .navbar {
@@ -112,4 +91,31 @@ pre {
   border: 1px solid #ccc;
   background-color: white !important;
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+[data-theme='dark'] {
+
+  .navbar,
+  pagination-nav__link {
+    border: none;
+  }
+}
+
+[data-theme='dark'] {
+  .dropdown__menu {
+    background-color: #20232a;
+  }
+}
+
+[data-theme='dark'] {
+  .dropdown__link:hover {
+    background-color: #1a1c22;
+  }
+}
+
+[data-theme='dark'] {
+  pre {
+    border-color: #2d2f33;
+    background-color: #20232a !important;
+  }
 }
