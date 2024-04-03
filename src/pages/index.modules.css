@@ -1,5 +1,5 @@
 .yma__header {
-  background-color: #f6f8fa;
+  background-color: #f7f7f7;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -80,7 +80,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #f6f8fa;
+  background-color: #f7f7f7;
   padding: 4rem 18rem;
 }
 

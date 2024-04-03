@@ -47,12 +47,6 @@ const config = {
         minHeadingLevel: 2,
         maxHeadingLevel: 5
       },
-      announcementBar: {
-        content: 'Announcing Yumma CSS 1.2!',
-        backgroundColor: '#20232a',
-        textColor: '#e6e6e6',
-        isCloseable: true
-      },
       colorMode: {
         defaultMode: 'dark',
         disableSwitch: false,
