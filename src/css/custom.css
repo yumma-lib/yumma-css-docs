@@ -19,8 +19,14 @@
   --ifm-color-primary-light: rgb(240, 22, 163);
   --ifm-color-primary-lighter: rgb(244, 45, 180);
   --ifm-color-primary-lightest: rgb(246, 79, 203);
-  --ifm-footer-background-color: rgb(22, 22, 23);
-  --ifm-navbar-background-color: rgb(27, 27, 29);
+  --ifm-background-color: rgb(23, 26, 32) !important;
+  --ifm-navbar-background-color: rgb(23, 26, 32);
+  --ifm-footer-background-color: rgb(23, 26, 32);
+
+  pre {
+    border-color: #2d2f33;
+    background-color: #20232a !important;
+  }
 }
 
 body {
@@ -30,6 +36,13 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+pre {
+  margin-top: 2rem;
+  border: 1px solid #ccc;
+  background-color: white !important;
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .menu {
@@ -52,14 +65,10 @@ html {
   border: none;
 }
 
-pre {
-  margin-top: 2rem;
-  border: 1px solid #ccc;
-  background-color: white !important;
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+.dropdown__menu {
+  background-color: #20232a;
 }
 
-[data-theme='dark'] pre {
-  border-color: #2d2f33;
-  background-color: #20232a !important;
+.dropdown__link:hover {
+  background-color: #1a1c22;
 }

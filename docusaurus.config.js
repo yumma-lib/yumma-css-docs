@@ -49,11 +49,13 @@ const config = {
       },
       announcementBar: {
         content: 'Announcing Yumma CSS 1.2!',
-        backgroundColor: '#272729',
+        backgroundColor: '#20232a',
         textColor: '#fff',
-        isCloseable: false
+        isCloseable: true
       },
       colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
         respectPrefersColorScheme: true
       },
       image: 'img/yummacss-social-card.png',

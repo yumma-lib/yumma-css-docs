@@ -62,17 +62,6 @@ export default function Index() {
                         ]}
                     />
                 </section>
-
-                <section className={styles.yma__header}>
-                    <h1 className={styles.yma__heading}>Interface Components</h1>
-                    <p className={styles.yma__description}>Use or build your own interface components using classes like <code>d-f</code>, <code>nav-white</code>, <code>t-lead</code> and much more!</p>
-                </section>
-
-                <section className={styles.yma__section}>
-                    <h1 className={styles.yma__heading}>Getting Started</h1>
-                    <p className={styles.yma__description}>Start by including Yumma CSS in your project</p>
-                    <pre>npm i yummacss@latest</pre>
-                </section>
             </div>
         </Layout>
     );
