@@ -98,9 +98,12 @@ pre {
   border: none;
 }
 
-[data-theme='dark'] .dropdown__menu,
-.dropdown__link:hover {
+[data-theme='dark'] .dropdown__menu {
   background-color: #20232a;
+}
+
+[data-theme='dark'] .dropdown__link:hover {
+  background-color: #171a20;
 }
 
 [data-theme='dark'] pre {
