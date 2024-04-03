@@ -24,7 +24,7 @@
   --ifm-footer-background-color: rgb(23, 26, 32);
 
   .navbar {
-    border-bottom: none;
+    border: none;
   }
 
   .pagination-nav__link {
