@@ -94,9 +94,13 @@ pre {
 }
 
 [data-theme='dark'] {
+  .navbar {
+    border: none;
+  }
+}
 
-  .navbar,
-  pagination-nav__link {
+[data-theme='dark'] {
+  .pagination-nav__link {
     border: none;
   }
 }
