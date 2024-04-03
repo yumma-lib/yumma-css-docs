@@ -33,7 +33,7 @@
 }
 
 [data-theme='dark'] .classList {
-    background-color: #1b1b1d;
+    background-color: #171a20;
 }
 
 [data-theme='dark'] .classItem {
@@ -43,6 +43,6 @@
 }
 
 [data-theme='dark'] .propertyCode {
-    background-color: #1b1b1d;
+    background-color: #171a20;
     color: white;
 }
