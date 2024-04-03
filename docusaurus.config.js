@@ -50,7 +50,7 @@ const config = {
       announcementBar: {
         content: 'Announcing Yumma CSS 1.2!',
         backgroundColor: '#20232a',
-        textColor: '#fff',
+        textColor: '#e6e6e6',
         isCloseable: true
       },
       colorMode: {
