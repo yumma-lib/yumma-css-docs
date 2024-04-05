@@ -167,13 +167,17 @@ const config = {
         darkTheme: vortyx.dark,
         additionalLanguages: ['sass', 'scss', 'bash'],
       },
-      algolia: {
-        appId: 'CVWK48NWBT',
-        apiKey: '3cb030e87cdc3320fd915c88121e2d0b',
-        indexName: 'yummacss',
-        contextualSearch: true
-      }
-    })
+      // algolia: {
+      //   appId: 'CVWK48NWBT',
+      //   apiKey: '3cb030e87cdc3320fd915c88121e2d0b',
+      //   indexName: 'yummacss',
+      //   contextualSearch: true
+      // }
+    }),
+
+  plugins: [[require.resolve('docusaurus-lunr-search'), {
+    languages: ['en']
+  }]],
 };
 
 module.exports = config;
