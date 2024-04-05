@@ -77,6 +77,10 @@
   border-left: none;
 }
 
+.theme-code-block-highlighted-line {
+  background-color: #f4f4f4 !important;
+}
+
 body {
   font-family: system-ui, sans-serif;
   font-weight: 500;
@@ -104,6 +108,10 @@ pre {
 
 [data-theme='dark'] .dropdown__link:hover {
   background-color: #171a20;
+}
+
+[data-theme='dark'] .theme-code-block-highlighted-line {
+  background-color: #1a1c22 !important;
 }
 
 [data-theme='dark'] pre {

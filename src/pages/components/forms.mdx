@@ -2,7 +2,7 @@
 title: Forms
 ---
 
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Forms
 
@@ -10,30 +10,54 @@ Essential form components.
 
 ### Input
 
-<ClassPreview
-  codeData={`
-    <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="First Name"></input>
-  `}
-  isPadded = {true}
-  isCentered = {true}
-  isVersion = '1.1.0'
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+   return (
+      <div className="ins h-1/1">
+         <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="First Name"></input>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "latest" }}}
+ template="react"
+ options={{ editorHeight: 450}}
 />
 
-```html
-<input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="First Name"></input>
-```
+---
 
 ### Disabled
 
-<ClassPreview
-  codeData={`
-    <input class="c-na bc-l-gray-6 p-1 rad-1 t-d-gray-4" placeholder="First Name" disabled></input>
-  `}
-  isPadded = {true}
-  isCentered = {true}
-  isVersion = '1.1.0'
-/>
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
 
-```html
-<input class="c-na bc-l-gray-6 p-1 rad-1 t-d-gray-4" placeholder="First Name" disabled></input>
-```
+const App = () => {
+   return (
+      <div className="ins h-1/1">
+         <input class="c-na bc-l-gray-6 o-50 p-1 rad-1 t-d-gray-4" placeholder="First Name" value="Renildo Pereira" disabled></input>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "latest" }}}
+ template="react"
+ options={{ editorHeight: 450}}
+/>

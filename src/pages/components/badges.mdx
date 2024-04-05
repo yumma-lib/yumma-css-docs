@@ -2,7 +2,7 @@
 title: Badges
 ---
 
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Badges
 
@@ -10,30 +10,54 @@ Enhance the context of content with small visual elements that effectively highl
 
 ### Badge
 
-<ClassPreview
-  codeData={`
-    <span class="badge-black mr-1 t-white">Badge</span>
-  `}
-  isPadded = {true}
-  isCentered = {true}
-  isVersion = 'latest'
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+   return (
+      <div className="ins h-1/1">
+         <span class="badge-black mr-1 t-white">Badge</span>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "latest" }}}
+ template="react"
+ options={{ editorHeight: 450}}
 />
 
-```html
-<span class="badge-black mr-1 t-white">Badge</span>
-```
+---
 
 ### Success
 
-<ClassPreview
-  codeData={`
-    <span class="badge-d-green-2 mr-1 t-white">Success</span>
-  `}
-  isPadded = {true}
-  isCentered = {true}
-  isVersion = 'latest'
-/>
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
 
-```html
-<span class="badge-d-green-2 mr-1 t-white">Success</span>
-```
+const App = () => {
+   return (
+      <div className="ins h-1/1">
+         <span class="badge-d-green-2 mr-1 t-white">Success</span>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "latest" }}}
+ template="react"
+ options={{ editorHeight: 450}}
+/>

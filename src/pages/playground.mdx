@@ -24,15 +24,15 @@ const App = () => {
    return (
       <div>
          <Header appName="Yumma CSS" />
-            <section class="lg:px-18 pos-r pt-4 px-8">
-               <div class="lg:py-18 mx-auto py-4 sm:py-16">
-                  <div class="ta-c">
-                     <h1 class="fs-3xl">Built Using Yumma CSS</h1>
-                     <p class="fs-lg lh-5 mt-2 t-d-lead-1">
+            <section className="lg:px-18 pos-r pt-4 px-8">
+               <div className="lg:py-18 mx-auto py-4 sm:py-16">
+                  <div className="ta-c">
+                     <h1 className="fs-3xl">Built Using Yumma CSS</h1>
+                     <p className="fs-lg lh-5 mt-2 t-d-lead-1">
                         You can design minimalist components with Yumma CSS and integrate them into your projects!
                      </p>
-                     <div class="cg-6 ins mt-3">
-                        <a href="#" class="btn-indigo fw-600 t-white">Get started</a>
+                     <div className="cg-6 ins mt-3">
+                        <a href="#" className="btn-indigo fw-600 t-white">Get started</a>
                      </div>
                   </div>
                </div>
@@ -80,7 +80,7 @@ const Header = ({ appName }) => {
               className="c-p ai-c bg-transparent cg-2 d-f dim-9 fw-600 jc-c rad-1"
               onClick={toggleDropdown}
             >
-              {showDropdown ? <IoClose className="flex-shrink-0 size-4" /> : <IoMenu className="flex-shrink-0 size-4" />}
+              {showDropdown ? <IoClose className="fs-0 dim-4" /> : <IoMenu className="fs-0 dim-4" />}
             </button>
           </div>
         </div>
@@ -111,11 +111,11 @@ code: `import React from "react";
 
 const Footer = ({appName}) => {
    return ( 
-      <footer class="bg-white mt-5 pb-4 pt-3">
-         <div class="ta-c w-full">
-            <div class="m-auto">
-               <h4 class="fs-md">{appName}</h4>
-               <span class="fs-sm t-d-gray-6">
+      <footer className="bg-white mt-5 pb-4 pt-3">
+         <div className="ta-c w-full">
+            <div className="m-auto">
+               <h4 className="fs-md">{appName}</h4>
+               <span className="fs-sm t-d-gray-6">
                   <p>© {appName}. All Rights Reserved.</p>
                </span>
             </div>

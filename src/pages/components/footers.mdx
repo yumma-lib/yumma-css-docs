@@ -2,7 +2,7 @@
 title: Footers
 ---
 
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Footers
 
@@ -10,33 +10,35 @@ Bottom sections act as important hubs for key links and copyright information, e
 
 ### Footer
 
-<ClassPreview
-  codeData={`
-    <footer class="mt-5 pb-4 pt-3">
-        <div class="ta-c w-full">
-            <div class="m-auto">
-                <h2>Yumma CSS</h2>
-                <span class="fs-sm t-d-gray-6">
-                    <p>&copy Yumma CSS. All Rights Reserved.</p>
-                </span>
-            </div>
-        </div>
-    </footer>
-  `}
-  isPadded = {false}
-  isCentered = {false}
-  isVersion = 'latest'
-/>
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
 
-```html
-<footer class="mt-5 pb-4 pt-3">
-    <div class="ta-c w-full">
-        <div class="m-auto">
-            <h2>Yumma CSS</h2>
-            <span class="fs-sm t-d-gray-6">
-                <p>&copy Yumma CSS. All Rights Reserved.</p>
-            </span>
-        </div>
-    </div>
-</footer>
-```
+const App = () => {
+   return (
+      <div>
+         <footer class="mt-5 pb-4 pt-3">
+            <div class="ta-c w-full">
+                <div class="m-auto">
+                    <h2>Yumma CSS</h2>
+                    <span class="fs-sm t-d-gray-6">
+                        <p>© Yumma CSS. All Rights Reserved.</p>
+                    </span>
+                </div>
+            </div>
+        </footer>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "latest" }}}
+ template="react"
+ options={{ editorHeight: 450}}
+/>

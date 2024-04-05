@@ -2,7 +2,7 @@
 title: Navbars
 ---
 
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Navbars
 
@@ -10,29 +10,38 @@ Top horizontal bars for navigation
 
 ### Navbar
 
-<ClassPreview
-  codeData={`
-    <nav class="nav-white">
-      <h1>Yumma CSS</h1>
-      <ul class="d-f">
-        <li class="fw-600 ml-1 h:t-magenta"><a href="#">Docs</a></li>
-        <li class="fw-600 ml-1 h:t-magenta"><a href="#">Editor</a></li>
-        <li class="fw-600 ml-1 h:t-magenta"><a href="#">Playground</a></li>
-      </ul>
-    </nav>
-  `}
-  isPadded = {false}
-  isCentered = {false}
-  isVersion = 'latest'
-/>
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
 
-```html
-<nav class="nav-white">
-  <h1>Yumma CSS</h1>
-  <ul class="d-f">
-    <li class="ml-1 h:t-magenta"><a href="#">Docs</a></li>
-    <li class="ml-1 h:t-magenta"><a href="#">Editor</a></li>
-    <li class="ml-1 h:t-magenta"><a href="#">Playground</a></li>
-  </ul>
-</nav>
-```
+import { IoMenu } from "react-icons/io5";
+
+const App = () => {
+   return (
+      <div>
+         <nav class="nav-white">
+          <h1 >Yumma CSS</h1>
+          <div class="sm:d-none">
+            <IoMenu class="c-p" size={20} />
+          </div>
+          <ul class="d-none sm:d-f">
+            <li class="ml-1 h:t-blue"><a href="#">Docs</a></li>
+            <li class="ml-1 h:t-blue"><a href="#">Editor</a></li>
+            <li class="ml-1 h:t-blue"><a href="#">Playground</a></li>
+          </ul>
+        </nav>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" }}}
+ template="react"
+ options={{ editorHeight: 450}}
+/>

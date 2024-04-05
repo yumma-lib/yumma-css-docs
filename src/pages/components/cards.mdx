@@ -2,27 +2,35 @@
 title: Cards
 ---
 
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Cards
 
 Versatile containers that elegantly present content in a well-structured and visually appealing way.
 
-<ClassPreview
-  codeData={`
-    <div class="bg-white card rad-1">
-      <h1 class="card-t t-gray-5">Showcase</h1>
-      <p class="card-b">Share your beautiful projects with our team!</p>
-    </div>
-  `}
-  isPadded = {true}
-  isCentered = {true}
-  isVersion = 'latest'
-/>
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
 
-```html
-<div class="bg-white card rad-1">
-  <h1 class="card-t t-gray-5">Showcase</h1>
-  <p class="card-b">Share your beautiful projects with our team!</p>
-</div>
-```
+const App = () => {
+   return (
+      <div className="m-2">
+         <div class="bg-white card rad-1">
+          <h1 class="card-t t-gray-5">Showcase</h1>
+          <p class="card-b">Share your beautiful projects with our team!</p>
+        </div>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "latest" }}}
+ template="react"
+ options={{ editorHeight: 450}}
+/>

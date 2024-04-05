@@ -2,7 +2,7 @@
 title: Buttons
 ---
 
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Buttons
 
@@ -10,33 +10,59 @@ Interactive elements designed to act and encourage greater user engagement.
 
 ### Button
 
-<ClassPreview
-  codeData={`
-    <button class="btn-black t-white">Button</button>
-  `}
-  isPadded = {true}
-  isCentered = {true}
-  isVersion = 'latest'
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+   return (
+      <div className="ins h-1/1">
+         <button class="btn-black t-white">Button</button>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "latest" }}}
+ template="react"
+ options={{ editorHeight: 450}}
 />
 
-```html
-<button class="btn-black t-white">Button</button>
-```
+---
 
 ### Outlined
 
-<ClassPreview
-  codeData={`
-    <button class="btn-otl-black h:t-white mr-1 mt-1 t-black">Outlined</button>
-  `}
-  isPadded = {true}
-  isCentered = {true}
-  isVersion = 'latest'
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+   return (
+      <div className="ins h-1/1">
+         <button class="btn-otl-black h:t-white mr-1 mt-1 t-black">Outlined</button>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "latest" }}}
+ template="react"
+ options={{ editorHeight: 450}}
 />
 
-```html
-<button class="btn-otl-black h:t-white mr-1 mt-1 t-black">Outlined</button>
-```
+---
 
 ### Complement
 
@@ -44,15 +70,26 @@ Interactive elements designed to act and encourage greater user engagement.
 Complement buttons are no longer available in the latest versions. If you want to use complement buttons, consider using Yumma CSS versions before to v1.1.0.
 :::
 
-<ClassPreview
-  codeData={`
-    <button class="btn-cmp-gray h:t-white mr-1 mt-1 t-black">Complement</button>
-  `}
-  isPadded = {true}
-  isCentered = {true}
-  isVersion = '1.1.0'
-/>
+<Sandpack
+  theme="auto"
+  files={{
+    "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
 
-```html
-<button class="btn-cmp-gray h:t-white mr-1 mt-1 t-black">Complement</button>
-```
+const App = () => {
+   return (
+      <div className="ins h-1/1">
+         <button class="btn-cmp-gray h:t-white mr-1 mt-1 t-black">Complement</button>
+      </div>
+   );
+}
+
+export default App;
+`,
+},
+  }}
+customSetup={{ dependencies: { "yummacss": "1.1.0" }}}
+ template="react"
+ options={{ editorHeight: 450}}
+/>
