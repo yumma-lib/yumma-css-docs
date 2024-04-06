@@ -167,8 +167,8 @@ const config = {
         additionalLanguages: ['sass', 'scss', 'bash'],
       },
       // algolia: {
-      //   appId: 'CVWK48NWBT',
-      //   apiKey: '3cb030e87cdc3320fd915c88121e2d0b',
+      //   appId: '',
+      //   apiKey: '',
       //   indexName: 'yummacss',
       //   contextualSearch: true
       // }

@@ -1,5 +1,5 @@
 .yma__header {
-  background-color: #f7f7f7;
+  background-color: var(--yma-bg-light);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +41,7 @@
 }
 
 .yma__primary__button {
-  background-color: #dd0987;
+  background-color: var(--ifm-color-primary);
   line-height: 1.5;
   padding: 0.8rem 2rem;
   margin: 1rem;
@@ -64,12 +64,12 @@
   margin: 1rem;
   font-weight: bold;
   border-radius: 12px;
-  color: #171a20;
+  color: var(--yma-bg-darker);
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .yma__secondary__button:hover {
-  color: #171a20;
+  color: var(--yma-bg-darker);
   text-decoration: none;
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
@@ -80,7 +80,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background-color: #f7f7f7;
+  background-color: var(--yma-bg-light);
   padding: 4rem 18rem;
 }
 
@@ -110,8 +110,8 @@
 }
 
 [data-theme='dark'] .yma__header {
-  background-color: #171a20;
-  border-color: #171a20;
+  background-color: var(--yma-bg-darker);
+  border-color: var(--yma-bg-darker);
 }
 
 [data-theme='dark'] .yma__heading {
@@ -123,5 +123,5 @@
 }
 
 [data-theme='dark'] .yma__section {
-  background-color: #171a20;
+  background-color: var(--yma-bg-darker);
 }

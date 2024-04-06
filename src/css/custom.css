@@ -1,4 +1,9 @@
 :root {
+  /* Yumma CSS variables */
+  --yma-bg-light: rgb(247, 247, 247);
+  --yma-bg-lighter: rgb(255, 255, 255);
+
+  /* Infima variables */
   --ifm-color-primary: rgb(220, 9, 136);
   --ifm-color-primary-dark: rgb(188, 6, 115);
   --ifm-color-primary-darker: rgb(158, 5, 94);
@@ -7,11 +12,15 @@
   --ifm-color-primary-lighter: rgb(244, 47, 182);
   --ifm-color-primary-lightest: rgb(246, 81, 205);
   --ifm-footer-background-color: rgb(246, 248, 250);
-  --ifm-code-font-size: 95%;
   --ifm-menu-color-background-active: rgba(246, 81, 205, 0.077);
 }
 
 [data-theme='dark'] {
+  /* Yumma CSS variables */
+  --yma-bg-dark: rgb(35, 39, 47);
+  --yma-bg-darker: rgb(32, 35, 42);
+
+  /* Infima variables */
   --ifm-color-primary: rgb(220, 9, 136);
   --ifm-color-primary-dark: rgb(188, 6, 114);
   --ifm-color-primary-darker: rgb(160, 5, 96);
@@ -19,9 +28,9 @@
   --ifm-color-primary-light: rgb(240, 22, 163);
   --ifm-color-primary-lighter: rgb(244, 45, 180);
   --ifm-color-primary-lightest: rgb(246, 79, 203);
-  --ifm-background-color: rgb(23, 26, 32) !important;
-  --ifm-navbar-background-color: rgb(23, 26, 32);
-  --ifm-footer-background-color: rgb(23, 26, 32);
+  --ifm-background-color: var(--yma-bg-darker) !important;
+  --ifm-navbar-background-color: var(--yma-bg-darker);
+  --ifm-footer-background-color: var(--yma-bg-darker);
 }
 
 .navbar {

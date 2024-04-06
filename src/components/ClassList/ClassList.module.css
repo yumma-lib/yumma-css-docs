@@ -38,11 +38,11 @@
 
 [data-theme='dark'] .classItem {
     background-color: #20232a;
-    color: white;
+    color: var(--yma-bg-lighter);
     border: 1px solid #2d2f33;
 }
 
 [data-theme='dark'] .propertyCode {
     background-color: #171a20;
-    color: white;
+    color: var(--yma-bg-lighter);
 }
