@@ -33,16 +33,16 @@
 }
 
 [data-theme='dark'] .classList {
-    background-color: #171a20;
+    background-color: var(--yma-bg-darker);
 }
 
 [data-theme='dark'] .classItem {
-    background-color: #20232a;
+    background-color: var(--yma-bg-dark);
     color: var(--yma-bg-lighter);
     border: 1px solid #2d2f33;
 }
 
 [data-theme='dark'] .propertyCode {
-    background-color: #171a20;
+    background-color: var(--yma-bg-darker);
     color: var(--yma-bg-lighter);
 }

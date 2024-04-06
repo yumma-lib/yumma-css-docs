@@ -173,7 +173,7 @@ const config = {
       //   contextualSearch: true
       // }
     }),
-
+  
   plugins: [[require.resolve('docusaurus-lunr-search'), {
     languages: ['en']
   }]],

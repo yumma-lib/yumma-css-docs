@@ -112,11 +112,11 @@ pre {
 }
 
 [data-theme='dark'] .dropdown__menu {
-  background-color: #20232a;
+  background-color: var(--yma-bg-dark);
 }
 
 [data-theme='dark'] .dropdown__link:hover {
-  background-color: #171a20;
+  background-color: var(--yma-bg-darker);
 }
 
 [data-theme='dark'] .theme-code-block-highlighted-line {
@@ -125,5 +125,5 @@ pre {
 
 [data-theme='dark'] pre {
   border-color: #2d2f33;
-  background-color: #20232a !important;
+  background-color: var(--yma-bg-dark) !important;
 }
