@@ -23,21 +23,21 @@ import Footer from "./Footer";
 const App = () => {
    return (
       <div>
-         <Header appName="Yumma CSS" />
-            <section className="lg:px-18 pos-r pt-4 px-8">
-               <div className="lg:py-18 mx-auto py-4 sm:py-16">
-                  <div className="ta-c">
-                     <h1 className="fs-3xl">Built Using Yumma CSS</h1>
-                     <p className="fs-lg lh-5 mt-2 t-d-lead-1">
+         <Header title="Yumma CSS" />
+            <section class="lg:px-18 pos-r pt-4 px-8">
+               <div class="lg:py-18 mx-auto py-4 sm:py-16">
+                  <div class="ta-c">
+                     <h1 class="fs-3xl">Built Using Yumma CSS</h1>
+                     <p class="fs-lg lh-5 mt-2 t-d-lead-1">
                         You can design minimalist components with Yumma CSS and integrate them into your projects!
                      </p>
-                     <div className="cg-6 ins mt-3">
-                        <a href="#" className="btn-indigo fw-600 t-white">Get started</a>
+                     <div class="cg-6 ins mt-3">
+                        <a href="#" class="btn-indigo fw-600 t-white">Get started</a>
                      </div>
                   </div>
                </div>
             </section>
-         <Footer appName="Yumma CSS" />
+         <Footer title="Yumma CSS" />
       </div>
    );
 }
@@ -47,61 +47,27 @@ export default App;
 },
 
 "/Header.js": {
-code: `import React, { useState } from "react";
+code: `import React from "react";
+import { IoMenu } from "react-icons/io5";
 
-import { IoMenu, IoClose } from "react-icons/io5";
-
-import clsx from 'clsx';
-
-const Header = ({ appName }) => {
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const toggleDropdown = () => {
-   setShowDropdown(!showDropdown);
-  };
-
-   const dropdown = clsx({
-      'fb-full': true,
-      'fg-1': true,
-      'ovf-h': true,
-      'sm:d-b': true,
-      'd-none': !showDropdown
-   });
-
-  return (
-    <header className="bg-transparent d-f fw-w py-1 sm:fw-nw sm:jc-s sm:py-0 w-full zi-50">
-      <nav className="lg:px-3 mx-auto pos-r px-1 sm:ai-c sm:d-f sm:jc-b sm:px-2 w-full">
-        <div className="ai-c d-f jc-b">
-          <a className="f-none fs-lg fw-600 t-d-lead-1" href="#">
-            {appName}
-          </a>
-          <div className="ml-auto sm:d-none">
-            <button
-              className="c-p ai-c bg-transparent cg-2 d-f dim-9 fw-600 jc-c rad-1"
-              onClick={toggleDropdown}
-            >
-              {showDropdown ? <IoClose className="fs-0 dim-4" /> : <IoMenu className="fs-0 dim-4" />}
-            </button>
+const Header = ({title}) => {
+   return ( 
+      <header>
+         <nav class="nav-white">
+          <h1>{title}</h1>
+          <div class="sm:d-none">
+            <IoMenu class="c-p" size={20} />
           </div>
-        </div>
-        <div className={dropdown}>
-          <div className="cg-0 d-f fd-c mt-2 rg-4 sm:ai-c sm:cg-3 sm:fd-r sm:jc-e sm:mt-0 sm:rg-0">
-            <a className="fs-sm fw-600 h:t-indigo sm:py-2 t-d-lead-1" href="#">
-              Docs
-            </a>
-            <a className="fs-sm fw-600 h:t-indigo sm:py-2 t-d-lead-1" href="#">
-              Playground
-            </a>
-            <a className="fs-sm fw-600 h:t-indigo sm:py-2 t-d-lead-1" href="#">
-              Examples
-            </a>
-          </div>
-        </div>
-      </nav>
-    </header>
-  );
-};
-
+          <ul class="d-none sm:d-f">
+            <li class="ml-1 fw-600 h:t-blue"><a href="#">Docs</a></li>
+            <li class="ml-1 fw-600 h:t-blue"><a href="#">Editor</a></li>
+            <li class="ml-1 fw-600 h:t-blue"><a href="#">Playground</a></li>
+          </ul>
+        </nav>
+      </header>
+   );
+}
+ 
 export default Header;
 `,
 },
@@ -109,14 +75,14 @@ export default Header;
 "/Footer.js": {
 code: `import React from "react";
 
-const Footer = ({appName}) => {
+const Footer = ({title}) => {
    return ( 
-      <footer className="bg-white mt-5 pb-4 pt-3">
-         <div className="ta-c w-full">
-            <div className="m-auto">
-               <h4 className="fs-md">{appName}</h4>
-               <span className="fs-sm t-d-gray-6">
-                  <p>© {appName}. All Rights Reserved.</p>
+      <footer class="bg-white mt-5 pb-4 pt-3">
+         <div class="ta-c w-full">
+            <div class="m-auto">
+               <h4 class="fs-md">{title}</h4>
+               <span class="fs-sm t-d-gray-6">
+                  <p>© {title}. All Rights Reserved.</p>
                </span>
             </div>
          </div>
