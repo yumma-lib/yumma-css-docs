@@ -1,9 +1,5 @@
-@ts-check
-Note: type annotations allow type checking and IDEs autocompletion
-
 const vortyx = require('./src/themes/vortyx');
 
-/** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',

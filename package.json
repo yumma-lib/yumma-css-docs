@@ -29,6 +29,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.24.1",
     "@docusaurus/module-type-aliases": "^3.2.0",
     "@docusaurus/types": "^3.2.0"
   },
