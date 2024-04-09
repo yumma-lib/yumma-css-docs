@@ -1,5 +1,5 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+@ts-check
+Note: type annotations allow type checking and IDEs autocompletion
 
 const vortyx = require('./src/themes/vortyx');
 
@@ -166,17 +166,13 @@ const config = {
         darkTheme: vortyx.dark,
         additionalLanguages: ['sass', 'scss', 'bash'],
       },
-      // algolia: {
-      //   appId: '',
-      //   apiKey: '',
-      //   indexName: 'yummacss',
-      //   contextualSearch: true
-      // }
-    }),
-  
-  plugins: [[require.resolve('docusaurus-lunr-search'), {
-    languages: ['en']
-  }]],
+      algolia: {
+        appId: '3NYT3J6P4Q',
+        apiKey: '9a3208c466723a99a1ad2344f6ce3dd0',
+        indexName: 'yummacss',
+        contextualSearch: true
+      }
+    })
 };
 
 module.exports = config;
