@@ -15,7 +15,7 @@ export default function Index() {
             <div>
                 <div className={styles.yma__header}>
                     <div>
-                        <img src={logo} alt={`${siteConfig.title} Logo`} />
+                        <img src={logo} alt={`${siteConfig.title} Logo`} style={{borderRadius: '1.5rem'}} />
                         <h1 className={styles.yma__heading}>{siteConfig.title}</h1>
                         <p className={styles.yma__description}>Build beautiful websites with small class names</p>
                         <Link className={styles.yma__primary__button} to='/docs/intro'>Read Docs</Link>
