@@ -35,18 +35,12 @@ const config = {
       }),
     ],
   ],
-  themes: ['@docusaurus/theme-search-algolia'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       tableOfContents: {
         minHeadingLevel: 2,
         maxHeadingLevel: 5
-      },
-      colorMode: {
-        defaultMode: 'dark',
-        disableSwitch: false,
-        respectPrefersColorScheme: true
       },
       image: 'img/yummacss-social-card.png',
       navbar: {
@@ -163,12 +157,77 @@ const config = {
         darkTheme: vortyx.dark,
         additionalLanguages: ['sass', 'scss', 'bash'],
       },
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: false,
+        respectPrefersColorScheme: true
+      },
       algolia: {
         appId: '3NYT3J6P4Q',
         apiKey: '9a3208c466723a99a1ad2344f6ce3dd0',
         indexName: 'yummacss',
         contextualSearch: true
-      }
+      },
+      plugins: [
+        [
+          'pwa',
+          {
+            offlineModeActivationStrategies: [
+              'appInstalled',
+              'standalone',
+              'queryString',
+            ],
+            pwaHead: [
+              {
+                tagName: 'link',
+                rel: 'icon',
+                href: 'img/yummacss.png',
+              },
+              {
+                tagName: 'link',
+                rel: 'manifest',
+                href: '/manifest.json',
+              },
+              {
+                tagName: 'meta',
+                name: 'theme-color',
+                content: 'rgb(220, 9, 136)',
+              },
+              {
+                tagName: 'meta',
+                name: 'apple-mobile-web-app-capable',
+                content: 'yes',
+              },
+              {
+                tagName: 'meta',
+                name: 'apple-mobile-web-app-status-bar-style',
+                content: '#fff',
+              },
+              {
+                tagName: 'link',
+                rel: 'apple-touch-icon',
+                href: 'img/yummacss.png',
+              },
+              {
+                tagName: 'link',
+                rel: 'mask-icon',
+                href: 'img/yummacss.png',
+                color: 'rgb(220, 9, 136)',
+              },
+              {
+                tagName: 'meta',
+                name: 'msapplication-TileImage',
+                content: 'img/yummacss.png',
+              },
+              {
+                tagName: 'meta',
+                name: 'msapplication-TileColor',
+                content: '#fff',
+              },
+            ],
+          },
+        ],
+      ],
     })
 };
 
