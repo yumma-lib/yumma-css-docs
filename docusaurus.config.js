@@ -168,67 +168,67 @@ const config = {
         indexName: 'yummacss',
         contextualSearch: true
       },
-      plugins: [
-        [
-          'pwa',
+    }),
+  plugins: [
+    [
+      'pwa',
+      {
+        offlineModeActivationStrategies: [
+          'appInstalled',
+          'standalone',
+          'queryString',
+        ],
+        pwaHead: [
           {
-            offlineModeActivationStrategies: [
-              'appInstalled',
-              'standalone',
-              'queryString',
-            ],
-            pwaHead: [
-              {
-                tagName: 'link',
-                rel: 'icon',
-                href: 'img/yummacss.png',
-              },
-              {
-                tagName: 'link',
-                rel: 'manifest',
-                href: '/manifest.json',
-              },
-              {
-                tagName: 'meta',
-                name: 'theme-color',
-                content: 'rgb(220, 9, 136)',
-              },
-              {
-                tagName: 'meta',
-                name: 'apple-mobile-web-app-capable',
-                content: 'yes',
-              },
-              {
-                tagName: 'meta',
-                name: 'apple-mobile-web-app-status-bar-style',
-                content: '#fff',
-              },
-              {
-                tagName: 'link',
-                rel: 'apple-touch-icon',
-                href: 'img/yummacss.png',
-              },
-              {
-                tagName: 'link',
-                rel: 'mask-icon',
-                href: 'img/yummacss.png',
-                color: 'rgb(220, 9, 136)',
-              },
-              {
-                tagName: 'meta',
-                name: 'msapplication-TileImage',
-                content: 'img/yummacss.png',
-              },
-              {
-                tagName: 'meta',
-                name: 'msapplication-TileColor',
-                content: '#fff',
-              },
-            ],
+            tagName: 'link',
+            rel: 'icon',
+            href: 'img/yummacss.png',
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: 'rgb(220, 9, 136)',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-capable',
+            content: 'yes',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-status-bar-style',
+            content: '#fff',
+          },
+          {
+            tagName: 'link',
+            rel: 'apple-touch-icon',
+            href: 'img/yummacss.png',
+          },
+          {
+            tagName: 'link',
+            rel: 'mask-icon',
+            href: 'img/yummacss.png',
+            color: 'rgb(220, 9, 136)',
+          },
+          {
+            tagName: 'meta',
+            name: 'msapplication-TileImage',
+            content: 'img/yummacss.png',
+          },
+          {
+            tagName: 'meta',
+            name: 'msapplication-TileColor',
+            content: '#fff',
           },
         ],
-      ],
-    })
+      },
+    ],
+  ],
 };
 
 module.exports = config;
