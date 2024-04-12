@@ -4,7 +4,7 @@ const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',
   favicon: '/img/favicon/favicon.ico',
-  url: 'https://yummacss.com',
+  url: 'https://www.yummacss.com',
   baseUrl: '/',
   organizationName: 'yumma-lib',
   projectName: 'yumma-css-docs',
@@ -115,7 +115,7 @@ const config = {
             items: [
               {
                 label: 'What is new',
-                href: 'https://yummacss.com/blog/tags/update'
+                href: 'https://www.yummacss.com/blog/tags/update'
               },
               {
                 label: 'Customization',
