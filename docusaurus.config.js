@@ -115,7 +115,7 @@ const config = {
             items: [
               {
                 label: 'What is new',
-                href: 'https://www.yummacss.com/blog/tags/update'
+                href: '/blog/tags/update'
               },
               {
                 label: 'Customization',
