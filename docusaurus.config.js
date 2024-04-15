@@ -166,7 +166,7 @@ const config = {
         appId: '3NYT3J6P4Q',
         apiKey: '9a3208c466723a99a1ad2344f6ce3dd0',
         indexName: 'yummacss',
-        contextualSearch: true
+        contextualSearch: false
       },
     }),
   plugins: [
