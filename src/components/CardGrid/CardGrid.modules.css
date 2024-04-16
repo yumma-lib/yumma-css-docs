@@ -4,12 +4,27 @@
     border-radius: 12px;
     box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     background-color: #fefeff;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.cardElement a:hover {
+    text-decoration: none;
+}
+
+.cardElement:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-color: #a3a3a3;
 }
 
 [data-theme='dark'] .cardElement {
     background-color: var(--yma-bg-dark);
     border: 1px solid #2d2f33;
+}
+
+[data-theme='dark'] .cardElement:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-color: #424447;
 }
 
 .cardIcon {
@@ -18,6 +33,10 @@
     margin-right: auto;
     height: 64px;
     width: 64px;
+}
+
+.cardDescription {
+    color: #404756;
 }
 
 .cardGrid {
