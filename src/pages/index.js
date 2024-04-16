@@ -1,6 +1,6 @@
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import GridList from '@site/src/components/GridList/GridList';
+import CardGrid from '@site/src/components/CardGrid/CardGrid';
 import logo from '@site/static/img/yummacss.png';
 import Layout from "@theme/Layout";
 import React from "react";
@@ -15,7 +15,7 @@ export default function Index() {
             <div>
                 <div className={styles.yma__header}>
                     <div>
-                        <img src={logo} alt={`${siteConfig.title} Logo`} style={{borderRadius: '1.5rem'}} />
+                        <img src={logo} alt={`${siteConfig.title} Logo`} style={{ borderRadius: '1.5rem' }} />
                         <h1 className={styles.yma__heading}>{siteConfig.title}</h1>
                         <p className={styles.yma__description}>Build beautiful websites with small class names</p>
                         <Link className={styles.yma__primary__button} to='/docs/intro'>Read Docs</Link>
@@ -27,7 +27,7 @@ export default function Index() {
                     <h1 className={styles.yma__heading}>Awesome Features</h1>
                     <p className={styles.yma__description}>Discover why Yumma CSS is so special</p>
 
-                    <GridList
+                    <CardGrid
                         cardData={[
                             {
                                 icon: `${require('@site/static/img/Homepage/components.png').default}`,
