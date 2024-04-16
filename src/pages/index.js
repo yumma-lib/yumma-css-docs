@@ -30,44 +30,43 @@ export default function Index() {
                     <CardGrid
                         cardData={[
                             {
-                                icon: require('@site/static/img/Homepage/components.png').default,
+                                icon: require('@site/static/img/homepage/components.png').default,
                                 title: 'Components',
                                 description: 'Explore our components to add buttons, navbars, cards, and other elements to your interface.',
                                 url: '/components'
                             },
                             {
-                                icon: require('@site/static/img/Homepage/responsiveness.png').default,
+                                icon: require('@site/static/img/homepage/responsiveness.png').default,
                                 title: 'Responsiveness',
                                 description: 'Customize your design elements with the help of a responsive design system.',
                                 url: '/docs/fundamentals/layout/breakpoints'
                             },
                             {
-                                icon: require('@site/static/img/Homepage/screencasts.png').default,
+                                icon: require('@site/static/img/homepage/screencasts.png').default,
                                 title: 'Screencasts',
                                 description: 'Take a look at our screencasts to learn more about how to implement Yumma CSS in your applications.',
                                 url: 'https://www.youtube.com/@yummacss'
                             },
                             {
-                                icon: require('@site/static/img/Homepage/themes.png').default,
+                                icon: require('@site/static/img/homepage/themes.png').default,
                                 title: 'Themes',
                                 description: 'Use the color palette for amazing applications and create your own themes.',
                                 url: '/docs/fundamentals/appearance/color-palette'
                             },
                             {
-                                icon: require('@site/static/img/Homepage/utilities.png').default,
+                                icon: require('@site/static/img/homepage/utilities.png').default,
                                 title: 'Utilities',
                                 description: 'Advanced tiny utility classes that you can use on your applications.',
                                 url: '/docs/positioning/display'
                             },
                             {
-                                icon: require('@site/static/img/Homepage/playground.png').default,
+                                icon: require('@site/static/img/homepage/playground.png').default,
                                 title: 'Playground',
                                 description: 'Our official real-time code editor with Yumma CSS integrated into it.',
                                 url: '/playground'
                             },
                         ]}
                     />
-
                 </section>
             </div>
         </Layout>

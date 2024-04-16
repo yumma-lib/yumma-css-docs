@@ -1,23 +1,72 @@
 ---
 title: Components
+hide_table_of_contents: true
+draft: true
 ---
+
+import CardGrid from '@site/src/components/CardGrid/CardGrid';
 
 # Components
 
 Minimalist design components that you can copy and paste into your applications.
 
-:::info Under construction
-This page is still under development. But you can take a quick look to see what's going on.
-:::
-
 ## Available components
 
-- [Alerts](/components/alerts) - Displays important messages to users.
-- [Badges](/components/badges) - Small containers for displaying numerical or status information.
-- [Buttons](/components/buttons) - Interactive elements for user actions.
-- [Cards](/components/cards) - Containers for organizing and displaying related information.
-- [Footers](/components/footers) - Sections at the bottom of a page or content area.
-- [Forms](/components/forms) - Interfaces for users to input data or make selections.
-- [Navbars](/components/navbars) - Navigational elements typically found at the top of a webpage or application.
-- [Paginations](/components/paginations) - Controls for navigating between pages of content.
-- [Tabs](/components/tabs) - Organize content into separate SpeechRecognitionResult.
+<CardGrid
+ cardData={[
+    {
+      icon: require('@site/static/img/components/alerts.png').default,
+      title: 'Alerts',
+      description: 'Displays important messages to users.',
+      url: '/components/alerts'
+    },
+    {
+      icon: require('@site/static/img/components/badges.png').default,
+      title: 'Badges',
+      description: 'Small containers for displaying numerical or status information.',
+      url: '/components/badges'
+    },
+    {
+      icon: require('@site/static/img/components/buttons.png').default,
+      title: 'Buttons',
+      description: 'Interactive elements for user actions.',
+      url: '/components/buttons'
+    },
+    {
+      icon: require('@site/static/img/components/cards.png').default,
+      title: 'Cards',
+      description: 'Containers for organizing and displaying related information.',
+      url: '/components/cards'
+    },
+    {
+      icon: require('@site/static/img/components/footers.png').default,
+      title: 'Footers',
+      description: 'Sections at the bottom of a page or content area.',
+      url: '/components/footers'
+    },
+    {
+      icon: require('@site/static/img/components/forms.png').default,
+      title: 'Forms',
+      description: 'Interfaces for users to input data or make selections.',
+      url: '/components/forms'
+    },
+    {
+      icon: require('@site/static/img/components/navbars.png').default,
+      title: 'Navbars',
+      description: 'Navigational elements typically found at the top of a webpage or application.',
+      url: '/components/navbars'
+    },
+    {
+      icon: require('@site/static/img/components/paginations.png').default,
+      title: 'Paginations',
+      description: 'Controls for navigating between pages of content.',
+      url: '/components/paginations'
+    },
+    {
+      icon: require('@site/static/img/components/tabs.png').default,
+      title: 'Tabs',
+      description: 'Organize content into separate tabs.',
+      url: '/components/tabs'
+    },
+ ]}
+/>
