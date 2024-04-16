@@ -25,9 +25,9 @@ const config = {
         },
         blog: {
           postsPerPage: 5,
-          blogSidebarTitle: 'Latest blogs',
+          blogSidebarTitle: 'All our posts',
           showReadingTime: true,
-          blogSidebarCount: 5
+          blogSidebarCount: 10
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
