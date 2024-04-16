@@ -35,6 +35,14 @@
     width: 64px;
 }
 
+[data-theme='dark'] .cardTitle {
+    color: #f6f7f9;
+}
+
+.cardTitle {
+    color: #404756;
+}
+
 [data-theme='dark'] .cardDescription {
     color: #f6f7f9;
 }
