@@ -128,11 +128,11 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/yumma-lib'
+                href: 'https://github.com/yumma-lib/yumma-css-docs'
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/yummacss'
+                href: 'https://discord.gg/w5Dp73pNw4'
               }
             ],
           },
