@@ -25,7 +25,7 @@
 .yma__header .yma__description {
   margin-bottom: 2rem;
   font-size: 1.5rem;
-  color: #2d323c;
+  color: #404756;
 }
 
 .yma__primary__button,
@@ -109,17 +109,16 @@
   }
 }
 
+[data-theme='dark'] .yma__header .yma__heading,
+[data-theme='dark'] .yma__header .yma__description,
+[data-theme='dark'] .yma__section .yma__heading,
+[data-theme='dark'] .yma__section .yma__description {
+  color: #f6f7f9;
+}
+
 [data-theme='dark'] .yma__header {
   background-color: var(--yma-bg-darker);
   border-color: var(--yma-bg-darker);
-}
-
-[data-theme='dark'] .yma__heading {
-  color: #f6f7f9;
-}
-
-[data-theme='dark'] .yma__description {
-  color: #f6f7f9;
 }
 
 [data-theme='dark'] .yma__section {
