@@ -10,9 +10,9 @@
   <a href="https://yummacss.com"><strong>Explore Yumma CSS Docs ↝</strong></a>
   <br>
   <br>
-  <a href="https://yummacss.com/playground">Try Yumma CSS</a>
+  <a href="https://yummacss.com/playground">Playground</a>
   •
-  <a href="https://yummacss.com/blog/introducing-yummacss-intelephense">Our Extension</a>
+  <a href="https://yummacss.com/blog/introducing-yummacss-intellisense">Yumma CSS IntelliSense</a>
   •
   <a href="https://yummacss.com/blog">Blog</a>
   •

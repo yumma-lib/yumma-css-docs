@@ -152,6 +152,9 @@ const config = {
         ],
         copyright: `© ${new Date().getFullYear()} Yumma CSS | Designed by Renildo`,
       },
+      sidebar: {
+        autoCollapseCategories: true,
+      },
       prism: {
         theme: vortyx.light,
         darkTheme: vortyx.dark,
