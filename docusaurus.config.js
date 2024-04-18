@@ -98,15 +98,15 @@ const config = {
             items: [
               {
                 label: 'Yumma CSS v1.2',
-                href: '/docs/intro'
+                to: '/docs/intro'
               },
               {
                 label: 'Yumma CSS v1.1',
-                href: '/docs/1.1.0/intro'
+                to: '/docs/1.1.0/intro'
               },
               {
                 label: 'Yumma CSS v1.0',
-                href: '/docs/1.0.0/intro'
+                to: '/docs/1.0.0/intro'
               }
             ],
           },
@@ -115,11 +115,11 @@ const config = {
             items: [
               {
                 label: 'What is new',
-                href: '/blog/tags/update'
+                to: '/blog/tags/update'
               },
               {
                 label: 'Customization',
-                href: '/docs/fundamentals/appearance/color-palette'
+                to: '/docs/fundamentals/appearance/color-palette'
               }
             ],
           },
@@ -128,11 +128,15 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/yumma-lib/yumma-css-docs'
+                to: 'https://github.com/yumma-lib/yumma-css-docs'
+              },
+              {
+                label: 'LinkedIn — New',
+                to: 'https://www.linkedin.com/company/yummacss/'
               },
               {
                 label: 'Discord',
-                href: 'https://discord.gg/w5Dp73pNw4'
+                to: 'https://discord.gg/w5Dp73pNw4'
               }
             ],
           },
@@ -141,11 +145,11 @@ const config = {
             items: [
               {
                 label: 'YouTube',
-                href: 'https://youtube.com/@rrenildopereiraa'
+                to: 'https://youtube.com/@rrenildopereiraa'
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/yummacss'
+                to: 'https://twitter.com/yummacss'
               }
             ],
           }
@@ -185,12 +189,12 @@ const config = {
           {
             tagName: 'link',
             rel: 'icon',
-            href: 'img/yummacss.png',
+            to: 'img/yummacss.png',
           },
           {
             tagName: 'link',
             rel: 'manifest',
-            href: '/manifest.json',
+            to: '/manifest.json',
           },
           {
             tagName: 'meta',
@@ -210,12 +214,12 @@ const config = {
           {
             tagName: 'link',
             rel: 'apple-touch-icon',
-            href: 'img/yummacss.png',
+            to: 'img/yummacss.png',
           },
           {
             tagName: 'link',
             rel: 'mask-icon',
-            href: 'img/yummacss.png',
+            to: 'img/yummacss.png',
             color: 'rgb(220, 9, 136)',
           },
           {
