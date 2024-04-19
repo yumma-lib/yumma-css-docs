@@ -145,7 +145,7 @@ const config = {
             items: [
               {
                 label: 'YouTube',
-                to: 'https://youtube.com/@rrenildopereiraa'
+                to: 'https://www.youtube.com/@yummacss'
               },
               {
                 label: 'Twitter',
