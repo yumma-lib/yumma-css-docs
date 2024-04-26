@@ -1,0 +1,33 @@
+---
+title: Avatars
+hide_table_of_contents: true
+---
+
+import { Sandpack } from "@codesandbox/sandpack-react";
+
+# Avatars
+
+Profile images representing users or entities
+
+### Avatar
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+  return (
+    <div className="ins h-1/1">
+      <img className="dim-12 rad-half" src="https://avatars.githubusercontent.com/u/56491937?v=4" alt="User Avatar" />
+    </div>
+  );
+}
+
+export default App;
+`}}}
+/>

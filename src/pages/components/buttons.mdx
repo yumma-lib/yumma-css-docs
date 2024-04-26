@@ -1,37 +1,35 @@
 ---
 title: Buttons
+hide_table_of_contents: true
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Buttons
 
-Interactive elements designed to act and encourage greater user engagement.
+Interactive elements for user actions.
 
 ### Button
 
 <Sandpack
-  theme="auto"
-  files={{
-    "/App.js": {
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
 code: `import React from "react";
 import "yummacss/dist/yumma.css";
 
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <button class="btn-black t-white">Button</button>
+         <button className="btn-black t-white">Login</button>
       </div>
    );
 }
 
 export default App;
-`,
-},
-  }}
-customSetup={{ dependencies: { "yummacss": "latest" }}}
- template="react"
- options={{ editorHeight: 450}}
+`}}}
 />
 
 ---
@@ -39,27 +37,24 @@ customSetup={{ dependencies: { "yummacss": "latest" }}}
 ### Outlined
 
 <Sandpack
-  theme="auto"
-  files={{
-    "/App.js": {
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
 code: `import React from "react";
 import "yummacss/dist/yumma.css";
 
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <button class="btn-otl-black h:t-white mr-1 mt-1 t-black">Outlined</button>
+         <button className="btn-otl-black h:t-white mr-1 mt-1 t-black">Outlined</button>
       </div>
    );
 }
 
 export default App;
-`,
-},
-  }}
-customSetup={{ dependencies: { "yummacss": "latest" }}}
- template="react"
- options={{ editorHeight: 450}}
+`}}}
 />
 
 ---
@@ -71,25 +66,22 @@ Complement buttons are no longer available in the latest versions. If you want t
 :::
 
 <Sandpack
-  theme="auto"
-  files={{
-    "/App.js": {
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "1.0", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
 code: `import React from "react";
 import "yummacss/dist/yumma.css";
 
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <button class="btn-cmp-gray h:t-white mr-1 mt-1 t-black">Complement</button>
+         <button className="btn-cmp-gray h:t-white mr-1 mt-1 t-black">Complement</button>
       </div>
    );
 }
 
 export default App;
-`,
-},
-  }}
-customSetup={{ dependencies: { "yummacss": "1.1.0" }}}
- template="react"
- options={{ editorHeight: 450}}
+`}}}
 />

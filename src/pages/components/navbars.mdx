@@ -1,19 +1,22 @@
 ---
 title: Navbars
+hide_table_of_contents: true
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Navbars
 
-Navigational elements typically found at the top of a webpage or application.
+Navigational menus for site structure.
 
 ### Navbar
 
 <Sandpack
-  theme="auto"
-  files={{
-    "/App.js": {
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
 code: `import React from "react";
 import "yummacss/dist/yumma.css";
 
@@ -22,15 +25,15 @@ import { IoMenu } from "react-icons/io5";
 const App = () => {
    return (
       <div>
-         <nav class="nav-white">
-          <h1 >Yumma CSS</h1>
-          <div class="sm:d-none">
-            <IoMenu class="c-p" size={20} />
+         <nav className="bg-d-blue-5 nav">
+          <h1 className="t-white">Yumma CSS</h1>
+          <div className="sm:d-none">
+            <IoMenu className="c-p dim-6 t-white" />
           </div>
-          <ul class="d-none sm:d-f">
-            <li class="ml-1 h:t-blue"><a href="#">Docs</a></li>
-            <li class="ml-1 h:t-blue"><a href="#">Editor</a></li>
-            <li class="ml-1 h:t-blue"><a href="#">Playground</a></li>
+          <ul className="d-none sm:d-f">
+            <li className="fw-600 ml-1 t-white"><a href="#">Docs</a></li>
+            <li className="fw-600 ml-1 t-white"><a href="#">Editor</a></li>
+            <li className="fw-600 ml-1 t-white"><a href="#">Playground</a></li>
           </ul>
         </nav>
       </div>
@@ -38,10 +41,5 @@ const App = () => {
 }
 
 export default App;
-`,
-},
-  }}
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" }}}
- template="react"
- options={{ editorHeight: 450}}
+`}}}
 />

@@ -1,37 +1,35 @@
 ---
 title: Forms
+hide_table_of_contents: true
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Forms
 
-Interfaces for users to input data or make selections.
+Input fields for user data submission.
 
 ### Input
 
 <Sandpack
-  theme="auto"
-  files={{
-    "/App.js": {
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
 code: `import React from "react";
 import "yummacss/dist/yumma.css";
 
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <input class="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="First Name"></input>
+         <input className="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="First Name"></input>
       </div>
    );
 }
 
 export default App;
-`,
-},
-  }}
-customSetup={{ dependencies: { "yummacss": "latest" }}}
- template="react"
- options={{ editorHeight: 450}}
+`}}}
 />
 
 ---
@@ -39,25 +37,22 @@ customSetup={{ dependencies: { "yummacss": "latest" }}}
 ### Disabled
 
 <Sandpack
-  theme="auto"
-  files={{
-    "/App.js": {
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
 code: `import React from "react";
 import "yummacss/dist/yumma.css";
 
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <input class="c-na bc-l-gray-6 o-50 p-1 rad-1 t-d-gray-4" placeholder="First Name" value="Renildo Pereira" disabled></input>
+         <input className="c-na bc-l-gray-6 o-50 p-1 rad-1 t-d-gray-4" placeholder="First Name" value="Renildo Pereira" disabled></input>
       </div>
    );
 }
 
 export default App;
-`,
-},
-  }}
-customSetup={{ dependencies: { "yummacss": "latest" }}}
- template="react"
- options={{ editorHeight: 450}}
+`}}}
 />

@@ -1,19 +1,22 @@
 ---
 title: Alerts
+hide_table_of_contents: true
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Alerts
 
-Attention-grabbing notifications that provide important information or warnings to users in a timely manner.
+Boxes displaying important messages to users.
 
 ## Alert
 
 <Sandpack
-  theme="auto"
-  files={{
-    "/App.js": {
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
 code: `import React from "react";
 import "yummacss/dist/yumma.css";
 
@@ -33,12 +36,7 @@ const App = () => {
 }
 
 export default App;
-`,
-},
-  }}
-customSetup={{ dependencies: { "yummacss": "latest" }}}
- template="react"
- options={{ editorHeight: 450}}
+`}}}
 />
 
 ---
@@ -46,9 +44,11 @@ customSetup={{ dependencies: { "yummacss": "latest" }}}
 ## Success
 
 <Sandpack
-  theme="auto"
-  files={{
-    "/App.js": {
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
 code: `import React from "react";
 import "yummacss/dist/yumma.css";
 
@@ -68,10 +68,5 @@ const App = () => {
 }
 
 export default App;
-`,
-},
-  }}
-customSetup={{ dependencies: { "yummacss": "latest" }}}
- template="react"
- options={{ editorHeight: 450}}
+`}}}
 />

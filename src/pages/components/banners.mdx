@@ -1,0 +1,36 @@
+---
+title: Banners
+hide_table_of_contents: true
+---
+
+import { Sandpack } from "@codesandbox/sandpack-react";
+
+# Banners
+
+Prominent messages or announcements.
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+import { IoChevronForward } from "react-icons/io5";
+
+const App = () => {
+   return (
+    <a href="#" className="bg-d-blue-5 d-b p-1 ta-c" >
+        <p className="d-ib fs-sm mx-1 t-white">A new version is available for installation.</p>
+        <span className="ai-c d-if fs-sm fw-700 gap-x-2 jc-c t-white">Learn More
+          <IoChevronForward className="fs-0 dim-4 ml-1" />
+        </span>
+    </a>
+   );
+}
+
+export default App;
+`}}}
+/>

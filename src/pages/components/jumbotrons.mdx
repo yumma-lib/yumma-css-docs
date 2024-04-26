@@ -1,0 +1,39 @@
+---
+title: Jumbotrons
+hide_table_of_contents: true
+---
+
+import { Sandpack } from "@codesandbox/sandpack-react";
+
+# Jumbotrons
+
+Large, attention-grabbing content sections.
+
+### Jumbotron
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+   return (
+      <div className="bg-d-blue-5">
+        <div className="px-4 py-4">
+          <div className="ta-c">
+            <h1 className="fs-3xl fw-700 mb-4 t-white">Get started with your free trial</h1>
+            <p className="fs-lg mb-4 t-l-gray-6">Enjoy 6 months of free access to our entire music library at no cost. No credit card required. Go offline and start listening today with no ads and more.</p>
+            <a href="#" className="btn-white d-ib fw-600 px-2 py-1 rad-8 t-black">Get Free Premium</a>
+          </div>
+        </div>
+      </div>
+   );
+}
+
+export default App;
+`}}}
+/>

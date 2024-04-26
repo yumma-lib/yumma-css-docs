@@ -1,0 +1,35 @@
+---
+title: Progress
+hide_table_of_contents: true
+---
+
+import { Sandpack } from "@codesandbox/sandpack-react";
+
+# Progress
+
+Visual feedback on task completion status.
+
+### Progress
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+   return (
+      <div className="ins h-1/1">
+        <div className="m-4 w-full bg-l-gray-6 rad-2">
+            <div className="h-2 w-50 bg-lead rad-2"></div>
+        </div>
+      </div>
+   );
+}
+
+export default App;
+`}}}
+/>

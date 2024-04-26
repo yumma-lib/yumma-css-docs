@@ -1,0 +1,81 @@
+---
+title: Tables
+hide_table_of_contents: true
+draft: true
+---
+
+import { Sandpack } from "@codesandbox/sandpack-react";
+
+# Tables
+
+Structured displays of data in rows and columns.
+
+### Table
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+   return (
+      <div className="ins h-1/1 ovf-x-auto cnn">
+         <table className="bc-l-lead-6 bs-sm rad-2">
+            <thead>
+               <tr>
+                  <th className="fs-md fw-500 px-2 py-1 t-d-lead-2 ta-s">Invoice</th>
+                  <th className="fs-md fw-500 px-2 py-1 t-d-lead-2 ta-s">Status</th>
+                  <th className="fs-md fw-500 px-2 py-1 t-d-lead-2 ta-s">Email</th>
+                  <th className="fs-md fw-500 px-2 py-1 t-d-lead-2 ta-s">Amount</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td className="px-2 py-1">INV-Q188B</td>
+                  <td className="px-2 py-1">Paid</td>
+                  <td className="px-2 py-1">john.doe@gmail.com</td>
+                  <td className="fw-500 px-2 py-1">$149.99</td>
+               </tr>
+               <tr>
+                  <td className="px-2 py-1">INV-868TC</td>
+                  <td className="px-2 py-1">Pending</td>
+                  <td className="px-2 py-1">emily.smith@outlook.com</td>
+                  <td className="fw-500 px-2 py-1">$289.50</td>
+               </tr>
+               <tr>
+                  <td className="px-2 py-1">INV-318JC</td>
+                  <td className="px-2 py-1">Unpaid</td>
+                  <td className="px-2 py-1">alex.jones@gmail.com</td>
+                  <td className="fw-500 px-2 py-1">$539.75</td>
+               </tr>
+               <tr>
+                  <td className="px-2 py-1">INV-9K01Z</td>
+                  <td className="px-2 py-1">Pending</td>
+                  <td className="px-2 py-1">julia.brown@gmail.com</td>
+                  <td className="fw-500 px-2 py-1">$199.00</td>
+               </tr>
+               <tr>
+                  <td className="px-2 py-1">INV-92FN2</td>
+                  <td className="px-2 py-1">Paid</td>
+                  <td className="px-2 py-1">erica.white@outlook.com</td>
+                  <td className="fw-500 px-2 py-1">$99.95</td>
+               </tr>
+               <tr>
+                  <td className="px-2 py-1">INV-600QC</td>
+                  <td className="px-2 py-1">Unpaid</td>
+                  <td className="px-2 py-1">susan.williams@gmail.com</td>
+                  <td className="fw-500 px-2 py-1">$349.25</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   );
+}
+
+export default App;
+`}}}
+/>

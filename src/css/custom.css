@@ -17,8 +17,10 @@
 
 [data-theme='dark'] {
   /* Yumma CSS variables */
-  --yma-bg-dark: rgb(35, 39, 47);
-  --yma-bg-darker: rgb(32, 35, 42);
+  --yma-bg-dark: rgb(29,
+    32,
+    38);
+  --yma-bg-darker: rgb(26, 28, 34);
 
   /* Infima variables */
   --ifm-color-primary: rgb(220, 9, 136);
@@ -166,6 +168,11 @@ pre {
 }
 
 [data-theme='dark'] pre {
+  border-color: #2d2f33;
+  background-color: var(--yma-bg-dark) !important;
+}
+
+[data-theme='dark'] code {
   border-color: #2d2f33;
   background-color: var(--yma-bg-dark) !important;
 }

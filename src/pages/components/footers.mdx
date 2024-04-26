@@ -1,44 +1,42 @@
 ---
 title: Footers
+hide_table_of_contents: true
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
 
 # Footers
 
-Bottom sections act as important hubs for key links and copyright information, ensuring consistency throughout.
+Bottom sections containing site info or links.
 
 ### Footer
 
 <Sandpack
-  theme="auto"
-  files={{
-    "/App.js": {
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
 code: `import React from "react";
 import "yummacss/dist/yumma.css";
 
 const App = () => {
    return (
-      <div>
-         <footer class="mt-5 pb-4 pt-3">
-            <div class="ta-c w-full">
-                <div class="m-auto">
-                    <h2>Yumma CSS</h2>
-                    <span class="fs-sm t-d-gray-6">
-                        <p>© Yumma CSS. All Rights Reserved.</p>
-                    </span>
-                </div>
+      <div className="d-f fd-c min-h-1/1">
+        <footer className="bg-black mt-auto pb-4 pt-3">
+          <div className="ta-c w-full">
+            <div className="m-auto t-white">
+              <h2>Yumma CSS</h2>
+              <span className="fs-sm t-white">
+                <p>© Yumma CSS. All Rights Reserved.</p>
+              </span>
             </div>
+          </div>
         </footer>
       </div>
    );
 }
 
 export default App;
-`,
-},
-  }}
-customSetup={{ dependencies: { "yummacss": "latest" }}}
- template="react"
- options={{ editorHeight: 450}}
+`}}}
 />
