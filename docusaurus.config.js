@@ -164,6 +164,11 @@ const config = {
         darkTheme: vortyx.dark,
         additionalLanguages: ['sass', 'scss', 'bash'],
       },
+      // colorMode: {
+      //   defaultMode: 'dark',
+      //   disableSwitch: false,
+      //   respectPrefersColorScheme: true
+      // },
       algolia: {
         appId: '3NYT3J6P4Q',
         apiKey: '9a3208c466723a99a1ad2344f6ce3dd0',
