@@ -4,6 +4,9 @@ const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',
   favicon: '/img/favicon/favicon.ico',
+  customFields: {
+    description: 'Build beautiful websites with small class names.',
+  },
   url: 'https://www.yummacss.com',
   baseUrl: '/',
   organizationName: 'yumma-lib',
