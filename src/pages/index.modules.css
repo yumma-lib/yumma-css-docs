@@ -1,5 +1,4 @@
 .yma__header {
-  background-color: var(--yma-bg-light);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,22 +9,21 @@
   padding: 4rem 28rem;
 }
 
-.yma__header img {
-  height: 128px;
-  width: 128px;
-}
-
 .yma__header .yma__heading {
-  margin-bottom: 0.625rem;
   font-size: 3rem;
   font-weight: 700;
   color: #2d323c;
+  max-width: 48rem;
+  margin: 1rem auto;
 }
 
 .yma__header .yma__description {
   margin-bottom: 2rem;
   font-size: 1.5rem;
+  font-weight: 400;
   color: #404756;
+  max-width: 48rem;
+  margin: auto;
 }
 
 .yma__primary__button,
@@ -37,7 +35,7 @@
   font-weight: bold;
   border-radius: 12px;
   color: #f6f7f9;
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
 
 .yma__primary__button {
@@ -48,7 +46,7 @@
   font-weight: bold;
   border-radius: 12px;
   color: #f6f7f9;
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
 
 .yma__primary__button:hover {
@@ -58,14 +56,14 @@
 }
 
 .yma__secondary__button {
-  background-color: #e6e6e6;
+  background-color: #ebedf0;
   line-height: 1.5;
   padding: 0.8rem 2rem;
   margin: 1rem;
   font-weight: bold;
   border-radius: 12px;
   color: var(--yma-bg-darker);
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
 
 .yma__secondary__button:hover {
@@ -74,31 +72,14 @@
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
 
-.yma__section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: var(--yma-bg-light);
-  padding: 4rem 18rem;
-}
-
-.yma__section .yma__heading {
-  margin-bottom: 0.625rem;
-  font-size: 3rem;
-  font-weight: 700;
-  color: #2d323c;
-}
-
-.yma__section .yma__description {
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
-  color: #404756;
+.yma__margin__y {
+ margin-bottom: 2rem;
+ margin-top: 2rem;
 }
 
 @media (max-width: 768px) {
-  .yma__header {
+  .yma__header,
+  .yma__section {
     padding: 4rem 2rem;
   }
 }
@@ -110,9 +91,7 @@
 }
 
 [data-theme='dark'] .yma__header .yma__heading,
-[data-theme='dark'] .yma__header .yma__description,
-[data-theme='dark'] .yma__section .yma__heading,
-[data-theme='dark'] .yma__section .yma__description {
+[data-theme='dark'] .yma__header .yma__description {
   color: #f6f7f9;
 }
 

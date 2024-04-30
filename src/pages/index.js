@@ -1,73 +1,79 @@
 import Link from "@docusaurus/Link";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import CardGrid from '@site/src/components/CardGrid/CardGrid';
-import logo from '@site/static/img/yummacss.png';
 import Layout from "@theme/Layout";
 import React from "react";
+
+import {
+    SandpackProvider,
+    SandpackLayout,
+    SandpackCodeEditor,
+    SandpackPreview,
+    SandpackFileExplorer,
+} from "@codesandbox/sandpack-react";
 
 import styles from './index.modules.css';
 
 export default function Index() {
-    const { siteConfig } = useDocusaurusContext();
+    const files =
+    {
+        '/index.html': {
+            code: `<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Yumma CSS</title>
+  <meta charset="UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/yummacss/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="ins h-1/1">
+    <h1 class="t-pink">Hello Yumma CSS!</h1>
+  </div>
+</body>
+
+</html>`,
+        },
+    };
+
+    const dependencies = {
+        'react': 'latest',
+        'react-dom': 'latest',
+        'yummacss': 'latest'
+    };
 
     return (
+        
         <Layout>
             <div>
                 <div className={styles.yma__header}>
                     <div>
-                        <img src={logo} alt={`${siteConfig.title} Logo`} style={{ borderRadius: '1.5rem' }} />
-                        <h1 className={styles.yma__heading}>{siteConfig.title}</h1>
-                        <p className={styles.yma__description}>Build beautiful websites with small class names</p>
-                        <Link className={styles.yma__primary__button} to='/docs/intro'>Read Docs</Link>
-                        <Link className={styles.yma__secondary__button} to='/playground'>Try It Now</Link>
+                        <div className={styles.yma__margin__y}>
+                            <h1 className={styles.yma__heading}>Quickly build amazing websites with less code in your markup.</h1>
+                            <p className={styles.yma__description}>A CSS library bundled with components and utility classes designed for quick development with fewer class names.</p>
+                        </div>
+                        <div className={styles.yma__margin__y}>
+                            <Link className={styles.yma__primary__button} to='/docs/intro'>Get started</Link>
+                            <Link className={styles.yma__secondary__button} to='/playground'>Try it now</Link>
+                        </div>
+
+                        <SandpackProvider template="static" files={files} dependencies={dependencies} >
+                            <SandpackLayout>
+                                <SandpackFileExplorer
+                                    style={{ height: '500px' }}
+                                />
+                                <SandpackCodeEditor
+                                    closableTabs={true}
+                                    showTabs
+                                    style={{ height: '500px', pre: '' }}
+                                />
+                                <SandpackPreview
+                                    showNavigator
+                                    style={{ height: '500px' }}
+                                />
+                            </SandpackLayout>
+                        </SandpackProvider>
                     </div>
                 </div>
-
-                <section className={styles.yma__section}>
-                    <h1 className={styles.yma__heading}>Awesome Features</h1>
-                    <p className={styles.yma__description}>Discover why Yumma CSS is so special</p>
-
-                    <CardGrid
-                        cardData={[
-                            {
-                                icon: `${require('@site/static/img/illustrations/components.png').default}`,
-                                title: 'Components',
-                                description: 'Explore our components to add buttons, navbars, cards, and other elements to your interface.',
-                                url: '/components'
-                            },
-                            {
-                                icon: `${require('@site/static/img/illustrations/responsiveness.png').default}`,
-                                title: 'Responsiveness',
-                                description: 'Customize your design elements with the help of a responsive design system.',
-                                url: '/docs/fundamentals/layout/breakpoints'
-                            },
-                            {
-                                icon: `${require('@site/static/img/illustrations/screencasts.png').default}`,
-                                title: 'Screencasts',
-                                description: 'Take a look at our screencasts to learn more about how to implement Yumma CSS in your applications.',
-                                url: 'https://www.youtube.com/@yummacss'
-                            },
-                            {
-                                icon: `${require('@site/static/img/illustrations/themes.png').default}`,
-                                title: 'Themes',
-                                description: 'Use the color palette for amazing applications and create your own themes.',
-                                url: '/docs/fundamentals/appearance/color-palette'
-                            },
-                            {
-                                icon: `${require('@site/static/img/illustrations/utilities.png').default}`,
-                                title: 'Utilities',
-                                description: 'Advanced tiny utility classes that you can use on your applications.',
-                                url: '/docs/positioning/display'
-                            },
-                            {
-                                icon: `${require('@site/static/img/illustrations/playground.png').default}`,
-                                title: 'Playground',
-                                description: 'Our official real-time code editor with Yumma CSS integrated into it.',
-                                url: '/playground'
-                            },
-                        ]}
-                    />
-                </section>
             </div>
         </Layout>
     );
