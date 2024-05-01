@@ -1,14 +1,7 @@
+import { SandpackCodeEditor, SandpackFileExplorer, SandpackLayout, SandpackPreview, SandpackProvider } from "@codesandbox/sandpack-react";
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import React from "react";
-
-import {
-    SandpackProvider,
-    SandpackLayout,
-    SandpackCodeEditor,
-    SandpackPreview,
-    SandpackFileExplorer,
-} from "@codesandbox/sandpack-react";
 
 import styles from './index.modules.css';
 
@@ -35,44 +28,34 @@ export default function Index() {
         },
     };
 
-    const dependencies = {
-        'react': 'latest',
-        'react-dom': 'latest',
-        'yummacss': 'latest'
-    };
-
     return (
-        
         <Layout>
             <div>
                 <div className={styles.yma__header}>
                     <div>
-                        <div className={styles.yma__margin__y}>
-                            <h1 className={styles.yma__heading}>Quickly build amazing websites with less code in your markup.</h1>
-                            <p className={styles.yma__description}>A CSS library bundled with components and utility classes designed for quick development with fewer class names.</p>
+                        <h1 className={styles.yma__heading}>Quickly build amazing websites with less code in your markup.</h1>
+                        <p className={styles.yma__paragraph}>Bundled with <Link to='/components'>components</Link> and utility classes designed for quick development with small class names.</p>
+                        <div className={styles.yma__action}>
+                            <Link className={styles.yma__primary__btn} to='/docs/installation'>Get started</Link>
+                            <Link className={styles.yma__secondary__btn} to='/playground'>Try it now</Link>
                         </div>
-                        <div className={styles.yma__margin__y}>
-                            <Link className={styles.yma__primary__button} to='/docs/intro'>Get started</Link>
-                            <Link className={styles.yma__secondary__button} to='/playground'>Try it now</Link>
-                        </div>
-
-                        <SandpackProvider template="static" files={files} dependencies={dependencies} >
-                            <SandpackLayout>
-                                <SandpackFileExplorer
-                                    style={{ height: '500px' }}
-                                />
-                                <SandpackCodeEditor
-                                    closableTabs={true}
-                                    showTabs
-                                    style={{ height: '500px', pre: '' }}
-                                />
-                                <SandpackPreview
-                                    showNavigator
-                                    style={{ height: '500px' }}
-                                />
-                            </SandpackLayout>
-                        </SandpackProvider>
                     </div>
+                    <SandpackProvider template="static" files={files}>
+                        <SandpackLayout>
+                            <SandpackFileExplorer
+                                style={{ height: '500px' }}
+                            />
+                            <SandpackCodeEditor
+                                closableTabs={true}
+                                showTabs
+                                style={{ height: '500px', pre: '' }}
+                            />
+                            <SandpackPreview
+                                showNavigator
+                                style={{ height: '500px' }}
+                            />
+                        </SandpackLayout>
+                    </SandpackProvider>
                 </div>
             </div>
         </Layout>

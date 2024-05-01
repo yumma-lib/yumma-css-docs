@@ -88,7 +88,7 @@ const config = {
               },
               {
                 label: 'Docs',
-                to: '/docs/intro'
+                to: '/docs/installation'
               },
               {
                 label: 'Playground',
@@ -101,15 +101,15 @@ const config = {
             items: [
               {
                 label: 'Yumma CSS v1.2',
-                to: '/docs/intro'
+                to: '/docs/installation'
               },
               {
                 label: 'Yumma CSS v1.1',
-                to: '/docs/1.1.0/intro'
+                to: '/docs/1.1.0/installation'
               },
               {
                 label: 'Yumma CSS v1.0',
-                to: '/docs/1.0.0/intro'
+                to: '/docs/1.0.0/installation'
               }
             ],
           },

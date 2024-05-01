@@ -1,0 +1,86 @@
+---
+title: Installation
+sidebar_position: 1
+---
+
+import CardGrid from '@site/src/components/CardGrid/CardGrid';
+
+# Get started with Yumma CSS
+
+Yumma CSS is a project created by [Renildo Pereira](https://rrenildopereiraa.github.io/renildo/), is a lightweight and streamlined CSS library that provides a comprehensive set of tools and functionalities to simplify web development.
+
+## Installation
+
+Start building websites with Yumma CSS the way you want.
+
+Are you a visual learner? Here it is our 1-minute [video tutorial](https://rrenildopereiraa.github.io/renildo/) on YouTube showing everything about Yumma CSS.
+
+## Installation
+
+Start building websites with Yumma CSS the way you want.
+
+### Install via npm
+
+Installing via [package manager](https://www.npmjs.com/package/yummacss):
+
+```bash
+npm i yummacss@0.2.0
+```
+
+Include the compiled CSS file in your `<head>` element
+
+#### Standard
+
+```html
+<link rel="stylesheet" href="node_modules/yummacss/dist/yumma.css">
+```
+#### Minified
+
+```html
+<link rel="stylesheet" href="node_modules/yummacss/public/css/yumma.min.css">
+```
+
+<br/>
+
+### Include via cdn
+
+Including using [content delivery network](https://www.jsdelivr.com/package/npm/yummacss):
+
+#### Standard:
+
+```html
+<link href="https://cdn.jsdelivr.net/npm/yummacss@0.2.0/dist/yumma.css" rel="stylesheet" crossorigin="anonymous">
+```
+
+#### Minified
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yummacss@0.2.0/public/css/yumma.min.css" crossorigin="anonymous">
+```
+
+## What to do next?
+
+Now that you've got Yumma CSS up and running, you can begin to play around with the utility classes or components.
+
+<CardGrid
+ cardData={[
+    {
+      icon: `${require('@site/static/img/illustrations/utilities.png').default}`,
+      title: 'Utilities',
+      description: 'Advanced tiny utility classes that you can use on your applications.',
+      url: '/docs/positioning/display'
+    },
+    {
+      icon: `${require('@site/static/img/illustrations/components.png').default}`,
+      title: 'Components',
+      description: 'Explore our components to add buttons, navbars, cards, and other elements to your interface.',
+      url: '/components'
+    },
+    {
+      icon: `${require('@site/static/img/illustrations/themes.png').default}`,
+      title: 'Themes',
+      description: 'Use the color palette for amazing applications and create your own themes.',
+      url: '/docs/fundamentals/appearance/color-palette'
+    }
+ ]}
+/>

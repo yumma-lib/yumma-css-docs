@@ -27,7 +27,8 @@
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "yummacss": "^1.2.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.24.1",

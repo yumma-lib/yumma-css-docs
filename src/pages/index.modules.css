@@ -1,101 +1,81 @@
 .yma__header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
   justify-content: center;
-  text-align: center;
-  height: auto;
-  box-shadow: 1px 3px 5px -3px rgba(0, 0, 0, 0.1);
-  padding: 4rem 28rem;
+  max-width: 48rem;
+  margin: 6rem auto;
 }
 
-.yma__header .yma__heading {
+.yma__heading {
   font-size: 3rem;
   font-weight: 700;
   color: #2d323c;
-  max-width: 48rem;
-  margin: 1rem auto;
+  text-align: center;
 }
 
-.yma__header .yma__description {
+.yma__paragraph {
   margin-bottom: 2rem;
   font-size: 1.5rem;
   font-weight: 400;
   color: #404756;
-  max-width: 48rem;
-  margin: auto;
+  text-align: center;
 }
 
-.yma__primary__button,
-.yma__secondary__button {
-  display: inline-block;
-  line-height: 1.5;
-  padding: 0.8rem 2rem;
-  margin: 1rem;
-  font-weight: bold;
+.yma__action {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .yma__action {
+    margin-top: 2.5rem;
+  }
+}
+
+.yma__primary__btn,
+.yma__secondary__btn {
+  align-items: center;
   border-radius: 12px;
-  color: #f6f7f9;
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
+  color: #f6f7f9;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  padding: 0.8rem 2rem;
 }
 
-.yma__primary__button {
+.yma__primary__btn {
   background-color: var(--ifm-color-primary);
-  line-height: 1.5;
-  padding: 0.8rem 2rem;
-  margin: 1rem;
-  font-weight: bold;
-  border-radius: 12px;
-  color: #f6f7f9;
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
 
-.yma__primary__button:hover {
+.yma__primary__btn:hover {
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
   color: #f6f7f9;
   text-decoration: none;
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
 
-.yma__secondary__button {
+.yma__secondary__btn {
   background-color: #ebedf0;
-  line-height: 1.5;
-  padding: 0.8rem 2rem;
-  margin: 1rem;
-  font-weight: bold;
-  border-radius: 12px;
   color: var(--yma-bg-darker);
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
 
-.yma__secondary__button:hover {
+.yma__secondary__btn:hover {
+  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
   color: var(--yma-bg-darker);
   text-decoration: none;
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
 }
 
-.yma__margin__y {
- margin-bottom: 2rem;
- margin-top: 2rem;
-}
-
-@media (max-width: 768px) {
-  .yma__header,
-  .yma__section {
-    padding: 4rem 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .yma__section {
-    padding: 4rem 2rem;
-  }
-}
-
-[data-theme='dark'] .yma__header .yma__heading,
-[data-theme='dark'] .yma__header .yma__description {
+[data-theme='dark'] .yma__heading,
+[data-theme='dark'] .yma__paragraph {
   color: #f6f7f9;
 }
 
-[data-theme='dark'] .yma__header {
+[data-theme='dark'] {
   background-color: var(--yma-bg-darker);
   border-color: var(--yma-bg-darker);
 }
