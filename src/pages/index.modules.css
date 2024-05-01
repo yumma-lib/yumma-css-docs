@@ -79,7 +79,3 @@
   background-color: var(--yma-bg-darker);
   border-color: var(--yma-bg-darker);
 }
-
-[data-theme='dark'] .yma__section {
-  background-color: var(--yma-bg-darker);
-}
