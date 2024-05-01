@@ -1,22 +1,22 @@
 .yma__header {
-  position: relative;
   justify-content: center;
-  max-width: 48rem;
   margin: 6rem auto;
+  max-width: 48rem;
+  position: relative;
 }
 
 .yma__heading {
+  color: #2d323c;
   font-size: 3rem;
   font-weight: 700;
-  color: #2d323c;
   text-align: center;
 }
 
 .yma__paragraph {
-  margin-bottom: 2rem;
+  color: #404756;
   font-size: 1.5rem;
   font-weight: 400;
-  color: #404756;
+  margin-bottom: 2rem;
   text-align: center;
 }
 
