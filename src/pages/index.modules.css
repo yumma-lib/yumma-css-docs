@@ -20,6 +20,11 @@
   text-align: center;
 }
 
+[data-theme='dark'] .yma__heading,
+[data-theme='dark'] .yma__paragraph {
+  color: #f6f7f9;
+}
+
 .yma__action {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
@@ -68,11 +73,6 @@
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
   color: var(--yma-bg-darker);
   text-decoration: none;
-}
-
-[data-theme='dark'] .yma__heading,
-[data-theme='dark'] .yma__paragraph {
-  color: #f6f7f9;
 }
 
 [data-theme='dark'] {
