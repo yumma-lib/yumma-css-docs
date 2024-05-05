@@ -48,7 +48,7 @@ export default function Index() {
                             <SandpackCodeEditor
                                 closableTabs={true}
                                 showTabs
-                                style={{ height: '500px', pre: '' }}
+                                style={{ height: '500px'}}
                             />
                             <SandpackPreview
                                 showNavigator
