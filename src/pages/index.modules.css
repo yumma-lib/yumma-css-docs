@@ -40,8 +40,7 @@
   }
 }
 
-.yma__primary__btn,
-.yma__secondary__btn {
+.yma__btn {
   align-items: center;
   border-radius: 12px;
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
@@ -54,24 +53,13 @@
   padding: 0.8rem 2rem;
 }
 
-.yma__primary__btn {
+.yma__btn {
   background-color: var(--ifm-color-primary);
 }
 
-.yma__primary__btn:hover {
+.yma__btn:hover {
   box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
   color: #f6f7f9;
-  text-decoration: none;
-}
-
-.yma__secondary__btn {
-  background-color: #ebedf0;
-  color: var(--yma-bg-darker);
-}
-
-.yma__secondary__btn:hover {
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
-  color: var(--yma-bg-darker);
   text-decoration: none;
 }
 

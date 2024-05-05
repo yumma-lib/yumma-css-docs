@@ -11,7 +11,7 @@
   --ifm-color-primary-light: rgb(240, 20, 163);
   --ifm-color-primary-lighter: rgb(244, 47, 182);
   --ifm-color-primary-lightest: rgb(246, 81, 205);
-  --ifm-footer-background-color: rgb(246, 248, 250);
+  --ifm-footer-background-color: rgb(255, 255, 255);
   --ifm-menu-color-background-active: rgba(246, 81, 205, 0.077);
 }
 

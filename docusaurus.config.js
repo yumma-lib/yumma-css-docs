@@ -157,21 +157,13 @@ const config = {
             ],
           }
         ],
-        copyright: `© ${new Date().getFullYear()} Yumma CSS | Designed by Renildo`,
-      },
-      sidebar: {
-        autoCollapseCategories: true,
+        copyright: `© ${new Date().getFullYear()} Yumma CSS. Code under MIT license, documentation by Renildo Pereira.`,
       },
       prism: {
         theme: vortyx.light,
         darkTheme: vortyx.dark,
         additionalLanguages: ['sass', 'scss', 'bash'],
       },
-      // colorMode: {
-      //   defaultMode: 'dark',
-      //   disableSwitch: false,
-      //   respectPrefersColorScheme: true
-      // },
       algolia: {
         appId: '3NYT3J6P4Q',
         apiKey: '9a3208c466723a99a1ad2344f6ce3dd0',
