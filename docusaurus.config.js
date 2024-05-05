@@ -157,7 +157,7 @@ const config = {
             ],
           }
         ],
-        copyright: `© ${new Date().getFullYear()} Yumma CSS. Code under MIT license, documentation by Renildo Pereira.`,
+        copyright: `© ${new Date().getFullYear()} Yumma CSS. Code under <a href="https://github.com/yumma-lib/yumma-css-docs?tab=MIT-1-ov-file" target="_blank" rel="noopener noreferrer">MIT</a> license, documentation by <a href="https://twitter.com/rrenildoo" target="_blank" rel="noopener noreferrer">Renildo Pereira</a>.`,
       },
       prism: {
         theme: vortyx.light,
