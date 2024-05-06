@@ -5,7 +5,7 @@ const config = {
   tagline: 'The documentation site for Yumma CSS.',
   favicon: '/img/yummacss.svg',
   customFields: {
-    description: 'Build beautiful websites with small class names.',
+    description: 'Bundled with components and small classes Yumma CSS is designed for fast development with small class names such as ins, btn, d-f, and many more.',
   },
   url: 'https://www.yummacss.com',
   baseUrl: '/',
