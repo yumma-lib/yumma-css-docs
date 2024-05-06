@@ -7,9 +7,7 @@ import CompGrid from '@site/src/components/CompGrid/CompGrid';
 
 # Components
 
-Minimalist design components that you can copy and paste into your applications.
-
-## Components available:
+Get all the essential components you need to get your applications into production with Yumma CSS Components!
 
 :::info Using Components
 Please note that these components will always match the [latest versions](https://www.npmjs.com/package/yummacss). You should always stay up to date if you use these components in your projects.
@@ -17,14 +15,21 @@ Please note that these components will always match the [latest versions](https:
 
 <br />
 
-#### Elements
+#### Base Components
 
 <CompGrid
- sectionData={[
+  sectionData={[
+    {
+      src: `${require('@site/static/img/illustrations/lightComponents/Alerts.png').default}`,
+      srcDark: `${require('@site/static/img/illustrations/darkComponents/Alerts.png').default}`,
+      title: 'Alert',
+      description: 'Boxes displaying important messages to users',
+      href: '/components/alerts'
+    },
     {
       src: `${require('@site/static/img/illustrations/lightComponents/Avatars.png').default}`,
       srcDark: `${require('@site/static/img/illustrations/darkComponents/Avatars.png').default}`,
-      title: 'Avatars',
+      title: 'Avatar',
       badge: 'New',
       description: 'Profile images representing users or entities',
       href: '/components/avatars'
@@ -32,126 +37,40 @@ Please note that these components will always match the [latest versions](https:
     {
       src: `${require('@site/static/img/illustrations/lightComponents/Badges.png').default}`,
       srcDark: `${require('@site/static/img/illustrations/darkComponents/Badges.png').default}`,
-      title: 'Badges',
+      title: 'Badge',
       description: 'Visual indicators for status or achievements',
       href: '/components/badges'
     },
     {
+      src: `${require('@site/static/img/illustrations/lightComponents/Banners.png').default}`,
+      srcDark: `${require('@site/static/img/illustrations/darkComponents/Banners.png').default}`,
+      title: 'Banner',
+      badge: 'New',
+      description: 'Prominent messages or announcements',
+      href: '/components/banners'
+    },
+    {
       src: `${require('@site/static/img/illustrations/lightComponents/Buttons.png').default}`,
       srcDark: `${require('@site/static/img/illustrations/darkComponents/Buttons.png').default}`,
-      title: 'Buttons',
+      title: 'Button',
       description: 'Interactive elements for user actions',
       href: '/components/buttons'
     },
     {
       src: `${require('@site/static/img/illustrations/lightComponents/Cards.png').default}`,
       srcDark: `${require('@site/static/img/illustrations/darkComponents/Cards.png').default}`,
-      title: 'Card Section',
+      title: 'Card',
       badge: 'New',
       description: 'Containers for organized content display',
       href: '/components/cards'
     },
     {
-      src: `${require('@site/static/img/illustrations/lightComponents/Tables.png').default}`,
-      srcDark: `${require('@site/static/img/illustrations/darkComponents/Tables.png').default}`,
-      title: 'Tables',
-      badge: 'New',
-      description: 'Structured displays of data in rows and columns',
-      href: '/components/tables'
-    }
- ]}
-/>
-
-#### Forms
-
-<CompGrid
- sectionData={[
-    {
-      src: `${require('@site/static/img/illustrations/lightComponents/Forms.png').default}`,
-      srcDark: `${require('@site/static/img/illustrations/darkComponents/Forms.png').default}`,
-      title: 'Forms',
-      description: 'Input fields for user data submission',
-      href: '/components/forms'
-    }
- ]}
-/>
-
-#### Navigation
-
-<CompGrid
- sectionData={[
-    {
-      src: `${require('@site/static/img/illustrations/lightComponents/Breadcrumbs.png').default}`,
-      srcDark: `${require('@site/static/img/illustrations/darkComponents/Breadcrumbs.png').default}`,
-      title: 'Breadcrumbs',
-      badge: 'New',
-      description: 'Navigational aids showing user path',
-      href: '/components/breadcrumbs'
-    },
-    {
-      src: `${require('@site/static/img/illustrations/lightComponents/Navbars.png').default}`,
-      srcDark: `${require('@site/static/img/illustrations/darkComponents/Navbars.png').default}`,
-      title: 'Navbars',
-      description: 'Navigational menus for site structure',
-      href: '/components/navbars'
-    },
-    {
-      src: `${require('@site/static/img/illustrations/lightComponents/Paginations.png').default}`,
-      srcDark: `${require('@site/static/img/illustrations/darkComponents/Paginations.png').default}`,
-      title: 'Paginations',
-      description: 'Controls for navigating through content pages',
-      href: '/components/paginations'
-    },
-    {
-      src: `${require('@site/static/img/illustrations/lightComponents/Tabs.png').default}`,
-      srcDark: `${require('@site/static/img/illustrations/darkComponents/Tabs.png').default}`,
-      title: 'Tabs',
-      description: 'Organizational elements for content categorization',
-      href: '/components/tabs'
-    }
- ]}
-/>
-
-#### Visuals
-
-<CompGrid
- sectionData={[
-    {
-      src: `${require('@site/static/img/illustrations/lightComponents/Alerts.png').default}`,
-      srcDark: `${require('@site/static/img/illustrations/darkComponents/Alerts.png').default}`,
-      title: 'Alerts',
-      description: 'Boxes displaying important messages to users',
-      href: '/components/alerts'
-    },
-    {
-      src: `${require('@site/static/img/illustrations/lightComponents/Banners.png').default}`,
-      srcDark: `${require('@site/static/img/illustrations/darkComponents/Banners.png').default}`,
-      title: 'Banners',
-      badge: 'New',
-      description: 'Prominent messages or announcements',
-      href: '/components/banners'
-    },
-    {
       src: `${require('@site/static/img/illustrations/lightComponents/Jumbotrons.png').default}`,
       srcDark: `${require('@site/static/img/illustrations/darkComponents/Jumbotrons.png').default}`,
-      title: 'Jumbotrons',
+      title: 'Jumbotron',
       badge: 'New',
       description: 'Large, attention-grabbing content sections',
       href: '/components/jumbotrons'
-    }
- ]}
-/>
-
-#### Utilities
-
-<CompGrid
- sectionData={[
-    {
-      src: `${require('@site/static/img/illustrations/lightComponents/Footers.png').default}`,
-      srcDark: `${require('@site/static/img/illustrations/darkComponents/Footers.png').default}`,
-      title: 'Footers',
-      description: 'Bottom sections containing site info or links',
-      href: '/components/footers'
     },
     {
       src: `${require('@site/static/img/illustrations/lightComponents/Progress.png').default}`,
@@ -160,6 +79,78 @@ Please note that these components will always match the [latest versions](https:
       badge: 'New',
       description: 'Visual feedback on task completion status',
       href: '/components/progress'
+    },
+ ]}
+/>
+
+#### Navigations
+
+<CompGrid
+ sectionData={[
+    {
+      src: `${require('@site/static/img/illustrations/lightComponents/Breadcrumbs.png').default}`,
+      srcDark: `${require('@site/static/img/illustrations/darkComponents/Breadcrumbs.png').default}`,
+      title: 'Breadcrumb',
+      badge: 'New',
+      description: 'Navigational aids showing user path',
+      href: '/components/breadcrumbs'
+    },
+    {
+      src: `${require('@site/static/img/illustrations/lightComponents/Navbars.png').default}`,
+      srcDark: `${require('@site/static/img/illustrations/darkComponents/Navbars.png').default}`,
+      title: 'Navbar',
+      description: 'Navigational menus for site structure',
+      href: '/components/navbars'
+    },
+    {
+      src: `${require('@site/static/img/illustrations/lightComponents/Paginations.png').default}`,
+      srcDark: `${require('@site/static/img/illustrations/darkComponents/Paginations.png').default}`,
+      title: 'Pagination',
+      description: 'Controls for navigating through content pages',
+      href: '/components/paginations'
+    },
+    {
+      src: `${require('@site/static/img/illustrations/lightComponents/Tabs.png').default}`,
+      srcDark: `${require('@site/static/img/illustrations/darkComponents/Tabs.png').default}`,
+      title: 'Tab',
+      description: 'Organizational elements for content categorization',
+      href: '/components/tabs'
+    }
+ ]}
+/>
+
+#### Forms
+
+<CompGrid
+ sectionData={[
+  {
+    src: `${require('@site/static/img/illustrations/lightComponents/Forms.png').default}`,
+    srcDark: `${require('@site/static/img/illustrations/darkComponents/Forms.png').default}`,
+    title: 'Input',
+    description: 'Input fields for user data submission',
+    href: '/components/forms'
+  }
+ ]}
+/>
+
+#### Footers & Tables
+
+<CompGrid
+ sectionData={[
+    {
+      src: `${require('@site/static/img/illustrations/lightComponents/Footers.png').default}`,
+      srcDark: `${require('@site/static/img/illustrations/darkComponents/Footers.png').default}`,
+      title: 'Footer',
+      description: 'Bottom sections containing site info or links',
+      href: '/components/footers'
+    },
+    {
+      src: `${require('@site/static/img/illustrations/lightComponents/Tables.png').default}`,
+      srcDark: `${require('@site/static/img/illustrations/darkComponents/Tables.png').default}`,
+      title: 'Table',
+      badge: 'New',
+      description: 'Structured displays of data in rows and columns',
+      href: '/components/tables'
     }
  ]}
 />
