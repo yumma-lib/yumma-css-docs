@@ -162,7 +162,7 @@ const config = {
       prism: {
         theme: vortyx.light,
         darkTheme: vortyx.dark,
-        additionalLanguages: ['sass', 'scss', 'bash'],
+        additionalLanguages: ['sass', 'scss', 'bash']
       },
       algolia: {
         appId: '3NYT3J6P4Q',
@@ -178,54 +178,54 @@ const config = {
         offlineModeActivationStrategies: [
           'appInstalled',
           'standalone',
-          'queryString',
+          'queryString'
         ],
         pwaHead: [
           {
             tagName: 'link',
             rel: 'icon',
-            to: 'img/yummacss.png',
+            to: 'img/yummacss.png'
           },
           {
             tagName: 'link',
             rel: 'manifest',
-            to: '/manifest.json',
+            to: '/manifest.json'
           },
           {
             tagName: 'meta',
             name: 'theme-color',
-            content: 'rgb(220, 9, 136)',
+            content: 'rgb(220, 9, 136)'
           },
           {
             tagName: 'meta',
             name: 'apple-mobile-web-app-capable',
-            content: 'yes',
+            content: 'yes'
           },
           {
             tagName: 'meta',
             name: 'apple-mobile-web-app-status-bar-style',
-            content: '#fff',
+            content: '#fff'
           },
           {
             tagName: 'link',
             rel: 'apple-touch-icon',
-            to: 'img/yummacss.png',
+            to: 'img/yummacss.png'
           },
           {
             tagName: 'link',
             rel: 'mask-icon',
             to: 'img/yummacss.png',
-            color: 'rgb(220, 9, 136)',
+            color: 'rgb(220, 9, 136)'
           },
           {
             tagName: 'meta',
             name: 'msapplication-TileImage',
-            content: 'img/yummacss.png',
+            content: 'img/yummacss.png'
           },
           {
             tagName: 'meta',
             name: 'msapplication-TileColor',
-            content: '#fff',
+            content: '#fff'
           },
         ],
       },
