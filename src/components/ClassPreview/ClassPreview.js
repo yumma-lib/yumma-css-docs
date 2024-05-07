@@ -34,12 +34,11 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
   `;
 
   const iframeStyle = {
-    width: '100%',
+    backgroundColor: '#f9fafb',
+    border: '1px solid #e5e7eb',
+    borderRadius: '8px',
     height: isHeight || '200px',
-    border: '1px solid #ccc',
-    backgroundColor: '#fff',
-    boxShadow: 'rgba(0, 0, 0, 0.0) 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset',
-    borderRadius: '8px'
+    width: '100%',
   };
 
   return (

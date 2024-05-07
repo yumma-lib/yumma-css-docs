@@ -2,9 +2,8 @@
     padding: 18px;
     text-align: center;
     border-radius: 12px;
-    box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    background-color: #fefeff;
-    border: 1px solid #cccccc;
+    border: 1px solid #e5e7eb;
+    background-color: var(--yma-bg-lighter);
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -13,8 +12,7 @@
 }
 
 .cardElement:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-color: #a3a3a3;
+    border-color: #ced0d4;
 }
 
 [data-theme='dark'] .cardElement {

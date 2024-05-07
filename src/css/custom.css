@@ -17,9 +17,7 @@
 
 [data-theme='dark'] {
   /* Yumma CSS variables */
-  --yma-bg-dark: rgb(29,
-    32,
-    38);
+  --yma-bg-dark: rgb(29,32,38);
   --yma-bg-darker: rgb(26, 28, 34);
 
   /* Infima variables */
@@ -144,9 +142,8 @@ html {
 
 pre {
   margin-top: 2rem;
-  border: 1px solid #ccc;
-  background-color: white !important;
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fafb !important;
 }
 
 [data-theme='dark'] .navbar,
