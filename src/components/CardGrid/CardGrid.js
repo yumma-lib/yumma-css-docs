@@ -1,4 +1,4 @@
-import styles from './CardGrid.modules.css';
+import styles from './CardGrid.module.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '@docusaurus/Link';

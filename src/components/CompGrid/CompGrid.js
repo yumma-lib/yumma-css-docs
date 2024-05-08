@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
 
-import styles from './CompGrid.modules.css';
+import styles from './CompGrid.module.css';
 
 const CompGrid = ({ sectionData }) => {
     const { colorMode, setColorMode } = useColorMode();

@@ -1,8 +1,9 @@
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import React from "react";
+import ReactPlayer from 'react-player'
 
-import styles from './index.modules.css';
+import styles from './index.module.css';
 
 export default function Index() {
 
@@ -17,7 +18,6 @@ export default function Index() {
                             <Link className={styles.yma__btn} to='/docs/installation'>Get started</Link>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </Layout>
