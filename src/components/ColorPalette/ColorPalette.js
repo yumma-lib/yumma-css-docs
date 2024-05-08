@@ -5,10 +5,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const ColorSwatch = ({ hexValue, dataTooltip }) => (
+const ColorSwatch = ({ hexVal, dataTooltip }) => (
     <div
         className={styles.colorSwatchContainer}
-        style={{ backgroundColor: hexValue }}
+        style={{ backgroundColor: hexVal }}
         data-tooltip={dataTooltip}
     />
 );
@@ -19,13 +19,13 @@ const ColorPalette = ({ colorData }) => (
             <div key={color.color} style={{ width: '100%' }}>
                 <div className={styles.colorLineTitle}>{color.color}</div>
                 <div className={styles.colorLine}>
-                    {color.swatch.map((hexValue, i) => {
+                    {color.swatch.map((hexVal, i) => {
                         if (i < 6) {
                             const reverse = 6 - i;
                             return (
                                 <ColorSwatch
                                     key={i}
-                                    hexValue={hexValue}
+                                    hexVal={hexVal}
                                     dataTooltip={`bg-l-${color.color.toLowerCase()}-${reverse}`}
                                 />
                             );
@@ -33,7 +33,7 @@ const ColorPalette = ({ colorData }) => (
                             return (
                                 <ColorSwatch
                                     key={i}
-                                    hexValue={hexValue}
+                                    hexVal={hexVal}
                                     dataTooltip={`bg-${color.color.toLowerCase()}`}
                                 />
                             );
@@ -41,7 +41,7 @@ const ColorPalette = ({ colorData }) => (
                             return (
                                 <ColorSwatch
                                     key={i}
-                                    hexValue={hexValue}
+                                    hexVal={hexVal}
                                     dataTooltip={`bg-d-${color.color.toLowerCase()}-${i - 6}`}
                                 />
                             );
