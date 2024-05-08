@@ -122,7 +122,7 @@ const config = {
               },
               {
                 label: 'Customization',
-                to: '/docs/fundamentals/appearance/color-palette'
+                to: '/docs/fundamentals/appearance/colors'
               }
             ],
           },
