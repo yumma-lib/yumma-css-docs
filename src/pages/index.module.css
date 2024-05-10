@@ -73,7 +73,6 @@
 
 .yma__video__thumbnail {
   border-radius: 20px;
-  height: 500px;
   object-fit: cover;
   width: 100%;
 }
