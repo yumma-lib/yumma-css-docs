@@ -19,7 +19,7 @@ export default function Index() {
                         </div>
                     </div>
                 </div>
-                <div className={styles.yma__video}>
+                {/* <div className={styles.yma__video}>
                     <img className={styles.yma__video__thumbnail} src="https://i.ibb.co/K2FBVW4/What-is-Yumma-CSS.png" alt="Yumma CSS Video Thumbnail" />
                     <div className={styles.yma__video__container}>
                         <a className={styles.yma__video__btn} href="#">
@@ -27,7 +27,7 @@ export default function Index() {
                             Play the overview
                         </a>
                     </div>
-                </div>
+                </div> */}
             </div>
         </Layout>
     );
