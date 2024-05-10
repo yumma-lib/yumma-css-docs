@@ -1,7 +1,7 @@
 import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import React from "react";
-import ReactPlayer from 'react-player'
+import { IoPlayOutline } from "react-icons/io5";
 
 import styles from './index.module.css';
 
@@ -17,6 +17,15 @@ export default function Index() {
                         <div className={styles.yma__action}>
                             <Link className={styles.yma__btn} to='/docs/installation'>Get started</Link>
                         </div>
+                    </div>
+                </div>
+                <div className={styles.yma__video}>
+                    <img className={styles.yma__video__thumbnail} src="https://i.ibb.co/K2FBVW4/What-is-Yumma-CSS.png" alt="Yumma CSS Video Thumbnail" />
+                    <div className={styles.yma__video__container}>
+                        <a className={styles.yma__video__btn} href="#">
+                            <IoPlayOutline className={styles.yma__video__btn__icon} />
+                            Play the overview
+                        </a>
                     </div>
                 </div>
             </div>
