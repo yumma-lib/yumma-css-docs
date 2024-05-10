@@ -9,7 +9,7 @@ export default function Index() {
 
     return (
         <Layout>
-            <div>
+            <div style={{ margin: '12px' }}>
                 <div className={styles.yma__header}>
                     <div>
                         <h1 className={styles.yma__heading}>Quickly build amazing websites with less code in your markup.</h1>
