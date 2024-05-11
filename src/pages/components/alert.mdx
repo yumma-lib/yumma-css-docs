@@ -9,6 +9,8 @@ import { Sandpack } from "@codesandbox/sandpack-react";
 
 Boxes displaying important messages to users.
 
+## Solid colors
+
 <Sandpack
 theme="auto"
 customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
@@ -20,15 +22,23 @@ import "yummacss/dist/yumma.css";
 
 const App = () => {
    return (
-      <div className="m-2">
-         <div className="bc-l-gray-6 bg-white p-2 rad-1 t-d-gray-6">
-            <div className="ai-c d-f">
-              <h3>Heads up!</h3>
-            </div>
-            <div className="fs-sm mt-1 t-d-gray-6">
-              You can use Javascript to make this look even better!
-            </div>
-        </div>
+      <div className="cnn">
+         <div className="mt-1 bg-blue fs-sm t-white rad-2 p-1" role="alert">
+            <span className="fw-600">Info</span>
+            <p>Your user name has been updated.</p>
+         </div>
+         <div className="mt-1 bg-teal fs-sm t-white rad-2 p-1" role="alert">
+            <span className="fw-600">Success</span>
+            <p>Your password has been recovered.</p>
+         </div>
+         <div className="mt-1 bg-yellow fs-sm t-white rad-2 p-1" role="alert">
+            <span className="fw-600">Warning</span>
+            <p>Your password is completely unsafe.</p>
+         </div>
+         <div className="mt-1 bg-red fs-sm t-white rad-2 p-1" role="alert">
+            <span className="fw-600">Danger</span>
+            <p>Your account has been compromised.</p>
+         </div>
       </div>
    );
 }
@@ -37,9 +47,9 @@ export default App;
 `}}}
 />
 
----
+<br />
 
-## Success
+## Soft colors
 
 <Sandpack
 theme="auto"
@@ -52,15 +62,23 @@ import "yummacss/dist/yumma.css";
 
 const App = () => {
    return (
-      <div className="m-2">
-         <div className="bc-d-green-2 bg-white p-2 rad-1 t-d-green-2">
-            <div className="ai-c d-f">
-              <h3>Success</h3>
-            </div>
-            <div className="fs-sm mt-1 t-d-green-2">
-              We have reset your password. You're ready to access your account.
-            </div>
-        </div>
+      <div className="cnn">
+         <div className="bc-d-blue-2 bg-l-blue-6 fs-sm mt-1 p-1 rad-2 t-d-blue-6" role="alert">
+            <span className="fw-600">Info</span>
+            <p>Your user name has been updated.</p>
+         </div>
+         <div className="bc-d-teal-2 bg-l-teal-6 fs-sm mt-1 p-1 rad-2 t-d-teal-6" role="alert">
+            <span className="fw-600">Success</span>
+            <p>Your password has been recovered.</p>
+         </div>
+         <div className="bc-d-yellow-2 bg-l-yellow-6 fs-sm mt-1 p-1 rad-2 t-d-yellow-6" role="alert">
+            <span className="fw-600">Warning</span>
+            <p>Your password is completely unsafe.</p>
+         </div>
+         <div className="bc-d-red-2 bg-l-red-6 fs-sm mt-1 p-1 rad-2 t-d-red-6" role="alert">
+            <span className="fw-600">Danger</span>
+            <p>Your account has been compromised.</p>
+         </div>
       </div>
    );
 }

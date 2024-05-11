@@ -9,6 +9,8 @@ import { Sandpack } from "@codesandbox/sandpack-react";
 
 Profile images representing users or entities
 
+## Circular
+
 <Sandpack
 theme="auto"
 customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
@@ -21,7 +23,117 @@ import "yummacss/dist/yumma.css";
 const App = () => {
   return (
     <div className="ins h-1/1">
-      <img className="dim-12 rad-half" src="https://avatars.githubusercontent.com/u/56491937?v=4" alt="User Avatar" />
+      <img className="dim-16 rad-half" src="https://i.ibb.co/98WpXS3/model.jpg" alt="User Avatar" />
+    </div>
+  );
+}
+
+export default App;
+`}}}
+/>
+
+<br />
+
+## Rounded
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+  return (
+    <div className="ins h-1/1">
+      <img className="dim-16 rad-2" src="https://i.ibb.co/98WpXS3/model.jpg" alt="User Avatar" />
+    </div>
+  );
+}
+
+export default App;
+`}}}
+/>
+
+<br />
+
+## Initials
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+  return (
+    <div className="ins h-1/1">
+      <span className="ai-c bc-d- bg-gray d-if dim-14 fs-lg fw-600 jc-c rad-half t-white">
+        RP
+      </span>
+    </div>
+  );
+}
+
+export default App;
+`}}}
+/>
+
+<br />
+
+## Solid colors
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+  return (
+    <div className="ins h-1/1">
+    <span className="ai-c bg-gray d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
+      <span className="ai-c bg-teal d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
+      <span className="ai-c bg-blue d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
+      <span className="ai-c bg-yellow d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
+      <span className="ai-c bg-red d-if dim-14 fw-600 jc-c rad-half t-white">RP</span>
+    </div>
+  );
+}
+
+export default App;
+`}}}
+/>
+
+<br />
+
+## Soft colors
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+  return (
+    <div className="ins h-1/1">
+    <span className="ai-c bc-d-gray-2 bg-l-gray-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-gray-6">RP</span>
+      <span className="ai-c bc-d-teal-2 bg-l-teal-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-teal-6">RP</span>
+      <span className="ai-c bc-d-blue-2 bg-l-blue-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-blue-6">RP</span>
+      <span className="ai-c bc-d-yellow-2 bg-l-yellow-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-yellow-6">RP</span>
+      <span className="ai-c bc-d-red-2 bg-l-red-6 d-if dim-14 fw-600 jc-c rad-half t-d-red-6">RP</span>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 ---
-title: Badges
+title: Badge
 hide_table_of_contents: true
 ---
 
@@ -9,6 +9,8 @@ import { Sandpack } from "@codesandbox/sandpack-react";
 
 Visual indicators for status or achievements.
 
+# Solid colors
+
 <Sandpack
 theme="auto"
 customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
@@ -21,7 +23,11 @@ import "yummacss/dist/yumma.css";
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <span className="badge-black mr-1 t-white">Badge</span>
+         <span className="badge-gray mr-1 t-white">Badge</span>
+         <span className="badge-green mr-1 t-white">Badge</span>
+         <span className="badge-blue mr-1 t-white">Badge</span>
+         <span className="badge-yellow mr-1 t-white">Badge</span>
+         <span className="badge-red t-white">Badge</span>
       </div>
    );
 }
@@ -30,9 +36,9 @@ export default App;
 `}}}
 />
 
----
+<br />
 
-### Success
+### Soft colors
 
 <Sandpack
 theme="auto"
@@ -46,7 +52,11 @@ import "yummacss/dist/yumma.css";
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <span className="badge-d-green-2 mr-1 t-white">Success</span>
+         <span className="badge-l-gray-6 bc-gray mr-1 t-d-gray-4">Badge</span>
+         <span className="badge-l-teal-6 bc-teal mr-1 t-d-teal-4">Badge</span>
+         <span className="badge-l-blue-6 bc-blue mr-1 t-d-blue-4">Badge</span>
+         <span className="badge-l-yellow-6 bc-yellow mr-1 t-d-yellow-4">Badge</span>
+         <span className="badge-l-red-6 bc-red t-d-red-4">Badge</span>
       </div>
    );
 }

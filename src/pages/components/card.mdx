@@ -11,7 +11,33 @@ Containers for organized content display
 
 ## Card
 
-## Card Section
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+   return (
+      <div className="h-1/1 ins">
+         <div className="bg-white card rad-2">
+            <h1 className="card-t t-gray-5">Showcase</h1>
+            <p className="card-b">Share your projects with our team.</p>
+         </div>
+      </div>
+   );
+}
+
+export default App;
+`}}}
+/>
+
+<br />
+
+## Group
 
 <Sandpack
 theme="auto"
@@ -24,26 +50,26 @@ import "yummacss/dist/yumma.css";
 
 const App = () => {
    return (
-      <div class="gap-1 row cnn">
-         <div class="xs:col-12 lg:col-3 md:col-6">
+      <div className="cnn gap-1 row">
+         <div className="xs:col-12 lg:col-3 md:col-6">
             <div className="bg-white card rad-2">
                <h1 className="card-t t-gray-5">Showcase</h1>
                <p className="card-b">Share your projects with our team.</p>
             </div>
          </div>
-         <div class="xs:col-12 lg:col-3 md:col-6">
+         <div className="xs:col-12 lg:col-3 md:col-6">
             <div className="bg-white card rad-2">
                <h1 className="card-t t-gray-5">Learn</h1>
                <p className="card-b">Discover new skills and knowledge.</p>
             </div>
          </div>
-         <div class="xs:col-12 lg:col-3 md:col-6">
+         <div className="xs:col-12 lg:col-3 md:col-6">
             <div className="bg-white card rad-2">
                <h1 className="card-t t-gray-5">Connect</h1>
                <p className="card-b">Engage with like-minded individuals.</p>
             </div>
          </div>
-         <div class="xs:col-12 lg:col-3 md:col-6">
+         <div className="xs:col-12 lg:col-3 md:col-6">
             <div className="bg-white card rad-2">
                <h1 className="card-t t-gray-5">Explore</h1>
                <p className="card-b">Embark on a journey of discovery.</p>

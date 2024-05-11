@@ -5,7 +5,7 @@ hide_table_of_contents: true
 
 import { Sandpack } from "@codesandbox/sandpack-react";
 
-# Button
+# Solid colors
 
 Interactive elements for user actions.
 
@@ -21,7 +21,11 @@ import "yummacss/dist/yumma.css";
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <button className="btn-black t-white">Login</button>
+         <span className="btn-gray mr-1 t-white">Button</span>
+         <span className="btn-teal mr-1 t-white">Button</span>
+         <span className="btn-blue mr-1 t-white">Button</span>
+         <span className="btn-yellow mr-1 t-white">Button</span>
+         <span className="btn-red t-white">Button</span>
       </div>
    );
 }
@@ -30,9 +34,9 @@ export default App;
 `}}}
 />
 
----
+<br />
 
-### Outlined
+# Soft colors
 
 <Sandpack
 theme="auto"
@@ -46,7 +50,11 @@ import "yummacss/dist/yumma.css";
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <button className="btn-otl-black h:t-white mr-1 mt-1 t-black">Outlined</button>
+         <span className="btn-l-gray-6 mr-1 t-white">Button</span>
+         <span className="btn-l-teal-6 mr-1 t-white">Button</span>
+         <span className="btn-l-blue-6 mr-1 t-white">Button</span>
+         <span className="btn-l-yellow-6 mr-1 t-white">Button</span>
+         <span className="btn-l-red-6 t-white">Button</span>
       </div>
    );
 }
@@ -55,17 +63,13 @@ export default App;
 `}}}
 />
 
----
+<br />
 
-### Complement
-
-:::warning Complement Buttons are Deprecated!
-Complement buttons are no longer available in the latest versions. If you want to use complement buttons, consider using Yumma CSS versions before to v1.1.0.
-:::
+# Outline colors
 
 <Sandpack
 theme="auto"
-customSetup={{ dependencies: { "yummacss": "1.0", "react-icons": "latest" } }}
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
 template="react"
 options={{ editorHeight: 600 }}
 files={{ "/App.js": {
@@ -75,7 +79,36 @@ import "yummacss/dist/yumma.css";
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <button className="btn-cmp-gray h:t-white mr-1 mt-1 t-black">Complement</button>
+         <span className="btn-otl-gray h:t-white mr-1 t-gray">Button</span>
+         <span className="btn-otl-teal h:t-white mr-1 t-teal">Button</span>
+         <span className="btn-otl-blue h:t-white mr-1 t-blue">Button</span>
+         <span className="btn-otl-yellow h:t-white mr-1 t-yellow">Button</span>
+         <span className="btn-otl-red h:t-white t-red">Button</span>
+      </div>
+   );
+}
+
+export default App;
+`}}}
+/>
+
+<br />
+
+# Block
+
+<Sandpack
+theme="auto"
+customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
+template="react"
+options={{ editorHeight: 600 }}
+files={{ "/App.js": {
+code: `import React from "react";
+import "yummacss/dist/yumma.css";
+
+const App = () => {
+   return (
+      <div className="cnn ins h-1/1">
+         <span className="btn-blue mr-1 t-white ta-c w-full">Button</span>
       </div>
    );
 }
