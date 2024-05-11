@@ -1,15 +1,13 @@
 ---
-title: Forms
+title: Badges
 hide_table_of_contents: true
 ---
 
 import { Sandpack } from "@codesandbox/sandpack-react";
 
-# Forms
+# Badge
 
-Input fields for user data submission.
-
-### Input
+Visual indicators for status or achievements.
 
 <Sandpack
 theme="auto"
@@ -23,7 +21,7 @@ import "yummacss/dist/yumma.css";
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <input className="bc-l-gray-6 bg-white p-1 rad-1 t-d-gray-4" placeholder="First Name"></input>
+         <span className="badge-black mr-1 t-white">Badge</span>
       </div>
    );
 }
@@ -34,7 +32,7 @@ export default App;
 
 ---
 
-### Disabled
+### Success
 
 <Sandpack
 theme="auto"
@@ -48,7 +46,7 @@ import "yummacss/dist/yumma.css";
 const App = () => {
    return (
       <div className="ins h-1/1">
-         <input className="c-na bc-l-gray-6 o-50 p-1 rad-1 t-d-gray-4" placeholder="First Name" value="Renildo Pereira" disabled></input>
+         <span className="badge-d-green-2 mr-1 t-white">Success</span>
       </div>
    );
 }
