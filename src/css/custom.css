@@ -17,7 +17,7 @@
 
 [data-theme='dark'] {
   /* Yumma CSS variables */
-  --yma-bg-dark: rgb(29,32,38);
+  --yma-bg-dark: rgb(29, 32, 38);
   --yma-bg-darker: rgb(26, 28, 34);
 
   /* Infima variables */
@@ -69,6 +69,14 @@
   --docsearch-key-gradient: linear-gradient(-26.5deg,
       var(--ifm-color-emphasis-200) 0%,
       var(--ifm-color-emphasis-100) 100%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h6 {
+  font-weight: 500;
 }
 
 .navbar {
