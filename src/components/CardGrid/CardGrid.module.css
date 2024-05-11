@@ -25,6 +25,10 @@
     border-color: #424447;
 }
 
+.cardTitle {
+    font-weight: 500;
+}
+
 .cardIcon {
     display: block;
     margin-left: auto;
