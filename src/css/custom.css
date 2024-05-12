@@ -66,9 +66,7 @@
   --docsearch-hit-background: var(--ifm-color-emphasis-100);
   /* Footer */
   --docsearch-footer-background: var(--yma-bg-darker);
-  --docsearch-key-gradient: linear-gradient(-26.5deg,
-      var(--ifm-color-emphasis-200) 0%,
-      var(--ifm-color-emphasis-100) 100%);
+  --docsearch-key-gradient: linear-gradient(-26.5deg, var(--ifm-color-emphasis-200) 0%, var(--ifm-color-emphasis-100) 100%);
 }
 
 h1,
@@ -106,13 +104,7 @@ h6 {
 .menu__link,
 .menu__link--active,
 .menu__link--sublist {
-  border-radius: 0px 12px 12px 0px;
   padding: 12px;
-}
-
-.menu__list-item-collapsible,
-.menu__list-item-collapsible--active {
-  border-radius: 0px 12px 12px 0px;
 }
 
 .menu {
