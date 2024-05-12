@@ -55,7 +55,7 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Docs'
+            label: 'Documentation'
           },
           {
             label: 'Blog',
@@ -81,15 +81,15 @@ const config = {
             title: 'Getting Started',
             items: [
               {
+                label: 'Documentation',
+                to: '/docs/installation'
+              },
+              {
                 label: 'Blog',
                 to: '/blog'
               },
               {
-                label: 'Docs',
-                to: '/docs/installation'
-              },
-              {
-                label: 'Playground',
+                label: 'Play',
                 to: '/playground'
               }
             ],

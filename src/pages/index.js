@@ -13,7 +13,7 @@ export default function Index() {
                 <div className={styles.yma__header}>
                     <div>
                         <h1 className={styles.yma__heading}>Quickly build amazing websites with less code in your markup.</h1>
-                        <p className={styles.yma__paragraph}>Bundled with <Link to='/components'>components</Link> and small classes that are designed for fast development with small class names such as <Link to='/docs/fundamentals/layout/inset'><code>ins</code></Link>, <Link to='/components/button'><code>btn</code></Link>, <Link to='/docs/positioning/display'><code>d-f</code></Link>, and many more.</p>
+                        <p className={styles.yma__paragraph}>Bundled with components and small classes that are designed for fast development with small class names such as ins, btn, d-f, and many more.</p>
                         <div className={styles.yma__action}>
                             <Link className={styles.yma__btn} to='/docs/installation'>Get started</Link>
                         </div>
