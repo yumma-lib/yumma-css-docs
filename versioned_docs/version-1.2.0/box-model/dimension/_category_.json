@@ -1,6 +1,5 @@
 {
     "label": "Dimension",
-    "position": 3,
     "link": {
         "type": "doc",
         "id": "box-model/dimension/dimension"

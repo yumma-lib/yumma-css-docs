@@ -1,6 +1,6 @@
 {
-    "label": "Fundamentals",
-    "position": 2,
     "collapsed": false,
-    "collapsible": false
+    "collapsible": false,
+    "label": "Fundamentals",
+    "position": 2
 }

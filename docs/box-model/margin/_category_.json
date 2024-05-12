@@ -1,6 +1,5 @@
 {
     "label": "Margin",
-    "position": 3,
     "link": {
         "type": "doc",
         "id": "box-model/margin/margin"

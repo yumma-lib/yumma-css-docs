@@ -1,6 +1,5 @@
 {
     "label": "Width",
-    "position": 3,
     "link": {
         "type": "doc",
         "id": "box-model/width/width"
