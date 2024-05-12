@@ -27,10 +27,8 @@ const config = {
           includeCurrentVersion: false
         },
         blog: {
-          postsPerPage: 3,
           blogSidebarTitle: 'Latest articles',
-          showReadingTime: true,
-          blogSidebarCount: 5
+          showReadingTime: false
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
