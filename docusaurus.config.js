@@ -58,12 +58,12 @@ const config = {
             label: 'Docs'
           },
           {
-            label: 'Playground',
-            to: '/playground'
-          },
-          {
             label: 'Blog',
             to: '/blog'
+          },
+          {
+            label: 'Play',
+            to: '/playground'
           },
           {
             label: 'Components',
