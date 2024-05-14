@@ -20,7 +20,7 @@ export default function Index() {
                     </div>
                 </div>
                 <div className={styles.yma__video}>
-                    <img className={styles.yma__video__thumbnail} src="https://i.ibb.co/K2FBVW4/What-is-Yumma-CSS.png" alt="Yumma CSS Video Thumbnail" />
+                    <img className={styles.yma__video__thumbnail} src="/img/thumbnail.png" alt="Yumma CSS Video Thumbnail" />
                     <div className={styles.yma__video__container}>
                         <a className={styles.yma__video__btn} href="#">
                             <IoPlayOutline className={styles.yma__video__btn__icon} />
