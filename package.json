@@ -1,6 +1,6 @@
 {
   "name": "yumma-css-docs",
-  "version": "1.0",
+  "version": "1.x",
   "description": "Build beautiful websites with small class names",
   "private": true,
   "scripts": {
