@@ -99,11 +99,12 @@ Controls the stacking order of elements with the same stacking context.
 />
 
 ```html
-<div class="zi-10 ...">
-  <p class="...">10</p>
-</div>
-
-<div class="zi-20 ...">
-  <p class="...">20</p>
+<div class="pos-r">
+  <div class="bg-magenta bs-md h-16 ins p-1 pos-r rad-1 w-16 zi-10">
+    <p class="t-white ta-c">10</p>
+  </div>
+  <div class="bg-d-magenta-6 bs-md dir-l dir-t h-6 ins p-1 pos-a rad-1 w-6 zi-20">
+    <p class="t-white ta-c">20</p>
+  </div>
 </div>
 ```
