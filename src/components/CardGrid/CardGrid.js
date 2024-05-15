@@ -8,8 +8,8 @@ const CardGrid = ({ cardData }) => {
         <div className={styles.cardGrid}>
             {cardData.map((cardGridProps, i) => (
                 <div className={styles.cardElement} key={i}>
-                    {cardGridProps.url ? (
-                        <Link to={cardGridProps.url} className={styles.cardLink}>
+                    {cardGridProps.href ? (
+                        <Link to={cardGridProps.href} className={styles.cardLink}>
                             <img className={styles.cardIcon} src={cardGridProps.icon} alt={cardGridProps.title} />
                             <h2 className={styles.cardTitle}>{cardGridProps.title}</h2>
                             <p className={styles.cardDescription}>{cardGridProps.description}</p>
@@ -33,7 +33,7 @@ CardGrid.propTypes = {
             icon: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
-            url: PropTypes.string,
+            href: PropTypes.string,
         })
     ).isRequired,
 };

@@ -1,9 +1,8 @@
 .cardElement {
-    padding: 18px;
-    text-align: center;
+    background-color: var(--yma-bg-lighter);
     border-radius: 12px;
     border: 1px solid #e5e7eb;
-    background-color: var(--yma-bg-lighter);
+    padding: 18px;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -21,20 +20,22 @@
 }
 
 [data-theme='dark'] .cardElement:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
     border-color: #424447;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .cardTitle {
     font-weight: 600;
 }
 
+.cardImage {
+    background-color: #fbe2f1;
+
+}
+
 .cardIcon {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 64px;
-    width: 64px;
+    height: 44px;
+    width: 44px;
 }
 
 [data-theme='dark'] .cardDescription {
@@ -47,8 +48,8 @@
 
 .cardGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 @media (max-width: 768px) {
