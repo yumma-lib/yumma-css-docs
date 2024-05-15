@@ -33,7 +33,7 @@ CardGrid.propTypes = {
             icon: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             description: PropTypes.string.isRequired,
-            href: PropTypes.string,
+            href: PropTypes.string
         })
     ).isRequired,
 };

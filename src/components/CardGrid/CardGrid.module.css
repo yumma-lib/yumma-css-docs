@@ -1,6 +1,6 @@
 .cardElement {
     background-color: var(--yma-bg-lighter);
-    border-radius: 12px;
+    border-radius: 8px;
     border: 1px solid #e5e7eb;
     padding: 18px;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
@@ -25,17 +25,12 @@
 }
 
 .cardTitle {
-    font-weight: 600;
-}
-
-.cardImage {
-    background-color: #fbe2f1;
-
+    font-weight: 400;
 }
 
 .cardIcon {
-    height: 44px;
-    width: 44px;
+    height: 36px;
+    width: 36px;
 }
 
 [data-theme='dark'] .cardDescription {
