@@ -31,9 +31,7 @@
   </a>
 </p>
 
-## What to do next?
-
-Now that you've got Yumma CSS up and running, you can begin to play around with the utility classes or components.
+## Get started
 
 You can use [npm](https://www.npmjs.com/yummacss) to include the Yumma CSS in your project, or you can add it using [jsDelivr](https://www.jsdelivr.com/):
 
