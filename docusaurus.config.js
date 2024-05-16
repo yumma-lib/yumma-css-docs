@@ -192,7 +192,7 @@ const config = {
           {
             tagName: 'meta',
             name: 'theme-color',
-            content: 'rgb(220, 9, 136)'
+            content: '#dc0988'
           },
           {
             tagName: 'meta',
@@ -213,7 +213,7 @@ const config = {
             tagName: 'link',
             rel: 'mask-icon',
             to: 'img/yummacss.png',
-            color: 'transparent'
+            color: '#dc0988'
           },
           {
             tagName: 'meta',

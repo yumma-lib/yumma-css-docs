@@ -1,7 +1,7 @@
 {
     "name": "Yumma CSS",
     "short_name": "Yumma CSS",
-    "theme_color": "#dc0988",
+    "theme_color": "transparent",
     "background_color": "#23272f",
     "display": "standalone",
     "scope": "./",
