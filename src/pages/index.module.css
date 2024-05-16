@@ -42,11 +42,10 @@
 
 .yma__btn {
   align-items: center;
-  border-radius: 12px;
-  box-shadow: transparent 0px 2px 4px, rgba(0, 0, 0, 0.1) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1.5px 0px inset;
+  border-radius: 8rem;
   color: #f6f7f9;
   display: flex;
-  font-size: 1rem;
+  font-size: 1.2rem;
   height: 3rem;
   justify-content: center;
   margin-left: 1.5rem;
