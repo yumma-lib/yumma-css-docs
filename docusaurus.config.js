@@ -213,7 +213,7 @@ const config = {
             tagName: 'link',
             rel: 'mask-icon',
             to: 'img/yummacss.png',
-            color: 'rgb(220, 9, 136)'
+            color: 'transparent'
           },
           {
             tagName: 'meta',
