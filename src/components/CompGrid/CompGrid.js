@@ -1,7 +1,7 @@
 import Link from '@docusaurus/Link';
+import { useColorMode } from '@docusaurus/theme-common';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useColorMode } from '@docusaurus/theme-common';
 
 import styles from './CompGrid.module.css';
 

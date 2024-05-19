@@ -62,10 +62,6 @@ const config = {
             to: '/blog'
           },
           {
-            label: 'Play',
-            to: '/playground'
-          },
-          {
             label: 'Components',
             to: '/components'
           },
@@ -85,12 +81,12 @@ const config = {
                 to: '/docs/installation'
               },
               {
-                label: 'Blog',
-                to: '/blog'
+                label: 'Components',
+                to: '/components'
               },
               {
-                label: 'Play',
-                to: '/playground'
+                label: 'Blog',
+                to: '/blog'
               }
             ],
           },
