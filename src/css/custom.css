@@ -132,10 +132,6 @@ body {
   font-weight: 500;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 pre {
   margin-top: 2rem;
   border: 1px solid #e5e7eb;

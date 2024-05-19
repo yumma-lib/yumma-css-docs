@@ -37,7 +37,7 @@ You can use [npm](https://www.npmjs.com/yummacss) to include the Yumma CSS in yo
 
 ### cdn
 ```
-<link href="https://cdn.jsdelivr.net/npm/yummacss/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">
 ```
 
 ### npm
