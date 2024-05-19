@@ -77,8 +77,8 @@ const config = {
             title: 'Getting Started',
             items: [
               {
-                label: 'Documentation',
-                to: '/docs/installation'
+                label: 'Introduction',
+                to: '/blog/introducing-yummacss'
               },
               {
                 label: 'Components',
