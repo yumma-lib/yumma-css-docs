@@ -1,0 +1,76 @@
+---
+title: Width
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+# Width
+
+Sets the width of an element's content box.
+
+<ClassList 
+  baseClassName='w-' 
+  propertyNames={['width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'}
+  ]} 
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="bg-pink mr-1 p-1 rad-1 t-white w-5">5</div>
+    <div class="bg-pink mr-1 p-1 rad-1 t-white w-10">10</div>
+    <div class="bg-pink mr-1 p-1 rad-1 t-white w-20">20</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.2.0'
+/>
+
+```html
+<div class="bg-pink mr-1 p-1 rad-1 t-white w-5">5</div>
+<div class="bg-pink mr-1 p-1 rad-1 t-white w-10">10</div>
+<div class="bg-pink mr-1 p-1 rad-1 t-white w-20">20</div>
+```
+
+# Max Width
+
+Defines the maximum width an element can have.
+
+<ClassList 
+  baseClassName='max-w-' 
+  propertyNames={['max-width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'}
+  ]} 
+/>
+
+# Min Width
+
+Defines the minimum width an element can have.
+
+<ClassList 
+  baseClassName='min-w-' 
+  propertyNames={['min-width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'}
+  ]} 
+/>

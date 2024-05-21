@@ -1,0 +1,94 @@
+---
+title: Margin
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Sets the margin around all four sides of an element.
+
+<ClassList 
+  baseClassName='m-' 
+  propertyNames={['margin']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="bg-pink h-14 ins m-2 rad-1 t-white w-14">1</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '0.1.0'
+/>
+
+```html
+<div class="bg-pink h-14 ins m-2 rad-1 t-white w-14">1</div>
+```
+
+## Margin Bottom
+
+Sets the margin below an element.
+
+<ClassList 
+  baseClassName='mb-' 
+  propertyNames={['margin-bottom']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Margin Left
+
+Sets the margin to the left of an element.
+
+<ClassList 
+  baseClassName='ml-' 
+  propertyNames={['margin-left']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Margin Right
+
+Sets the margin to the right of an element.
+
+<ClassList 
+  baseClassName='mr-' 
+  propertyNames={['margin-right']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Margin Top
+
+Sets the margin above an element.
+
+<ClassList 
+  baseClassName='mt-' 
+  propertyNames={['margin-top']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>

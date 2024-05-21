@@ -1,3 +1,4 @@
+import { useColorMode } from '@docusaurus/theme-common';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -10,6 +11,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     }
   };
 
+  const { colorMode, setColorMode } = useColorMode();
   const flex = isCentered ? 'display: flex;' : '';
 
   const styles = `
@@ -19,7 +21,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     ${isPadded ? 'padding: 12px 14px;' : ''}
   `;
 
-  const stylesheet = `https://cdn.jsdelivr.net/gh/rrenildopereiraa/yumma-css@${isVersion}/dist/yumma.css`;
+  const stylesheet = `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${isVersion}/dist/yumma.css`;
 
   const iframe = `
     <html>
@@ -34,8 +36,8 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
   `;
 
   const iframeStyle = {
-    backgroundColor: '#f9fafb',
-    border: '1px solid #e5e7eb',
+    backgroundColor: colorMode === 'dark' ? '#1d2026' : '#f9fafb',
+    border: colorMode === 'dark' ? '1px solid #2d2f33' : '1px solid #e5e7eb',
     borderRadius: '8px',
     height: isHeight || '200px',
     width: '100%',

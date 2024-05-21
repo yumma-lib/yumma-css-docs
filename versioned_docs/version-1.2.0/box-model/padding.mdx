@@ -1,0 +1,122 @@
+---
+title: Padding
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Adds space inside an element's content box.
+
+<ClassList 
+  baseClassName='p-' 
+  propertyNames={['padding']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="bg-pink mr-1 p-1 rad-1 t-white">1</div>
+    <div class="bg-pink mr-1 p-2 rad-1 t-white">2</div>
+    <div class="bg-pink mr-1 p-3 rad-1 t-white">3</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '1.2.0'
+/>
+
+```html
+<div class="bg-pink mr-1 p-1 rad-1 t-white">1</div>
+<div class="bg-pink mr-1 p-2 rad-1 t-white">2</div>
+<div class="bg-pink mr-1 p-3 rad-1 t-white">3</div>
+```
+
+## Padding Bottom
+
+Adds space inside an element below its content.
+
+<ClassList 
+  baseClassName='pb-' 
+  propertyNames={['padding-bottom']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Padding Left
+
+Adds space inside an element to the left of its content.
+
+<ClassList 
+  baseClassName='pl-' 
+  propertyNames={['padding-left']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Padding Right
+
+Adds space inside an element to the right of its content.
+
+<ClassList 
+  baseClassName='pr-' 
+  propertyNames={['padding-right']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Padding Top
+
+Adds space inside an element above its content.
+
+<ClassList 
+  baseClassName='pt-' 
+  propertyNames={['padding-top']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Padding X
+
+Sets the left and right paddings of an element.
+
+<ClassList 
+  baseClassName='px-' 
+  propertyNames={['padding-left', 'padding-right']}
+  range={100} 
+  increment={0.75} 
+  unit='rem'
+/>
+
+## Padding Y
+
+Sets the top and bottom paddings of an element.
+
+<ClassList 
+  baseClassName='py-' 
+  propertyNames={['padding-top', 'padding-bottom']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem'
+/>

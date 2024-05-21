@@ -1,0 +1,199 @@
+---
+title: Border Color
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import ColorList from '@site/src/components/ColorList/ColorList';
+
+Sets the color of all four borders of an element.
+
+:::info Using Color Shades
+You can use different color shades in your website or application like `bg-l-pink-4` or `bg-l-pink-4`
+:::
+
+<ColorList 
+  baseClassName="bc-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: 'rgba(215, 61, 61)' },
+    { color: 'orange', value: 'rgba(224, 104, 20)' },
+    { color: 'yellow', value: 'rgba(211, 161, 7)' },
+    { color: 'green', value: 'rgba(31, 177, 85)' },
+    { color: 'teal', value: 'rgba(18, 166, 149)' },
+    { color: 'cyan', value: 'rgba(5, 164, 191)' },
+    { color: 'blue', value: 'rgba(53, 117, 221)' },
+    { color: 'indigo', value: 'rgba(89, 92, 217)' },
+    { color: 'violet', value: 'rgba(125, 83, 221)' },
+    { color: 'pink', value: 'rgba(212, 65, 138)' },
+    { color: 'gray', value: 'rgba(96, 103, 115)' },
+    { color: 'lead', value: 'rgba(63, 63, 78)' }
+  ]}
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="b-2 bc-pink bc-pink dim-14"></div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '1.2.0'
+/>
+
+```html
+<div class="b-2 bc-pink bc-pink dim-14"></div>
+```
+
+## Border Bottom Color
+
+Sets the color of the bottom border of an element.
+
+<ColorList 
+  baseClassName="bc-b-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-bottom-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: 'rgba(215, 61, 61)' },
+    { color: 'orange', value: 'rgba(224, 104, 20)' },
+    { color: 'yellow', value: 'rgba(211, 161, 7)' },
+    { color: 'green', value: 'rgba(31, 177, 85)' },
+    { color: 'teal', value: 'rgba(18, 166, 149)' },
+    { color: 'cyan', value: 'rgba(5, 164, 191)' },
+    { color: 'blue', value: 'rgba(53, 117, 221)' },
+    { color: 'indigo', value: 'rgba(89, 92, 217)' },
+    { color: 'violet', value: 'rgba(125, 83, 221)' },
+    { color: 'pink', value: 'rgba(212, 65, 138)' },
+    { color: 'gray', value: 'rgba(96, 103, 115)' },
+    { color: 'lead', value: 'rgba(63, 63, 78)' }
+  ]}
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="b-2 bc-b-l-pink-4 bc-pink dim-14"></div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '1.2.0'
+/>
+
+```html
+<div class="b-2 bc-b-l-pink-4 bc-pink dim-14"></div>
+```
+
+## Border Left Color
+
+Sets the color of the left border of an element.
+
+<ColorList 
+  baseClassName="bc-l-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-left-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: 'rgba(215, 61, 61)' },
+    { color: 'orange', value: 'rgba(224, 104, 20)' },
+    { color: 'yellow', value: 'rgba(211, 161, 7)' },
+    { color: 'green', value: 'rgba(31, 177, 85)' },
+    { color: 'teal', value: 'rgba(18, 166, 149)' },
+    { color: 'cyan', value: 'rgba(5, 164, 191)' },
+    { color: 'blue', value: 'rgba(53, 117, 221)' },
+    { color: 'indigo', value: 'rgba(89, 92, 217)' },
+    { color: 'violet', value: 'rgba(125, 83, 221)' },
+    { color: 'pink', value: 'rgba(212, 65, 138)' },
+    { color: 'gray', value: 'rgba(96, 103, 115)' },
+    { color: 'lead', value: 'rgba(63, 63, 78)' }
+  ]}
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="b-2 bc-l-l-pink-4 bc-pink dim-14"></div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '1.2.0'
+/>
+
+```html
+<div class="b-2 bc-l-l-pink-4 bc-pink dim-14"></div>
+```
+
+## Border Right Color
+
+Sets the color of the right border of an element.
+
+<ColorList 
+  baseClassName="bc-r-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-right-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: 'rgba(215, 61, 61)' },
+    { color: 'orange', value: 'rgba(224, 104, 20)' },
+    { color: 'yellow', value: 'rgba(211, 161, 7)' },
+    { color: 'green', value: 'rgba(31, 177, 85)' },
+    { color: 'teal', value: 'rgba(18, 166, 149)' },
+    { color: 'cyan', value: 'rgba(5, 164, 191)' },
+    { color: 'blue', value: 'rgba(53, 117, 221)' },
+    { color: 'indigo', value: 'rgba(89, 92, 217)' },
+    { color: 'violet', value: 'rgba(125, 83, 221)' },
+    { color: 'pink', value: 'rgba(212, 65, 138)' },
+    { color: 'gray', value: 'rgba(96, 103, 115)' },
+    { color: 'lead', value: 'rgba(63, 63, 78)' }
+  ]}
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="b-2 bc-pink bc-r-l-pink-4 dim-14"></div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '1.2.0'
+/>
+
+```html
+<div class="b-2 bc-pink bc-r-l-pink-4 dim-14"></div>
+```
+
+## Border Top Color
+
+Sets the color of the top border of an element.
+
+<ColorList 
+  baseClassName="bc-t-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-top-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: 'rgba(215, 61, 61)' },
+    { color: 'orange', value: 'rgba(224, 104, 20)' },
+    { color: 'yellow', value: 'rgba(211, 161, 7)' },
+    { color: 'green', value: 'rgba(31, 177, 85)' },
+    { color: 'teal', value: 'rgba(18, 166, 149)' },
+    { color: 'cyan', value: 'rgba(5, 164, 191)' },
+    { color: 'blue', value: 'rgba(53, 117, 221)' },
+    { color: 'indigo', value: 'rgba(89, 92, 217)' },
+    { color: 'violet', value: 'rgba(125, 83, 221)' },
+    { color: 'pink', value: 'rgba(212, 65, 138)' },
+    { color: 'gray', value: 'rgba(96, 103, 115)' },
+    { color: 'lead', value: 'rgba(63, 63, 78)' }
+  ]}
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="b-2 bc-pink bc-t-l-pink-4 dim-14"></div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '1.2.0'
+/>
+
+```html
+<div class="b-2 bc-pink bc-t-l-pink-4 dim-14"></div>
+```

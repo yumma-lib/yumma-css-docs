@@ -1,0 +1,118 @@
+---
+title: Margin
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Sets the margin around all four sides of an element.
+
+<ClassList 
+  baseClassName='m-' 
+  propertyNames={['margin']}
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="bg-pink dim-14 ins m-2 rad-1 t-white">1</div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = 'latest'
+/>
+
+```html
+<div class="bg-pink dim-14 ins m-2 rad-1 t-white">1</div>
+```
+
+## Margin Bottom
+
+Sets the margin below an element.
+
+<ClassList 
+  baseClassName='mb-' 
+  propertyNames={['margin-bottom']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Margin Left
+
+Sets the margin to the left of an element.
+
+<ClassList 
+  baseClassName='ml-' 
+  propertyNames={['margin-left']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Margin Right
+
+Sets the margin to the right of an element.
+
+<ClassList 
+  baseClassName='mr-' 
+  propertyNames={['margin-right']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Margin Top
+
+Sets the margin above an element.
+
+<ClassList 
+  baseClassName='mt-' 
+  propertyNames={['margin-top']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'}
+  ]} 
+/>
+
+## Margin X
+
+Sets the left and right margins of an element.
+
+<ClassList 
+  baseClassName='mx-' 
+  propertyNames={['margin-left', 'margin-right']}
+  range={100} 
+  increment={0.75} 
+  unit='rem'
+/>
+
+## Margin Y
+
+Sets the top and bottom margins of an element.
+
+<ClassList 
+  baseClassName='my-' 
+  propertyNames={['margin-top', 'margin-bottom']} 
+  range={100} 
+  increment={0.75} 
+  unit='rem'
+/>
