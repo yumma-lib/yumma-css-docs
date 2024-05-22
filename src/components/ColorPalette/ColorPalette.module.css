@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.colorLineTitle {
+    margin-bottom: 10px;
+}
+
 .colorLine {
     align-items: center;
     display: flex;

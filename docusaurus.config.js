@@ -24,11 +24,14 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          includeCurrentVersion: false
+          includeCurrentVersion: false,
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true
         },
         blog: {
           blogSidebarTitle: 'Latest articles',
-          showReadingTime: false
+          showReadingTime: false,
+          blogSidebarCount: 12
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

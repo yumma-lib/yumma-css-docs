@@ -1,0 +1,252 @@
+---
+authors: [rrenildopereiraa]
+hide_table_of_contents: true
+slug: releases/1.2.0
+tags: [update]
+title: Yumma CSS v1.2
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ColorPalette from "@site/src/components/ColorPalette/ColorPalette";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+For a long time I haven't updated the color palette of Yumma CSS, so today I'm very proud to announce [Yumma CSS v1.2](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0), which introduces a reworked color palette, adds new variations for dimension classes, line height classes and much more.
+
+{/* truncate */}
+
+![Yumma CSS v1.2 Banner](yummacss-v1.2.0.png)
+
+<br />
+
+This is an incremental update that may contain bug fixes. Minor releases follow the conventions of [Semantic Versioning](https://docs.npmjs.com/about-semantic-versioning). In other words, this should be an easy update for you.
+
+- [x] **[All new utilities](#all-new-utilities):** Heights, Widths, Flex, Box Shadow and Line Height.
+
+- [x] **[New color palette](#new-color-palette):** New palette with more vivid colors.
+
+- [x] **[Extending media queries](#extending-media-queries):** Dimension utility class media query extension.
+
+- [x] **[Button style](#button-visibility):** Button styling improvements.
+
+See the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0) at GitHub for more information.
+
+---
+
+### All new utilities 
+
+After some time without new utility classes for **Height** (max and min height), **Width** (max and min width) and **Dimension** (max and min), here it is — `fit-content`.
+
+<ClassList
+  classData={[
+    {
+      className: 'h-fc',
+      properties: [
+        'height: fit-content;'
+      ]
+    },
+    {
+      className: 'w-fc',
+      properties: [
+        'width: fit-content;'
+      ]
+    },
+    {
+      className: 'max-h-fc',
+      properties: [
+        'max-height: fit-content;'
+      ]
+    },
+    {
+      className: 'min-h-fc',
+      properties: [
+        'max-height: fit-content;'
+      ]
+    },
+    {
+      className: 'max-w-[value]',
+      properties: [
+        'max-width: fit-content;'
+      ]
+    },
+    {
+      className: 'min-w-[value]',
+      properties: [
+        'max-width: fit-content;'
+      ]
+    },
+    {
+      className: 'dim-1',
+      properties: [
+        'height: 0.25rem;',
+        'width: 0.25rem;'
+      ]
+    },
+    {
+      className: 'max-dim-1',
+      properties: [
+        'max-height: 0.25rem;',
+        'max-width: 0.25rem;'
+      ]
+    },
+    {
+      className: 'min-dim-1',
+      properties: [
+        'min-height: 0.25rem;',
+        'min-width: 0.25rem;'
+      ]
+    },
+  ]}
+/>
+
+<br />
+
+I'm also extend the **Flex** class even further, now with three new utilities: `auto`, `full` and `half`.
+
+<ClassList
+  classData={[
+    {
+      className: 'f-auto',
+      properties: [
+        'flex: auto;'
+      ]
+    },
+    {
+      className: 'f-full',
+      properties: [
+        'flex: 100%;'
+      ]
+    },
+    {
+      className: 'f-half',
+      properties: [
+        'flex: 50%;'
+      ]
+    },
+  ]}
+/>
+
+Well, better late than never, Yumma CSS will now make texts a bit more different thanks to new classes for text height. There are still a few things to improve, but for now it's a good start.
+
+```html
+<p class="lh-6 t-l-lead-4">In an endless white expanse, Ren stood by a solitary tree ...</p>
+```
+
+<ClassPreview
+  codeData={`
+    <p class="lh-6 t-l-lead-4">In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey. Some soared gracefully, while others spiraled with wild exuberance. The lone tree beside him seemed to share Ren's vigil, its branches reaching skyward.</p>
+  `}
+  isPadded = {true}
+  isCentered = {false}
+  isVersion = '1.2.0'
+/>
+
+---
+
+### New color palette
+
+You've probably seen these colors in [Tailwind CSS](https://tailwindcss.com/), and I'm a big fan of their style. Since the first version of Yumma CSS, I've always used the Photoshop palette variations, but there was one problem. Contrast. So I decided to create a variation based on Tailwind by replacing Aqua with Cyan and Magenta with Indigo.
+
+Oh, another thing, though it's not a color, Yumma CSS v1.2 now supports - `transparent`.
+
+<ColorPalette
+  colorData={[
+    {
+      color: 'Cyan',
+      swatch: [
+        '#9bdbe5', '#82d2df', '#69c8d9', '#50bfd2', '#37b6cc', '#1eadc5', '#05a4bf', '#0594ac', '#048399', '#047386', '#036273', '#035260', '#02424c',
+      ],
+    },
+    {
+      color: 'Indigo',
+      swatch: [
+        '#bdbef0', '#acaeec', '#9b9de8', '#8b8de4', '#7a7de1', '#6a6cdd', '#595cd9', '#5053c3', '#474aae', '#3e4098', '#353782', '#2d2e6d', '#242557',
+      ],
+    }
+  ]}
+/>
+
+<br />
+
+In the previous versions, the colors weren't as rich as I wanted them to be, and this was a limitation because colors with less contrast can go unnoticed in many scenarios. Here's a comparison between the old and new color palettes in Yumma CSS v1.2.
+
+<Tabs>
+  <TabItem value="before" label="Before">
+    <ColorPalette
+      colorData={[
+        {
+          color: 'Blue',
+          swatch: [
+            '#b4d1ea', '#a1c6e5', '#8ebadf', '#7bafda', '#69a3d5', '#5698cf', '#438cca', '#3c7eb6', '#3670a2', '#2f628d', '#285479', '#224665', '#1b3851',
+          ],
+        }
+      ]}
+    />
+  </TabItem>
+  <TabItem value="after" label="After">
+    <ColorPalette
+      colorData={[
+        {
+          color: 'Blue',
+          swatch: [
+            '#aec8f1', '#9abaee', '#86aceb', '#729ee7', '#5d91e4', '#4983e0', '#3575dd', '#3069c7', '#2a5eb1', '#25529b', '#204685', '#1b3b6f', '#152f58',
+          ],
+        }
+      ]}
+    />
+  </TabItem>
+</Tabs>
+
+---
+
+### Extending media queries
+
+Slowly, Yumma CSS will overcome this responsive limitation, but for now, let's focus on the present. I've added media queries for the `.dim-{}`, `.max-dim-{}` and `.min-dim-{}` classes.
+
+---
+
+### Button style
+
+This new change will make the content on the button much easier to read, as the dimensions have been changed to be slightly smaller to make the text stand out more.
+
+<Tabs>
+  <TabItem value="before" label="Before">
+    <ClassPreview
+      codeData={`
+        <div class="ins h-1/1">
+          <button class="btn-pink t-white">Button</button>
+        </div>
+      `}
+      isPadded = {false}
+      isCentered = {false}
+      isVersion = '1.1.0'
+    />
+  </TabItem>
+  <TabItem value="after" label="After">
+    <ClassPreview
+      codeData={`
+        <div class="ins h-1/1">
+          <button class="btn-pink t-white">Button</button>
+        </div>
+      `}
+      isPadded = {false}
+      isCentered = {false}
+      isVersion = '1.2.0'
+    />
+  </TabItem>
+</Tabs>
+
+---
+
+For bug fixes and other improvements, please refer to the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0) on GitHub for more information.
+
+## Upgrade
+
+You can upgrade your projects by getting the latest version of `yummacss` from npm:
+
+```bash
+npm i yummacss@latest
+```
+
