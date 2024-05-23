@@ -1,0 +1,300 @@
+---
+authors: [rrenildopereiraa]
+hide_table_of_contents: true
+slug: releases/0.1.0
+tags: [update]
+title: Yumma CSS v0.1.0
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+There's nothing like a good update, and that's what we're going to talk about. Here it comes,  [Yumma CSS 0.1.0](https://github.com/yumma-lib/yumma-css/releases/tag/v0.1.0)!
+
+{/* truncate */}
+
+![Yumma CSS v0.1.0 Banner](yummacss-v0.1.0.png)
+
+## What's new?
+
+- [x] **[New utilities](#new-utilities):** Additions and improvements for Height, Margin, Padding, and Width utility classes.
+
+This is an incremental update that may contain bug fixes. Minor releases follow the conventions of [semantic versioning](https://docs.npmjs.com/about-semantic-versioning). In other words, this should be an easy update for you.
+
+If you would like to see a more fine-grained, but also more detailed list, you can take a look at the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v0.1.0).
+
+---
+
+### New utilities
+
+Yumma CSS v0.1.0 will introduce a very extensive set of classes to give developers more flexibility and control. 
+
+So what does this mean? This means that the classes: **Height**, **Margin**, **Padding** and **Width** will have values ranging from 0-100.
+
+**Height**
+
+<Tabs>
+  <TabItem value="before" label="Before">
+    <ClassList
+      classData={[
+        {
+          className: 'h-0',
+          properties: [
+            'height: 0rem;'
+          ]
+        },
+        {
+          className: 'h-1',
+          properties: [
+            'height: 0.25rem;'
+          ]
+        },
+        {
+          className: 'h-2',
+          properties: [
+            'height: 0.5rem;'
+          ]
+        },
+        {
+          className: 'h-3',
+          properties: [
+            'height: 1rem;'
+          ]
+        },
+        {
+          className: 'h-4',
+          properties: [
+            'height: 1.5rem;'
+          ]
+        },
+        {
+          className: 'h-5',
+          properties: [
+            'height: 2rem;'
+          ]
+        },
+        {
+          className: 'h-10',
+          properties: [
+            'height: 4.5rem;'
+          ]
+        },
+        {
+          className: 'h-20',
+          properties: [
+            'height: 9.5rem;'
+          ]
+        },
+        {
+          className: 'h-30',
+          properties: [
+            'height: 14.5rem;'
+          ]
+        },
+        {
+          className: 'h-40',
+          properties: [
+            'height: 19.5rem;'
+          ]
+        },
+        {
+          className: 'h-50',
+          properties: [
+            'height: 24.5rem;'
+          ]
+        },
+        {
+          className: 'h-55',
+          properties: [
+            'height: 25rem;'
+          ]
+        },
+        {
+          className: 'h-60',
+          properties: [
+            'height: 25.5rem;'
+          ]
+        },
+        {
+          className: 'h-65',
+          properties: [
+            'height: 26rem;'
+          ]
+        },
+        {
+          className: 'h-70',
+          properties: [
+            'height: 26.5rem;'
+          ]
+        },
+        {
+          className: 'h-75',
+          properties: [
+            'height: 27rem;'
+          ]
+        },
+        {
+          className: 'h-80',
+          properties: [
+            'height: 27.5rem;'
+          ]
+        },
+        {
+          className: 'h-85',
+          properties: [
+            'height: 28rem;'
+          ]
+        },
+        {
+          className: 'h-90',
+          properties: [
+            'height: 28.5rem;'
+          ]
+        },
+        {
+          className: 'h-95',
+          properties: [
+            'height: 29rem;'
+          ]
+        },
+        {
+          className: 'h-100',
+          properties: [
+            'height: 29.5rem;'
+          ]
+        }
+      ]}
+    />
+  </TabItem>
+  <TabItem value="after" label="After" default>
+    <ClassList
+      baseClassName='h-'
+      propertyNames={['height']}
+      range={100}
+      increment={0.25}
+      unit='rem'
+    />
+  </TabItem>
+</Tabs>
+
+**Margin**
+
+<Tabs>
+  <TabItem value="before" label="Before">
+    <ClassList
+      classData={[
+        {
+          className: 'm-0',
+          properties: ['margin: 0rem;']
+        },
+        {
+          className: 'm-1',
+          properties: ['margin: 0.75rem;']
+        },
+        {
+          className: 'm-2',
+          properties: ['margin: 1.5rem;']
+        },
+        {
+          className: 'm-3',
+          properties: ['margin: 3rem;']
+        },
+        {
+          className: 'm-4',
+          properties: ['margin: 4.5rem;']
+        },
+        {
+          className: 'm-5',
+          properties: ['margin: 6rem;']
+        },
+        {
+          className: 'm-10',
+          properties: ['margin: 13.5rem;']
+        },
+        {
+          className: 'm-20',
+          properties: ['margin: 28.5rem;']
+        },
+        {
+          className: 'm-30',
+          properties: ['margin: 43.5rem;']
+        },
+        {
+          className: 'm-40',
+          properties: ['margin: 58.5rem;']
+        },
+        {
+          className: 'm-50',
+          properties: ['margin: 73.5rem;']
+        },
+        {
+          className: 'm-55',
+          properties: ['margin: 75rem;']
+        },
+        {
+          className: 'm-60',
+          properties: ['margin: 76.5rem;']
+        },
+        {
+          className: 'm-65',
+          properties: ['margin: 78rem;']
+        },
+        {
+          className: 'm-70',
+          properties: ['margin: 79.5rem;']
+        },
+        {
+          className: 'm-75',
+          properties: ['margin: 81rem;']
+        },
+        {
+          className: 'm-80',
+          properties: ['margin: 82.5rem;']
+        },
+        {
+          className: 'm-85',
+          properties: ['margin: 84rem;']
+        },
+        {
+          className: 'm-90',
+          properties: ['margin: 85.5rem;']
+        },
+        {
+          className: 'm-95',
+          properties: ['margin: 87rem;']
+        },
+        {
+          className: 'm-100',
+          properties: ['margin: 88.5rem;']
+        },
+        {
+          className: 'm-auto',
+          properties: ['margin: auto;']
+        }
+      ]}
+    />
+  </TabItem>
+  <TabItem value="after" label="After" default>
+    <ClassList
+      baseClassName='m-'
+      propertyNames={['margin']}
+      range={100}
+      increment={0.75}
+      unit='rem'
+    />
+  </TabItem>
+</Tabs>
+
+There were also some inconsistencies with the **Height**, **Margin**, **Padding** and **Width** utilities in Yumma CSS v0.1. Yumma CSS 0.1.0 is here to improve consistency and fix weird results.
+
+---
+
+## Upgrade
+
+You can upgrade your projects by getting the latest version of `yummacss` from npm:
+
+```bash
+npm install yummacss@latest
+```

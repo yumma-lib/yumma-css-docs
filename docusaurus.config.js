@@ -4,9 +4,6 @@ const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',
   favicon: '/img/yummacss.svg',
-  customFields: {
-    description: 'Bundled with components and small classes Yumma CSS is designed for fast development with small class names such as ins, btn, d-f, and many more.',
-  },
   url: 'https://www.yummacss.com',
   baseUrl: '/',
   organizationName: 'yumma-lib',
@@ -29,7 +26,6 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           includeCurrentVersion: false,
-          showLastUpdateAuthor: true,
           showLastUpdateTime: true
         },
         blog: {
@@ -60,17 +56,20 @@ const config = {
         items: [
           {
             type: 'docSidebar',
+            label: 'Docs',
             sidebarId: 'docsSidebar',
             position: 'left',
-            label: 'Documentation'
-          },
-          {
-            label: 'Blog',
-            to: '/blog'
+            
           },
           {
             label: 'Components',
+            position: 'left',
             to: '/components'
+          },
+          {
+            label: 'Blog',
+            position: 'left',
+            to: '/blog'
           },
           {
             type: 'docsVersionDropdown',

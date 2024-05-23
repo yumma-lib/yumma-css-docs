@@ -19,9 +19,7 @@ For a long time I haven't updated the color palette of Yumma CSS, so today I'm v
 
 ![Yumma CSS v1.2 Banner](yummacss-v1.2.0.png)
 
-<br />
-
-This is an incremental update that may contain bug fixes. Minor releases follow the conventions of [Semantic Versioning](https://docs.npmjs.com/about-semantic-versioning). In other words, this should be an easy update for you.
+## What's new?
 
 - [x] **[All new utilities](#all-new-utilities):** Heights, Widths, Flex, Box Shadow and Line Height.
 
@@ -31,7 +29,9 @@ This is an incremental update that may contain bug fixes. Minor releases follow 
 
 - [x] **[Button style](#button-visibility):** Button styling improvements.
 
-See the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0) at GitHub for more information.
+This is an incremental update that may contain bug fixes. Minor releases follow the conventions of [semantic versioning](https://docs.npmjs.com/about-semantic-versioning). In other words, this should be an easy update for you.
+
+If you would like to see a more fine-grained, but also more detailed list, you can take a look at the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0).
 
 ---
 
@@ -183,7 +183,7 @@ Previously, the colors weren't as rich as I wanted them to be, and this was a li
       ]}
     />
   </TabItem>
-  <TabItem value="after" label="After">
+  <TabItem value="after" label="After" default>
     <ColorPalette
       colorData={[
         {
@@ -224,7 +224,7 @@ This new change will make the content on the button much easier to read, as the 
       isVersion = '1.1.0'
     />
   </TabItem>
-  <TabItem value="after" label="After">
+  <TabItem value="after" label="After" default>
     <ClassPreview
       codeData={`
         <div class="ins h-1/1">
@@ -240,13 +240,10 @@ This new change will make the content on the button much easier to read, as the 
 
 ---
 
-For bug fixes and other improvements, please refer to the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0) on GitHub for more information.
-
 ## Upgrade
 
 You can upgrade your projects by getting the latest version of `yummacss` from npm:
 
 ```bash
-npm i yummacss@latest
+npm install yummacss@latest
 ```
-
