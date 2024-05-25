@@ -59,7 +59,7 @@ const config = {
             label: 'Docs',
             sidebarId: 'docsSidebar',
             position: 'left',
-            
+
           },
           {
             label: 'Components',
@@ -162,7 +162,14 @@ const config = {
       prism: {
         theme: vortyx.light,
         darkTheme: vortyx.dark,
-        additionalLanguages: ['sass', 'scss', 'bash']
+        additionalLanguages: [
+          'bash',
+          'diff',
+          'scss'
+        ]
+      },
+      colorMode: {
+        respectPrefersColorScheme: true,
       },
       algolia: {
         appId: '3NYT3J6P4Q',

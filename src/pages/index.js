@@ -2,7 +2,7 @@ import Link from "@docusaurus/Link";
 import Layout from "@theme/Layout";
 import React from "react";
 
-import "yummacss/dist/yumma.css";
+import "yummacss/dist/yumma.min.css";
 
 export default function Index() {
 

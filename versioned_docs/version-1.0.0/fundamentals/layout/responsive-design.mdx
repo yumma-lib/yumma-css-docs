@@ -17,7 +17,7 @@ Include a [`row{}`](#row) class in the main container `<div>`. This ensures prop
 ```html
 <div class="row">
     <!-- highlight-start -->
-    <div class="col-[value]-[breakpoint]">
+    <div class="col-*-[breakpoint]">
     <!-- highlight-end -->
         <!-- ... -->
     </div>
@@ -29,11 +29,11 @@ Breakpoints are defined as Scss variables, here's how:
 
 ```scss
 $breakpoints: (
-    "xs": 0,
+    "xsm": 0,
     "sm": 480px,
     "md": 720px,
     "lg": 960px,
-    "xl": 1200px
+    "xlg": 1200px
 );
 ```
 
