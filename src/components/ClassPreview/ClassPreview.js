@@ -2,7 +2,7 @@ import { useColorMode } from '@docusaurus/theme-common';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersion = '', isHeight }) => {
+const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersion = '', isHeight, hideScroll = false }) => {
 
   const noRightClick = (event) => {
     const { target } = event;
@@ -11,7 +11,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     }
   };
 
-  const { colorMode, setColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
   const flex = isCentered ? 'display: flex;' : '';
 
   const styles = `
@@ -19,6 +19,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     justify-content: ${isCentered ? 'center' : 'flex-start'};
     align-items: ${isCentered ? 'center' : 'flex-start'};
     ${isPadded ? 'padding: 12px 14px;' : ''}
+    ${hideScroll ? 'overflow-y: hidden;' : ''}
   `;
 
   const stylesheet = `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${isVersion}/dist/yumma.css`;
@@ -28,6 +29,9 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
       <head>
         <link rel="stylesheet" href="${stylesheet}">
         <script> window.addEventListener('click', ${noRightClick}); </script>
+        <style>
+          ${hideScroll ? 'body { overflow-y: hidden; }' : ''}
+        </style>
       </head>
       <body>
         <div style="${styles}">${codeData}</div>
@@ -41,6 +45,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     borderRadius: '8px',
     height: isHeight || '200px',
     width: '100%',
+    overflowY: hideScroll ? 'hidden' : 'auto',
   };
 
   return (
@@ -59,6 +64,7 @@ ClassPreview.propTypes = {
   isCentered: PropTypes.bool,
   isVersion: PropTypes.string,
   isHeight: PropTypes.string,
+  hideScroll: PropTypes.bool,
 };
 
 export default ClassPreview;
