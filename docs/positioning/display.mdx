@@ -62,36 +62,15 @@ Specifies the rendering behavior of an element.
   ]}
 />
 
-## Block
-
-<ClassPreview
-  codeData={`
-    <div class="d-b">
-      <h2>Block-Level Heading</h2>
-      <p>This is a block-level element. It takes up the full width of its parent container and starts on a new line.</p>
-    </div>
-  `}
-  isPadded = {true}
-  isCentered = {false}
-  isVersion = 'latest'
-/>
-
-```html
-<div class="d-b">
-  <h2>Block-Level Heading</h2>
-  <p>This is a block-level element. It takes up the full width of its parent container and starts on a new line.</p>
-</div>
-```
-
 ## Flex
 
 <ClassPreview
   codeData={`
     <nav class="d-f">
-      <a class="mr-1" href="#">Home</a>
-      <a class="mr-1" href="#">About</a>
-      <a class="mr-1" href="#">Services</a>
-      <a class="mr-1" href="#">Contact</a>
+      <a class="mr-1 t-l-gray-2" href="#">Home</a>
+      <a class="mr-1 t-l-gray-2" href="#">About</a>
+      <a class="mr-1 t-l-gray-2" href="#">Services</a>
+      <a class="mr-1 t-l-gray-2" href="#">Contact</a>
     </nav>
   `}
   isPadded = {true}
@@ -101,10 +80,10 @@ Specifies the rendering behavior of an element.
 
 ```html
 <nav class="d-f">
-  <a class="mr-1" href="#">Home</a>
-  <a class="mr-1" href="#">About</a>
-  <a class="mr-1" href="#">Services</a>
-  <a class="mr-1" href="#">Contact</a>
+  <a class="mr-1 t-l-gray-2" href="#">Home</a>
+  <a class="mr-1 t-l-gray-2" href="#">About</a>
+  <a class="mr-1 t-l-gray-2" href="#">Services</a>
+  <a class="mr-1 t-l-gray-2" href="#">Contact</a>
 </nav>
 ```
 
@@ -134,44 +113,6 @@ Specifies the rendering behavior of an element.
   <div class="bg-pink p-2 rad-1 t-white">4</div>
   <div class="bg-pink p-2 rad-1 t-white">5</div>
   <div class="bg-pink p-2 rad-1 t-white">6</div>
-</div>
-```
-
-## Inline
-
-<ClassPreview
-  codeData={`
-    <p>This is a <span class="bg-pink d-i t-white">highlighted</span> word within a paragraph.</p>
-  `}
-  isPadded = {true}
-  isCentered = {false}
-  isVersion = 'latest'
-/>
-
-```html
-<p>This is a <span class="bg-pink d-i t-white">highlighted</span> word within a paragraph.</p>
-```
-
-## Inline Flex
-
-<ClassPreview
-  codeData={`
-    <div class="d-if">
-      <span class="mr-1">Item 1</span>
-      <span class="mr-1">Item 2</span>
-      <span class="mr-1">Item 3</span>
-    </div>
-  `}
-  isPadded = {true}
-  isCentered = {false}
-  isVersion = 'latest'
-/>
-
-```html
-<div class="d-if">
-  <span class="mr-1">Item 1</span>
-  <span class="mr-1">Item 2</span>
-  <span class="mr-1">Item 3</span>
 </div>
 ```
 
