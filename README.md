@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://yummacss.com/img/yummacss.png" width="64" alt="Yumma CSS Logo">
+  <img src="https://yummacss.com/img/yummacss.svg" width="64" alt="Yumma CSS Logo">
 </p>
 
 <h3 align="center">Yumma CSS</h3>
 
 <p align="center">
-  Build beautiful websites with small class names
+  Quickly build applications with less code in your markup
   <br>
   <a href="https://yummacss.com"><strong>Explore Yumma CSS Docs ↝</strong></a>
   <br>
