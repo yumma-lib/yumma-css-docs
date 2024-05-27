@@ -29,13 +29,7 @@ Sets the background color of an element.
 
 ## Color variations
 
-In addition to the standard background colors, Yumma CSS provides a convenient way to generate shades of each color. The component below displays a grid of light and dark shades for each background color:
-
-:::info Color Variations for Light and Dark Backgrounds
-You have access to 6 shades of both dark and light colors. This means you can use classes like `bg-l-red-1` through `bg-l-{color}-6` for light backgrounds and `bg-d-red-1` through `bg-d-{color}-6` for dark backgrounds.
-:::
-
-## Light variations
+You have access to 6 shades of both dark and light colors. This means you can use classes like `t-l-pink-1` through `t-l-{color}-6` for light backgrounds and `t-d-pink-1` through `t-d-{color}-6` for dark backgrounds.
 
 <ClassList
   classData={[
@@ -87,13 +81,6 @@ You have access to 6 shades of both dark and light colors. This means you can us
       className: "bg-l-lead-*",
       properties: ["background-color: mix(white, $v, $i * 10%);"]
     },
-  ]}
-/>
-
-## Dark variations
-
-<ClassList
-  classData={[
     {
       className: "bg-d-red-*",
       properties: ["background-color: mix(black, $v, $i * 10%);"]
@@ -144,3 +131,20 @@ You have access to 6 shades of both dark and light colors. This means you can us
     }
   ]}
 />
+
+### Using hover states
+
+Using different hover states to modify different elements by using `h:bg-pink`, for example, you will override the existing utility class `bg-gray` on hover.
+
+<ClassPreview
+  codeData={`
+    <div class="bg-gray dim-14 h:bg-pink rad-1"></div>
+  `}
+  isPadded = {true}
+  isCentered = {true}
+  isVersion = '1.2.0'
+/>
+
+```html
+<div class="bg-gray dim-14 h:bg-pink rad-1"></div>
+```

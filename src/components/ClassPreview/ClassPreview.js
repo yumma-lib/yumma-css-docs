@@ -1,18 +1,26 @@
 import { useColorMode } from '@docusaurus/theme-common';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersion = '', isHeight, hideScroll = false }) => {
+  const iframeRef = useRef(null);
 
-  const noRightClick = (event) => {
-    const { target } = event;
-    if (target.tagName === 'A' && target.getAttribute('href') === '#') {
+  useEffect(() => {
+    const noRightClick = (event) => {
       event.preventDefault();
-    }
-  };
+    };
+
+    const iframeDocument = iframeRef.current.contentDocument || iframeRef.current.contentWindow.document;
+    iframeDocument.addEventListener('contextmenu', noRightClick);
+
+    return () => {
+      iframeDocument.removeEventListener('contextmenu', noRightClick);
+    };
+  }, []);
 
   const { colorMode } = useColorMode();
   const flex = isCentered ? 'display: flex;' : '';
+  const stylesheet = `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${isVersion}/dist/yumma.css`;
 
   const styles = `
     ${flex}
@@ -22,15 +30,13 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     ${hideScroll ? 'overflow-y: hidden;' : ''}
   `;
 
-  const stylesheet = `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${isVersion}/dist/yumma.css`;
-
   const iframe = `
     <html>
       <head>
         <link rel="stylesheet" href="${stylesheet}">
-        <script> window.addEventListener('click', ${noRightClick}); </script>
         <style>
           ${hideScroll ? 'body { overflow-y: hidden; }' : ''}
+          a[href="#"] { pointer-events: none; cursor: default; } /* Prevent navigation for anchor tags with href="#" */
         </style>
       </head>
       <body>
@@ -45,16 +51,20 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     borderRadius: '8px',
     height: isHeight || '200px',
     width: '100%',
-    overflowY: hideScroll ? 'hidden' : 'auto',
+    overflowY: hideScroll ? 'hidden' : 'auto'
   };
 
   return (
-    <iframe
-      sandbox="allow-scripts allow-same-origin"
-      style={iframeStyle}
-      srcDoc={iframe}
-      rel="noopener noreferrer"
-    />
+    <div>
+      <iframe
+        ref={iframeRef}
+        sandbox="allow-scripts allow-same-origin"
+        style={iframeStyle}
+        srcDoc={iframe}
+        loading="lazy"
+        rel="noopener noreferrer"
+      />
+    </div>
   );
 };
 
