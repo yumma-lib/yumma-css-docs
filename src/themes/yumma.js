@@ -1,4 +1,4 @@
-var lightVortyx = {
+var lightYumma = {
     "plain": {
         "backgroundColor": "rgb(246, 248, 250)", // Background color
     },
@@ -8,7 +8,7 @@ var lightVortyx = {
                 "punctuation"
             ],
             "style": {
-                "color": "rgb(40, 42, 54)", // Punctuation and Pharenteses
+                "color": "rgb(40, 42, 54)", // Punctuation and Parentheses
             }
         },
         {
@@ -16,7 +16,7 @@ var lightVortyx = {
                 "tag"
             ],
             "style": {
-                "color": "rgb(151, 124, 220)", // HTML tags
+                "color": "rgb(221, 103, 161)", // HTML tags
             }
         },
         {
@@ -32,7 +32,7 @@ var lightVortyx = {
                 "attr-value"
             ],
             "style": {
-                "color": "rgb(25, 118, 210)", // Attribute values
+                "color": "rgb(80, 191, 210)", // Attribute values
             }
         },
         {
@@ -48,7 +48,7 @@ var lightVortyx = {
                 "function"
             ],
             "style": {
-                "color": "rgb(151, 124, 220)", // NPM Functions
+                "color": "rgb(221, 103, 161)", // NPM Functions
             }
         },
         {
@@ -56,7 +56,7 @@ var lightVortyx = {
                 "builtin"
             ],
             "style": {
-                "color": "rgb(151, 124, 220)", // Built-in functions
+                "color": "rgb(221, 103, 161)", // Built-in functions
             }
         },
         {
@@ -64,7 +64,7 @@ var lightVortyx = {
                 "variable",
             ],
             "style": {
-                "color": "rgb(25, 118, 210)", // SCSS Variables
+                "color": "rgb(80, 191, 210)", // SCSS Variables
             }
         },
         {
@@ -72,7 +72,7 @@ var lightVortyx = {
                 "property",
             ],
             "style": {
-                "color": "rgb(25, 118, 210)", // CSS properties
+                "color": "rgb(80, 191, 210)", // CSS properties
             }
         },
         {
@@ -88,7 +88,7 @@ var lightVortyx = {
                 "keyword",
             ],
             "style": {
-                "color": "rgb(151, 124, 220)", // Keywords, including @mixin, @media, @content
+                "color": "rgb(221, 103, 161)", // Keywords, including @mixin, @media, @content
             }
         },
         {
@@ -107,10 +107,28 @@ var lightVortyx = {
                 "color": "rgb(40, 42, 54)", // Text next to @mixin
             }
         },
+        {
+            "types": [
+                "deleted"
+            ],
+            "style": {
+                "color": "rgb(215, 61, 61)", // Removed lines
+                "backgroundColor": "rgb(239, 177, 177)" // Removed lines background
+            }
+        },
+        {
+            "types": [
+                "inserted"
+            ],
+            "style": {
+                "color": "rgb(18, 166, 149)", // Added lines
+                "backgroundColor": "rgb(160, 219, 213)" // Added lines background
+            }
+        }
     ]
 };
 
-var darkVortyx = {
+var darkYumma = {
     "plain": {
         "backgroundColor": "rgb(40, 42, 54)", // Background color
     },
@@ -120,7 +138,7 @@ var darkVortyx = {
                 "punctuation"
             ],
             "style": {
-                "color": "rgb(219, 222, 225)", // Punctuation
+                "color": "rgb(227, 227, 227)", // Punctuation
             }
         },
         {
@@ -128,7 +146,7 @@ var darkVortyx = {
                 "tag"
             ],
             "style": {
-                "color": "rgb(134, 217, 202)", // HTML tags
+                "color": "rgb(221, 103, 161)", // HTML tags
             }
         },
         {
@@ -136,7 +154,7 @@ var darkVortyx = {
                 "attr-name"
             ],
             "style": {
-                "color": "rgb(179, 146, 240)", // Attribute names
+                "color": "rgb(227, 227, 227)", // Attribute names
             }
         },
         {
@@ -144,7 +162,7 @@ var darkVortyx = {
                 "attr-value"
             ],
             "style": {
-                "color": "rgb(255, 171, 112)", // Attribute values
+                "color": "rgb(80, 191, 210)", // Attribute values
             }
         },
         {
@@ -152,7 +170,7 @@ var darkVortyx = {
                 "string"
             ],
             "style": {
-                "color": "rgb(255, 171, 112)", // Punctuation and Pharenteses
+                "color": "rgb(80, 191, 210)", // Strings
             }
         },
         {
@@ -160,7 +178,7 @@ var darkVortyx = {
                 "function"
             ],
             "style": {
-                "color": "rgb(179, 146, 240)", // NPM Functions
+                "color": "rgb(221, 103, 161)", // NPM Functions
             }
         },
         {
@@ -168,7 +186,7 @@ var darkVortyx = {
                 "builtin"
             ],
             "style": {
-                "color": "rgb(134, 217, 202)", // Built-in functions
+                "color": "rgb(80, 191, 210)", // Built-in functions
             }
         },
         {
@@ -176,7 +194,7 @@ var darkVortyx = {
                 "variable",
             ],
             "style": {
-                "color": "rgb(151, 124, 220)", // SCSS Variables
+                "color": "rgb(221, 103, 161)", // SCSS Variables
             }
         },
         {
@@ -184,7 +202,7 @@ var darkVortyx = {
                 "property",
             ],
             "style": {
-                "color": "rgb(151, 124, 220)", // CSS properties
+                "color": "rgb(221, 103, 161)", // CSS properties
             }
         },
         {
@@ -200,7 +218,7 @@ var darkVortyx = {
                 "keyword",
             ],
             "style": {
-                "color": "rgb(249,117,131)", // Keywords, including @mixin, @media, @content
+                "color": "rgb(80, 191, 210)", // Keywords, including @mixin, @media, @content
             }
         },
         {
@@ -216,13 +234,31 @@ var darkVortyx = {
                 "class-name",
             ],
             "style": {
-                "color": "rgb(151, 124, 220)", // Text next to @mixin
+                "color": "rgb(80, 191, 210)", // Text next to @mixin
             }
         },
+        {
+            "types": [
+                "deleted"
+            ],
+            "style": {
+                "color": "rgb(215, 61, 61)", // Removed lines
+                "backgroundColor": "rgb(129, 37, 37)" // Removed lines background
+            }
+        },
+        {
+            "types": [
+                "inserted"
+            ],
+            "style": {
+                "color": "rgb(18, 166, 149)", // Added lines
+                "backgroundColor": "rgb(11, 100, 89)" // Added lines background
+            }
+        }
     ]
 };
 
 module.exports = {
-    light: lightVortyx,
-    dark: darkVortyx
+    light: lightYumma,
+    dark: darkYumma
 };
