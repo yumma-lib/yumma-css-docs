@@ -1,11 +1,12 @@
 ---
 title: Row Gap
+description: Utilities to control the gap between rows in a grid layout.
 ---
 
 import ClassList from '@site/src/components/ClassList/ClassList';
 import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-Sets the gap between rows in a grid layout.
+Utilities to control the gap between rows in a grid layout.
 
 :::info Creating Grid Layouts with Row Gaps
 Specify a container element and apply these classes to create a grid layout with personalized row spacing:
@@ -123,22 +124,23 @@ Specify a container element and apply these classes to create a grid layout with
 <ClassPreview
   codeData={`
     <div class="cg-1 d-g gtc-2 gtr-4 rg-6">
-        <div class="bg-pink p-2 rad-1 t-white">1</div>
-        <div class="bg-pink p-2 rad-1 t-white">2</div>
-        <div class="bg-pink p-2 rad-1 t-white">3</div>
-        <div class="bg-pink p-2 rad-1 t-white">4</div>
+      <div class="bg-pink p-2 rad-1 t-white">1</div>
+      <div class="bg-pink p-2 rad-1 t-white">2</div>
+      <div class="bg-pink p-2 rad-1 t-white">3</div>
+      <div class="bg-pink p-2 rad-1 t-white">4</div>
     </div>
   `}
   isPadded
   isCentered
+  hideScroll
   isVersion = 'latest'
 />
 
 ```html
 <div class="cg-1 d-g gtc-2 gtr-4 rg-6">
-    <div class="bg-pink p-2 rad-1 t-white">1</div>
-    <div class="bg-pink p-2 rad-1 t-white">2</div>
-    <div class="bg-pink p-2 rad-1 t-white">3</div>
-    <div class="bg-pink p-2 rad-1 t-white">4</div>
+  <div class="bg-pink p-2 rad-1 t-white">1</div>
+  <div class="bg-pink p-2 rad-1 t-white">2</div>
+  <div class="bg-pink p-2 rad-1 t-white">3</div>
+  <div class="bg-pink p-2 rad-1 t-white">4</div>
 </div>
 ```

@@ -1,30 +1,31 @@
 ---
 title: Overflow Wrap
+description: Utilities to control word wrapping.
 ---
 
 import ClassList from '@site/src/components/ClassList/ClassList';
 import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-Determines how words should break or wrap when they exceed the container width.
+Utilities to control word wrapping.
 
 <ClassList
   classData={[
     {
       className: 'ow-bw',
       properties: [
-        'word-break: break-word;'
+        'overflow-wrap: break-word;'
       ]
     },
     {
       className: 'ow-ka',
       properties: [
-        'word-break: keep-all;'
+        'overflow-wrap: keep-all;'
       ]
     },
     {
       className: 'ow-n',
       properties: [
-        'word-break: normal;'
+        'overflow-wrap: normal;'
       ]
     },
   ]}
