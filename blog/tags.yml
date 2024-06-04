@@ -1,0 +1,9 @@
+guide:
+  label: 'guides'
+  description: 'About Yumma CSS Guides'
+  permalink: /guide
+
+update:
+  label: 'Updates'
+  description: 'About Yumma CSS Release Updates'
+  permalink: /updates

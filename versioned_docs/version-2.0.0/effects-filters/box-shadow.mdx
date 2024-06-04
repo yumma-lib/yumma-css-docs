@@ -1,0 +1,69 @@
+---
+title: Box Shadow
+description: Utilities to control the box shadow of an element.
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Utilities to control the box shadow of an element.
+
+<ClassList
+  classData={[
+    {
+      className: 'bs-none',
+      properties: [
+        'box-shadow: none;'
+      ]
+    },
+    {
+      className: 'bs-xs',
+      properties: [
+        'box-shadow: 1px 3px 5px -3px rgba(0,0,0,0.1);'
+      ]
+    },
+    {
+      className: 'bs-sm',
+      properties: [
+        'box-shadow: 1px 3px 5px -2px rgba(0,0,0,0.1);'
+      ]
+    },
+    {
+      className: 'bs-md',
+      properties: [
+        'box-shadow: 1px 3px 5px -1px rgba(0,0,0,0.1);'
+      ]
+    },
+    {
+      className: 'bs-lg',
+      properties: [
+        'box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1);'
+      ]
+    },
+    {
+      className: 'bs-xl',
+      properties: [
+        'box-shadow: 1px 3px 5px 2px rgba(0,0,0,0.1);'
+      ]
+    },
+  ]}
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="bg-white bs-xs dim-14 mr-1 rad-1"></div>
+    <div class="bg-white bs-md dim-14 mr-1 rad-1"></div>
+    <div class="bg-white bs-xl dim-14 mr-1 rad-1"></div>
+  `}
+  isPadded
+  isCentered
+  isVersion = 'latest'
+/>
+
+```html
+<div class="bg-white bs-xs dim-14 mr-1 rad-1"></div>
+<div class="bg-white bs-md dim-14 mr-1 rad-1"></div>
+<div class="bg-white bs-xl dim-14 mr-1 rad-1"></div>
+```

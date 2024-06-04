@@ -1,0 +1,91 @@
+---
+title: Font Size
+description: Utilities to control the font size of an element.
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Utilities to control the font size of an element.
+
+<ClassList
+  classData={[
+    {
+      className: 'fs-xs',
+      properties: [
+        'font-size: 12px;'
+      ]
+    },
+    {
+      className: 'fs-sm',
+      properties: [
+        'font-size: 14.4px;'
+      ]
+    },
+    {
+      className: 'fs-md',
+      properties: [
+        'font-size: 16px;'
+      ]
+    },
+    {
+      className: 'fs-lg',
+      properties: [
+        'font-size: 19.2px;'
+      ]
+    },
+    {
+      className: 'fs-xl',
+      properties: [
+        'font-size: 23.04px;'
+      ]
+    },
+    {
+      className: 'fs-2xl',
+      properties: [
+        'font-size: 30.08px;'
+      ]
+    },
+    {
+      className: 'fs-3xl',
+      properties: [
+        'font-size: 35.52px;'
+      ]
+    },
+    {
+      className: 'fs-6xl',
+      properties: [
+        'font-size: 58.56px;'
+      ]
+    },
+    
+  ]}
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <p class="fs-xs">Extra Small Text</p>
+    <p class="fs-sm">Small Text</p>
+    <p class="fs-md">Medium Text</p>
+    <p class="fs-lg">Large Text</p>
+    <p class="fs-xl">Extra Large Text</p>
+    <p class="fs-2xl">Very Large Text</p>
+    <p class="fs-3xl">Extremely Large Text</p>
+    <p class="fs-6xl">Massively Large Text</p>
+  `}
+  isPadded
+  isVersion = 'latest'
+/>
+
+```html
+<p class="fs-xs">Extra Small Text</p>
+<p class="fs-sm">Small Text</p>
+<p class="fs-md">Medium Text</p>
+<p class="fs-lg">Large Text</p>
+<p class="fs-xl">Extra Large Text</p>
+<p class="fs-2xl">Very Large Text</p>
+<p class="fs-3xl">Extremely Large Text</p>
+<p class="fs-6xl">Massively Large Text</p>
+```

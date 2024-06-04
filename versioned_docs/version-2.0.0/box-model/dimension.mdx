@@ -1,0 +1,82 @@
+---
+title: Dimension
+description: Utilities to control the height and width of an element at once.
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Utilities to control the height and width of an element at once.
+
+<ClassList 
+  baseClassName='dim-' 
+  propertyNames={['height', 'width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'},
+    {name: '1/1', value: '100dvh'},
+    {name: '1/2', value: '50dvh'}
+  ]} 
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`
+    <div class="bg-pink dim-5 ins mr-1 mt-auto p-1 rad-1 t-white">5</div>
+    <div class="bg-pink dim-10 ins mr-1 mt-auto p-1 rad-1 t-white">10</div>
+    <div class="bg-pink dim-20 ins mr-1 mt-auto p-1 rad-1 t-white">20</div>
+  `}
+  isPadded
+  isCentered
+  isVersion = 'latest'
+/>
+
+```html
+<div class="bg-pink dim-5 ins mr-1 mt-auto p-1 rad-1 t-white">5</div>
+<div class="bg-pink dim-10 ins mr-1 mt-auto p-1 rad-1 t-white">10</div>
+<div class="bg-pink dim-20 ins mr-1 mt-auto p-1 rad-1 t-white">20</div>
+```
+
+## Max Dimension
+
+Utilities to control the maximum height and max width of an element at once.
+
+<ClassList 
+  baseClassName='max-dim-' 
+  propertyNames={['max-height', 'max-width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'},
+    {name: 'fc', value: 'fit-content'},
+    {name: '1/1', value: '100dvh'},
+    {name: '1/2', value: '50dvh'}
+  ]} 
+/>
+
+## Min Dimension
+
+Utilities to control the minimum height and min width of an element at once.
+
+<ClassList 
+  baseClassName='min-dim-' 
+  propertyNames={['min-height', 'min-width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'},
+    {name: '1/1', value: '100dvh'},
+    {name: '1/2', value: '50dvh'}
+  ]} 
+/>
