@@ -18,15 +18,13 @@
 }
 
 .className {
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .propertyCode {
     border-radius: 4px;
     display: block;
     font-family: monospace;
-    margin: 2px 0;
-    padding: 5px;
     white-space: pre-wrap;
 }
 
