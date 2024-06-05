@@ -31,117 +31,25 @@ Utilities to control the background color of an element.
 
 ### Customizing colors
 
-:::info Color Variations for Light and Dark Backgrounds
-You have access to 6 shades of both dark and light colors. This means you can use classes like `bg-l-red-1` through `bg-l-{color}-6` for light backgrounds and `bg-d-red-1` through `bg-d-{color}-6` for dark backgrounds.
-:::
+Use `bg-l-[color]-*` for a lighter color and `bg-d-[color]-*` for a darker color.
 
-<ClassList
-  classData={[
+<ColorPalette
+  colorData={[
     {
-      className: "bg-l-red-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-orange-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-yellow-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-green-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-teal-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-cyan-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-blue-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-indigo-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-violet-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-pink-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-gray-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-lead-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-red-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-orange-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-yellow-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-green-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-teal-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-cyan-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-blue-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-indigo-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-violet-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-pink-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-d-gray-*",
-      properties: ["background-color: mix(black, $v, $i * 10%);"]
-    },
-    {
-      className: "bg-l-lead-*",
-      properties: ["background-color: mix(white, $v, $i * 10%);"]
+      color: 'Pink',
+      swatch: [
+        '#eeb3d0', '#eaa0c5', '#e58db9', '#e17aad', '#dd67a1', '#d85496', '#d4418a', '#bf3b7c', '#aa346e', '#942e61', '#7f2753', '#6a2145', '#551a37',
+      ],
     }
   ]}
 />
 
 ### Using hover states
 
-Using different hover states to modify different elements by using `h:bg-pink`, for example, you will override the existing utility class `bg-l-pink-4` on hover.
+Use `h:bg-*` to modify elements to override other background classes.
 
 <ClassPreview
-  codeData={`<div class="bg-l-pink-4 dim-14 h:bg-pink rad-1"></div>`}
+  codeData={`<div class="bg-gray dim-14 h:bg-pink rad-1"></div>`}
   isPadded
   isCentered
   isVersion = 'latest'

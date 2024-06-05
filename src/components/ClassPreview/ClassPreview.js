@@ -31,6 +31,12 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
     ${hideScroll ? 'overflow-y: hidden;' : ''}
   `;
 
+  const formatHTML = (html) => {
+    return html.replace(/>\s+</g, '>\n<').trim();
+  };
+
+  const processedCode = formatHTML(codeData);
+
   const iframe = `
     <html>
       <head>
@@ -41,7 +47,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
         </style>
       </head>
       <body>
-        <div style="${styles}">${codeData}</div>
+        <div style="${styles}">${processedCode}</div>
       </body>
     </html>
   `;
@@ -66,7 +72,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
         rel="noopener noreferrer"
       />
       <CodeBlock language="html">
-        {codeData}
+        {processedCode}
       </CodeBlock>
     </div>
   );

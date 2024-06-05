@@ -37,3 +37,29 @@ Utilities to control the text color of an element.
   isCentered
   isVersion = 'latest'
 />
+
+### Customizing colors
+
+Use `t-l-[color]-*` for a lighter color and `t-d-[color]-*` for a darker color.
+
+<ColorPalette
+  colorData={[
+    {
+      color: 'Pink',
+      swatch: [
+        '#eeb3d0', '#eaa0c5', '#e58db9', '#e17aad', '#dd67a1', '#d85496', '#d4418a', '#bf3b7c', '#aa346e', '#942e61', '#7f2753', '#6a2145', '#551a37',
+      ],
+    }
+  ]}
+/>
+
+### Using hover states
+
+Use `h:t-*` to modify elements to override other background classes.
+
+<ClassPreview
+  codeData={`<h3 class="t-gray h:t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
+  isPadded
+  isCentered
+  isVersion = 'latest'
+/>

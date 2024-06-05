@@ -29,12 +29,11 @@ Include a [`row{}`](#row) class in the main container `<div>`. This ensures prop
 Breakpoints are defined as Scss variables, here's how:
 
 ```scss
-$breakpoints: (
-    "xs": 0,
-    "sm": 480px,
-    "md": 720px,
-    "lg": 960px,
-    "xl": 1200px
+$yma-breakpoints: (
+    "sm": 640px,
+    "md": 768px,
+    "lg": 1024px,
+    "xl": 1280px
 );
 ```
 
@@ -45,7 +44,7 @@ A component that defines the space between elements on a layout.
 <ClassList
   classData={[
     {
-      className: 'gap-0',
+      className: 'og-0',
       properties: [
         'padding: 0;',
         'margin-left: 0;',
@@ -53,7 +52,7 @@ A component that defines the space between elements on a layout.
       ]
     },
     {
-      className: 'gap-1',
+      className: 'og-1',
       properties: [
         'padding: 10px;',
         'margin-left: -10px;',
@@ -61,7 +60,7 @@ A component that defines the space between elements on a layout.
       ]
     },
     {
-      className: 'gap-2',
+      className: 'og-2',
       properties: [
         'padding: 20px;',
         'margin-left: -20px;',
@@ -69,7 +68,7 @@ A component that defines the space between elements on a layout.
       ]
     },
     {
-      className: 'gap-3',
+      className: 'og-3',
       properties: [
         'padding: 30px;',
         'margin-left: -30px;',
@@ -77,7 +76,7 @@ A component that defines the space between elements on a layout.
       ]
     },
     {
-      className: 'gap-4',
+      className: 'og-4',
       properties: [
         'padding: 40px;',
         'margin-left: -40px;',
@@ -85,7 +84,7 @@ A component that defines the space between elements on a layout.
       ]
     },
     {
-      className: 'gap-5',
+      className: 'og-5',
       properties: [
         'padding: 50px;',
         'margin-left: -50px;',
@@ -93,7 +92,7 @@ A component that defines the space between elements on a layout.
       ]
     },
     {
-      className: 'gap-6',
+      className: 'og-6',
       properties: [
         'padding: 60px;',
         'margin-left: -60px;',
