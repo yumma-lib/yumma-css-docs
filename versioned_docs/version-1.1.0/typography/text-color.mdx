@@ -3,141 +3,62 @@ title: Text Color
 description: Utilities to control the text color of an element.
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
 import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import ColorList from '@site/src/components/ColorList/ColorList';
+import ColorPalette from '@site/src/components/ColorPalette/ColorPalette';
 
 Utilities to control the text color of an element.
 
-<ClassList
-  classData={[
-    {
-      className: 't-red',
-      properties: [
-        'color: #f26d50;'
-      ]
-    },
-    {
-      className: 't-orange',
-      properties: [
-        'color: #f68e55;'
-      ]
-    },
-    {
-      className: 't-yellow',
-      properties: [
-        'color: #fff467;'
-      ]
-    },
-    {
-      className: 't-green',
-      properties: [
-        'color: #3bb878;'
-      ]
-    },
-    {
-      className: 't-teal',
-      properties: [
-        'color: #1abbb4;'
-      ]
-    },
-    {
-      className: 't-aqua',
-      properties: [
-        'color: #00bff3;'
-      ]
-    },
-    {
-      className: 't-blue',
-      properties: [
-        'color: #438cca;'
-      ]
-    },
-    {
-      className: 't-violet',
-      properties: [
-        'color: #855fa8;'
-      ]
-    },
-    {
-      className: 't-magenta',
-      properties: [
-        'color: #a863a8;'
-      ]
-    },
-    {
-      className: 't-pink',
-      properties: [
-        'color: #f06ea9;'
-      ]
-    },
-    {
-      className: 't-pink',
-      properties: [
-        'color: #999999;'
-      ]
-    },
-    {
-      className: 't-lead',
-      properties: [
-        'color: #3f3f4e;'
-      ]
-    },
-    {
-      className: 't-white',
-      properties: [
-        'color: white;'
-      ]
-    },
-    {
-      className: 't-black',
-      properties: [
-        'color: black;'
-      ]
-    },
+<ColorList 
+  baseClassName="t-" 
+  propertyNames={['color']} 
+  colorClasses={[
+    { color: 'red', value: 'rgb(242, 109, 80)' },
+    { color: 'orange', value: 'rgb(246, 142, 85)' },
+    { color: 'yellow', value: 'rgb(255, 244, 103)' },
+    { color: 'green', value: 'rgb(59, 184, 120)' },
+    { color: 'teal', value: 'rgb(26, 187, 180)' },
+    { color: 'aqua', value: 'rgb(0, 191, 243)' },
+    { color: 'blue', value: 'rgb(67, 140, 202)' },
+    { color: 'violet', value: 'rgb(133, 95, 168)' },
+    { color: 'magenta', value: 'rgb(168, 99, 168)' },
+    { color: 'pink', value: 'rgb(240, 110, 169)' },
+    { color: 'gray', value: 'rgb(153, 153, 153)' },
+    { color: 'lead', value: 'rgb(63, 63, 78)' }
   ]}
 />
 
-## Default color
+## Color
 
 <ClassPreview
-  codeData={`
-    <h1 class="t-pink">Gray text</h1>
-  `}
+  codeData={`<h3 class="t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
   isPadded
   isCentered
   isVersion = '1.1.0'
 />
 
-```html
-<h1 class="t-pink">Gray text</h1>
-```
+### Customizing colors
 
-## Dark variation
+Use `t-l-[color]-*` for a lighter color and `t-d-[color]-*` for a darker color.
+
+<ColorPalette
+  colorData={[
+    {
+      color: 'Pink',
+      swatch: [
+        '#eeb3d0', '#eaa0c5', '#e58db9', '#e17aad', '#dd67a1', '#d85496', '#d4418a', '#bf3b7c', '#aa346e', '#942e61', '#7f2753', '#6a2145', '#551a37',
+      ],
+    }
+  ]}
+/>
+
+### Using hover states
+
+Use `h:t-*` to modify elements to override other background classes.
 
 <ClassPreview
-  codeData={`
-    <h1 class="t-d-pink-4">Gray text</h1>
-  `}
+  codeData={`<h3 class="t-gray h:t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
   isPadded
   isCentered
   isVersion = '1.1.0'
 />
-
-```html
-<h1 class="t-d-pink-4">Gray text</h1>
-```
-
-## Light variation
-
-<ClassPreview
-  codeData={`
-    <h1 class="t-l-pink-4">Gray text</h1>
-  `}
-  isPadded
-  isCentered
-  isVersion = '1.1.0'
-/>
-
-```html
-<h1 class="t-l-pink-4">Gray text</h1>
-```

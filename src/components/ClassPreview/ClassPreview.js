@@ -1,4 +1,5 @@
 import { useColorMode } from '@docusaurus/theme-common';
+import CodeBlock from '@theme/CodeBlock';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
 
@@ -64,6 +65,9 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, isVersio
         loading="lazy"
         rel="noopener noreferrer"
       />
+      <CodeBlock language="html">
+        {codeData}
+      </CodeBlock>
     </div>
   );
 };

@@ -26,7 +26,7 @@ const ColorPalette = ({ colorData }) => (
                                 <ColorSwatch
                                     key={i}
                                     hexVal={hexVal}
-                                    dataTooltip={`bg-l-${color.color.toLowerCase()}-${reverse}`}
+                                    dataTooltip={`*-l-${color.color.toLowerCase()}-${reverse}`}
                                 />
                             );
                         } else if (i === 6) {
@@ -34,7 +34,7 @@ const ColorPalette = ({ colorData }) => (
                                 <ColorSwatch
                                     key={i}
                                     hexVal={hexVal}
-                                    dataTooltip={`bg-${color.color.toLowerCase()}`}
+                                    dataTooltip={`*-${color.color.toLowerCase()}`}
                                 />
                             );
                         } else {
@@ -42,7 +42,7 @@ const ColorPalette = ({ colorData }) => (
                                 <ColorSwatch
                                     key={i}
                                     hexVal={hexVal}
-                                    dataTooltip={`bg-d-${color.color.toLowerCase()}-${i - 6}`}
+                                    dataTooltip={`*-d-${color.color.toLowerCase()}-${i - 6}`}
                                 />
                             );
                         }

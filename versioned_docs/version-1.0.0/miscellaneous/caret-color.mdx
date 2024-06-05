@@ -3,8 +3,9 @@ title: Caret Color
 description: Utilities to control the text input cursor color.
 ---
 
-import ColorList from '@site/src/components/ColorList/ColorList';
 import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import ColorList from '@site/src/components/ColorList/ColorList';
+import ColorPalette from '@site/src/components/ColorPalette/ColorPalette';
 
 Utilities to control the text input cursor color.
 
@@ -24,5 +25,20 @@ Utilities to control the text input cursor color.
     { color: 'pink', value: 'rgb(240, 110, 169)' },
     { color: 'gray', value: 'rgb(153, 153, 153)' },
     { color: 'lead', value: 'rgb(63, 63, 78)' }
+  ]}
+/>
+
+### Customizing colors
+
+Use `bc-l-[color]-*` for a lighter color and `bc-d-[color]-*` for a darker color.
+
+<ColorPalette
+  colorData={[
+    {
+      color: 'Pink',
+      swatch: [
+        '#f9c5dd', '#f8b7d4', '#f6a8cb', '#f59ac3', '#f38bba', '#f27db2', '#f06ea9', '#d86398', '#c05887', '#a84d76', '#904265', '#783755', '#602c44',
+      ],
+    }
   ]}
 />

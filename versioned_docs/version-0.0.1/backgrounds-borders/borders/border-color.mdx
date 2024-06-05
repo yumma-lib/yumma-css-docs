@@ -6,12 +6,9 @@ description: Utilities to control the color of the borders of an element.
 import ClassList from '@site/src/components/ClassList/ClassList';
 import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 import ColorList from '@site/src/components/ColorList/ColorList';
+import ColorPalette from "@site/src/components/ColorPalette/ColorPalette";
 
 Utilities to control the color of the borders of an element.
-
-:::info Using Color Shades
-You can use different color shades in your website or application like `bg-l-pink-4` or `bg-l-pink-4`
-:::
 
 <ColorList 
   baseClassName="bc-" 
@@ -34,17 +31,11 @@ You can use different color shades in your website or application like `bg-l-pin
 <br />
 
 <ClassPreview
-  codeData={`
-    <div class="b-2 bc-pink h-8 w-8"></div>
-  `}
+  codeData={`<div class="b-2 bc-pink h-8 w-8"></div>`}
   isPadded
   isCentered
   isVersion = '0.0.1'
 />
-
-```html
-<div class="b-2 bc-pink h-8 w-8"></div>
-```
 
 ## Border Bottom Color
 
@@ -71,17 +62,11 @@ Utilities to control the color of the bottom border of an element.
 <br />
 
 <ClassPreview
-  codeData={`
-    <div class="b-2 bc-b-l-pink-6 bc-pink h-8 w-8"></div>
-  `}
+  codeData={`<div class="b-2 bc-b-l-pink-6 bc-pink h-8 w-8"></div>`}
   isPadded
   isCentered
   isVersion = '0.0.1'
 />
-
-```html
-<div class="b-2 bc-b-l-pink-6 bc-pink h-8 w-8"></div>
-```
 
 ## Border Left Color
 
@@ -108,17 +93,11 @@ Utilities to control the color of the left border of an element.
 <br />
 
 <ClassPreview
-  codeData={`
-    <div class="b-2 bc-l-l-pink-6 bc-pink h-8 w-8"></div>
-  `}
+  codeData={`<div class="b-2 bc-l-l-pink-6 bc-pink h-8 w-8"></div>`}
   isPadded
   isCentered
   isVersion = '0.0.1'
 />
-
-```html
-<div class="b-2 bc-l-l-pink-6 bc-pink h-8 w-8"></div>
-```
 
 ## Border Right Color
 
@@ -144,17 +123,11 @@ Utilities to control the color of the right border of an element.
 <br />
 
 <ClassPreview
-  codeData={`
-    <div class="b-2 bc-pink bc-r-l-pink-6 h-8 w-8"></div>
-  `}
+  codeData={`<div class="b-2 bc-pink bc-r-l-pink-6 h-8 w-8"></div>`}
   isPadded
   isCentered
   isVersion = '0.0.1'
 />
-
-```html
-<div class="b-2 bc-pink bc-r-l-pink-6 h-8 w-8"></div>
-```
 
 ## Border Top Color
 
@@ -181,14 +154,34 @@ Utilities to control the color of the top border of an element.
 <br />
 
 <ClassPreview
-  codeData={`
-    <div class="b-2 bc-pink bc-t-l-pink-6 h-8 w-8"></div>
-  `}
+  codeData={`<div class="b-2 bc-pink bc-t-l-pink-6 h-8 w-8"></div>`}
   isPadded
   isCentered
   isVersion = '0.0.1'
 />
 
-```html
-<div class="b-2 bc-pink bc-t-l-pink-6 h-8 w-8"></div>
-```
+### Customizing colors
+
+Use `bc-l-[color]-*` for a lighter color and `bc-d-[color]-*` for a darker color.
+
+<ColorPalette
+  colorData={[
+    {
+      color: 'Pink',
+      swatch: [
+        '#f9c5dd', '#f8b7d4', '#f6a8cb', '#f59ac3', '#f38bba', '#f27db2', '#f06ea9', '#d86398', '#c05887', '#a84d76', '#904265', '#783755', '#602c44',
+      ],
+    }
+  ]}
+/>
+
+### Using hover states
+
+Use `h:bc-*` to modify elements to override other background classes.
+
+<ClassPreview
+  codeData={`<div class="bc-gray h-8 bc-h-pink rad-1 w-8"></div>`}
+  isPadded
+  isCentered
+  isVersion = '0.0.1'
+/>

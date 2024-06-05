@@ -3,8 +3,9 @@ title: Caret Color
 description: Utilities to control the text input cursor color.
 ---
 
-import ColorList from '@site/src/components/ColorList/ColorList';
 import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import ColorList from '@site/src/components/ColorList/ColorList';
+import ColorPalette from '@site/src/components/ColorPalette/ColorPalette';
 
 Utilities to control the text input cursor color.
 
@@ -24,5 +25,30 @@ Utilities to control the text input cursor color.
     { color: 'pink', value: 'rgba(212, 65, 138)' },
     { color: 'gray', value: 'rgba(96, 103, 115)' },
     { color: 'lead', value: 'rgba(63, 63, 78)' }
+  ]}
+/>
+
+## Color
+
+<ClassPreview
+  codeData={`<input class="bc-gray cc-pink px-2 py-1 rad-1" placeholder="Email" type="email"></input>`}
+  isPadded
+  isCentered
+  isVersion = '1.2.0'
+/>
+
+
+### Customizing colors
+
+Use `bc-l-[color]-*` for a lighter color and `bc-d-[color]-*` for a darker color.
+
+<ColorPalette
+  colorData={[
+    {
+      color: 'Pink',
+      swatch: [
+        '#eeb3d0', '#eaa0c5', '#e58db9', '#e17aad', '#dd67a1', '#d85496', '#d4418a', '#bf3b7c', '#aa346e', '#942e61', '#7f2753', '#6a2145', '#551a37',
+      ],
+    }
   ]}
 />

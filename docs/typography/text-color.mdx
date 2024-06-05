@@ -5,139 +5,35 @@ description: Utilities to control the text color of an element.
 
 import ClassList from '@site/src/components/ClassList/ClassList';
 import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import ColorList from '@site/src/components/ColorList/ColorList';
+import ColorPalette from '@site/src/components/ColorPalette/ColorPalette';
 
 Utilities to control the text color of an element.
 
-<ClassList
-  classData={[
-    {
-      className: 't-red',
-      properties: [
-        'color: #d73d3d;'
-      ]
-    },
-    {
-      className: 't-orange',
-      properties: [
-        'color: #e06814;'
-      ]
-    },
-    {
-      className: 't-yellow',
-      properties: [
-        'color: #d3a107;'
-      ]
-    },
-    {
-      className: 't-green',
-      properties: [
-        'color: #1fb155;'
-      ]
-    },
-    {
-      className: 't-teal',
-      properties: [
-        'color: #12a695;'
-      ]
-    },
-    {
-      className: 't-aqua',
-      properties: [
-        'color: #05a4bf;'
-      ]
-    },
-    {
-      className: 't-blue',
-      properties: [
-        'color: #3575dd;'
-      ]
-    },
-    {
-      className: 't-indigo',
-      properties: [
-        'color: #595cd9;'
-      ]
-    },
-    {
-      className: 't-violet',
-      properties: [
-        'color: #7d53dd;'
-      ]
-    },
-    {
-      className: 't-pink',
-      properties: [
-        'color: #d4418a;'
-      ]
-    },
-    {
-      className: 't-pink',
-      properties: [
-        'color: #606773;'
-      ]
-    },
-    {
-      className: 't-lead',
-      properties: [
-        'color: #3f3f4e;'
-      ]
-    },
-    {
-      className: 't-white',
-      properties: [
-        'color: white;'
-      ]
-    },
-    {
-      className: 't-black',
-      properties: [
-        'color: black;'
-      ]
-    },
+<ColorList 
+  baseClassName="t-" 
+  propertyNames={['color']} 
+  colorClasses={[
+    { color: 'red', value: 'rgba(215, 61, 61)' },
+    { color: 'orange', value: 'rgba(224, 104, 20)' },
+    { color: 'yellow', value: 'rgba(211, 161, 7)' },
+    { color: 'green', value: 'rgba(31, 177, 85)' },
+    { color: 'teal', value: 'rgba(18, 166, 149)' },
+    { color: 'cyan', value: 'rgba(5, 164, 191)' },
+    { color: 'blue', value: 'rgba(53, 117, 221)' },
+    { color: 'indigo', value: 'rgba(89, 92, 217)' },
+    { color: 'violet', value: 'rgba(125, 83, 221)' },
+    { color: 'pink', value: 'rgba(212, 65, 138)' },
+    { color: 'gray', value: 'rgba(96, 103, 115)' },
+    { color: 'lead', value: 'rgba(63, 63, 78)' }
   ]}
 />
 
-## Default color
+## Color
 
 <ClassPreview
-  codeData={`
-    <h1 class="t-pink">Gray text</h1>
-  `}
+  codeData={`<h3 class="t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
   isPadded
   isCentered
   isVersion = 'latest'
 />
-
-```html
-<h1 class="t-pink">Gray text</h1>
-```
-
-## Dark variation
-
-<ClassPreview
-  codeData={`
-    <h1 class="t-d-pink-4">Gray text</h1>
-  `}
-  isPadded
-  isCentered
-  isVersion = 'latest'
-/>
-
-```html
-<h1 class="t-d-pink-4">Gray text</h1>
-```
-
-## Light variation
-
-<ClassPreview
-  codeData={`
-    <h1 class="t-l-pink-4">Gray text</h1>
-  `}
-  isPadded
-  isCentered
-  isVersion = 'latest'
-/>
-
-```html
-<h1 class="t-l-pink-4">Gray text</h1>
-```

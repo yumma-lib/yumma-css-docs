@@ -5,10 +5,10 @@ tags: [guide]
 title: Introducing Yumma CSS
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassList from "@site/src/components/ClassList/ClassList";
 import ColorPalette from "@site/src/components/ColorPalette/ColorPalette";
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
-import CardGrid from '@site/src/components/CardGrid/CardGrid';
+import ClassPreview from "@site/src/components/ClassPreview/ClassPreview";
+import CardGrid from "@site/src/components/CardGrid/CardGrid";
 
 Today I'm very excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a framework designed to make the process of developing open source websites smoother and more enjoyable.
 
@@ -25,29 +25,77 @@ Get an amazing out-of-the-box color palette for designing great looking applicat
 <ColorPalette
   colorData={[
     {
-      color: 'Red',
+      color: "Red",
       swatch: [
-        '#efb1b1', '#eb9e9e', '#e78b8b', '#e37777', '#df6464', '#db5050', '#d73d3d', '#c23737', '#ac3131', '#972b2b', '#812525', '#6c1f1f', '#561818',
+        "#efb1b1",
+        "#eb9e9e",
+        "#e78b8b",
+        "#e37777",
+        "#df6464",
+        "#db5050",
+        "#d73d3d",
+        "#c23737",
+        "#ac3131",
+        "#972b2b",
+        "#812525",
+        "#6c1f1f",
+        "#561818",
       ],
     },
     {
-      color: 'Yellow',
+      color: "Yellow",
       swatch: [
-        '#edd99c', '#e9d083', '#e5c76a', '#e0bd51', '#dcb439', '#d7aa20', '#d3a107', '#be9106', '#a98106', '#947105', '#7f6104', '#6a5104', '#544003',
+        "#edd99c",
+        "#e9d083",
+        "#e5c76a",
+        "#e0bd51",
+        "#dcb439",
+        "#d7aa20",
+        "#d3a107",
+        "#be9106",
+        "#a98106",
+        "#947105",
+        "#7f6104",
+        "#6a5104",
+        "#544003",
       ],
     },
     {
-      color: 'Green',
+      color: "Green",
       swatch: [
-        '#a5e0bb', '#8fd8aa', '#79d099', '#62c888', '#4cc177', '#35b966', '#1fb155', '#1c9f4d', '#198e44', '#167c3c', '#136a33', '#10592b', '#0c4722',
+        "#a5e0bb",
+        "#8fd8aa",
+        "#79d099",
+        "#62c888",
+        "#4cc177",
+        "#35b966",
+        "#1fb155",
+        "#1c9f4d",
+        "#198e44",
+        "#167c3c",
+        "#136a33",
+        "#10592b",
+        "#0c4722",
       ],
     },
     {
-      color: 'Blue',
+      color: "Blue",
       swatch: [
-        '#aec8f1', '#9abaee', '#86aceb', '#729ee7', '#5d91e4', '#4983e0', '#3575dd', '#3069c7', '#2a5eb1', '#25529b', '#204685', '#1b3b6f', '#152f58',
+        "#aec8f1",
+        "#9abaee",
+        "#86aceb",
+        "#729ee7",
+        "#5d91e4",
+        "#4983e0",
+        "#3575dd",
+        "#3069c7",
+        "#2a5eb1",
+        "#25529b",
+        "#204685",
+        "#1b3b6f",
+        "#152f58",
       ],
-    }
+    },
   ]}
 />
 
@@ -56,22 +104,20 @@ Get an amazing out-of-the-box color palette for designing great looking applicat
 Get your applications into production quickly with our amazing pre-built components.
 
 <ClassPreview
-  codeData={`
-    <div>
-      <nav class="bg-d-blue-5 nav">
-        <h1 class="t-white">Yumma CSS</h1>
-        <div class="sm:d-none">
-          <IoMenu class="c-p dim-6 t-white" />
-        </div>
-        <ul class="d-none sm:d-f">
-          <li class="fw-600 ml-1 t-white"><a href="#">Docs</a></li>
-          <li class="fw-600 ml-1 t-white"><a href="#">Editor</a></li>
-          <li class="fw-600 ml-1 t-white"><a href="#">Playground</a></li>
-        </ul>
-      </nav>
-    </div>
-  `}
-  isVersion = 'latest'
+  codeData={`<div>
+    <nav class="bg-d-blue-5 nav">
+      <h1 class="t-white">Yumma CSS</h1>
+      <div class="sm:d-none">
+        <IoMenu class="c-p dim-6 t-white" />
+      </div>
+      <ul class="d-none sm:d-f">
+        <li class="fw-600 ml-1 t-white"><a href="#">Docs</a></li>
+        <li class="fw-600 ml-1 t-white"><a href="#">Editor</a></li>
+        <li class="fw-600 ml-1 t-white"><a href="#">Playground</a></li>
+      </ul>
+    </nav>
+  </div>`}
+  isVersion="latest"
 />
 
 ### Utility Classes
@@ -81,52 +127,52 @@ Build large-scale applications with utility classes with efficiency and consiste
 <ClassList
   classData={[
     {
-      className: 'm-1',
-      properties: ['margin: 0.75rem;']
+      className: "m-1",
+      properties: ["margin: 0.75rem;"],
     },
     {
-      className: 'p-1',
-      properties: ['padding: 0.75rem;']
+      className: "p-1",
+      properties: ["padding: 0.75rem;"],
     },
     {
-      className: 'w-1',
-      properties: ['width: 0.25rem;']
+      className: "w-1",
+      properties: ["width: 0.25rem;"],
     },
     {
-      className: 'h-1',
-      properties: ['height: 0.25rem;']
+      className: "h-1",
+      properties: ["height: 0.25rem;"],
     },
     {
-      className: 'd-f',
-      properties: ['display: flex;']
+      className: "d-f",
+      properties: ["display: flex;"],
     },
     {
-      className: 'fb-1',
-      properties: ['flex-basis: 1;']
+      className: "fb-1",
+      properties: ["flex-basis: 1;"],
     },
     {
-      className: 'jc-c',
-      properties: ['justify-content: center;']
+      className: "jc-c",
+      properties: ["justify-content: center;"],
     },
     {
-      className: 'ai-s',
-      properties: ['align-items: start;']
+      className: "ai-s",
+      properties: ["align-items: start;"],
     },
     {
-      className: 'ta-l',
-      properties: ['text-align: left;']
+      className: "ta-l",
+      properties: ["text-align: left;"],
     },
     {
-      className: 'fs-md',
-      properties: ['font-size: 16px;']
+      className: "fs-md",
+      properties: ["font-size: 16px;"],
     },
     {
-      className: 'bg-gray',
-      properties: [ 'background-color: rgb(96, 103, 115);']
+      className: "bg-gray",
+      properties: ["background-color: rgb(96, 103, 115);"],
     },
     {
-      className: 'b-1',
-      properties: ['border-width: 1px;'],
+      className: "b-1",
+      properties: ["border-width: 1px;"],
     },
   ]}
 />
@@ -142,24 +188,24 @@ npm install yummacss@latest
 Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
 
 <CardGrid
- cardData={[
+  cardData={[
     {
-      icon: require('@site/static/img/illustrations/github.png').default,
-      title: 'GitHub',
-      description: 'Contribute to the Yumma CSS project on GitHub.',
-      href: 'https://github.com/yumma-lib'
+      icon: require("@site/static/img/illustrations/github.png").default,
+      title: "GitHub",
+      description: "Contribute to the Yumma CSS project on GitHub.",
+      href: "https://github.com/yumma-lib",
     },
     {
-      icon: require('@site/static/img/illustrations/discord.png').default,
-      title: 'Discord',
-      description: 'Join our Discord for discussion, sharing, and learning.',
-      href: 'https://discord.gg/2MUw2g6FCn'
+      icon: require("@site/static/img/illustrations/discord.png").default,
+      title: "Discord",
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
     },
     {
-      icon: require('@site/static/img/illustrations/twitter.png').default,
-      title: 'Twitter',
-      description: 'Follow us on Twitter for the latest updates.',
-      href: 'https://twitter.com/yummacss'
-    }
- ]}
+      icon: require("@site/static/img/illustrations/twitter.png").default,
+      title: "Twitter",
+      description: "Follow us on Twitter for the latest updates.",
+      href: "https://twitter.com/yummacss",
+    },
+  ]}
 />

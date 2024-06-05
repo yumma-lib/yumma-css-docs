@@ -6,6 +6,7 @@ description: Utilities to control the background color of an element.
 import ClassList from '@site/src/components/ClassList/ClassList';
 import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 import ColorList from '@site/src/components/ColorList/ColorList';
+import ColorPalette from "@site/src/components/ColorPalette/ColorPalette";
 
 Utilities to control the background color of an element.
 
@@ -28,7 +29,7 @@ Utilities to control the background color of an element.
   ]}
 />
 
-## Color variations
+### Customizing colors
 
 :::info Color Variations for Light and Dark Backgrounds
 You have access to 6 shades of both dark and light colors. This means you can use classes like `bg-l-red-1` through `bg-l-{color}-6` for light backgrounds and `bg-d-red-1` through `bg-d-{color}-6` for dark backgrounds.
@@ -140,14 +141,8 @@ You have access to 6 shades of both dark and light colors. This means you can us
 Using different hover states to modify different elements by using `h:bg-pink`, for example, you will override the existing utility class `bg-l-pink-4` on hover.
 
 <ClassPreview
-  codeData={`
-    <div class="bg-l-pink-4 dim-14 h:bg-pink rad-1"></div>
-  `}
+  codeData={`<div class="bg-l-pink-4 dim-14 h:bg-pink rad-1"></div>`}
   isPadded
   isCentered
   isVersion = 'latest'
 />
-
-```html
-<div class="bg-l-pink-4 dim-14 h:bg-pink rad-1"></div>
-```
