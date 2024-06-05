@@ -34,10 +34,10 @@ const ClassList = ({ classData, baseClassName, propertyNames, range, increment, 
             {data.map((classItem, index) => (
                 <div key={index} className={styles.classItem}>
                     <div className={styles.className}>{classItem.className}</div>
-                    <div className={styles.classProperties}>
-                        <code className={styles.propertyCode}>
+                    <p className={styles.classProperties}>
+                        <p className={styles.propertyCode}>
                             {classItem.properties.join('\n')}
-                        </code>
+                        </p>
                     </div>
                 </div>
             ))}
