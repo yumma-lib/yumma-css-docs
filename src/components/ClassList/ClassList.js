@@ -38,7 +38,7 @@ const ClassList = ({ classData, baseClassName, propertyNames, range, increment, 
                         <p className={styles.propertyCode}>
                             {classItem.properties.join('\n')}
                         </p>
-                    </div>
+                    </p>
                 </div>
             ))}
         </div>
