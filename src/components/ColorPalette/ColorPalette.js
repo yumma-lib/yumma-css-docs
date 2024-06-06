@@ -1,63 +1,53 @@
+import PropTypes from 'prop-types';
+import React from 'react';
+import tinycolor from 'tinycolor2';
 import styles from './ColorPalette.module.css';
 
-import React from 'react';
-
-import PropTypes from 'prop-types';
-
-
-const ColorSwatch = ({ hexVal, dataTooltip }) => (
-    <div
-        className={styles.colorSwatchContainer}
-        style={{ backgroundColor: hexVal }}
-        data-tooltip={dataTooltip}
-    />
+const ColorSwatch = ({ value, tooltip }) => (
+    <div className={styles.colorSwatchContainer} style={{ backgroundColor: value }} data-tooltip={tooltip} />
 );
+
+const mixColors = (color1, color2, weight) => {
+    return tinycolor.mix(color1, color2, weight).toHexString();
+};
+
+const generateShades = (color) => {
+    const shades = [];
+    for (let i = 6; i >= 1; i--) {
+        shades.push(mixColors(color, 'white', i * 10));
+    }
+
+    shades.push(color);
+    for (let i = 1; i <= 6; i++) {
+        shades.push(mixColors(color, 'black', i * 10));
+    }
+
+    return shades;
+};
 
 const ColorPalette = ({ colorData }) => (
     <div className={styles.colorPalette}>
-        {colorData.map((color) => (
-            <div key={color.color} style={{ width: '100%' }}>
-                <div className={styles.colorLineTitle}>{color.color}</div>
-                <div className={styles.colorLine}>
-                    {color.swatch.map((hexVal, i) => {
-                        if (i < 6) {
-                            const reverse = 6 - i;
-                            return (
-                                <ColorSwatch
-                                    key={i}
-                                    hexVal={hexVal}
-                                    dataTooltip={`*-l-${color.color.toLowerCase()}-${reverse}`}
-                                />
-                            );
-                        } else if (i === 6) {
-                            return (
-                                <ColorSwatch
-                                    key={i}
-                                    hexVal={hexVal}
-                                    dataTooltip={`*-${color.color.toLowerCase()}`}
-                                />
-                            );
-                        } else {
-                            return (
-                                <ColorSwatch
-                                    key={i}
-                                    hexVal={hexVal}
-                                    dataTooltip={`*-d-${color.color.toLowerCase()}-${i - 6}`}
-                                />
-                            );
-                        }
-                    })}
+        {colorData.map((colorItem) => {
+            const shades = generateShades(colorItem.color);
+            return (
+                <div key={colorItem.color} style={{ width: '100%' }}>
+                    <div className={styles.colorLineTitle}>{colorItem.name}</div>
+                    <div className={styles.colorLine}>
+                        {shades.map((value, i) => (
+                            <ColorSwatch key={i} value={value} tooltip={colorItem.name.toLowerCase()} />
+                        ))}
+                    </div>
                 </div>
-            </div>
-        ))}
+            );
+        })}
     </div>
 );
 
 ColorPalette.propTypes = {
     colorData: PropTypes.arrayOf(
         PropTypes.shape({
+            name: PropTypes.string.isRequired,
             color: PropTypes.string.isRequired,
-            swatch: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
         }).isRequired
     ).isRequired,
 };
