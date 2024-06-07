@@ -33,9 +33,21 @@ const ColorPalette = ({ colorData }) => (
                 <div key={colorItem.color} style={{ width: '100%' }}>
                     <div className={styles.colorLineTitle}>{colorItem.name}</div>
                     <div className={styles.colorLine}>
-                        {shades.map((value, i) => (
-                            <ColorSwatch key={i} value={value} tooltip={colorItem.name.toLowerCase()} />
-                        ))}
+                        {shades.map((value, i) => {
+                            if (i < 6) {
+                                return (
+                                    <ColorSwatch key={i} value={value} tooltip={`${value}`} />
+                                );
+                            } else if (i === 6) {
+                                return (
+                                    <ColorSwatch key={i} value={value} tooltip={`${value}`} />
+                                );
+                            } else {
+                                return (
+                                    <ColorSwatch key={i} value={value} tooltip={`${value}`} />
+                                );
+                            }
+                        })}
                     </div>
                 </div>
             );

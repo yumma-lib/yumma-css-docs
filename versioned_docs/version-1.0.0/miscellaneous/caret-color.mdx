@@ -30,13 +30,34 @@ Utilities to control the text input cursor color.
 
 ### Customizing colors
 
-Use `bc-l-[color]-*` for a lighter color and `bc-d-[color]-*` for a darker color.
+Use `cc-l-[color]-*` for a lighter color and `cc-d-[color]-*` for a darker color.
+
+```html
+<!-- light variations -->
+<div class="cc-l-pink-6"></div>
+<div class="cc-l-pink-5"></div>
+<div class="cc-l-pink-4"></div>
+<div class="cc-l-pink-3"></div>
+<div class="cc-l-pink-2"></div>
+<div class="cc-l-pink-1"></div>
+
+<!-- base color -->
+<div class="cc-pink"></div>
+
+<!-- dark variations -->
+<div class="cc-d-pink-1"></div>
+<div class="cc-d-pink-2"></div>
+<div class="cc-d-pink-3"></div>
+<div class="cc-d-pink-4"></div>
+<div class="cc-d-pink-5"></div>
+<div class="cc-d-pink-6"></div>
+```
 
 <ColorPalette
   colorData={[
     {
       name: 'Pink',
-      value: '#f06ea9'
+      color: '#f06ea9'
     }
   ]}
 />
