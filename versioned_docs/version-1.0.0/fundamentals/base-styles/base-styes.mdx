@@ -1,0 +1,72 @@
+---
+title: Stylecent
+description: A set of default styles designed for consistency in all browsers.
+---
+
+A set of default styles designed for consistency in all browsers.
+
+## Universal selector
+
+Ensures consistent box sizing behavior across all elements.
+
+```scss
+* {
+    color: inherit;
+    margin: 0;
+    font-weight: 500;
+}
+
+::before,
+::after {
+    box-sizing: border-box;
+}
+```
+## Link decoration
+Removes default text decoration from links for cleaner appearance.
+
+```scss
+a {
+    color: inherit;
+    text-decoration: none;
+}
+```
+
+## Horizontal rule
+Applies a subtle border to horizontal rules for visual separation.
+
+```scss
+hr {
+    border: 0;
+    border-top: 1px solid #efefef;
+    margin: 1em 0;
+}
+```
+
+## Smooth Scrolling
+Enables smooth scrolling behavior for HTML documents.
+
+```scss
+html {
+    scroll-behavior: smooth;
+}
+```
+
+## Responsive Image Scaling
+Ensures images scale appropriately within their containers.
+
+```scss
+img {
+    max-width: 100%;
+    height: auto;
+}
+```
+
+## List normalization
+Removes default padding and list-style from unordered lists.
+
+```scss
+ul {
+    padding: 0;
+    list-style: none;
+}
+```
