@@ -1,18 +1,18 @@
 <p align="center">
-  <img src="https://yummacss.com/img/yummacss.svg" width="64" alt="Yumma CSS Logo">
+  <img src="https://yummacss.com/img/favicon/favicon.ico" alt="Yumma CSS Logo">
 </p>
 
 <h3 align="center">Yumma CSS</h3>
 
 <p align="center">
-  Quickly build applications with less code in your markup
+  Quickly build applications with less code in your markup.
   <br>
   <a href="https://yummacss.com"><strong>Explore Yumma CSS Docs ↝</strong></a>
   <br>
   <br>
-  <a href="https://yummacss.com/blog/installationducing-yummacss-intellisense">Yumma CSS IntelliSense</a>
-  •
   <a href="https://yummacss.com/blog">Blog</a>
+  •
+  <a href="https://yummacss.com/blog/introducing-yummacss-intellisense">Yumma CSS IntelliSense</a>
   •
   <a href="https://github.com/yumma-lib/yumma-css/issues">Issues</a>
 </p>
@@ -45,12 +45,12 @@ npm install yummacss
 
 ## Community
 
-If you have questions or want to stay updated on our projects, here are some ways to connect with us:
+Here are some ways you can get in touch with us:
 
-- Subscribe to our [YouTube](https://www.youtube.com/@rrenildopereiraa/videos) channel.
+- Subscribe to our [YouTube](https://www.youtube.com/@yummacss) channel.
 - Join our [Discord](https://discord.gg/CGw5vyqmQ6) server.
 - Follow us on [Twitter](https://twitter.com/yummacss) for the latest updates.
 
 ## Contributing
 
-If you'd like to show your support for our work, [you can buy me a coffee](https://www.buymeacoffee.com/rrenildoo).
+If you like what I do, you can motivate me by [buying me a coffee](https://www.buymeacoffee.com/rrenildoo).
