@@ -1,84 +1,29 @@
 ---
-title: Card Section
+title: Yumma CSS Card Section
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Card
+# Yumma CSS Card
 
 Containers for organized content display
 
 ## Card
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="h-1/1 ins">
-         <div className="bg-white card rad-2">
-            <h1 className="card-t t-gray-5">Showcase</h1>
-            <p className="card-b">Share your projects with our team.</p>
-         </div>
-      </div>
-   );
-}
-
-export default App;
-`}}}
-/>
-
-<br />
-
-## Group
-
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="cnn gap-1 row">
-         <div className="xs:col-12 lg:col-3 md:col-6">
-            <div className="bg-white card rad-2">
-               <h1 className="card-t t-gray-5">Showcase</h1>
-               <p className="card-b">Share your projects with our team.</p>
-            </div>
-         </div>
-         <div className="xs:col-12 lg:col-3 md:col-6">
-            <div className="bg-white card rad-2">
-               <h1 className="card-t t-gray-5">Learn</h1>
-               <p className="card-b">Discover new skills and knowledge.</p>
-            </div>
-         </div>
-         <div className="xs:col-12 lg:col-3 md:col-6">
-            <div className="bg-white card rad-2">
-               <h1 className="card-t t-gray-5">Connect</h1>
-               <p className="card-b">Engage with like-minded individuals.</p>
-            </div>
-         </div>
-         <div className="xs:col-12 lg:col-3 md:col-6">
-            <div className="bg-white card rad-2">
-               <h1 className="card-t t-gray-5">Explore</h1>
-               <p className="card-b">Embark on a journey of discovery.</p>
-            </div>
-         </div>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<div class="bc-l-gray-6 bg-white bs-sm d-f fd-c rad-2">
+  <div class="md:p-2 p-1">
+    <h3 class="fs-md fw-700 t-d-gray-2">Team</h3>
+    <p class="mt-1 text-gray">Share your projects with our team.</p>
+    <a class="ai-c bc-transparent cg-1 d-if fs-sm fw-700 h:t-d-blue-4 mt-1 rad-2 t-blue" href="#">Open menu
+      <svg class="dim-4 fs-0" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m184 112 144 144-144 144"></path>
+      </svg>
+    </a>
+  </div>
+</div>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />

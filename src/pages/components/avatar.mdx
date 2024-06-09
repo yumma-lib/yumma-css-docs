@@ -1,143 +1,118 @@
 ---
-title: Avatars
+title: Yumma CSS Avatars
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Avatar
+# Yumma CSS Avatar
 
 Profile images representing users or entities
 
 ## Circular
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-  return (
-    <div className="h-1/1 ins">
-      <img className="dim-16 rad-half" src="https://i.ibb.co/98WpXS3/model.jpg" alt="User Avatar" />
-    </div>
-  );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<img class="dim-16 rad-half" src="https://i.ibb.co/98WpXS3/model.jpg" alt="User Avatar" />`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />
 
 <br />
 
 ## Rounded
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-  return (
-    <div className="h-1/1 ins">
-      <img className="dim-16 rad-2" src="https://i.ibb.co/98WpXS3/model.jpg" alt="User Avatar" />
-    </div>
-  );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<img class="dim-16 rad-2" src="https://i.ibb.co/98WpXS3/model.jpg" alt="User Avatar" />`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />
 
 <br />
 
-## Initials
+## Circled initials
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-  return (
-    <div className="h-1/1 ins">
-      <span className="ai-c bc-d- bg-gray d-if dim-14 fs-lg fw-600 jc-c rad-half t-white">
-        RP
-      </span>
-    </div>
-  );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<span class="ai-c bg-gray d-if dim-14 fs-lg fw-600 jc-c rad-half t-white">RP</span>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />
 
 <br />
 
-## Solid colors
+## Squared initials
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-  return (
-    <div className="fw-w h-1/1 ins">
-    <span className="ai-c bg-gray d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
-      <span className="ai-c bg-teal d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
-      <span className="ai-c bg-blue d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
-      <span className="ai-c bg-yellow d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
-      <span className="ai-c bg-red d-if dim-14 fw-600 jc-c rad-half t-white">RP</span>
-    </div>
-  );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<span class="ai-c bg-gray d-if dim-14 fs-lg fw-600 jc-c rad-2 t-white">RP</span>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />
 
 <br />
 
-## Soft colors
+## Solid circled initials
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
+<ClassPreview
+  codeData={`<div class="fw-w">
+    <span class="ai-c bg-gray d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
+      <span class="ai-c bg-teal d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
+      <span class="ai-c bg-blue d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
+      <span class="ai-c bg-yellow d-if dim-14 fw-600 jc-c mx-1 rad-half t-white">RP</span>
+      <span class="ai-c bg-red d-if dim-14 fw-600 jc-c rad-half t-white">RP</span>
+    </div>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
+/>
 
-const App = () => {
-  return (
-    <div className="fw-w h-1/1 ins">
-    <span className="ai-c bc-d-gray-2 bg-l-gray-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-gray-6">RP</span>
-      <span className="ai-c bc-d-teal-2 bg-l-teal-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-teal-6">RP</span>
-      <span className="ai-c bc-d-blue-2 bg-l-blue-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-blue-6">RP</span>
-      <span className="ai-c bc-d-yellow-2 bg-l-yellow-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-yellow-6">RP</span>
-      <span className="ai-c bc-d-red-2 bg-l-red-6 d-if dim-14 fw-600 jc-c rad-half t-d-red-6">RP</span>
-    </div>
-  );
-}
+<br />
 
-export default App;
-`}}}
+## Solid squared initials
+
+<ClassPreview
+  codeData={`<div class="fw-w">
+    <span class="ai-c bg-gray d-if dim-14 fw-600 jc-c mx-1 rad-2 t-white">RP</span>
+      <span class="ai-c bg-teal d-if dim-14 fw-600 jc-c mx-1 rad-2 t-white">RP</span>
+      <span class="ai-c bg-blue d-if dim-14 fw-600 jc-c mx-1 rad-2 t-white">RP</span>
+      <span class="ai-c bg-yellow d-if dim-14 fw-600 jc-c mx-1 rad-2 t-white">RP</span>
+      <span class="ai-c bg-red d-if dim-14 fw-600 jc-c rad-2 t-white">RP</span>
+    </div>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
+/>
+
+## Soft circled initials
+
+<ClassPreview
+  codeData={`<div class="fw-w">
+    <span class="ai-c bc-d-gray-2 bg-l-gray-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-gray-6">RP</span>
+      <span class="ai-c bc-d-teal-2 bg-l-teal-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-teal-6">RP</span>
+      <span class="ai-c bc-d-blue-2 bg-l-blue-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-blue-6">RP</span>
+      <span class="ai-c bc-d-yellow-2 bg-l-yellow-6 d-if dim-14 fw-600 jc-c mx-1 rad-half t-d-yellow-6">RP</span>
+      <span class="ai-c bc-d-red-2 bg-l-red-6 d-if dim-14 fw-600 jc-c rad-half t-d-red-6">RP</span>
+    </div>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
+/>
+
+<br />
+
+## Soft squared initials
+
+<ClassPreview
+  codeData={`<div class="fw-w">
+    <span class="ai-c bc-d-gray-2 bg-l-gray-6 d-if dim-14 fw-600 jc-c mx-1 rad-2 t-d-gray-6">RP</span>
+      <span class="ai-c bc-d-teal-2 bg-l-teal-6 d-if dim-14 fw-600 jc-c mx-1 rad-2 t-d-teal-6">RP</span>
+      <span class="ai-c bc-d-blue-2 bg-l-blue-6 d-if dim-14 fw-600 jc-c mx-1 rad-2 t-d-blue-6">RP</span>
+      <span class="ai-c bc-d-yellow-2 bg-l-yellow-6 d-if dim-14 fw-600 jc-c mx-1 rad-2 t-d-yellow-6">RP</span>
+      <span class="ai-c bc-d-red-2 bg-l-red-6 d-if dim-14 fw-600 jc-c rad-2 t-d-red-6">RP</span>
+    </div>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />

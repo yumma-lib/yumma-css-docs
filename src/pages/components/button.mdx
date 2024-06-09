@@ -1,120 +1,64 @@
 ---
-title: Button
+title: Yumma CSS Button
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Button
+# Yumma CSS Button
 
 Interactive elements for user actions.
 
 ## Solid colors
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="h-1/1 ins">
-         <button className="btn-gray mr-1 t-white">Button</button>
-         <button className="btn-teal mr-1 t-white">Button</button>
-         <button className="btn-blue mr-1 t-white">Button</button>
-         <button className="btn-yellow mr-1 t-white">Button</button>
-         <button className="btn-red t-white">Button</button>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<button class="btn-gray mr-1 t-white">Button</button>
+   <button class="btn-teal mr-1 t-white">Button</button>
+   <button class="btn-blue mr-1 t-white">Button</button>
+   <button class="btn-yellow mr-1 t-white">Button</button>
+   <button class="btn-red t-white">Button</button>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />
 
 <br />
 
 ## Soft colors
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="h-1/1 ins">
-         <button className="btn-l-gray-3 mr-1 t-white">Button</button>
-         <button className="btn-l-teal-3 mr-1 t-white">Button</button>
-         <button className="btn-l-blue-3 mr-1 t-white">Button</button>
-         <button className="btn-l-yellow-3 mr-1 t-white">Button</button>
-         <button className="btn-l-red-3 t-white">Button</button>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<button class="btn-l-gray-3 mr-1 t-white">Button</button>
+   <button class="btn-l-teal-3 mr-1 t-white">Button</button>
+   <button class="btn-l-blue-3 mr-1 t-white">Button</button>
+   <button class="btn-l-yellow-3 mr-1 t-white">Button</button>
+   <button class="btn-l-red-3 t-white">Button</button>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />
 
 <br />
 
 ## Outline colors
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="h-1/1 ins">
-         <button className="btn-otl-gray h:t-white mr-1 t-gray">Button</button>
-         <button className="btn-otl-teal h:t-white mr-1 t-teal">Button</button>
-         <button className="btn-otl-blue h:t-white mr-1 t-blue">Button</button>
-         <button className="btn-otl-yellow h:t-white mr-1 t-yellow">Button</button>
-         <button className="btn-otl-red h:t-white t-red">Button</button>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<button class="btn-otl-gray h:t-white mr-1 t-gray">Button</button>
+   <button class="btn-otl-teal h:t-white mr-1 t-teal">Button</button>
+   <button class="btn-otl-blue h:t-white mr-1 t-blue">Button</button>
+   <button class="btn-otl-yellow h:t-white mr-1 t-yellow">Button</button>
+   <button class="btn-otl-red h:t-white t-red">Button</button>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />
 
 <br />
 
 ## Block
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="cnn ins h-1/1">
-         <button className="btn-blue mr-1 t-white ta-c w-full">Button</button>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<button class="btn-gray t-white ta-c w-full">Button</button>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />

@@ -1,42 +1,26 @@
 ---
-title: Navbar
+title: Yumma CSS Navbar
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Navbar
+# Yumma CSS Navbar
 
 Navigational menus for site structure.
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
 
-import { IoMenu } from "react-icons/io5";
-
-const App = () => {
-   return (
-      <div>
-         <nav className="bg-d-blue-5 nav">
-          <h1 className="t-white">Yumma CSS</h1>
-          <div className="sm:d-none">
-            <IoMenu className="c-p dim-6 t-white" />
-          </div>
-          <ul className="d-none sm:d-f">
-            <li className="fw-600 ml-1 t-white"><a href="#">Docs</a></li>
-            <li className="fw-600 ml-1 t-white"><a href="#">Editor</a></li>
-            <li className="fw-600 ml-1 t-white"><a href="#">Playground</a></li>
-          </ul>
-        </nav>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<nav class="bg-d-blue-5 nav">
+    <h1 class="t-white">Yumma CSS</h1>
+    <div class="sm:d-none">
+      <svg class="c-p dim-6 t-white" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg">
+      <path fill="none" stroke-linecap="round" stroke-miterlimit="10" stroke-width="48" d="M88 152h336M88 256h336M88 360h336"></path></svg>
+    </div>
+    <ul class="d-none sm:d-f">
+      <li class="fw-600 ml-1 t-white"><a>Docs</a></li>
+      <li class="fw-600 ml-1 t-white"><a>Components</a></li>
+      <li class="fw-600 ml-1 t-white"><a>Blog</a></li>
+    </ul>
+  </nav>`}
+  setVersion = 'latest'
 />

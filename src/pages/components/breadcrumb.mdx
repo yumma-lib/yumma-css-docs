@@ -1,61 +1,31 @@
 ---
-title: Breadcrumbs
+title: Yumma CSS Breadcrumbs
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Breadcrumb
+# Yumma CSS Breadcrumb
 
 Navigational aids showing user path.
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-import { IoChevronForward } from "react-icons/io5";
-
-const App = () => {
-   return (
-    <div className="h-1/1 ins">
-      <nav className="d-f">
-        <ol className="ai-c d-f">
-          <li>
-            <div>
-              <a href="#" className="h:t-black mx-1 t-d-gray-1">
-                <span>Home</span>
-              </a>
-            </div>
-          </li>
-          <li>
-            <div className="ai-c d-f">
-              <IoChevronForward className="dim-4 fs-0 t-l-gray-3" />
-              <a href="#" className="fs-sm h:t-d-gray-1 ml-1 mx-1 t-l-gray-4">API References</a>
-            </div>
-          </li>
-          <li>
-            <div className="ai-c d-f">
-              <IoChevronForward className="dim-4 fs-0 t-l-gray-3" />
-              <a href="#" className="fs-sm h:t-d-gray-1 ml-1 mx-1 t-l-gray-4">Operations</a>
-            </div>
-          </li>
-          <li>
-            <div className="ai-c d-f">
-              <IoChevronForward className="dim-4 fs-0 t-l-gray-3" />
-              <a href="#" className="fs-sm h:t-d-gray-1 ml-1 t-l-gray-4">Routes</a>
-            </div>
-          </li>
-        </ol>
-      </nav>
-    </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<ol class="ai-c d-f">
+    <li class="ai-c d-if">
+      <a class="ai-c d-f fs-sm h:t-blue t-gray">Home</a>
+      <svg class="fs-0 mx-2 ovf-v dim-4 t-l-gray-2" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m184 112 144 144-144 144"></path>
+      </svg>
+    </li>
+    <li class="ai-c d-if">
+      <a class="ai-c d-f fs-sm h:t-blue t-gray">Profile</a>
+      <svg class="fs-0 mx-2 ovf-v dim-4 t-l-gray-2" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg">
+        <path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="48" d="m184 112 144 144-144 144"></path>
+      </svg>
+    </li>
+    <li class="ai-c d-if fs-sm fw-600 t-d-gray-4"ai-c>Settings</li>
+  </ol>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />

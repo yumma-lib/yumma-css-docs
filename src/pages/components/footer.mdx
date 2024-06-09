@@ -1,40 +1,26 @@
 ---
-title: Footers
+title: Yumma CSS Footers
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Footer
+# Yumma CSS Footer
 
 Bottom sections containing site info or links.
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="d-f fd-c min-h-1/1">
-        <footer className="bg-black mt-auto pb-4 pt-3">
-          <div className="ta-c w-full">
-            <div className="m-auto t-white">
-              <h2>Yumma CSS</h2>
-              <span className="fs-sm t-white">
-                <p>© Yumma CSS. All Rights Reserved.</p>
-              </span>
-            </div>
-          </div>
-        </footer>
+<ClassPreview
+  codeData={`<div class="d-f fd-c min-h-1/1">
+    <footer class="bg-l-gray-4 mt-auto pb-4 pt-3">
+      <div class="ta-c w-full">
+        <div class="m-auto t-white">
+          <h2>Yumma CSS</h2>
+          <span class="fs-sm t-white">
+            <p>© Yumma CSS. All Rights Reserved.</p>
+          </span>
+        </div>
       </div>
-   );
-}
-
-export default App;
-`}}}
+    </footer>
+  </div>`}
+  setVersion = 'latest'
 />

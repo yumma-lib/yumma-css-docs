@@ -1,41 +1,27 @@
 ---
-title: Tab
+title: Yumma CSS Tab
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Tab
+# Yumma CSS Tab
 
 Organizational elements for content categorization.
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="h-1/1 ins">
-        <ul className="d-f fs-sm fw-w t-ac">
-          <li className="mr-2">
-            <a className="d-ib p-1 rad-2 h:t-d-blue-4 fw-600" href="#">Home</a>
-          </li>
-          <li className="mr-2">
-            <a className="bg-blue bs-sm d-ib p-1 rad-2 t-white fw-600" href="#">Blog</a>
-          </li>
-          <li className="mr-2">
-            <a className="d-ib p-1 rad-2 h:t-d-blue-4 fw-600" href="#">About</a>
-          </li>
-        </ul>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<ul class="d-f fs-sm fw-w t-ac">
+    <li class="mr-2">
+      <a class="d-ib p-1 rad-2 h:t-l-gray-2 fw-600">Home</a>
+    </li>
+    <li class="mr-2">
+      <a class="d-ib p-1 rad-2 h:t-l-gray-2 fw-600">Profile</a>
+    </li>
+    <li class="mr-2">
+      <a class="bg-gray bs-sm d-ib p-1 rad-2 t-white fw-600">Settings</a>
+    </li>
+  </ul>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
 />

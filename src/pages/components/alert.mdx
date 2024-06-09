@@ -1,88 +1,58 @@
 ---
-title: Alert
+title: Yumma CSS Alert
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Alert
+# Yumma CSS Alert
 
 Boxes displaying important messages to users.
 
 ## Solid colors
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="cnn">
-         <div className="mt-1 bg-blue fs-sm t-white rad-2 p-1" role="alert">
-            <span className="fw-600">Info</span>
-            <p>Your user name has been updated.</p>
-         </div>
-         <div className="mt-1 bg-teal fs-sm t-white rad-2 p-1" role="alert">
-            <span className="fw-600">Success</span>
-            <p>Your password has been recovered.</p>
-         </div>
-         <div className="mt-1 bg-yellow fs-sm t-white rad-2 p-1" role="alert">
-            <span className="fw-600">Warning</span>
-            <p>Your password is completely unsafe.</p>
-         </div>
-         <div className="mt-1 bg-red fs-sm t-white rad-2 p-1" role="alert">
-            <span className="fw-600">Danger</span>
-            <p>Your account has been compromised.</p>
-         </div>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<div class="mt-1 bg-blue fs-sm t-white rad-2 p-1" role="alert">
+      <span class="fw-600">Info</span>
+      <p>Your user name has been updated.</p>
+   </div>
+   <div class="mt-1 bg-teal fs-sm t-white rad-2 p-1" role="alert">
+      <span class="fw-600">Success</span>
+      <p>Your password has been recovered.</p>
+   </div>
+   <div class="mt-1 bg-yellow fs-sm t-white rad-2 p-1" role="alert">
+      <span class="fw-600">Warning</span>
+      <p>Your password is completely unsafe.</p>
+   </div>
+   <div class="mt-1 bg-red fs-sm t-white rad-2 p-1" role="alert">
+      <span class="fw-600">Danger</span>
+      <p>Your account has been compromised.</p>
+   </div>`}
+  isPadded
+  setVersion = 'latest'
 />
 
 <br />
 
 ## Soft colors
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="cnn">
-         <div className="bc-d-blue-2 bg-l-blue-6 fs-sm mt-1 p-1 rad-2 t-d-blue-6" role="alert">
-            <span className="fw-600">Info</span>
-            <p>Your user name has been updated.</p>
-         </div>
-         <div className="bc-d-teal-2 bg-l-teal-6 fs-sm mt-1 p-1 rad-2 t-d-teal-6" role="alert">
-            <span className="fw-600">Success</span>
-            <p>Your password has been recovered.</p>
-         </div>
-         <div className="bc-d-yellow-2 bg-l-yellow-6 fs-sm mt-1 p-1 rad-2 t-d-yellow-6" role="alert">
-            <span className="fw-600">Warning</span>
-            <p>Your password is completely unsafe.</p>
-         </div>
-         <div className="bc-d-red-2 bg-l-red-6 fs-sm mt-1 p-1 rad-2 t-d-red-6" role="alert">
-            <span className="fw-600">Danger</span>
-            <p>Your account has been compromised.</p>
-         </div>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<div class="bc-d-blue-2 bg-l-blue-6 fs-sm mt-1 p-1 rad-2 t-d-blue-6" role="alert">
+   <span class="fw-600">Info</span>
+   <p>Your user name has been updated.</p>
+</div>
+<div class="bc-d-teal-2 bg-l-teal-6 fs-sm mt-1 p-1 rad-2 t-d-teal-6" role="alert">
+   <span class="fw-600">Success</span>
+   <p>Your password has been recovered.</p>
+</div>
+<div class="bc-d-yellow-2 bg-l-yellow-6 fs-sm mt-1 p-1 rad-2 t-d-yellow-6" role="alert">
+   <span class="fw-600">Warning</span>
+   <p>Your password is completely unsafe.</p>
+</div>
+<div class="bc-d-red-2 bg-l-red-6 fs-sm mt-1 p-1 rad-2 t-d-red-6" role="alert">
+   <span class="fw-600">Danger</span>
+   <p>Your account has been compromised.</p>
+</div>`}
+  isPadded
+  setVersion = 'latest'
 />

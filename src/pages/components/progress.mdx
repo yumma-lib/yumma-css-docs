@@ -1,86 +1,60 @@
 ---
-title: Progress
+title: Yumma CSS Progress
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Progress
+# Yumma CSS Progress
 
 Visual feedback on task completion status.
 
 ## Solid colors
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="cnn fd-c h-1/1 ins">
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
-          <div className="bg-gray d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
-        </div>
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
-          <div className="bg-teal d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
-        </div>
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
-          <div className="bg-blue d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
-        </div>
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
-          <div className="bg-yellow d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
-        </div>
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
-          <div className="bg-red d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
-        </div>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<div class="fd-c">
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
+      <div class="bg-gray d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
+    </div>
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
+      <div class="bg-teal d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
+    </div>
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
+      <div class="bg-blue d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
+    </div>
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
+      <div class="bg-yellow d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
+    </div>
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h rad-2 w-full" role="progressbar">
+      <div class="bg-red d-f fd-c fs-xs jc-c ovf-h rad-2 t-white ta-c w-half"></div>
+    </div>
+  </div>`}
+  isPadded
+  setVersion = 'latest'
 />
 
 <br />
 
 ## Solid colors without radius
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="cnn fd-c h-1/1 ins">
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
-          <div className="bg-gray d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
-        </div>
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
-          <div className="bg-teal d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
-        </div>
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
-          <div className="bg-blue d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
-        </div>
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
-          <div className="bg-yellow d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
-        </div>
-        <div className="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
-          <div className="bg-red d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
-        </div>
-      </div>
-   );
-}
-
-export default App;
-`}}}
+<ClassPreview
+  codeData={`<div class="fd-c">
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
+      <div class="bg-gray d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
+    </div>
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
+      <div class="bg-teal d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
+    </div>
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
+      <div class="bg-blue d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
+    </div>
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
+      <div class="bg-yellow d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
+    </div>
+    <div class="bg-l-gray-6 d-f h-2 my-1 ovf-h w-full" role="progressbar">
+      <div class="bg-red d-f fd-c fs-xs jc-c ovf-h t-white ta-c w-half"></div>
+    </div>
+  </div>`}
+  isPadded
+  setVersion = 'latest'
 />

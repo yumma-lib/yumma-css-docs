@@ -1,37 +1,24 @@
 ---
-title: Jumbotron
+title: Yumma CSS Jumbotron
 hide_table_of_contents: true
 ---
 
-import { Sandpack } from "@codesandbox/sandpack-react";
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
 
-# Jumbotron
+# Yumma CSS Jumbotron
 
 Large, attention-grabbing content sections.
 
-<Sandpack
-theme="auto"
-customSetup={{ dependencies: { "yummacss": "latest", "react-icons": "latest" } }}
-template="react"
-options={{ editorHeight: 600 }}
-files={{ "/App.js": {
-code: `import React from "react";
-import "yummacss/dist/yumma.css";
-
-const App = () => {
-   return (
-      <div className="bg-d-blue-5">
-        <div className="px-4 py-4">
-          <div className="ta-c">
-            <h1 className="fs-3xl fw-700 mb-4 t-white">Get started with your free trial</h1>
-            <p className="fs-lg mb-4 t-l-gray-6">Enjoy 6 months of free access to our entire music library at no cost. No credit card required. Go offline and start listening today with no ads and more.</p>
-            <a href="#" className="btn-white d-ib fw-600 px-2 py-1 rad-8 t-black">Get Free Premium</a>
-          </div>
-        </div>
+<ClassPreview
+  codeData={`<div class="bg-d-blue-5">
+    <div class="px-1 py-3">
+      <div class="ta-c">
+        <h1 class="fs-xl fw-700 mb-2 t-white">Get started with your free trial</h1>
+        <p class="fs-md mb-2 t-l-gray-6">Enjoy 6 months of free access to our entire music library at no cost. No credit card required. Go offline and start listening today with no ads and more.</p>
+        <a href="#" class="btn-white d-ib fw-600 px-2 py-1 rad-8 t-black">Get Free Premium</a>
       </div>
-   );
-}
-
-export default App;
-`}}}
+    </div>
+  </div>`}
+  isHeight = '400px'
+  setVersion = 'latest'
 />
