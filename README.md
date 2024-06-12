@@ -50,7 +50,3 @@ Here are some ways you can get in touch with us:
 - Subscribe to our [YouTube](https://www.youtube.com/@yummacss) channel.
 - Join our [Discord](https://discord.gg/CGw5vyqmQ6) server.
 - Follow us on [Twitter](https://twitter.com/yummacss) for the latest updates.
-
-## Contributing
-
-If you like what I do, you can motivate me by [buying me a coffee](https://www.buymeacoffee.com/rrenildoo).
