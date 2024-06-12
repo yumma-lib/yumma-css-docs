@@ -122,7 +122,7 @@ const config = {
               },
               {
                 label: 'Customization',
-                to: '/docs/fundamentals/design-system/colors'
+                to: '/docs/colors'
               }
             ],
           },
