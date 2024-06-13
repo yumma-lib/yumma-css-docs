@@ -117,7 +117,7 @@ const config = {
             title: 'Resources',
             items: [
               {
-                label: 'What is new',
+                label: 'What is new?',
                 to: '/blog/tags/update'
               },
               {
