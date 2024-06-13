@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import beautify from 'js-beautify';
 
-const ClassPreview = ({ codeData, isPadded = false, isCentered = false, setVersion = '', isHeight, hideScroll = false }) => {
+const ClassPreview = ({ codeData, isPadded = false, isCentered = false, setVersion = '', setHeight, setScroll = false }) => {
   const iframeRef = useRef(null);
 
   const { colorMode } = useColorMode();
@@ -14,7 +14,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, setVersi
   const styles = `
     ${flex} justify-content: ${isCentered ? 'center' : 'flex-start'}; align-items: ${isCentered ? 'center' : 'flex-start'};
     ${isPadded ? 'padding: 12px 14px;' : ''}
-    ${hideScroll ? 'overflow-y: hidden;' : ''}
+    ${setScroll ? 'overflow-y: hidden;' : ''}
   `;
 
   const formatHTML = (html) => {
@@ -32,7 +32,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, setVersi
     <head>
       <link rel="stylesheet" href="${stylesheet}">
       <style>
-        ${hideScroll ? 'body { overflow-y: hidden; }' : ''}
+        ${setScroll ? 'body { overflow-y: hidden; }' : ''}
       </style>
     </head>
     <body>
@@ -45,9 +45,9 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, setVersi
     backgroundColor: colorMode === 'dark' ? '#1d2026' : '#f9fafb',
     border: colorMode === 'dark' ? '1px solid #2d2f33' : '1px solid #e5e7eb',
     borderRadius: '8px',
-    height: isHeight || '200px',
+    height: setHeight || '200px',
     width: '100%',
-    overflowY: hideScroll ? 'hidden' : 'auto'
+    overflowY: setScroll ? 'hidden' : 'auto'
   };
 
   return (
@@ -69,11 +69,11 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, setVersi
 
 ClassPreview.propTypes = {
   codeData: PropTypes.string.isRequired,
-  isPadded: PropTypes.bool,
   isCentered: PropTypes.bool,
+  isPadded: PropTypes.bool,
+  setHeight: PropTypes.string,
+  setScroll: PropTypes.bool,
   setVersion: PropTypes.string,
-  isHeight: PropTypes.string,
-  hideScroll: PropTypes.bool,
 };
 
 export default ClassPreview;
