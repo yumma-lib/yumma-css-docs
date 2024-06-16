@@ -1,0 +1,34 @@
+---
+title: Spacing
+description: Controls the spacing of child elements.
+slug: /spacing
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Controls the spacing of child elements.
+
+## Spacing X
+
+Controls the left and right X-axis margins of child elements.
+
+<ClassList 
+  baseClassName='s-x-' 
+  propertyNames={['margin-left', 'margin-right']}
+  range={100} 
+  increment={0.25} 
+  unit='rem'
+/>
+
+## Spacing Y
+
+Controls the top and bottom Y-axis margins of child elements.
+
+<ClassList 
+  baseClassName='s-y-' 
+  propertyNames={['margin-top', 'margin-bottom']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem'
+/>
