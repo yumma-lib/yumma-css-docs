@@ -1,0 +1,86 @@
+---
+title: Colors
+description: To maintain consistency, Yumma CSS comes with a predefined set of colors right out of the box.
+slug: /colors
+---
+
+import ColorPalette from "@site/src/components/ColorPalette/ColorPalette";
+import ClassPreview from "@site/src/components/ClassPreview/ClassPreview";
+
+To maintain consistency, Yumma CSS comes with a predefined set of colors right out of the box.
+
+<ColorPalette
+  colorData={[
+    {
+      name: 'Red',
+      color: '#d73d3d'
+    },
+    {
+      name: 'Orange',
+      color: '#e06814'
+    },
+    {
+      name: 'Yellow',
+      color: '#d3a107'
+    },
+    {
+      name: 'Green',
+      color: '#1fb155'
+    },
+    {
+      name: 'Teal',
+      color: '#12a695'
+    },
+    {
+      name: 'Cyan',
+      color: '#05a4bf'
+    },
+    {
+      name: 'Blue',
+      color: '#3575dd'
+    },
+    {
+      name: 'Indigo',
+      color: '#595cd9'
+    },
+    {
+      name: 'Violet',
+      color: '#7d53dd'
+    },
+    {
+      name: 'Pink',
+      color: '#d4418a'
+    },
+    {
+      name: 'Gray',
+      color: '#606773'
+    },
+    {
+      name: 'Lead',
+      color: '#3f3f4e'
+    }
+  ]}
+/>
+
+## Default colors
+
+The foundations of our color palette are defined in Scss variables. Here's how the colors are defined:
+
+```scss
+// variables
+$yma-colors-red: rgba(215, 61, 61);
+$yma-colors-orange: rgba(224, 104, 20);
+$yma-colors-yellow: rgba(211, 161, 7);
+$yma-colors-green: rgba(31, 177, 85);
+$yma-colors-teal: rgba(18, 166, 149);
+$yma-colors-cyan: rgba(5, 164, 191);
+$yma-colors-blue: rgba(53, 117, 221);
+$yma-colors-indigo: rgba(89, 92, 217);
+$yma-colors-violet: rgba(125, 83, 221);
+$yma-colors-pink: rgba(212, 65, 138);
+$yma-colors-gray: rgba(96, 103, 115);
+$yma-colors-lead: rgba(63, 63, 78);
+$yma-colors-black: rgba(0, 0, 0);
+$yma-colors-white: rgba(255, 255, 255);
+$yma-colors-transparent: rgba(255, 255, 255, 0);
+```

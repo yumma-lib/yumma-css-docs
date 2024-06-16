@@ -1,0 +1,30 @@
+---
+title: Container
+description: A utility that sets the width of an element at the current breakpoint.
+slug: /container
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+
+A utility that sets the width of an element at the current breakpoint.
+
+<ClassList
+  classData={[
+    {
+      className: 'cnn',
+      properties: [
+        'width: 100%;',
+        'max-width: 1200px;',
+        'margin: 0 auto;',
+        'padding: 0 20px;',
+        'box-sizing: border-box;'
+      ]
+    },
+  ]}
+/>
+
+```html
+<div class="cnn">
+  <!-- ... -->
+</div>
+```

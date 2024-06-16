@@ -1,0 +1,57 @@
+---
+title: Responsive Design
+description: Use responsive utility classes to create advanced layouts to better accommodate different screen sizes.
+slug: /responsive-design
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Use responsive utility classes to create advanced layouts to better accommodate different screen sizes.
+
+## Breakpoints
+
+Responsive breakpoints allow you to create flexible and adaptable layouts for your web projects. These breakpoints provide fine-grained control over your layout's behavior on different devices.
+
+Here's how breakpoints are defined:
+
+```scss
+$yma-breakpoints: (
+    "sm": 640px,
+    "md": 768px,
+    "lg": 1024px,
+    "xl": 1280px
+);
+```
+
+### Using media queries
+
+Use responsive breakpoints such as `sm:*`, `md:*`, `lg:*`, `xl:*` to apply specific rules to different screen sizes. For example:
+
+```html
+<div class="cnn mx-auto p-4">
+<!-- highlight-start -->
+    <div class="d-g g-4 gtc-1 lg:gtc-4 md:gtc-3 sm:gtc-2">
+<!-- highlight-end -->
+        <div>...</div>
+    </div>
+
+<!-- highlight-start -->
+    <div class="d-g g-4 gtc-1 lg:gtc-4 md:gtc-3 sm:gtc-2">
+<!-- highlight-end -->
+        <div>...</div>
+    </div>
+
+<!-- highlight-start -->
+    <div class="d-g g-4 gtc-1 lg:gtc-4 md:gtc-3 sm:gtc-2">
+<!-- highlight-end -->
+        <div>...</div>
+    </div>
+
+<!-- highlight-start -->
+    <div class="d-g g-4 gtc-1 lg:gtc-4 md:gtc-3 sm:gtc-2">
+<!-- highlight-end -->
+        <div>...</div>
+    </div>
+</div>
+```

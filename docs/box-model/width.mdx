@@ -1,0 +1,75 @@
+---
+title: Width
+description: Controls the width of an element.
+slug: /width
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Controls the width of an element.
+
+<ClassList 
+  baseClassName='w-' 
+  propertyNames={['width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    { name: 'auto', value: 'auto' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' },
+    { name: 'fc', value: 'fit-content' },
+    { name: '1/1', value: '100dvw' },
+    { name: '2/1', value: '50dvw' }
+  ]} 
+/>
+
+<br />
+
+<ClassPreview
+  codeData={`<div class="bg-pink ins mr-1 p-1 rad-1 t-white w-5">5</div>
+    <div class="bg-pink ins mr-1 p-1 rad-1 t-white w-10">10</div>
+    <div class="bg-pink ins mr-1 p-1 rad-1 t-white w-20">20</div>`}
+  isPadded
+  isCentered
+  setVersion = 'latest'
+/>
+
+## Max Width
+
+Controls the maximum width of an element.
+
+<ClassList 
+  baseClassName='max-w-' 
+  propertyNames={['max-width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'},
+    {name: '1/1', value: '100dvw'},
+    {name: '2/1', value: '50dvw'}
+  ]} 
+/>
+
+## Min Width
+
+Controls the minimum width of an element.
+
+<ClassList 
+  baseClassName='min-w-' 
+  propertyNames={['min-width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    {name: 'auto', value: 'auto'},
+    {name: 'full', value: '100%'},
+    {name: 'half', value: '50%'},
+    {name: '1/1', value: '100dvw'},
+    {name: '2/1', value: '50dvw'}
+  ]} 
+/>
