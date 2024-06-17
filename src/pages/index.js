@@ -6,8 +6,10 @@ import "yummacss/dist/yumma.min.css";
 
 export default function Index() {
 
+    const description = 'Packaged with components and utility classes to get your applications into production.';
+
     return (
-        <Layout>
+        <Layout title="Yumma CSS" description={description} >
             <div className="mx-2">
                 <main style={{ maxWidth: '56rem' }} className="d-f fd-c jc-c lg:mb-10 lg:mt-8 mb-6 mt-4 mr-auto ml-auto ta-c">
                     <h1 className="as-c d-f fs-6xl fw-600 lg:text-6xl lh-1">Quickly build applications with less code in your markup</h1>
