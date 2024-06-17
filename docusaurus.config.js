@@ -46,7 +46,7 @@ const config = {
         minHeadingLevel: 2,
         maxHeadingLevel: 5
       },
-      image: 'img/yummacss-social-card.png',
+      image: 'img/social-card.png',
       navbar: {
         title: 'Yumma CSS',
         logo: {
