@@ -3,7 +3,7 @@ const yumma = require('./src/themes/yumma');
 const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',
-  favicon: '/img/yummacss.svg',
+  favicon: '/img/favicon/favicon.ico',
   url: 'https://www.yummacss.com',
   baseUrl: '/',
   organizationName: 'yumma-lib',
@@ -177,67 +177,7 @@ const config = {
         indexName: 'yummacss',
         contextualSearch: true
       },
-    }),
-  plugins: [
-    [
-      'pwa',
-      {
-        offlineModeActivationStrategies: [
-          'appInstalled',
-          'standalone',
-          'queryString'
-        ],
-        pwaHead: [
-          {
-            tagName: 'link',
-            rel: 'icon',
-            to: 'img/yummacss.png'
-          },
-          {
-            tagName: 'link',
-            rel: 'manifest',
-            to: '/manifest.json'
-          },
-          {
-            tagName: 'meta',
-            name: 'theme-color',
-            content: '#dc0988'
-          },
-          {
-            tagName: 'meta',
-            name: 'apple-mobile-web-app-capable',
-            content: 'yes'
-          },
-          {
-            tagName: 'meta',
-            name: 'apple-mobile-web-app-status-bar-style',
-            content: '#fff'
-          },
-          {
-            tagName: 'link',
-            rel: 'apple-touch-icon',
-            to: 'img/yummacss.png'
-          },
-          {
-            tagName: 'link',
-            rel: 'mask-icon',
-            to: 'img/yummacss.png',
-            color: '#dc0988'
-          },
-          {
-            tagName: 'meta',
-            name: 'msapplication-TileImage',
-            content: 'img/yummacss.png'
-          },
-          {
-            tagName: 'meta',
-            name: 'msapplication-TileColor',
-            content: '#fff'
-          },
-        ],
-      },
-    ],
-  ],
+    })
 };
 
 module.exports = config;
