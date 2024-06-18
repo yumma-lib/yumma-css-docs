@@ -3,7 +3,7 @@ const yumma = require('./src/themes/yumma');
 const config = {
   title: 'Yumma CSS',
   tagline: 'The documentation site for Yumma CSS.',
-  favicon: '/img/favicon/favicon.ico',
+  favicon: '/img/icon/favicon.ico',
   url: 'https://www.yummacss.com',
   baseUrl: '/',
   organizationName: 'yumma-lib',
