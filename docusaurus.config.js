@@ -25,8 +25,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          includeCurrentVersion: false,
-          showLastUpdateTime: true
+          includeCurrentVersion: false
         },
         blog: {
           blogSidebarTitle: 'Latest articles',
@@ -58,7 +57,7 @@ const config = {
             type: 'docSidebar',
             label: 'Docs',
             sidebarId: 'docsSidebar',
-            position: 'left',
+            position: 'left'
 
           },
           {
@@ -74,7 +73,8 @@ const config = {
           {
             type: 'docsVersionDropdown',
             position: 'right'
-          }
+          },
+          
         ],
       },
       footer: {
@@ -131,7 +131,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                to: 'https://github.com/yumma-lib/yumma-css-docs'
+                to: 'https://github.com/yumma-lib/yumma-css'
               },
               {
                 label: 'LinkedIn — New',
