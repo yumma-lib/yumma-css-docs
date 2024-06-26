@@ -1,6 +1,6 @@
 {
   "name": "yumma-css-docs",
-  "version": "1.x",
+  "version": "2.x",
   "description": "Build beautiful websites with small class names",
   "private": true,
   "scripts": {
@@ -28,6 +28,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-icons": "^5.2.1",
+    "react-live": "^4.1.6",
+    "react-resizable": "^3.0.5",
     "tinycolor2": "^1.6.0",
     "yummacss": "^1.2.0"
   },

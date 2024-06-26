@@ -1,0 +1,31 @@
+---
+title: Text Decoration
+description: Controls the text decoration of an element.
+slug: /text-decoration
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Controls the text decoration of an element.
+
+<ClassList
+  classData={[
+    {
+        className: 'td-u',
+        properties: [
+            'text-decoration: underline;'
+        ]
+    },
+    {
+        className: 'td-none',
+        properties: [
+            'text-decoration: none;'
+        ]
+    }
+  ]}
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:td-*`, `md:td-*`, `lg:td-*` enables the targeting of specific utilities in disparate viewports.

@@ -1,0 +1,42 @@
+---
+title: Background Color
+description: Controls the background color of an element.
+slug: /background-color
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import ColorList from '@site/src/components/ColorList/ColorList';
+import ColorPalette from "@site/src/components/ColorPalette/ColorPalette";
+
+Controls the background color of an element.
+
+<ColorList 
+  baseClassName="bg-" 
+  propertyNames={['background-color']} 
+  colorClasses={[
+    { color: 'red', value: '#d73d3d' },
+    { color: 'orange', value: '#e06814' },
+    { color: 'yellow', value: '#d3a107' },
+    { color: 'green', value: '#1fb155' },
+    { color: 'teal', value: '#12a695' },
+    { color: 'cyan', value: '#05a4bf' },
+    { color: 'blue', value: '#3575dd' },
+    { color: 'indigo', value: '#595cd9' },
+    { color: 'violet', value: '#7d53dd' },
+    { color: 'pink', value: '#d4418a' },
+    { color: 'gray', value: '#606773' },
+    { color: 'lead', value: '#3f3f4e' }
+  ]}
+/>
+
+### Using hover states
+
+Use `h:bg-*` to modify elements to override other background classes.
+
+<ClassPreview
+  codeData={`<div class="bg-gray dim-14 h:bg-pink rad-1"></div>`}
+  isPadded
+  isCentered
+  setVersion = '2.0.0'
+/>

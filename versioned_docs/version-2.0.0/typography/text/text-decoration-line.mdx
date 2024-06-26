@@ -1,0 +1,79 @@
+---
+title: Text Decoration Line
+description: Controls the text decoration line of an element.
+slug: /text-decoration-line
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Controls the text decoration line of an element.
+
+<ClassList
+  classData={[
+    {
+      className: 'tdl-none',
+      properties: [
+        'text-decoration-line: none;'
+      ]
+    },
+    {
+      className: 'tdl-u',
+      properties: [
+        'text-decoration-line: underline;'
+      ]
+    },
+    {
+      className: 'tdl-o',
+      properties: [
+        'text-decoration-line: overline;'
+      ]
+    },
+    {
+      className: 'tdl-lt',
+      properties: [
+        'text-decoration-line: line-through;'
+      ]
+    },
+  ]}
+/>
+
+## No Text Decoration
+
+<ClassPreview
+  codeData={`<p class="tdl-none t-l-gray-2 t-l-gray-2">No Text Decoration</p>`}
+  isPadded
+  isCentered
+  setVersion = '2.0.0'
+/>
+
+## Underline
+
+<ClassPreview
+  codeData={`<p class="tdl-u t-l-gray-2 t-l-gray-2">Underline</p>`}
+  isPadded
+  isCentered
+  setVersion = '2.0.0'
+/>
+
+## Overline
+
+<ClassPreview
+  codeData={`<p class="tdl-o t-l-gray-2 t-l-gray-2">Overline</p>`}
+  isPadded
+  isCentered
+  setVersion = '2.0.0'
+/>
+
+## Line through
+
+<ClassPreview
+  codeData={`<p class="tdl-lt t-l-gray-2 t-l-gray-2">Line Through</p>`}
+  isPadded
+  isCentered
+  setVersion = '2.0.0'
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:tdl-*`, `md:tdl-*`, `lg:tdl-*` enables the targeting of specific utilities in disparate viewports.

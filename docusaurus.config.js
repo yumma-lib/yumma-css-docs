@@ -100,16 +100,12 @@ const config = {
             title: 'Releases',
             items: [
               {
-                label: 'Yumma CSS v1.2',
+                label: 'Latest version',
                 to: '/docs/installation'
               },
               {
-                label: 'Yumma CSS v1.1',
-                to: '/docs/1.1.0/installation'
-              },
-              {
-                label: 'Yumma CSS v1.0',
-                to: '/docs/1.0.0/installation'
+                label: 'Yumma CSS v1',
+                to: '/docs/1.2.0/installation'
               }
             ],
           },

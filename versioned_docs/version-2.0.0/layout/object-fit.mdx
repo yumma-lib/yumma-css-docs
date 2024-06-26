@@ -1,0 +1,43 @@
+---
+title: Object Fit
+description: Controls how to resize the content of a replaced element.
+slug: /object-fit
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+
+Controls how to resize the content of a replaced element.
+
+<ClassList
+  classData={[
+    {
+      className: 'of-c',
+      properties: [
+        'object-fit: cover;'
+      ]
+    },
+    {
+      className: 'of-f',
+      properties: [
+        'object-fit: fill;'
+      ]
+    },
+    
+    {
+      className: 'of-none',
+      properties: [
+        'object-fit: none;'
+      ]
+    },
+    {
+      className: 'of-sd',
+      properties: [
+        'object-fit: scale-down;'
+      ]
+    }
+  ]}
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:of-*`, `md:of-*`, `lg:of-*` enables the targeting of specific utilities in disparate viewports.

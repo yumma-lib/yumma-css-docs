@@ -1,0 +1,30 @@
+---
+title: Font Style
+description: Controls the font style of an element.
+slug: /font-style
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+
+Controls the font style of an element.
+
+<ClassList
+  classData={[
+    {
+      className: 'fs-i',
+      properties: [
+        'font-style: italic;'
+      ]
+    },
+    {
+      className: 'fs-n',
+      properties: [
+        'font-style: normal;'
+      ]
+    }
+  ]}
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:fs-*`, `md:fs-*`, `lg:fs-*` enables the targeting of specific utilities in disparate viewports.

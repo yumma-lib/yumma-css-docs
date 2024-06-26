@@ -1,0 +1,49 @@
+---
+title: Position
+description: Controls the positioning of elements.
+slug: /position
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+
+Controls the positioning of elements.
+
+<ClassList
+  classData={[
+    {
+      className: 'p-a',
+      properties: [
+        'position: absolute;'
+      ]
+    },
+    {
+      className: 'p-f',
+      properties: [
+        'position: fixed;'
+      ]
+    },
+    {
+      className: 'p-r',
+      properties: [
+        'position: relative;'
+      ]
+    },
+    {
+      className: 'p-s',
+      properties: [
+        'position: static;'
+      ]
+    },
+    {
+      className: 'p-t',
+      properties: [
+        'position: sticky;'
+      ]
+    },
+  ]}
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:p-*`, `md:p-*`, `lg:p-*` enables the targeting of specific utilities in disparate viewports.

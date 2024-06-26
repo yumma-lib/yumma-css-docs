@@ -20,17 +20,6 @@ Controls the padding of an element.
   ]} 
 />
 
-<br />
-
-<ClassPreview
-  codeData={`<div class="bg-pink mr-1 p-1 rad-1 t-white">1</div>
-    <div class="bg-pink mr-1 p-2 rad-1 t-white">2</div>
-    <div class="bg-pink mr-1 p-3 rad-1 t-white">3</div>`}
-  isPadded
-  isCentered
-  setVersion = 'latest'
-/>
-
 ## Padding Bottom
 
 Controls the bottom padding of an element.
@@ -114,3 +103,7 @@ Controls the top and bottom paddings of an element at once.
   increment={0.25} 
   unit='rem'
 />
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:p-*`, `md:p-*`, `lg:p-*` enables the targeting of specific utilities in disparate viewports.

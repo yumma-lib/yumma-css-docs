@@ -3,7 +3,6 @@
     border-radius: 8px;
     border: 1px solid #e5e7eb;
     padding: 18px;
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
     /* bg-white rad-3 b-1 bc-[#e5e7eb] p-2 anim tr-* */
 }
 
@@ -61,6 +60,7 @@
     .cardGrid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     /* md:gtc-2 */
 }
 
@@ -68,5 +68,6 @@
     .cardGrid {
         grid-template-columns: repeat(1, 1fr);
     }
+
     /* sm:gtc-1 */
 }

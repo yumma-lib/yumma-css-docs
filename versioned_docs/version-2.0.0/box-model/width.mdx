@@ -16,24 +16,15 @@ Controls the width of an element.
   increment={0.25} 
   unit='rem' 
   additionalClasses={[
+    { name: '1/1', value: '100dvh' },
+    { name: '1/2', value: '50dvh' },
     { name: 'auto', value: 'auto' },
+    { name: 'fc', value: 'fit-content' },
     { name: 'full', value: '100%' },
     { name: 'half', value: '50%' },
-    { name: 'fc', value: 'fit-content' },
-    { name: '1/1', value: '100dvw' },
-    { name: '2/1', value: '50dvw' }
+    { name: 'max', value: 'max-content' },
+    { name: 'min', value: 'min-content' }
   ]} 
-/>
-
-<br />
-
-<ClassPreview
-  codeData={`<div class="bg-pink ins mr-1 p-1 rad-1 t-white w-5">5</div>
-    <div class="bg-pink ins mr-1 p-1 rad-1 t-white w-10">10</div>
-    <div class="bg-pink ins mr-1 p-1 rad-1 t-white w-20">20</div>`}
-  isPadded
-  isCentered
-  setVersion = 'latest'
 />
 
 ## Max Width
@@ -47,11 +38,14 @@ Controls the maximum width of an element.
   increment={0.25} 
   unit='rem' 
   additionalClasses={[
-    {name: 'auto', value: 'auto'},
-    {name: 'full', value: '100%'},
-    {name: 'half', value: '50%'},
-    {name: '1/1', value: '100dvw'},
-    {name: '2/1', value: '50dvw'}
+    { name: '1/1', value: '100dvh' },
+    { name: '1/2', value: '50dvh' },
+    { name: 'auto', value: 'auto' },
+    { name: 'fc', value: 'fit-content' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' },
+    { name: 'max', value: 'max-content' },
+    { name: 'min', value: 'min-content' }
   ]} 
 />
 
@@ -66,10 +60,17 @@ Controls the minimum width of an element.
   increment={0.25} 
   unit='rem' 
   additionalClasses={[
-    {name: 'auto', value: 'auto'},
-    {name: 'full', value: '100%'},
-    {name: 'half', value: '50%'},
-    {name: '1/1', value: '100dvw'},
-    {name: '2/1', value: '50dvw'}
+    { name: '1/1', value: '100dvh' },
+    { name: '1/2', value: '50dvh' },
+    { name: 'auto', value: 'auto' },
+    { name: 'fc', value: 'fit-content' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' },
+    { name: 'max', value: 'max-content' },
+    { name: 'min', value: 'min-content' }
   ]} 
 />
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:w-*`, `md:w-*`, `lg:w-*` enables the targeting of specific utilities in disparate viewports.

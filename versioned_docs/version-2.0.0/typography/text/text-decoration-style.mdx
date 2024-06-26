@@ -1,0 +1,42 @@
+---
+title: Text Decoration Style
+description: Controls the style of text decoration.
+slug: /text-decoration-style
+---
+
+import ClassList from '@site/src/components/ClassList/ClassList';
+
+Controls the style of text decoration.
+
+<ClassList
+  classData={[
+    {
+      className: 'tds-none',
+      properties: [
+        'text-decoration-style: none;'
+      ]
+    },
+    {
+      className: 'tds-d',
+      properties: [
+        'text-decoration-style: dashed;'
+      ]
+    },
+    {
+      className: 'tds-h',
+      properties: [
+        'text-decoration-style: hidden;'
+      ]
+    },
+    {
+      className: 'tds-s',
+      properties: [
+        'text-decoration-style: solid;'
+      ]
+    }
+  ]}
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:tds-*`, `md:tds-*`, `lg:tds-*` enables the targeting of specific utilities in disparate viewports.
