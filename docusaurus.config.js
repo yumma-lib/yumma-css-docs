@@ -105,7 +105,7 @@ const config = {
               },
               {
                 label: 'Yumma CSS v1',
-                to: '/docs/1.2.0/installation'
+                to: '/docs/installation'
               }
             ],
           },
