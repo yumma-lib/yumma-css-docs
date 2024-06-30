@@ -1,38 +1,38 @@
 .compElement {
-    border-radius: 12px;
     background-color: #fefeff;
-    border: 2px solid #cccccc;
+    border-radius: 12px;
+    border: 1px solid #cccccc;
     margin-bottom: 1.2rem;
     /* rad-2 bg-[#fefeff] b-1 bc-[#cccccc] */
 }
 
 .compFooter {
-    padding-top: 0.875rem;
+    border-bottom-left-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
     padding-bottom: 0.875rem;
     padding-left: 1rem;
     padding-right: 1rem;
-    border-bottom-right-radius: 0.75rem;
-    border-bottom-left-radius: 0.75rem;
+    padding-top: 0.875rem;
 }
 
 .compBadge {
     background-color: #dc0988;
+    border-radius: 9999px;
     color: white;
     font-size: .6125rem;
     line-height: 1rem;
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.5rem;
     text-transform: uppercase;
     vertical-align: middle;
-    border-radius: 9999px;
-    padding: 0.125rem 0.5rem;
-    margin-left: 0.5rem;
 }
 
 .compTitle {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 700;
     color: #465161;
     display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.25rem;
 }
 
 [data-theme='dark'] .compTitle {
@@ -40,11 +40,11 @@
 }
 
 .compDescription {
-    margin-top: 0.125rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    font-weight: 500;
     color: #939eae !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25rem;
+    margin-top: 0.125rem;
 }
 
 .compElement a:hover {
