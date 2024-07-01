@@ -1,10 +1,10 @@
 import { useColorMode } from '@docusaurus/theme-common';
 import CodeBlock from '@theme/CodeBlock';
+import beautify from 'js-beautify';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
-import beautify from 'js-beautify';
 
-const ClassPreview = ({ codeData, isPadded = false, isCentered = false, setVersion = '', isHeight, setScroll = false }) => {
+const ClassPreview = ({ codeData, isPadded = false, isCentered = false, setVersion = '', setHeight, setScroll = false }) => {
   const iframeRef = useRef(null);
 
   const { colorMode } = useColorMode();
@@ -45,7 +45,7 @@ const ClassPreview = ({ codeData, isPadded = false, isCentered = false, setVersi
     backgroundColor: colorMode === 'dark' ? '#1d2026' : '#f9fafb',
     border: colorMode === 'dark' ? '1px solid #2d2f33' : '1px solid #e5e7eb',
     borderRadius: '8px',
-    height: isHeight || '200px',
+    height: setHeight || '200px',
     width: '100%',
     overflowY: setScroll ? 'hidden' : 'auto'
   };
@@ -71,7 +71,7 @@ ClassPreview.propTypes = {
   codeData: PropTypes.string.isRequired,
   isPadded: PropTypes.bool,
   isCentered: PropTypes.bool,
-  isHeight: PropTypes.string,
+  setHeight: PropTypes.string,
   setVersion: PropTypes.string,
   setScroll: PropTypes.bool,
 };
