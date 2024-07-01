@@ -22,7 +22,7 @@ const ClassPreview = ({ codeData, usePadding = false, useCenter = false, useVers
   const formatHTML = (html) => {
     return beautify.html(html, {
       indent_size: 4,
-      wrap_line_length: 120,
+      wrap_line_length: 160,
       preserve_newlines: false,
     });
   };
