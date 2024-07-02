@@ -66,6 +66,11 @@ const config = {
             to: '/components'
           },
           {
+            label: 'Blog',
+            position: 'left',
+            to: '/blog'
+          },
+          {
             type: 'docsVersionDropdown',
             position: 'right'
           },
