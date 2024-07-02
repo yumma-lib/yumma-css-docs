@@ -28,9 +28,11 @@ const config = {
           includeCurrentVersion: false
         },
         blog: {
-          blogSidebarTitle: 'Latest articles',
+          blogSidebarTitle: 'Latest updates',
+          
           showReadingTime: false,
-          blogSidebarCount: 12
+          blogSidebarCount: 12,
+          
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -73,8 +75,7 @@ const config = {
           {
             type: 'docsVersionDropdown',
             position: 'right'
-          },
-          
+          }
         ],
       },
       footer: {
