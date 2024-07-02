@@ -90,25 +90,21 @@ const config = {
                 label: 'Components',
                 to: '/components'
               },
-              {
-                label: 'Blog',
-                to: '/blog'
-              }
             ],
-           },
-          // {
-          //   title: 'Releases',
-          //   items: [
-          //     {
-          //       label: 'Latest version',
-          //       to: '/docs/installation'
-          //     },
-          //     {
-          //       label: 'Yumma CSS v1',
-          //       to: '/docs/installation'
-          //     }
-          //   ],
-          // },
+          },
+          {
+            title: 'Mini Screencasts',
+            items: [
+              {
+                label: 'From Yumma CSS',
+                to: 'https://www.youtube.com/@yummacss'
+              },
+              {
+                label: 'From Renildo Pereira',
+                to: 'https://www.youtube.com/@rrenildopereiraa'
+              },
+            ],
+          },
           {
             title: 'Resources',
             items: [
