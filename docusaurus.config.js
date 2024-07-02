@@ -91,6 +91,10 @@ const config = {
                 label: 'Components',
                 to: '/components'
               },
+              {
+                label: 'Blog',
+                to: '/blog'
+              },
             ],
           },
           {
