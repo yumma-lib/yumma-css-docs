@@ -95,20 +95,20 @@ const config = {
                 to: '/blog'
               }
             ],
-          },
-          {
-            title: 'Releases',
-            items: [
-              {
-                label: 'Latest version',
-                to: '/docs/installation'
-              },
-              {
-                label: 'Yumma CSS v1',
-                to: '/docs/installation'
-              }
-            ],
-          },
+           },
+          // {
+          //   title: 'Releases',
+          //   items: [
+          //     {
+          //       label: 'Latest version',
+          //       to: '/docs/installation'
+          //     },
+          //     {
+          //       label: 'Yumma CSS v1',
+          //       to: '/docs/installation'
+          //     }
+          //   ],
+          // },
           {
             title: 'Resources',
             items: [
