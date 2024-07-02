@@ -144,10 +144,6 @@ const config = {
             title: 'Social',
             items: [
               {
-                label: 'YouTube',
-                to: 'https://www.youtube.com/@yummacss'
-              },
-              {
                 label: 'Twitter',
                 to: 'https://twitter.com/yummacss'
               }
