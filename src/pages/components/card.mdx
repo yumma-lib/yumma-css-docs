@@ -5,13 +5,47 @@ hide_table_of_contents: true
 ---
 
 import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
+import { basic, withImage, centralized, centralizedWithIcon } from '../../components/YmaSample/card';
 
 # Yumma CSS Card
 
 Add these Yumma CSS Card components to organize and display content.
 
+### Basic
+
 <YmaPreview
-  codeData={``}
+  codeData={basic}
+  useHeight = '230px' 
+  usePadding
+  useTabs
+  useVersion = 'release'
+/>
+
+## With image
+
+<YmaPreview
+  codeData={withImage}
+  useHeight = '420px' 
+  usePadding
+  useTabs
+  useVersion = 'release'
+/>
+
+### Centralized
+
+<YmaPreview
+  codeData={centralized}
+  useHeight = '270px' 
+  usePadding
+  useTabs
+  useVersion = 'release'
+/>
+
+### Centralized with icon
+
+<YmaPreview
+  codeData={centralizedWithIcon}
+  useHeight = '270px' 
   usePadding
   useTabs
   useVersion = 'release'

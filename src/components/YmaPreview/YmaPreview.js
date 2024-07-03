@@ -13,12 +13,6 @@ const YmaPreview = ({ codeData, usePadding = false, useCenter = false, useVersio
   const flex = useCenter ? 'display: flex;' : '';
   const stylesheet = `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
 
-  const styles = `
-    ${flex} justify-content: ${useCenter ? 'center' : 'flex-start'}; align-items: ${useCenter ? 'center' : 'flex-start'};
-    ${usePadding ? 'padding: 12px 14px;' : ''}
-    ${useScroll ? 'overflow-y: hidden;' : ''}
-  `;
-
   const formatHTML = (html) => {
     return beautify.html(html, {
       indent_size: 4,
@@ -34,11 +28,18 @@ const YmaPreview = ({ codeData, usePadding = false, useCenter = false, useVersio
     <head>
       <link rel="stylesheet" href="${stylesheet}">
       <style>
+        #preview-tab {
+          ${flex} 
+          justify-content: ${useCenter ? 'center' : 'flex-start'}; 
+          align-items: ${useCenter ? 'center' : 'flex-start'};
+          ${usePadding ? 'padding: 12px 14px;' : ''}
+          ${useScroll ? 'overflow-y: hidden;' : ''}
+        }
         ${useScroll ? 'body { overflow-y: hidden; }' : ''}
       </style>
     </head>
     <body>
-      <div style="${styles}">${processedCode}</div>
+      <div id="preview-tab">${processedCode}</div>
     </body>
   </html>
 `;

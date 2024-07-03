@@ -144,7 +144,7 @@ const config = {
             title: 'Social',
             items: [
               {
-                label: 'Twitter',
+                label: '(𝕏) Twitter',
                 to: 'https://twitter.com/yummacss'
               }
             ],
