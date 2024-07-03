@@ -17,7 +17,7 @@ const YmaPreview = ({ codeData, usePadding = false, useCenter = false, useVersio
     return beautify.html(html, {
       indent_size: 4,
       wrap_line_length: 160,
-      preserve_newlines: false,
+      preserve_newlines: false
     });
   };
 
