@@ -1,9 +1,9 @@
-import styles from './CardGrid.module.css';
+import styles from './YmaShowcase.module.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '@docusaurus/Link';
 
-const CardGrid = ({ cardData }) => {
+const YmaShowcase = ({ cardData }) => {
     return (
         <div className={styles.cardGrid}>
             {cardData.map((cardGridProps, i) => (
@@ -27,7 +27,7 @@ const CardGrid = ({ cardData }) => {
     );
 };
 
-CardGrid.propTypes = {
+YmaShowcase.propTypes = {
     cardData: PropTypes.arrayOf(
         PropTypes.shape({
             icon: PropTypes.string.isRequired,
@@ -38,4 +38,4 @@ CardGrid.propTypes = {
     ).isRequired,
 };
 
-export default CardGrid;
+export default YmaShowcase;

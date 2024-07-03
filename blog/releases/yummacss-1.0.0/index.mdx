@@ -8,8 +8,8 @@ tags: [update]
 title: Yumma CSS 1.0.0
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import ColorPalette from '@site/src/components/ColorPalette/ColorPalette';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import YmaPalette from '@site/src/components/YmaPalette/YmaPalette';
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -37,7 +37,7 @@ This is a major update that introduces groundbreaking features. Major releases f
 
 This update will mainly focus on flexbox classes, as this was one of the biggest limitations of Yumma CSS before, so I decided to implement a set of utilities to reach even more flexibility of Yumma CSS.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'ai-fs',
@@ -98,7 +98,7 @@ This update will mainly focus on flexbox classes, as this was one of the biggest
 
 As the layouts of the applications evolve, I feel the need to implement more and more utilities, so here are a few of them:
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'd-fr',
@@ -123,7 +123,7 @@ As the layouts of the applications evolve, I feel the need to implement more and
 
 A whole new collection of advanced text formatting utilities for typographers is also introduced with Yumma CSS v1.0.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'ta-ja',
@@ -162,7 +162,7 @@ In addition, I'm now adding viewports for the **Height** and **Width** utilities
 
 Nobody builds websites in dark mode using the color gray, right? The new **Lead** color is perfect for creating applications or websites that use dark mode natively.
 
-<ColorPalette
+<YmaPalette
   colorData={[
     {
       name: 'Lead',

@@ -4,12 +4,12 @@ description: Controls the element's stack order.
 slug: /z-index
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
 
 Controls the element's stack order.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'zi-0',
@@ -80,7 +80,7 @@ Controls the element's stack order.
   ]}
 />
 
-<ClassPreview
+<YmaPreview
   codeData={`<div class="p-r">
       <div class="bg-pink dim-14 ins p-r rad-1 zi-10">
         <p class="t-white">B</p>

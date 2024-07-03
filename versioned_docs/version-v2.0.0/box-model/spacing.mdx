@@ -4,8 +4,8 @@ description: Controls the spacing of child elements.
 slug: /spacing
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
 
 Controls the spacing of child elements.
 
@@ -13,7 +13,7 @@ Controls the spacing of child elements.
 
 Controls the left and right X-axis margins of child elements.
 
-<ClassList 
+<YmaUtility 
   baseClassName='s-x-' 
   propertyNames={['margin-left', 'margin-right']}
   range={100} 
@@ -25,7 +25,7 @@ Controls the left and right X-axis margins of child elements.
 
 Controls the top and bottom Y-axis margins of child elements.
 
-<ClassList 
+<YmaUtility 
   baseClassName='s-y-' 
   propertyNames={['margin-top', 'margin-bottom']} 
   range={100} 

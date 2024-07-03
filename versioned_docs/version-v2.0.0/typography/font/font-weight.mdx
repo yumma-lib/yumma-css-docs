@@ -4,12 +4,12 @@ description: Controls the font weight of an element.
 slug: /font-weight
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
 
 Controls the font weight of an element.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'fw-100',
@@ -68,7 +68,7 @@ Controls the font weight of an element.
   ]}
 />
 
-<ClassPreview
+<YmaPreview
   codeData={`<p class="fs-sm fw-100">Font weight 100</p>
     <p class="fs-md fw-400">Font weight 400</p>
     <p class="fs-lg fw-600">Font weight 600</p>

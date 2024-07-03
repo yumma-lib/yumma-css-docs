@@ -6,7 +6,7 @@ import beautify from 'js-beautify';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 
-const ClassPreview = ({ codeData, usePadding = false, useCenter = false, useVersion = '', useHeight, useScroll = false, useTabs = false }) => {
+const YmaPreview = ({ codeData, usePadding = false, useCenter = false, useVersion = '', useHeight, useScroll = false, useTabs = false }) => {
   const iframeRef = useRef(null);
 
   const { colorMode } = useColorMode();
@@ -86,7 +86,7 @@ const ClassPreview = ({ codeData, usePadding = false, useCenter = false, useVers
   );
 };
 
-ClassPreview.propTypes = {
+YmaPreview.propTypes = {
   codeData: PropTypes.string.isRequired,
   useCenter: PropTypes.bool,
   useHeight: PropTypes.string,
@@ -96,4 +96,4 @@ ClassPreview.propTypes = {
   useVersion: PropTypes.string
 };
 
-export default ClassPreview;
+export default YmaPreview;

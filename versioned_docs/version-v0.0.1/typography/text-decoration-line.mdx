@@ -4,12 +4,12 @@ description: Controls the text decoration line of an element.
 slug: /text-decoration-line
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
 
 Controls the text decoration line of an element.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'tdl-none',
@@ -34,7 +34,7 @@ Controls the text decoration line of an element.
 
 ## No Text Decoration
 
-<ClassPreview
+<YmaPreview
   codeData={`<p class="tdl-none t-l-gray-2 t-l-gray-2">No Text Decoration</p>`}
   usePadding
   useCenter
@@ -43,7 +43,7 @@ Controls the text decoration line of an element.
 
 ## Line through
 
-<ClassPreview
+<YmaPreview
   codeData={`<p class="tdl-lt t-l-gray-2 t-l-gray-2">Line Through</p>`}
   usePadding
   useCenter
@@ -52,7 +52,7 @@ Controls the text decoration line of an element.
 
 ## Underline
 
-<ClassPreview
+<YmaPreview
   codeData={`<p class="tdl-u t-l-gray-2 t-l-gray-2">Underline</p>`}
   usePadding
   useCenter

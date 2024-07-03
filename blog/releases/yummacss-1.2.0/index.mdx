@@ -8,9 +8,9 @@ tags: [update]
 title: Yumma CSS 1.2.0
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import ColorPalette from "@site/src/components/ColorPalette/ColorPalette";
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import YmaPalette from "@site/src/components/YmaPalette/YmaPalette";
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -41,7 +41,7 @@ This is an incremental update that may contain bug fixes. Minor releases follow 
 
 After some time without new utility classes for **Height** (max and min height), **Width** (max and min width) and **Dimension** (max and min), here it is — `fit-content`.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'h-fc',
@@ -105,7 +105,7 @@ After some time without new utility classes for **Height** (max and min height),
 
 I'm also extend the **Flex** class even further, now with three new utilities: `auto`, `full` and `half`.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'f-auto',
@@ -134,7 +134,7 @@ Well, better late than never, Yumma CSS will now make texts a bit more different
 <p class="lh-6 t-l-gray-2">In an endless white expanse, Ren stood by a solitary tree ...</p>
 ```
 
-<ClassPreview
+<YmaPreview
   codeData={`<p class="lh-6 t-l-gray-2">In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey. Some soared gracefully, while others spiraled with wild exuberance. The lone tree beside him seemed to share Ren's vigil, its branches reaching skyward.</p>`}
   usePadding
   useVersion = '1.2.0'
@@ -146,7 +146,7 @@ Well, better late than never, Yumma CSS will now make texts a bit more different
 
 You've probably seen these colors in [Tailwind CSS](https://tailwindcss.com/), and I'm a big fan of their style. Since the first version of Yumma CSS, I've always used the Photoshop palette variations, but there was one problem. Contrast. So I decided to create a variation based on Tailwind by replacing Aqua with Cyan and Magenta with Indigo.
 
-<ColorPalette
+<YmaPalette
   colorData={[
     {
       name: 'Cyan',
@@ -163,7 +163,7 @@ Previously, the colors weren't as rich as I wanted them to be, and this was a li
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <ColorPalette
+    <YmaPalette
       colorData={[
         {
           name: 'Blue',
@@ -173,7 +173,7 @@ Previously, the colors weren't as rich as I wanted them to be, and this was a li
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <ColorPalette
+    <YmaPalette
       colorData={[
         {
           name: 'Blue',
@@ -200,7 +200,7 @@ This new change will make the content on the button much easier to read, as the 
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <ClassPreview
+    <YmaPreview
       codeData={`<div class="ins h-1/1">
           <button class="btn-pink t-white">Button</button>
         </div>
@@ -209,7 +209,7 @@ This new change will make the content on the button much easier to read, as the 
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <ClassPreview
+    <YmaPreview
       codeData={`<div class="ins h-1/1">
           <button class="btn-pink t-white">Button</button>
         </div>

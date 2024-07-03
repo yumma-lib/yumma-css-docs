@@ -4,8 +4,8 @@ description: Use breakpoints, offset gaps, and flexible column layouts to create
 slug: /responsive-design
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
 
 Use breakpoints, offset gaps, and flexible column layouts to create adaptive interfaces.
 
@@ -43,7 +43,7 @@ $breakpoints: (
 
 A utility that defines the space between elements on a layout.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'gap-0',
@@ -108,7 +108,7 @@ A utility that defines the space between elements on a layout.
 
 A utility to control the width of elements at different breakpoints.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: "[breakpoint]:\col-1",
@@ -213,7 +213,7 @@ A utility to control the width of elements at different breakpoints.
 
 A utility to arrange elements horizontally in a row, with automatic wrapping.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: "row",

@@ -9,10 +9,10 @@ tags: [update]
 title: Yumma CSS 2.0.0
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
-import ColorList from '@site/src/components/ColorList/ColorList';
-import ColorPalette from "@site/src/components/ColorPalette/ColorPalette";
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
+import YmaColor from '@site/src/components/YmaColor/YmaColor';
+import YmaPalette from "@site/src/components/YmaPalette/YmaPalette";
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -43,7 +43,7 @@ This is a major update that introduces groundbreaking features. Major releases f
 
 In each new major release, I consistently introduce new customization utilities. This latest release is no exception, as it introduces the **Accent Color** utilities.
 
-<ColorList 
+<YmaColor 
   baseClassName="ac-" 
   propertyNames={['accent-color']} 
   colorClasses={[
@@ -64,7 +64,7 @@ In each new major release, I consistently introduce new customization utilities.
 
 The **Aspect Ratio** is a valuable addition, particularly for image elements.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'ar-s',
@@ -89,7 +89,7 @@ The **Aspect Ratio** is a valuable addition, particularly for image elements.
 
 You can now apply cool effects to your components thanks to the **Backdrop Filter** utilities.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'bf-b-none',
@@ -132,7 +132,7 @@ You can now apply cool effects to your components thanks to the **Backdrop Filte
 
 I'm finally adding the **Border Collapse** utilities to create better tables in your site with Yumma CSS.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'bc-c',
@@ -151,7 +151,7 @@ I'm finally adding the **Border Collapse** utilities to create better tables in 
 
 The recently introduced **Border Style** utilities offer the ability to alter the formatting of underlines applied to elements.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'b-none',
@@ -182,7 +182,7 @@ The recently introduced **Border Style** utilities offer the ability to alter th
 
 I'm also implementing utilities for Tables elements like **Caption Side**.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'cs-b',
@@ -201,7 +201,7 @@ I'm also implementing utilities for Tables elements like **Caption Side**.
 
 You can now change the color of SVG elements with Yumm CSS 2.0 using the new **Fill** color utilities.
 
-<ColorList 
+<YmaColor 
   baseClassName="f-" 
   propertyNames={['fill']} 
   colorClasses={[
@@ -222,7 +222,7 @@ You can now change the color of SVG elements with Yumm CSS 2.0 using the new **F
 
 In Yumma CSS 2.0, modifications has been made to the **Container** utility class, with the introduction of new default breakpoint rules.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'cnt',
@@ -235,7 +235,7 @@ In Yumma CSS 2.0, modifications has been made to the **Container** utility class
 
 It is now possible to modify the **Font Style** of text elements within the specified themes.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'fs-i',
@@ -254,7 +254,7 @@ It is now possible to modify the **Font Style** of text elements within the spec
 
 The **Gap** utilities aren't necessarily new, but they are different, in older versions we had [Offset Gaps](/docs/1.2.0/responsive-design#offset-gap) and they were intended strictly for responsive layouts and not for adding gaps between elements. In Yumma CSS v2.0 this won't be the case anymore.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'g-1',
@@ -359,7 +359,7 @@ I'm also including **Object Fit** and **Object Position** utility classes.
 
 **Object Fit**
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'of-c',
@@ -391,7 +391,7 @@ I'm also including **Object Fit** and **Object Position** utility classes.
 
 **Object Position**
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'op-b',
@@ -454,7 +454,7 @@ In addition to the previously discussed customization utilities, Yumma CSS 2.0 a
 
 **Outline Color**
 
-<ColorList 
+<YmaColor 
   baseClassName="oc-" 
   propertyNames={['outline-color']} 
   colorClasses={[
@@ -475,7 +475,7 @@ In addition to the previously discussed customization utilities, Yumma CSS 2.0 a
 
 **Outline Offset**
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'oo-0',
@@ -512,7 +512,7 @@ In addition to the previously discussed customization utilities, Yumma CSS 2.0 a
 
 **Outline Style**
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'os-none',
@@ -543,7 +543,7 @@ In addition to the previously discussed customization utilities, Yumma CSS 2.0 a
 
 **Outline Width**
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'ow-0',
@@ -582,7 +582,7 @@ Yumma CSS 2.0 features the addition of **Spacing** utilities just like [Tailwind
 
 **Spacing X**
 
-<ClassList 
+<YmaUtility 
   baseClassName='s-x-' 
   propertyNames={['margin-left', 'margin-right']}
   range={100} 
@@ -592,7 +592,7 @@ Yumma CSS 2.0 features the addition of **Spacing** utilities just like [Tailwind
 
 **Spacing Y**
 
-<ClassList 
+<YmaUtility 
   baseClassName='s-y-' 
   propertyNames={['margin-top', 'margin-bottom']} 
   range={100} 
@@ -602,7 +602,7 @@ Yumma CSS 2.0 features the addition of **Spacing** utilities just like [Tailwind
 
 It would be remiss of me not to mention the new table utilities without also mentioning the **Table Layout** utility classes.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'tl-auto',
@@ -623,7 +623,7 @@ In conclusion, the latest version of Yumma CSS 2.0 introduces a series of new ut
 
 **Text Decoration Color**
 
-<ColorList 
+<YmaColor 
   baseClassName="tdc-" 
   propertyNames={['outline-color']} 
   colorClasses={[
@@ -644,7 +644,7 @@ In conclusion, the latest version of Yumma CSS 2.0 introduces a series of new ut
 
 **Text Decoration Style**
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'tds-none',
@@ -675,7 +675,7 @@ In conclusion, the latest version of Yumma CSS 2.0 introduces a series of new ut
 
 **Text Decoration Thickness**
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'tdt-auto',
@@ -758,7 +758,7 @@ Yumma CSS will also change the way breakpoint behaves in your browser.
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <ClassList
+    <YmaUtility
         classData={[
           { className: 'sm', properties: ['min-width: 640px'] },
           { className: 'md', properties: ['min-width: 768px'] },
@@ -768,7 +768,7 @@ Yumma CSS will also change the way breakpoint behaves in your browser.
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <ClassList
+    <YmaUtility
         classData={[
           { className: 'xs', properties: ['min-width: 0'] },
           { className: 'sm', properties: ['min-width: 480px'] },

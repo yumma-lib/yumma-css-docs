@@ -8,7 +8,7 @@ tags: [update]
 title: Yumma CSS 0.1.0
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -39,7 +39,7 @@ So what does this mean? This means that the classes: **Height**, **Margin**, **P
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <ClassList
+    <YmaUtility
       baseClassName='h-'
       propertyNames={['height']}
       range={100}
@@ -48,7 +48,7 @@ So what does this mean? This means that the classes: **Height**, **Margin**, **P
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <ClassList
+    <YmaUtility
       classData={[
         {
           className: 'h-0',
@@ -185,7 +185,7 @@ So what does this mean? This means that the classes: **Height**, **Margin**, **P
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <ClassList
+    <YmaUtility
       baseClassName='m-'
       propertyNames={['margin']}
       range={100}
@@ -194,7 +194,7 @@ So what does this mean? This means that the classes: **Height**, **Margin**, **P
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <ClassList
+    <YmaUtility
       classData={[
         {
           className: 'm-0',

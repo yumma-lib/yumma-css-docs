@@ -1,7 +1,7 @@
 import React from 'react';
 import tinycolor from 'tinycolor2';
 
-import styles from './ColorList.module.css';
+import styles from './YmaColor.module.css';
 
 // Utility function to generate shades
 const mixColors = (color1, color2, weight) => {
@@ -51,7 +51,7 @@ function generateClassData(baseClassName, propertyNames, colorClasses) {
     });
 }
 
-const ColorList = ({ baseClassName, propertyNames, colorClasses }) => {
+const YmaColor = ({ baseClassName, propertyNames, colorClasses }) => {
     const classData = generateClassData(baseClassName, propertyNames, colorClasses);
 
     return (
@@ -71,4 +71,4 @@ const ColorList = ({ baseClassName, propertyNames, colorClasses }) => {
     );
 };
 
-export default ColorList;
+export default YmaColor;

@@ -4,12 +4,12 @@ description: Controls the display box type of an element.
 slug: /display
 ---
 
-import ClassList from '@site/src/components/ClassList/ClassList';
-import ClassPreview from '@site/src/components/ClassPreview/ClassPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
 
 Controls the display box type of an element.
 
-<ClassList
+<YmaUtility
   classData={[
     {
       className: 'dis-b',
@@ -58,7 +58,7 @@ Controls the display box type of an element.
 
 ## Flex
 
-<ClassPreview
+<YmaPreview
   codeData={`<nav class="dis-f">
       <p class="mr-1 t-l-gray-2">Home</p>
       <p class="mr-1 t-l-gray-2">About</p>
@@ -72,7 +72,7 @@ Controls the display box type of an element.
 
 ## Grid
 
-<ClassPreview
+<YmaPreview
   codeData={`<div class="cg-6 dis-g gtc-3 gtr-4 rg-2">
       <div class="bg-pink p-2 rad-1 t-white">1</div>
       <div class="bg-pink p-2 rad-1 t-white">2</div>
@@ -87,7 +87,7 @@ Controls the display box type of an element.
 
 ## None
 
-<ClassPreview
+<YmaPreview
   codeData={`<div class="col-3">
       <div class="bg-pink dis-none p-2 rad-1 t-white">1</div>
       <div class="bg-pink p-2 rad-1 t-white">2</div>

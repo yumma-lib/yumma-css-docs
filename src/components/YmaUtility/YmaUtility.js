@@ -1,4 +1,4 @@
-import styles from './ClassList.module.css';
+import styles from './YmaUtility.module.css';
 
 import React from 'react';
 

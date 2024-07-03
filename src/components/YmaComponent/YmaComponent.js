@@ -3,9 +3,9 @@ import { useColorMode } from '@docusaurus/theme-common';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import styles from './CompGrid.module.css';
+import styles from './YmaComponent.module.css';
 
-const CompGrid = ({ sectionData }) => {
+const YmaComponent = ({ sectionData }) => {
     const { colorMode, setColorMode } = useColorMode();
 
     return (
@@ -41,7 +41,7 @@ const CompGrid = ({ sectionData }) => {
     );
 };
 
-CompGrid.propTypes = {
+YmaComponent.propTypes = {
     sectionData: PropTypes.arrayOf(
         PropTypes.shape({
             src: PropTypes.string.isRequired,
@@ -53,4 +53,4 @@ CompGrid.propTypes = {
     ).isRequired,
 };
 
-export default CompGrid;
+export default YmaComponent;
