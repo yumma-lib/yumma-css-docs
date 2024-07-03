@@ -1,19 +1,23 @@
 {
+  "author": "Renildo Pereira",
+  "description": "Build beautiful websites with small class names.",
+  "homepage": "https://yummacss.com",
+  "license": "MIT",
   "name": "yumma-css-docs",
-  "version": "v2",
-  "description": "Build beautiful websites with small class names",
   "private": true,
-  "scripts": {
-    "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "dev": "docusaurus start"
+  "version": "v2",
+
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
   },
   "dependencies": {
     "@docusaurus/core": "^3.4.0",
@@ -38,19 +42,28 @@
     "@docusaurus/module-type-aliases": "^3.4.0",
     "@docusaurus/types": "^3.4.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 3 chrome version",
-      "last 3 firefox version",
-      "last 5 safari version"
-    ]
-  },
   "engines": {
     "node": ">=18.0"
+  },
+  "keywords": [
+    "css",
+    "css-library",
+    "docs",
+    "docusaurus",
+    "responsive",
+    "utility-classes",
+    "yummacss"
+  ],
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "dev": "docusaurus start"
   }
 }
