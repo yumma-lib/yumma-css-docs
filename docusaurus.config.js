@@ -130,10 +130,7 @@ const config = {
                 label: 'GitHub',
                 to: 'https://github.com/yumma-lib/yumma-css'
               },
-              {
-                label: 'LinkedIn — New',
-                to: 'https://www.linkedin.com/company/yummacss/'
-              },
+              
               {
                 label: 'Discord',
                 to: 'https://discord.gg/w5Dp73pNw4'
@@ -146,7 +143,11 @@ const config = {
               {
                 label: '(𝕏) Twitter',
                 to: 'https://twitter.com/yummacss'
-              }
+              },
+              {
+                label: 'LinkedIn',
+                to: 'https://www.linkedin.com/company/yummacss/'
+              },
             ],
           }
         ],
