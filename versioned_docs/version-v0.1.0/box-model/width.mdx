@@ -1,0 +1,57 @@
+---
+title: Width
+description: Controls the width of an element.
+slug: /width
+---
+
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+
+Controls the width of an element.
+
+<YmaUtility 
+  baseClassName='w-' 
+  propertyNames={['width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    { name: 'auto', value: 'auto' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' }
+  ]} 
+/>
+
+## Max Width
+
+Controls the maximum width of an element.
+
+<YmaUtility 
+  baseClassName='max-w-' 
+  propertyNames={['max-width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    { name: 'auto', value: 'auto' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' }
+  ]} 
+/>
+
+## Min Width
+
+Controls the minimum width of an element.
+
+<YmaUtility 
+  baseClassName='min-w-' 
+  propertyNames={['min-width']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    { name: 'auto', value: 'auto' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' }
+  ]} 
+/>

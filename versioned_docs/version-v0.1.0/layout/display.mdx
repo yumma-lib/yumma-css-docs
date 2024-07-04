@@ -1,0 +1,98 @@
+---
+title: Display
+description: Controls the display box type of an element.
+slug: /display
+---
+
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+
+Controls the display box type of an element.
+
+<YmaUtility
+  classData={[
+    {
+      className: 'dis-b',
+      properties: [
+        'display: block;'
+      ]
+    },
+    {
+      className: 'dis-f',
+      properties: [
+        'display: flex;'
+      ]
+    },
+    {
+      className: 'dis-g',
+      properties: [
+        'display: grid;'
+      ]
+    },
+    {
+      className: 'dis-i',
+      properties: [
+        'display: inline;'
+      ]
+    },
+    {
+      className: 'dis-ib',
+      properties: [
+        'display: inline-block;'
+      ]
+    },
+    {
+      className: 'dis-if',
+      properties: [
+        'display: inline-flex;'
+      ]
+    },
+    {
+      className: 'dis-none',
+      properties: [
+        'display: none;'
+      ]
+    }
+  ]}
+/>
+
+## Flex
+
+<YmaPreview
+  codeData = {`<nav class="dis-f">
+      <p class="mr-1 t-l-gray-2">Home</p>
+      <p class="mr-1 t-l-gray-2">About</p>
+      <p class="mr-1 t-l-gray-2">Services</p>
+      <p class="mr-1 t-l-gray-2">Contact</p>
+    </nav>`}
+  usePadding
+  useCenter
+  useVersion = '0.0.1'
+/>
+
+## Grid
+
+<YmaPreview
+  codeData = {`<div class="cg-6 dis-g gtc-3 gtr-4 rg-2">
+      <div class="bg-pink p-2 rad-1 t-white">1</div>
+      <div class="bg-pink p-2 rad-1 t-white">2</div>
+      <div class="bg-pink p-2 rad-1 t-white">3</div>
+      <div class="bg-pink p-2 rad-1 t-white">4</div>
+      <div class="bg-pink p-2 rad-1 t-white">5</div>
+      <div class="bg-pink p-2 rad-1 t-white">6</div>
+    </div>`}
+  usePadding
+  useVersion = '0.0.1'
+/>
+
+## None
+
+<YmaPreview
+  codeData = {`<div class="col-3">
+      <div class="bg-pink dis-none p-2 rad-1 t-white">1</div>
+      <div class="bg-pink p-2 rad-1 t-white">2</div>
+      <div class="bg-pink p-2 rad-1 t-white">3</div>
+    </div>`}
+  usePadding
+  useVersion = '0.0.1'
+/>

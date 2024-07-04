@@ -1,0 +1,60 @@
+---
+title: Box Shadow
+description: Controls the box shadow of an element.
+slug: /box-shadow
+---
+
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+
+Controls the box shadow of an element.
+
+<YmaUtility
+  classData={[
+    {
+      className: 'bs',
+      properties: [
+        'box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);'
+      ]
+    },
+    {
+      className: 'bs-xsm',
+      properties: [
+        'box-shadow: 1px 3px 5px -3px rgba(0,0,0,0.1);'
+      ]
+    },
+    {
+      className: 'bs-sm',
+      properties: [
+        'box-shadow: 1px 3px 5px -2px rgba(0,0,0,0.1);'
+      ]
+    },
+    {
+      className: 'bs-md',
+      properties: [
+        'box-shadow: 1px 3px 5px -1px rgba(0,0,0,0.1);'
+      ]
+    },
+    {
+      className: 'bs-lg',
+      properties: [
+        'box-shadow: 1px 3px 5px 1px rgba(0,0,0,0.1);'
+      ]
+    },
+    {
+      className: 'bs-xlg',
+      properties: [
+        'box-shadow: 1px 3px 5px 2px rgba(0,0,0,0.1);'
+      ]
+    }
+  ]}
+/>
+
+<YmaPreview
+  codeData = {`<div class="bg-white bs-xsm h-8 mr-1 rad-1 w-8"></div>
+    <div class="bg-white bs-md h-8 mr-1 rad-1 w-8"></div>
+    <div class="bg-white bs-xlg h-8 mr-1 rad-1 w-8"></div>`}
+  usePadding
+  useCenter
+  useVersion = '0.0.1'
+/>

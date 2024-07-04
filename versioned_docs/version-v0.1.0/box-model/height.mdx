@@ -1,0 +1,57 @@
+---
+title: Height
+description: Controls the height of an element.
+slug: /height
+---
+
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+
+Controls the height of an element.
+
+<YmaUtility 
+  baseClassName='h-' 
+  propertyNames={['height']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    { name: 'auto', value: 'auto' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' }
+  ]} 
+/>
+
+## Max Height
+
+Controls the maximum height of an element.
+
+<YmaUtility 
+  baseClassName='max-h-' 
+  propertyNames={['max-height']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    { name: 'auto', value: 'auto' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' }
+  ]} 
+/>
+
+## Min Height
+
+Controls the minimum height of an element.
+
+<YmaUtility 
+  baseClassName='min-h-' 
+  propertyNames={['min-height']} 
+  range={100} 
+  increment={0.25} 
+  unit='rem' 
+  additionalClasses={[
+    { name: 'auto', value: 'auto' },
+    { name: 'full', value: '100%' },
+    { name: 'half', value: '50%' }
+  ]} 
+/>

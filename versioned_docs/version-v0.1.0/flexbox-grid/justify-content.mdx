@@ -1,0 +1,105 @@
+---
+title: Justify Content
+description: Controls the positioning of flex and grid elements on a container's main axis.
+slug: /justify-content
+---
+
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+
+Controls the positioning of flex and grid elements on a container's main axis.
+
+<YmaUtility
+  classData={[
+    {
+      className: 'jc-c',
+      properties: [
+        'justify-content: center;'
+      ]
+    },
+    {
+      className: 'jc-sa',
+      properties: [
+        'justify-content: space-around;'
+      ]
+    },
+    {
+      className: 'jc-sb',
+      properties: [
+        'justify-content: space-between;'
+      ]
+    },
+    {
+      className: 'jc-se',
+      properties: [
+        'justify-content: space-evenly;'
+      ]
+    },
+    {
+      className: 'jc-s',
+      properties: [
+        'justify-content: start;'
+      ]
+    }
+  ]}
+/>
+
+## Center
+
+<YmaPreview
+  codeData = {`<div class="dis-f jc-c">
+      <div class="bg-pink h-8 mr-1 rad-1 w-8"></div>
+      <div class="bg-pink h-8 mr-1 rad-1 w-8"></div>
+      <div class="bg-pink h-8 mr-1 rad-1 w-8"></div>
+    </div>`}
+  usePadding
+  useVersion = '0.0.1'
+/>
+
+## Space around
+
+<YmaPreview
+  codeData = {`<div class="dis-f jc-sa">
+      <div class="bg-pink h-8 rad-1 w-8"></div>
+      <div class="bg-pink h-8 rad-1 w-8"></div>
+      <div class="bg-pink h-8 rad-1 w-8"></div>
+    </div>`}
+  usePadding
+  useVersion = '0.0.1'
+/>
+
+## Space between
+
+<YmaPreview
+  codeData = {`<div class="dis-f jc-sb">
+      <div class="bg-pink h-8 rad-1 w-8"></div>
+      <div class="bg-pink h-8 rad-1 w-8"></div>
+      <div class="bg-pink h-8 rad-1 w-8"></div>
+    </div>`}
+  usePadding
+  useVersion = '0.0.1'
+/>
+
+## Space end
+
+<YmaPreview
+  codeData = {`<div class="dis-f jc-se">
+      <div class="bg-pink h-8 rad-1 w-8"></div>
+      <div class="bg-pink h-8 rad-1 w-8"></div>
+      <div class="bg-pink h-8 rad-1 w-8"></div>
+    </div>`}
+  usePadding
+  useVersion = '0.0.1'
+/>
+
+## Start
+
+<YmaPreview
+  codeData = {`<div class="dis-f jc-s">
+      <div class="bg-pink h-8 mr-1 rad-1 w-8"></div>
+      <div class="bg-pink h-8 mr-1 rad-1 w-8"></div>
+      <div class="bg-pink h-8 mr-1 rad-1 w-8"></div>
+    </div>`}
+  usePadding
+  useVersion = '0.0.1'
+/>

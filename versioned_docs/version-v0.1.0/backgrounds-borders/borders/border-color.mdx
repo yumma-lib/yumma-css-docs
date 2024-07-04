@@ -1,0 +1,165 @@
+---
+title: Border Color
+description: Controls the color of the borders of an element.
+slug: /border-color
+---
+
+import YmaColor from '@site/src/components/YmaColor/YmaColor';
+import YmaPalette from "@site/src/components/YmaPalette/YmaPalette";
+import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
+import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+
+Controls the color of the borders of an element.
+
+<YmaColor 
+  baseClassName="bc-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: '#f26d50' },
+    { color: 'orange', value: '#f68e55' },
+    { color: 'yellow', value: '#fff467' },
+    { color: 'green', value: '#3bb878' },
+    { color: 'teal', value: '#1abbb4' },
+    { color: 'aqua', value: '#00bff3' },
+    { color: 'blue', value: '#438cca' },
+    { color: 'violet', value: '#855fa8' },
+    { color: 'magenta', value: '#a863a8' },
+    { color: 'pink', value: '#f06ea9' },
+    { color: 'gray', value: '#999999' }
+  ]}
+/>
+
+<YmaPreview
+  codeData = {`<div class="b-2 bc-pink h-8 w-8"></div>`}
+  usePadding
+  useCenter
+  useVersion = '0.0.1'
+/>
+
+## Border Bottom Color
+
+Controls the color of the bottom border of an element.
+
+<YmaColor 
+  baseClassName="bc-b-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-bottom-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: '#f26d50' },
+    { color: 'orange', value: '#f68e55' },
+    { color: 'yellow', value: '#fff467' },
+    { color: 'green', value: '#3bb878' },
+    { color: 'teal', value: '#1abbb4' },
+    { color: 'aqua', value: '#00bff3' },
+    { color: 'blue', value: '#438cca' },
+    { color: 'violet', value: '#855fa8' },
+    { color: 'magenta', value: '#a863a8' },
+    { color: 'pink', value: '#f06ea9' },
+    { color: 'gray', value: '#999999' }
+  ]}
+/>
+
+<YmaPreview
+  codeData = {`<div class="b-2 bc-b-l-pink-6 bc-pink h-8 w-8"></div>`}
+  usePadding
+  useCenter
+  useVersion = '0.0.1'
+/>
+
+## Border Left Color
+
+Controls the color of the left border of an element.
+
+<YmaColor 
+  baseClassName="bc-l-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-left-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: '#f26d50' },
+    { color: 'orange', value: '#f68e55' },
+    { color: 'yellow', value: '#fff467' },
+    { color: 'green', value: '#3bb878' },
+    { color: 'teal', value: '#1abbb4' },
+    { color: 'aqua', value: '#00bff3' },
+    { color: 'blue', value: '#438cca' },
+    { color: 'violet', value: '#855fa8' },
+    { color: 'magenta', value: '#a863a8' },
+    { color: 'pink', value: '#f06ea9' },
+    { color: 'gray', value: '#999999' }
+  ]}
+/>
+
+<YmaPreview
+  codeData = {`<div class="b-2 bc-l-l-pink-6 bc-pink h-8 w-8"></div>`}
+  usePadding
+  useCenter
+  useVersion = '0.0.1'
+/>
+
+## Border Right Color
+
+Controls the color of the right border of an element.
+
+<YmaColor 
+  baseClassName="bc-r-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-right-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: '#f26d50' },
+    { color: 'orange', value: '#f68e55' },
+    { color: 'yellow', value: '#fff467' },
+    { color: 'green', value: '#3bb878' },
+    { color: 'teal', value: '#1abbb4' },
+    { color: 'aqua', value: '#00bff3' },
+    { color: 'blue', value: '#438cca' },
+    { color: 'violet', value: '#855fa8' },
+    { color: 'magenta', value: '#a863a8' },
+    { color: 'pink', value: '#f06ea9' },
+    { color: 'gray', value: '#999999' }
+  ]}
+/>
+<br />
+
+<YmaPreview
+  codeData = {`<div class="b-2 bc-pink bc-r-l-pink-6 h-8 w-8"></div>`}
+  usePadding
+  useCenter
+  useVersion = '0.0.1'
+/>
+
+## Border Top Color
+
+Controls the color of the top border of an element.
+
+<YmaColor 
+  baseClassName="bc-t-" 
+  propertyNames={['border-color', 'border-style: solid', 'border-top-width: 1px']} 
+  colorClasses={[
+    { color: 'red', value: '#f26d50' },
+    { color: 'orange', value: '#f68e55' },
+    { color: 'yellow', value: '#fff467' },
+    { color: 'green', value: '#3bb878' },
+    { color: 'teal', value: '#1abbb4' },
+    { color: 'aqua', value: '#00bff3' },
+    { color: 'blue', value: '#438cca' },
+    { color: 'violet', value: '#855fa8' },
+    { color: 'magenta', value: '#a863a8' },
+    { color: 'pink', value: '#f06ea9' },
+    { color: 'gray', value: '#999999' }
+  ]}
+/>
+
+<YmaPreview
+  codeData = {`<div class="b-2 bc-pink bc-t-l-pink-6 h-8 w-8"></div>`}
+  usePadding
+  useCenter
+  useVersion = '0.0.1'
+/>
+
+### Using hover states
+
+Use `h:bc-*` to modify elements to override other background classes.
+
+<YmaPreview
+  codeData = {`<div class="bc-gray h-8 bc-h-pink rad-1 w-8"></div>`}
+  usePadding
+  useCenter
+  useVersion = '0.0.1'
+/>
