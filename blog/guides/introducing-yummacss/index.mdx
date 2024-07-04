@@ -7,10 +7,10 @@ title: Introducing Yumma CSS
 unlisted: true
 ---
 
-import YmaUtility from "@site/src/components/YmaUtility/YmaUtility";
-import YmaPalette from "@site/src/components/YmaPalette/YmaPalette";
-import YmaPreview from "@site/src/components/YmaPreview/YmaPreview";
-import YmaShowcase from "@site/src/components/YmaShowcase/YmaShowcase";
+import Utility from "@site/src/components/Utility/Utility";
+import Palette from "@site/src/components/Palette/Palette";
+import Preview from "@site/src/components/Preview/Preview";
+import Showcase from "@site/src/components/Showcase/Showcase";
 
 Today I'm very excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a framework designed to make the process of developing open source websites smoother and more enjoyable.
 
@@ -24,8 +24,8 @@ The main mission of Yumma CSS is to make it easy for developers to create produc
 
 Get an amazing out-of-the-box color palette for designing great looking applications.
 
-<YmaPalette
-  colorData={[
+<Palette
+  data={[
     {
       color: 'Red',
       color: '#d73d3d'
@@ -81,8 +81,8 @@ Get an amazing out-of-the-box color palette for designing great looking applicat
 
 Get your applications into production quickly with our amazing pre-built components.
 
-<YmaPreview
-  codeData = {`<div>
+<Preview
+  data = {`<div>
     <nav class="bg-d-blue-5 nav">
       <h1 class="t-white">Yumma CSS</h1>
       <div class="sm:d-none">
@@ -97,6 +97,7 @@ Get your applications into production quickly with our amazing pre-built compone
       </ul>
     </nav>
   </div>`}
+  useTabs
   useVersion = 'latest'
 />
 
@@ -104,8 +105,8 @@ Get your applications into production quickly with our amazing pre-built compone
 
 Build large-scale applications with utility classes with efficiency and consistency.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: "m-1",
       properties: ["margin: 0.75rem;"],
@@ -167,8 +168,8 @@ npm install yummacss@latest
 
 Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
 
-<YmaShowcase
-  cardData={[
+<Showcase
+  data={[
     {
       icon: require("@site/static/img/icon/github.png").default,
       title: "GitHub",

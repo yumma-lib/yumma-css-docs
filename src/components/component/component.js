@@ -3,14 +3,14 @@ import { useColorMode } from '@docusaurus/theme-common';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import styles from './YmaComponent.module.css';
+import styles from './component.module.css';
 
-const YmaComponent = ({ sectionData }) => {
-    const { colorMode, setColorMode } = useColorMode();
+const Component = ({ data }) => {
+    const { colorMode } = useColorMode();
 
     return (
         <div className={styles.compGrid}>
-            {sectionData.map((compGridProps, i) => (
+            {data.map((compGridProps, i) => (
                 <div className={styles.compElement} key={i}>
                     {compGridProps.href ? (
                         <Link to={compGridProps.href} className={styles.compLink}>
@@ -41,8 +41,8 @@ const YmaComponent = ({ sectionData }) => {
     );
 };
 
-YmaComponent.propTypes = {
-    sectionData: PropTypes.arrayOf(
+Component.propTypes = {
+    data: PropTypes.arrayOf(
         PropTypes.shape({
             src: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
@@ -53,4 +53,4 @@ YmaComponent.propTypes = {
     ).isRequired,
 };
 
-export default YmaComponent;
+export default Component;

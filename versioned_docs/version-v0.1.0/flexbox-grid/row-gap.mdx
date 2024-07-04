@@ -4,13 +4,13 @@ description: Controls the gap between rows in a grid layout.
 slug: /row-gap
 ---
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 Controls the gap between rows in a grid layout.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'rg-1',
       properties: [
@@ -110,8 +110,8 @@ Controls the gap between rows in a grid layout.
   ]}
 />
 
-<YmaPreview
-  codeData = {`<div class="cg-1 dis-g gtc-2 gtr-4 rg-6">
+<Preview
+  data = {`<div class="cg-1 dis-g gtc-2 gtr-4 rg-6">
       <div class="bg-pink p-2 rad-1 t-white">1</div>
       <div class="bg-pink p-2 rad-1 t-white">2</div>
       <div class="bg-pink p-2 rad-1 t-white">3</div>

@@ -4,14 +4,14 @@ description: Controls the color of the text decoration.
 slug: /text-decoration-color
 ---
 
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
-import YmaColor from '@site/src/components/YmaColor/YmaColor';
+import Utility from '@site/src/components/Utility/Utility';
+import Color from '@site/src/components/Color/Color';
 
 Controls the color of the text decoration.
 
-<YmaColor 
-  baseClassName="tdc-" 
-  propertyNames={['outline-color']} 
+<Color 
+  classPrefix="tdc-" 
+  classValue={['outline-color']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },

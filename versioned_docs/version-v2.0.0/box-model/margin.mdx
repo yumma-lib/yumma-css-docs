@@ -4,14 +4,14 @@ description: Controls the margin of an element.
 slug: /margin
 ---
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 Controls the margin of an element.
 
-<YmaUtility 
-  baseClassName='m-' 
-  propertyNames={['margin']}
+<Utility 
+  classPrefix='m-' 
+  classValue={['margin']}
   range={100} 
   increment={0.25} 
   unit='rem' 
@@ -24,9 +24,9 @@ Controls the margin of an element.
 
 Controls the bottom margin of an element.
 
-<YmaUtility 
-  baseClassName='mb-' 
-  propertyNames={['margin-bottom']} 
+<Utility 
+  classPrefix='mb-' 
+  classValue={['margin-bottom']} 
   range={100} 
   increment={0.25} 
   unit='rem' 
@@ -39,9 +39,9 @@ Controls the bottom margin of an element.
 
 Controls the left margin of an element.
 
-<YmaUtility 
-  baseClassName='ml-' 
-  propertyNames={['margin-left']} 
+<Utility 
+  classPrefix='ml-' 
+  classValue={['margin-left']} 
   range={100} 
   increment={0.25} 
   unit='rem' 
@@ -54,9 +54,9 @@ Controls the left margin of an element.
 
 Controls the right margin of an element.
 
-<YmaUtility 
-  baseClassName='mr-' 
-  propertyNames={['margin-right']} 
+<Utility 
+  classPrefix='mr-' 
+  classValue={['margin-right']} 
   range={100} 
   increment={0.25} 
   unit='rem' 
@@ -69,9 +69,9 @@ Controls the right margin of an element.
 
 Controls the top margin of an element.
 
-<YmaUtility 
-  baseClassName='mt-' 
-  propertyNames={['margin-top']} 
+<Utility 
+  classPrefix='mt-' 
+  classValue={['margin-top']} 
   range={100} 
   increment={0.25} 
   unit='rem' 
@@ -84,9 +84,9 @@ Controls the top margin of an element.
 
 Controls the left and right margins of an element at once.
 
-<YmaUtility 
-  baseClassName='mx-' 
-  propertyNames={['margin-left', 'margin-right']}
+<Utility 
+  classPrefix='mx-' 
+  classValue={['margin-left', 'margin-right']}
   range={100} 
   increment={0.25} 
   unit='rem'
@@ -96,9 +96,9 @@ Controls the left and right margins of an element at once.
 
 Controls the top and bottom margins of an element at once.
 
-<YmaUtility 
-  baseClassName='my-' 
-  propertyNames={['margin-top', 'margin-bottom']} 
+<Utility 
+  classPrefix='my-' 
+  classValue={['margin-top', 'margin-bottom']} 
   range={100} 
   increment={0.25} 
   unit='rem'

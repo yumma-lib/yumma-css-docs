@@ -4,14 +4,14 @@ description: Controls the height and width of an element at once.
 slug: /dimension
 ---
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 Controls the height and width of an element at once.
 
-<YmaUtility 
-  baseClassName='dim-' 
-  propertyNames={['height', 'width']} 
+<Utility 
+  classPrefix='dim-' 
+  classValue={['height', 'width']} 
   range={100} 
   increment={0.25} 
   unit='rem' 
@@ -27,8 +27,8 @@ Controls the height and width of an element at once.
   ]} 
 />
 
-<YmaPreview
-  codeData = {`<div class="bg-pink dim-15 ins rad-1 t-white">15</div>`}
+<Preview
+  data = {`<div class="bg-pink dim-15 ins rad-1 t-white">15</div>`}
   usePadding
   useCenter
   useVersion = '2.0.0'
@@ -38,9 +38,9 @@ Controls the height and width of an element at once.
 
 Controls the maximum height and max width of an element at once.
 
-<YmaUtility 
-  baseClassName='max-dim-' 
-  propertyNames={['max-height', 'max-width']} 
+<Utility 
+  classPrefix='max-dim-' 
+  classValue={['max-height', 'max-width']} 
   range={100} 
   increment={0.25} 
   unit='rem' 
@@ -60,9 +60,9 @@ Controls the maximum height and max width of an element at once.
 
 Controls the minimum height and min width of an element at once.
 
-<YmaUtility 
-  baseClassName='min-dim-' 
-  propertyNames={['min-height', 'min-width']} 
+<Utility 
+  classPrefix='min-dim-' 
+  classValue={['min-height', 'min-width']} 
   range={100} 
   increment={0.25} 
   unit='rem' 

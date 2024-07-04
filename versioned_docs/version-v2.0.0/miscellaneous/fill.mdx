@@ -4,15 +4,15 @@ description: Controls the color of an SVG element.
 slug: /fill
 ---
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaColor from '@site/src/components/YmaColor/YmaColor';
-import YmaPalette from '@site/src/components/YmaPalette/YmaPalette';
+import Preview from '@site/src/components/Preview/Preview';
+import Color from '@site/src/components/Color/Color';
+import Palette from '@site/src/components/Palette/Palette';
 
 Controls the color of an SVG element.
 
-<YmaColor 
-  baseClassName="f-" 
-  propertyNames={['fill']} 
+<Color 
+  classPrefix="f-" 
+  classValue={['fill']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },

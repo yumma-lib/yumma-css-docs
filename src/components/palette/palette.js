@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import tinycolor from 'tinycolor2';
-import styles from './YmaPalette.module.css';
+import styles from './palette.module.css';
 
 const ColorSwatch = ({ value, tooltip }) => (
     <div className={styles.colorSwatchContainer} style={{ backgroundColor: value }} data-tooltip={tooltip} />
@@ -25,9 +25,9 @@ const generateShades = (color) => {
     return shades;
 };
 
-const YmaPalette = ({ colorData }) => (
+const Palette = ({ data }) => (
     <div className={styles.colorPalette}>
-        {colorData.map((colorItem) => {
+        {data.map((colorItem) => {
             const shades = generateShades(colorItem.color);
             return (
                 <div key={colorItem.color} style={{ width: '100%' }}>
@@ -55,8 +55,8 @@ const YmaPalette = ({ colorData }) => (
     </div>
 );
 
-YmaPalette.propTypes = {
-    colorData: PropTypes.arrayOf(
+Palette.propTypes = {
+    data: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string.isRequired,
             color: PropTypes.string.isRequired,
@@ -64,4 +64,4 @@ YmaPalette.propTypes = {
     ).isRequired,
 };
 
-export default YmaPalette;
+export default Palette;

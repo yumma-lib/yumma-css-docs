@@ -4,13 +4,13 @@ description: Controls the box shadow of an element.
 slug: /box-shadow
 ---
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 Controls the box shadow of an element.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'bs',
       properties: [
@@ -50,8 +50,8 @@ Controls the box shadow of an element.
   ]}
 />
 
-<YmaPreview
-  codeData = {`<div class="bg-white bs-xsm h-8 mr-1 rad-1 w-8"></div>
+<Preview
+  data = {`<div class="bg-white bs-xsm h-8 mr-1 rad-1 w-8"></div>
     <div class="bg-white bs-md h-8 mr-1 rad-1 w-8"></div>
     <div class="bg-white bs-xlg h-8 mr-1 rad-1 w-8"></div>`}
   usePadding

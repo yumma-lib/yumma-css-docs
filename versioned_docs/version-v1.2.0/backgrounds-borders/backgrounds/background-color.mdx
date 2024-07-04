@@ -4,16 +4,16 @@ description: Controls the background color of an element.
 slug: /background-color
 ---
 
-import YmaColor from '@site/src/components/YmaColor/YmaColor';
-import YmaPalette from "@site/src/components/YmaPalette/YmaPalette";
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Color from '@site/src/components/Color/Color';
+import Palette from "@site/src/components/Palette/Palette";
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 Controls the background color of an element.
 
-<YmaColor 
-  baseClassName="bg-" 
-  propertyNames={['background-color']} 
+<Color 
+  classPrefix="bg-" 
+  classValue={['background-color']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
@@ -34,8 +34,8 @@ Controls the background color of an element.
 
 Use `h:bg-*` to modify elements to override other background classes.
 
-<YmaPreview
-  codeData = {`<div class="bg-gray dim-14 h:bg-pink rad-1"></div>`}
+<Preview
+  data = {`<div class="bg-gray dim-14 h:bg-pink rad-1"></div>`}
   usePadding
   useCenter
   useVersion = '1.2.0'

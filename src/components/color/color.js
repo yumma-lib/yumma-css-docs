@@ -1,7 +1,7 @@
 import React from 'react';
 import tinycolor from 'tinycolor2';
 
-import styles from './YmaColor.module.css';
+import styles from './color.module.css';
 
 // Utility function to generate shades
 const mixColors = (color1, color2, weight) => {
@@ -25,24 +25,24 @@ const generateShades = (color) => {
     return { lightShades, baseColor, darkShades };
 };
 
-function generateClassData(baseClassName, propertyNames, colorClasses) {
+function generateClassData(classPrefix, classValue, colorClasses) {
     return colorClasses.flatMap(colorClass => {
         const { lightShades, baseColor, darkShades } = generateShades(colorClass.value);
 
         const shades = [
-            ...lightShades.map((shade, index) => ({
-                className: `${baseClassName}l-${colorClass.color}-${index + 1}`,
-                properties: propertyNames.map(propertyName => `${propertyName}: ${shade}`),
+            ...lightShades.map((shade, i) => ({
+                className: `${classPrefix}l-${colorClass.color}-${i + 1}`,
+                properties: classValue.map(propertyName => `${propertyName}: ${shade}`),
                 colorValue: shade
             })),
             {
-                className: `${baseClassName}${colorClass.color}`,
-                properties: propertyNames.map(propertyName => `${propertyName}: ${baseColor}`),
+                className: `${classPrefix}${colorClass.color}`,
+                properties: classValue.map(propertyName => `${propertyName}: ${baseColor}`),
                 colorValue: baseColor
             },
-            ...darkShades.map((shade, index) => ({
-                className: `${baseClassName}d-${colorClass.color}-${index + 1}`,
-                properties: propertyNames.map(propertyName => `${propertyName}: ${shade}`),
+            ...darkShades.map((shade, i) => ({
+                className: `${classPrefix}d-${colorClass.color}-${i + 1}`,
+                properties: classValue.map(propertyName => `${propertyName}: ${shade}`),
                 colorValue: shade
             }))
         ];
@@ -51,13 +51,13 @@ function generateClassData(baseClassName, propertyNames, colorClasses) {
     });
 }
 
-const YmaColor = ({ baseClassName, propertyNames, colorClasses }) => {
-    const classData = generateClassData(baseClassName, propertyNames, colorClasses);
+const Color = ({ classPrefix, classValue, colorClasses }) => {
+    const data = generateClassData(classPrefix, classValue, colorClasses);
 
     return (
         <div className={styles.classList}>
-            {classData.map((classItem, index) => (
-                <div key={index} className={styles.classItem}>
+            {data.map((classItem, i) => (
+                <div key={i} className={styles.classItem}>
                     <div className={styles.classProperties}>
                         <div className={styles.className}>{classItem.className}</div>
                         <code className={styles.propertyCode}>
@@ -71,4 +71,4 @@ const YmaColor = ({ baseClassName, propertyNames, colorClasses }) => {
     );
 };
 
-export default YmaColor;
+export default Color;

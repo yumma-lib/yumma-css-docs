@@ -3,13 +3,13 @@ title: Opacity
 description: Controls the opacity of an element.
 slug: /opacity
 ---
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 Controls the opacity of an element.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'o-10',
       properties: [
@@ -73,8 +73,8 @@ Controls the opacity of an element.
   ]}
 />
 
-<YmaPreview
-  codeData = {`<div class="o-10 bg-pink dim-14 mr-3 p-2 rad-1"></div>
+<Preview
+  data = {`<div class="o-10 bg-pink dim-14 mr-3 p-2 rad-1"></div>
     <div class="o-40 bg-pink dim-14 mr-3 p-2 rad-1"></div>
     <div class="o-80 bg-pink dim-14 mr-3 p-2 rad-1"></div>`}
   usePadding

@@ -4,16 +4,16 @@ description: Controls the text color of an element.
 slug: /text-color
 ---
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
-import YmaColor from '@site/src/components/YmaColor/YmaColor';
-import YmaPalette from '@site/src/components/YmaPalette/YmaPalette';
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
+import Color from '@site/src/components/Color/Color';
+import Palette from '@site/src/components/Palette/Palette';
 
 Controls the text color of an element.
 
-<YmaColor 
-  baseClassName="t-" 
-  propertyNames={['color']} 
+<Color 
+  classPrefix="t-" 
+  classValue={['color']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
@@ -32,8 +32,8 @@ Controls the text color of an element.
 
 ## Color
 
-<YmaPreview
-  codeData = {`<h3 class="t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
+<Preview
+  data = {`<h3 class="t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
   usePadding
   useCenter
   useVersion = '1.2.0'
@@ -43,8 +43,8 @@ Controls the text color of an element.
 
 Use `h:t-*` to modify elements to override other background classes.
 
-<YmaPreview
-  codeData = {`<h3 class="t-gray h:t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
+<Preview
+  data = {`<h3 class="t-gray h:t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
   usePadding
   useCenter
   useVersion = '1.2.0'

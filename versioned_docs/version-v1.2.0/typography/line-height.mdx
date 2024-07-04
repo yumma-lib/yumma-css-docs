@@ -4,13 +4,13 @@ description: Controls the line height of an element.
 slug: /line-height
 ---
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 Controls the line height of an element.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'lh-1',
       properties: [
@@ -50,8 +50,8 @@ Controls the line height of an element.
   ]}
 />
 
-<YmaPreview
-  codeData = {`<p class="lh-6 t-l-gray-2">In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey.</p>`}
+<Preview
+  data = {`<p class="lh-6 t-l-gray-2">In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey.</p>`}
   usePadding
   useVersion = '1.2.0'
 />

@@ -4,16 +4,16 @@ description: Controls the color of the borders of an element.
 slug: /border-color
 ---
 
-import YmaColor from '@site/src/components/YmaColor/YmaColor';
-import YmaPalette from "@site/src/components/YmaPalette/YmaPalette";
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Color from '@site/src/components/Color/Color';
+import Palette from "@site/src/components/Palette/Palette";
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 Controls the color of the borders of an element.
 
-<YmaColor 
-  baseClassName="bc-" 
-  propertyNames={['border-color', 'border-style: solid', 'border-width: 1px']} 
+<Color 
+  classPrefix="bc-" 
+  classValue={['border-color', 'border-style: solid', 'border-width: 1px']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
@@ -30,8 +30,8 @@ Controls the color of the borders of an element.
   ]}
 />
 
-<YmaPreview
-  codeData = {`<div class="b-2 bc-pink dim-14"></div>`}
+<Preview
+  data = {`<div class="b-2 bc-pink dim-14"></div>`}
   usePadding
   useCenter
   useVersion = '1.2.0'
@@ -41,9 +41,9 @@ Controls the color of the borders of an element.
 
 Controls the color of the bottom border of an element.
 
-<YmaColor 
-  baseClassName="bc-b-" 
-  propertyNames={['border-color', 'border-style: solid', 'border-bottom-width: 1px']} 
+<Color 
+  classPrefix="bc-b-" 
+  classValue={['border-color', 'border-style: solid', 'border-bottom-width: 1px']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
@@ -60,8 +60,8 @@ Controls the color of the bottom border of an element.
   ]}
 />
 
-<YmaPreview
-  codeData = {`<div class="b-2 bc-b-l-pink-4 bc-pink dim-14"></div>`}
+<Preview
+  data = {`<div class="b-2 bc-b-l-pink-4 bc-pink dim-14"></div>`}
   usePadding
   useCenter
   useVersion = '1.2.0'
@@ -71,9 +71,9 @@ Controls the color of the bottom border of an element.
 
 Controls the color of the left border of an element.
 
-<YmaColor 
-  baseClassName="bc-l-" 
-  propertyNames={['border-color', 'border-style: solid', 'border-left-width: 1px']} 
+<Color 
+  classPrefix="bc-l-" 
+  classValue={['border-color', 'border-style: solid', 'border-left-width: 1px']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
@@ -90,8 +90,8 @@ Controls the color of the left border of an element.
   ]}
 />
 
-<YmaPreview
-  codeData = {`<div class="b-2 bc-l-l-pink-4 bc-pink dim-14"></div>`}
+<Preview
+  data = {`<div class="b-2 bc-l-l-pink-4 bc-pink dim-14"></div>`}
   usePadding
   useCenter
   useVersion = '1.2.0'
@@ -101,9 +101,9 @@ Controls the color of the left border of an element.
 
 Controls the color of the right border of an element.
 
-<YmaColor 
-  baseClassName="bc-r-" 
-  propertyNames={['border-color', 'border-style: solid', 'border-right-width: 1px']} 
+<Color 
+  classPrefix="bc-r-" 
+  classValue={['border-color', 'border-style: solid', 'border-right-width: 1px']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
@@ -120,8 +120,8 @@ Controls the color of the right border of an element.
   ]}
 />
 
-<YmaPreview
-  codeData = {`<div class="b-2 bc-pink bc-r-l-pink-4 dim-14"></div>`}
+<Preview
+  data = {`<div class="b-2 bc-pink bc-r-l-pink-4 dim-14"></div>`}
   usePadding
   useCenter
   useVersion = '1.2.0'
@@ -131,9 +131,9 @@ Controls the color of the right border of an element.
 
 Controls the color of the top border of an element.
 
-<YmaColor 
-  baseClassName="bc-t-" 
-  propertyNames={['border-color', 'border-style: solid', 'border-top-width: 1px']} 
+<Color 
+  classPrefix="bc-t-" 
+  classValue={['border-color', 'border-style: solid', 'border-top-width: 1px']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
@@ -150,8 +150,8 @@ Controls the color of the top border of an element.
   ]}
 />
 
-<YmaPreview
-  codeData = {`<div class="b-2 bc-pink bc-t-l-pink-4 dim-14"></div>`}
+<Preview
+  data = {`<div class="b-2 bc-pink bc-t-l-pink-4 dim-14"></div>`}
   usePadding
   useCenter
   useVersion = '1.2.0'
@@ -161,8 +161,8 @@ Controls the color of the top border of an element.
 
 Use `h:bc-*` to modify elements to override other background classes.
 
-<YmaPreview
-  codeData = {`<div class="bc-gray dim-14 h:bc-pink rad-1"></div>`}
+<Preview
+  data = {`<div class="bc-gray dim-14 h:bc-pink rad-1"></div>`}
   usePadding
   useCenter
   useVersion = '1.2.0'

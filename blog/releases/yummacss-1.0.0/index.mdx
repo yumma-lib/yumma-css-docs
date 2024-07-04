@@ -11,8 +11,8 @@ title: Yumma CSS 1.0.0
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
-import YmaPalette from '@site/src/components/YmaPalette/YmaPalette';
+import Utility from '@site/src/components/Utility/Utility';
+import Palette from '@site/src/components/Palette/Palette';
 
 After a few months of development I'm releasing the first major release. For this release, my focus is to implement several utility classes, but more importantly to improve the overall experience of using Yumma CSS. This is — [Yumma CSS v1.0.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.0.0).
 
@@ -37,8 +37,8 @@ This is a major update that introduces groundbreaking features. Major releases f
 
 This update will mainly focus on flexbox classes, as this was one of the biggest limitations of Yumma CSS before, so I decided to implement a set of utilities to reach even more flexibility of Yumma CSS.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'ai-fs',
       properties: [
@@ -98,8 +98,8 @@ This update will mainly focus on flexbox classes, as this was one of the biggest
 
 As the layouts of the applications evolve, I feel the need to implement more and more utilities, so here are a few of them:
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'd-fr',
       properties: [
@@ -123,8 +123,8 @@ As the layouts of the applications evolve, I feel the need to implement more and
 
 A whole new collection of advanced text formatting utilities for typographers is also introduced with Yumma CSS v1.0.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'ta-ja',
       properties: [
@@ -162,8 +162,8 @@ In addition, I'm now adding viewports for the **Height** and **Width** utilities
 
 Nobody builds websites in dark mode using the color gray, right? The new **Lead** color is perfect for creating applications or websites that use dark mode natively.
 
-<YmaPalette
-  colorData={[
+<Palette
+  data={[
     {
       name: 'Lead',
       color: '#3f3f4e'

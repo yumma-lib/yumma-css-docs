@@ -4,13 +4,13 @@ description: Controls the text decoration line of an element.
 slug: /text-decoration-line
 ---
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 Controls the text decoration line of an element.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'tdl-none',
       properties: [
@@ -34,8 +34,8 @@ Controls the text decoration line of an element.
 
 ## No Text Decoration
 
-<YmaPreview
-  codeData = {`<p class="tdl-none t-l-gray-2 t-l-gray-2">No Text Decoration</p>`}
+<Preview
+  data = {`<p class="tdl-none t-l-gray-2 t-l-gray-2">No Text Decoration</p>`}
   usePadding
   useCenter
   useVersion = '0.0.1'
@@ -43,8 +43,8 @@ Controls the text decoration line of an element.
 
 ## Line through
 
-<YmaPreview
-  codeData = {`<p class="tdl-lt t-l-gray-2 t-l-gray-2">Line Through</p>`}
+<Preview
+  data = {`<p class="tdl-lt t-l-gray-2 t-l-gray-2">Line Through</p>`}
   usePadding
   useCenter
   useVersion = '0.0.1'
@@ -52,8 +52,8 @@ Controls the text decoration line of an element.
 
 ## Underline
 
-<YmaPreview
-  codeData = {`<p class="tdl-u t-l-gray-2 t-l-gray-2">Underline</p>`}
+<Preview
+  data = {`<p class="tdl-u t-l-gray-2 t-l-gray-2">Underline</p>`}
   usePadding
   useCenter
   useVersion = '0.0.1'

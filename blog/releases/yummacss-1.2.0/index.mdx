@@ -11,9 +11,9 @@ title: Yumma CSS 1.2.0
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-import YmaPalette from "@site/src/components/YmaPalette/YmaPalette";
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Palette from "@site/src/components/Palette/Palette";
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 For a long time I haven't updated the color palette of Yumma CSS, so today I'm very proud to announce [Yumma CSS v1.2.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0), which introduces a reworked color palette, adds new variations for dimension classes, line height classes and much more.
 
@@ -41,8 +41,8 @@ This is an incremental update that may contain bug fixes. Minor releases follow 
 
 After some time without new utility classes for **Height** (max and min height), **Width** (max and min width) and **Dimension** (max and min), here it is — `fit-content`.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'h-fc',
       properties: [
@@ -105,8 +105,8 @@ After some time without new utility classes for **Height** (max and min height),
 
 I'm also extend the **Flex** class even further, now with three new utilities: `auto`, `full` and `half`.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'f-auto',
       properties: [
@@ -134,8 +134,8 @@ Well, better late than never, Yumma CSS will now make texts a bit more different
 <p class="lh-6 t-l-gray-2">In an endless white expanse, Ren stood by a solitary tree ...</p>
 ```
 
-<YmaPreview
-  codeData = {`<p class="lh-6 t-l-gray-2">In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey. Some soared gracefully, while others spiraled with wild exuberance. The lone tree beside him seemed to share Ren's vigil, its branches reaching skyward.</p>`}
+<Preview
+  data = {`<p class="lh-6 t-l-gray-2">In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey. Some soared gracefully, while others spiraled with wild exuberance. The lone tree beside him seemed to share Ren's vigil, its branches reaching skyward.</p>`}
   usePadding
   useVersion = '1.2.0'
 />
@@ -146,8 +146,8 @@ Well, better late than never, Yumma CSS will now make texts a bit more different
 
 You've probably seen these colors in [Tailwind CSS](https://tailwindcss.com/), and I'm a big fan of their style. Since the first version of Yumma CSS, I've always used the Photoshop palette variations, but there was one problem. Contrast. So I decided to create a variation based on Tailwind by replacing Aqua with Cyan and Magenta with Indigo.
 
-<YmaPalette
-  colorData={[
+<Palette
+  data={[
     {
       name: 'Cyan',
       color: '#3575dd'
@@ -163,8 +163,8 @@ Previously, the colors weren't as rich as I wanted them to be, and this was a li
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <YmaPalette
-      colorData={[
+    <Palette
+      data={[
         {
           name: 'Blue',
           color: '#3575dd'
@@ -173,8 +173,8 @@ Previously, the colors weren't as rich as I wanted them to be, and this was a li
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <YmaPalette
-      colorData={[
+    <Palette
+      data={[
         {
           name: 'Blue',
           color: '#438cca'
@@ -200,8 +200,8 @@ This new change will make the content on the button much easier to read, as the 
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <YmaPreview
-      codeData = {`<div class="ins h-1/1">
+    <Preview
+      data = {`<div class="ins h-1/1">
           <button class="btn-pink t-white">Button</button>
         </div>
       `}
@@ -209,8 +209,8 @@ This new change will make the content on the button much easier to read, as the 
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <YmaPreview
-      codeData = {`<div class="ins h-1/1">
+    <Preview
+      data = {`<div class="ins h-1/1">
           <button class="btn-pink t-white">Button</button>
         </div>
       `}

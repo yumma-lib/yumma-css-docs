@@ -11,8 +11,8 @@ title: Yumma CSS 1.1.0
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaUtility from '@site/src/components/YmaUtility/YmaUtility';
+import Preview from '@site/src/components/Preview/Preview';
+import Utility from '@site/src/components/Utility/Utility';
 
 This update will not introduce any significant new features as it's more focused on small necessary improvements, utility syntax changes and small increments, but anyway here it is — [Yumma CSS v1.1.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.1.0).
 
@@ -42,16 +42,16 @@ The `btn-*` component has looked the same for way too long and I wanted to chang
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <YmaPreview
-      codeData = {`<div class="ins mt-6">
+    <Preview
+      data = {`<div class="ins mt-6">
         <button class="btn-pink t-white">Button</button>
       </div>`}
       useVersion = '1.1.0'
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <YmaPreview
-      codeData = {`<div class="ins mt-6">
+    <Preview
+      data = {`<div class="ins mt-6">
         <button class="btn-pink t-white">Button</button>
       </div>`}
       useVersion = '1.0.0'
@@ -65,8 +65,8 @@ The `btn-*` component has looked the same for way too long and I wanted to chang
 
 I'm going to implement a new class for font sizes in Yumma CSS 1.1, in this case and to be more specific a variant for the utility - `fs-xs`.
 
-<YmaUtility
-  classData={[
+<Utility
+  data={[
     {
       className: 'fs-xs',
       properties: [
@@ -125,8 +125,8 @@ Similar to the breakpoint change mentioned above, I thought it would make a lot 
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <YmaUtility
-      classData={[
+    <Utility
+      data={[
         {
           className: 'bs-xs',
           properties: [
@@ -143,8 +143,8 @@ Similar to the breakpoint change mentioned above, I thought it would make a lot 
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <YmaUtility
-      classData={[
+    <Utility
+      data={[
         {
           className: 'bs-xsm',
           properties: [
@@ -166,8 +166,8 @@ Similar to the breakpoint change mentioned above, I thought it would make a lot 
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <YmaUtility
-      classData={[
+    <Utility
+      data={[
         {
           className: 'fs-xl',
           properties: [
@@ -178,8 +178,8 @@ Similar to the breakpoint change mentioned above, I thought it would make a lot 
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <YmaUtility
-      classData={[
+    <Utility
+      data={[
         {
           className: 'fs-xlg',
           properties: [
@@ -195,8 +195,8 @@ Last but not least, Yumma CSS v1.1 will include a small change to the syntax of 
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <YmaUtility
-      classData={[
+    <Utility
+      data={[
         {
           className: 'cols-*',
           properties: [
@@ -207,8 +207,8 @@ Last but not least, Yumma CSS v1.1 will include a small change to the syntax of 
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <YmaUtility
-      classData={[
+    <Utility
+      data={[
         {
           className: 'col-*',
           properties: [

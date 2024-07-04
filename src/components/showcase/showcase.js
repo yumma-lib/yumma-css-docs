@@ -1,12 +1,12 @@
-import styles from './YmaShowcase.module.css';
+import styles from './showcase.module.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '@docusaurus/Link';
 
-const YmaShowcase = ({ cardData }) => {
+const Showcase = ({ data }) => {
     return (
         <div className={styles.cardGrid}>
-            {cardData.map((cardGridProps, i) => (
+            {data.map((cardGridProps, i) => (
                 <div className={styles.cardElement} key={i}>
                     {cardGridProps.href ? (
                         <Link to={cardGridProps.href} className={styles.cardLink}>
@@ -27,8 +27,8 @@ const YmaShowcase = ({ cardData }) => {
     );
 };
 
-YmaShowcase.propTypes = {
-    cardData: PropTypes.arrayOf(
+Showcase.propTypes = {
+    data: PropTypes.arrayOf(
         PropTypes.shape({
             icon: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
@@ -38,4 +38,4 @@ YmaShowcase.propTypes = {
     ).isRequired,
 };
 
-export default YmaShowcase;
+export default Showcase;

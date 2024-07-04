@@ -4,15 +4,15 @@ description: Controls the text input cursor color.
 slug: /caret-color
 ---
 
-import YmaPreview from '@site/src/components/YmaPreview/YmaPreview';
-import YmaColor from '@site/src/components/YmaColor/YmaColor';
-import YmaPalette from '@site/src/components/YmaPalette/YmaPalette';
+import Preview from '@site/src/components/Preview/Preview';
+import Color from '@site/src/components/Color/Color';
+import Palette from '@site/src/components/Palette/Palette';
 
 Controls the text input cursor color.
 
-<YmaColor 
-  baseClassName="cc-" 
-  propertyNames={['caret-color']} 
+<Color 
+  classPrefix="cc-" 
+  classValue={['caret-color']} 
   colorClasses={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
@@ -31,8 +31,8 @@ Controls the text input cursor color.
 
 ## Color
 
-<YmaPreview
-  codeData = {`<input class="cc-pink px-2 py-1 rad-1" placeholder="Email" type="email"></input>`}
+<Preview
+  data = {`<input class="cc-pink px-2 py-1 rad-1" placeholder="Email" type="email"></input>`}
   usePadding
   useCenter
   useVersion = '2.0.0'
