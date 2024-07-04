@@ -27,13 +27,13 @@ Yup, it's happening again! Today, I'm super jazzed to announce [Yumma CSS v2.0.0
 
 You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v2.0.0) but anyway, these are the most noticeable shifts:
 
-- [x] **[All new utilities](#all-new-utilities):** Color utilities, Gap, Spacing, and much more
+- **[All new utilities](#all-new-utilities):** Color utilities, Gap, Spacing, and much more
 
-- [x] **[Base styles](#base-styles):** Base styles is now optional
+- **[Base styles](#base-styles):** Base styles is now optional
 
-- [x] **[Responsive breakpoints](#responsive-breakpoints):** Media query utilities support extended
+- **[Responsive breakpoints](#responsive-breakpoints):** Media query utilities support extended
 
-- [x] **[Container rules](#container-rules):** New container utility rules
+- **[Container rules](#container-rules):** New container utility rules
 
 This is a major update that introduces groundbreaking features. Major releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, you probably need refactoring after upgrading.
 
@@ -45,8 +45,8 @@ In each new major release, I consistently introduce new customization utilities.
 
 <Color 
   classPrefix="ac-" 
-  classValue={['accent-color']} 
-  colorClasses={[
+  classValues={['accent-color']} 
+  data={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
     { color: 'yellow', value: '#d3a107' },
@@ -203,8 +203,8 @@ You can now change the color of SVG elements with Yumm CSS 2.0 using the new **F
 
 <Color 
   classPrefix="f-" 
-  classValue={['fill']} 
-  colorClasses={[
+  classValues={['fill']} 
+  data={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
     { color: 'yellow', value: '#d3a107' },
@@ -456,8 +456,8 @@ In addition to the previously discussed customization utilities, Yumma CSS 2.0 a
 
 <Color 
   classPrefix="oc-" 
-  classValue={['outline-color']} 
-  colorClasses={[
+  classValues={['outline-color']} 
+  data={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
     { color: 'yellow', value: '#d3a107' },
@@ -584,7 +584,7 @@ Yumma CSS 2.0 features the addition of **Spacing** utilities just like [Tailwind
 
 <Utility 
   classPrefix='s-x-' 
-  classValue={['margin-left', 'margin-right']}
+  classValues={['margin-left', 'margin-right']}
   range={100} 
   increment={0.25} 
   unit='rem'
@@ -594,7 +594,7 @@ Yumma CSS 2.0 features the addition of **Spacing** utilities just like [Tailwind
 
 <Utility 
   classPrefix='s-y-' 
-  classValue={['margin-top', 'margin-bottom']} 
+  classValues={['margin-top', 'margin-bottom']} 
   range={100} 
   increment={0.25} 
   unit='rem' 
@@ -625,8 +625,8 @@ In conclusion, the latest version of Yumma CSS 2.0 introduces a series of new ut
 
 <Color 
   classPrefix="tdc-" 
-  classValue={['outline-color']} 
-  colorClasses={[
+  classValues={['outline-color']} 
+  data={[
     { color: 'red', value: '#d73d3d' },
     { color: 'orange', value: '#e06814' },
     { color: 'yellow', value: '#d3a107' },

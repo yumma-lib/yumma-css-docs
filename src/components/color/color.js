@@ -25,24 +25,24 @@ const generateShades = (color) => {
     return { lightShades, baseColor, darkShades };
 };
 
-function generateClassData(classPrefix, classValue, colorClasses) {
-    return colorClasses.flatMap(colorClass => {
+function generateClassData(classPrefix, classValues, data) {
+    return data.flatMap(colorClass => {
         const { lightShades, baseColor, darkShades } = generateShades(colorClass.value);
 
         const shades = [
             ...lightShades.map((shade, i) => ({
                 className: `${classPrefix}l-${colorClass.color}-${i + 1}`,
-                properties: classValue.map(propertyName => `${propertyName}: ${shade}`),
+                properties: classValues.map(propertyName => `${propertyName}: ${shade}`),
                 colorValue: shade
             })),
             {
                 className: `${classPrefix}${colorClass.color}`,
-                properties: classValue.map(propertyName => `${propertyName}: ${baseColor}`),
+                properties: classValues.map(propertyName => `${propertyName}: ${baseColor}`),
                 colorValue: baseColor
             },
             ...darkShades.map((shade, i) => ({
                 className: `${classPrefix}d-${colorClass.color}-${i + 1}`,
-                properties: classValue.map(propertyName => `${propertyName}: ${shade}`),
+                properties: classValues.map(propertyName => `${propertyName}: ${shade}`),
                 colorValue: shade
             }))
         ];
@@ -51,12 +51,12 @@ function generateClassData(classPrefix, classValue, colorClasses) {
     });
 }
 
-const Color = ({ classPrefix, classValue, colorClasses }) => {
-    const data = generateClassData(classPrefix, classValue, colorClasses);
+const Color = ({ classPrefix, classValues, data }) => {
+    const colorData = generateClassData(classPrefix, classValues, data);
 
     return (
         <div className={styles.classList}>
-            {data.map((classItem, i) => (
+            {colorData.map((classItem, i) => (
                 <div key={i} className={styles.classItem}>
                     <div className={styles.classProperties}>
                         <div className={styles.className}>{classItem.className}</div>

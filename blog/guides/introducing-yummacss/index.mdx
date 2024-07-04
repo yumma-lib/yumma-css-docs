@@ -4,13 +4,13 @@ date: 2023-07-02
 slug: introducing-yummacss
 tags: [guide]
 title: Introducing Yumma CSS
-unlisted: true
 ---
 
-import Utility from "@site/src/components/Utility/Utility";
+import Color from '@site/src/components/Color/Color';
 import Palette from "@site/src/components/Palette/Palette";
 import Preview from "@site/src/components/Preview/Preview";
 import Showcase from "@site/src/components/Showcase/Showcase";
+import Utility from "@site/src/components/Utility/Utility";
 
 Today I'm very excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a framework designed to make the process of developing open source websites smoother and more enjoyable.
 
@@ -148,13 +148,38 @@ Build large-scale applications with utility classes with efficiency and consiste
       properties: ["font-size: 16px;"],
     },
     {
-      className: "bg-gray",
-      properties: ["background-color: rgb(96, 103, 115);"],
-    },
-    {
       className: "b-1",
       properties: ["border-width: 1px;"],
     }
+  ]}
+/>
+
+#### Responsive media queries
+
+Flexible responsive breakpoints allow the creation of adaptable layouts for web projects. These breakpoints provide detailed control over the behaviour of a layout on different devices. Learn more about [responsive media queries](/).
+
+---
+
+### Color Classes
+
+An intuitive and easy way to create and personalize themes with color classes.
+
+<Color 
+  classPrefix="bg-" 
+  classValues={['background-color']} 
+  data={[
+    { color: 'red', value: '#d73d3d' },
+    { color: 'orange', value: '#e06814' },
+    { color: 'yellow', value: '#d3a107' },
+    { color: 'green', value: '#1fb155' },
+    { color: 'teal', value: '#12a695' },
+    { color: 'cyan', value: '#05a4bf' },
+    { color: 'blue', value: '#3575dd' },
+    { color: 'indigo', value: '#595cd9' },
+    { color: 'violet', value: '#7d53dd' },
+    { color: 'pink', value: '#d4418a' },
+    { color: 'gray', value: '#606773' },
+    { color: 'lead', value: '#3f3f4e' }
   ]}
 />
 
