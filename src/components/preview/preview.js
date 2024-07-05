@@ -2,56 +2,21 @@ import { useColorMode } from '@docusaurus/theme-common';
 import CodeBlock from '@theme/CodeBlock';
 import TabItem from '@theme/TabItem';
 import Tabs from '@theme/Tabs';
-import beautify from 'js-beautify';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
+import { generateContainer, generateStyling, formatHTML } from './previewUtils';
 
-const Preview = ({ data, usePadding = false, useCenter = false, useVersion = '', useHeight, noScroll = false, useTabs = false }) => {
+const Preview = ({ data, usePadding = false, useCenter = false, useVersion = '', useHeight, useScroll = false, useTabs = false }) => {
   const iframeRef = useRef(null);
 
   const { colorMode } = useColorMode();
-  const flex = useCenter ? 'display: flex;' : '';
+  const flexbox = useCenter ? 'display: flex;' : '';
   const stylesheet = `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
-
-  const formatHTML = (html) => {
-    return beautify.html(html, {
-      indent_size: 4,
-      wrap_line_length: 160,
-      preserve_newlines: false
-    });
-  };
 
   const processedCode = formatHTML(data);
 
-  const container = `
-  <html>
-    <head>
-      <link rel="stylesheet" href="${stylesheet}">
-      <style>
-        #preview-tab {
-          ${flex} 
-          justify-content: ${useCenter ? 'center' : 'flex-start'}; 
-          align-items: ${useCenter ? 'center' : 'flex-start'};
-          ${usePadding ? 'padding: 12px 14px;' : ''}
-          ${noScroll ? 'overflow-y: hidden;' : ''}
-        }
-        ${noScroll ? 'body { overflow-y: hidden; }' : ''}
-      </style>
-    </head>
-    <body>
-      <div id="preview-tab">${processedCode}</div>
-    </body>
-  </html>
-`;
-
-  const styling = {
-    backgroundColor: colorMode === 'dark' ? '#1d2026' : '#f9fafb',
-    border: colorMode === 'dark' ? '1px solid #2d2f33' : '1px solid #e5e7eb',
-    borderRadius: '8px',
-    height: useHeight || '200px',
-    width: '100%',
-    overflowY: noScroll ? 'hidden' : 'auto'
-  };
+  const container = generateContainer(stylesheet, flexbox, useCenter, usePadding, useScroll, processedCode);
+  const styling = generateStyling(colorMode, useHeight, useScroll);
 
   const PreviewTab = () => (
     <iframe
@@ -92,7 +57,7 @@ Preview.propTypes = {
   useCenter: PropTypes.bool,
   useHeight: PropTypes.string,
   usePadding: PropTypes.bool,
-  noScroll: PropTypes.bool,
+  useScroll: PropTypes.bool,
   useTabs: PropTypes.bool,
   useVersion: PropTypes.string
 };

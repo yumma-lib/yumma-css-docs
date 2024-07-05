@@ -5,13 +5,29 @@ hide_table_of_contents: true
 ---
 
 import Preview from '@site/src/components/preview/preview';
+import { arrows, slashes } from '../../components/sample/breadcrumb';
 
 # Yumma CSS Breadcrumb
 
 Add these Yumma CSS Breadcrumb components for navigational aids that show the user path.
 
+### Arrows
+
 <Preview
-  data = {``}
+  data = {arrows}
+  useCenter
+  useHeight = '50px'
+  usePadding
+  useTabs
+  useVersion = 'release'
+/>
+
+### Slashes
+
+<Preview
+  data = {slashes}
+  useCenter
+  useHeight = '50px'
   usePadding
   useTabs
   useVersion = 'release'
