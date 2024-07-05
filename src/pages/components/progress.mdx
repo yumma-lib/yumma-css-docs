@@ -5,13 +5,39 @@ hide_table_of_contents: true
 ---
 
 import Preview from '@site/src/components/preview/preview';
+import { basic, withLabels, withEndLabels } from '../../components/sample/progress';
 
 # Yumma CSS Progress
 
 Add Yumma CSS Progress components to provide visual feedback on the progress of tasks completed.
 
+### Basic
+
 <Preview
-  data = {``}
+  data = {basic}
+  noScroll
+  useCenter
+  useHeight = '40px'
+  usePadding
+  useTabs
+  useVersion = 'release'
+/>
+
+### With labels
+
+<Preview
+  data = {withLabels}
+  useHeight = '80px'
+  usePadding
+  useTabs
+  useVersion = 'release'
+/>
+
+### With end labels
+
+<Preview
+  data = {withEndLabels}
+  useHeight = '80px'
   usePadding
   useTabs
   useVersion = 'release'

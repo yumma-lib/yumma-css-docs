@@ -3,7 +3,7 @@
     border-radius: 8px;
     border: 1px solid #e5e7eb;
     padding: 18px;
-    /* bg-white rad-3 b-1 bc-[#e5e7eb] p-2 anim tr-* */
+    /* bg-white rad-3 b-1 bc-[#e5e7eb] p-6 */
 }
 
 .cardElement a:hover {
@@ -36,7 +36,7 @@
 .cardIcon {
     height: 36px;
     width: 36px;
-    /* dim-9 */
+    /* dim-27 */
 }
 
 [data-theme='dark'] .cardDescription {

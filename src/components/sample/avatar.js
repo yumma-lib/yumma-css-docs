@@ -21,7 +21,7 @@ export const withText = `
   <div class="ai-c d-f">
     <img class="d-ib fs-0 dim-12 rad-full" src="https://images.pexels.com/photos/14950779/pexels-photo-14950779.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
     <div class="ml-3">
-      <h3 class="fw-600 t-blue">Gilbert</h3>
+      <h3 class="fw-600 t-d-orange-1">Gilbert</h3>
       <p class="fs-sm fw-500 t-gray">gilbertjobs@gmail.com</p>
     </div>
   </div>

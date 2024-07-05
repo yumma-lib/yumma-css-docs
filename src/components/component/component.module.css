@@ -13,6 +13,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
     padding-top: 0.875rem;
+    /* rad-bt-3 rad-br-3 py-3 px-4 */
 }
 
 .compBadge {
@@ -25,6 +26,7 @@
     padding: 0.125rem 0.5rem;
     text-transform: uppercase;
     vertical-align: middle;
+    
 }
 
 .compTitle {

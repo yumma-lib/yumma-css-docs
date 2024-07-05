@@ -6,7 +6,7 @@ import beautify from 'js-beautify';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 
-const Preview = ({ data, usePadding = false, useCenter = false, useVersion = '', useHeight, useScroll = false, useTabs = false }) => {
+const Preview = ({ data, usePadding = false, useCenter = false, useVersion = '', useHeight, noScroll = false, useTabs = false }) => {
   const iframeRef = useRef(null);
 
   const { colorMode } = useColorMode();
@@ -33,9 +33,9 @@ const Preview = ({ data, usePadding = false, useCenter = false, useVersion = '',
           justify-content: ${useCenter ? 'center' : 'flex-start'}; 
           align-items: ${useCenter ? 'center' : 'flex-start'};
           ${usePadding ? 'padding: 12px 14px;' : ''}
-          ${useScroll ? 'overflow-y: hidden;' : ''}
+          ${noScroll ? 'overflow-y: hidden;' : ''}
         }
-        ${useScroll ? 'body { overflow-y: hidden; }' : ''}
+        ${noScroll ? 'body { overflow-y: hidden; }' : ''}
       </style>
     </head>
     <body>
@@ -50,7 +50,7 @@ const Preview = ({ data, usePadding = false, useCenter = false, useVersion = '',
     borderRadius: '8px',
     height: useHeight || '200px',
     width: '100%',
-    overflowY: useScroll ? 'hidden' : 'auto'
+    overflowY: noScroll ? 'hidden' : 'auto'
   };
 
   const PreviewTab = () => (
@@ -92,7 +92,7 @@ Preview.propTypes = {
   useCenter: PropTypes.bool,
   useHeight: PropTypes.string,
   usePadding: PropTypes.bool,
-  useScroll: PropTypes.bool,
+  noScroll: PropTypes.bool,
   useTabs: PropTypes.bool,
   useVersion: PropTypes.string
 };
