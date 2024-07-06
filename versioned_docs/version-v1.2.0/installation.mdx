@@ -3,6 +3,9 @@ title: Installation
 sidebar_position: 1
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 import Showcase from '@site/src/components/showcase/showcase';
 
 # Get started with Yumma CSS
@@ -13,44 +16,38 @@ No need to set anything up, just install and off you go!
 
 ## Installation
 
-Start building websites with Yumma CSS the way you want.
+Start building websites with Yumma CSS the way you want:
 
-### Install via npm
+<Tabs queryString="using">
+  <TabItem value="npm" label="Via NPM">
+    1. Install Yumma CSS via npm:
 
-Installing via [package manager](https://www.npmjs.com/package/yummacss):
+    ```bash
+    npm install yummacss@1.2.0
+    ```
+    2. Include the compiled CSS file in your `<head>` element:
 
-```bash
-npm install yummacss@1.2.0
-```
+    ```html
+    <!-- Standard version -->
+    <link rel="stylesheet" href="node_modules/yummacss/dist/yumma.css">
+    ```
+  </TabItem>
+  <TabItem value="cdn" label="Try the CDN">
+    How to include Yumma CSS via cdn:
 
-Include the compiled CSS file in your `<head>` element
+    ```html
+    <!-- Minified version -->
+    <link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@1.2.0/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">
+    ```
+  </TabItem>
+</Tabs>
 
-#### Standard
+### CSS options
 
-```html
-<link rel="stylesheet" href="node_modules/yummacss/dist/yumma.css">
-```
-#### Minified
+Once Yumma CSS has been installed via [package manager](https://www.npmjs.com/package/yummacss) or [cdn](https://www.jsdelivr.com/package/npm/yummacss), you will be able to access different compiled CSS files.
 
-```html
-<link rel="stylesheet" href="node_modules/yummacss/dist/yumma.min.css">
-```
-
-### Include via cdn
-
-Including using [content delivery network](https://www.jsdelivr.com/package/npm/yummacss):
-
-#### Standard
-
-```html
-<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@1.2.0/dist/yumma.css" rel="stylesheet" crossorigin="anonymous">
-```
-
-#### Minified
-
-```html
-<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@1.2.0/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">
-```
+- `/dist/yumma.css` — Standard
+- `/dist/yumma.min.css` — Minified
 
 ## What to do next?
 
