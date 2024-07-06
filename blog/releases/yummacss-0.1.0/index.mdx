@@ -11,6 +11,7 @@ title: Yumma CSS 0.1.0
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+import Showcase from "@site/src/components/showcase/showcase";
 import Utility from '@site/src/components/utility/utility';
 
 Well, you \know there is nothing better than a good update, so let's talk about this today. This one is not so plentiful, but there are some very useful improvements — [Yumma CSS 0.1.0](https://github.com/yumma-lib/yumma-css/releases/tag/v0.1.0)!
@@ -300,3 +301,30 @@ You can upgrade your projects by getting the latest version of `yummacss` from n
 ```bash
 npm install yummacss@latest
 ```
+
+## Community
+
+Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
+
+<Showcase
+  data={[
+    {
+      description: "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      icon: require("@site/static/img/icon/github.png").default,
+      title: "GitHub",
+    },
+    {
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      icon: require("@site/static/img/icon/discord.png").default,
+      title: "Discord"
+    },
+    {
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      icon: require("@site/static/img/icon/twitter.png").default,
+      title: "Twitter"
+    }
+  ]}
+/>

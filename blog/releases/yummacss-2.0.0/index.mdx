@@ -15,6 +15,7 @@ import TabItem from '@theme/TabItem';
 import Color from '@site/src/components/color/color';
 import Palette from "@site/src/components/palette/palette";
 import Preview from '@site/src/components/preview/preview';
+import Showcase from "@site/src/components/showcase/showcase";
 import Utility from '@site/src/components/utility/utility';
 
 Yup, it's happening again! Today, I'm super jazzed to announce [Yumma CSS v2.0.0](https://github.com/yumma-lib/yumma-css/releases/tag/v2.0.0). This new update is packed with an extensive set of new utilities, major improvements, redesigned source code and of course some important fixes.
@@ -819,3 +820,30 @@ You can upgrade your projects by getting the latest version of `yummacss` from n
 ```bash
 npm install yummacss@latest
 ```
+
+## Community
+
+Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
+
+<Showcase
+  data={[
+    {
+      description: "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      icon: require("@site/static/img/icon/github.png").default,
+      title: "GitHub",
+    },
+    {
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      icon: require("@site/static/img/icon/discord.png").default,
+      title: "Discord"
+    },
+    {
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      icon: require("@site/static/img/icon/twitter.png").default,
+      title: "Twitter"
+    }
+  ]}
+/>

@@ -13,6 +13,7 @@ import TabItem from '@theme/TabItem';
 
 import Palette from "@site/src/components/palette/palette";
 import Preview from '@site/src/components/preview/preview';
+import Showcase from "@site/src/components/showcase/showcase";
 import Utility from '@site/src/components/utility/utility';
 
 For a long time I haven't updated the color palette of Yumma CSS, so today I'm very proud to announce [Yumma CSS v1.2.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0), which introduces a reworked color palette, adds new variations for dimension classes, line height classes and much more.
@@ -228,3 +229,30 @@ You can upgrade your projects by getting the latest version of `yummacss` from n
 ```bash
 npm install yummacss@latest
 ```
+
+## Community
+
+Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
+
+<Showcase
+  data={[
+    {
+      description: "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      icon: require("@site/static/img/icon/github.png").default,
+      title: "GitHub",
+    },
+    {
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      icon: require("@site/static/img/icon/discord.png").default,
+      title: "Discord"
+    },
+    {
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      icon: require("@site/static/img/icon/twitter.png").default,
+      title: "Twitter"
+    }
+  ]}
+/>
