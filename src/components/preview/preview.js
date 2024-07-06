@@ -55,10 +55,10 @@ const Preview = ({ data, usePadding = false, useCenter = false, useVersion = '',
 
 Preview.propTypes = {
   data: PropTypes.string.isRequired,
+  noScroll: PropTypes.bool,
   useCenter: PropTypes.bool,
   useHeight: PropTypes.string,
   usePadding: PropTypes.bool,
-  noScroll: PropTypes.bool,
   useTabs: PropTypes.bool,
   useVersion: PropTypes.string
 };
