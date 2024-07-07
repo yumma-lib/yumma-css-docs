@@ -11,7 +11,7 @@ export default function Index() {
     return (
         <Layout description={description}>
             <div className="mx-2">
-                <main style={{ maxWidth: '56rem' }} className="d-f fd-c jc-c lg:mb-30 lg:mt-24 mb-18 mt-12 mr-auto ml-auto ta-c">
+                <main style={{ maxWidth: '56rem' }} className="d-f fd-c jc-c lg:mb-30 lg:mt-24 mb-18 mt-12 mx-auto ta-c">
                     <h1 className="as-c d-f fs-6xl fw-600 lg:text-6xl lh-1">Quickly build applications with less code in your markup</h1>
                     <p className="as-c fs-2xl lh-3 max-w-100 md:max-w-full ta-c">Packaged with components and utility classes to get your applications into production.</p>
                     <section className="as-c d-f fd-c mt-6 sm:fd-r sm:w-auto">

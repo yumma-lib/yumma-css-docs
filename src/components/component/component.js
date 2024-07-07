@@ -44,13 +44,13 @@ const Component = ({ data }) => {
 Component.propTypes = {
     data: PropTypes.arrayOf(
         PropTypes.shape({
-            src: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
             badge: PropTypes.string,
             description: PropTypes.string.isRequired,
-            href: PropTypes.string
+            href: PropTypes.string,
+            src: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired
         })
-    ).isRequired,
+    ).isRequired
 };
 
 export default Component;

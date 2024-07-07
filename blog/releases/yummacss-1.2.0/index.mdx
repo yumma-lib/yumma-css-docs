@@ -131,12 +131,50 @@ I'm also extend the **Flex** class even further, now with three new utilities: `
 
 Well, better late than never, Yumma CSS will now make texts a bit more different thanks to new classes for text height. There are still a few things to improve, but for now it's a good start.
 
-```html
-<p class="lh-6 t-l-gray-2">In an endless white expanse, Ren stood by a solitary tree ...</p>
-```
+<Utility
+  data={[
+    {
+      className: 'lh-1',
+      properties: [
+        'line-height: 1;'
+      ]
+    },
+    {
+      className: 'lh-2',
+      properties: [
+        'line-height: 1.25;'
+      ]
+    },
+    {
+      className: 'lh-3',
+      properties: [
+        'line-height: 1.375;'
+      ]
+    },
+    {
+      className: 'lh-4',
+      properties: [
+        'line-height: 1.5;'
+      ]
+    },
+    {
+      className: 'lh-5',
+      properties: [
+        'line-height: 1.625;'
+      ]
+    },
+    {
+      className: 'lh-6',
+      properties: [
+        'line-height: 2;'
+      ]
+    }
+  ]}
+/>
 
 <Preview
-  data = {`<p class="lh-6 t-l-gray-2">In an endless white expanse, Ren stood by a solitary tree. Above him, souls streaked like comets, fleeting and swift. The world, pure white, offered only fleeting motion. In the midst of longing, Ren found a quiet surrender, waiting in timeless silence. Each soul's trajectory told a unique story of its journey. Some soared gracefully, while others spiraled with wild exuberance. The lone tree beside him seemed to share Ren's vigil, its branches reaching skyward.</p>`}
+  data = {`<p class="lh-6 t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Ultrices eros in cursus turpis. Nec feugiat in fermentum posuere urna nec tincidunt praesent. Nulla malesuada pellentesque elit eget gravida cum.</p>`}
+  useHeight = '160px'
   usePadding
   useVersion = '1.2.0'
 />
