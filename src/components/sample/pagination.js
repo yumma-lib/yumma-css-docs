@@ -1,21 +1,33 @@
 export const basic = `
-<nav class="d-f ai-c cg-1">
-  <button class="min-h-10 min-w-10 py-2 px-2 d-if jc-c ai-c cg-1 fs-sm rad-2 t-d-silver-6 bg-transparent h:bg-l-silver-6">
-    <svg class="d-none fs-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="m15 18-6-6 6-6"></path>
-    </svg>
-    <span>Previous</span>
+<nav class="ai-c cg-1 d-f">
+  <button class="ai-c bg-transparent cg-1 d-if fs-sm h:bg-silver-2 jc-c min-h-10 min-w-10 px-1 py-2 rad-2 t-d-silver-5">
+    <p class="fw-600">Previous</p>
   </button>
-  <div class="d-f ai-c cg-1">
-    <button class="min-h-10 min-w-10 d-f jc-c ai-c t-d-silver-6 bg-transparent h:bg-l-silver-6 py-2 px-3 fs-sm rad-2">1</button>
-    <button class="min-h-10 min-w-10 d-f jc-c ai-c t-d-silver-6 bg-transparent h:bg-l-silver-6 py-2 px-3 fs-sm rad-2">2</button>
-    <button class="min-h-10 min-w-10 d-f jc-c ai-c t-d-silver-6 bg-transparent h:bg-l-silver-6 py-2 px-3 fs-sm rad-2">3</button>
+  <div class="ai-c cg-1 d-f">
+    <button class="ai-c bg-transparent d-f fs-sm h:bg-silver-2 jc-c min-h-10 min-w-10 px-3 py-2 rad-2 t-d-silver-5">1</button>
+    <button class="ai-c bg-transparent d-f fs-sm h:bg-silver-2 jc-c min-h-10 min-w-10 px-3 py-2 rad-2 t-d-silver-5">2</button>
+    <button class="ai-c bg-transparent d-f fs-sm h:bg-silver-2 jc-c min-h-10 min-w-10 px-3 py-2 rad-2 t-d-silver-5">3</button>
   </div>
-  <button class="min-h-10 min-w-10 py-2 px-2 d-if jc-c ai-c cg-1 fs-sm rad-2 t-d-silver-6 bg-transparent h:bg-l-silver-6">
-    <span>Next</span>
-    <svg class="d-none fs-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="m9 18 6-6-6-6"></path>
+  <button class="ai-c bg-transparent cg-1 d-if fs-sm h:bg-silver-2 jc-c min-h-10 min-w-10 px-1 py-2 rad-2 t-d-silver-5">
+    <p class="fw-600">Next</p>
+  </button>
+</nav>
+`;
+
+export const withBorder = `
+<nav class="ai-c cg-1 d-f">
+  <button class="ai-c bg-transparent cg-2 d-if fs-sm h:bg-l-silver-2 jc-c min-h-10 min-w-10 px-1 py-2 rad-2 t-silver">
+    <svg class="dim-4 fs-0" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
     </svg>
+  </button>
+  <div class="ai-c cg-1 d-f">
+    <button class="ai-c b-1 bc-silver-2 bg-transparent d-f fs-sm jc-c min-h-10 min-w-10 px-3 py-2 rad-2 t-silver">1</button>
+    <button class="ai-c bg-transparent d-f fs-sm h:bg-l-silver-2 jc-c min-h-10 min-w-10 px-3 py-2 rad-2 t-silver">2</button>
+    <button class="ai-c bg-transparent d-f fs-sm h:bg-l-silver-2 jc-c min-h-10 min-w-10 px-3 py-2 rad-2 t-silver">3</button>
+  </div>
+  <button class="ai-c bg-transparent cg-2 d-if fs-sm h:bg-l-silver-2 jc-c min-h-10 min-w-10 px-1 py-2 rad-2 t-silver">
+    <svg class="dim-4 fs-0" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
   </button>
 </nav>
 `;
