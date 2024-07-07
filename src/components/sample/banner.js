@@ -9,23 +9,53 @@ export const floatingAtTop = `
 </a>
 `;
 
-export const rightAligned = `
-<div class="dir-b-0 dir-r-0 mx-auto p-6 p-f sm:max-w-100 w-full z-60">
-  <div class="bg-white bs-sm p-4 rad-2">
+export const leftAligned = `
+<div class="dir-b-0 dir-l-0 mx-auto p-6 p-f sm:max-w-100 w-full z-60">
+  <div class="b-1 bc-l-silver-6 bg-white bs-sm p-4 rad-2">
     <div class="cg-5 d-f">
       <div class="fg-1">
         <h2 class="fs-lg fw-600 t-d-silver-4">
-          We are using cookies to improve your experience!
+          We work with cookies!
         </h2>
-        <p class="fs-sm mt-2 t-d-silver-1">By clicking "Allow all", you agree to use of all cookies. Visit our
+        <p class="fs-sm mt-2 t-d-silver-4">
+          We use cookies in order to optimise the overall user experience Visit our
           <a class="ai-c d-if fw-500 gc-3 t-blue tdl-u" href="#">Cookies Policy</a>
-          to learn more.
+          for more information.
         </p>
         <div class="cg-2 d-if mt-5">
-          <button type="button" class="ai-c bg-blue c-p cg-2 d-if fs-sm fw-600 h:bg-d-blue-2 px-3 py-2 rad-2 t-white">
+          <button type="button" class="c-p ai-c bg-blue cg-2 d-if fs-sm fw-600 h:bg-d-blue-2 px-3 py-2 rad-2 t-white">
             Allow all
           </button>
-          <button type="button" class="ai-c b-1 bc-l-silver-6 bg-white bs-sm c-p cg-2 d-if fs-sm fw-500 px-3 py-2 rad-2 t-d-silver-4">
+          <button type="button"
+            class="ai-c b-1 bc-l-silver-6 bg-white bs-sm c-p cg-2 d-if fs-sm fw-500 px-3 py-2 rad-2 t-d-silver-4">
+            Manage cookies
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+export const rightAligned = `
+<div class="dir-b-0 dir-r-0 mx-auto p-6 p-f sm:max-w-100 w-full z-60">
+  <div class="b-1 bc-l-silver-6 bg-white bs-sm p-4 rad-2">
+    <div class="cg-5 d-f">
+      <div class="fg-1">
+        <h2 class="fs-lg fw-600 t-d-silver-4">
+          We work with cookies!
+        </h2>
+        <p class="fs-sm mt-2 t-d-silver-4">
+          We use cookies in order to optimise the overall user experience Visit our
+          <a class="ai-c d-if fw-500 gc-3 t-blue tdl-u" href="#">Cookies Policy</a>
+          for more information.
+        </p>
+        <div class="cg-2 d-if mt-5">
+          <button type="button" class="c-p ai-c bg-blue cg-2 d-if fs-sm fw-600 h:bg-d-blue-2 px-3 py-2 rad-2 t-white">
+            Allow all
+          </button>
+          <button type="button"
+            class="ai-c b-1 bc-l-silver-6 bg-white bs-sm c-p cg-2 d-if fs-sm fw-500 px-3 py-2 rad-2 t-d-silver-4">
             Manage cookies
           </button>
         </div>
@@ -37,10 +67,10 @@ export const rightAligned = `
 
 export const fullWidthCentralized = `
 <div class="dir-b-0 dir-l-0 dir-r-0 p-f z-60">
-  <div class="bg-white bs-sm p-4">
+  <div class="bc-l-silver-6 bg-white bs-sm bt-1 p-4">
     <div class="max-w-96 mx-auto w-full">
       <h2 class="fw-600 t-d-silver-4">
-        Cookie Settings
+        Cookie settings
       </h2>
       <p class="fs-sm mt-2 t-d-silver-4">
         The use of cookies serves to optimize the user experience and facilitate targeted marketing initiatives.
@@ -48,8 +78,8 @@ export const fullWidthCentralized = `
         <a class="ai-c cg-3 d-if fw-500 t-blue tdl-u" href="#">Cookies Policy</a>
       </p>
       <div class="cg-2 d-if mt-5">
-        <button type="button" class="ai-c bg-blue c-p cg-2 d-if fs-sm fw-600 h:bg-d-blue-2 px-3 py-2 rad-2 t-white">Allow all</button>
-        <button type="button" class="ai-c b-1 bc-l-silver-5 bg-white bs-sm c-p cg-2 d-if fs-sm fw-500 px-3 py-2 rad-2 t-d-silver-6">Manage cookies</button>
+        <button type="button" class="c-p ai-c bg-blue cg-2 d-if fs-sm fw-600 h:bg-d-blue-2 px-3 py-2 rad-2 t-white">Allow all</button>
+        <button type="button" class="c-p ai-c b-1 bc-l-silver-5 bg-white bs-sm cg-2 d-if fs-sm fw-500 px-3 py-2 rad-2 t-d-silver-6">Manage cookies</button>
       </div>
     </div>
   </div>
