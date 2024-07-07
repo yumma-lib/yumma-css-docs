@@ -11,9 +11,9 @@ export const roundedAvatars = `
 `;
 
 export const placeholderInitials = `
-<span class="ai-c bg-l-gray-6 d-if dim-8 fs-xs fw-600 jc-c lh-1 m-1 rad-full t-white">RP</span>
-<span class="ai-c bg-l-gray-6 d-if dim-14 fs-sm fw-600 jc-c lh-1 m-1 rad-full t-white">RP</span>
-<span class="ai-c bg-l-gray-6 d-if dim-20 fw-600 jc-c lh-1 m-1 rad-full t-white">RP</span>
+<span class="ai-c bg-l-silver-6 d-if dim-8 fs-xs fw-600 jc-c lh-1 m-1 rad-full t-white">RP</span>
+<span class="ai-c bg-l-silver-6 d-if dim-14 fs-sm fw-600 jc-c lh-1 m-1 rad-full t-white">RP</span>
+<span class="ai-c bg-l-silver-6 d-if dim-20 fw-600 jc-c lh-1 m-1 rad-full t-white">RP</span>
 `;
 
 export const withText = `
