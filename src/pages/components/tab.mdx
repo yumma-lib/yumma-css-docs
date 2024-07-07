@@ -6,23 +6,26 @@ hide_table_of_contents: true
 
 import Preview from '@site/src/components/preview/preview';
 
+import { inPills, withBottomBorder } from '../../components/sample/tab';
+
 # Yumma CSS Tab
 
 Add Yumma CSS Tab components to categorize content.
 
-### Title
+### With bottom border
 
 <Preview
-  data = {``}
+  data = {withBottomBorder}
   usePadding
   useTabs
   useVersion = 'release'
 />
 
-### Title
+### In pills
 
 <Preview
-  data = {``}
+  data = {inPills}
+  useCenter
   usePadding
   useTabs
   useVersion = 'release'
