@@ -5,7 +5,7 @@ hide_table_of_contents: true
 ---
 
 import Preview from '@site/src/components/preview/preview';
-import { basic, withBrand, centered } from '../../components/sample/navbar';
+import { basic, withCollapse } from '../../components/sample/navbar';
 
 # Yumma CSS Navbar
 
@@ -15,25 +15,14 @@ Add Yumma CSS Navbar components to create navigation menus for the structure.
 
 <Preview
   data = {basic}
-  usePadding
   useTabs
   useVersion = 'release'
 />
 
-### With brand
+### With collapse
 
 <Preview
-  data = {withBrand}
-  usePadding
-  useTabs
-  useVersion = 'release'
-/>
-
-### Centered
-
-<Preview
-  data = {centered}
-  usePadding
+  data = {withCollapse}
   useTabs
   useVersion = 'release'
 />
