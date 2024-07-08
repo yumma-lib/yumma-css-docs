@@ -12,6 +12,8 @@ import Preview from "@site/src/components/preview/preview";
 import Showcase from "@site/src/components/showcase/showcase";
 import Utility from "@site/src/components/utility/utility";
 
+import { withCollapse } from "../../../src/components/sample/navbar"
+
 Today I'm very excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a CSS Library designed to make the process of developing open source websites smoother and more enjoyable.
 
 {/* truncate */}
@@ -82,23 +84,9 @@ Get an amazing out-of-the-box color palette for designing great looking applicat
 Get your applications into production quickly with our amazing pre-built components.
 
 <Preview
-  data = {`<div>
-    <nav class="bg-d-blue-5 nav">
-      <h1 class="t-white">Yumma CSS</h1>
-      <div class="sm:d-none">
-        <svg class="c-p dim-6" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512">
-          <path d="M24,3.5c0,.83-.67,1.5-1.5,1.5H1.5c-.83,0-1.5-.67-1.5-1.5s.67-1.5,1.5-1.5H22.5c.83,0,1.5,.67,1.5,1.5ZM6.5,20H1.5c-.83,0-1.5,.67-1.5,1.5s.67,1.5,1.5,1.5H6.5c.83,0,1.5-.67,1.5-1.5s-.67-1.5-1.5-1.5ZM14.5,11H1.5c-.83,0-1.5,.67-1.5,1.5s.67,1.5,1.5,1.5H14.5c.83,0,1.5-.67,1.5-1.5s-.67-1.5-1.5-1.5Z" />
-        </svg>
-      </div>
-      <ul class="d-none sm:d-f">
-        <li class="fw-600 ml-1 t-white"><a>Docs</a></li>
-        <li class="fw-600 ml-1 t-white"><a>Editor</a></li>
-        <li class="fw-600 ml-1 t-white"><a>Playground</a></li>
-      </ul>
-    </nav>
-  </div>`}
+  data = {withCollapse}
   useTabs
-  useVersion = 'latest'
+  useVersion = '1d7891e'
 />
 
 ### Utility Classes
@@ -264,3 +252,4 @@ Become a member of the Yumma CSS community, share your experiences and help Yumm
     }
   ]}
 />
+
