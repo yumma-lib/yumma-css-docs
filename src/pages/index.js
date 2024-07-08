@@ -6,7 +6,7 @@ import './unreleased.css';
 
 export default function Index() {
 
-    const description = 'Packaged with components and utility classes to get your applications into production.';
+    const description = 'Packaged with all of the necessary components and utility classes to facilitate the transition of your applications from development to production.';
 
     return (
         <Layout description={description}>
