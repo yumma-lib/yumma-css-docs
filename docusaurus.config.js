@@ -1,15 +1,15 @@
 const yumma = require('./src/themes/yumma');
 
 const config = {
-  title: 'Yumma CSS',
-  tagline: 'The documentation site for Yumma CSS.',
-  favicon: '/img/icon/favicon.ico',
-  url: 'https://www.yummacss.com',
   baseUrl: '/',
-  organizationName: 'yumma-lib',
-  projectName: 'yumma-css-docs',
+  favicon: '/img/icon/favicon.ico',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  organizationName: 'yumma-lib',
+  projectName: 'yumma-css-docs',
+  tagline: 'Quickly build applications with less code in your markup.',
+  title: 'Yumma CSS',
+  url: 'https://www.yummacss.com',
   i18n: {
     defaultLocale: 'en',
     locales: ['en']
@@ -24,18 +24,16 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
-          includeCurrentVersion: false
+          includeCurrentVersion: false,
+          sidebarPath: require.resolve('./sidebars.js')
         },
         blog: {
-          blogSidebarTitle: 'Latest updates',
-          
-          showReadingTime: false,
           blogSidebarCount: 12,
-          
+          blogSidebarTitle: 'Latest updates',
+          showReadingTime: false
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve('./src/css/custom.css')
         },
       }),
     ],
@@ -44,8 +42,8 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       tableOfContents: {
-        minHeadingLevel: 2,
-        maxHeadingLevel: 5
+        maxHeadingLevel: 5,
+        minHeadingLevel: 2
       },
       image: 'img/social-card.png',
       navbar: {
@@ -56,11 +54,10 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
             label: 'Docs',
+            position: 'left',
             sidebarId: 'docsSidebar',
-            position: 'left'
-
+            type: 'docSidebar'
           },
           {
             label: 'Components',
@@ -73,8 +70,8 @@ const config = {
             to: '/blog'
           },
           {
-            type: 'docsVersionDropdown',
-            position: 'right'
+            position: 'right',
+            type: 'docsVersionDropdown'
           }
         ],
       },
@@ -154,22 +151,22 @@ const config = {
         copyright: `© ${new Date().getFullYear()} Yumma CSS. Code under <a href="https://github.com/yumma-lib/yumma-css-docs?tab=MIT-1-ov-file" target="_blank" rel="noopener noreferrer">MIT</a> license, documentation by <a href="https://twitter.com/rrenildoo" target="_blank" rel="noopener noreferrer">Renildo Pereira</a>.`,
       },
       prism: {
-        theme: yumma.light,
-        darkTheme: yumma.dark,
         additionalLanguages: [
           'bash',
           'diff',
           'scss'
-        ]
+        ],
+        darkTheme: yumma.dark,
+        theme: yumma.light
       },
       colorMode: {
         respectPrefersColorScheme: true,
       },
       algolia: {
-        appId: '3NYT3J6P4Q',
         apiKey: '9a3208c466723a99a1ad2344f6ce3dd0',
-        indexName: 'yummacss',
-        contextualSearch: true
+        appId: '3NYT3J6P4Q',
+        contextualSearch: true,
+        indexName: 'yummacss'
       },
     })
 };
