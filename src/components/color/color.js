@@ -31,7 +31,7 @@ function generateClassData(classPrefix, classValues, data) {
 
         const shades = [
             ...lightShades.map((shade, i) => ({
-                className: `${classPrefix}l-${colorClass.color}-${i + 1}`,
+                className: `${classPrefix}l-${colorClass.color}-${6 - i}`,
                 properties: classValues.map(propertyName => `${propertyName}: ${shade}`),
                 colorValue: shade
             })),
