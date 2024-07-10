@@ -2,19 +2,21 @@
   <img src="https://yummacss.com/img/icon/favicon.ico" alt="Yumma CSS Logo">
 </p>
 
-<h3 align="center">Yumma CSS</h3>
+<h3 align="center">Yumma CSS Docs</h3>
 
 <p align="center">
-  Quickly build applications with less code in your markup.
+  The documentation site for Yumma CSS.
   <br>
   <a href="https://yummacss.com"><strong>Explore Yumma CSS Docs ↝</strong></a>
   <br>
   <br>
   <a href="https://yummacss.com/blog">Blog</a>
   •
-  <a href="https://yummacss.com/blog/introducing-yummacss-intellisense">Yumma CSS IntelliSense</a>
+  <a href="https://yummacss.com/blogintroducing-yummacss-intellisense">Intellisense</a>
   •
   <a href="https://github.com/yumma-lib/yumma-css/issues">Issues</a>
+  •
+  <a href="https://play.yummacss.com">Playground</a>
 </p>
 
 <p align="center">
@@ -50,3 +52,7 @@ Here are some ways you can get in touch with us:
 - Subscribe to our [YouTube](https://www.youtube.com/@yummacss) channel.
 - Join our [Discord](https://discord.gg/CGw5vyqmQ6) server.
 - Follow us on [Twitter](https://twitter.com/yummacss) for the latest updates.
+
+## License
+
+The code is the intellectual property of [Renildo Pereira](https://github.com/orgs/yumma-lib/people) and is released under the terms of the MIT license.
