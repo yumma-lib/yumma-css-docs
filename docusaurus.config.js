@@ -70,6 +70,11 @@ const config = {
             to: '/blog'
           },
           {
+            label: 'Playground',
+            position: 'left',
+            to: 'https://play.yummacss.com/'
+          },
+          {
             position: 'right',
             type: 'docsVersionDropdown'
           }
@@ -89,12 +94,12 @@ const config = {
                 to: '/components'
               },
               {
-                label: 'Blog',
-                to: '/blog'
-              },
-              {
                 label: 'Playground',
                 to: 'https://play.yummacss.com/'
+              },
+              {
+                label: 'Blog',
+                to: '/blog'
               }
             ],
           },
