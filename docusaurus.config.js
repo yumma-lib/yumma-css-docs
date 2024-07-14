@@ -92,6 +92,10 @@ const config = {
                 label: 'Blog',
                 to: '/blog'
               },
+              {
+                label: 'Playground',
+                to: 'https://play.yummacss.com/'
+              }
             ],
           },
           {
@@ -160,7 +164,7 @@ const config = {
         theme: yumma.light
       },
       colorMode: {
-        respectPrefersColorScheme: true,
+        respectPrefersColorScheme: true
       },
       algolia: {
         apiKey: '9a3208c466723a99a1ad2344f6ce3dd0',
