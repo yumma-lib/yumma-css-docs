@@ -1,4 +1,4 @@
-export const basic = `
+export const base = `
 <nav class="ai-c cg-1 d-f">
   <button class="ai-c bg-transparent cg-1 d-if fs-sm fw-500 h:bg-l-silver-1 h:t-white jc-c min-h-10 min-w-10 px-1 py-2 rad-2 t-d-silver-5">
     Previous

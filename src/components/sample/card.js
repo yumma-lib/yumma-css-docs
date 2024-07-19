@@ -1,4 +1,4 @@
-export const basic = `
+export const base = `
 <div class="b-1 bc-l-silver-6 bg-white bs-sm d-ib fd-c rad-2 max-w-70">
   <div class="md:p-7 p-4">
     <h3 class="fs-lg fw-700 t-l-lead-1">

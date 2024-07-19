@@ -1,4 +1,4 @@
-export const basic = `
+export const base = `
 <header class="bb-1 bc-l-silver-6 bg-white d-f fs-sm fw-w py-4 sm:fw-nw sm:jc-fs w-full">
   <nav class="mx-auto px-4 sm:ai-c sm:d-f sm:jc-sb w-full">
     <a class="f-none fs-xl fw-600" href="#">App</a>

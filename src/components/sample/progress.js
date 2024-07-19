@@ -1,4 +1,4 @@
-export const basic = `
+export const base = `
 <div class="bg-l-gray-6 d-f h-3 ovf-h rad-8 w-full">
   <div class="bg-blue d-f fd-c fs-xs jc-c ovf-h rad-8 t-white ta-c w-half"></div>
 </div>

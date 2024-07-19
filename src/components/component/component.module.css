@@ -1,7 +1,7 @@
 .compElement {
     background-color: #fefeff;
     border-radius: 12px;
-    border: 1px solid #cccccc;
+    border: 1px solid #d3d5de;
     margin-bottom: 1.2rem;
     /* rad-2 bg-[#fefeff] b-1 bc-[#cccccc] */
 }
@@ -55,7 +55,6 @@
 
 .compElement:hover {
     box-shadow: 1px 3px 5px -2px rgba(0, 0, 0, 0.1);
-    border: 1px solid #a3a3a3;
 }
 
 [data-theme='dark'] .compElement {
