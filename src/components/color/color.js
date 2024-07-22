@@ -3,7 +3,6 @@ import tinycolor from 'tinycolor2';
 
 import styles from './color.module.css';
 
-// Utility function to generate shades
 const mixColors = (color1, color2, weight) => {
     return tinycolor.mix(color1, color2, weight).toHexString();
 };
