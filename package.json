@@ -3,6 +3,8 @@
   "description": "Quickly build applications with less code in your markup.",
   "homepage": "https://yummacss.com",
   "license": "MIT",
+  "name": "yumma-css-docs",
+  "private": true,
   "type": "module",
   "version": "2.0.0",
   "dependencies": {
