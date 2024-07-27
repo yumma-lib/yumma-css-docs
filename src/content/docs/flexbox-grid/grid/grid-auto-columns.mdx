@@ -1,0 +1,34 @@
+---
+title: Grid Auto Columns
+description: Controls the size of grid columns created implicitly.
+slug: docs/grid-auto-columns
+---
+
+Controls the size of grid columns created implicitly.
+
+<Utility
+  data={[
+    {
+        className: 'gac-min',
+        properties: [
+            'grid-auto-columns: min-content;'
+        ]
+    },
+    {
+        className: 'gac-max',
+        properties: [
+            'grid-auto-columns: max-content;'
+        ]
+    },
+    {
+        className: 'gac-auto',
+        properties: [
+            'grid-auto-columns: auto;'
+        ]
+    }
+  ]}
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:gac-*`, `md:gac-*`, `lg:gac-*` enables the targeting of specific utilities in disparate viewports.

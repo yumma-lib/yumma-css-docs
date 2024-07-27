@@ -1,0 +1,73 @@
+---
+title: Float
+description: Controls the content wrapping around an element.
+slug: docs/float
+---
+
+Controls the content wrapping around an element.
+
+<Utility
+  data={[
+    {
+      className: 'flo-none',
+      properties: [
+        'float: none;'
+      ]
+    },
+    {
+      className: 'flo-l',
+      properties: [
+        'float: left;'
+      ]
+    },
+    {
+      className: 'flo-r',
+      properties: [
+        'float: right;'
+      ]
+    },
+    {
+      className: 'flo-is',
+      properties: [
+        'float: inline-start;'
+      ]
+    },
+    {
+      className: 'flo-ie',
+      properties: [
+        'float: inline-end;'
+      ]
+    }
+  ]}
+/>
+
+## Float left
+
+<Preview
+  data = {`<div class="bg-pink bs-bb flo-l h-18 mr-3 rad-1 w-32"></div>
+    <p class="t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper.</p>`}
+  usePadding
+  useVersion = '2974781'
+/>
+
+## Float right
+
+<Preview
+  data = {`<div class="bg-pink bs-bb flo-r h-18 ml-3 rad-1 w-32"></div>
+    <p class="t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper.</p>`}
+  usePadding
+  useVersion = '2974781'
+/>
+
+## Float none
+
+<Preview
+  data = {`<div class="bg-pink bs-bb flo-none h-18 rad-1 w-32"></div>
+    <p class="t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper.</p>`}
+  usePadding
+  useVersion = '2974781'
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:flo-*`, `md:flo-*`, `lg:flo-*` enables the targeting of specific utilities in disparate viewports.

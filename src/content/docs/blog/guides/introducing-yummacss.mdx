@@ -1,0 +1,251 @@
+---
+authors: Renildo
+date: 2023-07-02
+excerpt: Today I'm very excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a CSS Library designed to make the process of developing open source websites smoother and more enjoyable.
+pagefind: false
+slug: blog/introducing-yummacss
+tableOfContents: false
+tags: [guide]
+title: Introducing Yumma CSS
+---
+
+Today I'm very excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a CSS Library designed to make the process of developing open source websites smoother and more enjoyable.
+
+import { base, withCollapse } from '/src/components/snippets/navbar';
+
+## What sets Yumma CSS apart?
+
+The main mission of Yumma CSS is to make it easy for developers to create production-ready applications with almost zero code, while providing modern style features with regular updates and continuous improvements.
+
+### Color Palletes
+
+Get an amazing out-of-the-box color palette for designing great looking applications.
+
+<Palette
+  data={[
+    {
+      color: 'Red',
+      color: '#d73d3d'
+    },
+    {
+      color: 'Orange',
+      color: '#e06814'
+    },
+    {
+      color: 'Yellow',
+      color: '#d3a107'
+    },
+    {
+      color: 'Green',
+      color: '#1fb155'
+    },
+    {
+      color: 'Teal',
+      color: '#12a695'
+    },
+    {
+      color: 'Cyan',
+      color: '#05a4bf'
+    },
+    {
+      color: 'Blue',
+      color: '#3575dd'
+    },
+    {
+      color: 'Indigo',
+      color: '#595cd9'
+    },
+    {
+      color: 'Violet',
+      color: '#7d53dd'
+    },
+    {
+      color: 'Pink',
+      color: '#d4418a'
+    },
+    {
+      color: 'Gray',
+      color: '#606773'
+    },
+    {
+      color: 'Lead',
+      color: '#3f3f4e'
+    }
+  ]}
+/>
+
+### Component Library
+
+Get your applications into production quickly with our amazing pre-built components.
+
+<Preview
+  data = {withCollapse}
+  useTabs
+  useVersion = '2974781'
+/>
+
+### Utility Classes
+
+Build large-scale applications with utility classes with efficiency and consistency.
+
+<Utility
+  data={[
+    {
+      className: 'm-1',
+      properties: ['margin: 0.75rem;'],
+    },
+    {
+      className: 'p-1',
+      properties: ['padding: 0.75rem;'],
+    },
+    {
+      className: 'w-1',
+      properties: ['width: 0.25rem;'],
+    },
+    {
+      className: 'h-1',
+      properties: ['height: 0.25rem;'],
+    },
+    {
+      className: 'd-f',
+      properties: ['display: flex;'],
+    },
+    {
+      className: 'fb-1',
+      properties: ['flex-basis: 1;'],
+    },
+    {
+      className: 'jc-c',
+      properties: ['justify-content: center;'],
+    },
+    {
+      className: 'ai-s',
+      properties: ['align-items: start;'],
+    },
+    {
+      className: 'ta-l',
+      properties: ['text-align: left;'],
+    },
+    {
+      className: 'fs-md',
+      properties: ['font-size: 16px;'],
+    },
+    {
+      className: 'b-1',
+      properties: ['border-width: 1px;']
+    }
+  ]}
+/>
+
+### Responsive Utilities
+
+Flexible responsive breakpoints allow the creation of adaptable layouts for web projects. These breakpoints provide detailed control over the behaviour of a layout on different devices. Learn more about [responsive media queries](/docs/responsive-design).
+
+<Utility
+  data={[
+    {
+      className: 'sm:m-1',
+      properties: ['margin: 0.75rem;'],
+    },
+    {
+      className: 'md:p-1',
+      properties: ['padding: 0.75rem;'],
+    },
+    {
+      className: 'lg:w-1',
+      properties: ['width: 0.25rem;'],
+    },
+    {
+      className: 'xl:h-1',
+      properties: ['height: 0.25rem;'],
+    },
+    {
+      className: 'sm:d-f',
+      properties: ['display: flex;'],
+    },
+    {
+      className: 'md:fb-1',
+      properties: ['flex-basis: 1;'],
+    },
+    {
+      className: 'lg:jc-c',
+      properties: ['justify-content: center;'],
+    },
+    {
+      className: 'xl:ai-s',
+      properties: ['align-items: start;'],
+    },
+    {
+      className: 'sm:ta-l',
+      properties: ['text-align: left;'],
+    },
+    {
+      className: 'md:fs-md',
+      properties: ['font-size: 16px;'],
+    },
+    {
+      className: 'lg:b-1',
+      properties: ['border-width: 1px;']
+    }
+  ]}
+/>
+
+---
+
+### Color Classes
+
+An intuitive and easy way to create and personalize themes with color classes.
+
+<Color 
+  classPrefix='bg-' 
+  classValues={['background-color']} 
+  data={[
+    { color: 'red', value: '#d73d3d' },
+    { color: 'orange', value: '#e06814' },
+    { color: 'yellow', value: '#d3a107' },
+    { color: 'green', value: '#1fb155' },
+    { color: 'teal', value: '#12a695' },
+    { color: 'cyan', value: '#05a4bf' },
+    { color: 'blue', value: '#3575dd' },
+    { color: 'indigo', value: '#595cd9' },
+    { color: 'violet', value: '#7d53dd' },
+    { color: 'pink', value: '#d4418a' },
+    { color: 'gray', value: '#606773' },
+    { color: 'lead', value: '#3f3f4e' }
+  ]}
+/>
+
+## Upgrade
+
+You can upgrade your projects by getting the latest version of `yummacss` from npm:
+
+```bash
+npm install yummacss@latest
+```
+
+## Community
+
+Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
+
+<Showcase
+  data={[
+    {
+      description: 'If you experience any problems, please notify us at GitHub.',
+      href: 'https://github.com/yumma-lib/yumma-css/issues',
+      icon: '../../icon/github.png',
+      title: 'GitHub'
+    },
+    {
+      description: 'Join our Discord for discussion, sharing, and learning.',
+      href: 'https://discord.gg/2MUw2g6FCn',
+      icon: '../../icon/discord.png',
+      title: 'Discord'
+    },
+    {
+      description: 'Please follow us on Twitter to receive the latest updates.',
+      href: 'https://twitter.com/yummacss',
+      icon: '../../icon/twitter.png',
+      title: 'Twitter'
+    }
+  ]}
+/>

@@ -1,0 +1,115 @@
+---
+import { Code } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import beautify from 'js-beautify';
+
+interface PreviewProps {
+  data: string;
+  noScroll?: boolean;
+  useCenter?: boolean;
+  usePadding?: boolean;
+  useTabs?: boolean;
+  useVersion?: string;
+}
+
+const { data, noScroll = false, useCenter = false, usePadding = false, useTabs = false, useVersion = '' } = Astro.props as PreviewProps;
+
+const formatHTML = (html: string) => beautify.html(html, {
+  indent_size: 4,
+  preserve_newlines: false,
+  wrap_line_length: 160,
+});
+
+const newContainer = 
+(
+  stylesheet: string, 
+  flex: string, 
+  useCenter: boolean, 
+  usePadding: boolean, 
+  noScroll: boolean, 
+  newCode: string
+) => `
+  <html>
+    <head>
+      <link rel="stylesheet" href="${stylesheet}">
+      <style>
+        #preview-tab {
+          ${flex} 
+          justify-content: ${useCenter ? 'center' : 'flex-start'}; 
+          align-items: ${useCenter ? 'center' : 'flex-start'};
+          ${usePadding ? 'padding: 12px 14px;' : ''}
+          ${noScroll ? 'overflow-y: hidden;' : ''}
+        }
+        ${noScroll ? 'body { overflow-y: hidden; }' : ''}
+      </style>
+    </head>
+    <body>
+      <div id="preview-tab">${newCode}</div>
+    </body>
+  </html>
+`;
+
+const flexbox = useCenter ? 'display: flex;' : '';
+const stylesheet = `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
+const newCode = formatHTML(data);
+const container = newContainer
+(
+  stylesheet, 
+  flexbox, 
+  useCenter, 
+  usePadding, 
+  noScroll, 
+  newCode
+);
+---
+
+<style>
+.preview-container {
+  width: 100%;
+}
+
+.code-container {
+  margin-top: 1rem;
+}
+
+.preview-iframe {
+  border: 1px solid #cbced2;
+  background-color: #f5f6f8;
+  height: 300px !important;
+  width: 100%;
+  overflow-y: auto;
+}
+
+</style>
+
+<div class="preview-container">
+  {useTabs ? (
+    <Tabs>
+      <TabItem label="Preview">
+        <iframe
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin"
+          srcdoc={container}
+          class="preview-iframe"
+        />
+      </TabItem>
+      <TabItem label="Markup">
+        <div class="code-container">
+          <Code code={newCode} lang='html' />
+        </div>
+      </TabItem>
+    </Tabs>
+  ) : (
+    <div>
+      <iframe
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin"
+        srcdoc={container}
+        class="preview-iframe"
+      />
+      <div class="code-container">
+        <Code code={newCode} lang='html' />
+      </div>
+    </div>
+  )}
+</div>

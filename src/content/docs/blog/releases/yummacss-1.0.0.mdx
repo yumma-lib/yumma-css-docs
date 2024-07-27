@@ -1,0 +1,237 @@
+---
+authors: Renildo
+date: 2024-01-03
+excerpt: After a few months of development I'm releasing the first major release. For this release, my focus is to implement several utility classes, but more importantly to improve the overall experience of using Yumma CSS. This is — [Yumma CSS v1.0.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.0.0).
+pagefind: false
+slug: blog/yummacss-1.0.0
+tableOfContents: false
+tags: [update]
+title: Yumma CSS 1.0.0
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+![Yumma CSS Cover](/src/assets/releases/yummacss-1.0.0/cover.png)
+
+After a few months of development I'm releasing the first major release. For this release, my focus is to implement several utility classes, but more importantly to improve the overall experience of using Yumma CSS. This is — [Yumma CSS v1.0.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.0.0).
+
+## What's new in Yumma 1.0.0?
+
+You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.0.0) but anyway, these are the most noticeable shifts:
+
+- **[Utilities expansion](#utilities-expansion):** Margin X and Y, Padding X and Y, Align Content, and several more.
+- **[Viewport expansion](#viewport-expansion):** Support for viewports for Height and Width utilities.
+- **[New color](#new-color):** Introducing Lead Color.
+- **[Syntax changes](#syntax-changes):** Refactoring display and Hover utility classes.
+
+This is a major update that introduces groundbreaking features. Major releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, you probably need refactoring after upgrading.
+
+---
+
+### Utilities expansion
+
+This update will mainly focus on flexbox classes, as this was one of the biggest limitations of Yumma CSS before, so I decided to implement a set of utilities to reach even more flexibility of Yumma CSS.
+
+<Utility
+  data={[
+    {
+      className: 'ai-fs',
+      properties: [
+        'align-items: flex-start;'
+      ]
+    },
+    {
+      className: 'ai-fe',
+      properties: [
+        'align-items: flex-end;'
+      ]
+    },
+    {
+      className: 'jc-e',
+      properties: [
+        'justify-content: end;'
+      ]
+    },
+    {
+      className: 'jc-fs',
+      properties: [
+        'justify-content: flex-start;'
+      ]
+    },
+    {
+      className: 'jc-fe',
+      properties: [
+        'justify-content: flex-end;'
+      ]
+    },
+    {
+      className: 'jc-l',
+      properties: [
+        'justify-content: left;'
+      ]
+    },
+    {
+      className: 'jc-r',
+      properties: [
+        'justify-content: right;'
+      ]
+    },
+    {
+      className: 'jc-n',
+      properties: [
+        'justify-content: normal;'
+      ]
+    },
+    {
+      className: 'jc-s',
+      properties: [
+        'justify-content: stretch;'
+      ]
+    }
+  ]}
+/>
+
+As the layouts of the applications evolve, I feel the need to implement more and more utilities, so here are a few of them:
+
+<Utility
+  data={[
+    {
+      className: 'd-fr',
+      properties: [
+        'display: flow-root;'
+      ]
+    },
+    {
+      className: 'f-is',
+      properties: [
+        'float: inline-start;'
+      ]
+    },
+    {
+      className: 'f-ie',
+      properties: [
+        'float: inline-end;'
+      ]
+    }
+  ]}
+/>
+
+A whole new collection of advanced text formatting utilities for typographers is also introduced with Yumma CSS v1.0.
+
+<Utility
+  data={[
+    {
+      className: 'ta-ja',
+      properties: [
+        'text-align: justify-all;'
+      ]
+    },
+    {
+      className: 'ta-mp',
+      properties: [
+        'text-align: match-parent;'
+      ]
+    },
+    {
+      className: 'tdl-o',
+      properties: [
+        'text-decoration-line: overline;'
+      ]
+    }
+  ]}
+/>
+
+---
+
+### Viewport expansion
+
+In addition, I'm now adding viewports for the **Height** and **Width** utilities. This will help a lot with responsive designs and I can't wait to expand it to the other utilities.
+
+```html
+<div class="... h-10 md:h-auto md:w-auto w-10">...</div>
+```
+
+---
+
+### New color
+
+Nobody builds websites in dark mode using the color gray, right? The new **Lead** color is perfect for creating applications or websites that use dark mode natively.
+
+<Palette
+  data={[
+    {
+      name: 'Lead',
+      color: '#3f3f4e'
+    }
+  ]}
+/>
+
+---
+
+### Syntax changes
+
+Changing the syntax for the class name of the **Display** utility, since it wasn't really consistent among the other classes at all.
+
+<Tabs>
+  <TabItem value="now" label="Now">
+    ```html
+    <div class="d-f"></div>
+    ```
+  </TabItem>
+  <TabItem value="then" label="Then">
+    ```html
+    <div class="dis-f"></div>
+    ```
+  </TabItem>
+</Tabs>
+
+I'm also going to change the syntax for the hover state classes, this change consists of declaring them at the beginning of the utility `h:[value]` to make the code easier to understand.
+
+<Tabs>
+  <TabItem value="now" label="Now">
+    ```html
+    <div class="h:bg-blue"></div>
+    ```
+  </TabItem>
+  <TabItem value="then" label="Then">
+    
+    ```html
+    <div class="bg-h-blue"></div>
+    ```
+  </TabItem>
+</Tabs>
+
+---
+## Upgrade
+
+You can upgrade your projects by getting the latest version of `yummacss` from npm:
+
+```bash
+npm install yummacss@latest
+```
+## Community
+
+Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
+
+<Showcase
+  data={[
+    {
+      description: "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      icon: "../../icon/github.png",
+      title: "GitHub"
+    },
+    {
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      icon: "../../icon/discord.png",
+      title: "Discord"
+    },
+    {
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      icon: "../../icon/twitter.png",
+      title: "Twitter"
+    }
+  ]}
+/>

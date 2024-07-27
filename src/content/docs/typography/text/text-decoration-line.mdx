@@ -1,0 +1,76 @@
+---
+title: Text Decoration Line
+description: Controls the text decoration line of an element.
+slug: docs/text-decoration-line
+---
+
+Controls the text decoration line of an element.
+
+<Utility
+  data={[
+    {
+      className: 'tdl-none',
+      properties: [
+        'text-decoration-line: none;'
+      ]
+    },
+    {
+      className: 'tdl-u',
+      properties: [
+        'text-decoration-line: underline;'
+      ]
+    },
+    {
+      className: 'tdl-o',
+      properties: [
+        'text-decoration-line: overline;'
+      ]
+    },
+    {
+      className: 'tdl-lt',
+      properties: [
+        'text-decoration-line: line-through;'
+      ]
+    }
+  ]}
+/>
+
+## No Text Decoration
+
+<Preview
+  data = {`<p class="tdl-none t-l-gray-2 t-l-gray-2">No Text Decoration</p>`}
+  usePadding
+  useCenter
+  useVersion = '2974781'
+/>
+
+## Underline
+
+<Preview
+  data = {`<p class="tdl-u t-l-gray-2 t-l-gray-2">Underline</p>`}
+  usePadding
+  useCenter
+  useVersion = '2974781'
+/>
+
+## Overline
+
+<Preview
+  data = {`<p class="tdl-o t-l-gray-2 t-l-gray-2">Overline</p>`}
+  usePadding
+  useCenter
+  useVersion = '2974781'
+/>
+
+## Line through
+
+<Preview
+  data = {`<p class="tdl-lt t-l-gray-2 t-l-gray-2">Line Through</p>`}
+  usePadding
+  useCenter
+  useVersion = '2974781'
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:tdl-*`, `md:tdl-*`, `lg:tdl-*` enables the targeting of specific utilities in disparate viewports.

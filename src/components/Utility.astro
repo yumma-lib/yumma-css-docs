@@ -1,0 +1,116 @@
+---
+interface ClassItem {
+  className: string;
+  properties: string[];
+}
+
+interface AdditionalClass {
+  name: string;
+  value: string;
+}
+
+interface UtilityProps {
+  additionalClasses?: AdditionalClass[];
+  classPrefix: string;
+  data?: ClassItem[];
+  increment: number;
+  classValues: string[];
+  range: number;
+  unit: string;
+}
+
+const { additionalClasses, classPrefix, data, increment, classValues, range, unit } = Astro.props as UtilityProps;
+
+function generateClassData(
+  classPrefix: string,
+  classValues: string[],
+  range: number,
+  increment: number,
+  unit: string,
+  additionalClasses?: AdditionalClass[]
+): ClassItem[] {
+  const data: ClassItem[] = [];
+
+  for (let i = 0; i <= range; i++) {
+    const properties = classValues.map(propertyName => `${propertyName}: ${i * increment}${unit};`);
+    data.push({
+      className: `${classPrefix}${i}`,
+      properties
+    });
+  }
+
+  if (additionalClasses) {
+    additionalClasses.forEach((additionalClass) => {
+      const properties = classValues.map(propertyName => `${propertyName}: ${additionalClass.value};`);
+      data.push({
+        className: `${classPrefix}${additionalClass.name}`,
+        properties
+      });
+    });
+  }
+
+  return data;
+}
+
+const codeData = data || generateClassData(classPrefix, classValues, range, increment, unit, additionalClasses);
+---
+
+<style>
+.classList {
+  background-color: transparent;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 10px;
+  margin-bottom: 1.2rem;
+}
+
+.classItem {
+  align-items: center;
+  background-color: #f5f6f8;
+  border: 1px solid #cdcfd3;
+  color: #181818;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.className {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.propertyCode {
+  display: block;
+  padding: 5px;
+  white-space: pre-wrap;
+}
+
+:global([data-theme='dark']) .classList {
+  background-color: var(--yma-bg-lighter);
+}
+
+:global([data-theme='dark']) .classItem {
+  background-color: var(--yma-bg-light);
+  border: 1px solid #2d2f33;
+  color: var(--yma-bg-lighter);
+}
+
+:global([data-theme='dark']) .propertyCode {
+  background-color: var(--yma-bg-dark);
+  color: var(--yma-bg-lighter);
+}
+</style>
+
+<div class="classList">
+  {codeData.map((classItem) => (
+    <div class="classItem" title={classItem.className}>
+      <div class="classProperties">
+        <div class="className">{classItem.className}</div>
+        <code class="propertyCode">
+          {classItem.properties.join('\n')}
+        </code>
+      </div>
+    </div>
+  ))}
+</div>

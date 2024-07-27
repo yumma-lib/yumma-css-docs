@@ -1,0 +1,34 @@
+---
+title: Grid Auto Flow
+description: Controls the automatic placement of grid elements.
+slug: docs/grid-auto-flow
+---
+
+Controls the automatic placement of grid elements.
+
+<Utility
+  data={[
+    {
+        className: 'gaf-r',
+        properties: [
+            'grid-auto-flow: row;'
+        ]
+    },
+    {
+        className: 'gaf-c',
+        properties: [
+            'grid-auto-flow: column;'
+        ]
+    },
+    {
+        className: 'gaf-d',
+        properties: [
+            'grid-auto-flow: dense;'
+        ]
+    }
+  ]}
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:gaf-*`, `md:gaf-*`, `lg:gaf-*` enables the targeting of specific utilities in disparate viewports.

@@ -1,13 +1,11 @@
-# environment variables
-.env
+# build output
+dist/
+
+# generated types
+.astro/
 
 # dependencies
-/node_modules
+node_modules/
 
-# generated
-.cache-loader
-.docusaurus
+# logs
 npm-debug.log*
-
-# production
-/build

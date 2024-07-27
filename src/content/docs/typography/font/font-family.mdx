@@ -1,0 +1,64 @@
+---
+title: Font Family
+description: Controls the font family of an element.
+slug: docs/font-family
+---
+
+Controls the font family of an element.
+
+<Utility
+  data={[
+    {
+      className: 'ff-s',
+      properties: [
+        'font-family: system-ui, sans-serif;'
+      ]
+    },
+    {
+      className: 'ff-c',
+      properties: [
+        'font-family: Charter, Cambria, serif;'
+      ]
+    },
+    {
+      className: 'ff-m',
+      properties: [
+        'font-family: ui-monospace, Consolas, monospace;'
+      ]
+    }
+  ]}
+/>
+
+## Default
+<Preview
+  data = {`<p class="ff-s t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper.</p>`}
+  usePadding
+  useVersion = '2974781'
+/>
+
+## Charter
+<Preview
+  data = {`<p class="ff-c t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper.</p>`}
+  usePadding
+  useVersion = '2974781'
+/>
+
+## Inter
+
+<Preview
+  data = {`<p class="ff-i t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper.</p>`}
+  usePadding
+  useVersion = '2974781'
+/>
+
+## Mono
+
+<Preview
+  data = {`<p class="ff-m t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lectus vestibulum mattis ullamcorper velit sed ullamcorper.</p>`}
+  usePadding
+  useVersion = '2974781'
+/>
+
+### Using breakpoints
+
+The utilization of breakpoint modifiers like `sm:ff-*`, `md:ff-*`, `lg:ff-*` enables the targeting of specific utilities in disparate viewports.

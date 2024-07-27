@@ -1,0 +1,95 @@
+---
+title: Installation
+banner:
+  content: |
+    We launched Yumma CSS v2.0 with Starlight!
+    <a href="https://starlight.astro.build/">Check it out</a>
+description: Yumma CSS provides a set of utility classes and components to help you ship and build applications faster, whether you're designing static pages or dynamic components.
+slug: docs/installation
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components'
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+
+export const viaNPM_HTML = `<!-- Standard version -->
+<link rel="stylesheet" href="styles/globals.css">`;
+export const viaNPM_CSS = `/* Standard version */
+@import "/node_modules/yummacss/dist/yumma.css";`;
+export const viaCDN = `<!-- Minified version -->
+<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">`;
+
+
+## Get started with Yumma CSS
+
+Yumma CSS provides a set of utility classes and components to help you ship and build applications faster, whether you're designing static pages or dynamic components.
+
+No need to set anything up, just install and off you go!
+
+### Installation
+
+The Yumma CSS Library allows users to construct websites in accordance with their desired specifications.
+
+<Tabs>
+  <TabItem label="Via NPM" icon="seti:npm">
+    <Steps>
+      1. Install Yumma CSS in your application:
+
+         ```bash
+         npm install yummacss@latest
+         ```
+
+      2. Add `yummacss` in your main CSS file:
+
+         <Code code={viaNPM_CSS} lang="css" title="globals.css" />
+
+      3. Include the compiled CSS file in your `<head>` element:
+
+         <Code code={viaNPM_HTML} lang="html" title="index.html" />
+    </Steps>
+  </TabItem>
+
+  <TabItem label="Try the CDN" icon="document">
+    How to include Yumma CSS via cdn:
+
+    <Code code={viaCDN} lang="html" title="index.html" />
+  </TabItem>
+</Tabs>
+
+### CSS options
+
+Once Yumma CSS has been installed via [package manager](https://www.npmjs.com/package/yummacss) or [cdn](https://www.jsdelivr.com/package/npm/yummacss), you will be able to access different compiled CSS files.
+
+- `/dist/yumma.css` — Standard
+- `/dist/yumma.min.css` — Minified
+- `/dist/yumma-core.css` — Standard (without [Stylecent](/docs/stylecent))
+- `/dist/yumma-core.min.css` — Minified (without [Stylecent](/docs/stylecent))
+
+## What to do next?
+
+Now that you've got Yumma CSS up and running, you can begin to play around with the utility classes or components.
+
+<Showcase
+ data={[
+    {
+      icon: '../../icon/pyramid-shape.png',
+      title: 'Utility First',
+      description: 'Advanced tiny utility classes that you can use on your applications.',
+      href: '/docs/display'
+    },
+    {
+      icon: '../../icon/color-palette.png',
+      title: 'Customization',
+      description: 'Create adaptive and colorful themes for your application layout.',
+      href: '/docs/colors'
+    },
+    {
+      icon: '../../icon/code-monitor.png',
+      title: 'Components',
+      description: 'Personalize your components or pages using the color palette.',
+      href: '/components'
+    }
+ ]}
+/>
