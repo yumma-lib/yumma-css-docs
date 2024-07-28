@@ -14,10 +14,10 @@ import { Steps } from '@astrojs/starlight/components'
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Icon } from '@astrojs/starlight/components';
 
-export const viaNPM_HTML = `<!-- Standard version -->
+export const onHTML = `<!-- Standard version -->
 <link rel="stylesheet" href="styles/globals.css">`;
-export const viaNPM_CSS = `/* Standard version */
-@import "/node_modules/yummacss/dist/yumma.css";`;
+export const onCSS = `/* Standard version */
+@import "yummacss/dist/yumma.css";`;
 export const viaCDN = `<!-- Minified version -->
 <link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">`;
 
@@ -43,11 +43,11 @@ The Yumma CSS Library allows users to construct websites in accordance with thei
 
       2. Add `yummacss` in your main CSS file:
 
-         <Code code={viaNPM_CSS} lang="css" title="globals.css" />
+         <Code code={onCSS} lang="css" title="globals.css" />
 
       3. Include the compiled CSS file in your `<head>` element:
 
-         <Code code={viaNPM_HTML} lang="html" title="index.html" />
+         <Code code={onHTML} lang="html" title="index.html" />
     </Steps>
   </TabItem>
 
