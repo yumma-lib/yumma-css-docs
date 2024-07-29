@@ -1,8 +1,8 @@
 ---
-title: Components
+title: Componentss
 template: splash
 hero:
-  title: Ship your next application into production quicker.
+  title: Ship your next application into production quickers.
   tagline: These clean, fully responsive components are ready for you to copy and use in your Yumma CSS projects. Go ahead and customize them however you like!
   actions:
     - text: Try it now
@@ -14,85 +14,59 @@ hero:
       icon: right-arrow
 ---
 
-#### Base Components
+import { ShowcaseImage } from 'starlight-showcases';
 
-<Component
-  data={[
+#### Elements
+
+<ShowcaseImage
+  entries={[
     {
       description: '6 components',
-      href: '/components/alert',
-      src: '/src/assets/images/alert.png',
-      title: 'Alert'
+      href: 'components/alerts',
+      thumbnail: import('../../assets/images/alert.png'),
+      title: 'Alerts'
     },
     {
       description: '4 components',
-      href: '/components/avatar',
-      src: '/src/assets/images/avatar.png',
-      title: 'Avatar'
+      href: 'components/avatars',
+      thumbnail: import('../../assets/images/avatar.png'),
+      title: 'Avatars'
     },
     {
       description: '4 components',
-      href: '/components/badge',
-      src: '/src/assets/images/badge.png',
-      title: 'Badge'
+      href: 'components/badges',
+      thumbnail: import('../../assets/images/badge.png'),
+      title: 'Badges'
     },
     {
       description: '3 components',
-      href: '/components/banner',
-      src: '/src/assets/images/banner.png',
-      title: 'Banner'
+      href: 'components/banners',
+      thumbnail: import('../../assets/images/banner.png'),
+      title: 'Banners'
     },
     {
       description: '4 components',
-      href: '/components/button',
-      src: '/src/assets/images/button.png',
-      title: 'Button'
+      href: 'components/buttons',
+      thumbnail: import('../../assets/images/button.png'),
+      title: 'Buttons'
     },
     {
       description: '4 components',
-      href: '/components/card',
-      src: '/src/assets/images/card.png',
-      title: 'Card'
+      href: 'components/cards',
+      thumbnail: import('../../assets/images/card.png'),
+      title: 'Cards'
+    },
+    {
+      description: 'Comming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Dropdowns'
     },
     {
       description: '2 components',
-      href: '/components/progress',
-      src: '/src/assets/images/progress.png',
-      title: 'Progress'
+      href: 'components/progresss',
+      thumbnail: import('../../assets/images/progress.png'),
+      title: 'Progresss'
     },
- ]}
-/>
-
----
-
-#### Navigations
-
-<Component
- data={[
-    {
-      description: '2 components',
-      href: '/components/breadcrumb',
-      src: '/src/assets/images/breadcrumb.png',
-      title: 'Breadcrumb'
-    },
-    {
-      description: '2 components',
-      href: '/components/navbar',
-      src: '/src/assets/images/navbar.png',
-      title: 'Navbar'
-    },
-    {
-      description: '2 components',
-      href: '/components/pagination',
-      src: '/src/assets/images/pagination.png',
-      title: 'Pagination'
-    },
-    {
-      description: '2 components',
-      href: '/components/tab',
-      src: '/src/assets/images/tab.png',
-      title: 'Tab'
-    }
  ]}
 />
 
@@ -100,44 +74,159 @@ hero:
 
 #### Forms
 
-<Component
- data={[
-  {
-    badge: 'New',
-    description: '3 components',
-    href: '/components/input',
-    src: '/src/assets/images/input.png',
-    title: 'Input'
-  }
+<ShowcaseImage
+  entries={[
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Authentication'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Checkboxes'
+    },
+    {
+      description: 'Coming Soon',
+      href: 'components/input',
+      thumbnail: import('../../assets/images/input.png'),
+      title: 'Inputs'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Radios'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Selects'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Textareas'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Toggles'
+    }
+  ]}
+/>
+
+#### Navigation
+
+<ShowcaseImage
+ entries={[
+    {
+      description: '2 components',
+      thumbnail: import('../../assets/images/breadcrumb.png'),
+      href: 'components/breadcrumbs',
+      title: 'Breadcrumbs'
+    },
+    {
+      description: '2 components',
+      thumbnail: import('../../assets/images/navbar.png'),
+      href: 'components/navbars',
+      title: 'Navbars'
+    },
+    {
+      description: '2 components',
+      thumbnail: import('../../assets/images/pagination.png'),
+      href: 'components/paginations',
+      title: 'Paginations'
+    },
+    {
+      description: 'Comming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Offcanvas'
+    },
+    {
+      description: 'Comming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Sidebar'
+    },
+    {
+      description: '2 components',
+      thumbnail: import('../../assets/images/tab.png'),
+      href: 'components/tabs',
+      title: 'Tabs'
+    },
  ]}
 />
 
 ---
 
-#### Footers
+#### Page Sections
 
-<Component
- data={[
+<ShowcaseImage
+  entries={[
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Blog Sections'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Contact Sections'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'CTA Sections'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Feature Sections'
+    },
     {
       description: '1 components',
-      href: '/components/footer',
-      src: '/src/assets/images/footer.png',
-      title: 'Footer'
-    }
- ]}
-/>
-
----
-
-#### Tables
-
-<Component
- data={[
+      href: 'components/footers',
+      thumbnail: import('../../assets/images/alert.png'),
+      title: 'Footers'
+    },
     {
-      description: '1 components',
-      href: '/components/table',
-      src: '/src/assets/images/table.png',
-      title: 'Footer'
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Header Sections'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Hero Sections'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Logo Clouds'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Newsletter Sections'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Pricing Sections'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Statistics'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Team Sections'
+    },
+    {
+      description: 'Coming Soon',
+      thumbnail: import('../../assets/images/blank.png'),
+      title: 'Testimonials'
     }
- ]}
+  ]}
 />
