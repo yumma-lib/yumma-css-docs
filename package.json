@@ -8,10 +8,10 @@
   "type": "module",
   "version": "2.0.0",
   "dependencies": {
-    "@astrojs/check": "^0.8.1",
-    "@astrojs/starlight": "^0.25.1",
+    "@astrojs/check": "^0.8.3",
+    "@astrojs/starlight": "^0.25.3",
     "@types/tinycolor2": "^1.4.6",
-    "astro": "^4.10.2",
+    "astro": "^4.12.2",
     "astro-auto-import": "^0.4.2",
     "astro-live-code": "^0.0.2",
     "js-beautify": "^1.15.1",
