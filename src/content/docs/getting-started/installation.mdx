@@ -5,6 +5,7 @@ banner:
     We launched Yumma CSS v2.0 with Starlight!
     <a href="https://starlight.astro.build/">Check it out</a>
 description: Yumma CSS provides a set of utility classes and components to help you ship and build applications faster, whether you're designing static pages or dynamic components.
+
 slug: docs/installation
 ---
 
@@ -13,6 +14,7 @@ import { Code } from '@astrojs/starlight/components';
 import { Steps } from '@astrojs/starlight/components'
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { Icon } from '@astrojs/starlight/components';
+import { ShowcaseText } from 'starlight-showcases';
 
 export const onHTML = `<!-- Standard version -->
 <link rel="stylesheet" href="styles/globals.css">`;
@@ -67,29 +69,31 @@ Once Yumma CSS has been installed via [package manager](https://www.npmjs.com/pa
 - `/dist/yumma-core.css` — Standard (without [Stylecent](/docs/stylecent))
 - `/dist/yumma-core.min.css` — Minified (without [Stylecent](/docs/stylecent))
 
-## What to do next?
+#### Fundamentals
 
-Now that you've got Yumma CSS up and running, you can begin to play around with the utility classes or components.
+Now that you have implemented Yumma CSS, it is important to understand how it differs from other CSS frameworks.
 
-<Showcase
- data={[
-    {
-      icon: '/src/assets/images/playground.png',
-      title: 'Playground',
-      description: 'Integrated Yumma CSS and advanced online code editor.',
-      href: 'https://play.yummacss.com/'
-    },
-    {
-      icon: '/src/assets/images/palette.png',
-      title: 'Customization',
-      description: 'Create adaptive and colorful themes for your application layout.',
-      href: '/docs/colors'
-    },
-    {
-      icon: '/src/assets/images/components.png',
-      title: 'Components',
-      description: 'Personalize your components or pages using the color palette.',
-      href: '/components'
-    }
+<ShowcaseText
+ entries={[
+  {
+    description: 'Use a constrained set of primitive utilities for complex components.',
+    href: '/docs/utility-classes',
+    title: 'Utility Classes'
+  },
+  {
+    description: 'Use media queries to make interfaces responsive to any screen size.',
+    href: '/docs/responsive-design',
+    title: 'Responsive Design'
+  },
+  {
+    description: 'Use states such as hover variants to create more engaging elements.',
+    href: '/docs/hovers-states',
+    title: 'Hovers States'
+  },
+  {
+    description: 'Use predefined colors to keep designs consistent across Yumma CSS projects.',
+    href: '/docs/colors',
+    title: 'Colors'
+  }
  ]}
 />

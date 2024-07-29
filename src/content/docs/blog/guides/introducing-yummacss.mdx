@@ -14,6 +14,7 @@ title: Introducing Yumma CSS
 
 Today I'm very excited to introduce [Yumma CSS](https://github.com/yumma-lib/yumma-css), a CSS Library designed to make the process of developing open source websites smoother and more enjoyable.
 
+import { ShowcaseText } from 'starlight-showcases';
 import { base, withCollapse } from '/src/components/snippets/navbar';
 
 ## Why Yumma CSS?
@@ -234,25 +235,27 @@ npm install yummacss@latest
 
 Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
 
-<Showcase
-  data={[
+<ShowcaseText
+  entries={[
     {
       description: 'If you experience any problems, please notify us at GitHub.',
       href: 'https://github.com/yumma-lib/yumma-css/issues',
-      icon: '../../icon/github.png',
       title: 'GitHub'
     },
     {
       description: 'Join our Discord for discussion, sharing, and learning.',
       href: 'https://discord.gg/2MUw2g6FCn',
-      icon: '../../icon/discord.png',
       title: 'Discord'
     },
     {
       description: 'Please follow us on Twitter to receive the latest updates.',
       href: 'https://twitter.com/yummacss',
-      icon: '../../icon/twitter.png',
       title: 'Twitter'
+    },
+    {
+      description: 'Watch our screencasts on YouTube for the latest updates.',
+      href: 'https://youtube.com/@yummacss',
+      title: 'YouTube'
     }
   ]}
 />

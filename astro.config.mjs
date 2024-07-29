@@ -36,9 +36,11 @@ export default defineConfig({
 			customCss: ['/src/styles/custom.css'],
 			social: {
 				github: 'https://github.com/yumma-lib/yumma-css',
-				discord: 'https://discord.gg/Zd2y6yVqgK'
+				discord: 'https://discord.gg/Zd2y6yVqgK',
+				twitter: 'https://x.com/yummacss'
 			},	
 			sidebar: [
+				
 				{
 					label: 'Getting Started',
 					items: [
@@ -49,16 +51,18 @@ export default defineConfig({
 					]
 				},
 				{
-					label: 'Fundamentals',
+					label: 'Core Concepts',
 					items: [
-						{ label: 'Stylecent', link: 'docs/stylecent' },
-						{
-							label: 'Design System',
-							items: [
-								{ label: 'Colors', link: 'docs/colors' },
-								{ label: 'Responsive Design', link: 'docs/responsive-design' }
-							],
-						},
+						{ label: 'Utility Classes', link: 'docs/utility-classes' },
+						{ label: 'Responsive Design', link: 'docs/responsive-design' },
+						{ label: 'Hover States', link: 'docs/hover-states' },
+						{ label: 'Colors', link: 'docs/colors' }
+					]
+				},
+				{
+					label: 'Base Styles',
+					items: [
+						{ label: 'Stylecent', link: 'docs/stylecent' }
 					],
 				},
 				{
@@ -91,7 +95,7 @@ export default defineConfig({
 									]
 								},
 							]
-						},
+						}
 					]
 				},
 				{
@@ -129,7 +133,7 @@ export default defineConfig({
 								{ label: 'Grid Template Columns', link: 'docs/grid-template-columns' },
 								{ label: 'Grid Template Rows', link: 'docs/grid-template-rows' }
 							]
-						},
+						}
 					]
 				},
 				{
@@ -164,7 +168,7 @@ export default defineConfig({
 								{ label: 'Text Decoration', link: 'docs/text-decoration' }
 
 							]
-						},
+						}
 					]
 				},
 			],
@@ -175,7 +179,6 @@ export default defineConfig({
 				'./src/components/Component.astro',
 				'./src/components/Palette.astro',
 				'./src/components/Preview.astro',
-				'./src/components/Showcase.astro',
 				'./src/components/Utility.astro'
 			],
 		}),
