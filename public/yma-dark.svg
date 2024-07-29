@@ -4,8 +4,8 @@
       .cls-1 {
         font-size: 714.629px;
         fill: #fff;
-        font-family: Metropolis;
-        font-weight: 700;
+        font-family: system-ui, sans-serif;
+        font-weight: bold;
       }
     </style>
   </defs>

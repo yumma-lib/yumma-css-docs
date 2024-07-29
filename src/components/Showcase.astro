@@ -17,8 +17,11 @@ const { data } = Astro.props as ShowcaseProps;
 .cardElement {
   background-color: var(--yma-bg-lighter);
   border: 1px solid #cdcfd3;
-  padding: 18px;
   text-decoration: none;
+}
+
+.cardContainer {
+  margin: 12px;
 }
 
 .cardElement a:hover {
@@ -26,7 +29,8 @@ const { data } = Astro.props as ShowcaseProps;
 }
 
 .cardElement:hover {
-  border-color: #ced0d4;
+  background-color: #f6f7f9;
+  border-color: #353841;
 }
 
 :global([data-theme='dark']) .cardElement {
@@ -41,6 +45,7 @@ const { data } = Astro.props as ShowcaseProps;
 
 .cardTitle {
   font-weight: 400;
+  font-size: larger !important;
   color: var(--sl-color-accent) !important;
 }
 
@@ -49,8 +54,9 @@ const { data } = Astro.props as ShowcaseProps;
 }
 
 .cardIcon {
-  height: 36px;
-  width: 36px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 :global([data-theme='dark']) .cardDescription {
@@ -87,14 +93,18 @@ const { data } = Astro.props as ShowcaseProps;
       {cardGridProps.href ? (
         <a href={cardGridProps.href} class="cardLink">
           <img class="cardIcon" src={cardGridProps.icon} alt={cardGridProps.title} />
-          <h4 class="cardTitle">{cardGridProps.title}</h4>
-          <p class="cardDescription">{cardGridProps.description}</p>
+          <div class="cardContainer">
+            <h4 class="cardTitle">{cardGridProps.title}</h4>
+            <p class="cardDescription">{cardGridProps.description}</p>
+          </div>
         </a>
       ) : (
         <>
           <img class="cardIcon" src={cardGridProps.icon} alt={cardGridProps.title} />
-          <h4 class="cardTitle">{cardGridProps.title}</h4>
+          <div class="cardContainer">
+            <h4 class="cardTitle">{cardGridProps.title}</h4>
           <p class="cardDescription">{cardGridProps.description}</p>
+          </div>
         </>
       )}
     </div>
