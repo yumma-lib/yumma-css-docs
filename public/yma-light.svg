@@ -2,10 +2,10 @@
   <defs>
     <style>
       .cls-1 {
-        fill: #282828;
-        font-family: Metropolis;
         font-size: 714.629px;
-        font-weight: 700;
+        fill: #fff;
+        font-family: system-ui, sans-serif;
+        font-weight: bold;
       }
     </style>
   </defs>
