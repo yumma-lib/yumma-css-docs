@@ -176,7 +176,6 @@ export default defineConfig({
 		autoImport({
 			imports: [
 				'./src/components/Color.astro',
-				'./src/components/Component.astro',
 				'./src/components/Palette.astro',
 				'./src/components/Preview.astro',
 				'./src/components/Utility.astro'
