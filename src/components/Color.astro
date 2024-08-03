@@ -45,17 +45,17 @@ function generateClassData(
 
     return [
       ...lightShades.map((shade, i) => ({
-        className: `${classPrefix}l-${colorClass.color}-${6 - i}`,
+        classTitle: `${classPrefix}l-${colorClass.color}-${6 - i}`,
         properties: classValues.map((propertyName) => `${propertyName}: ${shade}`),
         colorValue: shade,
       })),
       {
-        className: `${classPrefix}${colorClass.color}`,
+        classTitle: `${classPrefix}${colorClass.color}`,
         properties: classValues.map((propertyName) => `${propertyName}: ${baseColor}`),
         colorValue: baseColor,
       },
       ...darkShades.map((shade, i) => ({
-        className: `${classPrefix}d-${colorClass.color}-${i + 1}`,
+        classTitle: `${classPrefix}d-${colorClass.color}-${i + 1}`,
         properties: classValues.map((propertyName) => `${propertyName}: ${shade}`),
         colorValue: shade,
       })),
@@ -68,14 +68,12 @@ const colorData = generateClassData(classPrefix, classValues, data);
 
 <style>
 .classList {
-  background-color: transparent;
   max-height: 300px;
   overflow-y: auto;
   padding: 10px;
 }
 
 .classItem {
-  align-items: center;
   background-color: #f5f6f8;
   border: 1px solid #cdcfd3;
   color: #181818;
@@ -84,21 +82,19 @@ const colorData = generateClassData(classPrefix, classValues, data);
   padding: 10px;
 }
 
-.className {
+.classTitle {
   font-weight: 600;
   margin-bottom: 8px;
 }
 
 .propertyCode {
   display: block;
-  padding: 5px;
-  white-space: pre-wrap;
 }
 
-.colorPreview {
-  width: 20px;
+.colorSwatch {
+  border-radius: 0.25rem;
   height: 20px;
-  border-radius: 2px;
+  width: 20px;
 }
 
 :global([data-theme='dark']) .classList {
@@ -119,14 +115,14 @@ const colorData = generateClassData(classPrefix, classValues, data);
 
 <div class="classList">
   {colorData.map((classItem) => (
-    <div class="classItem" title={classItem.className}>
+    <div class="classItem" title={classItem.classTitle}>
       <div class="classProperties">
-        <div class="className">{classItem.className}</div>
+        <div class="classTitle">{classItem.classTitle}</div>
         <code class="propertyCode">
           {classItem.properties.join('\n')}
         </code>
       </div>
-      <div class="colorPreview" style={`background-color: ${classItem.colorValue}`}></div>
+      <div class="colorSwatch" style={`background-color: ${classItem.colorValue}`}></div>
     </div>
   ))}
 </div>

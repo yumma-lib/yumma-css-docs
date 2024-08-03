@@ -764,7 +764,7 @@ Took me long me long enough, but I'm finally adding full media query support for
 Yumma CSS will also change the way breakpoint behaves in your browser.
 
 <Tabs>
-  <TabItem value='now' label='Now'>
+  <TabItem label='Now'>
     <Utility
         data={[
           { className: 'sm', properties: ['min-width: 640px'] },
@@ -774,7 +774,7 @@ Yumma CSS will also change the way breakpoint behaves in your browser.
         ]}
     />
   </TabItem>
-  <TabItem value='then' label='Then'>
+  <TabItem label='Then'>
     <Utility
         data={[
           { className: 'xs', properties: ['min-width: 0'] },
@@ -792,7 +792,7 @@ Yumma CSS will also change the way breakpoint behaves in your browser.
 The container utility is completely redesigned in this new update, starting with the new class name `ctn`, the new container will now have a set of media query rules to ensure responsiveness in your theme.
 
 <Tabs>
-  <TabItem value='now' label='Now'>
+  <TabItem label='Now'>
     ```scss
     .cnt {
       width: 100%;
@@ -804,7 +804,7 @@ The container utility is completely redesigned in this new update, starting with
     }
     ```
   </TabItem>
-  <TabItem value='then' label='Then'>
+  <TabItem label='Then'>
     ```scss
     .cnn {
       width: 100%;

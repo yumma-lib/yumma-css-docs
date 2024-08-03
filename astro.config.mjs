@@ -51,12 +51,12 @@ export default defineConfig({
 					]
 				},
 				{
-					label: 'Core Concepts',
+					label: 'Concepts',
 					items: [
-						{ label: 'Utility Classes', link: 'docs/utility-classes' },
+						{ label: 'Color System', link: 'docs/color-system' },
 						{ label: 'Responsive Design', link: 'docs/responsive-design' },
-						{ label: 'Hover States', link: 'docs/hover-states' },
-						{ label: 'Colors', link: 'docs/colors' }
+						{ label: 'Utility Classes', link: 'docs/utility-classes' },
+						{ label: 'Variants', link: 'docs/variants' }
 					]
 				},
 				{

@@ -1,0 +1,24 @@
+---
+title: Variants
+description: Use variants such as hover to create more engaging elements.
+slug: docs/variants
+---
+
+import { Icon } from '@astrojs/starlight/components';
+
+## Hovers
+
+You can use the `h:` variants in order to target the `:hover` function across the entirety of the Yumma CSS utility classes. 
+
+For instance, if you want to apply the `bg-pink` class on hover, you can use the `h:bg-pink class`.
+
+<Preview
+    data={`<button class="bg-pink fw-600 h:bg-d-pink-2 px-5 py-1 rad-8 t-white c-p">Subscribe</button>`}
+    noScroll
+    useCenter
+    useHighlights={["h:bg-d-pink-2"]}
+    usePadding
+    useVersion = '2974781'
+/>
+
+In this example, we have a button component using the `:hover` utility class, which in this context is being used to change the `bg-pink` to `bg-d-pink-2` when the user hovers the mouse over the element.

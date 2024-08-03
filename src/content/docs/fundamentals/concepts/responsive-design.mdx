@@ -6,24 +6,23 @@ slug: docs/responsive-design
 
 Use responsive utility classes to create advanced layouts to better accommodate different screen sizes.
 
-## Breakpoints
-
 Responsive breakpoints allow you to create flexible and adaptable layouts for your web projects. These breakpoints provide fine-grained control over your layout's behavior on different devices.
 
 Here's how breakpoints are defined:
 
 ```scss
 $yma-breakpoints: (
-    "sm": 640px,
+    "sm": 480px,
     "md": 768px,
-    "lg": 1024px,
-    "xl": 1280px
+    "lg": 992px,
+    "xl": 1280px,
+    "xxl": 1600px
 );
 ```
 
 ### Using breakpoints
 
-Use responsive breakpoints such as `sm:*`, `md:*`, `lg:*`, `xl:*` to apply specific rules to different screen sizes. For example:
+Use responsive breakpoints such as `sm:*`, `md:*`, `lg:*`, `xl:*` and `xxl:*` to apply specific rules to different screen sizes. For example:
 
 ```html "lg:gtc-4" "md:gtc-3" "sm:gtc-2"
 <div class="cnt mx-auto p-4">

@@ -32,57 +32,21 @@ const generateShades = (color: string): string[] => {
 ---
 
 <style>
-.colorPalette {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 1.2rem;
-  margin-top: 20px;
-  width: 100%;
-}
-
-.colorLineTitle {
-  margin-bottom: 4px;
+.colorSwatch {
+  border-radius: 0.25rem;
+  height: 40px;
+  width: 80px;
 }
 
 .colorLine {
   align-items: end;
   display: flex;
-  gap: 10px;
+  gap: 0.45rem;
 }
 
-.colorSwatchContainer {
-  align-items: center;
-  border-radius: 5px;
-  color: #fff;
-  display: flex;
-  font-size: 12px;
-  height: 40px;
-  justify-content: center;
-  position: relative;
-  width: 80px;
-}
-
-.colorSwatchContainer::after {
-  background-color: #e3e3e3;
-  border-radius: 3px;
-  color: #1a1c22;
-  content: attr(data-tooltip);
-  font-size: 12px;
-  left: 50%;
-  opacity: 0;
-  padding: 5px 10px;
-  pointer-events: none;
-  position: absolute;
-  top: -40px;
-  transform: translateX(-50%);
-  transition: opacity 0.2s ease-in-out;
-  white-space: nowrap;
-}
-
-.colorSwatchContainer:hover::after {
-  opacity: 1;
+.colorLineTitle {
+  font-weight: 600;
+  margin-top: 2rem;
 }
 
 @media (max-width: 800px) {
@@ -91,22 +55,22 @@ const generateShades = (color: string): string[] => {
     flex-direction: column;
   }
 
-  .colorSwatchContainer {
+  .colorSwatch {
     margin-bottom: 10px;
     width: 100%;
   }
 }
 </style>
 
-<div class="colorPalette">
+<div>
   {data.map((colorItem) => {
     const shades = generateShades(colorItem.color);
     return (
       <div style="width: 100%;">
         <div class="colorLineTitle">{colorItem.name}</div>
         <div class="colorLine">
-          {shades.map((value) => (
-            <div class="colorSwatchContainer" style={`background-color: ${value}`} data-tooltip={value}></div>
+          {shades.map((v) => (
+            <div class="colorSwatch" style={`background-color: ${v}`}></div>
           ))}
         </div>
       </div>

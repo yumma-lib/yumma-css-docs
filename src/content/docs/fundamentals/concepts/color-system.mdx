@@ -1,0 +1,153 @@
+---
+title: Color System
+description: To maintain consistency, Yumma CSS comes with a predefined set ',
+slug: docs/color-system
+---
+
+import { ShowcaseText } from 'starlight-showcases';
+
+To stay consistent, Yumma CSS has a set of colors ready to go right out of the box. You can customize them using the `light` and `dark` utility class color shades in your theme to get a specific color.
+
+
+## Utilizing color shades
+
+To specify lighter or darker shade to a given color you can use the `*-l-[color]-*` to get a lighter color or `*-d-[color]-*` to get a darker color:
+
+```html "bg-l" "-6" "bg-d" "-1"
+<div>
+  <div class="bg-l-pink-6"></div>
+  <div class="bg-pink"></div>
+  <div class="bg-d-pink-1"></div>
+</div>
+```
+
+:::note
+The current color range is restricted to shades from 1 to 6 for both light and dark variants, with the exclusion of the base color.
+:::
+
+## Base colors
+
+The foundations of our color palette are defined in Scss variables. Here's how the colors are defined:
+
+```scss
+// variables
+$yma-colors-red: #d73d3d;
+$yma-colors-orange: #e06814;
+$yma-colors-yellow: #d3a107;
+$yma-colors-green: #1fb155;
+$yma-colors-teal: #12a695;
+$yma-colors-cyan: #05a4bf;
+$yma-colors-blue: #3575dd;
+$yma-colors-indigo: #595cd9;
+$yma-colors-violet: #7d53dd;
+$yma-colors-pink: #d4418a;
+$yma-colors-silver: #bfc2c7;
+$yma-colors-gray: #606773;
+$yma-colors-lead: #3f3f4e
+$yma-colors-black: black;
+$yma-colors-white: white;
+$yma-colors-transparent: transparent;
+```
+
+## Color Palette
+
+<Palette
+  data={[
+    {
+      name: 'Red',
+      color: '#d73d3d'
+    },
+    {
+      name: 'Orange',
+      color: '#e06814'
+    },
+    {
+      name: 'Yellow',
+      color: '#d3a107'
+    },
+    {
+      name: 'Green',
+      color: '#1fb155'
+    },
+    {
+      name: 'Teal',
+      color: '#12a695'
+    },
+    {
+      name: 'Cyan',
+      color: '#05a4bf'
+    },
+    {
+      name: 'Blue',
+      color: '#3575dd'
+    },
+    {
+      name: 'Indigo',
+      color: '#595cd9'
+    },
+    {
+      name: 'Violet',
+      color: '#7d53dd'
+    },
+    {
+      name: 'Pink',
+      color: '#d4418a'
+    },
+    {
+      name: 'Gray',
+      color: '#606773'
+    },
+    {
+      name: 'Lead',
+      color: '#3f3f4e'
+    },
+    {
+      name: 'Silver',
+      color: '#bfc2c7'
+    }
+  ]}
+/>
+
+## Color utilities
+
+Here's a list of all the Yumma CSS color classes for customizing your theme.
+
+<ShowcaseText
+ entries={[
+  {
+    description: 'Controls form control accent color.',
+    href: '/docs/accent-color',
+    title: 'Accent Color'
+  },
+  {
+    description: 'Controls the background color of an element.',
+    href: '/docs/background-color',
+    title: 'Background Color'
+  },
+  {
+    description: 'Controls the color of the borders of an element.',
+    href: '/docs/border-color',
+    title: 'Border Color'
+  },
+  {
+    description: 'Controls the text input cursor color.',
+    href: '/docs/caret-color',
+    title: 'Caret Color'
+  },
+  {
+    description: 'Controls the color of the outline of an element.',
+    href: '/docs/outline-color',
+    title: 'Outline Color'
+  },
+  {
+    description: 'Controls the text color of an element.',
+    href: '/docs/text-color',
+    title: 'Text Color'
+  },
+  {
+    description: 'Controls the color of the text decoration.',
+    href: '/docs/text-decoration-color',
+    title: 'Text Decoration Color'
+  }
+ ]}
+/>

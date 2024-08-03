@@ -1,0 +1,58 @@
+---
+title: Utility Classes
+description: Use a constrained set of primitive utilities for complex components.
+slug: docs/utility-classes
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+Building apps with Regular CSS can be a lot of work, but it doesn't have to be. Yumma CSS uses an abbreviated syntax for its class names than other utility-first frameworks like Tailwind CSS. 
+This makes it easier to write less code while keeping things readable and understandable.
+
+<Tabs>
+    <TabItem label="Tailwind CSS">
+        ```html
+        <div class="bg-white max-w-sm mx-auto p-4 rounded-xl shadow-md space-y-4">
+            <div class="flex items-center space-x-4">
+                <img src="https://unsplash.com/photos/Juh_wPp2Zsg" alt="Album Art" class="bg-gray-100 rounded-lg size-20" />
+                <div class="space-y-1">
+                    <p class="text-blue-500 text-sm">The Wiolets</p>
+                    <h2 class="text-gray-800 text-sm">if my soul doesn't find me - Demo</h2>
+                </div>
+            </div>
+        </div>
+        ```
+    </TabItem>
+    <TabItem label="Yumma CSS">
+        ```html
+        <div class="bg-white bs-md max-w-96 mx-auto p-4 rad-2 s-y-4">
+            <div class="ai-c d-f s-x-4">
+                <img src="https://unsplash.com/photos/Juh_wPp2Zsg" alt="Album Art" class="bg-gray dim-20 rad-2" />
+                <div class="s-y-1">
+                    <p class="fs-sm tc-blue">The Wiolets</p>
+                    <h2 class="fs-sm tc-d-gray-4">if my soul doesn't find me - Demo</h2>
+                </div>
+            </div>
+        </div>
+        ```
+    </TabItem>
+</Tabs>
+
+Yumma CSS helps you get more done with less effort. Here's another comparison between Tailwind CSS and Yumma CSS:
+
+Using Tailwind CSS
+
+- `flex`: `display: flex`
+- `gap-x-1`: `column-gap: 0.25rem`
+- `items-center`: `align-items: center`
+- `justify-center`: `justify-content: center`
+- `relative`: `position: relative`
+
+Using Yumma CSS
+
+- `d-f`: `display: flex`
+- `cg-1`: `column-gap: 0.25rem`
+- `ai-c`: `align-items: center`
+- `jc-c`: `justify-content: center`
+- `p-r`: `position: relative`
+

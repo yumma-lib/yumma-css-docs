@@ -7,7 +7,7 @@ slug: docs/text-color
 Controls the text color of an element.
 
 <Color 
-  classPrefix="t-" 
+  classPrefix="tc-" 
   classValues={['color']} 
   data={[
     { color: 'red', value: '#d73d3d' },
@@ -29,7 +29,7 @@ Controls the text color of an element.
 ## Color
 
 <Preview
-  data = {`<h3 class="t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
+  data = {`<h3 class="tc-pink">The quick brown fox jumps over the lazy dog.</h3>`}
   usePadding
   useCenter
   useVersion = '2974781'
@@ -37,10 +37,10 @@ Controls the text color of an element.
 
 ### Using hover states
 
-Use `h:t-*` to modify elements to override other background classes.
+Use `h:tc-*` to modify elements to override other background classes.
 
 <Preview
-  data = {`<h3 class="t-gray h:t-pink">The quick brown fox jumps over the lazy dog.</h3>`}
+  data = {`<h3 class="tc-gray h:tc-pink">The quick brown fox jumps over the lazy dog.</h3>`}
   usePadding
   useCenter
   useVersion = '2974781'
