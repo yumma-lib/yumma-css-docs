@@ -1,0 +1,44 @@
+---
+description: Setup Yumma CSS in an Angular project.
+title: Install Yumma CSS with Angular
+slug: docs/integrations/angular
+---
+
+import { Code, Steps } from '@astrojs/starlight/components';
+
+export const onStyles = `/* Standard version */
+@import '~yummacss/dist/yumma.css';`;
+
+<Steps>
+    1. Install Yumma CSS in your Angular application:
+
+        ```bash title="Terminal"
+        npm install yummacss@latest
+        ```
+
+    2. Add Yumma CSS to your Angular project:
+
+        <Code code={onStyles} lang="css" title="styles.css" />
+
+    3. Include the compiled CSS file in your project:
+
+        ```json
+        "styles": [
+          "src/styles.css"
+        ]
+        ```
+
+    4. Start your Angular development server:
+
+        ```bash title="Terminal"
+        ng serve
+        ```
+
+    5. Begin using Yumma CSS in your Angular project:
+
+        ```html title="app.component.html"
+        <div class="ai-c bg-blue d-f jc-c h-1/1">
+          <h1 class="fs-lg fw-700 t-white">Yumma CSS + Angular</h1>
+        </div>
+        ```
+</Steps>

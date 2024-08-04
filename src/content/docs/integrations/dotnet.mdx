@@ -1,0 +1,36 @@
+---
+description: Dynamic server-side web apps.
+title: Install Yumma CSS with ASP.NET
+slug: docs/integrations/dotnet
+---
+
+import { Code, Steps } from '@astrojs/starlight/components';
+
+export const onHTML = `<!-- Standard version -->
+<link rel="stylesheet" href="~/lib/yummacss/dist/yumma.min.css">`;
+
+<Steps>
+    1. Install Yumma CSS using LibMan:
+
+        ```bash title="Terminal"
+        libman install yummacss --provider cdnjs
+        ```
+
+    2. Include Yumma CSS in your layout file in your `<head>` section:
+
+        <Code code={onHTML} lang="html" title="_Layout.cshtml" />
+
+    3. Start your ASP.NET development server:
+
+        ```bash title="Terminal"
+        dotnet run
+        ```
+
+    4. Begin using Yumma CSS in your ASP.NET project:
+
+        ```html title="Views/Home/Index.cshtml"
+        <div class="ai-c bg-blue d-f jc-c h-1/1">
+          <h1 class="fs-lg fw-700 t-white">Yumma CSS + ASP.NET</h1>
+        </div>
+        ```
+</Steps>
