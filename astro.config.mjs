@@ -10,6 +10,14 @@ import starlightLinksValidator from 'starlight-links-validator';
 
 export default defineConfig({
 	integrations: [
+		autoImport({
+			imports: [
+				'./src/components/Color.astro',
+				'./src/components/Palette.astro',
+				'./src/components/Preview.astro',
+				'./src/components/Utility.astro',
+			],
+		}),
 		liveCode(),
 		starlight({
 			favicon: '/favicon.ico',
@@ -38,9 +46,9 @@ export default defineConfig({
 				github: 'https://github.com/yumma-lib/yumma-css',
 				discord: 'https://discord.gg/Zd2y6yVqgK',
 				twitter: 'https://x.com/yummacss'
-			},	
+			},
 			sidebar: [
-				
+
 				{
 					label: 'Getting Started',
 					items: [
@@ -173,13 +181,5 @@ export default defineConfig({
 				},
 			],
 		}),
-		autoImport({
-			imports: [
-				'./src/components/Color.astro',
-				'./src/components/Palette.astro',
-				'./src/components/Preview.astro',
-				'./src/components/Utility.astro'
-			],
-		}),
-	],
+	]
 });
