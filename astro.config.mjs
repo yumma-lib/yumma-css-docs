@@ -24,7 +24,7 @@ export default defineConfig({
 						Renildo: {
 							name: 'Renildo Pereira',
 							title: 'Maintainer',
-							picture: 'src/assets/renildo.jpg',
+							picture: '/renildo.jpg',
 							url: 'https://x.com/rrenildoo'
 						},
 					},
