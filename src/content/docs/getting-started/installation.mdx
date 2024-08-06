@@ -18,7 +18,6 @@ import {
   TabItem,
 } from "@astrojs/starlight/components";
 
-import { ShowcaseImage } from "starlight-showcases";
 import { ShowcaseText } from "starlight-showcases";
 
 export const viaNPM = `<!-- Minified version -->
@@ -55,52 +54,44 @@ The Yumma CSS Library allows users to construct websites in accordance with thei
   </TabItem>
 
   <TabItem label="Integration Guides" icon="open-book">
-    <ShowcaseImage
+    <ShowcaseText
       entries={[
         {
-          thumbnail: import('/src/assets/images/angular.png'),
           description: 'A scalable web app framework.',
           href: 'integrations/angular',
           title: 'Angular'
         },
         {
-          thumbnail: import('/src/assets/images/astro.png'),
           description: 'Modern static site builder.',
           href: 'integrations/astro',
           title: 'Astro'
         },
         {
-          thumbnail: import('/src/assets/images/nextjs.png'),
           description: 'An advanced React framework.',
           href: 'integrations/nextjs',
           title: 'Next.js'
         },
         {
-          thumbnail: import('/src/assets/images/react.png'),
           description: 'Library for interactive UIs.',
           href: 'integrations/react',
           title: 'React'
         },
         {
-          thumbnail: import('/src/assets/images/svelte.png'),
           description: 'Framework compiling into JS.',
           href: 'integrations/svelte',
           title: 'Svelte'
         },
         {
-          thumbnail: import('/src/assets/images/vite.png'),
           description: 'Fast build tool for web apps.',
           href: 'integrations/vite',
           title: 'Vite'
         },
         {
-          thumbnail: import('/src/assets/images/vue.png'),
           description: 'Progressive JavaScript framework.',
           href: 'integrations/vue',
           title: 'Vue'
         },
         {
-          thumbnail: import('/src/assets/images/dotnet.png'),
           description: 'Dynamic server-side web apps.',
           href: 'integrations/dotnet',
           title: 'ASP.NET'
