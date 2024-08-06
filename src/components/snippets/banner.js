@@ -18,7 +18,7 @@ export const leftAligned = `
           We work with cookies!
         </h2>
         <p class="fs-sm mt-2 t-d-silver-4">
-          We use cookies in order to optimise the overall user experience Visit our
+          We use cookies in order to optimize the overall user experience. Visit our
           <a class="ai-c d-if fw-500 gc-3 t-blue tdl-u" href="#">Cookies Policy</a>
           for more information.
         </p>
@@ -46,7 +46,7 @@ export const rightAligned = `
           We work with cookies!
         </h2>
         <p class="fs-sm mt-2 t-d-silver-4">
-          We use cookies in order to optimise the overall user experience Visit our
+          We use cookies in order to optimize the overall user experience. Visit our
           <a class="ai-c d-if fw-500 gc-3 t-blue tdl-u" href="#">Cookies Policy</a>
           for more information.
         </p>

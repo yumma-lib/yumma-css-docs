@@ -7,7 +7,7 @@ export const withDescription = `
             </svg>
         </div>
         <div class="ml-4">
-            <h3 class="fs-sm fw-600">Oh no! The server connection has failed.</h3>
+            <h3 class="fs-sm fw-600">Oh, no! The server connection has failed.</h3>
             <div class="fs-sm mt-1 t-d-yellow-4">Unfortunately, an internal error occurred on the server, which prevented the saving of your progress.</div>
         </div>
     </div>
@@ -78,7 +78,7 @@ export const withAccentBorder = `
         </div>
         <div class="ml-3">
             <h3 class="fw-600 t-d-red-6">
-                Purchase incomplete
+                Purchase incomplete!
             </h3>
             <p class="fs-sm t-d-red-5">
                 The funds currently available are not enough to complete this transaction.
