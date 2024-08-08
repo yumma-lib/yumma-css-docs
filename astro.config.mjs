@@ -10,7 +10,6 @@ import starlightLinksValidator from 'starlight-links-validator';
 export default defineConfig({
 	integrations: [
 		starlight({
-			titleDelimiter: '',
 			favicon: '/favicon.ico',
 			logo: {
 				light: '/public/yma-light.svg',
