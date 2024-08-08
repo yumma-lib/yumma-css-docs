@@ -23,6 +23,20 @@ Controls the collapsing or separation of table borders.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:bc-*`, `md:bc-*`, `lg:bc-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:bc-*`, `md:bc-*`, `lg:bc-*` allows targeting specific utilities in different viewports.
+
+```html "md:bc-c"
+<div class="bc-s md:bc-c ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:bc-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:bc-d-c"
+<div class="bc-s h:bc-c ..."></div>
+```

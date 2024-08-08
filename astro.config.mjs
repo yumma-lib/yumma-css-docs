@@ -10,6 +10,7 @@ import starlightLinksValidator from 'starlight-links-validator';
 export default defineConfig({
 	integrations: [
 		starlight({
+			titleDelimiter: '',
 			favicon: '/favicon.ico',
 			logo: {
 				light: '/public/yma-light.svg',
@@ -36,9 +37,9 @@ export default defineConfig({
 				github: 'https://github.com/yumma-lib/yumma-css',
 				discord: 'https://discord.gg/Zd2y6yVqgK',
 				twitter: 'https://x.com/yummacss'
-			},	
+			},
 			sidebar: [
-				
+
 				{
 					label: 'Getting Started',
 					items: [
@@ -128,6 +129,8 @@ export default defineConfig({
 								{ label: 'Grid Auto Columns', link: 'docs/grid-auto-columns' },
 								{ label: 'Grid Auto Flow', link: 'docs/grid-auto-flow' },
 								{ label: 'Grid Auto Rows', link: 'docs/grid-auto-rows' },
+								{ label: 'Grid Column', link: 'docs/grid-column'},
+								{ label: 'Grid Row', link: 'docs/grid-row'},
 								{ label: 'Grid Template Columns', link: 'docs/grid-template-columns' },
 								{ label: 'Grid Template Rows', link: 'docs/grid-template-rows' }
 							]
@@ -174,6 +177,7 @@ export default defineConfig({
 		autoImport({
 			imports: [
 				'./src/components/Color.astro',
+				'./src/components/Hover.astro',
 				'./src/components/Palette.astro',
 				'./src/components/Preview.astro',
 				'./src/components/Utility.astro'

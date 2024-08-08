@@ -151,18 +151,20 @@ Controls the color of the top border of an element.
 />
 
 <Preview
-  data = {`<div class="b-2 bc-pink bc-t-l-pink-4 dim-14"></div>`}
+  data = {`<div class="b-2 bc-pink bc-tc-l-pink-4 dim-14"></div>`}
   usePadding
   useCenter
   useVersion = 'release'
 />
 
-### Using hover states
+### Using variants
 
-Use `h:bc-*` to modify elements to override other background classes.
+Using `:hover` variants such as `h:bc-*` allows you to override elements and change their values when hovering over them.
+
+<Hover>Move the mouse to see how the border changes in the Preview tab.</Hover>
 
 <Preview
-  data = {`<div class="bc-gray dim-14 h:bc-pink rad-1"></div>`}
+  data = {`<div class="b-1 bc-gray bg-white dim-14 h:bc-pink"></div>`}
   usePadding
   useCenter
   useVersion = 'release'

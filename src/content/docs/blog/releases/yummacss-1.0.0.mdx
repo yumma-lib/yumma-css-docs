@@ -4,27 +4,24 @@ cover:
   alt: Yumma CSS
   image: /src/content/docs/blog/releases/covers/yummacss-1.0.0.png
 date: 2024-01-03
-excerpt: After a few months of development, I'm releasing the first major release. For this release, my focus is to implement several utility classes, but more importantly to improve the overall experience of using Yumma CSS. This is — [Yumma CSS v1.0.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.0.0).
+excerpt: After a few months of development, I'm ready to release the first major version. In this release, I'm focusing on implementing a few utility classes and, more importantly, on improving the overall experience of using Yumma CSS.
 pagefind: false
 slug: blog/yummacss-1.0
-tableOfContents: false
-tags: [update]
+tags: [release, update]
 title: Yumma CSS 1.0
 ---
 
 import { ShowcaseText } from 'starlight-showcases';
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-After a few months of development, I'm releasing the first major release. For this release, my focus is to implement several utility classes, but more importantly to improve the overall experience of using Yumma CSS. This is — [Yumma CSS v1.0.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.0.0).
-
-## What's new in Yumma 1.0.0?
+After a few months of development, I'm ready to release the first major version. In this release, I'm focusing on implementing a few utility classes and, more importantly, on improving the overall experience of using Yumma CSS.
 
 You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.0.0) but, anyway, these are the most noticeable shifts:
 
-- **[Utilities expansion](#utilities-expansion):** Margin X and Y, Padding X and Y, Align Content, and several more.
-- **[Viewport expansion](#viewport-expansion):** Support for viewports for Height and Width utilities.
-- **[New color](#new-color):** Introducing Lead Color.
-- **[Syntax changes](#syntax-changes):** Refactoring display and Hover utility classes.
+- [Utilities expansion](#utilities-expansion): Margin X and Y, Padding X and Y, Align Content, and several more.
+- [Viewport expansion](#viewport-expansion): Support for viewports for Height and Width utilities.
+- [New color](#new-color): Introducing Lead Color.
+- [Syntax changes](#syntax-changes): Refactoring display and Hover utility classes.
 
 This is a major update that introduces groundbreaking features. Major releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, you probably need refactoring after upgrading.
 
@@ -32,7 +29,7 @@ This is a major update that introduces groundbreaking features. Major releases f
 
 ### Utilities expansion
 
-This update will mainly focus on flexbox classes, as this was one of the biggest limitations of Yumma CSS before, so I decided to implement a set of utilities to reach even more flexibility of Yumma CSS.
+This update is mostly about flexbox classes, which were a big limitation of Yumma CSS before. I've added a set of utilities to make Yumma CSS even more flexible.
 
 <Utility
   data={[
@@ -93,7 +90,7 @@ This update will mainly focus on flexbox classes, as this was one of the biggest
   ]}
 />
 
-As the layouts of the applications evolve, I feel the need to implement more and more utilities, so here are a few of them:
+As the layouts of the applications change, I think it'd be good to add more control over the page. I've listed a few of them below:
 
 <Utility
   data={[
@@ -118,7 +115,7 @@ As the layouts of the applications evolve, I feel the need to implement more and
   ]}
 />
 
-A whole new collection of advanced text formatting utilities for typographers is also introduced with Yumma CSS v1.0.
+Yumma CSS v1.0 also introduces a whole new collection of advanced text formatting utilities for typographers.
 
 <Utility
   data={[
@@ -147,7 +144,7 @@ A whole new collection of advanced text formatting utilities for typographers is
 
 ### Viewport expansion
 
-In addition, I'm now adding viewports for the **Height** and **Width** utilities. This will help a lot with responsive designs, and I can't wait to expand it to the other utilities.
+I'm also going to add viewports for the Height and Width utilities. This will be a huge help with responsive designs, and I can't wait to roll it out to the other utilities.
 
 ```html
 <div class="... h-10 md:h-auto md:w-auto w-10">...</div>
@@ -157,7 +154,7 @@ In addition, I'm now adding viewports for the **Height** and **Width** utilities
 
 ### New color
 
-Nobody builds websites in dark mode using the color gray, right? The new **Lead** color is perfect for creating applications or websites that use dark mode natively.
+I'm sure nobody builds websites in dark mode using gray, right? The new lead color is perfect for creating single-theme apps.
 
 <Palette
   data={[
@@ -172,22 +169,22 @@ Nobody builds websites in dark mode using the color gray, right? The new **Lead*
 
 ### Syntax changes
 
-Changing the syntax for the class name of the **Display** utility, since it wasn't really consistent among the other classes at all.
+I'm changing the syntax for the Display utility class name because it wasn't really consistent with the other classes.
 
 <Tabs>
   <TabItem value="now" label="Now">
     ```html
-    <div class="d-f"></div>
+    <div class="d-*"></div>
     ```
   </TabItem>
   <TabItem value="then" label="Then">
     ```html
-    <div class="dis-f"></div>
+    <div class="dis-*"></div>
     ```
   </TabItem>
 </Tabs>
 
-I'm also going to change the syntax for the hover state classes, this change consists of declaring them at the beginning of the utility `h:[value]` to make the code easier to understand.
+I'm also going to tweak the syntax for the hover state classes. Basically, I'm going to move them to the start of the utility `h:*` to make the code easier to understand.
 
 <Tabs>
   <TabItem value="now" label="Now">
@@ -213,7 +210,7 @@ npm install yummacss@latest
 ```
 ## Community
 
-Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
+Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
 
 <ShowcaseText
   entries={[

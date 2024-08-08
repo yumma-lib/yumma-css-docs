@@ -5,30 +5,24 @@ cover:
   image: /src/content/docs/blog/releases/covers/yummacss-2.0.0.png
 date: 2024-07-03
 draft: true
-excerpt: Yup, it's happening again! Today, I'm super jazzed to announce [Yumma CSS v2.0.0](https://github.com/yumma-lib/yumma-css/releases/tag/v2.0.0). This new update is packed with an extensive set of new utilities, major improvements, redesigned source code and of course some important fixes.
+excerpt: Yes, it's happening again! I'm excited to announce the release of Yumma CSS v2.0.0! This new update is full of new features, big improvements, a redesigned source code, and of course, some important fixes.
 pagefind: false
 slug: blog/yummacss-2.0
-tableOfContents: false
-tags: [update]
+tags: [release, update]
 title: Yumma CSS 2.0
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { ShowcaseText } from 'starlight-showcases';
 
-Yup, it's happening again! Today, I'm super jazzed to announce [Yumma CSS v2.0.0](https://github.com/yumma-lib/yumma-css/releases/tag/v2.0.0). This new update is packed with an extensive set of new utilities, major improvements, redesigned source code and of course some important fixes.
+Yes, it's happening again! I'm excited to announce the release of Yumma CSS v2.0.0! This new update is full of new features, big improvements, a redesigned source code, and of course, some important fixes.
 
-## What's new in Yumma 2.0.0?
+You might also want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v2.0.0). Anyway, these are the most noticeable changes:
 
-You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v2.0.0) but, anyway these are the most noticeable shifts:
-
-- **[All new utilities](#all-new-utilities):** Silver color, Gap, Spacing, and much more
-
-- **[Base styles](#base-styles):** Base styles are now optional
-
-- **[Responsive breakpoints](#responsive-breakpoints):** Media query utilities support extended
-
-- **[Container rules](#container-rules):** New container utility rules
+- [All new utilities](#all-new-utilities): Silver color, Gap, Spacing, and much more
+- [Base styles](#base-styles): Base styles are now optional
+- [Responsive breakpoints](#responsive-breakpoints): Media query utilities support extended
+- [Container rules](#container-rules): New container utility rules
 
 This is a major update that introduces groundbreaking features. Major releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, you probably need refactoring after upgrading.
 
@@ -36,7 +30,7 @@ This is a major update that introduces groundbreaking features. Major releases f
 
 ### All new utilities
 
-In each new major release, I consistently introduce new customization utilities. This latest release is no exception, as it introduces the **Accent Color** utilities.
+With each new major release, I always add new customization utilities. This latest release is no exception, as it introduces the Accent Color utilities.
 
 <Color 
   classPrefix='ac-' 
@@ -58,7 +52,7 @@ In each new major release, I consistently introduce new customization utilities.
   ]}
 />
 
-Also, I'm also introducing a new color option in the color Palette — The Silver Color.
+I'm also adding a new color to the color palette — Silver.
 
 <Palette
   data={[
@@ -69,7 +63,7 @@ Also, I'm also introducing a new color option in the color Palette — The Silve
   ]}
 />
 
-The **Aspect Ratio** is a valuable addition, particularly for image elements.
+The Aspect Ratio is a great addition, especially for image elements.
 
 <Utility
   data={[
@@ -94,7 +88,7 @@ The **Aspect Ratio** is a valuable addition, particularly for image elements.
   ]}
 />
 
-You can now apply cool effects to your components thanks to the **Backdrop Filter** utilities.
+You can now apply cool effects to your components thanks to the Backdrop Filter utilities.
 
 <Utility
   data={[
@@ -137,7 +131,7 @@ You can now apply cool effects to your components thanks to the **Backdrop Filte
   ]}
 />
 
-I'm finally adding the **Border Collapse** utilities to create better tables in your site with Yumma CSS.
+I'm finally adding the Border Collapse utilities to create better tables in your site with Yumma CSS.
 
 <Utility
   data={[
@@ -156,7 +150,7 @@ I'm finally adding the **Border Collapse** utilities to create better tables in 
   ]}
 />
 
-The recently introduced **Border Style** utilities offer the ability to alter the formatting of underlines applied to elements.
+The new Border Style utilities let you change how underlines look on different elements.
 
 <Utility
   data={[
@@ -187,7 +181,7 @@ The recently introduced **Border Style** utilities offer the ability to alter th
   ]}
 />
 
-I'm also implementing utilities for Tables elements like **Caption Side**.
+I'm also adding some handy features for tables, like Caption Side.
 
 <Utility
   data={[
@@ -206,41 +200,7 @@ I'm also implementing utilities for Tables elements like **Caption Side**.
   ]}
 />
 
-You can now change the color of SVG elements with Yumma CSS 2.0 using the new **Fill** color utilities.
-
-<Color 
-  classPrefix='f-' 
-  classValues={['fill']} 
-  data={[
-    { color: 'red', value: '#d73d3d' },
-    { color: 'orange', value: '#e06814' },
-    { color: 'yellow', value: '#d3a107' },
-    { color: 'green', value: '#1fb155' },
-    { color: 'teal', value: '#12a695' },
-    { color: 'cyan', value: '#05a4bf' },
-    { color: 'blue', value: '#3575dd' },
-    { color: 'indigo', value: '#595cd9' },
-    { color: 'violet', value: '#7d53dd' },
-    { color: 'pink', value: '#d4418a' },
-    { color: 'gray', value: '#606773' },
-    { color: 'lead', value: '#3f3f4e' }
-  ]}
-/>
-
-In Yumma CSS 2.0, modifications has been made to the **Container** utility class, with the introduction of new default breakpoint rules.
-
-<Utility
-  data={[
-    {
-      className: 'cnt',
-      properties: [
-        'width: 100%;', 'max-width: 640px;', 'max-width: 768px;', 'max-width: 1024px;', 'max-width: 1280px;'
-      ]
-    }
-  ]}
-/>
-
-It is now possible to modify the **Font Style** of text elements within the specified themes.
+You can now change the Font Style of text elements in the selected themes.
 
 <Utility
   data={[
@@ -259,7 +219,7 @@ It is now possible to modify the **Font Style** of text elements within the spec
   ]}
 />
 
-The **Gap** utilities aren't necessarily new, but they are different, in older versions **Gap** were intended strictly for responsive layouts and not for adding gaps between elements. In Yumma CSS v2.0 this won't be the case anymore.
+The Gap utilities aren't necessarily new, but they are different in older versions. Gap was designed for responsive layouts, not for adding gaps between elements.
 
 <Utility
   data={[
@@ -362,9 +322,157 @@ The **Gap** utilities aren't necessarily new, but they are different, in older v
   ]}
 />
 
-I'm also including **Object Fit** and **Object Position** utility classes.
+If you're looking for more control over your grid layouts, this new update includes new utility classes to control Grid Column and Grid Row properties.
 
-**Object Fit**
+<Tabs>
+  <TabItem label='Grid Column'>
+
+  ##### Grid Column Span
+
+    <Utility
+      data={[
+        { className: 'gc-s-1', properties: ['grid-column: span 1 / span 1;'] },
+        { className: 'gc-s-2', properties: ['grid-column: span 2 / span 2;'] },
+        { className: 'gc-s-3', properties: ['grid-column: span 3 / span 3;'] },
+        { className: 'gc-s-4', properties: ['grid-column: span 4 / span 4;'] },
+        { className: 'gc-s-5', properties: ['grid-column: span 5 / span 5;'] },
+        { className: 'gc-s-6', properties: ['grid-column: span 6 / span 6;'] },
+        { className: 'gc-s-7', properties: ['grid-column: span 7 / span 7;'] },
+        { className: 'gc-s-8', properties: ['grid-column: span 8 / span 8;'] },
+        { className: 'gc-s-9', properties: ['grid-column: span 9 / span 9;'] },
+        { className: 'gc-s-10', properties: ['grid-column: span 10 / span 10;'] },
+        { className: 'gc-s-11', properties: ['grid-column: span 11 / span 11;'] },
+        { className: 'gc-s-12', properties: ['grid-column: span 12 / span 12;'] },
+        { className: 'gc-s-13', properties: ['grid-column: span 13 / span 13;'] },
+        { className: 'gc-s-14', properties: ['grid-column: span 14 / span 14;'] },
+        { className: 'gc-s-15', properties: ['grid-column: span 15 / span 15;'] },
+        { className: 'gc-s-16', properties: ['grid-column: span 16 / span 16;'] }
+      ]}
+    />
+
+    ##### Grid Column End
+
+    <Utility
+      data={[
+        { className: 'gce-1', properties: ['grid-column-end: 1;'] },
+        { className: 'gce-2', properties: ['grid-column-end: 2;'] },
+        { className: 'gce-3', properties: ['grid-column-end: 3;'] },
+        { className: 'gce-4', properties: ['grid-column-end: 4;'] },
+        { className: 'gce-5', properties: ['grid-column-end: 5;'] },
+        { className: 'gce-6', properties: ['grid-column-end: 6;'] },
+        { className: 'gce-7', properties: ['grid-column-end: 7;'] },
+        { className: 'gce-8', properties: ['grid-column-end: 8;'] },
+        { className: 'gce-9', properties: ['grid-column-end: 9;'] },
+        { className: 'gce-10', properties: ['grid-column-end: 10;'] },
+        { className: 'gce-11', properties: ['grid-column-end: 11;'] },
+        { className: 'gce-12', properties: ['grid-column-end: 12;'] },
+        { className: 'gce-13', properties: ['grid-column-end: 13;'] },
+        { className: 'gce-14', properties: ['grid-column-end: 14;'] },
+        { className: 'gce-15', properties: ['grid-column-end: 15;'] },
+        { className: 'gce-16', properties: ['grid-column-end: 16;'] }
+      ]}
+    />
+
+    ##### Grid Column Start
+
+    <Utility
+      data={[
+        { className: 'gcs-1', properties: ['grid-column-start: 1;'] },
+        { className: 'gcs-2', properties: ['grid-column-start: 2;'] },
+        { className: 'gcs-3', properties: ['grid-column-start: 3;'] },
+        { className: 'gcs-4', properties: ['grid-column-start: 4;'] },
+        { className: 'gcs-5', properties: ['grid-column-start: 5;'] },
+        { className: 'gcs-6', properties: ['grid-column-start: 6;'] },
+        { className: 'gcs-7', properties: ['grid-column-start: 7;'] },
+        { className: 'gcs-8', properties: ['grid-column-start: 8;'] },
+        { className: 'gcs-9', properties: ['grid-column-start: 9;'] },
+        { className: 'gcs-10', properties: ['grid-column-start: 10;'] },
+        { className: 'gcs-11', properties: ['grid-column-start: 11;'] },
+        { className: 'gcs-12', properties: ['grid-column-start: 12;'] },
+        { className: 'gcs-13', properties: ['grid-column-start: 13;'] },
+        { className: 'gcs-14', properties: ['grid-column-start: 14;'] },
+        { className: 'gcs-15', properties: ['grid-column-start: 15;'] },
+        { className: 'gcs-16', properties: ['grid-column-start: 16;'] }
+      ]}
+    />
+  </TabItem>
+
+  <TabItem label='Grid Row'>
+
+  ##### Grid Row Span
+
+    <Utility
+      data={[
+        { className: 'gr-s-1', properties: ['grid-row: span 1 / span 1;'] },
+        { className: 'gr-s-2', properties: ['grid-row: span 2 / span 2;'] },
+        { className: 'gr-s-3', properties: ['grid-row: span 3 / span 3;'] },
+        { className: 'gr-s-4', properties: ['grid-row: span 4 / span 4;'] },
+        { className: 'gr-s-5', properties: ['grid-row: span 5 / span 5;'] },
+        { className: 'gr-s-6', properties: ['grid-row: span 6 / span 6;'] },
+        { className: 'gr-s-7', properties: ['grid-row: span 7 / span 7;'] },
+        { className: 'gr-s-8', properties: ['grid-row: span 8 / span 8;'] },
+        { className: 'gr-s-9', properties: ['grid-row: span 9 / span 9;'] },
+        { className: 'gr-s-10', properties: ['grid-row: span 10 / span 10;'] },
+        { className: 'gr-s-11', properties: ['grid-row: span 11 / span 11;'] },
+        { className: 'gr-s-12', properties: ['grid-row: span 12 / span 12;'] },
+        { className: 'gr-s-13', properties: ['grid-row: span 13 / span 13;'] },
+        { className: 'gr-s-14', properties: ['grid-row: span 14 / span 14;'] },
+        { className: 'gr-s-15', properties: ['grid-row: span 15 / span 15;'] },
+        { className: 'gr-s-16', properties: ['grid-row: span 16 / span 16;'] }
+      ]}
+    />
+
+    ##### Grid Row End
+
+    <Utility
+      data={[
+        { className: 'gre-1', properties: ['grid-row-end: 1;'] },
+        { className: 'gre-2', properties: ['grid-row-end: 2;'] },
+        { className: 'gre-3', properties: ['grid-row-end: 3;'] },
+        { className: 'gre-4', properties: ['grid-row-end: 4;'] },
+        { className: 'gre-5', properties: ['grid-row-end: 5;'] },
+        { className: 'gre-6', properties: ['grid-row-end: 6;'] },
+        { className: 'gre-7', properties: ['grid-row-end: 7;'] },
+        { className: 'gre-8', properties: ['grid-row-end: 8;'] },
+        { className: 'gre-9', properties: ['grid-row-end: 9;'] },
+        { className: 'gre-10', properties: ['grid-row-end: 10;'] },
+        { className: 'gre-11', properties: ['grid-row-end: 11;'] },
+        { className: 'gre-12', properties: ['grid-row-end: 12;'] },
+        { className: 'gre-13', properties: ['grid-row-end: 13;'] },
+        { className: 'gre-14', properties: ['grid-row-end: 14;'] },
+        { className: 'gre-15', properties: ['grid-row-end: 15;'] },
+        { className: 'gre-16', properties: ['grid-row-end: 16;'] }
+      ]}
+    />
+
+    ##### Grid Row Start
+
+    <Utility
+      data={[
+        { className: 'grs-1', properties: ['grid-row-start: 1;'] },
+        { className: 'grs-2', properties: ['grid-row-start: 2;'] },
+        { className: 'grs-3', properties: ['grid-row-start: 3;'] },
+        { className: 'grs-4', properties: ['grid-row-start: 4;'] },
+        { className: 'grs-5', properties: ['grid-row-start: 5;'] },
+        { className: 'grs-6', properties: ['grid-row-start: 6;'] },
+        { className: 'grs-7', properties: ['grid-row-start: 7;'] },
+        { className: 'grs-8', properties: ['grid-row-start: 8;'] },
+        { className: 'grs-9', properties: ['grid-row-start: 9;'] },
+        { className: 'grs-10', properties: ['grid-row-start: 10;'] },
+        { className: 'grs-11', properties: ['grid-row-start: 11;'] },
+        { className: 'grs-12', properties: ['grid-row-start: 12;'] },
+        { className: 'grs-13', properties: ['grid-row-start: 13;'] },
+        { className: 'grs-14', properties: ['grid-row-start: 14;'] },
+        { className: 'grs-15', properties: ['grid-row-start: 15;'] },
+        { className: 'grs-16', properties: ['grid-row-start: 16;'] }
+      ]}
+    />
+  </TabItem>
+</Tabs>
+
+I'm also including the Object Fit and Object Position utility classes.
+
+##### Object Fit
 
 <Utility
   data={[
@@ -396,7 +504,7 @@ I'm also including **Object Fit** and **Object Position** utility classes.
   ]}
 />
 
-**Object Position**
+##### Object Position
 
 <Utility
   data={[
@@ -457,9 +565,9 @@ I'm also including **Object Fit** and **Object Position** utility classes.
   ]}
 />
 
-In addition to the previously discussed customization utilities, Yumma CSS 2.0 also includes **Outline Color**, **Outline Offset**, **Outline Style** and **Outline Width** utility classes.
+On top of the customization utilities we've already talked about, Yumma CSS 2.0 also includes Outline Color, Outline Offset, Outline Style, and Outline Width utility classes.
 
-**Outline Color**
+##### Outline Color
 
 <Color 
   classPrefix='oc-' 
@@ -480,7 +588,7 @@ In addition to the previously discussed customization utilities, Yumma CSS 2.0 a
   ]}
 />
 
-**Outline Offset**
+##### Outline Offset
 
 <Utility
   data={[
@@ -517,7 +625,7 @@ In addition to the previously discussed customization utilities, Yumma CSS 2.0 a
   ]}
 />
 
-**Outline Style**
+##### Outline Style
 
 <Utility
   data={[
@@ -548,7 +656,7 @@ In addition to the previously discussed customization utilities, Yumma CSS 2.0 a
   ]}
 />
 
-**Outline Width**
+##### Outline Width
 
 <Utility
   data={[
@@ -585,9 +693,9 @@ In addition to the previously discussed customization utilities, Yumma CSS 2.0 a
   ]}
 />
 
-Yumma CSS 2.0 features the addition of **Spacing** utilities just like [Tailwind CSS](https://tailwindcss.com/docs/space). These utilities employ a distinct syntax, which is designed to facilitate the separation of elements within the main container. The utilization of these utilities can potentially result in the reduction of CSS code, which is a beneficial outcome.
+I'm also adding new Spacing utilities, similar to [Tailwind CSS](https://tailwindcss.com/docs/size). These utilities work a bit differently, in that they use a unique syntax. This means you don't need to specify `height` and `width` if they have the same value.
 
-**Spacing X**
+##### Spacing X
 
 <Utility 
   classPrefix='s-x-' 
@@ -597,7 +705,7 @@ Yumma CSS 2.0 features the addition of **Spacing** utilities just like [Tailwind
   unit='rem'
 />
 
-**Spacing Y**
+##### Spacing Y
 
 <Utility 
   classPrefix='s-y-' 
@@ -607,7 +715,7 @@ Yumma CSS 2.0 features the addition of **Spacing** utilities just like [Tailwind
   unit='rem' 
 />
 
-It would be remiss of me not to mention the new table utilities without also mentioning the **Table Layout** utility classes.
+I have to mention the new table utilities and the Table Layout utility classes.
 
 <Utility
   data={[
@@ -626,9 +734,9 @@ It would be remiss of me not to mention the new table utilities without also men
   ]}
 />
 
-In conclusion, the latest version of Yumma CSS 2.0 introduces a series of new utility classes specifically designed for text formatting. These include **Text Decoration Color**, **Text Decoration Style**, and **Text Decoration Thickness**.
+I'm also adding a bunch of new utility classes for text formatting to the table. These include things like Text Decoration Color, Text Decoration Style, and Text Decoration Thickness.
 
-**Text Decoration Color**
+##### Text Decoration Color
 
 <Color 
   classPrefix='tdc-' 
@@ -649,7 +757,7 @@ In conclusion, the latest version of Yumma CSS 2.0 introduces a series of new ut
   ]}
 />
 
-**Text Decoration Style**
+##### Text Decoration Style
 
 <Utility
   data={[
@@ -680,7 +788,7 @@ In conclusion, the latest version of Yumma CSS 2.0 introduces a series of new ut
   ]}
 />
 
-**Text Decoration Thickness**
+##### Text Decoration Thickness
 
 <Utility
   data={[
@@ -731,57 +839,58 @@ In conclusion, the latest version of Yumma CSS 2.0 introduces a series of new ut
 
 ### Base styles
 
-You can now use Yumma CSS without the default base styles, this might be helpful if you want to set specific rules in your theme.
+You can now use Yumma CSS without the default base styles. This could be really useful if you want to set specific rules in your theme.
 
-Standard
+##### Standard
 
 ```html
-<link href='https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.css' rel='stylesheet' crossorigin='anonymous'>
+<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.css" rel="stylesheet" crossorigin="anonymous">
 ```
 
-Minified
+##### Minified
 
 ```html
-<link href='https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.min.css' rel='stylesheet' crossorigin='anonymous'>
+<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.min.css" rel="stylesheet" crossorigin="anonymous">
 ```
 
 ### Responsive breakpoints
 
-Took me long enough, but I’m finally adding full media query support for every single utility class.
+It took me a while, but I've finally added full media query support for every single utility class.
 
 ```html
-<div class='cnt mx-auto p-4'>
+<div class="cnt mx-auto p-4">
   <!-- highlight-start -->
-  <div class='d-g gtc-1 sm:gtc-2 md:gtc-3 lg:gtc-4 g-4'>
+  <div class="d-g gtc-1 sm:gtc-2 md:gtc-3 lg:gtc-4 g-4">
     <!-- highlight-end -->
-    <div class='...'></div>
-    <div class='...'></div>
-    <div class='...'></div>
+    <div class="...">...</div>
+    <div class="...">...</div>
+    <div class="...">...</div>
   </div>
 </div>
 ```
 
-Yumma CSS will also change the way breakpoint behaves in your browser.
+Yumma CSS is going to change how your browser handles breakpoints.
 
 <Tabs>
   <TabItem label='Now'>
     <Utility
         data={[
-          { className: 'sm', properties: ['min-width: 640px'] },
-          { className: 'md', properties: ['min-width: 768px'] },
-          { className: 'lg', properties: ['min-width: 1024px'] },
-          { className: 'xl', properties: ['min-width: 1280px'] },
+          { className: 'sm', properties: ['min-width: 640px;'] },
+          { className: 'md', properties: ['min-width: 768px;'] },
+          { className: 'lg', properties: ['min-width: 1024px;'] },
+            { className: 'xl', properties: ['min-width: 1280px;'] },
+          { className: 'xxl', properties: ['min-width: 1536px;'] }
         ]}
     />
   </TabItem>
   <TabItem label='Then'>
     <Utility
         data={[
-          { className: 'xs', properties: ['min-width: 0'] },
-          { className: 'sm', properties: ['min-width: 480px'] },
-          { className: 'md', properties: ['min-width: 720px'] },
-          { className: 'lg', properties: ['min-width: 960px'] },
-          { className: 'xl', properties: ['min-width: 1200px'] },
+          { className: 'xs', properties: ['min-width: 0;'] },
+          { className: 'sm', properties: ['min-width: 480px;'] },
+          { className: 'md', properties: ['min-width: 720px;'] },
+          { className: 'lg', properties: ['min-width: 960px;'] },
+          { className: 'xl', properties: ['min-width: 1200px;'] },
         ]}
     />
   </TabItem>
@@ -789,7 +898,7 @@ Yumma CSS will also change the way breakpoint behaves in your browser.
 
 ### Container rules
 
-The container utility is completely redesigned in this new update, starting with the new class name `ctn`, the new container will now have a set of media query rules to ensure responsiveness in your theme.
+The container utility has a fresh new look in this update. We've given it a new class name, `cnt`, and added a set of media query rules to make sure it responds well to different themes.
 
 <Tabs>
   <TabItem label='Now'>
@@ -829,7 +938,7 @@ npm install yummacss@latest
 
 ## Community
 
-Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
+Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
 
 <ShowcaseText
   entries={[

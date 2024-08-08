@@ -4,30 +4,24 @@ cover:
   alt: Yumma CSS
   image: /src/content/docs/blog/releases/covers/yummacss-1.1.0.png
 date: 2024-01-24
-excerpt: This update will not introduce any significant new features as it's more focused on small necessary improvements, utility syntax changes and small increments, but anyway here it is — [Yumma CSS v1.1.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.1.0).
+excerpt: This update isn't going to introduce any major new features. It's more about syntax changes. Anyway, here it is — [Yumma CSS v1.1.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.1.0).
 pagefind: false
 slug: blog/yummacss-1.1
-tableOfContents: false
-tags: [update]
+tags: [release, update]
 title: Yumma CSS 1.1
 ---
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import { ShowcaseText } from 'starlight-showcases';
 
-This update will not introduce any significant new features as it's more focused on small necessary improvements, utility syntax changes and small increments, but anyway here it is — [Yumma CSS v1.1.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.1.0).
-
-## What's new in Yumma 1.1.0?
+This update isn't going to introduce any major new features. It's more about syntax changes. Anyway, here it is — [Yumma CSS v1.1.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.1.0).
 
 You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.1.0) but, anyway these are the most noticeable shifts:
 
-- **[Button transition](#button-transition):** New button component animations.
-
-- **[Font sizes](#font-sizes):** New variant for font sizes.
-
-- **[New `dim-*`](#new-dim--utilities):** New utilities for setting height and width simultaneously.
-
-- **[Utility syntax changes](#utility-syntax-changes):** Changing syntax for Box Shadow, Column and List Style Type utilities.
+- [Button transition](#button-transition): New button component animations.
+- [Font sizes](#font-sizes): New variant for font sizes.
+- [New `dim-*`](#new-dim--utilities): New utilities for setting height and width simultaneously.
+- [Utility syntax changes](#utility-syntax-changes): Changing syntax for Box Shadow, Column and List Style Type utilities.
 
 This is an incremental update that may contain bug fixes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, this should be an easy update for you.
 
@@ -35,7 +29,7 @@ This is an incremental update that may contain bug fixes. Minor releases follow 
 
 ### Button transition
 
-The `btn-*` component has looked the same for way too long, and I wanted to change that with Yumma v1.1. So to make the button components a bit more fancy, with Yumma CSS v1.1 you will now have transitions for button components.
+The `btn-*` component has been around for a while, and I thought it could use a refresh with Yumma v1.1. So, to make the button components a bit more fancy, you'll now have transitions for button components with Yumma CSS v1.1.
 
 <Tabs>
   <TabItem value="now" label="Now">
@@ -62,7 +56,7 @@ The `btn-*` component has looked the same for way too long, and I wanted to chan
 
 ### Font sizes
 
-I'm going to implement a new class for font sizes in Yumma CSS 1.1, in this case and to be more specific a variant for the utility - `fs-xs`.
+I'm going to add a new class for font sizes in Yumma CSS 1.1. This is going to be a variant for the utility, specifically for the `fs-xs` size.
 
 <Utility
   data={[
@@ -79,7 +73,7 @@ I'm going to implement a new class for font sizes in Yumma CSS 1.1, in this case
 
 ### New `dim-*` utilities
 
-This is probably one of the most awesome additions I'm going to show you. The new `dim-*` utility has come to replace **Height** and **Width**, you might want to take a look.
+I'm excited to show you what I think is one of the coolest new additions. The new `dim-*` utility is here to replace Height and Width.
 
 <Tabs>
   <TabItem value="now" label="Now">
@@ -118,9 +112,9 @@ $breakpoints: (
 );
 ```
 
-Similar to the breakpoint change mentioned above, I thought it would make a lot of sense to take the same approach with the **Box Shadow** and **Font Sizes** utilities. Let's look at the difference:
+Similar to the breakpoint change mentioned above, I thought it would make a lot of sense to take the same approach with the Box Shadow and Font Sizes utilities. Let's look at the difference:
 
-**Box Shadow**
+##### Box Shadow
 
 <Tabs>
   <TabItem value="now" label="Now">
@@ -161,7 +155,7 @@ Similar to the breakpoint change mentioned above, I thought it would make a lot 
   </TabItem>
 </Tabs>
 
-**Font Sizes**
+##### Font Sizes
 
 <Tabs>
   <TabItem value="now" label="Now">
@@ -190,7 +184,7 @@ Similar to the breakpoint change mentioned above, I thought it would make a lot 
   </TabItem>
 </Tabs>
 
-Last but not least, Yumma CSS v1.1 will include a small change to the syntax of the **Columns** utility.
+Last but not least, Yumma CSS v1.1 will include a small change to the syntax of the Columns utility.
 
 <Tabs>
   <TabItem value="now" label="Now">
@@ -231,7 +225,7 @@ npm install yummacss@latest
 
 ## Community
 
-Become a member of the Yumma CSS community, share your experiences and help Yumma CSS to grow tall and powerful.
+Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
 
 <ShowcaseText
   entries={[
