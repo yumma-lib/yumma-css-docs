@@ -314,3 +314,21 @@ Controls the size and position of elements across columns.
     }
   ]}
 />
+
+---
+
+### Using breakpoints
+
+Using responsive breakpoints like `sm:gc-*`, `md:gc-*`, `lg:gc-*`, and `xxl:gc-*` allows targeting specific utilities in different viewports.
+
+```html "md:gc-2"
+<div class="gc-1 md:gc-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:gc-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:gc-2"
+<div class="gc-1 h:gc-2 ..."></div>
+```

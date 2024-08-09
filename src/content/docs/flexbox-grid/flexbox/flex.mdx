@@ -79,10 +79,30 @@ Controls how Flex elements grow and shrink.
       properties: [
         'flex: 50%;'
       ]
+    },
+    {
+      className: 'f-none',
+      properties: [
+        'flex: none;'
+      ]
     }
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:f-*`, `md:f-*`, `lg:f-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:f-*`, `md:f-*`, `lg:f-*`, and `xxl:f-*` allows targeting specific utilities in different viewports.
+
+```html "md:f-2"
+<div class="f-1 md:f-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:f-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:f-2"
+<div class="f-1 h:f-2 ..."></div>
+```

@@ -89,7 +89,7 @@ export default defineConfig({
 										{ label: 'Outline Color ', link: 'docs/outline-color' },
 										{ label: 'Outline Offset', link: 'docs/outline-offset' },
 										{ label: 'Outline Style', link: 'docs/outline-style' },
-										{ label: 'Outline Widith', link: 'docs/outline-width' }
+										{ label: 'Outline Width', link: 'docs/outline-width' }
 									]
 								},
 							]

@@ -107,6 +107,20 @@ Controls the alignment of text.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:ta-*`, `md:ta-*`, `lg:ta-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:ta-*`, `md:ta-*`, `lg:ta-*`, and `xxl:ta-*` allows targeting specific utilities in different viewports.
+
+```html "md:ta-c"
+<div class="ta-l md:ta-c ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:ta-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:ta-c"
+<div class="ta-l h:ta-c ..."></div>
+```

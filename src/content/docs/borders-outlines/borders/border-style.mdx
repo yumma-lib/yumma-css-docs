@@ -35,6 +35,20 @@ Controls the style of the borders of an element.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:b-*`, `md:b-*`, `lg:b-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:b-*`, `md:b-*`, `lg:b-*`, and `xxl:b-*` allows targeting specific utilities in different viewports.
+
+```html "md:b-s"
+<div class="b-h md:b-s ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:b-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:b-s"
+<div class="b-h h:b-s ..."></div>
+```

@@ -37,8 +37,8 @@ export const base = `
         <h4 class="fs-xs fw-600 tc-d-gray-6">DEVELOPERS</h4>
         <div class="fs-sm mt-3 s-y-3">
           <p><a class="h:tc-d-gray-4 tc-gray" href="#">Get started</a></p>
-          <p><a class="t-gray h:tc-d-gray-4" href="#">API docs</a> <span class="t-blue">— We're hiring</span></p>
-          <p><a class="h:tc-d-gray-4 tc-gray" href="#">Comumnity</a></p>
+          <p><a class="tc-gray h:tc-d-gray-4" href="#">API docs</a> <span class="tc-blue">— We're hiring</span></p>
+          <p><a class="h:tc-d-gray-4 tc-gray" href="#">Community</a></p>
         </div>
       </div>
     </div>

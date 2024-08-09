@@ -71,6 +71,20 @@ Controls the text decoration line of an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:tdl-*`, `md:tdl-*`, `lg:tdl-*` enables the targeting of specific utilities in disparate viewports.
+The utilization of breakpoint modifiers, like `sm:tdl-*`, `md:tdl-*`, `lg:tdl-*`, and `xxl:tdl-*` enables the targeting of specific utilities in disparate viewports.
+
+```html "md:tdl-u"
+<p class="tdl-none md:tdl-u ...">Underline</p>
+```
+
+### Using variants
+
+The `:hover` variant, such as `h:tdl-*`, allows you to modify text decoration lines when hovering over elements.
+
+```html "h:tdl-u"
+<p class="tdl-none h:tdl-u ...">Underline</p>
+```

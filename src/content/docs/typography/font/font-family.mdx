@@ -31,14 +31,14 @@ Controls the font family of an element.
 
 ## Default
 <Preview
-  data = {`<p class="ff-s fs-lg ta-c tc-l-gray-2">The quick brown fox jumps over the lazy dog.</p>`}
+  data = {`<p class="ff-s fs-lg ta-c tc-l-gray-i">The quick brown fox jumps over the lazy dog.</p>`}
   usePadding
   useVersion = 'release'
 />
 
 ## Charter
 <Preview
-  data = {`<p class="ff-c fs-lg ta-c tc-l-gray-2">The quick brown fox jumps over the lazy dog.</p>`}
+  data = {`<p class="ff-c fs-lg ta-c tc-l-gray-i">The quick brown fox jumps over the lazy dog.</p>`}
   usePadding
   useVersion = 'release'
 />
@@ -46,7 +46,7 @@ Controls the font family of an element.
 ## Inter
 
 <Preview
-  data = {`<p class="ff-i fs-lg ta-c tc-l-gray-2">The quick brown fox jumps over the lazy dog.</p>`}
+  data = {`<p class="ff-i fs-lg ta-c tc-l-gray-i">The quick brown fox jumps over the lazy dog.</p>`}
   usePadding
   useVersion = 'release'
 />
@@ -54,11 +54,25 @@ Controls the font family of an element.
 ## Mono
 
 <Preview
-  data = {`<p class="ff-m fs-lg ta-c tc-l-gray-2">The quick brown fox jumps over the lazy dog.</p>`}
+  data = {`<p class="ff-m fs-lg ta-c tc-l-gray-i">The quick brown fox jumps over the lazy dog.</p>`}
   usePadding
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:ff-*`, `md:ff-*`, `lg:ff-*` enables the fs-lg targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:ff-*`, `md:ff-*`, `lg:ff-*`, and `xxl:ff-*` allows targeting specific utilities in different viewports.
+
+```html "md:ff-i"
+<div class="ff-d md:ff-i ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:ff-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:ff-i"
+<div class="ff-d h:ff-i ..."></div>
+```

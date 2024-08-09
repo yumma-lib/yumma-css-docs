@@ -314,3 +314,21 @@ Controls the size and position of elements across rows.
     }
   ]}
 />
+
+---
+
+### Using breakpoints
+
+Using responsive breakpoints like `sm:gr-*`, `md:gr-*`, `lg:gr-*`, and `xxl:gr-*` allows targeting specific utilities in different viewports.
+
+```html "md:gr-2"
+<div class="gr-1 md:gr-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:gr-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:gr-2"
+<div class="gr-1 h:gr-2 ..."></div>
+```

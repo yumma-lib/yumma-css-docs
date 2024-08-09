@@ -120,6 +120,20 @@ Controls the gap between rows in a grid layout.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:rg-*`, `md:rg-*`, `lg:rg-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:rg-*`, `md:rg-*`, `lg:rg-*`, and `xxl:rg-*` allows targeting specific utilities in different viewports.
+
+```html "md:rg-2"
+<div class="rg-1 md:rg-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:rg-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:rg-2"
+<div class="rg-1 h:rg-2 ..."></div>
+```

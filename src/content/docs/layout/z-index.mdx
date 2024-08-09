@@ -80,10 +80,10 @@ Controls the element's stack order.
 <Preview
   data = {`<div class="p-r">
       <div class="bg-pink dim-14 ins p-r rad-1 zi-10">
-        <p class="t-white">B</p>
+        <p class="tc-white">B</p>
       </div>
       <div class="bg-d-pink-4 dir-l-0 dir-t-0 dim-7 ins p-a rad-1 zi-20">
-        <p class="t-white">A</p>
+        <p class="tc-white">A</p>
       </div>
     </div>`}
   usePadding
@@ -91,6 +91,20 @@ Controls the element's stack order.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:zi-*`, `md:zi-*`, `lg:zi-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:zi-*`, `md:zi-*`, `lg:zi-*`, and `xxl:zi-*` allows targeting specific utilities in different viewports.
+
+```html "md:zi-20"
+<div class="zi-10 md:zi-20 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:zi-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:zi-20"
+<div class="zi-10 h:zi-20 ..."></div>
+```

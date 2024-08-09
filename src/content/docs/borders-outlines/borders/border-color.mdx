@@ -157,15 +157,12 @@ Controls the color of the top border of an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using variants
 
 Using `:hover` variants such as `h:bc-*` allows you to override elements and change their values when hovering over them.
 
-<Hover>Move the mouse to see how the border changes in the Preview tab.</Hover>
-
-<Preview
-  data = {`<div class="b-1 bc-gray bg-white dim-14 h:bc-pink"></div>`}
-  usePadding
-  useCenter
-  useVersion = 'release'
-/>
+```html "h:bc-pink"
+<div class="bc-lead h:bc-pink ..."></div>
+```

@@ -118,6 +118,20 @@ Controls how many columns are in an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:cols-*`, `md:cols-*`, `lg:cols-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:cols-*`, `md:cols-*`, `lg:cols-*`, and `xxl:cols-*` allows targeting specific utilities in different viewports.
+
+```html "md:cols-2"
+<div class="cols-1 md:cols-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:cols-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:cols-2"
+<div class="cols-1 h:cols-2 ..."></div>
+```

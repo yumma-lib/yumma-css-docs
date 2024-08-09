@@ -53,6 +53,20 @@ Controls the line height of an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:lh-*`, `md:lh-*`, `lg:lh-*` enables the targeting of specific utilities in disparate viewports.
+The utilization of breakpoint modifiers, like `sm:lh-*`, `md:lh-*`, `lg:lh-*`, and `xxl:lh-*` enables the targeting of specific utilities in disparate viewports.
+
+```html "md:lh-4"
+<p class="lh-3 md:lh-4 ...">In an endless white expanse, Ren stood by a solitary tree...</p>
+```
+
+### Using variants
+
+The `:hover` variant, such as `h:lh-*`, allows you to modify elements and override other line height styles when hovering over them.
+
+```html "h:lh-4"
+<p class="lh-3 h:lh-4 ...">In an endless white expanse, Ren stood by a solitary tree...</p>
+```

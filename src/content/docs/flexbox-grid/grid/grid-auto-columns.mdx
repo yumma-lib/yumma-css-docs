@@ -29,6 +29,20 @@ Controls the size of grid columns created implicitly.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:gac-*`, `md:gac-*`, `lg:gac-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:gac-*`, `md:gac-*`, `lg:gac-*`, and `xxl:gac-*` allows targeting specific utilities in different viewports.
+
+```html "md:gac-auto"
+<div class="gac-min md:gac-auto ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:gac-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:gac-auto"
+<div class="gac-min h:gac-auto ..."></div>
+```

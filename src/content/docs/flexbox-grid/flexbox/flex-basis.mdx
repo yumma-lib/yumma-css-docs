@@ -23,6 +23,20 @@ Controls the initial size of flex elements.
   ]} 
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:fb-*`, `md:fb-*`, `lg:fb-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:fb-*`, `md:fb-*`, `lg:fb-*`, and `xxl:fb-*` allows targeting specific utilities in different viewports.
+
+```html "md:fb-2"
+<div class="fb-1 md:fb-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:fb-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:fb-2"
+<div class="fb-1 h:fb-2 ..."></div>
+```

@@ -23,6 +23,20 @@ Controls how an item responds to pointer events.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:pe-*`, `md:pe-*`, `lg:pe-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:pe-*`, `md:pe-*`, `lg:pe-*`, and `xxl:pe-*` allows targeting specific utilities in different viewports.
+
+```html "md:pe-auto"
+<div class="pe-none md:pe-auto ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:pe-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:pe-auto"
+<div class="pe-none h:pe-auto ..."></div>
+```

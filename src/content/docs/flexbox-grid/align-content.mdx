@@ -71,6 +71,20 @@ Controls the positioning of rows in multi-row Flex and Grid containers.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:ac-*`, `md:ac-*`, `lg:ac-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:ac-*`, `md:ac-*`, `lg:ac-*`, and `xxl:ac-*` allows targeting specific utilities in different viewports.
+
+```html "md:ac-e"
+<div class="ac-s md:ac-e ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:ac-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:ac-e"
+<div class="ac-s h:ac-e ..."></div>
+```

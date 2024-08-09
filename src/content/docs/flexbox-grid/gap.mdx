@@ -120,6 +120,20 @@ Controls gaps between grid and flexbox elements.
     useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:g-*`, `md:g-*`, `lg:g-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:g-*`, `md:g-*`, `lg:g-*`, and `xxl:g-*` allows targeting specific utilities in different viewports.
+
+```html "md:g-2"
+<div class="g-1 md:g-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:g-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:g-2"
+<div class="g-1 h:g-2 ..."></div>
+```

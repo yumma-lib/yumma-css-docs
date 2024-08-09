@@ -35,6 +35,20 @@ Controls the outline style of an element.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:os-*`, `md:os-*`, `lg:os-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:os-*`, `md:os-*`, `lg:os-*`, and `xxl:os-*` allows targeting specific utilities in different viewports.
+
+```html "md:os-s"
+<div class="os-h md:os-s ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:os-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:os-s"
+<div class="os-h h:os-s ..."></div>
+```

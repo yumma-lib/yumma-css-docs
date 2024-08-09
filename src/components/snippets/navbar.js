@@ -4,8 +4,8 @@ export const base = `
     <a class="f-none fs-xl fw-600" href="#">App</a>
     <div class="ai-c d-f fd-r g-5 sm:jc-fe sm:pl-5">
       <a class="fw-500 tc-blue" href="#">Docs</a>
-      <a class="fw-500 h:t-black tc-lead" href="#">Components</a>
-      <a class="fw-500 h:t-black tc-lead" href="#">Blog</a>
+      <a class="fw-500 h:tc-black tc-lead" href="#">Components</a>
+      <a class="fw-500 h:tc-black tc-lead" href="#">Blog</a>
     </div>
   </nav>
 </header>
@@ -29,8 +29,8 @@ export const withCollapse = `
     <div class="d-none fb-full fg-1 ovf-h sm:d-b">
       <div class="d-f fd-c g-5 sm:ai-c sm:fd-r sm:jc-fe sm:pl-5">
         <a class="fw-500 tc-blue" href="#">Docs</a>
-        <a class="fw-500 h:t-black tc-lead" href="#">Components</a>
-        <a class="fw-500 h:t-black tc-lead" href="#">Blog</a>
+        <a class="fw-500 h:tc-black tc-lead" href="#">Components</a>
+        <a class="fw-500 h:tc-black tc-lead" href="#">Blog</a>
       </div>
     </div>
   </nav>

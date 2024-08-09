@@ -29,6 +29,24 @@ Controls word wrapping.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:ow-*`, `md:ow-*`, `lg:ow-*` enables the targeting of specific utilities in disparate viewports.
+The utilization of breakpoint modifiers, like `sm:ow-*`, `md:ow-*`, `lg:ow-*`, and `xxl:ow-*` enables the targeting of specific utilities in disparate viewports.
+
+```html "md:ow-bw"
+<div class="ow-n md:ow-bw ...">
+  ...
+</div>
+```
+
+### Using variants
+
+The `:hover` variant, such as `h:ow-*`, allows you to modify overflow wrap styles when hovering over elements.
+
+```html "h:ow-bw"
+<div class="ow-n h:ow-bw ...">
+  ...
+</div>
+```

@@ -68,6 +68,20 @@ Controls the content wrapping around an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:flo-*`, `md:flo-*`, `lg:flo-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:flo-*`, `md:flo-*`, `lg:flo-*`, and `xxl:flo-*` allows targeting specific utilities in different viewports.
+
+```html "md:flo-r"
+<div class="flo-l md:flo-r ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:flo-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:flo-r"
+<div class="flo-l h:flo-r ..."></div>
+```

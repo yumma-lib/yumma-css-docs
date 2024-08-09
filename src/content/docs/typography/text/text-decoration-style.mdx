@@ -35,6 +35,20 @@ Controls the style of text decoration.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:tds-*`, `md:tds-*`, `lg:tds-*` enables the targeting of specific utilities in disparate viewports.
+The utilization of breakpoint modifiers, like `sm:tds-*`, `md:tds-*`, `lg:tds-*`, and `xxl:tds-*` enables the targeting of specific utilities in disparate viewports.
+
+```html "md:tds-s"
+<p class="tds-none md:tds-s ...">Solid Text Decoration</p>
+```
+
+### Using variants
+
+The `:hover` variant, such as `h:tds-*`, allows you to modify text decoration styles when hovering over elements.
+
+```html "h:tds-s"
+<p class="tds-none h:tds-s ...">Solid Text Decoration</p>
+```

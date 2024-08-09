@@ -589,6 +589,20 @@ Controls the top placement of positioned elements.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:dir-b-*`, `md:dir-b-*`, `lg:dir-b-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:dir-*`, `md:dir-*`, `lg:dir-*`, and `xxl:dir-*` allows targeting specific utilities in different viewports.
+
+```html "md:dir-2"
+<div class="dir-1 md:dir-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:dir-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:dir-2"
+<div class="dir-1 h:dir-2 ..."></div>
+```

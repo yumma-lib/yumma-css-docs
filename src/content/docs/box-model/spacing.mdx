@@ -30,6 +30,20 @@ Controls the top and bottom Y-axis margins of child elements.
   unit='rem' 
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:s-x-*`, `md:s-x-*`, `lg:s-x-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:s-x-*`, `md:s-x-*`, `lg:s-x-*`, and `xxl:s-x-*` allows targeting specific utilities in different viewports.
+
+```html "md:s-x-2"
+<div class="s-x-1 md:s-x-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:s-x-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:s-x-2"
+<div class="s-x-1 h:s-x-2 ..."></div>
+```

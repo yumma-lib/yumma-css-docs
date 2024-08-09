@@ -262,6 +262,20 @@ Controls the width of the top border of an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:b-*`, `md:b-*`, `lg:b-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:b-*`, `md:b-*`, `lg:b-*`, and `xxl:b-*` allows targeting specific utilities in different viewports.
+
+```html "md:b-2"
+<div class="b-1 md:b-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:b-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:b-2"
+<div class="b-1 h:b-2 ..."></div>
+```

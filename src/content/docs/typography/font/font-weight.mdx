@@ -74,6 +74,20 @@ Controls the font weight of an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:fw-*`, `md:fw-*`, `lg:fw-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:fw-*`, `md:fw-*`, `lg:fw-*`, and `xxl:fw-*` allows targeting specific utilities in different viewports.
+
+```html "md:fw-600"
+<div class="fw-400 md:fw-600 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:fw-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:fw-600"
+<div class="fw-400 h:fw-600 ..."></div>
+```

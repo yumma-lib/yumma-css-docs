@@ -87,9 +87,9 @@ Controls the positioning of flex and grid elements on a container's main axis.
 
 <Preview
   data = {`<div class="d-f jc-c">
-      <div class="bg-pink dim-14 mr-3 rad-1"></div>
-      <div class="bg-pink dim-14 mr-3 rad-1"></div>
-      <div class="bg-pink dim-14 mr-3 rad-1"></div>
+      <div class="bg-pink dim-l4 mr-3 rad-l"></div>
+      <div class="bg-pink dim-l4 mr-3 rad-l"></div>
+      <div class="bg-pink dim-l4 mr-3 rad-l"></div>
     </div>`}
   usePadding
   useVersion = 'release'
@@ -99,9 +99,9 @@ Controls the positioning of flex and grid elements on a container's main axis.
 
 <Preview
   data = {`<div class="d-f jc-sa">
-      <div class="bg-pink dim-14 rad-1"></div>
-      <div class="bg-pink dim-14 rad-1"></div>
-      <div class="bg-pink dim-14 rad-1"></div>
+      <div class="bg-pink dim-l4 rad-l"></div>
+      <div class="bg-pink dim-l4 rad-l"></div>
+      <div class="bg-pink dim-l4 rad-l"></div>
     </div>`}
   usePadding
   useVersion = 'release'
@@ -111,9 +111,9 @@ Controls the positioning of flex and grid elements on a container's main axis.
 
 <Preview
   data = {`<div class="d-f jc-sb">
-      <div class="bg-pink dim-14 rad-1"></div>
-      <div class="bg-pink dim-14 rad-1"></div>
-      <div class="bg-pink dim-14 rad-1"></div>
+      <div class="bg-pink dim-l4 rad-l"></div>
+      <div class="bg-pink dim-l4 rad-l"></div>
+      <div class="bg-pink dim-l4 rad-l"></div>
     </div>`}
   usePadding
   useVersion = 'release'
@@ -123,9 +123,9 @@ Controls the positioning of flex and grid elements on a container's main axis.
 
 <Preview
   data = {`<div class="d-f jc-se">
-      <div class="bg-pink dim-14 rad-1"></div>
-      <div class="bg-pink dim-14 rad-1"></div>
-      <div class="bg-pink dim-14 rad-1"></div>
+      <div class="bg-pink dim-l4 rad-l"></div>
+      <div class="bg-pink dim-l4 rad-l"></div>
+      <div class="bg-pink dim-l4 rad-l"></div>
     </div>`}
   usePadding
   useVersion = 'release'
@@ -135,9 +135,9 @@ Controls the positioning of flex and grid elements on a container's main axis.
 
 <Preview
   data = {`<div class="d-f jc-s">
-      <div class="bg-pink dim-14 mr-3 rad-1"></div>
-      <div class="bg-pink dim-14 mr-3 rad-1"></div>
-      <div class="bg-pink dim-14 mr-3 rad-1"></div>
+      <div class="bg-pink dim-l4 mr-3 rad-l"></div>
+      <div class="bg-pink dim-l4 mr-3 rad-l"></div>
+      <div class="bg-pink dim-l4 mr-3 rad-l"></div>
     </div>`}
   usePadding
   useVersion = 'release'
@@ -147,14 +147,28 @@ Controls the positioning of flex and grid elements on a container's main axis.
 
 <Preview
   data = {`<div class="d-f jc-e">
-      <div class="bg-pink dim-14 mr-3 rad-1"></div>
-      <div class="bg-pink dim-14 mr-3 rad-1"></div>
-      <div class="bg-pink dim-14 mr-3 rad-1"></div>
+      <div class="bg-pink dim-l4 mr-3 rad-l"></div>
+      <div class="bg-pink dim-l4 mr-3 rad-l"></div>
+      <div class="bg-pink dim-l4 mr-3 rad-l"></div>
     </div>`}
   usePadding
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:jc-*`, `md:jc-*`, `lg:jc-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:jc-*`, `md:jc-*`, `lg:jc-*`, and `xxl:jc-*` allows targeting specific utilities in different viewports.
+
+```html "md:jc-r"
+<div class="jc-l md:jc-r ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:jc-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:jc-r"
+<div class="jc-l h:jc-r ..."></div>
+```

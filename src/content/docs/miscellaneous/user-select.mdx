@@ -23,6 +23,20 @@ Controls the ability of the user to select text in an element.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:us-*`, `md:us-*`, `lg:us-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:us-*`, `md:us-*`, `lg:us-*`, and `xxl:us-*` allows targeting specific utilities in different viewports.
+
+```html "md:us-auto"
+<div class="us-none md:us-auto ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:us-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:us-auto"
+<div class="us-none h:us-auto ..."></div>
+```

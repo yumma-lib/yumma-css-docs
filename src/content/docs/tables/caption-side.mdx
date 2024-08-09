@@ -23,6 +23,20 @@ Controls the caption element orientation in a table.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:cs-*`, `md:cs-*`, `lg:cs-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:cs-*`, `md:cs-*`, `lg:cs-*`, and `xxl:cs-*` allows targeting specific utilities in different viewports.
+
+```html "md:cs-t"
+<div class="cs-b md:cs-t ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:cs-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:cs-t"
+<div class="cs-b h:cs-t ..."></div>
+```

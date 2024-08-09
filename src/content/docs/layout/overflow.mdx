@@ -119,6 +119,20 @@ Controls how an element behaves when content overflows on the Y-axis.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:ovf-*`, `md:ovf-*`, `lg:ovf-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:ovf-*`, `md:ovf-*`, `lg:ovf-*`, and `xxl:ovf-*` allows targeting specific utilities in different viewports.
+
+```html "md:ovf-auto"
+<div class="ovf-h md:ovf-auto ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:ovf-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:ovf-auto"
+<div class="ovf-h h:ovf-auto ..."></div>
+```

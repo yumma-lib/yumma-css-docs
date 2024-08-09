@@ -35,6 +35,20 @@ Controls the way an item can be resized.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:r-*`, `md:r-*`, `lg:r-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:r-*`, `md:r-*`, `lg:r-*`, and `xxl:r-*` allows targeting specific utilities in different viewports.
+
+```html "md:r-h"
+<div class="r-none md:r-h ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:r-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:r-h"
+<div class="r-none h:r-h ..."></div>
+```

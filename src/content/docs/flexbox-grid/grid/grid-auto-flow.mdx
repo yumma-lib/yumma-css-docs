@@ -29,6 +29,20 @@ Controls the automatic placement of grid elements.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:gaf-*`, `md:gaf-*`, `lg:gaf-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:gaf-*`, `md:gaf-*`, `lg:gaf-*`, and `xxl:gaf-*` allows targeting specific utilities in different viewports.
+
+```html "md:gaf-r"
+<div class="gaf-c md:gaf-r ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:gaf-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:gaf-r"
+<div class="gaf-c h:gaf-r ..."></div>
+```

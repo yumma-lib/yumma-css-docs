@@ -23,6 +23,20 @@ Controls the text decoration of an element.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:td-*`, `md:td-*`, `lg:td-*` enables the targeting of specific utilities in disparate viewports.
+The utilization of breakpoint modifiers, like `sm:td-*`, `md:td-*`, `lg:td-*`, and `xxl:td-*` enables the targeting of specific utilities in disparate viewports.
+
+```html "md:td-u"
+<p class="td-none md:td-u ...">Text Decoration Underline</p>
+```
+
+### Using variants
+
+The `:hover` variant, such as `h:td-*`, allows you to modify elements and override other text decoration styles when hovering over them.
+
+```html "h:td-u"
+<p class="td-none h:td-u ...">Text Decoration Underline on Hover</p>
+```

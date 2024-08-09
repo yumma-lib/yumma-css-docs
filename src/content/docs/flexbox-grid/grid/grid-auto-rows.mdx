@@ -29,6 +29,20 @@ Controls the size of grid lines created implicitly.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:gar-*`, `md:gar-*`, `lg:gar-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:gar-*`, `md:gar-*`, `lg:gar-*`, and `xxl:gar-*` allows targeting specific utilities in different viewports.
+
+```html "md:gar-auto"
+<div class="gar-min md:gar-auto ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:gar-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:gar-auto"
+<div class="gar-min h:gar-auto ..."></div>
+```

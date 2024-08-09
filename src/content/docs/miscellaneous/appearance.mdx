@@ -23,6 +23,20 @@ Utilities to disable the styling of the original form controls.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:a-*`, `md:a-*`, `lg:a-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:a-*`, `md:a-*`, `lg:a-*`, and `xxl:a-*` allows targeting specific utilities in different viewports.
+
+```html "md:a-auto"
+<div class="a-none md:a-auto ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:a-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:a-auto"
+<div class="a-none h:a-auto ..."></div>
+```

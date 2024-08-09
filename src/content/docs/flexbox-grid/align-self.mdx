@@ -59,6 +59,20 @@ Controls the positioning of a single flex or grid element along the transverse a
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:as-*`, `md:as-*`, `lg:as-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:as-*`, `md:as-*`, `lg:as-*`, and `xxl:as-*` allows targeting specific utilities in different viewports.
+
+```html "md:as-e"
+<div class="as-s md:as-e ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:as-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:as-e"
+<div class="as-s h:as-e ..."></div>
+```

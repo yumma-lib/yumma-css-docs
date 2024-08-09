@@ -56,6 +56,20 @@ Controls the box shadow of an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:bs-*`, `md:bs-*`, `lg:bs-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:bs-*`, `md:bs-*`, `lg:bs-*`, and `xxl:bs-*` allows targeting specific utilities in different viewports.
+
+```html "md:bs-md"
+<div class="bs-sm md:bs-md ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:bs-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:bs-md"
+<div class="bs-sm h:bs-md ..."></div>
+```

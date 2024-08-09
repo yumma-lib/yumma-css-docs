@@ -75,6 +75,20 @@ Controls the minimum height and min width of an element at once.
   ]} 
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:dim-*`, `md:dim-*`, `lg:dim-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:dim-*`, `md:dim-*`, `lg:dim-*`, and `xxl:dim-*` allows targeting specific utilities in different viewports.
+
+```html "md:dim-2"
+<div class="dim-1 md:dim-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:dim-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:dim-2"
+<div class="dim-1 h:dim-2 ..."></div>
+```

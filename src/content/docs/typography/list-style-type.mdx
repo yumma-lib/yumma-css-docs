@@ -29,6 +29,28 @@ Controls the style of a list.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:lst-*`, `md:lst-*`, `lg:lst-*` enables the targeting of specific utilities in disparate viewports.
+The utilization of breakpoint modifiers, like `sm:lst-*`, `md:lst-*`, `lg:lst-*`, and `xxl:lst-*` enables the targeting of specific utilities in disparate viewports.
+
+```html "md:lst-s"
+<ul class="lst-d md:lst-s ...">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```
+
+### Using variants
+
+The `:hover` variant, such as `h:lst-*`, allows you to modify list styles when hovering over list items.
+
+```html "h:lst-s"
+<ul class="lst-d h:lst-s ...">
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+```

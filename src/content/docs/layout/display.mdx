@@ -101,6 +101,20 @@ Controls the display box type of an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:d-*`, `md:d-*`, `lg:d-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:d-*`, `md:d-*`, `lg:d-*`, and `xxl:d-*` allows targeting specific utilities in different viewports.
+
+```html "md:d-b"
+<div class="d-none md:d-b ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:d-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:d-b"
+<div class="d-none h:d-b ..."></div>
+```

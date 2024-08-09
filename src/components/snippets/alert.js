@@ -63,7 +63,7 @@ export const withLinksOnRight = `
         </div>
         <div class="f-1 md:d-f md:jc-sb ml-2">
             <p class="fs-sm">New software update available. See what's new in version 7.0.0.</p>
-            <p class="fs-sm md:ml-6"><a class="fw-500 h:t-blue tc-d-blue-6" href="#">Schedule</a></p>
+            <p class="fs-sm md:ml-6"><a class="fw-500 h:tc-blue tc-d-blue-6" href="#">Schedule</a></p>
         </div>
     </div>
 </div>`;
@@ -101,7 +101,7 @@ export const withDismissButton = `
             </h3>
         </div>
         <div class="ml-auto pl-3">
-            <button type="button" class="bg-l-teal-6 d-if h:bg-teal h:t-white p-1 rad-1 tc-teal">
+            <button type="button" class="bg-l-teal-6 d-if h:bg-teal h:tc-white p-1 rad-1 tc-teal">
                 <svg class="fs-0 dim-5" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M6.75827 17.2426L12.0009 12M17.2435 6.75736L12.0009 12M12.0009 12L6.75827 6.75736M12.0009 12L17.2435 17.2426" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>

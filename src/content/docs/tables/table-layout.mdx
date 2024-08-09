@@ -23,6 +23,20 @@ Controls the table cell layout algorithm.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:tl-*`, `md:tl-*`, `lg:tl-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:tl-*`, `md:tl-*`, `lg:tl-*`, and `xxl:tl-*` allows targeting specific utilities in different viewports.
+
+```html "md:tl-a"
+<div class="tl-f md:tl-a ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:tl-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:tl-a"
+<div class="tl-f h:tl-a ..."></div>
+```

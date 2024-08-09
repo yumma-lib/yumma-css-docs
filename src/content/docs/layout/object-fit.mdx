@@ -36,6 +36,20 @@ Controls how to resize the content of a replaced element.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:of-*`, `md:of-*`, `lg:of-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:of-*`, `md:of-*`, `lg:of-*`, and `xxl:of-*` allows targeting specific utilities in different viewports.
+
+```html "md:of-sd"
+<div class="of-c md:of-sd ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:of-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:of-sd"
+<div class="of-c h:of-sd ..."></div>
+```

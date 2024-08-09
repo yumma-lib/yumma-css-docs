@@ -53,6 +53,20 @@ Controls the thickness of text decorations.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:tdt-*`, `md:tdt-*`, `lg:tdt-*` enables the targeting of specific utilities in disparate viewports.
+The utilization of breakpoint modifiers, like `sm:tdt-*`, `md:tdt-*`, `lg:tdt-*`, and `xxl:tdt-*` enables the targeting of specific utilities in disparate viewports.
+
+```html "md:tdt-2"
+<p class="tdt-1 md:tdt-2 ...">Text Decoration Thickness</p>
+```
+
+### Using variants
+
+The `:hover` variant, such as `h:tdt-*`, allows you to modify text decoration thickness when hovering over elements.
+
+```html "h:tdt-2"
+<p class="tdt-1 h:tdt-2 ...">Text Decoration Thickness</p>
+```

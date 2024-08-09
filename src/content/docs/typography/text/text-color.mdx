@@ -35,15 +35,12 @@ Controls the text color of an element.
   useVersion = 'release'
 />
 
+---
+
 ### Using variants
 
-<Hover>Hover to see the text change.</Hover>
+The `:hover` variant, such as `h:tc-*`, allows you to modify text colors when hovering over elements.
 
-Use `h:tc-*` to modify elements to override other background classes.
-
-<Preview
-  data = {`<h3 class="tc-gray h:tc-pink">The quick brown fox jumps over the lazy dog.</h3>`}
-  usePadding
-  useCenter
-  useVersion = 'release'
-/>
+```html "h:tc-pink"
+<h3 class="tc-lead h:tc-pink ...">The quick brown fox jumps over the lazy dog.</h3>
+```

@@ -47,6 +47,20 @@ Applies background blur filters to an element.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:bf-b-*`, `md:bf-b-*`, `lg:bf-b-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:bf-b-*`, `md:bf-b-*`, `lg:bf-b-*`, and `xxl:bf-b-*` allows targeting specific utilities in different viewports.
+
+```html "md:bf-b-sm"
+<div class="bf-b-none md:bf-b-sm ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:bf-b-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:bf-b-sm"
+<div class="bf-b-none h:bf-b-sm ..."></div>
+```

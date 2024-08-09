@@ -41,6 +41,20 @@ Controls the offset of an element's outline.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:oo-*`, `md:oo-*`, `lg:oo-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:oo-*`, `md:oo-*`, `lg:oo-*`, and `xxl:oo-*` allows targeting specific utilities in different viewports.
+
+```html "md:oo-2"
+<div class="oo-1 md:oo-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:oo-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:oo-2"
+<div class="oo-1 h:oo-2 ..."></div>
+```

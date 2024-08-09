@@ -65,6 +65,20 @@ Controls the growth of flex elements.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:fg-*`, `md:fg-*`, `lg:fg-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:fg-*`, `md:fg-*`, `lg:fg-*`, and `xxl:fg-*` allows targeting specific utilities in different viewports.
+
+```html "md:fg-2"
+<div class="fg-1 md:fg-2 ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:fg-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:fg-2"
+<div class="fg-1 h:fg-2 ..."></div>
+```

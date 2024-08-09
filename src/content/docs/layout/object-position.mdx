@@ -65,6 +65,20 @@ Controls how to position the container's content.
   ]}
 />
 
+---
+
 ### Using breakpoints
 
-The utilization of breakpoint modifiers, like `sm:op-*`, `md:op-*`, `lg:op-*` enables the targeting of specific utilities in disparate viewports.
+Using responsive breakpoints like `sm:op-*`, `md:op-*`, `lg:op-*`, and `xxl:op-*` allows targeting specific utilities in different viewports.
+
+```html "md:op-r"
+<div class="op-l md:op-r ..."></div>
+```
+
+### Using variants
+
+Using `:hover` variants such as `h:op-*` allows you to override elements and change their values when hovering over them.
+
+```html "h:op-r"
+<div class="op-l h:op-r ..."></div>
+```
