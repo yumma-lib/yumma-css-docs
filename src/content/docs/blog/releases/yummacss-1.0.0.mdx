@@ -11,8 +11,8 @@ tags: [release, update]
 title: Yumma CSS 1.0
 ---
 
-import { ShowcaseText } from 'starlight-showcases';
-import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { ShowcaseText } from "starlight-showcases";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 After a few months of development, I'm ready to release the first major version. In this release, I'm focusing on implementing a few utility classes and, more importantly, on improving the overall experience of using Yumma CSS.
 
@@ -34,59 +34,41 @@ This update is mostly about flexbox classes, which were a big limitation of Yumm
 <Utility
   data={[
     {
-      className: 'ai-fs',
-      properties: [
-        'align-items: flex-start;'
-      ]
+      className: "ai-fs",
+      properties: ["align-items: flex-start;"],
     },
     {
-      className: 'ai-fe',
-      properties: [
-        'align-items: flex-end;'
-      ]
+      className: "ai-fe",
+      properties: ["align-items: flex-end;"],
     },
     {
-      className: 'jc-e',
-      properties: [
-        'justify-content: end;'
-      ]
+      className: "jc-e",
+      properties: ["justify-content: end;"],
     },
     {
-      className: 'jc-fs',
-      properties: [
-        'justify-content: flex-start;'
-      ]
+      className: "jc-fs",
+      properties: ["justify-content: flex-start;"],
     },
     {
-      className: 'jc-fe',
-      properties: [
-        'justify-content: flex-end;'
-      ]
+      className: "jc-fe",
+      properties: ["justify-content: flex-end;"],
     },
     {
-      className: 'jc-l',
-      properties: [
-        'justify-content: left;'
-      ]
+      className: "jc-l",
+      properties: ["justify-content: left;"],
     },
     {
-      className: 'jc-r',
-      properties: [
-        'justify-content: right;'
-      ]
+      className: "jc-r",
+      properties: ["justify-content: right;"],
     },
     {
-      className: 'jc-n',
-      properties: [
-        'justify-content: normal;'
-      ]
+      className: "jc-n",
+      properties: ["justify-content: normal;"],
     },
     {
-      className: 'jc-s',
-      properties: [
-        'justify-content: stretch;'
-      ]
-    }
+      className: "jc-s",
+      properties: ["justify-content: stretch;"],
+    },
   ]}
 />
 
@@ -95,23 +77,17 @@ As the layouts of the applications change, I think it'd be good to add more cont
 <Utility
   data={[
     {
-      className: 'd-fr',
-      properties: [
-        'display: flow-root;'
-      ]
+      className: "d-fr",
+      properties: ["display: flow-root;"],
     },
     {
-      className: 'f-is',
-      properties: [
-        'float: inline-start;'
-      ]
+      className: "f-is",
+      properties: ["float: inline-start;"],
     },
     {
-      className: 'f-ie',
-      properties: [
-        'float: inline-end;'
-      ]
-    }
+      className: "f-ie",
+      properties: ["float: inline-end;"],
+    },
   ]}
 />
 
@@ -120,23 +96,17 @@ Yumma CSS v1.0 also introduces a whole new collection of advanced text formattin
 <Utility
   data={[
     {
-      className: 'ta-ja',
-      properties: [
-        'text-align: justify-all;'
-      ]
+      className: "ta-ja",
+      properties: ["text-align: justify-all;"],
     },
     {
-      className: 'ta-mp',
-      properties: [
-        'text-align: match-parent;'
-      ]
+      className: "ta-mp",
+      properties: ["text-align: match-parent;"],
     },
     {
-      className: 'tdl-o',
-      properties: [
-        'text-decoration-line: overline;'
-      ]
-    }
+      className: "tdl-o",
+      properties: ["text-decoration-line: overline;"],
+    },
   ]}
 />
 
@@ -159,9 +129,9 @@ I'm sure nobody builds websites in dark mode using gray, right? The new lead col
 <Palette
   data={[
     {
-      name: 'Lead',
-      color: '#3f3f4e'
-    }
+      name: "Lead",
+      color: "#3f3f4e",
+    },
   ]}
 />
 
@@ -193,7 +163,6 @@ I'm also going to tweak the syntax for the hover state classes. Basically, I'm g
     ```
   </TabItem>
   <TabItem value="then" label="Then">
-    
     ```html
     <div class="bg-h-blue"></div>
     ```
@@ -201,6 +170,7 @@ I'm also going to tweak the syntax for the hover state classes. Basically, I'm g
 </Tabs>
 
 ---
+
 ## Upgrade
 
 You can upgrade your projects by getting the latest version of `yummacss` from npm:
@@ -208,6 +178,7 @@ You can upgrade your projects by getting the latest version of `yummacss` from n
 ```bash
 npm install yummacss@latest
 ```
+
 ## Community
 
 Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
@@ -215,25 +186,25 @@ Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and
 <ShowcaseText
   entries={[
     {
-      description: 'If you experience any problems, please notify us at GitHub.',
-      href: 'https://github.com/yumma-lib/yumma-css/issues',
-      title: 'GitHub'
+      description:
+        "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      title: "GitHub",
     },
     {
-      description: 'Join our Discord for discussion, sharing, and learning.',
-      href: 'https://discord.gg/2MUw2g6FCn',
-      title: 'Discord'
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      title: "Discord",
     },
     {
-      description: 'Please follow us on Twitter to receive the latest updates.',
-      href: 'https://twitter.com/yummacss',
-      title: 'Twitter'
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      title: "Twitter",
     },
     {
-      description: 'Watch our screencasts on YouTube for the latest updates.',
-      href: 'https://youtube.com/@yummacss',
-      title: 'YouTube'
-    }
+      description: "Watch our screencasts on YouTube for the latest updates.",
+      href: "https://youtube.com/@yummacss",
+      title: "YouTube",
+    },
   ]}
 />
-

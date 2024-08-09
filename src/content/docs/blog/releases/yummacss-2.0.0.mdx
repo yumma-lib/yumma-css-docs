@@ -12,8 +12,8 @@ tags: [release, update]
 title: Yumma CSS 2.0
 ---
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
-import { ShowcaseText } from 'starlight-showcases';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { ShowcaseText } from "starlight-showcases";
 
 Yes, it's happening again! I'm excited to announce the release of Yumma CSS v2.0.0! This new update is full of new features, big improvements, a redesigned source code, and of course, some important fixes.
 
@@ -32,23 +32,23 @@ This is a major update that introduces groundbreaking features. Major releases f
 
 With each new major release, I always add new customization utilities. This latest release is no exception, as it introduces the Accent Color utilities.
 
-<Color 
-  classPrefix='ac-' 
-  classValues={['accent-color']} 
+<Color
+  classPrefix="ac-"
+  classValues={["accent-color"]}
   data={[
-    { color: 'red', value: '#d73d3d' },
-    { color: 'orange', value: '#e06814' },
-    { color: 'yellow', value: '#d3a107' },
-    { color: 'green', value: '#1fb155' },
-    { color: 'teal', value: '#12a695' },
-    { color: 'cyan', value: '#05a4bf' },
-    { color: 'blue', value: '#3575dd' },
-    { color: 'indigo', value: '#595cd9' },
-    { color: 'violet', value: '#7d53dd' },
-    { color: 'pink', value: '#d4418a' },
-    { color: 'gray', value: '#606773' },
-    { color: 'lead', value: '#3f3f4e' },
-    { color: 'silver', value: '#bfc2c7' }
+    { color: "red", value: "#d73d3d" },
+    { color: "orange", value: "#e06814" },
+    { color: "yellow", value: "#d3a107" },
+    { color: "green", value: "#1fb155" },
+    { color: "teal", value: "#12a695" },
+    { color: "cyan", value: "#05a4bf" },
+    { color: "blue", value: "#3575dd" },
+    { color: "indigo", value: "#595cd9" },
+    { color: "violet", value: "#7d53dd" },
+    { color: "pink", value: "#d4418a" },
+    { color: "gray", value: "#606773" },
+    { color: "lead", value: "#3f3f4e" },
+    { color: "silver", value: "#bfc2c7" },
   ]}
 />
 
@@ -57,9 +57,9 @@ I'm also adding a new color to the color palette — Silver.
 <Palette
   data={[
     {
-      name: 'Silver',
-      color: '#bfc2c7'
-    }
+      name: "Silver",
+      color: "#bfc2c7",
+    },
   ]}
 />
 
@@ -68,23 +68,17 @@ The Aspect Ratio is a great addition, especially for image elements.
 <Utility
   data={[
     {
-      className: 'ar-s',
-      properties: [
-        'aspect-ratio: 1/1;'
-      ]
+      className: "ar-s",
+      properties: ["aspect-ratio: 1/1;"],
     },
     {
-      className: 'ar-l',
-      properties: [
-        'aspect-ratio: 16/9;'
-      ]
+      className: "ar-l",
+      properties: ["aspect-ratio: 16/9;"],
     },
     {
-      className: 'ar-auto',
-      properties: [
-        'aspect-ratio: auto;'
-      ]
-    }
+      className: "ar-auto",
+      properties: ["aspect-ratio: auto;"],
+    },
   ]}
 />
 
@@ -93,41 +87,29 @@ You can now apply cool effects to your components thanks to the Backdrop Filter 
 <Utility
   data={[
     {
-      className: 'bf-b-none',
-      properties: [
-        'backdrop-filter: blur(0px);'
-      ]
+      className: "bf-b-none",
+      properties: ["backdrop-filter: blur(0px);"],
     },
     {
-      className: 'bf-b-xs',
-      properties: [
-        'backdrop-filter: blur(4px);'
-      ]
+      className: "bf-b-xs",
+      properties: ["backdrop-filter: blur(4px);"],
     },
     {
-      className: 'bf-b-sm',
-      properties: [
-        'backdrop-filter: blur(8px);'
-      ]
+      className: "bf-b-sm",
+      properties: ["backdrop-filter: blur(8px);"],
     },
     {
-      className: 'bf-b-md',
-      properties: [
-        'backdrop-filter: blur(16px);'
-      ]
+      className: "bf-b-md",
+      properties: ["backdrop-filter: blur(16px);"],
     },
     {
-      className: 'bf-b-lg',
-      properties: [
-        'backdrop-filter: blur(32px);'
-      ]
+      className: "bf-b-lg",
+      properties: ["backdrop-filter: blur(32px);"],
     },
     {
-      className: 'bf-b-xl',
-      properties: [
-        'backdrop-filter: blur(64px);'
-      ]
-    }
+      className: "bf-b-xl",
+      properties: ["backdrop-filter: blur(64px);"],
+    },
   ]}
 />
 
@@ -136,17 +118,13 @@ I'm finally adding the Border Collapse utilities to create better tables in your
 <Utility
   data={[
     {
-      className: 'bc-c',
-      properties: [
-        'border-collapse: collapse;'
-      ]
+      className: "bc-c",
+      properties: ["border-collapse: collapse;"],
     },
     {
-      className: 'bc-s',
-      properties: [
-        'border-collapse: separate;'
-      ]
-    }
+      className: "bc-s",
+      properties: ["border-collapse: separate;"],
+    },
   ]}
 />
 
@@ -155,29 +133,21 @@ The new Border Style utilities let you change how underlines look on different e
 <Utility
   data={[
     {
-      className: 'b-none',
-      properties: [
-        'border-style: none;'
-      ]
+      className: "b-none",
+      properties: ["border-style: none;"],
     },
     {
-      className: 'b-d',
-      properties: [
-        'border-style: dashed;'
-      ]
+      className: "b-d",
+      properties: ["border-style: dashed;"],
     },
     {
-      className: 'b-h',
-      properties: [
-        'border-style: hidden;'
-      ]
+      className: "b-h",
+      properties: ["border-style: hidden;"],
     },
     {
-      className: 'b-s',
-      properties: [
-        'border-style: solid;'
-      ]
-    }
+      className: "b-s",
+      properties: ["border-style: solid;"],
+    },
   ]}
 />
 
@@ -186,17 +156,13 @@ I'm also adding some handy features for tables, like Caption Side.
 <Utility
   data={[
     {
-      className: 'cs-b',
-      properties: [
-        'caption-side: bottom;'
-      ]
+      className: "cs-b",
+      properties: ["caption-side: bottom;"],
     },
     {
-      className: 'cs-t',
-      properties: [
-        'caption-side: top;'
-      ]
-    }
+      className: "cs-t",
+      properties: ["caption-side: top;"],
+    },
   ]}
 />
 
@@ -205,17 +171,13 @@ You can now change the Font Style of text elements in the selected themes.
 <Utility
   data={[
     {
-      className: 'fs-i',
-      properties: [
-        'font-style: italic;'
-      ]
+      className: "fs-i",
+      properties: ["font-style: italic;"],
     },
     {
-      className: 'fs-n',
-      properties: [
-        'font-style: normal;'
-      ]
-    }
+      className: "fs-n",
+      properties: ["font-style: normal;"],
+    },
   ]}
 />
 
@@ -224,101 +186,69 @@ The Gap utilities aren't necessarily new, but they are different in older versio
 <Utility
   data={[
     {
-      className: 'g-1',
-      properties: [
-        'gap: 0.25rem;'
-      ]
+      className: "g-1",
+      properties: ["gap: 0.25rem;"],
     },
     {
-      className: 'g-2',
-      properties: [
-        'gap: 0.5rem;'
-      ]
+      className: "g-2",
+      properties: ["gap: 0.5rem;"],
     },
     {
-      className: 'g-3',
-      properties: [
-        'gap: 0.75rem;'
-      ]
+      className: "g-3",
+      properties: ["gap: 0.75rem;"],
     },
     {
-      className: 'g-4',
-      properties: [
-        'gap: 1rem;'
-      ]
+      className: "g-4",
+      properties: ["gap: 1rem;"],
     },
     {
-      className: 'g-5',
-      properties: [
-        'gap: 1.25rem;'
-      ]
+      className: "g-5",
+      properties: ["gap: 1.25rem;"],
     },
     {
-      className: 'g-6',
-      properties: [
-        'gap: 1.5rem;'
-      ]
+      className: "g-6",
+      properties: ["gap: 1.5rem;"],
     },
     {
-      className: 'g-7',
-      properties: [
-        'gap: 1.75rem;'
-      ]
+      className: "g-7",
+      properties: ["gap: 1.75rem;"],
     },
     {
-      className: 'g-8',
-      properties: [
-        'gap: 2rem;'
-      ]
+      className: "g-8",
+      properties: ["gap: 2rem;"],
     },
     {
-      className: 'g-9',
-      properties: [
-        'gap: 2.25rem;'
-      ]
+      className: "g-9",
+      properties: ["gap: 2.25rem;"],
     },
     {
-      className: 'g-10',
-      properties: [
-        'gap: 2.5rem;'
-      ]
+      className: "g-10",
+      properties: ["gap: 2.5rem;"],
     },
     {
-      className: 'g-11',
-      properties: [
-        'gap: 2.75rem;'
-      ]
+      className: "g-11",
+      properties: ["gap: 2.75rem;"],
     },
     {
-      className: 'g-12',
-      properties: [
-        'gap: 3rem;'
-      ]
+      className: "g-12",
+      properties: ["gap: 3rem;"],
     },
     {
-      className: 'g-13',
-      properties: [
-        'gap: 3.25rem;'
-      ]
+      className: "g-13",
+      properties: ["gap: 3.25rem;"],
     },
     {
-      className: 'g-14',
-      properties: [
-        'gap: 3.5rem;'
-      ]
+      className: "g-14",
+      properties: ["gap: 3.5rem;"],
     },
     {
-      className: 'g-15',
-      properties: [
-        'gap: 3.75rem;'
-      ]
+      className: "g-15",
+      properties: ["gap: 3.75rem;"],
     },
     {
-      className: 'g-16',
-      properties: [
-        'gap: 4rem;'
-      ]
-    }
+      className: "g-16",
+      properties: ["gap: 4rem;"],
+    },
   ]}
 />
 
@@ -327,7 +257,7 @@ If you're looking for more control over your grid layouts, this new update inclu
 <Tabs>
   <TabItem label='Grid Column'>
 
-  ##### Grid Column Span
+##### Grid Column Span
 
     <Utility
       data={[
@@ -395,11 +325,12 @@ If you're looking for more control over your grid layouts, this new update inclu
         { className: 'gcs-16', properties: ['grid-column-start: 16;'] }
       ]}
     />
+
   </TabItem>
 
   <TabItem label='Grid Row'>
 
-  ##### Grid Row Span
+##### Grid Row Span
 
     <Utility
       data={[
@@ -467,6 +398,7 @@ If you're looking for more control over your grid layouts, this new update inclu
         { className: 'grs-16', properties: ['grid-row-start: 16;'] }
       ]}
     />
+
   </TabItem>
 </Tabs>
 
@@ -477,30 +409,22 @@ I'm also including the Object Fit and Object Position utility classes.
 <Utility
   data={[
     {
-      className: 'of-c',
-      properties: [
-        'object-fit: cover;'
-      ]
+      className: "of-c",
+      properties: ["object-fit: cover;"],
     },
     {
-      className: 'of-f',
-      properties: [
-        'object-fit: fill;'
-      ]
+      className: "of-f",
+      properties: ["object-fit: fill;"],
     },
-    
+
     {
-      className: 'of-none',
-      properties: [
-        'object-fit: none;'
-      ]
+      className: "of-none",
+      properties: ["object-fit: none;"],
     },
     {
-      className: 'of-sd',
-      properties: [
-        'object-fit: scale-down;'
-      ]
-    }
+      className: "of-sd",
+      properties: ["object-fit: scale-down;"],
+    },
   ]}
 />
 
@@ -509,59 +433,41 @@ I'm also including the Object Fit and Object Position utility classes.
 <Utility
   data={[
     {
-      className: 'op-b',
-      properties: [
-        'object-position: bottom;'
-      ]
+      className: "op-b",
+      properties: ["object-position: bottom;"],
     },
     {
-      className: 'op-c',
-      properties: [
-        'object-position: center;'
-      ]
+      className: "op-c",
+      properties: ["object-position: center;"],
     },
     {
-      className: 'op-lb',
-      properties: [
-        'object-position: left bottom;'
-      ]
+      className: "op-lb",
+      properties: ["object-position: left bottom;"],
     },
     {
-      className: 'op-left',
-      properties: [
-        'object-position: left;'
-      ]
+      className: "op-left",
+      properties: ["object-position: left;"],
     },
     {
-      className: 'op-lt',
-      properties: [
-        'object-position: left top;'
-      ]
+      className: "op-lt",
+      properties: ["object-position: left top;"],
     },
     {
-      className: 'op-r',
-      properties: [
-        'object-position: right;'
-      ]
+      className: "op-r",
+      properties: ["object-position: right;"],
     },
     {
-      className: 'op-rb',
-      properties: [
-        'object-position: right bottom;'
-      ]
+      className: "op-rb",
+      properties: ["object-position: right bottom;"],
     },
     {
-      className: 'op-rt',
-      properties: [
-        'object-position: right top;'
-      ]
+      className: "op-rt",
+      properties: ["object-position: right top;"],
     },
     {
-      className: 'op-t',
-      properties: [
-        'object-position: top;'
-      ]
-    }
+      className: "op-t",
+      properties: ["object-position: top;"],
+    },
   ]}
 />
 
@@ -569,22 +475,22 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
 
 ##### Outline Color
 
-<Color 
-  classPrefix='oc-' 
-  classValues={['outline-color']} 
+<Color
+  classPrefix="oc-"
+  classValues={["outline-color"]}
   data={[
-    { color: 'red', value: '#d73d3d' },
-    { color: 'orange', value: '#e06814' },
-    { color: 'yellow', value: '#d3a107' },
-    { color: 'green', value: '#1fb155' },
-    { color: 'teal', value: '#12a695' },
-    { color: 'cyan', value: '#05a4bf' },
-    { color: 'blue', value: '#3575dd' },
-    { color: 'indigo', value: '#595cd9' },
-    { color: 'violet', value: '#7d53dd' },
-    { color: 'pink', value: '#d4418a' },
-    { color: 'gray', value: '#606773' },
-    { color: 'lead', value: '#3f3f4e' }
+    { color: "red", value: "#d73d3d" },
+    { color: "orange", value: "#e06814" },
+    { color: "yellow", value: "#d3a107" },
+    { color: "green", value: "#1fb155" },
+    { color: "teal", value: "#12a695" },
+    { color: "cyan", value: "#05a4bf" },
+    { color: "blue", value: "#3575dd" },
+    { color: "indigo", value: "#595cd9" },
+    { color: "violet", value: "#7d53dd" },
+    { color: "pink", value: "#d4418a" },
+    { color: "gray", value: "#606773" },
+    { color: "lead", value: "#3f3f4e" },
   ]}
 />
 
@@ -593,35 +499,25 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
 <Utility
   data={[
     {
-      className: 'oo-0',
-      properties: [
-        'outline-offset: 0px;'
-      ]
+      className: "oo-0",
+      properties: ["outline-offset: 0px;"],
     },
     {
-      className: 'oo-1',
-      properties: [
-        'outline-offset: 4px;'
-      ]
+      className: "oo-1",
+      properties: ["outline-offset: 4px;"],
     },
     {
-      className: 'oo-2',
-      properties: [
-        'outline-offset: 8px;'
-      ]
+      className: "oo-2",
+      properties: ["outline-offset: 8px;"],
     },
     {
-      className: 'oo-3',
-      properties: [
-        'outline-offset: 12px;'
-      ]
+      className: "oo-3",
+      properties: ["outline-offset: 12px;"],
     },
     {
-      className: 'oo-4',
-      properties: [
-        'outline-offset: 16px;'
-      ]
-    }
+      className: "oo-4",
+      properties: ["outline-offset: 16px;"],
+    },
   ]}
 />
 
@@ -630,29 +526,21 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
 <Utility
   data={[
     {
-      className: 'os-none',
-      properties: [
-        'outline-style: none;'
-      ]
+      className: "os-none",
+      properties: ["outline-style: none;"],
     },
     {
-      className: 'os-d',
-      properties: [
-        'outline-style: dashed;'
-      ]
+      className: "os-d",
+      properties: ["outline-style: dashed;"],
     },
     {
-      className: 'os-h',
-      properties: [
-        'outline-style: hidden;'
-      ]
+      className: "os-h",
+      properties: ["outline-style: hidden;"],
     },
     {
-      className: 'os-s',
-      properties: [
-        'outline-style: solid;'
-      ]
-    }
+      className: "os-s",
+      properties: ["outline-style: solid;"],
+    },
   ]}
 />
 
@@ -661,35 +549,25 @@ On top of the customization utilities we've already talked about, Yumma CSS 2.0 
 <Utility
   data={[
     {
-      className: 'ow-0',
-      properties: [
-        'outline-width: 0px;'
-      ]
+      className: "ow-0",
+      properties: ["outline-width: 0px;"],
     },
     {
-      className: 'ow-1',
-      properties: [
-        'outline-width: 4px;'
-      ]
+      className: "ow-1",
+      properties: ["outline-width: 4px;"],
     },
     {
-      className: 'ow-2',
-      properties: [
-        'outline-width: 8px;'
-      ]
+      className: "ow-2",
+      properties: ["outline-width: 8px;"],
     },
     {
-      className: 'ow-3',
-      properties: [
-        'outline-width: 12px;'
-      ]
+      className: "ow-3",
+      properties: ["outline-width: 12px;"],
     },
     {
-      className: 'ow-4',
-      properties: [
-        'outline-width: 16px;'
-      ]
-    }
+      className: "ow-4",
+      properties: ["outline-width: 16px;"],
+    },
   ]}
 />
 
@@ -697,22 +575,22 @@ I'm also adding new Spacing utilities, similar to [Tailwind CSS](https://tailwin
 
 ##### Spacing X
 
-<Utility 
-  classPrefix='s-x-' 
-  classValues={['margin-left', 'margin-right']}
-  range={100} 
-  increment={0.25} 
-  unit='rem'
+<Utility
+  classPrefix="s-x-"
+  classValues={["margin-left", "margin-right"]}
+  range={100}
+  increment={0.25}
+  unit="rem"
 />
 
 ##### Spacing Y
 
-<Utility 
-  classPrefix='s-y-' 
-  classValues={['margin-top', 'margin-bottom']} 
-  range={100} 
-  increment={0.25} 
-  unit='rem' 
+<Utility
+  classPrefix="s-y-"
+  classValues={["margin-top", "margin-bottom"]}
+  range={100}
+  increment={0.25}
+  unit="rem"
 />
 
 I have to mention the new table utilities and the Table Layout utility classes.
@@ -720,17 +598,13 @@ I have to mention the new table utilities and the Table Layout utility classes.
 <Utility
   data={[
     {
-      className: 'tl-auto',
-      properties: [
-        'table-layout: auto;'
-      ]
+      className: "tl-auto",
+      properties: ["table-layout: auto;"],
     },
     {
-      className: 'tl-f',
-      properties: [
-        'table-layout: fixed;'
-      ]
-    }
+      className: "tl-f",
+      properties: ["table-layout: fixed;"],
+    },
   ]}
 />
 
@@ -738,22 +612,22 @@ I'm also adding a bunch of new utility classes for text formatting to the table.
 
 ##### Text Decoration Color
 
-<Color 
-  classPrefix='tdc-' 
-  classValues={['outline-color']} 
+<Color
+  classPrefix="tdc-"
+  classValues={["outline-color"]}
   data={[
-    { color: 'red', value: '#d73d3d' },
-    { color: 'orange', value: '#e06814' },
-    { color: 'yellow', value: '#d3a107' },
-    { color: 'green', value: '#1fb155' },
-    { color: 'teal', value: '#12a695' },
-    { color: 'cyan', value: '#05a4bf' },
-    { color: 'blue', value: '#3575dd' },
-    { color: 'indigo', value: '#595cd9' },
-    { color: 'violet', value: '#7d53dd' },
-    { color: 'pink', value: '#d4418a' },
-    { color: 'gray', value: '#606773' },
-    { color: 'lead', value: '#3f3f4e' }
+    { color: "red", value: "#d73d3d" },
+    { color: "orange", value: "#e06814" },
+    { color: "yellow", value: "#d3a107" },
+    { color: "green", value: "#1fb155" },
+    { color: "teal", value: "#12a695" },
+    { color: "cyan", value: "#05a4bf" },
+    { color: "blue", value: "#3575dd" },
+    { color: "indigo", value: "#595cd9" },
+    { color: "violet", value: "#7d53dd" },
+    { color: "pink", value: "#d4418a" },
+    { color: "gray", value: "#606773" },
+    { color: "lead", value: "#3f3f4e" },
   ]}
 />
 
@@ -762,29 +636,21 @@ I'm also adding a bunch of new utility classes for text formatting to the table.
 <Utility
   data={[
     {
-      className: 'tds-none',
-      properties: [
-        'text-decoration-style: none;'
-      ]
+      className: "tds-none",
+      properties: ["text-decoration-style: none;"],
     },
     {
-      className: 'tds-d',
-      properties: [
-        'text-decoration-style: dashed;'
-      ]
+      className: "tds-d",
+      properties: ["text-decoration-style: dashed;"],
     },
     {
-      className: 'tds-h',
-      properties: [
-        'text-decoration-style: hidden;'
-      ]
+      className: "tds-h",
+      properties: ["text-decoration-style: hidden;"],
     },
     {
-      className: 'tds-s',
-      properties: [
-        'text-decoration-style: solid;'
-      ]
-    }
+      className: "tds-s",
+      properties: ["text-decoration-style: solid;"],
+    },
   ]}
 />
 
@@ -793,47 +659,33 @@ I'm also adding a bunch of new utility classes for text formatting to the table.
 <Utility
   data={[
     {
-      className: 'tdt-auto',
-      properties: [
-        'text-decoration-thickness: auto;'
-      ]
+      className: "tdt-auto",
+      properties: ["text-decoration-thickness: auto;"],
     },
     {
-      className: 'tdt-ff',
-      properties: [
-        'text-decoration-thickness: from-font;'
-      ]
+      className: "tdt-ff",
+      properties: ["text-decoration-thickness: from-font;"],
     },
     {
-      className: 'tdt-0',
-      properties: [
-        'text-decoration-thickness: 0px;'
-      ]
+      className: "tdt-0",
+      properties: ["text-decoration-thickness: 0px;"],
     },
     {
-      className: 'tdt-1',
-      properties: [
-        'text-decoration-thickness: 4px;'
-      ]
+      className: "tdt-1",
+      properties: ["text-decoration-thickness: 4px;"],
     },
     {
-      className: 'tdt-2',
-      properties: [
-        'text-decoration-thickness: 8px;'
-      ]
+      className: "tdt-2",
+      properties: ["text-decoration-thickness: 8px;"],
     },
     {
-      className: 'tdt-3',
-      properties: [
-        'text-decoration-thickness: 12px;'
-      ]
+      className: "tdt-3",
+      properties: ["text-decoration-thickness: 12px;"],
     },
     {
-      className: 'tdt-4',
-      properties: [
-        'text-decoration-thickness: 16px;'
-      ]
-    }
+      className: "tdt-4",
+      properties: ["text-decoration-thickness: 16px;"],
+    },
   ]}
 />
 
@@ -844,13 +696,21 @@ You can now use Yumma CSS without the default base styles. This could be really 
 ##### Standard
 
 ```html
-<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.css" rel="stylesheet" crossorigin="anonymous">
+<link
+  href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.css"
+  rel="stylesheet"
+  crossorigin="anonymous"
+/>
 ```
 
 ##### Minified
 
 ```html
-<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.min.css" rel="stylesheet" crossorigin="anonymous">
+<link
+  href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@2.0.0/dist/yumma-core.min.css"
+  rel="stylesheet"
+  crossorigin="anonymous"
+/>
 ```
 
 ### Responsive breakpoints
@@ -872,26 +732,26 @@ It took me a while, but I've finally added full media query support for every si
 Yumma CSS is going to change how your browser handles breakpoints.
 
 <Tabs>
-  <TabItem label='Now'>
+  <TabItem label="Now">
     <Utility
-        data={[
-          { className: 'sm', properties: ['min-width: 640px;'] },
-          { className: 'md', properties: ['min-width: 768px;'] },
-          { className: 'lg', properties: ['min-width: 1024px;'] },
-            { className: 'xl', properties: ['min-width: 1280px;'] },
-          { className: 'xxl', properties: ['min-width: 1536px;'] }
-        ]}
+      data={[
+        { className: "sm", properties: ["min-width: 640px;"] },
+        { className: "md", properties: ["min-width: 768px;"] },
+        { className: "lg", properties: ["min-width: 1024px;"] },
+        { className: "xl", properties: ["min-width: 1280px;"] },
+        { className: "xxl", properties: ["min-width: 1536px;"] },
+      ]}
     />
   </TabItem>
-  <TabItem label='Then'>
+  <TabItem label="Then">
     <Utility
-        data={[
-          { className: 'xs', properties: ['min-width: 0;'] },
-          { className: 'sm', properties: ['min-width: 480px;'] },
-          { className: 'md', properties: ['min-width: 720px;'] },
-          { className: 'lg', properties: ['min-width: 960px;'] },
-          { className: 'xl', properties: ['min-width: 1200px;'] },
-        ]}
+      data={[
+        { className: "xs", properties: ["min-width: 0;"] },
+        { className: "sm", properties: ["min-width: 480px;"] },
+        { className: "md", properties: ["min-width: 720px;"] },
+        { className: "lg", properties: ["min-width: 960px;"] },
+        { className: "xl", properties: ["min-width: 1200px;"] },
+      ]}
     />
   </TabItem>
 </Tabs>
@@ -943,24 +803,25 @@ Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and
 <ShowcaseText
   entries={[
     {
-      description: 'If you experience any problems, please notify us at GitHub.',
-      href: 'https://github.com/yumma-lib/yumma-css/issues',
-      title: 'GitHub'
+      description:
+        "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      title: "GitHub",
     },
     {
-      description: 'Join our Discord for discussion, sharing, and learning.',
-      href: 'https://discord.gg/2MUw2g6FCn',
-      title: 'Discord'
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      title: "Discord",
     },
     {
-      description: 'Please follow us on Twitter to receive the latest updates.',
-      href: 'https://twitter.com/yummacss',
-      title: 'Twitter'
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      title: "Twitter",
     },
     {
-      description: 'Watch our screencasts on YouTube for the latest updates.',
-      href: 'https://youtube.com/@yummacss',
-      title: 'YouTube'
-    }
+      description: "Watch our screencasts on YouTube for the latest updates.",
+      href: "https://youtube.com/@yummacss",
+      title: "YouTube",
+    },
   ]}
 />

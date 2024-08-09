@@ -11,8 +11,8 @@ tags: [release, update]
 title: Yumma CSS 1.2
 ---
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
-import { ShowcaseText } from 'starlight-showcases';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import { ShowcaseText } from "starlight-showcases";
 
 I've been meaning to update the color palette of Yumma CSS for a while, so I'm excited to announce the new version [Yumma CSS v1.2.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0)! It has a reworked color palette, new variations for dimension classes, line height classes, and more.
 
@@ -27,69 +27,48 @@ This is an incremental update that may contain bug fixes. Minor releases follow 
 
 ---
 
-### All new utilities 
+### All new utilities
 
 It's been a while since we've seen new utility classes for `height`, `width`, and `dimension`. Well, here it is — `fit-content`!
 
 <Utility
   data={[
     {
-      className: 'h-fc',
-      properties: [
-        'height: fit-content;'
-      ]
+      className: "h-fc",
+      properties: ["height: fit-content;"],
     },
     {
-      className: 'w-fc',
-      properties: [
-        'width: fit-content;'
-      ]
+      className: "w-fc",
+      properties: ["width: fit-content;"],
     },
     {
-      className: 'max-h-fc',
-      properties: [
-        'max-height: fit-content;'
-      ]
+      className: "max-h-fc",
+      properties: ["max-height: fit-content;"],
     },
     {
-      className: 'min-h-fc',
-      properties: [
-        'max-height: fit-content;'
-      ]
+      className: "min-h-fc",
+      properties: ["max-height: fit-content;"],
     },
     {
-      className: 'max-w-*',
-      properties: [
-        'max-width: fit-content;'
-      ]
+      className: "max-w-*",
+      properties: ["max-width: fit-content;"],
     },
     {
-      className: 'min-w-*',
-      properties: [
-        'max-width: fit-content;'
-      ]
+      className: "min-w-*",
+      properties: ["max-width: fit-content;"],
     },
     {
-      className: 'dim-1',
-      properties: [
-        'height: 0.25rem;',
-        'width: 0.25rem;'
-      ]
+      className: "dim-1",
+      properties: ["height: 0.25rem;", "width: 0.25rem;"],
     },
     {
-      className: 'max-dim-1',
-      properties: [
-        'max-height: 0.25rem;',
-        'max-width: 0.25rem;'
-      ]
+      className: "max-dim-1",
+      properties: ["max-height: 0.25rem;", "max-width: 0.25rem;"],
     },
     {
-      className: 'min-dim-1',
-      properties: [
-        'min-height: 0.25rem;',
-        'min-width: 0.25rem;'
-      ]
-    }
+      className: "min-dim-1",
+      properties: ["min-height: 0.25rem;", "min-width: 0.25rem;"],
+    },
   ]}
 />
 
@@ -98,23 +77,17 @@ I've also expanded the Flex utility classes to include: `auto,` `full`, and `hal
 <Utility
   data={[
     {
-      className: 'f-auto',
-      properties: [
-        'flex: auto;'
-      ]
+      className: "f-auto",
+      properties: ["flex: auto;"],
     },
     {
-      className: 'f-full',
-      properties: [
-        'flex: 100%;'
-      ]
+      className: "f-full",
+      properties: ["flex: 100%;"],
     },
     {
-      className: 'f-half',
-      properties: [
-        'flex: 50%;'
-      ]
-    }
+      className: "f-half",
+      properties: ["flex: 50%;"],
+    },
   ]}
 />
 
@@ -123,49 +96,37 @@ I've added some new classes for Line Height, which makes it easier to differenti
 <Utility
   data={[
     {
-      className: 'lh-1',
-      properties: [
-        'line-height: 1;'
-      ]
+      className: "lh-1",
+      properties: ["line-height: 1;"],
     },
     {
-      className: 'lh-2',
-      properties: [
-        'line-height: 1.25;'
-      ]
+      className: "lh-2",
+      properties: ["line-height: 1.25;"],
     },
     {
-      className: 'lh-3',
-      properties: [
-        'line-height: 1.375;'
-      ]
+      className: "lh-3",
+      properties: ["line-height: 1.375;"],
     },
     {
-      className: 'lh-4',
-      properties: [
-        'line-height: 1.5;'
-      ]
+      className: "lh-4",
+      properties: ["line-height: 1.5;"],
     },
     {
-      className: 'lh-5',
-      properties: [
-        'line-height: 1.625;'
-      ]
+      className: "lh-5",
+      properties: ["line-height: 1.625;"],
     },
     {
-      className: 'lh-6',
-      properties: [
-        'line-height: 2;'
-      ]
-    }
+      className: "lh-6",
+      properties: ["line-height: 2;"],
+    },
   ]}
 />
 
 <Preview
-  data = {`<p class="lh-6 t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Ultrices eros in cursus turpis. Nec feugiat in fermentum posuere urna nec tincidunt praesent.</p>`}
-  useHeight = '160px'
+  data={`<p class="lh-6 t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Ultrices eros in cursus turpis. Nec feugiat in fermentum posuere urna nec tincidunt praesent.</p>`}
+  useHeight="160px"
   usePadding
-  useVersion = '1.2.0'
+  useVersion="1.2.0"
 />
 
 ---
@@ -179,13 +140,13 @@ Previously, the colors weren't as rich as I wanted them to be, which was a bit o
     <Palette
       data={[
         {
-          name: 'Blue',
-          color: '#3575dd'
+          name: "Blue",
+          color: "#3575dd",
         },
         {
-          name: 'Indigo',
-          color: '#595cd9'
-        },     
+          name: "Indigo",
+          color: "#595cd9",
+        },
       ]}
     />
   </TabItem>
@@ -193,12 +154,12 @@ Previously, the colors weren't as rich as I wanted them to be, which was a bit o
     <Palette
       data={[
         {
-          name: 'Blue',
-          color: '#438cca'
+          name: "Blue",
+          color: "#438cca",
         },
         {
-          name: 'Indigo',
-          color: '#595cd9'
+          name: "Indigo",
+          color: "#595cd9",
         },
       ]}
     />
@@ -210,6 +171,7 @@ Previously, the colors weren't as rich as I wanted them to be, which was a bit o
 Oh, another thing, though it's not a color, Yumma CSS v1.2 now supports — `transparent`.
 
 ---
+
 ### Extending media queries
 
 Yumma CSS is working on getting around this responsive issue, but for now, let's focus on what we've got. I've added media queries for the `dim-*`, `max-dim-*`, and `min-dim-*` classes.
@@ -223,20 +185,20 @@ I've made a few changes to the button content to make it easier to read.
 <Tabs>
   <TabItem value="now" label="Now">
     <Preview
-      data = {`<div class="ins h-1/1">
+      data={`<div class="ins h-1/1">
           <button class="btn-pink t-white">Button</button>
         </div>
       `}
-      useVersion = '1.2.0'
+      useVersion="1.2.0"
     />
   </TabItem>
   <TabItem value="then" label="Then">
     <Preview
-      data = {`<div class="ins h-1/1">
+      data={`<div class="ins h-1/1">
           <button class="btn-pink t-white">Button</button>
         </div>
       `}
-      useVersion = '1.1.0'
+      useVersion="1.1.0"
     />
   </TabItem>
 </Tabs>
@@ -258,25 +220,25 @@ Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and
 <ShowcaseText
   entries={[
     {
-      description: 'If you experience any problems, please notify us at GitHub.',
-      href: 'https://github.com/yumma-lib/yumma-css/issues',
-      title: 'GitHub'
+      description:
+        "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      title: "GitHub",
     },
     {
-      description: 'Join our Discord for discussion, sharing, and learning.',
-      href: 'https://discord.gg/2MUw2g6FCn',
-      title: 'Discord'
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      title: "Discord",
     },
     {
-      description: 'Please follow us on Twitter to receive the latest updates.',
-      href: 'https://twitter.com/yummacss',
-      title: 'Twitter'
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      title: "Twitter",
     },
     {
-      description: 'Watch our screencasts on YouTube for the latest updates.',
-      href: 'https://youtube.com/@yummacss',
-      title: 'YouTube'
-    }
+      description: "Watch our screencasts on YouTube for the latest updates.",
+      href: "https://youtube.com/@yummacss",
+      title: "YouTube",
+    },
   ]}
 />
-

@@ -1,5 +1,5 @@
 ---
-import tinycolor from 'tinycolor2';
+import tinycolor from "tinycolor2";
 
 interface ColorClass {
   color: string;
@@ -23,13 +23,13 @@ const generateShades = (color: string) => {
   const darkShades: string[] = [];
 
   for (let i = 6; i >= 1; i--) {
-    lightShades.push(mixColors(color, 'white', i * 10));
+    lightShades.push(mixColors(color, "white", i * 10));
   }
 
   const baseColor = color;
 
   for (let i = 1; i <= 6; i++) {
-    darkShades.push(mixColors(color, 'black', i * 10));
+    darkShades.push(mixColors(color, "black", i * 10));
   }
 
   return { lightShades, baseColor, darkShades };
@@ -41,22 +41,30 @@ function generateClassData(
   data: ColorClass[]
 ) {
   return data.flatMap((colorClass) => {
-    const { lightShades, baseColor, darkShades } = generateShades(colorClass.value);
+    const { lightShades, baseColor, darkShades } = generateShades(
+      colorClass.value
+    );
 
     return [
       ...lightShades.map((shade, i) => ({
         classTitle: `${classPrefix}l-${colorClass.color}-${6 - i}`,
-        properties: classValues.map((propertyName) => `${propertyName}: ${shade}`),
+        properties: classValues.map(
+          (propertyName) => `${propertyName}: ${shade}`
+        ),
         colorValue: shade,
       })),
       {
         classTitle: `${classPrefix}${colorClass.color}`,
-        properties: classValues.map((propertyName) => `${propertyName}: ${baseColor}`),
+        properties: classValues.map(
+          (propertyName) => `${propertyName}: ${baseColor}`
+        ),
         colorValue: baseColor,
       },
       ...darkShades.map((shade, i) => ({
         classTitle: `${classPrefix}d-${colorClass.color}-${i + 1}`,
-        properties: classValues.map((propertyName) => `${propertyName}: ${shade}`),
+        properties: classValues.map(
+          (propertyName) => `${propertyName}: ${shade}`
+        ),
         colorValue: shade,
       })),
     ];
@@ -67,62 +75,65 @@ const colorData = generateClassData(classPrefix, classValues, data);
 ---
 
 <style>
-.classList {
-  max-height: 300px;
-  overflow-y: auto;
-  padding: 10px;
-}
+  .classList {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+  }
 
-.classItem {
-  background-color: #f5f6f8;
-  border: 1px solid #cdcfd3;
-  color: #181818;
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-}
+  .classItem {
+    background-color: #f5f6f8;
+    border: 1px solid #cdcfd3;
+    color: #181818;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
 
-.classTitle {
-  font-weight: 600;
-  margin-bottom: 8px;
-}
+  .classTitle {
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
 
-.propertyCode {
-  display: block;
-}
+  .propertyCode {
+    display: block;
+  }
 
-.colorSwatch {
-  border-radius: 0.25rem;
-  height: 20px;
-  width: 20px;
-}
+  .colorSwatch {
+    border-radius: 0.25rem;
+    height: 20px;
+    width: 20px;
+  }
 
-:global([data-theme='dark']) .classList {
-  background-color: var(--yma-bg-lighter);
-}
+  :global([data-theme="dark"]) .classList {
+    background-color: var(--yma-bg-lighter);
+  }
 
-:global([data-theme='dark']) .classItem {
-  background-color: var(--yma-bg-light);
-  border: 1px solid #2d2f33;
-  color: #f5f6f8;
-}
+  :global([data-theme="dark"]) .classItem {
+    background-color: var(--yma-bg-light);
+    border: 1px solid #2d2f33;
+    color: #f5f6f8;
+  }
 
-:global([data-theme='dark']) .propertyCode {
-  background-color: var(--yma-bg-dark);
-  color: #f5f6f8;
-}
+  :global([data-theme="dark"]) .propertyCode {
+    background-color: var(--yma-bg-dark);
+    color: #f5f6f8;
+  }
 </style>
 
 <div class="classList">
-  {colorData.map((classItem) => (
-    <div class="classItem" title={classItem.classTitle}>
-      <div class="classProperties">
-        <div class="classTitle">{classItem.classTitle}</div>
-        <code class="propertyCode">
-          {classItem.properties.join('\n')}
-        </code>
+  {
+    colorData.map((classItem) => (
+      <div class="classItem" title={classItem.classTitle}>
+        <div class="classProperties">
+          <div class="classTitle">{classItem.classTitle}</div>
+          <code class="propertyCode">{classItem.properties.join("\n")}</code>
+        </div>
+        <div
+          class="colorSwatch"
+          style={`background-color: ${classItem.colorValue}`}
+        />
       </div>
-      <div class="colorSwatch" style={`background-color: ${classItem.colorValue}`}></div>
-    </div>
-  ))}
+    ))
+  }
 </div>

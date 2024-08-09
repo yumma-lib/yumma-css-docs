@@ -9,23 +9,17 @@ Controls word wrapping.
 <Utility
   data={[
     {
-      className: 'ow-bw',
-      properties: [
-        'overflow-wrap: break-word;'
-      ]
+      className: "ow-bw",
+      properties: ["overflow-wrap: break-word;"],
     },
     {
-      className: 'ow-ka',
-      properties: [
-        'overflow-wrap: keep-all;'
-      ]
+      className: "ow-ka",
+      properties: ["overflow-wrap: keep-all;"],
     },
     {
-      className: 'ow-n',
-      properties: [
-        'overflow-wrap: normal;'
-      ]
-    }
+      className: "ow-n",
+      properties: ["overflow-wrap: normal;"],
+    },
   ]}
 />
 
@@ -36,9 +30,7 @@ Controls word wrapping.
 The utilization of breakpoint modifiers, like `sm:ow-*`, `md:ow-*`, `lg:ow-*`, and `xxl:ow-*` enables the targeting of specific utilities in disparate viewports.
 
 ```html "md:ow-bw"
-<div class="ow-n md:ow-bw ...">
-  ...
-</div>
+<div class="ow-n md:ow-bw ...">...</div>
 ```
 
 ### Using variants
@@ -46,7 +38,5 @@ The utilization of breakpoint modifiers, like `sm:ow-*`, `md:ow-*`, `lg:ow-*`, a
 The `:hover` variant, such as `h:ow-*`, allows you to modify overflow wrap styles when hovering over elements.
 
 ```html "h:ow-bw"
-<div class="ow-n h:ow-bw ...">
-  ...
-</div>
+<div class="ow-n h:ow-bw ...">...</div>
 ```
