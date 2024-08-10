@@ -1,14 +1,14 @@
-# build output
+# build
 dist/
-
-# generated types
-.astro/
 
 # dependencies
 node_modules/
 
+# generated types
+.astro/
+
 # logs
 npm-debug.log*
 
-# others
+# vs code
 .vscode/
