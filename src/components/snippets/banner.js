@@ -1,10 +1,11 @@
 export const floatingAtTop = `
 <div class="m-4">
   <a class="bg-blue bs-md d-b p-3 rad-2 ta-c" href="#">
-    <p class="d-ib fs-sm mx-1 tc-white">We are pleased to announce the addition of a new section for women's shoes.</p>
-    <span class="ai-c c-p d-if fs-sm fw-700 cg-2 jc-c tc-white">Discover now!
-    <svg class="dim-5 fs-0" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    <p class="d-ib fs-sm mx-1 tc-white">We're excited to announce the release of Yumma OS 7.2!</p>
+    <span class="ai-c c-p d-if fs-sm fw-700 cg-2 jc-c tc-white">What's new?
+      <svg class="dim-5 fs-0" width="24px" height="24px" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
     </span>
   </a>
 </div>
