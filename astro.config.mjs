@@ -43,7 +43,7 @@ export default defineConfig({
           items: [
             { label: "Installation", link: "docs/installation" },
             { label: "Components", link: "/components" },
-            { label: "Playground", link: "https://play.yummacss.com/" },
+            { label: "Playground", link: "https://play.yummacss.com" },
           ],
         },
         {
