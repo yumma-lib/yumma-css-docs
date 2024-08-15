@@ -36,3 +36,7 @@
     --yma-bg-light: #f5f6f8;
     --yma-bg-lighter: #ffffff;
 }
+
+strong {
+    font-weight: 500;
+}

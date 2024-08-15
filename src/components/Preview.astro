@@ -11,6 +11,7 @@ interface PreviewProps {
   usePadding?: boolean;
   useTabs?: boolean;
   useVersion?: string;
+  useHeight?: string;
 }
 
 const { 
@@ -20,7 +21,8 @@ const {
   usePadding = false, 
   useTabs = false, 
   useVersion = '', 
-  useHighlights = [] 
+  useHighlights = [],
+  useHeight = '300px'
 } = Astro.props as PreviewProps;
 
 const formatHTML = (html: string) => beautify.html(html, {
@@ -60,7 +62,7 @@ const newContainer = (
 const flexbox = useCenter ? 'display: flex;' : '';
 const content = `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
 const newCode = formatHTML(data);
-const container = newContainer (
+const container = newContainer(
   content, 
   flexbox, 
   useCenter, 
@@ -74,7 +76,6 @@ const container = newContainer (
 .previewIframe {
   background-color: #f5f6f8;
   border: 1px solid #cbced2;
-  height: 300px !important;
   overflow-y: auto;
   width: 100%;
 }
@@ -89,11 +90,12 @@ const container = newContainer (
           sandbox="allow-scripts allow-same-origin"
           srcdoc={container}
           class="previewIframe"
+          style={`height: ${useHeight};`}
         />
       </TabItem>
       <TabItem label="Markup">
         <div>
-          <Code code={newCode} lang='html' mark={useHighlights} />
+          <Code code={newCode} lang="html" mark={useHighlights} />
         </div>
       </TabItem>
     </Tabs>
@@ -104,9 +106,10 @@ const container = newContainer (
         sandbox="allow-scripts allow-same-origin"
         srcdoc={container}
         class="previewIframe"
+        style={`height: ${useHeight};`}
       />
       <div class="codeContainer">
-        <Code code={newCode} lang='html' mark={useHighlights} />
+        <Code code={newCode} lang="html" mark={useHighlights} />
       </div>
     </div>
   )}
