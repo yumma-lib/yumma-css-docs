@@ -4,8 +4,7 @@ title: Install Yumma CSS with .NET
 slug: docs/integrations/dotnet
 ---
 
-import { FileTree } from "@astrojs/starlight/components";
-import { Code, Steps } from "@astrojs/starlight/components";
+import { Code, Steps, FileTree } from "@astrojs/starlight/components";
 
 export const onHTML = `<!-- Minified version -->
 <link href="/lib/yummacss/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous" />`;
@@ -14,7 +13,7 @@ export const onHTML = `<!-- Minified version -->
 
     1. **Install Yumma CSS using LibMan:**
 
-        Navigate to the folder of your project:
+        Navigate to the solution your project:
 
         ```bash title="Terminal"
         cd project-folder\web-application
@@ -27,6 +26,8 @@ export const onHTML = `<!-- Minified version -->
         ```
 
     3. **Create a new page in your web app directory.**
+
+        Once you've installed it, you should see a new `lib` folder in your project directory.
 
         <FileTree>
             - **Index.aspx**
@@ -51,7 +52,7 @@ export const onHTML = `<!-- Minified version -->
 
     3. **Start your .NET development server:**
 
-        You can also press the `F5` key to access the development server
+        You can also press the `F5` key to access the development server.
 
     4. **Begin using Yumma CSS in your .NET project:**
 
