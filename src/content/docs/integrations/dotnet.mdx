@@ -4,34 +4,79 @@ title: Install Yumma CSS with .NET
 slug: docs/integrations/dotnet
 ---
 
+import { FileTree } from '@astrojs/starlight/components';
 import { Code, Steps } from "@astrojs/starlight/components";
 
-export const onHTML = `<!-- Standard version -->
-<link rel="stylesheet" href="~/lib/yummacss/dist/yumma.min.css">`;
+export const onHTML = `<!-- Minified version -->
+<link href="/lib/yummacss/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous" />`;
 
 <Steps>
-    1. Install Yumma CSS using LibMan:
+
+    1. **Install Yumma CSS using LibMan:**
+
+        Navigate to the folder of your project:
 
         ```bash title="Terminal"
-        libman install yummacss --provider cdnjs
+        cd project-folder\web-application
         ```
 
-    2. Include Yumma CSS in your layout file in your `<head>` section:
+        Install the Yumma CSS Library using [LibMan](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-cli?view=aspnetcore-8.0)
 
-        <Code code={onHTML} lang="html" title="_Layout.cshtml" />
+        ```bash title="Installing dependencies..."
+        libman install yummacss@latest --provider jsdelivr --destination lib/yummacss
+        ```
 
-    3. Start your .NET development server:
+    3. **Create a new page in your web app directory.**
+
+        <FileTree>
+            - **Index.aspx**
+                - Index.aspx.cs
+                - Index.aspx.designer.cs
+                - lib
+                    - yummacss/
+                - libman.json
+                - packages.config
+                - Properties
+                - AssemblyInfo.cs
+                - Web.config
+                - Web.Debug.config
+                - Web.Release.config
+            - dotnet-yummacss-starter.sln
+            - packages/
+        </FileTree>
+
+    2. **Include Yumma CSS in your ASPX page in your `<head>` section:**
+
+        <Code code={onHTML} lang="html" title="Index.aspx" />
+
+    3. **Start your .NET development server:**
+
+        You can also press the `F5` key to access the development server
 
         ```bash title="Terminal"
         dotnet run
         ```
 
-    4. Begin using Yumma CSS in your .NET project:
+    4. **Begin using Yumma CSS in your .NET project:**
 
-        ```html title="Views/Home/Index.cshtml"
-        <div class="ai-c bg-blue d-f jc-c h-1/1">
-          <h1 class="fs-lg fw-700 tc-white">Yumma CSS + .NET</h1>
-        </div>
+        Now you can use Yumma CSS Utility Classes inside markup.
+
+        ```html title="Index.aspx"
+        <form id="form1" runat="server">
+            <div class="ai-c bg-d-lead-4 d-f jc-c h-1/1">
+            <h1 class="fs-lg fw-700 tc-white">Yumma CSS + .NET</h1>
+            </div>
+        </form>
         ```
 
 </Steps>
+
+---
+
+### Clone repository
+
+Are you having any trouble with the installation? Clone this GitHub repository instead!
+
+```bash
+git clone https://github.com/rrenildopereiraa/dotnet-yummacss-starter.git
+```
