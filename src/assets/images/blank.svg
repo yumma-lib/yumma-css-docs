@@ -1,0 +1,17 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /* Default to light mode */
+    .background {
+      fill: #f5f6f8;
+    }
+
+    /* Dark mode styles */
+    @media (prefers-color-scheme: dark) {
+      .background {
+        fill: #24272f;
+      }
+    }
+  </style>
+  <!-- Rectangle for background -->
+  <rect class="background" width="800" height="450"/>
+</svg>
