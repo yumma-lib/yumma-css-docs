@@ -6,8 +6,16 @@ slug: docs/integrations/dotnet
 
 import { Code, Steps, FileTree } from "@astrojs/starlight/components";
 
-export const onHTML = `<!-- Minified version -->
+export const head = `<!-- Minified version -->
 <link href="/lib/yummacss/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous" />`;
+
+export const form = `
+<form id="form1" runat="server">
+    <div class="ai-c bg-d-lead-4 d-f jc-c h-1/1">
+        <h1 class="fs-lg fw-700 tc-white">Yumma CSS + .NET</h1>
+    </div>
+</form>
+`;
 
 <Steps>
 
@@ -15,15 +23,11 @@ export const onHTML = `<!-- Minified version -->
 
         Navigate to the solution your project:
 
-        ```bash title="Terminal"
-        cd project-name\solution-name
-        ```
+        <Code code="cd project-name\solution-name" lang="bash" title="Terminal" />
 
         Install the Yumma CSS Library using [LibMan](https://learn.microsoft.com/en-us/aspnet/core/client-side/libman/libman-cli?view=aspnetcore-8.0)
 
-        ```bash title="Installing dependencies..."
-        libman install yummacss@latest --provider jsdelivr --destination lib/yummacss
-        ```
+        <Code code="libman install yummacss@latest --provider jsdelivr --destination lib/yummacss" lang="bash" title="Installing dependencies..." />
 
     3. **Create a new page in your web app directory.**
 
@@ -46,7 +50,7 @@ export const onHTML = `<!-- Minified version -->
 
     2. **Include Yumma CSS in your ASPX page in your `<head>` section:**
 
-        <Code code={onHTML} lang="html" title="Index.aspx" />
+        <Code code={head} lang="html" title="Index.aspx" />
 
     3. **Start your .NET development server:**
 
@@ -56,22 +60,18 @@ export const onHTML = `<!-- Minified version -->
 
         Now you can use Yumma CSS Utility Classes inside markup.
 
-        ```html title="Index.aspx"
-        <form id="form1" runat="server">
-            <div class="ai-c bg-d-lead-4 d-f jc-c h-1/1">
-                <h1 class="fs-lg fw-700 tc-white">Yumma CSS + .NET</h1>
-            </div>
-        </form>
-        ```
+        <Code code={form} lang="html" title="Index.aspx" />
 
 </Steps>
 
-{/* ---
+---
 
 ### Clone the example
 
 Use this preconfigured .NET example to get started.
 
-```bash title="Cloning repository..."
-git clone https://github.com/yumma-lib/dotnet-yummacss-starter.git
-``` */}
+<Code
+  code="git clone https://github.com/yumma-lib/dotnet-yummacss-example.git"
+  lang="bash"
+  title="Cloning repository..."
+/>
