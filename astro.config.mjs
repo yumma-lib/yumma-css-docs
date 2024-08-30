@@ -134,6 +134,10 @@ export default defineConfig({
                   label: "Grid Template Rows",
                   link: "docs/grid-template-rows",
                 },
+                {
+                  label: "Gap",
+                  link: "docs/gap"
+                }
               ],
             },
           ],
