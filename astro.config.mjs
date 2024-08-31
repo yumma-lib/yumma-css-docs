@@ -33,9 +33,7 @@ export default defineConfig({
       title: "Yumma CSS",
       customCss: ["/src/styles/custom.css"],
       social: {
-        github: "https://github.com/yumma-lib/yumma-css",
-        discord: "https://discord.gg/Zd2y6yVqgK",
-        twitter: "https://x.com/yummacss",
+        github: "https://github.com/yumma-lib/yumma-css"
       },
       sidebar: [
         {
