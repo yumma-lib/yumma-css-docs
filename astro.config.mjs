@@ -35,6 +35,16 @@ export default defineConfig({
       social: {
         github: "https://github.com/yumma-lib/yumma-css"
       },
+      head: [
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'icon',
+            href: '/logo-180.png',
+            sizes: '180x180',
+          },
+        },
+      ],
       sidebar: [
         {
           label: "Getting Started",
