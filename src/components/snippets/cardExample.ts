@@ -91,3 +91,79 @@ export const cardExample: string = `
     }
 </style>
 `;
+
+export const withYummaCSS: string = `
+<div class="d-g h-1/1 w-full g-4 p-6 md:gaf-d md:gtc-3 md:gtr-3">
+    <div class="d-f fd-c ovf-h rad-3 b-1 bc-l-silver-6 bg-white p-6 bs-sm md:gc-s-1 md:gr-s-2">
+        <div class="fg-1">
+            <h1 class="mb-2 fs-xl fw-600 tc-d-lead-2">
+                Yumma OS 7.2
+            </h1>
+            <p class="mb-4 fs-sm tc-l-lead-3">
+                This update has some important bug fixes and also fixes an issue that was preventing users from enabling or disabling Advanced Data Protection.
+            </p>
+            <a class="fs-sm tc-pink tdl-u" href="/">
+                What's new?
+            </a>
+        </div>
+        <div class="mt-auto d-f fd-c s-y-4">
+            <button class="h-12 rad-2 bg-pink px-6 fw-600 tc-white">
+                Update Now
+            </button>
+            <button class="h-12 rad-2 b-1 bc-l-silver-5 px-6 fw-600 tc-lead">
+                Update Tonight
+            </button>
+        </div>
+    </div>
+
+    <div class="d-f fd-c ovf-h rad-3 b-1 bc-l-silver-6 bg-white p-6 bs-sm md:gcs-2 md:grs-1">
+        <div class="fg-1">
+            <h1 class="mb-2 fs-xl fw-600 tc-d-lead-2">
+                Patch 6.2
+            </h1>
+            <p class="mb-4 fs-sm tc-l-lead-3">
+                This update fixes security issues. Install it to keep your system safe.
+            </p>
+        </div>
+        <button class="h-12 rad-2 bg-pink px-6 fw-600 tc-white mt-auto mb-4">
+            Update Now
+        </button>
+    </div>
+
+    <div class="d-f fd-c ovf-h rad-3 b-1 bc-l-silver-6 bg-white p-6 bs-sm md:gcs-2 md:grs-2">
+        <div class="fg-1">
+            <h1 class="mb-2 fs-xl fw-600 tc-d-lead-2">
+                What's new?
+            </h1>
+            <p class="mb-4 fs-sm tc-l-lead-3">
+                Take a look at the new features in the latest release, including better user interface elements and a more stable system.
+            </p>
+            <a class="fs-sm tc-pink tdl-u" href="/">
+                Learn more
+            </a>
+        </div>
+    </div>
+</div>
+`;
+
+export const yummaCard: string = `
+<div class="max-w-95 ovf-h rad-3 b-1 bc-l-silver-6 bg-white p-6 bs-sm">
+  <div class="fg-1">
+    <h4 class="mb-2 fs-xxl fw-600 tc-d-lead-2">Yumma OS 7.2</h4>
+    <p class="mb-4 tc-l-lead-3">This update has some important bug fixes and also fixes an issue that was preventing users from enabling or disabling Advanced Data Protection.</p>
+    <a class="fs-sm tc-pink tdl-u" href="/"> Learn more </a>
+  </div>
+  <button class="mb-4 mt-6 h-12 rad-2 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Update Now</button>
+</div>
+`;
+
+export const tailwindCard: string = `
+<div class="max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+  <div class="grow">
+    <h4 class="mb-2 text-3xl font-semibold leading-none text-gray-800">Yumma OS 7.2</h4>
+    <p class="mb-4 text-gray-500">This update has some important bug fixes and also fixes an issue that was preventing users from enabling or disabling Advanced Data Protection.</p>
+    <a class="text-sm leading-none text-pink-500 underline" href="/"> Learn more </a>
+  </div>
+  <button class="mb-4 mt-6 h-12 rounded-lg bg-pink-500 px-6 font-semibold text-white hover:bg-pink-600">Update Now</button>
+</div>
+`;
