@@ -33,22 +33,22 @@ export default defineConfig({
       title: "Yumma CSS",
       customCss: ["/src/styles/custom.css"],
       social: {
-        github: "https://github.com/yumma-lib/yumma-css"
+        github: "https://github.com/yumma-lib/yumma-css",
       },
       head: [
         {
-          tag: 'link',
+          tag: "link",
           attrs: {
-            rel: 'apple-touch-icon',
-            href: '/logo-180.png',
-            sizes: '180x180',
+            rel: "apple-touch-icon",
+            href: "/logo-180.png",
+            sizes: "180x180",
           },
         },
         {
-          tag: 'meta',
+          tag: "meta",
           attrs: {
-            property: 'og:image',
-            content: '/og.png',
+            property: "og:image",
+            content: "/og.png",
           },
         },
       ],
@@ -125,17 +125,25 @@ export default defineConfig({
             {
               label: "Flexbox",
               items: [
+                { label: "Align Content", link: "docs/align-content" },
+                { label: "Align Items", link: "docs/align-items" },
+                { label: "Align Self", link: "docs/align-self" },
                 { label: "Flex Basis", link: "docs/flex-basis" },
                 { label: "Flex Direction", link: "docs/flex-direction" },
                 { label: "Flex Grow", link: "docs/flex-grow" },
                 { label: "Flex Shrink", link: "docs/flex-shrink" },
                 { label: "Flex Wrap", link: "docs/flex-wrap" },
                 { label: "Flex", link: "docs/flex" },
+                { label: "Justify Content", link: "docs/flex-wrap" },
+                { label: "Justify Items", link: "docs/justify-items" },
+                { label: "Justify Self", link: "docs/justify-self" },
               ],
             },
             {
               label: "Grid",
               items: [
+                { label: "Column Gap", link: "docs/column-gap" },
+                { label: "Gap", link: "docs/gap" },
                 { label: "Grid Auto Columns", link: "docs/grid-auto-columns" },
                 { label: "Grid Auto Flow", link: "docs/grid-auto-flow" },
                 { label: "Grid Auto Rows", link: "docs/grid-auto-rows" },
@@ -149,10 +157,7 @@ export default defineConfig({
                   label: "Grid Template Rows",
                   link: "docs/grid-template-rows",
                 },
-                {
-                  label: "Gap",
-                  link: "docs/gap"
-                }
+                { label: "Row Gap", link: "docs/row-gap" },
               ],
             },
           ],
@@ -164,6 +169,13 @@ export default defineConfig({
         {
           label: "Miscellaneous",
           autogenerate: { directory: "miscellaneous" },
+        },
+        {
+          label: "Tables",
+          items: [
+            { label: "Captions Side", link: "docs/caption-side" },
+            { label: "Table Layout", link: "docs/table-layout" },
+          ],
         },
         {
           label: "Typography",
@@ -204,7 +216,6 @@ export default defineConfig({
                 { label: "Overflow Wrap", link: "docs/overflow-wrap" },
               ],
             },
-
           ],
         },
       ],
