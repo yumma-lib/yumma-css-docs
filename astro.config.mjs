@@ -199,8 +199,12 @@ export default defineConfig({
                   link: "docs/text-decoration-thickness",
                 },
                 { label: "Text Decoration", link: "docs/text-decoration" },
+                { label: "Line Height", link: "docs/line-height" },
+                { label: "Line Style Type", link: "docs/list-style-type" },
+                { label: "Overflow Wrap", link: "docs/overflow-wrap" },
               ],
             },
+
           ],
         },
       ],
