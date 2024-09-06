@@ -1,4 +1,4 @@
-export const cardExample: string = `
+export const cardContent: string = `
 <div class="card">
     <div class="card-content">
         <h4 class="card-title">Yumma OS 7.2</h4>
