@@ -95,9 +95,9 @@ export const cardContent: string = `
 export const yummaCard: string = `
 <div class="max-w-96 ovf-h rad-3 b-1 bc-l-silver-6 bg-white p-6 bs-xs">
   <div class="fg-1">
-    <h4 class="mb-2 fs-xxl fw-600 tc-d-lead-2">Yumma OS 7.2</h4>
+    <h4 class="mb-2 fs-xxl fw-600 lh-1 tc-d-lead-2">Yumma OS 7.2</h4>
     <p class="mb-4 tc-l-lead-3">This update has some important bug fixes and also fixes an issue that was preventing users from enabling or disabling Advanced Data Protection.</p>
-    <a class="fs-sm tc-pink tdl-u" href="/"> Learn more </a>
+    <a class="fs-sm lh-1 tc-pink tdl-u" href="/"> Learn more </a>
   </div>
   <button class="mb-4 mt-6 h-12 rad-2 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Update Now</button>
 </div>
