@@ -11,7 +11,7 @@ interface PreviewProps {
   useTabs?: boolean;
   useVersion?: string;
   useHeight?: string;
-  useExternal?: string; // New prop for external stylesheet
+  useExternal?: string;
 }
 
 const { 
@@ -23,7 +23,7 @@ const {
   useVersion = '', 
   useHighlights = [],
   useHeight = '300px',
-  useExternal = '', // Default to empty string if not provided
+  useExternal = '',
 } = Astro.props as PreviewProps;
 
 const formatHTML = (html: string) => beautify.html(html, {
@@ -60,7 +60,6 @@ const newContainer = (
   </html>
 `;
 
-// Determine the stylesheet to use: either the external one or Yumma CSS
 const stylesheet = useExternal || `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
 
 const flexbox = useCenter ? 'display: flex;' : '';
