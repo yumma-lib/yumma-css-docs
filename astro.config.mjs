@@ -42,11 +42,11 @@ export default defineConfig({
     mdx(),
     starlight({
       title: "Yumma CSS",
-      favicon: "https://www.yummacss.com/favicon.ico",
+      favicon: "/favicon.ico",
       logo: {
         alt: "Yumma CSS Logo",
-        dark: "https://www.yummacss.com/yummacss-dark-logo.svg",
-        light: "https://www.yummacss.com/yummacss-light-logo.svg",
+        dark: "/yummacss-dark-logo.svg",
+        light: "/yummacss-light-logo.svg",
         replacesTitle: true,
       },
       plugins: [
@@ -71,7 +71,7 @@ export default defineConfig({
           tag: "link",
           attrs: {
             rel: "apple-touch-icon",
-            href: "https://www.yummacss.com/apple-icon.png",
+            href: "/apple-icon.png",
             sizes: "180x180",
           },
         },
