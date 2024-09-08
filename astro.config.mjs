@@ -55,7 +55,7 @@ export default defineConfig({
           authors: {
             Renildo: {
               name: "Renildo Pereira",
-              picture: "/renildo.jpg",
+              picture: "https://www.yummacss.com/renildo.jpg",
               title: "Maintainer",
               url: "https://x.com/rrenildoo",
             },
@@ -71,7 +71,7 @@ export default defineConfig({
           tag: "link",
           attrs: {
             rel: "apple-touch-icon",
-            href: "https://www.yummacss.com/renildo.jpg",
+            href: "https://www.yummacss.com/apple-icon.png",
             sizes: "180x180",
           },
         },
