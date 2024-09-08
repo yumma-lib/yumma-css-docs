@@ -55,7 +55,7 @@ export default defineConfig({
           authors: {
             Renildo: {
               name: "Renildo Pereira",
-              picture: "/src/assets/images/renildo.jpg",
+              picture: "https://avatars.githubusercontent.com/u/56491937?v=4",
               title: "Maintainer",
               url: "https://x.com/rrenildoo",
             },
