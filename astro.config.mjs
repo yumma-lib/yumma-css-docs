@@ -45,8 +45,8 @@ export default defineConfig({
       favicon: "/favicon.ico",
       logo: {
         alt: "Yumma CSS Logo",
-        dark: "/yummacss-dark-logo.svg",
-        light: "/yummacss-light-logo.svg",
+        dark: "/public/yummacss-dark-logo.svg",
+        light: "/public/yummacss-light-logo.svg",
         replacesTitle: true,
       },
       plugins: [
