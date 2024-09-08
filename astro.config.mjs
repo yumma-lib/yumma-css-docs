@@ -55,7 +55,7 @@ export default defineConfig({
           authors: {
             Renildo: {
               name: "Renildo Pereira",
-              picture: "https://www.yummacss.com/renildo.jpg",
+              picture: "/src/assets/images/renildo.jpg",
               title: "Maintainer",
               url: "https://x.com/rrenildoo",
             },
