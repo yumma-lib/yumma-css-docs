@@ -1,5 +1,5 @@
 ---
-import tinycolor from 'tinycolor2';
+import tinycolor from "tinycolor2";
 
 interface ColorItem {
   name: string;
@@ -19,12 +19,12 @@ const mixColors = (color1: string, color2: string, weight: number): string => {
 const generateShades = (color: string): string[] => {
   const shades: string[] = [];
   for (let i = 6; i >= 1; i--) {
-    shades.push(mixColors(color, 'white', i * 10));
+    shades.push(mixColors(color, "white", i * 10));
   }
 
   shades.push(color);
   for (let i = 1; i <= 6; i++) {
-    shades.push(mixColors(color, 'black', i * 10));
+    shades.push(mixColors(color, "black", i * 10));
   }
 
   return shades;

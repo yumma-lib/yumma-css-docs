@@ -1,36 +1,23 @@
 ---
 title: "Yumma CSS - Your next favorite frontend library"
-description: Fully packaged with all the necessary utility classes to make it easy for you to transition your applications from development to production.
-template: splash
+description: "Fully packaged with all the necessary utility classes to make it easy for you to transition your applications from development to production."
+template: "splash"
 hero:
-  tagline: All the tools you need in one package, with abbreviated utility classes — goodbye, massive codebases!
-  title: Your next favorite frontend library
+  tagline: "All the tools you need in one package, with abbreviated utility classes — goodbye, massive codebases!"
+  title: "Your next favorite frontend library"
   image:
-    alt: Yumma CSS logo
-    file: /src/assets/yummacss.webp
+    alt: "Yumma CSS logo"
+    file: "/src/assets/images/yummacss.webp"
   actions:
-    - text: Get started
-      icon: right-arrow
-      link: docs/installation
-      variant: primary
-    - text: Try Yumma CSS Play
-      icon: external
-      link: https://play.yummacss.com
-      variant: minimal
+    - text: "Get started"
+      icon: "right-arrow"
+      link: "docs/installation"
+      variant: "primary"
+    - text: "Try Yumma CSS Play"
+      icon: "external"
+      link: "https://play.yummacss.com"
+      variant: "minimal"
 ---
-
-import {
-  Card,
-  CardGrid,
-  Code,
-  TabItem,
-  Tabs,
-} from "@astrojs/starlight/components";
-
-import {
-  yummaCard,
-  tailwindCard,
-} from "../../components/constants/cardContent";
 
 <Card title="But, why?">
   Yumma CSS uses an abbreviated naming convention that's similar to the regular
@@ -65,11 +52,11 @@ Take a look at how Yumma CSS compares to other popular frameworks.
 
 <Tabs>
   <TabItem label="Yumma CSS">
-    <Preview data={yummaCard} usePadding useCenter useHeight="360px" useVersion="release" />
+    <Live data={yummaCard} usePadding useCenter useHeight="360px" useVersion="release" />
   </TabItem>
 
   <TabItem label="Tailwind CSS">
-    <Preview data={tailwindCard} usePadding useCenter useHeight="360px" useExternal="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" />
+    <Live data={tailwindCard} usePadding useCenter useHeight="360px" useExternal="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" />
   </TabItem>
 </Tabs>
 
@@ -81,4 +68,5 @@ Take a look at how Yumma CSS compares to other popular frameworks.
 
   <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
 </Card>
-../../constants/cardContent
+
+<Footer description="Yumma CSS is a utility-first library that uses abbreviated naming conventions that follow regular CSS syntax to help you debug, scale, and maintain your markup better and get your application out the door faster." />

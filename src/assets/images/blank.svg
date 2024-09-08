@@ -1,7 +1,0 @@
-<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
-  <style>
-    .background { fill: #f5f6f8; }
-    @media (prefers-color-scheme: dark) { .background { fill: #24272f; } }
-  </style>
-  <rect class="background" width="800" height="450"/>
-</svg>

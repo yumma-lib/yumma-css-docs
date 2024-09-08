@@ -1,8 +1,8 @@
 ---
-import { Code, Tabs, TabItem } from '@astrojs/starlight/components';
-import beautify from 'js-beautify';
+import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
+import beautify from "js-beautify";
 
-interface PreviewProps {
+interface LiveProps {
   data: string;
   noScroll?: boolean;
   useCenter?: boolean;
@@ -20,11 +20,11 @@ const {
   useCenter = false, 
   usePadding = false, 
   useTabs = false, 
-  useVersion = '', 
+  useVersion = "", 
   useHighlights = [],
-  useHeight = '300px',
-  useExternal = '',
-} = Astro.props as PreviewProps;
+  useHeight = "300px",
+  useExternal = "",
+} = Astro.props as LiveProps;
 
 const formatHTML = (html: string) => beautify.html(html, {
   indent_size: 4,
@@ -46,12 +46,12 @@ const newContainer = (
       <style>
         #preview-tab {
           ${flex} 
-          justify-content: ${useCenter ? 'center' : 'flex-start'}; 
-          align-items: ${useCenter ? 'center' : 'flex-start'};
-          ${usePadding ? 'padding: 12px 14px;' : ''}
-          ${noScroll ? 'overflow-y: hidden;' : ''}
+          justify-content: ${useCenter ? "center" : "flex-start"}; 
+          align-items: ${useCenter ? "center" : "flex-start"};
+          ${usePadding ? "padding: 12px 14px;" : ""}
+          ${noScroll ? "overflow-y: hidden;" : ""}
         }
-        ${noScroll ? 'body { overflow-y: hidden; }' : ''}
+        ${noScroll ? "body { overflow-y: hidden; }" : ""}
       </style>
     </head>
     <body>
@@ -62,7 +62,7 @@ const newContainer = (
 
 const stylesheet = useExternal || `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
 
-const flexbox = useCenter ? 'display: flex;' : '';
+const flexbox = useCenter ? "display: flex;" : "";
 const newCode = formatHTML(data);
 const container = newContainer(
   stylesheet, 
@@ -86,7 +86,7 @@ const container = newContainer(
 <div>
   {useTabs ? (
     <Tabs>
-      <TabItem label="Preview">
+      <TabItem label="Live">
         <iframe
           loading="lazy"
           sandbox="allow-scripts allow-same-origin"

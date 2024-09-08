@@ -1,20 +1,52 @@
-// default imports
+import { astroExpressiveCode } from "@astrojs/starlight/expressive-code";
 import { defineConfig } from "astro/config";
+import AutoImport from "astro-auto-import";
+import mdx from "@astrojs/mdx";
 import starlight from "@astrojs/starlight";
-
-// other imports
-import autoImport from "astro-auto-import";
 import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
 
 export default defineConfig({
   integrations: [
+    AutoImport({
+      imports: [
+        // Import a component’s default export
+        "/src/components/Color.astro",
+        "/src/components/Footer.astro",
+        "/src/components/Hover.astro",
+        "/src/components/Live.astro",
+        "/src/components/Palette.astro",
+        "/src/components/Utility.astro",
+        {
+          // Import a module’s named exports
+          "@astrojs/starlight/components": [
+            "Card",
+            "CardGrid",
+            "Code",
+            "FileTree",
+            "Icon",
+            "Steps",
+            "TabItem",
+            "Tabs",
+          ],
+          "/src/constants/card.ts": [
+            "regularCard",
+            "tailwindCard",
+            "yummaCard",
+          ],
+          "starlight-showcases": ["ShowcaseText", "ShowcaseImage"],
+        },
+      ],
+    }),
+    astroExpressiveCode(),
+    mdx(),
     starlight({
+      title: "Yumma CSS",
       favicon: "/favicon.ico",
       logo: {
-        light: "/public/yma-light.svg",
-        dark: "/public/yma-dark.svg",
         alt: "Yumma CSS Logo",
+        dark: "/public/yma-dark.svg",
+        light: "/public/yma-light.svg",
         replacesTitle: true,
       },
       plugins: [
@@ -23,18 +55,17 @@ export default defineConfig({
           authors: {
             Renildo: {
               name: "Renildo Pereira",
-              title: "Maintainer",
               picture: "/renildo.jpg",
+              title: "Maintainer",
               url: "https://x.com/rrenildoo",
             },
           },
         }),
       ],
-      title: "Yumma CSS",
-      customCss: ["/src/styles/custom.css"],
       social: {
         github: "https://github.com/yumma-lib/yumma-css",
       },
+      customCss: ["/src/styles/custom.css"],
       head: [
         {
           tag: "link",
@@ -218,15 +249,6 @@ export default defineConfig({
             },
           ],
         },
-      ],
-    }),
-    autoImport({
-      imports: [
-        "./src/components/Color.astro",
-        "./src/components/Hover.astro",
-        "./src/components/Palette.astro",
-        "./src/components/Preview.astro",
-        "./src/components/Utility.astro",
       ],
     }),
   ],

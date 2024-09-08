@@ -1,0 +1,33 @@
+---
+interface Props {
+	description: string;
+}
+
+const { description } = Astro.props;
+---
+
+<article class="ai-c fd-c g-2 ta-c sl-flex" aria-labelledby="about-yummacss-heading">
+    <img class="w-60" src="/src/assets/images/yummacss.webp" />
+    <small>
+		{description}
+	</small>
+    
+	<slot />
+</article>
+
+<style>
+	article {
+		margin-inline: auto;
+		max-width: 40rem;
+		padding-block: 5rem;
+	}
+    
+	article > :global(*) {
+		margin-top: 0 !important;
+		max-width: 50ch;
+	}
+
+	small {
+		color: var(--sl-color-gray-3);
+	}
+</style>

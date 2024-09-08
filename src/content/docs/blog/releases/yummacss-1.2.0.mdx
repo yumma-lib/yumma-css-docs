@@ -11,9 +11,6 @@ tags: [release, update]
 title: Yumma CSS 1.2
 ---
 
-import { Tabs, TabItem } from "@astrojs/starlight/components";
-import { ShowcaseText } from "starlight-showcases";
-
 I've been meaning to update the color palette of Yumma CSS for a while, so I'm excited to announce the new version [Yumma CSS v1.2.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0)! It has a reworked color palette, new variations for dimension classes, line height classes, and more.
 
 You may also want to take a look at some of the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0) but, anyway these are the most noticeable shifts:
@@ -122,7 +119,7 @@ I've added some new classes for Line Height, which makes it easier to differenti
   ]}
 />
 
-<Preview
+<Live
   data={`<p class="lh-6 t-l-gray-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Justo laoreet sit amet cursus sit amet dictum sit amet. Ultrices eros in cursus turpis. Nec feugiat in fermentum posuere urna nec tincidunt praesent.</p>`}
   useHeight="160px"
   usePadding
@@ -184,7 +181,7 @@ I've made a few changes to the button content to make it easier to read.
 
 <Tabs>
   <TabItem value="now" label="Now">
-    <Preview
+    <Live
       data={`<div class="ins h-1/1">
           <button class="btn-pink t-white">Button</button>
         </div>
@@ -193,7 +190,7 @@ I've made a few changes to the button content to make it easier to read.
     />
   </TabItem>
   <TabItem value="then" label="Then">
-    <Preview
+    <Live
       data={`<div class="ins h-1/1">
           <button class="btn-pink t-white">Button</button>
         </div>
