@@ -6,24 +6,26 @@ interface LiveProps {
   data: string;
   noScroll?: boolean;
   useCenter?: boolean;
+  useExternal?: string;
+  useHeight?: string;
   useHighlights?: string[];
   usePadding?: boolean;
   useTabs?: boolean;
   useVersion?: string;
-  useHeight?: string;
-  useExternal?: string;
+  useWrap?: boolean;
 }
 
 const { 
   data, 
   noScroll = false, 
   useCenter = false, 
+  useExternal = "",
+  useHeight = "300px",
+  useHighlights = [],
   usePadding = false, 
   useTabs = false, 
   useVersion = "", 
-  useHighlights = [],
-  useHeight = "300px",
-  useExternal = "",
+  useWrap = false,
 } = Astro.props as LiveProps;
 
 const formatHTML = (html: string) => beautify.html(html, {
@@ -97,7 +99,7 @@ const container = newContainer(
       </TabItem>
       <TabItem label="Markup">
         <div>
-          <Code code={newCode} lang="html" mark={useHighlights} />
+          <Code code={newCode} lang="html" mark={useHighlights} wrap={useWrap} />
         </div>
       </TabItem>
     </Tabs>
@@ -111,7 +113,7 @@ const container = newContainer(
         style={`height: ${useHeight};`}
       />
       <div class="codeContainer">
-        <Code code={newCode} lang="html" mark={useHighlights} />
+        <Code code={newCode} lang="html" mark={useHighlights} wrap={useWrap} />
       </div>
     </div>
   )}
