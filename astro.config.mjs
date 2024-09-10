@@ -1,45 +1,12 @@
-import { astroExpressiveCode } from "@astrojs/starlight/expressive-code";
+
 import { defineConfig } from "astro/config";
 import AutoImport from "astro-auto-import";
-import mdx from "@astrojs/mdx";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
 
 export default defineConfig({
   integrations: [
-    AutoImport({
-      imports: [
-        // Import a component’s default export
-        "/src/components/Color.astro",
-        "/src/components/Footer.astro",
-        "/src/components/Hover.astro",
-        "/src/components/Live.astro",
-        "/src/components/Palette.astro",
-        "/src/components/Utility.astro",
-        {
-          // Import a module’s named exports
-          "@astrojs/starlight/components": [
-            "Card",
-            "CardGrid",
-            "Code",
-            "FileTree",
-            "Icon",
-            "Steps",
-            "TabItem",
-            "Tabs",
-          ],
-          "/src/constants/card.ts": [
-            "regularCard",
-            "tailwindCard",
-            "yummaCard",
-          ],
-          "starlight-showcases": ["ShowcaseText", "ShowcaseImage"],
-        },
-      ],
-    }),
-    astroExpressiveCode(),
-    mdx(),
     starlight({
       title: "Yumma CSS",
       favicon: "/favicon.ico",
@@ -248,6 +215,36 @@ export default defineConfig({
               ],
             },
           ],
+        },
+      ],
+    }),
+    AutoImport({
+      imports: [
+        // Import a component’s default export
+        "/src/components/Color.astro",
+        "/src/components/Footer.astro",
+        "/src/components/Hover.astro",
+        "/src/components/Live.astro",
+        "/src/components/Palette.astro",
+        "/src/components/Utility.astro",
+        {
+          // Import a module’s named exports
+          "@astrojs/starlight/components": [
+            "Card",
+            "CardGrid",
+            "Code",
+            "FileTree",
+            "Icon",
+            "Steps",
+            "TabItem",
+            "Tabs",
+          ],
+          "/src/constants/card.ts": [
+            "regularCard",
+            "tailwindCard",
+            "yummaCard",
+          ],
+          "starlight-showcases": ["ShowcaseText", "ShowcaseImage"],
         },
       ],
     }),
