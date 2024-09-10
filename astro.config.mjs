@@ -9,6 +9,15 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Yumma CSS",
+      expressiveCode: {
+        themes: ["github-dark", "github-light"],
+        styleOverrides: {
+          frames: {
+            shadowColor: false,
+            
+          },
+        },
+      },
       favicon: "/favicon.ico",
       logo: {
         alt: "Yumma CSS Logo",
