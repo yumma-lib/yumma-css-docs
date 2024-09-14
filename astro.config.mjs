@@ -1,4 +1,3 @@
-
 import { defineConfig } from "astro/config";
 import AutoImport from "astro-auto-import";
 import starlight from "@astrojs/starlight";
@@ -14,7 +13,6 @@ export default defineConfig({
         styleOverrides: {
           frames: {
             shadowColor: false,
-            
           },
         },
       },
