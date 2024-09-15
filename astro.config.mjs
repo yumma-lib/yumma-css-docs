@@ -3,13 +3,22 @@ import AutoImport from "astro-auto-import";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
+import { ExpressiveCodeTheme } from "@astrojs/starlight/expressive-code";
+
+import fs from "node:fs";
+
+const jsoncString = fs.readFileSync(
+  new URL(`./theme.jsonc`, import.meta.url),
+  "utf-8"
+);
+const theme = ExpressiveCodeTheme.fromJSONString(jsoncString);
 
 export default defineConfig({
   integrations: [
     starlight({
       title: "Yumma CSS",
       expressiveCode: {
-        themes: ["github-dark", "github-light"],
+        themes: [theme, "catppuccin-latte"],
         styleOverrides: {
           frames: {
             shadowColor: false,
