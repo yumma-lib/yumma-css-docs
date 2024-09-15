@@ -237,6 +237,7 @@ export default defineConfig({
         {
           // Import a module’s named exports
           "@astrojs/starlight/components": [
+            "Aside",
             "Card",
             "CardGrid",
             "Code",

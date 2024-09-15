@@ -1,0 +1,52 @@
+---
+description: An advanced React framework.
+title: Install Yumma CSS with Next.js
+slug: docs/guides/nextjs
+---
+
+export const onCSS = `/* Minified Version */
+@import "yummacss/dist/yumma.min.css";`;
+
+export const onPage = `
+export default function Home() {
+    return (
+    <div class="ai-c bg-blue d-f jc-c h-1/1">
+        <h1 class="fs-lg fw-700 tc-white">Yumma CSS + Next.js</h1>
+    </div>
+    )
+}
+`;
+
+<Steps>
+
+    1. **Install Yumma CSS:**
+
+        Install the Yumma CSS Library using a package manager.
+
+        <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
+
+    2. Add `yummacss` in your main CSS file:
+
+        <Code code={onCSS} lang="css" title="app/globals.css" />
+
+    3. Start your development server:
+
+        <Code code="npm run dev" lang="bash" title="Terminal" />
+
+    4. Begin using Yumma CSS in your Next.js project:
+
+        <Code code={onPage} lang="tsx" title="page.tsx" />
+
+</Steps>
+
+---
+
+### Clone the repository
+
+Use this preconfigured Next.js example to get started.
+
+<Code
+  code="git clone https://github.com/yumma-lib/dotnet-nextjs-example.git"
+  lang="bash"
+  title="Cloning repository..."
+/>
