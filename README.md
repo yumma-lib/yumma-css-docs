@@ -14,30 +14,18 @@
   <a href="https://yummacss.com"><strong>Read the documentation</strong></a>
 </p>
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/yummacss?activeTab=versions">
-    <img src="https://img.shields.io/npm/v/yummacss" alt="npm version">
-  </a>
-  <a href="https://www.npmjs.com/yummacss">
-    <img src="https://img.shields.io/npm/dt/yummacss" alt="Downloads">
-  </a>
-  <a href="https://github.com/yumma-lib/yumma-css-docs?tab=MIT-1-ov-file#readme">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
-  </a>
-</p>
+---
 
-## Get started
+### Support
 
-Yumma CSS is a utility-first library that uses abbreviated naming conventions that follow regular CSS syntax to help you debug, scale, and maintain your markup better and get your application out the door faster.
+Join our [Discord](https://discord.gg/CGw5vyqmQ6) server. To get support just createa post in the `#help` channel with the "yummacss" tag 
 
-## Community
+### Contributing
 
-Here are some ways you can get in touch with us:
+I'd love your help with Yumma CSS. I've included some links below which you might find useful.
 
-- Subscribe to our [YouTube](https://www.youtube.com/@yummacss) channel.
-- Join our [Discord](https://discord.gg/CGw5vyqmQ6) server.
-- Follow us on [Twitter](https://twitter.com/yummacss) for the latest updates.
+- [Join us on the `#yummacss` channel on Discord](https://discord.gg/V6s5jg5TfX)
+  
+### Licensing
 
-## License
-
-The code is the intellectual property of [Renildo Pereira](https://github.com/orgs/yumma-lib/people) and is released under the terms of the MIT license.
+MIT — Copyright (c) 2023–present [Renildo Pereira](https://github.com/yumma-lib/yumma-css/graphs/contributors)
