@@ -1,18 +1,17 @@
-<h3 align="center">Yumma CSS Docs</h3>
+<div align="center">
+  <a href="https://yummacss.com" target="_blank">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://www.yummacss.com/assets/vectors/dark-logo.svg">
+      <source media="(prefers-color-scheme: light)" srcset="https://www.yummacss.com/assets/vectors/light-logo.svg">
+      <img alt="Yumma CSS" src="https://www.yummacss.com/assets/vectors/light-logo.svg" width="220" style="max-width: 100%;">
+    </picture>
+  </a>
+</div>
 
 <p align="center">
-  The documentation site for Yumma CSS.
+  All the tools you need in one package, with abbreviated utility classes — goodbye, massive codebases!
   <br>
-  <a href="https://yummacss.com"><strong>Explore Yumma CSS Docs ↝</strong></a>
-  <br>
-  <br>
-  <a href="https://yummacss.com/blog">Blog</a>
-  •
-  <a href="https://yummacss.com/blog/yummacss-intellisense">Intellisense</a>
-  •
-  <a href="https://github.com/yumma-lib/yumma-css/issues">Issues</a>
-  •
-  <a href="https://play.yummacss.com">Playground</a>
+  <a href="https://yummacss.com"><strong>Read the documentation</strong></a>
 </p>
 
 <p align="center">
@@ -29,17 +28,7 @@
 
 ## Get started
 
-You can use [npm](https://www.npmjs.com/yummacss) to include the Yumma CSS in your project, or you can add it using [jsDelivr](https://www.jsdelivr.com/):
-
-### cdn
-```
-<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">
-```
-
-### npm
-```
-npm install yummacss
-```
+Yumma CSS is a utility-first library that uses abbreviated naming conventions that follow regular CSS syntax to help you debug, scale, and maintain your markup better and get your application out the door faster.
 
 ## Community
 
