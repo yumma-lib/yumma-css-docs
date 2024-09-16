@@ -28,8 +28,8 @@ export default defineConfig({
       favicon: "/favicon.ico",
       logo: {
         alt: "Yumma CSS Logo",
-        dark: "/public/assets/vectors/yummacss-dark-logo.svg",
-        light: "/public/assets/vectors/yummacss-light-logo.svg",
+        dark: "/public/assets/vectors/dark-logo.svg",
+        light: "/public/assets/vectors/light-logo.svg",
         replacesTitle: true,
       },
       plugins: [
