@@ -9,11 +9,11 @@ export const onCSS = `/* Minified Version */
 @import url('/lib/yummacss/dist/yumma.min.css');`;
 
 export const onView = `
-<form id="form1" runat="server">
+<body>
     <div class="ai-c bg-d-lead-4 d-f jc-c h-1/1">
         <h1 class="fs-lg fw-700 tc-white">Yumma CSS + .NET</h1>
     </div>
-</form>
+</body>
 `;
 
 <Steps>
@@ -44,8 +44,7 @@ export const onView = `
                 - js
                     - site.js
                 - lib/
-                    - ...
-                    - **yummacss/** generates this folder
+                    - **yummacss/** generates this
                 - favicon.ico
             - Controllers
                 - HomeController.cs
@@ -71,7 +70,7 @@ export const onView = `
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={onView} lang="html" title="Shared/_Layout.cshtml" mark={[2,3,4]} />
+        <Code code={onView} lang="html" mark={[2,3,4]} title="Shared/_Layout.cshtml" />
 
 </Steps>
 
