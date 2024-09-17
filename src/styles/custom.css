@@ -42,3 +42,7 @@
 strong {
     font-weight: 600;
 }
+
+pre {
+    background-color: #1f212a !important;
+}

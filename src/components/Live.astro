@@ -8,7 +8,7 @@ interface LiveProps {
   useCenter?: boolean;
   useExternal?: string;
   useHeight?: string;
-  useHighlights?: string[];
+  useMarks?: string[];
   usePadding?: boolean;
   useTabs?: boolean;
   useVersion?: string;
@@ -21,7 +21,7 @@ const {
   useCenter = false, 
   useExternal = "",
   useHeight = "300px",
-  useHighlights = [],
+  useMarks: useMarks = [],
   usePadding = false, 
   useTabs = false, 
   useVersion = "", 
@@ -99,7 +99,12 @@ const container = newContainer(
       </TabItem>
       <TabItem label="Markup">
         <div>
-          <Code code={newCode} lang="html" mark={useHighlights} wrap={useWrap} />
+          <Code 
+            code={newCode} 
+            lang="html"
+            mark={useMarks} 
+            wrap={useWrap} 
+          />
         </div>
       </TabItem>
     </Tabs>
@@ -113,7 +118,7 @@ const container = newContainer(
         style={`height: ${useHeight};`}
       />
       <div class="codeContainer">
-        <Code code={newCode} lang="html" mark={useHighlights} wrap={useWrap} />
+        <Code code={newCode} lang="html" mark={useMarks} wrap={useWrap} />
       </div>
     </div>
   )}

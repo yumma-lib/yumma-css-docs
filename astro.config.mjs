@@ -7,21 +7,27 @@ import { ExpressiveCodeTheme } from "@astrojs/starlight/expressive-code";
 
 import fs from "node:fs";
 
-const jsoncString = fs.readFileSync(
+const theme = fs.readFileSync(
   new URL(`./theme.jsonc`, import.meta.url),
   "utf-8"
 );
-const theme = ExpressiveCodeTheme.fromJSONString(jsoncString);
+
+const ariakeTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
 export default defineConfig({
   integrations: [
     starlight({
       title: "Yumma CSS",
       expressiveCode: {
-        themes: [theme, "catppuccin-latte"],
+        themes: [ariakeTheme],
+
         styleOverrides: {
           frames: {
             shadowColor: false,
+          },
+          textMarkers: {
+            markHue: "hsl(176, 73%, 77%)",
+            markBackground: "hsla(176, 73%, 77%, 0.100)",
           },
         },
       },

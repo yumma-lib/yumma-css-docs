@@ -22,8 +22,26 @@ hero:
 <Card title="But, why?">
   Yumma CSS uses an abbreviated naming convention that's similar to the regular
   CSS syntax.
-
-  <Code code={yummaCard} lang="html" title="index.html" frame="terminal" wrap="false" mark={["ovf-h", "b-1", "bs-xs", "fg-1", "fs-xxl", "fw-600", "tc-pink", "tdl-u", "rad-2", "bg-pink", "tc-white"]} />
+  <Code
+    code={yummaCard}
+    lang="html"
+    title="index.html"
+    frame="terminal"
+    wrap="false"
+    mark={[
+      "ovf-h",
+      "b-1",
+      "bs-xs",
+      "fg-1",
+      "fs-xxl",
+      "fw-600",
+      "tc-pink",
+      "tdl-u",
+      "rad-2",
+      "bg-pink",
+      "tc-white",
+    ]}
+  />
 </Card>
 
 <CardGrid stagger>
@@ -47,8 +65,11 @@ hero:
 <Card title="Create a new project">
   To learn how to install Yumma CSS in your project framework, follow the
   step-by-step installation guide
-
-  <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
+  <Code
+    code="npm install yummacss@latest"
+    lang="bash"
+    title="Installing dependencies..."
+  />
 </Card>
 
 ## See for yourself
@@ -80,5 +101,15 @@ Take a look at how Yumma CSS compares to other popular frameworks.
     />
   </TabItem>
 </Tabs>
+
+```js
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
 <Footer description="Yumma CSS is a utility-first CSS library that uses abbreviated naming conventions that follow regular CSS syntax to help you debug, scale, and maintain your markup better and get your application out the door faster." />
