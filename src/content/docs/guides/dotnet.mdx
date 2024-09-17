@@ -5,10 +5,10 @@ slug: docs/guides/dotnet
 tableOfContents: false
 ---
 
-export const head = `<!-- Minified version -->
-<link href="/lib/yummacss/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous" />`;
+export const onCSS = `/* Minified Version */
+@import url('/lib/yummacss/dist/yumma.min.css');`;
 
-export const form = `
+export const onView = `
 <form id="form1" runat="server">
     <div class="ai-c bg-d-lead-4 d-f jc-c h-1/1">
         <h1 class="fs-lg fw-700 tc-white">Yumma CSS + .NET</h1>
@@ -34,26 +34,34 @@ export const form = `
 
     3. **Create a new page in your web app directory.**
 
-        Once you've installed it, you should see a new `lib` folder in your project directory.
+        Once you've installed it, you should see the `yummacss` folder inside your `/lib` folder.
 
         <FileTree>
-            - **Index.aspx**
-                - Index.aspx.cs
-                - Index.aspx.designer.cs
-                - lib
-                    - yummacss/
-                - libman.json
-                - packages.config
-                - Properties
-                - AssemblyInfo.cs
-                - Web.config
-                - Web.Debug.config
-                - Web.Release.config
+            - Properties/
+            - **wwwroot**
+                - css
+                    - site.css
+                - js
+                    - site.js
+                - lib/
+                    - ...
+                    - **yummacss/** generates this folder
+                - favicon.ico
+            - Controllers
+                - HomeController.cs
+            - Models
+                - ErrorViewModel.cs
+            - Views
+                - Home/
+                - Shares/
+            - appsettings.json
+            - libman.json
+            - Program.cs
         </FileTree>
 
-    2. **Include Yumma CSS in your ASPX page in your `<head>` section:**
+    2. **Add** `yummacss` **in your main CSS file:**
 
-        <Code code={head} lang="html" title="Index.aspx" />
+        <Code code={onCSS} lang="css" title="css/site.css" />
 
     3. **Start your .NET development server:**
 
@@ -63,7 +71,7 @@ export const form = `
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={form} lang="html" title="Index.aspx" mark={[2,3,4]} />
+        <Code code={onView} lang="html" title="Shared/_Layout.cshtml" mark={[2,3,4]} />
 
 </Steps>
 
