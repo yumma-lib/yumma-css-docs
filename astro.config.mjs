@@ -1,9 +1,9 @@
 import { defineConfig } from "astro/config";
+import { ExpressiveCodeTheme } from "@astrojs/starlight/expressive-code";
 import AutoImport from "astro-auto-import";
 import starlight from "@astrojs/starlight";
 import starlightBlog from "starlight-blog";
 import starlightLinksValidator from "starlight-links-validator";
-import { ExpressiveCodeTheme } from "@astrojs/starlight/expressive-code";
 
 import fs from "node:fs";
 
