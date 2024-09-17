@@ -1,0 +1,58 @@
+---
+description: Library for interactive UIs.
+title: Install Yumma CSS with React
+slug: docs/guides/react
+tableOfContents: false
+---
+
+export const onCSS = `/* Minified Version */
+@import "/node_modules/yummacss/dist/yumma.min.css";`;
+
+export const onPage = `import './App.css';
+
+function App() {
+  return (
+    <div className="ai-c bg-d-lead-4 d-f jc-c h-1/1">
+      <h1 className="fs-lg fw-700 tc-white">Yumma CSS + React</h1>
+    </div>
+  );
+}
+
+export default App;
+`;
+
+<Steps>
+
+    1. **Install Yumma CSS:**
+
+        Install the Yumma CSS Library using a package manager.
+
+        <Code code="npm install yummacss@latest" lang="bash" title="Installing dependencies..." />
+
+    2. Add `yummacss` in your main CSS file:
+
+        <Code code={onCSS} lang="css" title="src/App.css" />
+
+    3. **Start your React development server:**
+
+        <Code code="npm start" lang="bash" title="Terminal" />
+
+    4. **Begin using Yumma CSS in your React project:**
+
+        You're all set to start using Yumma CSS utility classes in your project.
+
+        <Code code={onPage} lang="js" mark={[5,6,7]} title="src/App.js" />
+
+</Steps>
+
+---
+
+### Still stuck?
+
+If you're having trouble with Yumma CSS, clone this [React example](https://github.com/yumma-lib/react-yummacss-example.git).
+
+<Code
+  code="git clone https://github.com/yumma-lib/react-yummacss-example.git"
+  lang="bash"
+  title="Cloning repository..."
+/>
