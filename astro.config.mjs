@@ -20,7 +20,6 @@ export default defineConfig({
       title: "Yumma CSS",
       expressiveCode: {
         themes: [ariakeTheme],
-
         styleOverrides: {
           frames: {
             shadowColor: false,
