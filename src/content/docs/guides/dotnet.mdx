@@ -8,12 +8,13 @@ tableOfContents: false
 export const onCSS = `/* Minified Version */
 @import url('/lib/yummacss/dist/yumma.min.css');`;
 
-export const onView = `
-<body>
-    <div class="ai-c bg-d-lead-4 d-f jc-c h-1/1">
-        <h1 class="fs-lg fw-700 tc-white">Yumma CSS + .NET</h1>
-    </div>
-</body>
+export const onView = `@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="ai-c d-f jc-c h-1/1">
+    <h1 class="fs-lg fw-700 tc-white">Yumma CSS + .NET</h1>
+</div>
 `;
 
 <Steps>
@@ -70,7 +71,7 @@ export const onView = `
 
         You're all set to start using Yumma CSS utility classes in your project.
 
-        <Code code={onView} lang="html" mark={[2,3,4]} title="Shared/_Layout.cshtml" />
+        <Code code={onView} lang="html" mark={[5,6,7]} title="Home/Index.cshtml" />
 
 </Steps>
 
