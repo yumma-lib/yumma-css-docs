@@ -1,0 +1,62 @@
+---
+description: An advanced React framework.
+title: Install Yumma CSS with Astro
+slug: docs/guides/astro
+tableOfContents: false
+---
+
+export const onCSS = `
+<style is:global>
+    @import "/node_modules/yummacss/dist/yumma.min.css";
+</style>
+`;
+
+export const onPage = `
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Welcome to Astro.">
+    <div class="ai-c bg-d-lead-4 d-f jc-c h-1/1">
+	<h1 class="fs-lg fw-700 tc-white">Yumma CSS + Astro</h1>
+    </div>
+</Layout>
+`;
+
+<Steps>
+
+    1. **Install Yumma CSS:**
+
+        Install the Yumma CSS Library using a package manager.
+
+        <Code code="npm i yummacss@latest" lang="bash" title="Installing dependencies..." />
+
+    2. **Add** `yummacss` **in your `Layout.astro` file:**
+
+        <Code code={onCSS} lang="css" title="layouts/Layout.astro" />
+
+    3. **Start your Astro development server:**
+
+        You can also run `npm start` to start your application.
+
+        <Code code="npm run dev" lang="bash" title="Terminal" />
+
+    4. **Begin using Yumma CSS in your Astro project:**
+
+        You're all set to start using Yumma CSS utility classes in your project.
+
+        <Code code={onPage} lang="tsx" mark={[6,7,8]} title="pages/index.astro" />
+
+</Steps>
+
+---
+
+### Still stuck?
+
+If you're having trouble with Yumma CSS, clone this [Astro example](https://github.com/yumma-lib/nextjs-yummacss-example.git).
+
+<Code
+  code="git clone https://github.com/yumma-lib/astro-yummacss-example.git"
+  lang="bash"
+  title="Cloning repository..."
+/>
