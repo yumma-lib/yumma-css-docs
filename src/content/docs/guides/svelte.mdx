@@ -1,0 +1,71 @@
+---
+description: Compiles to optimized JavaScript..
+title: Add Yumma CSS in Svelte
+slug: docs/guides/svelte
+tableOfContents: false
+---
+
+export const onCSS = `
+/* Minified Version */
+@import "/node_modules/yummacss/dist/yumma.min.css";
+`;
+
+export const onComponent = `
+<script>
+  import "../global.css";
+</script>
+
+<slot />
+`;
+
+export const onPage = `
+<div class="h-1/1 ins">
+    <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Svelte</h1>
+</div>
+`;
+
+<Steps>
+
+    1. **Install Yumma CSS:**
+
+        Install the Yumma CSS Library using a package manager.
+
+        <Code code="npm i yummacss@latest" lang="bash" title="Installing dependencies..." />
+
+    2. **Add** `yummacss` **to your main CSS file:**
+
+        Create a new `/src/global.css` file
+
+        <Code code={onCSS} lang="css" title="src/global.css" />
+
+    3. **Import the CSS file**
+
+        Create a `/src/routes/+layout.svelte` file
+
+        <Code code={onComponent} lang="svelte" title="routes/+layout.svelte" />
+
+    4. **Getting ready for development:**
+
+        You can also run `npm start` to start your application.
+
+        <Code code="npm run dev" lang="bash" title="Terminal" />
+
+    5. **Use Yumma CSS in your project:**
+
+        You're all set to start using Yumma CSS utility classes in your project.
+
+        <Code code={onPage} lang="svelte" title="/routes/+page.svelte" />
+
+</Steps>
+
+---
+
+### Still stuck?
+
+If you're having trouble with Yumma CSS, clone this [Svelte example](https://github.com/yumma-lib/svelte-yummacss-example.git).
+
+<Code
+  code="git clone https://github.com/yumma-lib/svelte-yummacss-example.git"
+  lang="bash"
+  title="Cloning repository..."
+/>
