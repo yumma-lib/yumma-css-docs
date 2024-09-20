@@ -1,0 +1,59 @@
+---
+description: Lightweight React alternative.
+title: Add Yumma CSS in Preact
+slug: docs/guides/preact
+tableOfContents: false
+---
+
+export const onCSS = `
+/* Minified Version */
+@import "/node_modules/yummacss/dist/yumma.min.css";
+`;
+
+export const onPage = `
+export function Home() {
+  return (
+    <div class="h-1/1 ins">
+      <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Preact</h1>
+    </div>
+  );
+}
+`;
+
+<Steps>
+
+    1. **Install Yumma CSS:**
+
+        Install the Yumma CSS Library using a package manager.
+
+        <Code code="npm i yummacss@latest" lang="bash" title="Installing dependencies..." />
+
+    2. **Add** `yummacss` **in your main CSS file:**
+
+        <Code code={onCSS} lang="css" title="src/syle.css" />
+
+    3. **Getting ready for development:**
+
+        You can also run `npm start` to start your application.
+
+        <Code code="npm run dev" lang="bash" title="Terminal" />
+
+    4. **Use Yumma CSS in your project:**
+
+        You're all set to start using Yumma CSS utility classes in your project.
+
+        <Code code={onPage} lang="tsx" mark={[3,5,6]} title="src/Home/index.tsx" />
+
+</Steps>
+
+---
+
+### Still stuck?
+
+If you're having trouble with Yumma CSS, clone this [Preact example](https://github.com/yumma-lib/preact-yummacss-example.git).
+
+<Code
+  code="git clone https://github.com/yumma-lib/preact-yummacss-example.git"
+  lang="bash"
+  title="Cloning repository..."
+/>
