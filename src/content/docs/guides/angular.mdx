@@ -1,0 +1,54 @@
+---
+description: A scalable web app framework.
+title: Add Yumma CSS in Angular
+slug: docs/guides/angular
+tableOfContents: false
+---
+
+export const onCSS = `/* Minified Version */
+@import "../node_modules/yummacss/dist/yumma.min.css";
+`;
+
+export const onPage = `
+<div class="h-1/1 ins">
+  <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Angular</h1>
+</div>
+
+<router-outlet />
+`;
+
+<Steps>
+
+    1. **Install Yumma CSS:**
+
+        Install the Yumma CSS Library using a package manager.
+
+        <Code code="npm i yummacss@latest" lang="bash" title="Installing dependencies..." />
+
+    2. **Add** `yummacss` **in your main CSS file:**
+
+        <Code code={onCSS} lang="css" title="src/styles.css" />
+
+    3. **Getting ready for development:**
+
+        <Code code="npm start" lang="bash" title="Terminal" />
+
+    4. **Use Yumma CSS in your project:**
+
+        You're all set to start using Yumma CSS utility classes in your project.
+
+        <Code code={onPage} lang="html" marks={[1,2,3]} title="src/app/app.component.html" />
+
+</Steps>
+
+---
+
+### Still stuck?
+
+If you're having trouble with Yumma CSS, clone this [Angular example](https://github.com/yumma-lib/angular-yummacss-example.git).
+
+<Code
+  code="git clone https://github.com/yumma-lib/angular-yummacss-example.git"
+  lang="bash"
+  title="Cloning repository..."
+/>
