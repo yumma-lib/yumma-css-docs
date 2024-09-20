@@ -12,15 +12,14 @@ export const onCSS = `
 </style>
 `;
 
-export const onPage = `
----
-import Layout from '../layouts/Layout.astro';
----
+## export const onPage = `
+
+## import Layout from '../layouts/Layout.astro';
 
 <Layout title="Welcome to Astro.">
-    <div class="h-1/1 ins">
-        <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Astro</h1>
-    </div>
+  <div class="h-1/1 ins">
+    <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Astro</h1>
+  </div>
 </Layout>
 `;
 
@@ -34,11 +33,11 @@ import Layout from '../layouts/Layout.astro';
 
     2. **Add** `yummacss` **in your `Layout.astro` file:**
 
-        <Code code={onCSS} lang="css" title="layouts/Layout.astro" />
+        <Code code={onCSS} lang="astro" title="layouts/Layout.astro" />
 
     3. **Getting ready for development:**
 
-        You can also run `npm start` to start your application.
+        Run your app with `npm run dev`.
 
         <Code code="npm run dev" lang="bash" title="Terminal" />
 

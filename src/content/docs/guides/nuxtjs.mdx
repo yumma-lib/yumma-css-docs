@@ -1,0 +1,73 @@
+---
+description: Powerful framework for Vue.js apps.
+title: Add Yumma CSS in Nuxt.js
+slug: docs/guides/nuxtjs
+tableOfContents: false
+---
+
+export const onCSS = `
+/* Minified Version */
+@import "/node_modules/yummacss/dist/yumma.min.css";
+`;
+
+export const onConfig = `
+export default defineNuxtConfig({
+  compatibilityDate: "2024-04-03",
+  devtools: { enabled: true },
+  css: ["/assets/global.css"],
+});
+`;
+
+export const onPage = `
+<template>
+  <div class="h-1/1 ins">
+    <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Nuxt.js</h1>
+  </div>
+</template>
+`;
+
+<Steps>
+
+    1. **Install Yumma CSS:**
+
+        Install the Yumma CSS Library using a package manager.
+
+        <Code code="npm i yummacss@latest" lang="bash" title="Installing dependencies..." />
+
+    2. **Add** `yummacss` **to your main CSS file:**
+
+        Create a new `assets/global.css` file.
+
+        <Code code={onCSS} lang="css" title="assets/global.css" />
+
+    3. **Import the CSS file**
+
+        Add the new CSS file to `nuxt.config.ts`.
+
+        <Code code={onConfig} lang="ts" mark={4} title="nuxt.config.ts" />
+
+    4. **Getting ready for development:**
+
+        Run your app with `npm run dev`.
+
+        <Code code="npm run dev" lang="bash" title="Terminal" />
+
+    4. **Use Yumma CSS in your project:**
+
+        You're all set to start using Yumma CSS utility classes in your project.
+
+        <Code code={onPage} lang="vue" mark={[2,3,4]} title="app.vue" />
+
+</Steps>
+
+---
+
+### Still stuck?
+
+If you're having trouble with Yumma CSS, clone this [Nuxt.js example](https://github.com/yumma-lib/nuxtjs-yummacss-example.git).
+
+<Code
+  code="git clone https://github.com/yumma-lib/nuxtjs-yummacss-example.git"
+  lang="bash"
+  title="Cloning repository..."
+/>
