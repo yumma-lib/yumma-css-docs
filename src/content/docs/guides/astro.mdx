@@ -13,7 +13,14 @@ export const onCSS = `<style is:global>
 
 export const onPage = `---
 import Layout from '../layouts/Layout.astro';
----`;
+---
+
+<Layout title="Welcome to Astro.">
+  <div class="h-1/1 ins">
+    <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Astro</h1>
+  </div>
+</Layout>
+`;
 
 <Steps>
 
