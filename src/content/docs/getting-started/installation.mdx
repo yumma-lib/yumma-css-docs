@@ -9,11 +9,9 @@ next: false
 slug: docs/installation
 ---
 
-export const viaNPM = `<!-- Minified version -->
-<link rel="stylesheet" href="/dist/yumma-core.min.css">`;
-
-export const viaCDN = `<!-- Minified version -->
-<link href="https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@latest/dist/yumma.min.css" rel="stylesheet" crossorigin="anonymous">`;
+export const onCSS = guide.nodejs.onCSS;
+export const onPage = guide.nodejs.onPage;
+export const onHead = guide.cdn.onHead;
 
 ## What is Yumma CSS?
 
@@ -28,13 +26,21 @@ Here's how you can add `yummacss` into your project or framework.
 <Tabs>
   <TabItem label="Package Manager" icon="seti:npm">
     <Steps>
-      1. Install Yumma CSS in your application:
+      1. **Install Yumma CSS:**
 
-         <Code code="npm i yummacss@latest" lang="bash" title="Installing dependencies..." />
+          Install the Yumma CSS Library using a package manager.
 
-      2. Include the compiled CSS file in your `<head>` element:
+          <Code code="npm i yummacss@latest" lang="bash" title="Installing dependencies..." />
 
-         <Code code={viaNPM} lang="html" title="index.html" />
+      2. **Add** `yummacss` **to your main CSS file:**
+
+          <Code code={onCSS} lang="css" mark={[2]} title="src/style.css" />
+
+      3. **Use Yumma CSS in your project:**
+
+          You're all set to start using Yumma CSS utility classes in your project.
+
+          <Code code={onPage} lang="tsx" mark={[6,9,10,11]} title="src/index.html" />
     </Steps>
 
   </TabItem>
@@ -97,10 +103,13 @@ Here's how you can add `yummacss` into your project or framework.
 </TabItem>
 
   <TabItem label="Try CDN" icon="seti:html">
-    How to include Yumma CSS via cdn:
+    <Steps>
+      1. **Add `yummacss` CDN to your HTML file**
 
-    <Code code={viaCDN} lang="html" title="index.html" />
+          Just add the CDN to the head of your HTML file and you're good to go!
 
+          <Code code={onHead} lang="html" mark={[7,10,11,12]} title="src/index.html" />
+    </Steps>
   </TabItem>
 </Tabs>
 

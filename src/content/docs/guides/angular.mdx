@@ -5,15 +5,8 @@ slug: docs/guides/angular
 tableOfContents: false
 ---
 
-export const onCSS = `/* Minified Version */
-@import "../node_modules/yummacss/dist/yumma.min.css";
-`;
-
-export const onPage = `
-<div class="h-1/1 ins">
-  <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Angular</h1>
-</div>
-`;
+export const onCSS = guide.angular.onCSS;
+export const onPage = guide.angular.onPage;
 
 <Steps>
 
@@ -25,7 +18,7 @@ export const onPage = `
 
     2. **Add** `yummacss` **in your main CSS file:**
 
-        <Code code={onCSS} lang="css" title="src/styles.css" />
+        <Code code={onCSS} lang="css" mark={[2]} title="src/styles.css" />
 
     3. **Getting ready for development:**
 

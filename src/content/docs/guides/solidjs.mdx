@@ -5,21 +5,8 @@ slug: docs/guides/solidjs
 tableOfContents: false
 ---
 
-export const onCSS = `/* Minified Version */
-@import "/node_modules/yummacss/dist/yumma.min.css";
-`;
-
-export const onPage = `
-function App() {
-  return (
-    <div class="h-1/1 ins">
-      <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Solid.js</h1>
-    </div>
-  );
-}
-
-export default App;
-`;
+export const onCSS = guide.solidjs.onCSS;
+export const onPage = guide.solidjs.onPage;
 
 <Steps>
 
@@ -31,7 +18,7 @@ export default App;
 
     2. **Add** `yummacss` **in your main CSS file:**
 
-        <Code code={onCSS} lang="css" title="src/index.css" />
+        <Code code={onCSS} lang="css" mark={[2]} title="src/index.css" />
 
     3. **Getting ready for development:**
 

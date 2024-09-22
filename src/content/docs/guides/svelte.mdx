@@ -5,24 +5,9 @@ slug: docs/guides/svelte
 tableOfContents: false
 ---
 
-export const onCSS = `
-/* Minified Version */
-@import "/node_modules/yummacss/dist/yumma.min.css";
-`;
-
-export const onComponent = `
-<script>
-  import "../global.css";
-</script>
-
-<slot />
-`;
-
-export const onPage = `
-<div class="h-1/1 ins">
-    <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Svelte</h1>
-</div>
-`;
+export const onCSS = guide.svelte.onCSS;
+export const onComponent = guide.svelte.onComponent;
+export const onPage = guide.svelte.onPage;
 
 <Steps>
 
@@ -36,7 +21,7 @@ export const onPage = `
 
         Create a new `/src/global.css` file
 
-        <Code code={onCSS} lang="css" title="src/global.css" />
+        <Code code={onCSS} lang="css" mark={[2]} title="src/global.css" />
 
     3. **Import the CSS file**
 

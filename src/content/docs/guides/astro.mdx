@@ -5,22 +5,8 @@ slug: docs/guides/astro
 tableOfContents: false
 ---
 
-export const onCSS = `<style is:global>
-    /* Minified Version */
-    @import "/node_modules/yummacss/dist/yumma.min.css";
-</style>
-`;
-
-export const onPage = `---
-import Layout from '../layouts/Layout.astro';
----
-
-<Layout title="Welcome to Astro.">
-  <div class="h-1/1 ins">
-    <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Astro</h1>
-  </div>
-</Layout>
-`;
+export const onCSS = guide.astro.onCSS;
+export const onPage = guide.astro.onPage;
 
 <Steps>
 

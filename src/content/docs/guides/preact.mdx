@@ -5,20 +5,8 @@ slug: docs/guides/preact
 tableOfContents: false
 ---
 
-export const onCSS = `
-/* Minified Version */
-@import "/node_modules/yummacss/dist/yumma.min.css";
-`;
-
-export const onPage = `
-export function Home() {
-  return (
-    <div class="h-1/1 ins">
-      <h1 class="fs-xxl fw-500 tc-pink">Yumma CSS + Preact</h1>
-    </div>
-  );
-}
-`;
+export const onCSS = guide.preact.onCSS;
+export const onPage = guide.preact.onPage;
 
 <Steps>
 
@@ -30,7 +18,7 @@ export function Home() {
 
     2. **Add** `yummacss` **in your main CSS file:**
 
-        <Code code={onCSS} lang="css" title="src/syle.css" />
+        <Code code={onCSS} lang="css" mark={[2]} title="src/syle.css" />
 
     3. **Getting ready for development:**
 

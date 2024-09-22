@@ -261,12 +261,15 @@ export default defineConfig({
             "TabItem",
             "Tabs",
           ],
+          "starlight-showcases": ["ShowcaseText", "ShowcaseImage"],
+
+          // Custom imports
           "/src/constants/card.ts": [
             "regularCard",
             "tailwindCard",
             "yummaCard",
           ],
-          "starlight-showcases": ["ShowcaseText", "ShowcaseImage"],
+          "/src/constants/guide": ["guide"],
         },
       ],
     }),

@@ -5,20 +5,8 @@ slug: docs/guides/nextjs
 tableOfContents: false
 ---
 
-export const onCSS = `
-/* Minified Version */
-@import "yummacss/dist/yumma.min.css";
-`;
-
-export const onPage = `
-export default function Home() {
-  return (
-    <div className="h-1/1 ins">
-      <h1 className="fs-xxl fw-500 tc-pink">Yumma CSS + Next.js</h1>
-    </div>
-  );
-}
-`;
+export const onCSS = guide.nextjs.onCSS;
+export const onPage = guide.nextjs.onPage;
 
 <Steps>
 
@@ -30,7 +18,7 @@ export default function Home() {
 
     2. **Add** `yummacss` **to your main CSS file:**
 
-        <Code code={onCSS} lang="css" title="app/globals.css" />
+        <Code code={onCSS} lang="css" mark={[2]} title="app/globals.css" />
 
     3. **Getting ready for development:**
 
