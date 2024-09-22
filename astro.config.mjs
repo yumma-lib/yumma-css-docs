@@ -153,7 +153,7 @@ export default defineConfig({
                 { label: "Flex Shrink", link: "docs/flex-shrink" },
                 { label: "Flex Wrap", link: "docs/flex-wrap" },
                 { label: "Flex", link: "docs/flex" },
-                { label: "Justify Content", link: "docs/flex-wrap" },
+                { label: "Justify Content", link: "docs/justify-content" },
                 { label: "Justify Items", link: "docs/justify-items" },
                 { label: "Justify Self", link: "docs/justify-self" },
               ],
