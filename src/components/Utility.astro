@@ -56,48 +56,43 @@ const codeData = data || generateClassData(classPrefix, classValues, range, incr
 ---
 
 <style>
-.classItem {
-  background-color: #f5f6f8;
-  border: 1px solid #cdcfd3;
-  color: #181818;
-  margin-bottom: 5px;
-  padding: 10px;
-}
+  :global([data-theme='dark']) table {
+    background-color: var(--yma-bg-lighter);
+  }
 
-.className {
-    margin-bottom: 8px;
-}
+  :global([data-theme='dark']) th, :global([data-theme='dark']) td {
+    background-color: var(--yma-bg-light);
+    color: var(--yma-bg-lighter);
+  }
 
-.propertyCode {
-  padding: 5px;
-  white-space: pre-wrap;
-}
-
-:global([data-theme='dark']) .classList {
-  background-color: var(--yma-bg-lighter);
-}
-
-:global([data-theme='dark']) .classItem {
-  background-color: var(--yma-bg-light);
-  border: 1px solid #2d2f33;
-  color: var(--yma-bg-lighter);
-}
-
-:global([data-theme='dark']) .propertyCode {
-  background-color: var(--yma-bg-dark);
-  color: var(--yma-bg-lighter);
-}
+  :global([data-theme='dark']) td {
+    border-color: #2d2f33;
+  }
 </style>
 
-<div class="bg-transparent max-h-75 ovf-y-auto p-1 mb-5">
-  {codeData.map((classItem) => (
-    <div class="ai-c d-f jc-sb classItem" title={classItem.className}>
-      <div class="classProperties">
-        <div class="fw-600 className">{classItem.className}</div>
-        <code class="d-b propertyCode">
-          {classItem.properties.join('\n')}
-        </code>
-      </div>
-    </div>
-  ))}
+<div class="max-h-90 ovf-y-auto mb-5">
+  <table class="w-full" style="display: inline-table !important;">
+    <thead>
+      <tr>
+        <th class="fs-xs">Class</th>
+        <th class="fs-xs">Properties</th>
+      </tr>
+    </thead>
+    <tbody>
+      {codeData.map((classItem) => (
+        <tr>
+          <td class="fs-sm">
+            <p>
+              {classItem.className}
+            </p>
+          </td>
+          <td class="fs-sm">
+            <code style="background-color: transparent !important;">
+              {classItem.properties.join('\n')}
+            </code>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
 </div>

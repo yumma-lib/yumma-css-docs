@@ -49,21 +49,21 @@ function generateClassData(
       ...lightShades.map((shade, i) => ({
         classTitle: `${classPrefix}l-${colorClass.color}-${6 - i}`,
         properties: classValues.map(
-          (propertyName) => `${propertyName}: ${shade}`
+          (propertyName) => `${propertyName}: ${shade};`
         ),
         colorValue: shade,
       })),
       {
         classTitle: `${classPrefix}${colorClass.color}`,
         properties: classValues.map(
-          (propertyName) => `${propertyName}: ${baseColor}`
+          (propertyName) => `${propertyName}: ${baseColor};`
         ),
         colorValue: baseColor,
       },
       ...darkShades.map((shade, i) => ({
         classTitle: `${classPrefix}d-${colorClass.color}-${i + 1}`,
         properties: classValues.map(
-          (propertyName) => `${propertyName}: ${shade}`
+          (propertyName) => `${propertyName}: ${shade};`
         ),
         colorValue: shade,
       })),
@@ -75,43 +75,48 @@ const colorData = generateClassData(classPrefix, classValues, data);
 ---
 
 <style>
-  .classItem {
-    background-color: #f5f6f8;
-    border: 1px solid #cdcfd3;
-    color: #181818;
-    margin-bottom: 5px;
-    padding: 10px;
-  }
-
-  :global([data-theme="dark"]) .classList {
+  :global([data-theme='dark']) table {
     background-color: var(--yma-bg-lighter);
   }
 
-  :global([data-theme="dark"]) .classItem {
+  :global([data-theme='dark']) th, :global([data-theme='dark']) td {
     background-color: var(--yma-bg-light);
-    border: 1px solid #2d2f33;
-    color: #f5f6f8;
+    color: var(--yma-bg-lighter);
   }
 
-  :global([data-theme="dark"]) .propertyCode {
-    background-color: var(--yma-bg-dark);
-    color: #f5f6f8;
+  :global([data-theme='dark']) td {
+    border-color: #2d2f33;
   }
 </style>
 
-<div class="max-h-75 ovf-y-auto p-1">
-  {
-    colorData.map((classItem) => (
-      <div class="d-f jc-sb p-1 classItem" title={classItem.classTitle}>
-        <div>
-          <div class="fw-600 mb-1">{classItem.classTitle}</div>
-          <code class="d-b">{classItem.properties.join("\n")}</code>
-        </div>
-        <div
-          class="rad-1 dim-5"
-          style={`background-color: ${classItem.colorValue}`}
-        />
-      </div>
-    ))
-  }
+<div class="max-h-90 ovf-y-auto mb-5">
+  <table class="w-full" style="display: inline-table !important;">
+    <thead>
+      <tr>
+        <th class="fs-xs">Class</th>
+        <th class="fs-xs">Properties</th>
+        <th class="fs-xs">Color</th>
+      </tr>
+    </thead>
+    <tbody>
+      {colorData.map((classItem) => (
+        <tr>
+          <td class="fs-sm">
+            <p>{classItem.classTitle}</p>
+          </td>
+          <td class="fs-sm">
+            <code style="background-color: transparent !important;">
+              {classItem.properties.join('\n')}
+            </code>
+          </td>
+          <td class="fs-sm">
+            <div
+              class="h-5 w-half rad-0"
+              style={`background-color: ${classItem.colorValue}`}
+            />
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
 </div>
