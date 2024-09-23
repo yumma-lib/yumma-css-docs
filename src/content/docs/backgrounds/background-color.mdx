@@ -4,6 +4,8 @@ description: Controls the background color of an element.
 slug: docs/background-color
 ---
 
+import { backgroundColor } from "../../../constants/classes/background-color";
+
 Controls the background color of an element.
 
 <Color
@@ -24,6 +26,15 @@ Controls the background color of an element.
     { color: "lead", value: "#3f3f4e" },
     { color: "silver", value: "#bfc2c7" },
   ]}
+/>
+
+<Live
+  data={backgroundColor}
+  useCenter
+  useHeight="100px"
+  useMarks={["bg-cyan"]}
+  usePadding
+  useVersion="release"
 />
 
 ---
