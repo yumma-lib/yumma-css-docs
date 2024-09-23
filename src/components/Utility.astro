@@ -55,39 +55,25 @@ function generateClassData(
 const codeData = data || generateClassData(classPrefix, classValues, range, increment, unit, additionalClasses);
 ---
 
-<style>
-  :global([data-theme='dark']) table {
-    background-color: var(--yma-bg-lighter);
-  }
-
-  :global([data-theme='dark']) th, :global([data-theme='dark']) td {
-    background-color: var(--yma-bg-light);
-    color: var(--yma-bg-lighter);
-  }
-
-  :global([data-theme='dark']) td {
-    border-color: #2d2f33;
-  }
-</style>
 
 <div class="max-h-90 ovf-y-auto mb-5">
   <table class="w-full" style="display: inline-table !important;">
     <thead>
       <tr>
-        <th class="fs-xs">Class</th>
-        <th class="fs-xs">Properties</th>
+        <th class="fs-md fw-600">Class</th>
+        <th class="fs-md fw-600">Properties</th>
       </tr>
     </thead>
     <tbody>
       {codeData.map((classItem) => (
         <tr>
           <td class="fs-sm">
-            <p>
+            <p class="fw-600">
               {classItem.className}
             </p>
           </td>
           <td class="fs-sm">
-            <code style="background-color: transparent !important;">
+            <code class="tc-cyan" style="background-color: transparent !important;">
               {classItem.properties.join('\n')}
             </code>
           </td>
