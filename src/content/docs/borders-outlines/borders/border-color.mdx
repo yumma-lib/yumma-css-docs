@@ -4,6 +4,14 @@ description: Controls the color of the borders of an element.
 slug: docs/border-color
 ---
 
+import {
+  borderBottomColor,
+  borderColor,
+  borderLeftColor,
+  borderRightColor,
+  borderTopColor,
+} from "../../../../constants/classes/border-color";
+
 Controls the color of the borders of an element.
 
 <Color
@@ -24,6 +32,15 @@ Controls the color of the borders of an element.
     { color: "lead", value: "#3f3f4e" },
     { color: "silver", value: "#bfc2c7" },
   ]}
+/>
+
+<Live
+  data={borderColor}
+  useCenter
+  useHeight="200px"
+  useMarks={["bc-cyan"]}
+  usePadding
+  useVersion="release"
 />
 
 ### Border Bottom Color
@@ -50,6 +67,15 @@ Controls the color of the bottom border of an element.
   ]}
 />
 
+<Live
+  data={borderBottomColor}
+  useCenter
+  useHeight="200px"
+  useMarks={["bc-b-cyan"]}
+  usePadding
+  useVersion="release"
+/>
+
 ### Border Left Color
 
 Controls the color of the left border of an element.
@@ -72,6 +98,15 @@ Controls the color of the left border of an element.
     { color: "lead", value: "#3f3f4e" },
     { color: "silver", value: "#bfc2c7" },
   ]}
+/>
+
+<Live
+  data={borderLeftColor}
+  useCenter
+  useHeight="200px"
+  useMarks={["bc-l-cyan"]}
+  usePadding
+  useVersion="release"
 />
 
 ### Border Right Color
@@ -98,6 +133,15 @@ Controls the color of the right border of an element.
   ]}
 />
 
+<Live
+  data={borderRightColor}
+  useCenter
+  useHeight="200px"
+  useMarks={["bc-r-cyan"]}
+  usePadding
+  useVersion="release"
+/>
+
 ### Border Top Color
 
 Controls the color of the top border of an element.
@@ -120,6 +164,15 @@ Controls the color of the top border of an element.
     { color: "lead", value: "#3f3f4e" },
     { color: "silver", value: "#bfc2c7" },
   ]}
+/>
+
+<Live
+  data={borderTopColor}
+  useCenter
+  useHeight="200px"
+  useMarks={["bc-t-cyan"]}
+  usePadding
+  useVersion="release"
 />
 
 ---
