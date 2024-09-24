@@ -1,6 +1,6 @@
-export const borderRadius: string = `
+export const base: string = `
 <div class="d-g g-16 gtc-4">
-  <button class="bg-cyan dim-16 rad-1 tc-white"></button>
+  <button class="bg-cyan dim-16 rad-0 tc-white"></button>
   <button class="bg-cyan dim-16 rad-2 tc-white"></button>
   <button class="bg-cyan dim-16 rad-3 tc-white"></button>
   <button class="bg-cyan dim-16 rad-half tc-white"></button>
