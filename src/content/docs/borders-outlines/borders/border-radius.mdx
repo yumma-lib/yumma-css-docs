@@ -4,6 +4,8 @@ description: Controls the radius of the borders of an element.
 slug: docs/border-radius
 ---
 
+import { borderRadius, bottomLeftRadius, bottomRightRadius, topLeftRadius, topRightRadius } from "../../../../constants/classes/borders-radius";
+
 Controls the radius of the borders of an element.
 
 <Utility
@@ -53,6 +55,15 @@ Controls the radius of the borders of an element.
       properties: ["border-radius: 50%;"],
     },
   ]}
+/>
+
+<Live
+  data={borderRadius}
+  useCenter
+  useHeight="100px"
+  useMarks={["rad-1", "rad-2", "rad-3", "rad-half"]}
+  usePadding
+  useVersion="release"
 />
 
 ### Bottom Left Radius
@@ -108,6 +119,15 @@ Controls the radius of the border of the bottom left of an element.
   ]}
 />
 
+<Live
+  data={bottomLeftRadius}
+  useCenter
+  useHeight="100px"
+  useMarks={["rad-bl-2"]}
+  usePadding
+  useVersion="release"
+/>
+
 ### Bottom Right Radius
 
 Controls the radius of the border of the bottom right of an element.
@@ -159,6 +179,15 @@ Controls the radius of the border of the bottom right of an element.
       properties: ["border-bottom-right-radius: 50%;"],
     },
   ]}
+/>
+
+<Live
+  data={bottomRightRadius}
+  useCenter
+  useHeight="100px"
+  useMarks={["rad-br-2"]}
+  usePadding
+  useVersion="release"
 />
 
 ### Top Left Radius
@@ -214,6 +243,15 @@ Controls the radius of the border of the top left of an element.
   ]}
 />
 
+<Live
+  data={topLeftRadius}
+  useCenter
+  useHeight="100px"
+  useMarks={["rad-tl-2"]}
+  usePadding
+  useVersion="release"
+/>
+
 ### Top Right Radius
 
 Controls the radius of the border of the bottom right of an element.
@@ -265,6 +303,15 @@ Controls the radius of the border of the bottom right of an element.
       properties: ["border-top-right-radius: 50%;"],
     },
   ]}
+/>
+
+<Live
+  data={topRightRadius}
+  useCenter
+  useHeight="100px"
+  useMarks={["rad-tr-2"]}
+  usePadding
+  useVersion="release"
 />
 
 ---
