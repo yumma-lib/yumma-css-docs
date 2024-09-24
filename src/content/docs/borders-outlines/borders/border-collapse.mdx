@@ -4,6 +4,8 @@ description: Controls the collapsing or separation of table borders.
 slug: docs/border-collapse
 ---
 
+import { collapse, separate } from "../../../../constants/classes/border-collapse";
+
 Controls the collapsing or separation of table borders.
 
 <Utility
@@ -17,6 +19,32 @@ Controls the collapsing or separation of table borders.
       properties: ["border-collapse: separate;"],
     },
   ]}
+/>
+
+### Collapse
+
+The idea is that each table cell will have its own border.
+
+<Live
+  data={collapse}
+  useCenter
+  useHeight="200px"
+  useMarks={["bc-c"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Separate
+
+The borders of the tables next to each other will be merged.
+
+<Live
+  data={separate}
+  useCenter
+  useHeight="200px"
+  useMarks={["bc-s"]}
+  usePadding
+  useVersion="release"
 />
 
 ---
@@ -33,6 +61,6 @@ Using responsive breakpoints like `sm:bc-*`, `md:bc-*`, `lg:bc-*`, and `xxl:bc-*
 
 Using `:hover` variants such as `h:bc-*` allows you to override elements and change their values when hovering over them.
 
-```html "h:bc-d-c"
+```html "h:bc-c"
 <div class="bc-s h:bc-c ..."></div>
 ```
