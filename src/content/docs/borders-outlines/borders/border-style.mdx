@@ -4,6 +4,8 @@ description: Controls the style of the borders of an element.
 slug: docs/border-style
 ---
 
+import { borderStyle } from "../../../../constants/classes/border-style";
+
 Controls the style of the borders of an element.
 
 <Utility
@@ -25,6 +27,15 @@ Controls the style of the borders of an element.
       properties: ["border-style: solid;"],
     },
   ]}
+/>
+
+<Live
+  data={borderStyle}
+  useCenter
+  useHeight="100px"
+  useMarks={["b-none", "b-d", "b-h", "b-s"]}
+  usePadding
+  useVersion="release"
 />
 
 ---
