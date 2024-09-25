@@ -89,15 +89,14 @@ export const regularCard: string = `
 `;
 
 export const yummaCard: string = `
-<div class="ovf-h rad-3 b-1 bc-l-silver-6 bs-xs max-w-96 bg-white p-6">
+<div class="max-w-96 ovf-h rad-3 b-1 bc-l-silver-6 bg-white p-6 bs-xs">
   <div class="fg-1">
-    <h4 class="fs-xxl fw-600 lh-1 tc-d-lead-2 mb-2">Heading</h4>
-    <p class="tc-l-lead-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
+    <h4 class="mb-2 fs-xxl fw-600 lh-1 tc-d-lead-2">Heading</h4>
+    <p class="mb-4 tc-l-lead-3 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
     <a class="fs-sm lh-1 tc-pink tdl-u" href="/">Link to page</a>
   </div>
-  <button class="rad-2 bg-pink fw-600 tc-white h:bg-d-pink-1 mb-4 mt-6 h-12 px-6">Primary Button</button>
+  <button class="mb-4 mt-6 h-12 rad-2 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Primary Button</button>
 </div>
-
 `;
 
 export const tailwindCard: string = `
