@@ -4,6 +4,8 @@ description: Controls the width of the borders of an element.
 slug: docs/border-width
 ---
 
+import { base, bottomWidth, leftWidth, rightWidth, topWidth } from "../../../../constants/examples/border-width";
+
 Controls the width of the borders of an element.
 
 <Utility
@@ -45,6 +47,15 @@ Controls the width of the borders of an element.
       properties: ["border-width: 14px;"],
     },
   ]}
+/>
+
+<Live
+  data={base}
+  useCenter
+  useHeight="100px"
+  useMarks={["b-1", "b-2", "b-3", "b-4"]}
+  usePadding
+  useVersion="release"
 />
 
 ### Border Bottom Width
@@ -92,6 +103,15 @@ Controls the width of the bottom border of an element.
   ]}
 />
 
+<Live
+  data={bottomWidth}
+  useCenter
+  useHeight="100px"
+  useMarks={["bb-3"]}
+  usePadding
+  useVersion="release"
+/>
+
 ### Border Left Width
 
 Controls the width of the left border of an element.
@@ -135,6 +155,15 @@ Controls the width of the left border of an element.
       properties: ["border-left-width: 14px;"],
     },
   ]}
+/>
+
+<Live
+  data={leftWidth}
+  useCenter
+  useHeight="100px"
+  useMarks={["bl-3"]}
+  usePadding
+  useVersion="release"
 />
 
 ### Border Right Width
@@ -182,6 +211,15 @@ Controls the width of the right border of an element.
   ]}
 />
 
+<Live
+  data={rightWidth}
+  useCenter
+  useHeight="100px"
+  useMarks={["br-3"]}
+  usePadding
+  useVersion="release"
+/>
+
 ### Border Top Width
 
 Controls the width of the top border of an element.
@@ -225,6 +263,15 @@ Controls the width of the top border of an element.
       properties: ["border-top-width: 14px;"],
     },
   ]}
+/>
+
+<Live
+  data={topWidth}
+  useCenter
+  useHeight="100px"
+  useMarks={["bt-3"]}
+  usePadding
+  useVersion="release"
 />
 
 ---
