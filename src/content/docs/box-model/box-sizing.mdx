@@ -4,6 +4,8 @@ description: Controls the calculation of the total size of an element.
 slug: docs/box-sizing
 ---
 
+import { borderBox, contentBox } from "../../../constants/examples/box-sizing";
+
 Controls the calculation of the total size of an element.
 
 <Utility
@@ -19,20 +21,50 @@ Controls the calculation of the total size of an element.
   ]}
 />
 
+<Aside type="note">
+  [Stylecent](/docs/stylecent) uses the `border-box` property by default for elements, which is what the base styles are built on.
+</Aside>
+
+### Content box
+
+The height and width of an element only apply to its content.
+
+<Live
+  data={contentBox}
+  useCenter
+  useHeight="200px"
+  useMarks={["bs-cb"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Border box
+
+The height and width of the element are the same for all parts.
+
+<Live
+  data={borderBox}
+  useCenter
+  useHeight="200px"
+  useMarks={["bs-bb"]}
+  usePadding
+  useVersion="release"
+/>
+
 ---
 
 ### Using breakpoints
 
 Using responsive breakpoints like `sm:bs-*`, `md:bs-*`, `lg:bs-*`, and `xxl:bs-*` allows targeting specific utilities in different viewports.
 
-```html "md:bs-2"
-<div class="bs-1 md:bs-2 ..."></div>
+```html "md:bs-bb"
+<div class="bs-1 md:bs-bb ..."></div>
 ```
 
 ### Using variants
 
 Using `:hover` variants such as `h:bs-*` allows you to override elements and change their values when hovering over them.
 
-```html "h:bs-2"
-<div class="bs-1 h:bs-2 ..."></div>
+```html "h:bs-bb"
+<div class="bs-cb h:bs-bb ..."></div>
 ```
