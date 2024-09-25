@@ -1,8 +1,5 @@
 export const base: string = `
-<div class="b-2 bc-cyan bg-white p-4 w-64">
-  <h2 class="fw-600 mb-2">Card Title</h2>
-  <p class="tc-gray tc-gray-700">This is a simple card with a cyan border.</p>
-</div>
+
 `;
 
 export const borderBottomColor: string = `

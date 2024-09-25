@@ -1,24 +1,24 @@
 export const base: string = `
 <div class="d-g g-16 gtc-4">
-  <button class="bg-white dim-16 b-1 bs-solid bc-cyan tc-cyan">1px</button>
-  <button class="bg-white dim-16 b-2 bs-solid bc-cyan tc-cyan">2px</button>
-  <button class="bg-white dim-16 b-3 bs-solid bc-cyan tc-cyan">4px</button>
-  <button class="bg-white dim-16 b-4 bs-solid bc-cyan tc-cyan">6px</button>
+  <button class="b-1 bc-cyan bg-white bs-solid dim-16 tc-cyan">1px</button>
+  <button class="b-2 bc-cyan bg-white bs-solid dim-16 tc-cyan">2px</button>
+  <button class="b-3 bc-cyan bg-white bs-solid dim-16 tc-cyan">4px</button>
+  <button class="b-4 bc-cyan bg-white bs-solid dim-16 tc-cyan">6px</button>
 </div>
 `;
 
 export const bottomWidth: string = `
-<button class="bg-white dim-16 bb-3 bs-solid bc-cyan tc-cyan">4px</button>
+<button class="bb-3 bc-cyan bg-white bs-solid dim-16 tc-cyan">4px</button>
 `;
 
 export const leftWidth: string = `
-<button class="bg-white dim-16 bl-3 bs-solid bc-cyan tc-cyan">4px</button>
+<button class="bc-cyan bg-white bl-3 bs-solid dim-16 tc-cyan">4px</button>
 `;
 
 export const rightWidth: string = `
-<button class="bg-white dim-16 br-3 bs-solid bc-cyan tc-cyan">4px</button>
+<button class="bc-cyan bg-white br-3 bs-solid dim-16 tc-cyan">4px</button>
 `;
 
 export const topWidth: string = `
-<button class="bg-white dim-16 bt-3 bs-solid bc-cyan tc-cyan">4px</button>
+<button class="bc-cyan bg-white bs-solid bt-3 dim-16 tc-cyan">4px</button>
 `;
