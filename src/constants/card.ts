@@ -93,7 +93,7 @@ export const yummaCard: string = `
   <div class="fg-1">
     <h4 class="fs-xxl fw-600 lh-1 tc-d-lead-2 mb-2">Heading</h4>
     <p class="tc-l-lead-3 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
-    <a class="fs-sm lh-1 tc-pink tdl-u" href="/"> Learn more </a>
+    <a class="fs-sm lh-1 tc-pink tdl-u" href="/">Link to page</a>
   </div>
   <button class="rad-2 bg-pink fw-600 tc-white h:bg-d-pink-1 mb-4 mt-6 h-12 px-6">Primary Button</button>
 </div>
