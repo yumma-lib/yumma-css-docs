@@ -1,6 +1,5 @@
 ---
 import { Code, Tabs, TabItem } from "@astrojs/starlight/components";
-import beautify from "js-beautify";
 
 interface LiveProps {
   data: string;
@@ -27,12 +26,6 @@ const {
   useVersion = "", 
   useWrap = false,
 } = Astro.props as LiveProps;
-
-const formatHTML = (html: string) => beautify.html(html, {
-  indent_size: 4,
-  preserve_newlines: false,
-  wrap_line_length: 160,
-});
 
 const newContainer = (
   stylesheet: string, 
@@ -65,7 +58,7 @@ const newContainer = (
 const stylesheet = useExternal || `https://cdn.jsdelivr.net/gh/yumma-lib/yumma-css@${useVersion}/dist/yumma.css`;
 
 const flexbox = useCenter ? "display: flex;" : "";
-const newCode = formatHTML(data);
+const newCode = data;
 const container = newContainer(
   stylesheet, 
   flexbox, 

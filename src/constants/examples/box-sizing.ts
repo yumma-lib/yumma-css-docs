@@ -1,15 +1,11 @@
 export const borderBox: string = `
-<div class="b-1 bc-cyan bg-white dim-32">
-  <div class="b-1 bc-cyan bs-bb dim-32 p-5">
-    <div class="b-1 bc-cyan bg-cyan dim-full"></div>
-  </div>
+<div class="dim-26 b-2 bc-cyan bs-bb p-8">
+  <div class="bg-cyan dim-full"></div>
 </div>
 `;
 
 export const contentBox: string = `
-<div class="b-1 bc-cyan bg-white dim-32">
-  <div class="b-1 bc-cyan bs-cb dim-32 p-5">
-    <div class="b-1 bc-cyan bg-cyan dim-full"></div>
-  </div>
+<div class="dim-26 b-2 bc-cyan bs-cb p-8">
+  <div class="bg-cyan dim-full"></div>
 </div>
 `;
