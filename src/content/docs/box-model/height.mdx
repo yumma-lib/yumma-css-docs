@@ -4,7 +4,7 @@ description: Controls the height of an element.
 slug: docs/height
 ---
 
-import { base } from "../../../constants/examples/height";
+import { base, heightPercentages } from "../../../constants/examples/height";
 
 Controls the height of an element.
 
@@ -30,7 +30,20 @@ Controls the height of an element.
   data={base}
   useCenter
   useHeight="200px"
-  useMarks={["h-10", "h-20", "h-30", "h-40"]}
+  useMarks={["h-8", "h-16", "h-24", "h-32"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Using percentages
+
+Percentage utilities let you change an element's height based on its container size.
+
+<Live
+  data={heightPercentages}
+  useCenter
+  useHeight="300px"
+  useMarks={["h-full", "h-half"]}
   usePadding
   useVersion="release"
 />
