@@ -4,6 +4,8 @@ description: Controls the height and width of an element at once.
 slug: docs/dimension
 ---
 
+import { base } from "../../../constants/examples/dimension";
+
 Controls the height and width of an element at once.
 
 <Utility
@@ -22,6 +24,15 @@ Controls the height and width of an element at once.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+/>
+
+<Live
+  data={base}
+  useCenter
+  useHeight="150px"
+  useMarks={["dim-16", "dim-20", "dim-24", "dim-28"]}
+  usePadding
+  useVersion="release"
 />
 
 ### Max Dimension
