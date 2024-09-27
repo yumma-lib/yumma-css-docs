@@ -1,24 +1,24 @@
 export const base: string = `
 <div class="d-g g-16 gtc-4">
-  <button class="bg-cyan dim-16 rad-0 tc-white"></button>
-  <button class="bg-cyan dim-16 rad-2 tc-white"></button>
-  <button class="bg-cyan dim-16 rad-3 tc-white"></button>
-  <button class="bg-cyan dim-16 rad-half tc-white"></button>
+  <div class="bg-cyan dim-16 rad-0"></div>
+  <div class="bg-cyan dim-16 rad-2"></div>
+  <div class="bg-cyan dim-16 rad-3"></div>
+  <div class="bg-cyan dim-16 rad-half"></div>
 </div>
 `;
 
 export const bottomLeftRadius: string = `
-<button class="bg-cyan dim-16 rad-bl-2 tc-white"></button>
+<div class="bg-cyan dim-16 rad-bl-2"></div>
 `;
 
 export const bottomRightRadius: string = `
-<button class="bg-cyan dim-16 rad-br-2 tc-white"></button>
+<div class="bg-cyan dim-16 rad-br-2"></div>
 `;
 
 export const topLeftRadius: string = `
-<button class="bg-cyan dim-16 rad-tl-2 tc-white"></button>
+<div class="bg-cyan dim-16 rad-tl-2"></div>
 `;
 
 export const topRightRadius: string = `
-<button class="bg-cyan dim-16 rad-tr-2 tc-white"></button>
+<div class="bg-cyan dim-16 rad-tr-2"></div>
 `;
