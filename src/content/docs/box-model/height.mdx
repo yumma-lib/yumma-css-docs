@@ -4,6 +4,8 @@ description: Controls the height of an element.
 slug: docs/height
 ---
 
+import { base } from "../../../constants/examples/height";
+
 Controls the height of an element.
 
 <Utility
@@ -22,6 +24,15 @@ Controls the height of an element.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+/>
+
+<Live
+  data={base}
+  useCenter
+  useHeight="200px"
+  useMarks={["h-10", "h-20", "h-30", "h-40"]}
+  usePadding
+  useVersion="release"
 />
 
 ### Max Height
