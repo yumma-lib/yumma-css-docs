@@ -4,6 +4,8 @@ description: Controls the spacing of child elements.
 slug: docs/spacing
 ---
 
+import { spacingX, spacingY } from "../../../constants/examples/spacing";
+
 Controls the spacing of child elements.
 
 ### Spacing X
@@ -18,6 +20,15 @@ Controls the left and right X-axis margins of child elements.
   unit="rem"
 />
 
+<Live
+  data={spacingX}
+  useCenter
+  useHeight="100px"
+  useMarks={["s-x-8"]}
+  usePadding
+  useVersion="release"
+/>
+
 ### Spacing Y
 
 Controls the top and bottom Y-axis margins of child elements.
@@ -28,6 +39,15 @@ Controls the top and bottom Y-axis margins of child elements.
   increment={0.25}
   range={100}
   unit="rem"
+/>
+
+<Live
+  data={spacingY}
+  useCenter
+  useHeight="300px"
+  useMarks={["s-y-8"]}
+  usePadding
+  useVersion="release"
 />
 
 ---
