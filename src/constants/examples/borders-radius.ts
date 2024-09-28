@@ -1,24 +1,24 @@
 export const base: string = `
 <div class="d-g g-16 gtc-4">
-  <div class="bg-cyan dim-16 rad-0"></div>
-  <div class="bg-cyan dim-16 rad-2"></div>
-  <div class="bg-cyan dim-16 rad-3"></div>
-  <div class="bg-cyan dim-16 rad-half"></div>
+  <div class="bg-cyan dim-16 fw-700 ins rad-0 tc-white">0rem</div>
+  <div class="bg-cyan dim-16 fw-700 ins rad-2 tc-white">8rem</div>
+  <div class="bg-cyan dim-16 fw-700 ins rad-3 tc-white">16rem</div>
+  <div class="bg-cyan dim-16 fw-700 ins rad-half tc-white">50%</div>
 </div>
 `;
 
 export const bottomLeftRadius: string = `
-<div class="bg-cyan dim-16 rad-bl-2"></div>
+<div class="bg-cyan dim-16 fw-700 ins rad-bl-2 tc-white">8rem</div>
 `;
 
 export const bottomRightRadius: string = `
-<div class="bg-cyan dim-16 rad-br-2"></div>
+<div class="bg-cyan dim-16 fw-700 ins rad-br-2 tc-white">8rem</div>
 `;
 
 export const topLeftRadius: string = `
-<div class="bg-cyan dim-16 rad-tl-2"></div>
+<div class="bg-cyan dim-16 fw-700 ins rad-tl-2 tc-white">8rem</div>
 `;
 
 export const topRightRadius: string = `
-<div class="bg-cyan dim-16 rad-tr-2"></div>
+<div class="bg-cyan dim-16 fw-700 ins rad-tr-2 tc-white">8rem</div>
 `;
