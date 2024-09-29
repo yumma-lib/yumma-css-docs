@@ -1,9 +1,9 @@
 export const base: string = `
 <div class="s-y-8">
-  <div class="bg-cyan fw-700 ins p-2 rad-1 tc-white w-12">2rem</div>
-  <div class="bg-cyan fw-700 ins p-2 rad-1 tc-white w-20">4rem</div>
-  <div class="bg-cyan fw-700 ins p-2 rad-1 tc-white w-28">6rem</div>
-  <div class="bg-cyan fw-700 ins p-2 rad-1 tc-white w-36">8rem</div>
+  <div class="bg-cyan fw-700 ins p-2 rad-1 tc-white w-12">3rem</div>
+  <div class="bg-cyan fw-700 ins p-2 rad-1 tc-white w-20">5rem</div>
+  <div class="bg-cyan fw-700 ins p-2 rad-1 tc-white w-28">7rem</div>
+  <div class="bg-cyan fw-700 ins p-2 rad-1 tc-white w-36">9rem</div>
 </div>
 `;
 
