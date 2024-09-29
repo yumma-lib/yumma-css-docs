@@ -4,6 +4,8 @@ description: Applies background blur filters to an element.
 slug: docs/backdrop-blur
 ---
 
+import { base } from "../../../constants/examples/backdrop-blur";
+
 Applies background blur filters to an element.
 
 <Utility
@@ -33,6 +35,15 @@ Applies background blur filters to an element.
       properties: ["backdrop-filter: blur(64px);"],
     },
   ]}
+/>
+
+<Live
+  data={base}
+  useCenter
+  useHeight="200px"
+  useMarks={["bf-b-sm", "bf-b-md", "bf-b-lg"]}
+  usePadding
+  useVersion="release"
 />
 
 ---
