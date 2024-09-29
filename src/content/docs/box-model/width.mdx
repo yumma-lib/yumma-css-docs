@@ -4,6 +4,8 @@ description: Controls the width of an element.
 slug: docs/width
 ---
 
+import { base, widthPercentages } from "../../../constants/examples/width";
+
 Controls the width of an element.
 
 <Utility
@@ -22,6 +24,28 @@ Controls the width of an element.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+/>
+
+<Live
+  data={base}
+  useCenter
+  useHeight="300px"
+  useMarks={["w-12", "w-20", "w-28", "w-36"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Using percentages
+
+Percentage utilities let you change an element's height based on its container size.
+
+<Live
+  data={widthPercentages}
+  useCenter
+  useHeight="200px"
+  useMarks={["w-full", "w-half"]}
+  usePadding
+  useVersion="release"
 />
 
 ### Max Width
