@@ -4,6 +4,18 @@ description: Controls the positioning of rows in multi-row Flex and Grid contain
 slug: docs/align-content
 ---
 
+import {
+  baseline,
+  center,
+  flexEnd,
+  flexStart,
+  normal,
+  spaceAround,
+  spaceBetween,
+  spaceEvenly,
+  stretch,
+} from "../../../../constants/examples/align-content";
+
 Controls the positioning of rows in multi-row Flex and Grid containers.
 
 <Utility
@@ -51,14 +63,120 @@ Controls the positioning of rows in multi-row Flex and Grid containers.
   ]}
 />
 
----
+### Baseline
+
+Each line will align itself along the baseline of the container.
+
+<Live
+  data={baseline}
+  useHeight="300px"
+  useMarks={["ac-b"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Center
+
+Each line will align itself in the center of the cross axis.
+
+<Live
+  data={center}
+  useHeight="300px"
+  useMarks={["ac-c"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Flex End
+
+Each line will fill the space it needs and move towards the end of the cross axis.
+
+<Live
+  data={flexEnd}
+  useHeight="300px"
+  useMarks={["ac-fe"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Flex Start
+
+Each line will fill the space it needs and move towards the start of the cross axis.
+
+<Live
+  data={flexStart}
+  useHeight="300px"
+  useMarks={["ac-fs"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Normal
+
+Each line will align in the default position along the cross axis.
+
+<Live
+  data={normal}
+  useHeight="300px"
+  useMarks={["ac-n"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Stretch
+
+Each line will take up as much space as it can in the remaining space.
+
+<Live
+  data={stretch}
+  useHeight="300px"
+  useMarks={["ac-stretch"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Space Around
+
+Each line fills the space it needs. The remaining space will be distributed equally around the lines.
+
+<Live
+  data={spaceAround}
+  useHeight="300px"
+  useMarks={["ac-sa"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Space Between
+
+Each line fills its space. The rest of the space will be between the lines.
+
+<Live
+  data={spaceBetween}
+  useHeight="300px"
+  useMarks={["ac-sb"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Space Evenly
+
+Each line fills its space, and the remaining space is distributed evenly between and around the lines.
+
+<Live
+  data={spaceEvenly}
+  useHeight="300px"
+  useMarks={["ac-se"]}
+  usePadding
+  useVersion="release"
+/>
 
 ### Using breakpoints
 
 Using responsive breakpoints like `sm:ac-*`, `md:ac-*`, `lg:ac-*`, and `xxl:ac-*` allows targeting specific utilities in different viewports.
 
 ```html "md:ac-e"
-<div class="ac-s md:ac-e ..."></div>
+<div class="ac-s md:ac-e ac-"></div>
 ```
 
 ### Using variants
@@ -66,5 +184,5 @@ Using responsive breakpoints like `sm:ac-*`, `md:ac-*`, `lg:ac-*`, and `xxl:ac-*
 Using `:hover` variants such as `h:ac-*` allows you to override elements and change their values when hovering over them.
 
 ```html "h:ac-e"
-<div class="ac-s h:ac-e ..."></div>
+<div class="ac-s h:ac-e ac-"></div>
 ```
