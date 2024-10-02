@@ -133,9 +133,17 @@ export default defineConfig({
         {
           label: "Effects & Filters",
           items: [
-            { label: "Backdrop Blur", link: "docs/backdrop-blur" },
-            { label: "Box Shadow", link: "docs/box-shadow" },
-            { label: "Opacity", link: "docs/opacity" },
+            {
+              label: "Effects",
+              items: [{ label: "Backdrop Blur", link: "docs/backdrop-blur" }],
+            },
+            {
+              label: "Filters",
+              items: [
+                { label: "Box Shadow", link: "docs/box-shadow" },
+                { label: "Opacity", link: "docs/opacity" },
+              ],
+            },
           ],
         },
         {
@@ -182,12 +190,12 @@ export default defineConfig({
           ],
         },
         {
-          label: "Layout",
-          autogenerate: { directory: "layout" },
+          label: "Interactions",
+          autogenerate: { directory: "interactions" },
         },
         {
-          label: "Miscellaneous",
-          autogenerate: { directory: "miscellaneous" },
+          label: "Layout",
+          autogenerate: { directory: "layout" },
         },
         {
           label: "Tables",
