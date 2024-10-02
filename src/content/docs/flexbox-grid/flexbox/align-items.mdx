@@ -4,6 +4,8 @@ description: Controls flex and grid positioning along a container's transverse a
 slug: docs/align-items
 ---
 
+import { baseline, center, flexEnd, flexStart, stretch } from "../../../../constants/examples/align-items";
+
 Controls flex and grid positioning along a container's transverse axis.
 
 <Utility
@@ -37,6 +39,71 @@ Controls flex and grid positioning along a container's transverse axis.
       properties: ["align-items: flex-end;"],
     },
   ]}
+/>
+
+{/* ### Baseline
+
+Aligns items along the container's baseline.
+
+<Live
+  data={baseline}
+  useCenter
+  useHeight="300px"
+  useMarks={["ai-b"]}
+  usePadding
+  useVersion="release"
+/> */}
+
+### Center
+
+Aligns items in the center of the cross axis.
+
+<Live
+  data={center}
+  useCenter
+  useHeight="300px"
+  useMarks={["ai-c"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Flex End
+
+Aligns items at the end of the cross axis.
+
+<Live
+  data={flexEnd}
+  useCenter
+  useHeight="300px"
+  useMarks={["ai-fe"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Flex Start
+
+Aligns items at the start of the cross axis.
+
+<Live
+  data={flexStart}
+  useCenter
+  useHeight="300px"
+  useMarks={["ai-fs"]}
+  usePadding
+  useVersion="release"
+/>
+
+### Stretch
+
+Stretches items to fill the container's height.
+
+<Live
+  data={stretch}
+  useCenter
+  useHeight="300px"
+  useMarks={["ai-stretch"]}
+  usePadding
+  useVersion="release"
 />
 
 ---
