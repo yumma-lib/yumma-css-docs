@@ -7,9 +7,9 @@ slug: docs/stylecent
 Stylecent is a set of styles for Yumma CSS projects, meant for consistent design across browsers.
 
 <Aside type="note">
-  Stylecent is totally optional. If you don't need its all-opined reset rules,
-  you can always use the core versions. If you want to know more about the CSS
-  options, you can find out [here](/docs/installation#css-options).
+  Stylecent is totally optional if you're using **v2.0** or later. If you don't need
+  its all-opined reset rules, you can always use the [core
+  versions](/docs/installation#css-options).
 </Aside>
 
 ### Universal selector
@@ -20,28 +20,39 @@ Ensures consistent box sizing behavior across all elements.
 *,
 *::before,
 *::after {
-  border-width: 0;
   border-style: solid;
+  border-width: 0;
   box-sizing: border-box;
 }
 
 * {
-  margin: 0;
   color: inherit;
-  font-family: $yma-system-fonts;
+  font-family: $yma-font-system;
+  margin: 0;
+}
+```
+
+## Typography
+
+Ensures that the default text elements are consistent in the `<body>`.
+
+```scss
+body {
+  font-family: inherit;
+  line-height: 1.5;
 }
 ```
 
 ### Media elements
 
-Ensures images, videos, and other media elements are responsive by default.
+Ensures `<img>`, `<video>`, and other media elements are responsive by default.
 
 ```scss
+canvas,
 img,
 picture,
-video,
-canvas,
-svg {
+svg,
+video {
   display: block;
   max-width: 100%;
 }
@@ -52,10 +63,12 @@ svg {
 Applies consistent font styles to form elements for better integration with the page.
 
 ```scss
-input,
 button,
-textarea,
-select {
+input,
+optgroup,
+select,
+textarea {
+  background-color: transparent;
   font: inherit;
 }
 ```
@@ -65,13 +78,15 @@ select {
 Ensures long text content wraps appropriately within elements.
 
 ```scss
-p,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
   overflow-wrap: break-word;
 }
 ```
@@ -88,13 +103,13 @@ a {
 
 ### List normalization
 
-Removes default padding and list-style from ordered and unordered lists.
+Removes default padding and `list-style` from ordered and unordered lists.
 
 ```scss
 ol,
 ul {
-  padding: 0;
   list-style: none;
+  padding: 0;
 }
 ```
 
@@ -104,8 +119,8 @@ Applies a subtle border to horizontal rules for visual separation.
 
 ```scss
 hr {
+  border-top: $yma-colors-transparent;
   border: 0;
   margin: 1em 0;
-  border-top: $yma-colors-transparent;
 }
 ```

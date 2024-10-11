@@ -21,49 +21,45 @@ Controls the positioning of rows in multi-row Flex and Grid containers.
 <Utility
   data={[
     {
+      className: "ac-b",
+      properties: ["align-content: baseline;"],
+    },
+    {
       className: "ac-c",
       properties: ["align-content: center;"],
-    },
-    {
-      className: "ac-s",
-      properties: ["align-content: start;"],
-    },
-    {
-      className: "ac-e",
-      properties: ["align-content: end;"],
-    },
-    {
-      className: "ac-fs",
-      properties: ["align-content: flex-start;"],
     },
     {
       className: "ac-fe",
       properties: ["align-content: flex-end;"],
     },
     {
+      className: "ac-fs",
+      properties: ["align-content: flex-start;"],
+    },
+    {
       className: "ac-n",
       properties: ["align-content: normal;"],
     },
     {
-      className: "ac-sb",
-      properties: ["align-content: space-between;"],
+      className: "ac-s",
+      properties: ["align-content: stretch;"],
     },
     {
       className: "ac-sa",
       properties: ["align-content: space-around;"],
     },
     {
-      className: "ac-se",
-      properties: ["align-content: space-evenly;"],
+      className: "ac-sb",
+      properties: ["align-content: space-between;"],
     },
     {
-      className: "ac-stretch",
-      properties: ["align-content: stretch;"],
+      className: "ac-se",
+      properties: ["align-content: space-evenly;"],
     },
   ]}
 />
 
-{/* ### Baseline
+### Baseline
 
 Each line will align itself along the baseline of the container.
 
@@ -72,8 +68,8 @@ Each line will align itself along the baseline of the container.
   useHeight="300px"
   useMarks={["ac-b"]}
   usePadding
-  useVersion="release"
-/> */}
+  useVersion="2.1.0"
+/>
 
 ### Center
 
@@ -84,7 +80,7 @@ Each line will align itself in the center of the cross axis.
   useHeight="300px"
   useMarks={["ac-c"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Flex end
@@ -96,7 +92,7 @@ Each line will fill the space it needs and move towards the end of the cross axi
   useHeight="300px"
   useMarks={["ac-fe"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Flex start
@@ -108,7 +104,7 @@ Each line will fill the space it needs and move towards the start of the cross a
   useHeight="300px"
   useMarks={["ac-fs"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Normal
@@ -120,7 +116,7 @@ Each line will align in the default position along the cross axis.
   useHeight="300px"
   useMarks={["ac-n"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Stretch
@@ -130,9 +126,9 @@ Each line will take up as much space as it can in the remaining space.
 <Live
   data={stretch}
   useHeight="300px"
-  useMarks={["ac-stretch"]}
+  useMarks={["ac-s"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Space around
@@ -144,7 +140,7 @@ Each line fills the space it needs. The remaining space will be distributed equa
   useHeight="300px"
   useMarks={["ac-sa"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Space between
@@ -156,7 +152,7 @@ Each line fills its space. The rest of the space will be between the lines.
   useHeight="300px"
   useMarks={["ac-sb"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Space evenly
@@ -168,7 +164,7 @@ Each line fills its space, and the remaining space is distributed evenly between
   useHeight="300px"
   useMarks={["ac-se"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Using breakpoints

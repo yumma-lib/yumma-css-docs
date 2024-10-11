@@ -3,7 +3,7 @@ export const regularCard: string = `
   <div class="card-content">
     <h4 class="card-title">Heading</h4>
     <p class="card-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
-    <a class="card-link" href="/">Link to page</a>
+    <a class="card-link">Link to page</a>
   </div>
   <button class="card-button">Primary Button</button>
 </div>
@@ -89,23 +89,23 @@ export const regularCard: string = `
 `;
 
 export const yummaCard: string = `
-<div class="max-w-96 ovf-h rad-3 b-1 bc-l-silver-6 bg-white p-6 bs-xs">
+<div class="max-w-96 ovf-h rad-4 b-1 bc-l-silver-6 bg-white p-6 bs-xs">
   <div class="fg-1">
-    <h4 class="mb-2 fs-xxl fw-600 lh-1 tc-d-lead-2">Heading</h4>
+    <h4 class="mb-2 fs-sm fw-600 lh-1 tc-d-lead-2">Heading</h4>
     <p class="mb-4 tc-l-lead-3 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
-    <a class="fs-sm lh-1 tc-pink tdl-u" href="/">Link to page</a>
+    <a class="fs-b lh-1 tc-pink tdl-u">Link to page</a>
   </div>
-  <button class="mb-4 mt-6 h-12 rad-2 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Primary Button</button>
+  <button class="mb-4 mt-6 h-12 rad-2 bg-pink px-6 fw-600 tc-white h:bg-d-pink-1">Primary</button>
 </div>
 `;
 
 export const tailwindCard: string = `
 <div class="max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
   <div class="grow">
-    <h4 class="mb-2 text-3xl font-semibold leading-none text-gray-800">Heading</h4>
+    <h4 class="mb-2 text-2xl font-semibold leading-none text-gray-800">Heading</h4>
     <p class="mb-4 text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia velit fugit voluptates quod, placeat quam maxime earum voluptas provident, natus omnis saepe beatae vitae.</p>
-    <a class="text-sm leading-none text-pink-500 underline" href="/">Link to page</a>
+    <a class="text-base leading-none text-pink-500 underline">Link to page</a>
   </div>
-  <button class="mb-4 mt-6 h-12 rounded-lg bg-pink-500 px-6 font-semibold text-white hover:bg-pink-600">Primary Button</button>
+  <button class="mb-4 mt-6 h-12 rounded-lg bg-pink-500 px-6 font-semibold text-white hover:bg-pink-600">Primary</button>
 </div>
 `;

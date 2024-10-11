@@ -7,72 +7,12 @@ slug: docs/grid-template-rows
 Utilities to specify the rows in a grid layout.
 
 <Utility
-  data={[
-    {
-      className: "gtr-1",
-      properties: ["grid-template-rows: repeat(1, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-2",
-      properties: ["grid-template-rows: repeat(2, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-3",
-      properties: ["grid-template-rows: repeat(3, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-4",
-      properties: ["grid-template-rows: repeat(4, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-5",
-      properties: ["grid-template-rows: repeat(5, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-6",
-      properties: ["grid-template-rows: repeat(6, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-7",
-      properties: ["grid-template-rows: repeat(7, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-8",
-      properties: ["grid-template-rows: repeat(8, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-9",
-      properties: ["grid-template-rows: repeat(9, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-10",
-      properties: ["grid-template-rows: repeat(10, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-11",
-      properties: ["grid-template-rows: repeat(11, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-12",
-      properties: ["grid-template-rows: repeat(12, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-13",
-      properties: ["grid-template-rows: repeat(13, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-14",
-      properties: ["grid-template-rows: repeat(14, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-15",
-      properties: ["grid-template-rows: repeat(15, minmax(0, 1fr));"],
-    },
-    {
-      className: "gtr-16",
-      properties: ["grid-template-rows: repeat(16, minmax(0, 1fr));"],
-    },
-  ]}
+  classPrefix="gtr-"
+  excludeZero
+  incrementName="repeat(%i, minmax(0, 1fr))"
+  incrementValue={1}
+  propNames={["grid-template-rows"]}
+  range={16}
 />
 
 ---

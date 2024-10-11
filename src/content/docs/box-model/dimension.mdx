@@ -9,11 +9,6 @@ import { base } from "../../../constants/examples/dimension";
 Controls the height and width of an element at once.
 
 <Utility
-  classPrefix="dim-"
-  classValues={["height", "width"]}
-  range={100}
-  increment={0.25}
-  unit="rem"
   additionalClasses={[
     { name: "1/1", value: "100dvh" },
     { name: "1/2", value: "50dvh" },
@@ -24,6 +19,11 @@ Controls the height and width of an element at once.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+  classPrefix="dim-"
+  incrementValue={0.25}
+  propNames={["height", "width"]}
+  range={100}
+  unit="rem"
 />
 
 <Live
@@ -32,7 +32,7 @@ Controls the height and width of an element at once.
   useHeight="150px"
   useMarks={["dim-16", "dim-20", "dim-24", "dim-28"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Max dimension
@@ -40,11 +40,6 @@ Controls the height and width of an element at once.
 Controls the maximum height and max width of an element at once.
 
 <Utility
-  classPrefix="max-dim-"
-  classValues={["max-height", "max-width"]}
-  range={100}
-  increment={0.25}
-  unit="rem"
   additionalClasses={[
     { name: "1/1", value: "100dvh" },
     { name: "1/2", value: "50dvh" },
@@ -55,6 +50,11 @@ Controls the maximum height and max width of an element at once.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+  classPrefix="max-dim-"
+  incrementValue={0.25}
+  propNames={["max-height", "max-width"]}
+  range={100}
+  unit="rem"
 />
 
 ### Min dimension
@@ -62,11 +62,6 @@ Controls the maximum height and max width of an element at once.
 Controls the minimum height and min width of an element at once.
 
 <Utility
-  classPrefix="min-dim-"
-  classValues={["min-height", "min-width"]}
-  range={100}
-  increment={0.25}
-  unit="rem"
   additionalClasses={[
     { name: "1/1", value: "100dvh" },
     { name: "1/2", value: "50dvh" },
@@ -77,6 +72,11 @@ Controls the minimum height and min width of an element at once.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+  classPrefix="min-dim-"
+  incrementValue={0.25}
+  propNames={["min-height", "min-width"]}
+  range={100}
+  unit="rem"
 />
 
 ---

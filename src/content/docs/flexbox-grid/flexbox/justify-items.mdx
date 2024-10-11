@@ -13,47 +13,15 @@ Controls the alignment of grid elements relative to their inline axis.
       properties: ["justify-items: center;"],
     },
     {
-      className: "ji-s",
-      properties: ["justify-items: start;"],
-    },
-    {
       className: "ji-e",
       properties: ["justify-items: end;"],
     },
     {
-      className: "ji-fs",
-      properties: ["justify-items: flex-start;"],
+      className: "ji-s",
+      properties: ["justify-items: start;"],
     },
     {
-      className: "ji-fe",
-      properties: ["justify-items: flex-end;"],
-    },
-    {
-      className: "ji-l",
-      properties: ["justify-items: left;"],
-    },
-    {
-      className: "ji-r",
-      properties: ["justify-items: right;"],
-    },
-    {
-      className: "ji-n",
-      properties: ["justify-items: normal;"],
-    },
-    {
-      className: "ji-sb",
-      properties: ["justify-items: space-between;"],
-    },
-    {
-      className: "ji-sa",
-      properties: ["justify-items: space-around;"],
-    },
-    {
-      className: "ji-se",
-      properties: ["justify-items: space-evenly;"],
-    },
-    {
-      className: "ji-stretch",
+      className: "ji-st",
       properties: ["justify-items: stretch;"],
     },
   ]}
@@ -65,14 +33,14 @@ Controls the alignment of grid elements relative to their inline axis.
 
 Using responsive breakpoints like `sm:ji-*`, `md:ji-*`, `lg:ji-*`, and `xxl:ji-*` allows targeting specific utilities in different viewports.
 
-```html "md:ji-r"
-<div class="ji-l md:ji-r ..."></div>
+```html "md:ji-s"
+<div class="ji-e md:ji-s ..."></div>
 ```
 
 ### Using variants
 
 Using `:hover` variants such as `h:ji-*` allows you to override elements and change their values when hovering over them.
 
-```html "h:ji-r"
-<div class="ji-l h:ji-r ..."></div>
+```html "h:ji-s"
+<div class="ji-e h:ji-s ..."></div>
 ```

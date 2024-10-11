@@ -9,11 +9,6 @@ import { base, heightPercentages } from "../../../constants/examples/height";
 Controls the height of an element.
 
 <Utility
-  classPrefix="h-"
-  classValues={["height"]}
-  range={100}
-  increment={0.25}
-  unit="rem"
   additionalClasses={[
     { name: "1/1", value: "100dvh" },
     { name: "1/2", value: "50dvh" },
@@ -24,6 +19,11 @@ Controls the height of an element.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+  classPrefix="h-"
+  incrementValue={0.25}
+  propNames={["height"]}
+  range={100}
+  unit="rem"
 />
 
 <Live
@@ -32,7 +32,7 @@ Controls the height of an element.
   useHeight="200px"
   useMarks={["h-8", "h-16", "h-24", "h-32"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Using percentages
@@ -45,7 +45,7 @@ Control the height percentage of an element.
   useHeight="300px"
   useMarks={["h-full", "h-half"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Max height
@@ -53,11 +53,6 @@ Control the height percentage of an element.
 Controls the maximum height of an element.
 
 <Utility
-  classPrefix="max-h-"
-  classValues={["max-height"]}
-  range={100}
-  increment={0.25}
-  unit="rem"
   additionalClasses={[
     { name: "1/1", value: "100dvh" },
     { name: "1/2", value: "50dvh" },
@@ -68,6 +63,11 @@ Controls the maximum height of an element.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+  classPrefix="max-h-"
+  incrementValue={0.25}
+  propNames={["max-height"]}
+  range={100}
+  unit="rem"
 />
 
 ### Min height
@@ -75,11 +75,6 @@ Controls the maximum height of an element.
 Controls the minimum height of an element.
 
 <Utility
-  classPrefix="min-h-"
-  classValues={["min-height"]}
-  range={100}
-  increment={0.25}
-  unit="rem"
   additionalClasses={[
     { name: "1/1", value: "100dvh" },
     { name: "1/2", value: "50dvh" },
@@ -90,6 +85,11 @@ Controls the minimum height of an element.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+  classPrefix="min-h-"
+  incrementValue={0.25}
+  propNames={["min-height"]}
+  range={100}
+  unit="rem"
 />
 
 ---

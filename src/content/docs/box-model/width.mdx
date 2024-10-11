@@ -9,11 +9,6 @@ import { base, widthPercentages } from "../../../constants/examples/width";
 Controls the width of an element.
 
 <Utility
-  classPrefix="w-"
-  classValues={["width"]}
-  range={100}
-  increment={0.25}
-  unit="rem"
   additionalClasses={[
     { name: "1/1", value: "100dvh" },
     { name: "1/2", value: "50dvh" },
@@ -24,6 +19,11 @@ Controls the width of an element.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+  classPrefix="w-"
+  incrementValue={0.25}
+  propNames={["width"]}
+  range={100}
+  unit="rem"
 />
 
 <Live
@@ -32,7 +32,7 @@ Controls the width of an element.
   useHeight="300px"
   useMarks={["w-12", "w-20", "w-28", "w-36"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Using percentages
@@ -45,7 +45,7 @@ Percentage utilities let you change an element's height based on its container s
   useHeight="200px"
   useMarks={["w-full", "w-half"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Max width
@@ -53,11 +53,6 @@ Percentage utilities let you change an element's height based on its container s
 Controls the maximum width of an element.
 
 <Utility
-  classPrefix="max-w-"
-  classValues={["max-width"]}
-  range={100}
-  increment={0.25}
-  unit="rem"
   additionalClasses={[
     { name: "1/1", value: "100dvh" },
     { name: "1/2", value: "50dvh" },
@@ -68,6 +63,11 @@ Controls the maximum width of an element.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+  classPrefix="max-w-"
+  incrementValue={0.25}
+  propNames={["max-width"]}
+  range={100}
+  unit="rem"
 />
 
 ### Min width
@@ -75,11 +75,6 @@ Controls the maximum width of an element.
 Controls the minimum width of an element.
 
 <Utility
-  classPrefix="min-w-"
-  classValues={["min-width"]}
-  range={100}
-  increment={0.25}
-  unit="rem"
   additionalClasses={[
     { name: "1/1", value: "100dvh" },
     { name: "1/2", value: "50dvh" },
@@ -90,6 +85,11 @@ Controls the minimum width of an element.
     { name: "max", value: "max-content" },
     { name: "min", value: "min-content" },
   ]}
+  classPrefix="min-w-"
+  incrementValue={0.25}
+  propNames={["min-width"]}
+  range={100}
+  unit="rem"
 />
 
 ---

@@ -33,77 +33,38 @@ $yma-colors-transparent: transparent;
 
 ### Color shades
 
-To specify lighter or darker shade to a given color, you can use the `l` selector to get a lighter color or `d` selector to get a darker color:
+To specify lighter or darker shade to a given color, you can use the `[class]-l-[color]-[shade]`
+selector to get a lighter color or `[class]-d-[color]-[shade]` selector to get a darker color:
 
-```html "bg-l" "-6" "bg-d" "-1"
-<div>
-  <div class="bg-l-pink-6"></div>
-  <div class="bg-pink"></div>
-  <div class="bg-d-pink-1"></div>
-</div>
+<Aside title="Using shades" type="note">
+
+The current color range is restricted to shades from 1 to 6 for both light and dark variants, with the exclusion of the base color.
+
+```html "bg-l-cyan-3" "bg-d-cyan-3"
+<!-- Light cyan -->
+<button class="bg-l-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
+
+<!-- Dark cyan -->
+<button class="bg-d-cyan-3 fw-600 px-5 py-1 rad-1 tc-white">Subscribe</button>
 ```
 
-<Aside type="note">
-  The current color range is restricted to shades from 1 to 6 for both light and
-  dark variants, with the exclusion of the base color.
 </Aside>
-
-### Color palette
 
 <Palette
   data={[
-    {
-      name: "Red",
-      color: "#d73d3d",
-    },
-    {
-      name: "Orange",
-      color: "#e06814",
-    },
-    {
-      name: "Yellow",
-      color: "#d3a107",
-    },
-    {
-      name: "Green",
-      color: "#1fb155",
-    },
-    {
-      name: "Teal",
-      color: "#12a695",
-    },
-    {
-      name: "Cyan",
-      color: "#05a4bf",
-    },
-    {
-      name: "Blue",
-      color: "#3575dd",
-    },
-    {
-      name: "Indigo",
-      color: "#595cd9",
-    },
-    {
-      name: "Violet",
-      color: "#7d53dd",
-    },
-    {
-      name: "Pink",
-      color: "#d4418a",
-    },
-    {
-      name: "Gray",
-      color: "#606773",
-    },
-    {
-      name: "Lead",
-      color: "#3f3f4e",
-    },
-    {
-      name: "Silver",
-      color: "#bfc2c7",
-    },
+    { name: "Red", color: "#d73d3d" },
+    { name: "Orange", color: "#e06814" },
+    { name: "Yellow", color: "#d3a107" },
+    { name: "Green", color: "#1fb155" },
+    { name: "Teal", color: "#12a695" },
+    { name: "Cyan", color: "#05a4bf" },
+    { name: "Blue", color: "#3575dd" },
+    { name: "Indigo", color: "#595cd9" },
+    { name: "Violet", color: "#7d53dd" },
+    { name: "Pink", color: "#d4418a" },
+    { name: "Gray", color: "#606773" },
+    { name: "Lead", color: "#3f3f4e" },
+    { name: "Silver", color: "#bfc2c7" },
   ]}
 />
 

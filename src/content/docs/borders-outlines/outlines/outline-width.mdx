@@ -9,28 +9,11 @@ import { base } from "../../../../constants/examples/outline-width";
 Controls the width of the outline of an element.
 
 <Utility
-  data={[
-    {
-      className: "ow-0",
-      properties: ["outline-width: 0px;"],
-    },
-    {
-      className: "ow-1",
-      properties: ["outline-width: 4px;"],
-    },
-    {
-      className: "ow-2",
-      properties: ["outline-width: 8px;"],
-    },
-    {
-      className: "ow-3",
-      properties: ["outline-width: 12px;"],
-    },
-    {
-      className: "ow-4",
-      properties: ["outline-width: 16px;"],
-    },
-  ]}
+  classPrefix="ow-"
+  incrementValue={1}
+  propNames={["outline-width"]}
+  range={4}
+  unit="px"
 />
 
 <Live
@@ -39,7 +22,7 @@ Controls the width of the outline of an element.
   useHeight="100px"
   useMarks={["ow-1", "ow-2"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ---

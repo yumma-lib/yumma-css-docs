@@ -4,44 +4,42 @@ description: Controls flex and grid positioning along a container's transverse a
 slug: docs/align-items
 ---
 
-import { baseline, center, flexEnd, flexStart, stretch } from "../../../../constants/examples/align-items";
+import {
+  baseline,
+  center,
+  flexEnd,
+  flexStart,
+  stretch,
+} from "../../../../constants/examples/align-items";
 
 Controls flex and grid positioning along a container's transverse axis.
 
 <Utility
   data={[
     {
-      className: "ai-n",
-      properties: ["align-items: normal;"],
-    },
-    {
-      className: "ai-stretch",
-      properties: ["align-items: stretch;"],
+      className: "ai-b",
+      properties: ["align-items: baseline;"],
     },
     {
       className: "ai-c",
       properties: ["align-items: center;"],
     },
     {
-      className: "ai-start",
-      properties: ["align-items: start;"],
-    },
-    {
-      className: "ai-e",
-      properties: ["align-items: end;"],
+      className: "ai-fe",
+      properties: ["align-items: flex-end;"],
     },
     {
       className: "ai-fs",
       properties: ["align-items: flex-start;"],
     },
     {
-      className: "ai-fe",
-      properties: ["align-items: flex-end;"],
+      className: "ai-s",
+      properties: ["align-items: stretch;"],
     },
   ]}
 />
 
-{/* ### Baseline
+### Baseline
 
 Aligns items along the container's baseline.
 
@@ -51,8 +49,8 @@ Aligns items along the container's baseline.
   useHeight="300px"
   useMarks={["ai-b"]}
   usePadding
-  useVersion="release"
-/> */}
+  useVersion="2.1.0"
+/>
 
 ### Center
 
@@ -64,7 +62,7 @@ Aligns items in the center of the cross axis.
   useHeight="300px"
   useMarks={["ai-c"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Flex End
@@ -77,7 +75,7 @@ Aligns items at the end of the cross axis.
   useHeight="300px"
   useMarks={["ai-fe"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Flex Start
@@ -90,7 +88,7 @@ Aligns items at the start of the cross axis.
   useHeight="300px"
   useMarks={["ai-fs"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ### Stretch
@@ -101,9 +99,9 @@ Stretches items to fill the container's height.
   data={stretch}
   useCenter
   useHeight="300px"
-  useMarks={["ai-stretch"]}
+  useMarks={["ai-s"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ---

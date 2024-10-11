@@ -1,0 +1,496 @@
+---
+authors: "Renildo"
+cover:
+  alt: "Yumma CSS"
+  image: "./covers/yummacss-2.1.0.png"
+date: 2024-10-05
+description: "I've got another new one coming your way! This new version is going to give you a lot more control over Border, Outline, and other utilities. It'll also improve the default rules in the base styles, along with a few other things."
+excerpt: "I've got another new one coming your way! This new version is going to give you a lot more control over Border, Outline, and other utilities. It'll also improve the default rules in the base styles, along with a few other things."
+pagefind: false
+slug: "blog/yummacss-2.1"
+tags: [release, update]
+title: "Yumma CSS v2.1"
+---
+
+I've got another new one coming your way! This new version is going to give you a lot more control over Border, Outline, and other utilities. It'll also improve the default rules in the base styles, along with a few other things.
+
+You might also want to check out the [release notes](https://github.com/yumma-lib/yumma-css/releases/tag/v2.1.0). Anyway, these are the most noticeable changes:
+
+- [New utility variants](#new-utility-variants): New variant additions and improvements
+- [Base style](#base-styles): Base styles changes
+
+This is an incremental update that may contain bug fixes. Minor releases follow [semantic versioning](https://docs.npmjs.com/about-semantic-versioning) conventions. In other words, this should be an easy update for you.
+
+---
+
+### New utility variants
+
+In this new update, I've made a few changes to the utilities in the Yumma CSS Library. You can now have more control over the layout and add more properties to a certain utility class.
+
+**Align Content**
+
+New `baseline` property for `ac-*` utility.
+
+<Utility
+  data={[
+    {
+      className: "ac-b",
+      properties: ["align-content: baseline;"],
+    },
+  ]}
+/>
+
+**Align Items**
+
+New `baseline` property for `ai-*` utility.
+
+<Utility
+  data={[
+    {
+      className: "ac-i",
+      properties: ["align-items: baseline;"],
+    },
+  ]}
+/>
+
+**Cursor**
+
+I've also added several new variants for the Cursor (`c-*`) utility classes.
+
+<Utility
+  data={[
+    {
+      className: "c-cr",
+      properties: ["col-resize"],
+    },
+    {
+      className: "c-d",
+      properties: ["default"],
+    },
+    {
+      className: "c-ner",
+      properties: ["ne-resize"],
+    },
+    {
+      className: "c-neswr",
+      properties: ["nesw-resize"],
+    },
+    {
+      className: "c-none",
+      properties: ["none"],
+    },
+    {
+      className: "c-nwr",
+      properties: ["nw-resize"],
+    },
+    {
+      className: "c-nwser",
+      properties: ["nwse-resize"],
+    },
+    {
+      className: "c-pr",
+      properties: ["progress"],
+    },
+    {
+      className: "c-rs",
+      properties: ["row-resize"],
+    },
+    {
+      className: "c-sr",
+      properties: ["s-resize"],
+    },
+    {
+      className: "c-ser",
+      properties: ["se-resize"],
+    },
+    {
+      className: "c-swr",
+      properties: ["sw-resize"],
+    },
+    {
+      className: "c-wr",
+      properties: ["w-resize"],
+    },
+    {
+      className: "c-zi",
+      properties: ["zoom-in"],
+    },
+    {
+      className: "c-zo",
+      properties: ["zoom-out"],
+    },
+  ]}
+/>
+
+**Border radius**
+
+I've tweaked the base value for Border radius utility classes to give you more precise options and better overall layout control.
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    In this context, the base value is `0.25rem`.
+    <Utility
+      classPrefix="rad-"
+      propNames={["border-radius"]}
+      incrementValue={0.25}
+      range={8}
+      unit="rem"
+      additionalClasses={[
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+      ]}
+    />
+  </TabItem>
+
+  <TabItem icon="warning" label="Then">
+    In this context, the base value is `4px`.
+    <Utility
+      classPrefix="rad-"
+      propNames={["border-radius"]}
+      incrementValue={4}
+      range={8}
+      unit="px"
+      additionalClasses={[
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+      ]}
+    />
+  </TabItem>
+</Tabs>
+
+**Flex**
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    In this context, the `f-1` for example is a shorthand to `flex: 1 1 0%;`
+    <Utility
+      classPrefix="f-"
+      excludeZero
+      propNames={["flex"]}
+      incrementName="%i %i 0%"
+      incrementValue={1}
+      range={8}
+      additionalClasses={[
+        { name: "auto", value: "1 1 auto" },
+        { name: "none", value: "none" },
+      ]}
+    />
+  </TabItem>
+
+  <TabItem icon="warning" label="Then">
+    In this context, the `f-1` for example is a shorthand to `flex: 1 1 0;`
+    <Utility
+      classPrefix="f-"
+      excludeZero
+      propNames={["flex"]}
+      incrementValue={1}
+      range={8}
+      additionalClasses={[{ name: "none", value: "none" }]}
+    />
+  </TabItem>
+</Tabs>
+
+**Border radius**
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    In this context, the base value is `0.25rem`.
+    <Utility
+      classPrefix="rad-"
+      propNames={["border-radius"]}
+      incrementValue={0.25}
+      range={8}
+      unit="rem"
+      additionalClasses={[
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+      ]}
+    />
+  </TabItem>
+
+  <TabItem icon="warning" label="Then">
+    In this context, the base value is `4px`.
+    <Utility
+      classPrefix="rad-"
+      propNames={["border-radius"]}
+      incrementValue={4}
+      range={8}
+      unit="px"
+      additionalClasses={[
+        { name: "full", value: "100%" },
+        { name: "half", value: "50%" },
+      ]}
+    />
+  </TabItem>
+</Tabs>
+
+**Border width**
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    In this context, the base value is `0.25rem`.
+    <Utility
+      classPrefix="b-"
+      propNames={["border-width"]}
+      incrementValue={0.25}
+      range={8}
+      unit="rem"
+    />
+  </TabItem>
+
+  <TabItem icon="warning" label="Then">
+    In this context, the base value is `4px`.
+    <Utility
+      data={[
+        {
+          className: "b-0",
+          properties: ["border-width: 0px;"],
+        },
+        {
+          className: "b-1",
+          properties: ["border-width: 1px;"],
+        },
+        {
+          className: "b-2",
+          properties: ["border-width: 2px;"],
+        },
+        {
+          className: "b-3",
+          properties: ["border-width: 4px;"],
+        },
+        {
+          className: "b-4",
+          properties: ["border-width: 6px;"],
+        },
+        {
+          className: "b-5",
+          properties: ["border-width: 8px;"],
+        },
+        {
+          className: "b-6",
+          properties: ["border-width: 10px;"],
+        },
+        {
+          className: "b-7",
+          properties: ["border-width: 12px;"],
+        },
+        {
+          className: "b-8",
+          properties: ["border-width: 14px;"],
+        },
+      ]}
+    />
+  </TabItem>
+</Tabs>
+
+**Outline offset**
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    In this context, the base value is `0.25rem`.
+    <Utility
+      classPrefix="oo-"
+      propNames={["outline-offset"]}
+      incrementValue={1}
+      range={4}
+      unit="px"
+    />
+  </TabItem>
+
+  <TabItem icon="warning" label="Then">
+    In this context, the base value is `4px`.
+    <Utility
+      classPrefix="oo-"
+      propNames={["outline-offset"]}
+      incrementValue={4}
+      range={4}
+      unit="px"
+    />
+  </TabItem>
+</Tabs>
+
+**Outline width**
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    In this context, the base value is `0.25rem`.
+    <Utility
+      classPrefix="ow-"
+      propNames={["outline-width"]}
+      incrementValue={1}
+      range={4}
+      unit="px"
+    />
+  </TabItem>
+
+  <TabItem icon="warning" label="Then">
+    In this context, the base value is `4px`.
+    <Utility
+      classPrefix="ow-"
+      propNames={["outline-width"]}
+      incrementValue={4}
+      range={4}
+      unit="px"
+    />
+  </TabItem>
+</Tabs>
+
+### Base styles
+
+New `cursor: pointer` default rule to `<button>` element.
+
+```scss mark={1-3} title="_base.scss"
+button {
+  cursor: pointer;
+}
+```
+
+New `font-size: inherit` and `font-weight: inherit` default rules.
+
+```scss mark={8-9} title="_base.scss"
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+  overflow-wrap: break-word;
+}
+```
+
+**Font size**
+
+Finally, I've updated the font size utilities and changed the base value. I've also added a base utility: `fs-b`, and a `fs-9xl` variant.
+
+<Tabs>
+  <TabItem icon="approve-check-circle" label="Now">
+    In this context, the base value is `0.75rem`.
+    <Utility
+      data={[
+        {
+          className: "fs-xs",
+          properties: ["font-size: 0.75rem;"],
+        },
+        {
+          className: "fs-b",
+          properties: ["font-size: 1rem;"],
+        },
+        {
+          className: "fs-sm",
+          properties: ["font-size: 1.5rem;"],
+        },
+        {
+          className: "fs-md",
+          properties: ["font-size: 2.25rem;"],
+        },
+        {
+          className: "fs-lg",
+          properties: ["font-size: 3rem;"],
+        },
+        {
+          className: "fs-xl",
+          properties: ["font-size: 3.75rem;"],
+        },
+        {
+          className: "fs-xxl",
+          properties: ["font-size: 4.5rem;"],
+        },
+        {
+          className: "fs-3xl",
+          properties: ["font-size: 5.25rem;"],
+        },
+        {
+          className: "fs-6xl",
+          properties: ["font-size: 6rem;"],
+        },
+        {
+          className: "fs-9xl",
+          properties: ["font-size: 6.75rem;"],
+        },
+      ]}
+    />
+  </TabItem>
+
+  <TabItem icon="warning" label="Then">
+    In this context, the base value is `16px`.
+    <Utility
+      data={[
+        {
+          className: "fs-xs",
+          properties: ["font-size: 12px;"],
+        },
+        {
+          className: "fs-sm",
+          properties: ["font-size: 14.4px;"],
+        },
+        {
+          className: "fs-md",
+          properties: ["font-size: 16px;"],
+        },
+        {
+          className: "fs-lg",
+          properties: ["font-size: 19.2px;"],
+        },
+        {
+          className: "fs-xl",
+          properties: ["font-size: 23.04px;"],
+        },
+        {
+          className: "fs-xxl",
+          properties: ["font-size: 30.08px;"],
+        },
+        {
+          className: "fs-3xl",
+          properties: ["font-size: 35.52px;"],
+        },
+        {
+          className: "fs-6xl",
+          properties: ["font-size: 58.56px;"],
+        },
+      ]}
+    />
+  </TabItem>
+</Tabs>
+
+---
+
+### Upgrade
+
+You can upgrade your projects by getting the latest version of `yummacss` from npm:
+
+```bash
+npm i yummacss@latest
+```
+
+### Community
+
+Join the Yumma CSS community! Share your experiences and help Yumma CSS grow and be the best it can be.
+
+<ShowcaseText
+  entries={[
+    {
+      description:
+        "If you experience any problems, please notify us at GitHub.",
+      href: "https://github.com/yumma-lib/yumma-css/issues",
+      title: "GitHub",
+    },
+    {
+      description: "Join our Discord for discussion, sharing, and learning.",
+      href: "https://discord.gg/2MUw2g6FCn",
+      title: "Discord",
+    },
+    {
+      description: "Please follow us on Twitter to receive the latest updates.",
+      href: "https://twitter.com/yummacss",
+      title: "Twitter",
+    },
+    {
+      description: "Watch our screencasts on YouTube for the latest updates.",
+      href: "https://youtube.com/@yummacss",
+      title: "YouTube",
+    },
+  ]}
+/>

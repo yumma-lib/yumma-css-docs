@@ -13,32 +13,20 @@ Controls the positioning of flex and grid elements on a container's main axis.
       properties: ["justify-content: center;"],
     },
     {
-      className: "jc-s",
-      properties: ["justify-content: start;"],
-    },
-    {
-      className: "jc-e",
-      properties: ["justify-content: end;"],
+      className: "jc-fe",
+      properties: ["justify-content: flex-end;"],
     },
     {
       className: "jc-fs",
       properties: ["justify-content: flex-start;"],
     },
     {
-      className: "jc-fe",
-      properties: ["justify-content: flex-end;"],
-    },
-    {
-      className: "jc-l",
-      properties: ["justify-content: left;"],
-    },
-    {
-      className: "jc-r",
-      properties: ["justify-content: right;"],
-    },
-    {
       className: "jc-n",
       properties: ["justify-content: normal;"],
+    },
+    {
+      className: "jc-s",
+      properties: ["justify-content: stretch;"],
     },
     {
       className: "jc-sb",
@@ -52,10 +40,6 @@ Controls the positioning of flex and grid elements on a container's main axis.
       className: "jc-se",
       properties: ["justify-content: space-evenly;"],
     },
-    {
-      className: "jc-stretch",
-      properties: ["justify-content: stretch;"],
-    },
   ]}
 />
 
@@ -65,14 +49,14 @@ Controls the positioning of flex and grid elements on a container's main axis.
 
 Using responsive breakpoints like `sm:jc-*`, `md:jc-*`, `lg:jc-*`, and `xxl:jc-*` allows targeting specific utilities in different viewports.
 
-```html "md:jc-r"
-<div class="jc-l md:jc-r ..."></div>
+```html "md:jc-fs"
+<div class="jc-n md:jc-fs ..."></div>
 ```
 
 ### Using variants
 
 Using `:hover` variants such as `h:jc-*` allows you to override elements and change their values when hovering over them.
 
-```html "h:jc-r"
-<div class="jc-l h:jc-r ..."></div>
+```html "h:jc-fs"
+<div class="jc-n h:jc-fs ..."></div>
 ```

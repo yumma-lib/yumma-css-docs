@@ -1,14 +1,14 @@
 ---
-authors: Renildo
+authors: "Renildo"
 cover:
-  alt: Yumma CSS
-  image: /src/content/docs/blog/releases/covers/yummacss-1.2.0.png
+  alt: "Yumma CSS"
+  image: "./covers/yummacss-1.2.0.png"
 date: 2024-03-21
-excerpt: I've been meaning to update the color palette of Yumma CSS for a while, so I'm excited to announce the new version [Yumma CSS v1.2.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0)! It has a reworked color palette, new variations for dimension classes, line height classes, and more.
+excerpt: "I've been meaning to update the color palette of Yumma CSS for a while, so I'm excited to announce the new version [Yumma CSS v1.2.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0)! It has a reworked color palette, new variations for dimension classes, line height classes, and more."
 pagefind: false
-slug: blog/yummacss-1.2
+slug: "blog/yummacss-1.2"
 tags: [release, update]
-title: Yumma CSS 1.2
+title: "Yumma CSS v1.2"
 ---
 
 I've been meaning to update the color palette of Yumma CSS for a while, so I'm excited to announce the new version [Yumma CSS v1.2.0](https://github.com/yumma-lib/yumma-css/releases/tag/v1.2.0)! It has a reworked color palette, new variations for dimension classes, line height classes, and more.
@@ -133,7 +133,7 @@ I've added some new classes for Line Height, which makes it easier to differenti
 Previously, the colors weren't as rich as I wanted them to be, which was a bit of a limitation because colors with less contrast can go unnoticed in many scenarios. I thought I'd show you the difference between the old and new color palettes in Yumma CSS v1.2.
 
 <Tabs>
-  <TabItem value="now" label="Now">
+  <TabItem icon="approve-check-circle" label="Now">
     <Palette
       data={[
         {
@@ -147,7 +147,7 @@ Previously, the colors weren't as rich as I wanted them to be, which was a bit o
       ]}
     />
   </TabItem>
-  <TabItem value="then" label="Then">
+  <TabItem icon="warning" label="Then">
     <Palette
       data={[
         {
@@ -180,21 +180,19 @@ Yumma CSS is working on getting around this responsive issue, but for now, let's
 I've made a few changes to the button content to make it easier to read.
 
 <Tabs>
-  <TabItem value="now" label="Now">
+  <TabItem icon="approve-check-circle" label="Now">
     <Live
       data={`<div class="ins h-1/1">
-          <button class="btn-pink t-white">Button</button>
-        </div>
-      `}
+  <button class="btn-pink t-white">Button</button>
+</div>`}
       useVersion="1.2.0"
     />
   </TabItem>
-  <TabItem value="then" label="Then">
+  <TabItem icon="warning" label="Then">
     <Live
       data={`<div class="ins h-1/1">
-          <button class="btn-pink t-white">Button</button>
-        </div>
-      `}
+  <button class="btn-pink t-white">Button</button>
+</div>`}
       useVersion="1.1.0"
     />
   </TabItem>

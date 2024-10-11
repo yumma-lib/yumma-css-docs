@@ -15,176 +15,73 @@ import {
 Controls the radius of the borders of an element.
 
 <Utility
-  data={[
-    {
-      className: "rad-0",
-      properties: ["border-radius: 0px;"],
-    },
-    {
-      className: "rad-1",
-      properties: ["border-radius: 4px;"],
-    },
-    {
-      className: "rad-2",
-      properties: ["border-radius: 8px;"],
-    },
-    {
-      className: "rad-3",
-      properties: ["border-radius: 16px;"],
-    },
-    {
-      className: "rad-4",
-      properties: ["border-radius: 24px;"],
-    },
-    {
-      className: "rad-5",
-      properties: ["border-radius: 32px;"],
-    },
-    {
-      className: "rad-6",
-      properties: ["border-radius: 40px;"],
-    },
-    {
-      className: "rad-7",
-      properties: ["border-radius: 48px;"],
-    },
-    {
-      className: "rad-8",
-      properties: ["border-radius: 56px;"],
-    },
-    {
-      className: "rad-full",
-      properties: ["border-radius: 100%;"],
-    },
-    {
-      className: "rad-half",
-      properties: ["border-radius: 50%;"],
-    },
+  additionalClasses={[
+    { name: "full", value: "100%" },
+    { name: "half", value: "50%" },
   ]}
+  classPrefix="rad-"
+  incrementValue={0.25}
+  propNames={["border-radius"]}
+  range={8}
+  unit="rem"
 />
 
 <Live
+  additionalClasses={[
+    { name: "full", value: "100%" },
+    { name: "half", value: "50%" },
+  ]}
   data={base}
   useCenter
   useHeight="100px"
-  useMarks={["rad-0", "rad-1", "rad-2", "rad-3", "rad-half"]}
+  useMarks={["rad-0", "rad-2", "rad-4", "rad-half"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
-### Bottom left
+### Bottom left radius
 
 Controls the radius of the border of the bottom left of an element.
 
 <Utility
-  data={[
-    {
-      className: "rad-bl-0",
-      properties: ["border-bottom-left-radius: 0px;"],
-    },
-    {
-      className: "rad-bl-1",
-      properties: ["border-bottom-left-radius: 4px;"],
-    },
-    {
-      className: "rad-bl-2",
-      properties: ["border-bottom-left-radius: 8px;"],
-    },
-    {
-      className: "rad-bl-3",
-      properties: ["border-bottom-left-radius: 16px;"],
-    },
-    {
-      className: "rad-bl-4",
-      properties: ["border-bottom-left-radius: 24px;"],
-    },
-    {
-      className: "rad-bl-5",
-      properties: ["border-bottom-left-radius: 32px;"],
-    },
-    {
-      className: "rad-bl-6",
-      properties: ["border-bottom-left-radius: 40px;"],
-    },
-    {
-      className: "rad-bl-7",
-      properties: ["border-bottom-left-radius: 48px;"],
-    },
-    {
-      className: "rad-bl-8",
-      properties: ["border-bottom-left-radius: 56px;"],
-    },
-    {
-      className: "rad-bl-full",
-      properties: ["border-bottom-left-radius: 100%;"],
-    },
-    {
-      className: "rad-bl-half",
-      properties: ["border-bottom-left-radius: 50%;"],
-    },
+  additionalClasses={[
+    { name: "full", value: "100%" },
+    { name: "half", value: "50%" },
   ]}
+  classPrefix="rad-bl-"
+  incrementValue={0.25}
+  propNames={["border-bottom-left-radius"]}
+  range={8}
+  unit="rem"
 />
 
 <Live
+  additionalClasses={[
+    { name: "full", value: "100%" },
+    { name: "half", value: "50%" },
+  ]}
   data={bottomLeftRadius}
   useCenter
   useHeight="100px"
   useMarks={["rad-bl-2"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
-### Bottom right
+### Bottom right radius
 
 Controls the radius of the border of the bottom right of an element.
 
 <Utility
-  data={[
-    {
-      className: "rad-br-0",
-      properties: ["border-bottom-right-radius: 0px;"],
-    },
-    {
-      className: "rad-br-1",
-      properties: ["border-bottom-right-radius: 4px;"],
-    },
-    {
-      className: "rad-br-2",
-      properties: ["border-bottom-right-radius: 8px;"],
-    },
-    {
-      className: "rad-br-3",
-      properties: ["border-bottom-right-radius: 16px;"],
-    },
-    {
-      className: "rad-br-4",
-      properties: ["border-bottom-right-radius: 24px;"],
-    },
-    {
-      className: "rad-br-5",
-      properties: ["border-bottom-right-radius: 32px;"],
-    },
-    {
-      className: "rad-br-6",
-      properties: ["border-bottom-right-radius: 40px;"],
-    },
-    {
-      className: "rad-br-7",
-      properties: ["border-bottom-right-radius: 48px;"],
-    },
-    {
-      className: "rad-br-8",
-      properties: ["border-bottom-right-radius: 56px;"],
-    },
-    {
-      className: "rad-br-full",
-      properties: ["border-bottom-right-radius: 100%;"],
-    },
-    {
-      className: "rad-br-half",
-      properties: ["border-bottom-right-radius: 50%;"],
-    },
+  additionalClasses={[
+    { name: "full", value: "100%" },
+    { name: "half", value: "50%" },
   ]}
+  classPrefix="rad-br-"
+  incrementValue={0.25}
+  propNames={["border-bottom-right-radius"]}
+  range={8}
+  unit="rem"
 />
 
 <Live
@@ -193,60 +90,23 @@ Controls the radius of the border of the bottom right of an element.
   useHeight="100px"
   useMarks={["rad-br-2"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
-### Top left
+### Top left radius
 
 Controls the radius of the border of the top left of an element.
 
 <Utility
-  data={[
-    {
-      className: "rad-tl-0",
-      properties: ["border-top-left-radius: 0px;"],
-    },
-    {
-      className: "rad-tl-1",
-      properties: ["border-top-left-radius: 4px;"],
-    },
-    {
-      className: "rad-tl-2",
-      properties: ["border-top-left-radius: 8px;"],
-    },
-    {
-      className: "rad-tl-3",
-      properties: ["border-top-left-radius: 16px;"],
-    },
-    {
-      className: "rad-tl-4",
-      properties: ["border-top-left-radius: 24px;"],
-    },
-    {
-      className: "rad-tl-5",
-      properties: ["border-top-left-radius: 32px;"],
-    },
-    {
-      className: "rad-tl-6",
-      properties: ["border-top-left-radius: 40px;"],
-    },
-    {
-      className: "rad-tl-7",
-      properties: ["border-top-left-radius: 48px;"],
-    },
-    {
-      className: "rad-tl-8",
-      properties: ["border-top-left-radius: 56px;"],
-    },
-    {
-      className: "rad-tl-full",
-      properties: ["border-top-left-radius: 100%;"],
-    },
-    {
-      className: "rad-tl-half",
-      properties: ["border-top-left-radius: 50%;"],
-    },
+  additionalClasses={[
+    { name: "full", value: "100%" },
+    { name: "half", value: "50%" },
   ]}
+  classPrefix="rad-tl-"
+  incrementValue={0.25}
+  propNames={["border-top-left-radius"]}
+  range={8}
+  unit="rem"
 />
 
 <Live
@@ -255,60 +115,23 @@ Controls the radius of the border of the top left of an element.
   useHeight="100px"
   useMarks={["rad-tl-2"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
-### Top right
+### Top right radius
 
-Controls the radius of the border of the bottom right of an element.
+Controls the radius of the border of the top right of an element.
 
 <Utility
-  data={[
-    {
-      className: "rad-tr-0",
-      properties: ["border-top-right-radius: 0px;"],
-    },
-    {
-      className: "rad-tr-1",
-      properties: ["border-top-right-radius: 4px;"],
-    },
-    {
-      className: "rad-tr-2",
-      properties: ["border-top-right-radius: 8px;"],
-    },
-    {
-      className: "rad-tr-3",
-      properties: ["border-top-right-radius: 16px;"],
-    },
-    {
-      className: "rad-tr-4",
-      properties: ["border-top-right-radius: 24px;"],
-    },
-    {
-      className: "rad-tr-5",
-      properties: ["border-top-right-radius: 32px;"],
-    },
-    {
-      className: "rad-tr-6",
-      properties: ["border-top-right-radius: 40px;"],
-    },
-    {
-      className: "rad-tr-7",
-      properties: ["border-top-right-radius: 48px;"],
-    },
-    {
-      className: "rad-tr-8",
-      properties: ["border-top-right-radius: 56px;"],
-    },
-    {
-      className: "rad-tr-full",
-      properties: ["border-top-right-radius: 100%;"],
-    },
-    {
-      className: "rad-tr-half",
-      properties: ["border-top-right-radius: 50%;"],
-    },
+  additionalClasses={[
+    { name: "full", value: "100%" },
+    { name: "half", value: "50%" },
   ]}
+  classPrefix="rad-tr-"
+  incrementValue={0.25}
+  propNames={["border-top-right-radius"]}
+  range={8}
+  unit="rem"
 />
 
 <Live
@@ -317,12 +140,12 @@ Controls the radius of the border of the bottom right of an element.
   useHeight="100px"
   useMarks={["rad-tr-2"]}
   usePadding
-  useVersion="release"
+  useVersion="2.1.0"
 />
 
 ---
 
-### Using
+### Using breakpoints
 
 Using responsive breakpoints like `sm:rad-*`, `md:rad-*`, `lg:rad-*`, and `xxl:rad-*` allows targeting specific utilities in different viewports.
 
@@ -330,7 +153,7 @@ Using responsive breakpoints like `sm:rad-*`, `md:rad-*`, `lg:rad-*`, and `xxl:r
 <div class="rad-1 md:rad-2 ..."></div>
 ```
 
-### Using
+### Using variants
 
 Using `:hover` variants such as `h:rad-*` allows you to override elements and change their values when hovering over them.
 

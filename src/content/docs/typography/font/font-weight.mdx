@@ -7,44 +7,12 @@ slug: docs/font-weight
 Controls the font weight of an element.
 
 <Utility
-  data={[
-    {
-      className: "fw-100",
-      properties: ["font-weight: 100;"],
-    },
-    {
-      className: "fw-200",
-      properties: ["font-weight: 200;"],
-    },
-    {
-      className: "fw-300",
-      properties: ["font-weight: 300;"],
-    },
-    {
-      className: "fw-400",
-      properties: ["font-weight: 400;"],
-    },
-    {
-      className: "fw-500",
-      properties: ["font-weight: 500;"],
-    },
-    {
-      className: "fw-600",
-      properties: ["font-weight: 600;"],
-    },
-    {
-      className: "fw-700",
-      properties: ["font-weight: 700;"],
-    },
-    {
-      className: "fw-800",
-      properties: ["font-weight: 800;"],
-    },
-    {
-      className: "fw-900",
-      properties: ["font-weight: 900;"],
-    },
-  ]}
+  classPrefix="fw-"
+  excludeZero
+  incrementPrefix={100}
+  incrementValue={100}
+  propNames={["font-weight"]}
+  range={9}
 />
 
 ---

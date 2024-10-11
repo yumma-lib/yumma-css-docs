@@ -13,38 +13,55 @@ interface UtilityProps {
   additionalClasses?: AdditionalClass[];
   classPrefix: string;
   data?: ClassItem[];
-  increment: number;
-  classValues: string[];
+  incrementName?: string;
+  incrementValue: number;
+  incrementPrefix?: number;
+  propNames: string[];
   range: number;
-  unit: string;
+  unit?: string;
+  excludeZero?: boolean;
+  round?: number;
 }
 
-const { additionalClasses, classPrefix, data, increment, classValues, range, unit } = Astro.props as UtilityProps;
+const { additionalClasses, classPrefix, data, incrementName, incrementValue, incrementPrefix, propNames, range, unit, excludeZero, round } =
+  Astro.props as UtilityProps;
 
 function generateClassData(
   classPrefix: string,
-  classValues: string[],
+  propNames: string[],
   range: number,
-  increment: number,
-  unit: string,
-  additionalClasses?: AdditionalClass[]
+  incrementValue: number,
+  incrementPrefix?: number,
+  unit?: string,
+  additionalClasses?: AdditionalClass[],
+  excludeZero?: boolean,
+  round?: number
 ): ClassItem[] {
   const data: ClassItem[] = [];
+  const startIndex = excludeZero ? 1 : 0;
 
-  for (let i = 0; i <= range; i++) {
-    const properties = classValues.map(propertyName => `${propertyName}: ${i * increment}${unit};`);
-    data.push({
-      className: `${classPrefix}${i}`,
-      properties
+  for (let i = startIndex; i <= range; i++) {
+    const properties = propNames.map((propertyName) => {
+      let value = incrementName ? incrementName.replace(/%i/g, `${i * incrementValue}`) : unit ? `${i * incrementValue}${unit}` : `${i * incrementValue}`;
+
+      if (round !== undefined) {
+        value = parseFloat(value).toFixed(round);
+      }
+
+      return `${propertyName}: ${value};`;
     });
+
+    const className = incrementPrefix ? `${classPrefix}${i * incrementPrefix}` : `${classPrefix}${i * 1}`;
+
+    data.push({ className, properties });
   }
 
   if (additionalClasses) {
     additionalClasses.forEach((additionalClass) => {
-      const properties = classValues.map(propertyName => `${propertyName}: ${additionalClass.value};`);
+      const properties = propNames.map((propertyName) => `${propertyName}: ${additionalClass.value};`);
       data.push({
         className: `${classPrefix}${additionalClass.name}`,
-        properties
+        properties,
       });
     });
   }
@@ -52,9 +69,8 @@ function generateClassData(
   return data;
 }
 
-const codeData = data || generateClassData(classPrefix, classValues, range, increment, unit, additionalClasses);
+const codeData = data || generateClassData(classPrefix, propNames, range, incrementValue, incrementPrefix, unit, additionalClasses, excludeZero, round);
 ---
-
 
 <div class="max-h-90 ovf-y-auto mb-5">
   <table class="w-full" style="display: inline-table !important;">
@@ -65,20 +81,20 @@ const codeData = data || generateClassData(classPrefix, classValues, range, incr
       </tr>
     </thead>
     <tbody>
-      {codeData.map((classItem) => (
-        <tr>
-          <td class="fs-sm">
-            <p class="fw-600">
-              {classItem.className}
-            </p>
-          </td>
-          <td class="fs-sm">
-            <code class="tc-cyan" style="background-color: transparent !important;">
-              {classItem.properties.join('\n')}
-            </code>
-          </td>
-        </tr>
-      ))}
+      {
+        codeData.map((classItem) => (
+          <tr>
+            <td class="fs-sm">
+              <p class="fw-600 tc-cyan">{classItem.className}</p>
+            </td>
+            <td class="fs-sm">
+              <code class="tc-l-violet-2" style="background-color: transparent !important;">
+                {classItem.properties.join("\n")}
+              </code>
+            </td>
+          </tr>
+        ))
+      }
     </tbody>
   </table>
 </div>

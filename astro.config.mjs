@@ -7,14 +7,12 @@ import starlightLinksValidator from "starlight-links-validator";
 
 import fs from "node:fs";
 
-const theme = fs.readFileSync(
-  new URL(`./theme.jsonc`, import.meta.url),
-  "utf-8"
-);
+const theme = fs.readFileSync(new URL(`./theme.jsonc`, import.meta.url), "utf-8");
 
 const ariakeTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
 export default defineConfig({
+  site: "https://www.yummacss.com/",
   integrations: [
     starlight({
       title: "Yumma CSS",
@@ -50,6 +48,9 @@ export default defineConfig({
           },
         }),
       ],
+      editLink: {
+        baseUrl: "https://github.com/withastro/starlight/edit/main/docs/",
+      },
       social: {
         github: "https://github.com/yumma-lib/yumma-css",
       },
@@ -78,6 +79,11 @@ export default defineConfig({
             { label: "Installation", link: "docs/installation" },
             { label: "Components", link: "/components" },
             { label: "Playground", link: "https://play.yummacss.com" },
+            {
+              label: "Screencasts",
+              link: "https://www.youtube.com/@yummacss",
+              badge: "New",
+            },
           ],
         },
         {
@@ -219,6 +225,9 @@ export default defineConfig({
             {
               label: "Text",
               items: [
+                { label: "Line Height", link: "docs/line-height" },
+                { label: "List Style Type", link: "docs/list-style-type" },
+                { label: "Overflow Wrap", link: "docs/overflow-wrap" },
                 { label: "Text Align ", link: "docs/text-align" },
                 { label: "Text Color", link: "docs/text-color" },
                 {
@@ -238,9 +247,6 @@ export default defineConfig({
                   link: "docs/text-decoration-thickness",
                 },
                 { label: "Text Decoration", link: "docs/text-decoration" },
-                { label: "Line Height", link: "docs/line-height" },
-                { label: "Line Style Type", link: "docs/list-style-type" },
-                { label: "Overflow Wrap", link: "docs/overflow-wrap" },
               ],
             },
           ],
@@ -249,7 +255,6 @@ export default defineConfig({
     }),
     AutoImport({
       imports: [
-        // Import a component’s default export
         "/src/components/Color.astro",
         "/src/components/Footer.astro",
         "/src/components/Hover.astro",
@@ -257,7 +262,6 @@ export default defineConfig({
         "/src/components/Palette.astro",
         "/src/components/Utility.astro",
         {
-          // Import a module’s named exports
           "@astrojs/starlight/components": [
             "Aside",
             "Card",
@@ -269,9 +273,11 @@ export default defineConfig({
             "TabItem",
             "Tabs",
           ],
-          "starlight-showcases": ["ShowcaseText", "ShowcaseImage"],
-
-          // Custom imports
+          "starlight-showcases": [
+            "ShowcaseImage",
+            "ShowcaseText",
+            "ShowcaseYouTube",
+          ],
           "/src/constants/card.ts": [
             "regularCard",
             "tailwindCard",

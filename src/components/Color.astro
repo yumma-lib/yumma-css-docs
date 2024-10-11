@@ -8,11 +8,11 @@ interface ColorClass {
 
 interface ColorProps {
   classPrefix: string;
-  classValues: string[];
+  propNames: string[];
   data: ColorClass[];
 }
 
-const { classPrefix, classValues, data } = Astro.props as ColorProps;
+const { classPrefix, propNames, data } = Astro.props as ColorProps;
 
 const mixColors = (color1: string, color2: string, weight: number): string => {
   return tinycolor.mix(color1, color2, weight).toHexString();
@@ -37,7 +37,7 @@ const generateShades = (color: string) => {
 
 function generateClassData(
   classPrefix: string,
-  classValues: string[],
+  propNames: string[],
   data: ColorClass[]
 ) {
   return data.flatMap((colorClass) => {
@@ -48,21 +48,21 @@ function generateClassData(
     return [
       ...lightShades.map((shade, i) => ({
         classTitle: `${classPrefix}l-${colorClass.color}-${6 - i}`,
-        properties: classValues.map(
+        properties: propNames.map(
           (propertyName) => `${propertyName}: ${shade};`
         ),
         colorValue: shade,
       })),
       {
         classTitle: `${classPrefix}${colorClass.color}`,
-        properties: classValues.map(
+        properties: propNames.map(
           (propertyName) => `${propertyName}: ${baseColor};`
         ),
         colorValue: baseColor,
       },
       ...darkShades.map((shade, i) => ({
         classTitle: `${classPrefix}d-${colorClass.color}-${i + 1}`,
-        properties: classValues.map(
+        properties: propNames.map(
           (propertyName) => `${propertyName}: ${shade};`
         ),
         colorValue: shade,
@@ -71,7 +71,7 @@ function generateClassData(
   });
 }
 
-const colorData = generateClassData(classPrefix, classValues, data);
+const colorData = generateClassData(classPrefix, propNames, data);
 ---
 
 <div class="max-h-90 ovf-y-auto mb-5">
