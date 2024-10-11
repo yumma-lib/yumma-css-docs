@@ -19,7 +19,7 @@
     "starlight-showcases": "^0.2.0",
     "tinycolor2": "^1.6.0",
     "typescript": "^5.5.3",
-    "yummacss": "^2.0.0"
+    "yummacss": "^2.1.0"
   },
   "devDependencies": {
     "@types/js-beautify": "^1.14.3"
