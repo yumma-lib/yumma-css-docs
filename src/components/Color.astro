@@ -78,30 +78,34 @@ const colorData = generateClassData(classPrefix, propNames, data);
   <table class="w-full" style="display: inline-table !important;">
     <thead>
       <tr>
-        <th class="fs-md fw-600">Class</th>
-        <th class="fs-md fw-600">Properties</th>
-        <th class="fs-md fw-600">Color</th>
+        <th class="fs-b fw-600">Class</th>
+        <th class="fs-b fw-600">Properties</th>
+        <th class="fs-b fw-600">Color</th>
       </tr>
     </thead>
     <tbody>
-      {colorData.map((classItem) => (
-        <tr>
-          <td class="fs-sm">
-            <p class="fw-600">{classItem.classTitle}</p>
-          </td>
-          <td class="fs-sm">
-            <code class="tc-cyan" style="background-color: transparent !important;">
-              {classItem.properties.join('\n')}
-            </code>
-          </td>
-          <td class="fs-sm">
-            <div
-              class="h-5 w-half rad-0"
-              style={`background-color: ${classItem.colorValue}`}
-            />
-          </td>
-        </tr>
-      ))}
+      {
+        colorData.map((classItem) => (
+          <tr>
+            <td class="fs-xs">
+              <p class="fw-600 tc-cyan">{classItem.classTitle}</p>
+            </td>
+            <td class="fs-xs">
+              <code
+                class="tc-l-violet-2"
+                style="background-color: transparent !important;">
+                {classItem.properties.join("\n")}
+              </code>
+            </td>
+            <td class="fs-xs">
+              <div
+                class="h-5 w-half rad-0"
+                style={`background-color: ${classItem.colorValue}`}
+              />
+            </td>
+          </tr>
+        ))
+      }
     </tbody>
   </table>
 </div>

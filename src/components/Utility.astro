@@ -23,8 +23,19 @@ interface UtilityProps {
   round?: number;
 }
 
-const { additionalClasses, classPrefix, data, incrementName, incrementValue, incrementPrefix, propNames, range, unit, excludeZero, round } =
-  Astro.props as UtilityProps;
+const {
+  additionalClasses,
+  classPrefix,
+  data,
+  incrementName,
+  incrementValue,
+  incrementPrefix,
+  propNames,
+  range,
+  unit,
+  excludeZero,
+  round,
+} = Astro.props as UtilityProps;
 
 function generateClassData(
   classPrefix: string,
@@ -42,7 +53,11 @@ function generateClassData(
 
   for (let i = startIndex; i <= range; i++) {
     const properties = propNames.map((propertyName) => {
-      let value = incrementName ? incrementName.replace(/%i/g, `${i * incrementValue}`) : unit ? `${i * incrementValue}${unit}` : `${i * incrementValue}`;
+      let value = incrementName
+        ? incrementName.replace(/%i/g, `${i * incrementValue}`)
+        : unit
+          ? `${i * incrementValue}${unit}`
+          : `${i * incrementValue}`;
 
       if (round !== undefined) {
         value = parseFloat(value).toFixed(round);
@@ -51,14 +66,18 @@ function generateClassData(
       return `${propertyName}: ${value};`;
     });
 
-    const className = incrementPrefix ? `${classPrefix}${i * incrementPrefix}` : `${classPrefix}${i * 1}`;
+    const className = incrementPrefix
+      ? `${classPrefix}${i * incrementPrefix}`
+      : `${classPrefix}${i * 1}`;
 
     data.push({ className, properties });
   }
 
   if (additionalClasses) {
     additionalClasses.forEach((additionalClass) => {
-      const properties = propNames.map((propertyName) => `${propertyName}: ${additionalClass.value};`);
+      const properties = propNames.map(
+        (propertyName) => `${propertyName}: ${additionalClass.value};`
+      );
       data.push({
         className: `${classPrefix}${additionalClass.name}`,
         properties,
@@ -69,26 +88,40 @@ function generateClassData(
   return data;
 }
 
-const codeData = data || generateClassData(classPrefix, propNames, range, incrementValue, incrementPrefix, unit, additionalClasses, excludeZero, round);
+const codeData =
+  data ||
+  generateClassData(
+    classPrefix,
+    propNames,
+    range,
+    incrementValue,
+    incrementPrefix,
+    unit,
+    additionalClasses,
+    excludeZero,
+    round
+  );
 ---
 
 <div class="max-h-90 ovf-y-auto mb-5">
   <table class="w-full" style="display: inline-table !important;">
     <thead>
       <tr>
-        <th class="fs-md fw-600">Class</th>
-        <th class="fs-md fw-600">Properties</th>
+        <th class="fs-b fw-600">Class</th>
+        <th class="fs-b fw-600">Properties</th>
       </tr>
     </thead>
     <tbody>
       {
         codeData.map((classItem) => (
           <tr>
-            <td class="fs-sm">
-              <p class="fw-600 tc-cyan">{classItem.className}</p>
+            <td class="ff-m fs-xs">
+              <p class=" tc-cyan">{classItem.className}</p>
             </td>
-            <td class="fs-sm">
-              <code class="tc-l-violet-2" style="background-color: transparent !important;">
+            <td class="ff-b fs-xs">
+              <code
+                class="tc-l-violet-2"
+                style="background-color: transparent !important;">
                 {classItem.properties.join("\n")}
               </code>
             </td>
