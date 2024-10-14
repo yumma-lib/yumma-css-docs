@@ -21,31 +21,38 @@ hero:
 ---
 
 <Card title="So, why Yumma CSS?">
-  Yumma CSS uses an abbreviated naming convention that's similar to the regular
+  Yumma CSS uses an [abbreviated naming](/docs/utility-classes) convention that's similar to the regular
   CSS syntax.
-  <Code
-    code={yummaCard}
-    lang="html"
-    title="index.html"
-    frame="terminal"
-    wrap="false"
-    mark={[
-      "ovf-h",
-      "b-1",
-      "bs-xs",
-      "fg-1",
-      "fs-xxl",
-      "fw-600",
-      "tc-pink",
-      "tdl-u",
-      "rad-2",
-      "bg-pink",
-      "tc-white",
-    ]}
-  />
+
+  <Tabs>
+    <TabItem label="Yumma CSS">
+    Yumma CSS makes your code faster and easier to maintain by <u>**saving 15%**</u> (or more) of code.
+      <Live
+        data={yummaCard}
+        useCenter
+        useHeight="360px"
+        usePadding
+        useVersion="2.1.0"
+        useWrap
+      />
+    </TabItem>
+
+    <TabItem label="Tailwind CSS">
+    Tailwind CSS has some pretty powerful utility classes, but they can be tricky to maintain.
+      <Live
+        data={tailwindCard}
+        useCenter
+        useExternal="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css"
+        useHeight="360px"
+        usePadding
+        useWrap
+      />
+    </TabItem>
+
+  </Tabs>
 </Card>
 
-<CardGrid stagger>
+<CardGrid>
   <Card title="Abbreviated syntax">
     Abbreviated naming convention syntax for better maintainability and
     scalability.
@@ -69,37 +76,5 @@ hero:
 
   <Code code="npm i yummacss@latest" lang="bash" title="Installing dependencies..." />
 </Card>
-
-### See for yourself
-
-Take a look at how Yumma CSS compares to other popular frameworks.
-
-[How is Yumma CSS different?](/docs/utility-classes)
-
-<Tabs>
-  <TabItem label="Yumma CSS">
-  Yumma CSS makes your code faster and easier to maintain by <u>**saving 15%**</u> (or more) of code.
-    <Live
-      data={yummaCard}
-      useCenter
-      useHeight="360px"
-      usePadding
-      useVersion="2.1.0"
-      useWrap
-    />
-  </TabItem>
-
-  <TabItem label="Tailwind CSS">
-  Tailwind CSS has some pretty powerful utility classes, but they can be tricky to maintain.
-    <Live
-      data={tailwindCard}
-      useCenter
-      useExternal="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css"
-      useHeight="360px"
-      usePadding
-      useWrap
-    />
-  </TabItem>
-</Tabs>
 
 <Footer description="Yumma CSS is a utility-first CSS library that uses abbreviated naming conventions that follow regular CSS syntax to help you debug, scale, and maintain your markup better and get your application out the door faster." />
