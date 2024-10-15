@@ -1,6 +1,6 @@
 export const base: string = `
-<div class="bg-cyan rad-2 fw-700 tc-white">
-  <div class="area">
+<div class="fw-700 tc-white">
+  <div class="area rad-2">
     <div class="p-8">
         <p class="bg-cyan tc-white p-4">2rem</p>
     </div>
@@ -9,8 +9,8 @@ export const base: string = `
 `;
 
 export const paddingBottom: string = `
-<div class="bg-cyan rad-2 fw-700 tc-white">
-  <div class="area">
+<div class="fw-700 tc-white">
+  <div class="area rad-2">
     <div class="pb-8">
         <p class="bg-cyan tc-white p-4">2rem</p>
     </div>
@@ -19,8 +19,8 @@ export const paddingBottom: string = `
 `;
 
 export const paddingLeft: string = `
-<div class="bg-cyan rad-2 fw-700 tc-white">
-  <div class="area">
+<div class="fw-700 tc-white">
+  <div class="area rad-2">
     <div class="pl-8">
         <p class="bg-cyan tc-white p-4">2rem</p>
     </div>
@@ -29,8 +29,8 @@ export const paddingLeft: string = `
 `;
 
 export const paddingRight: string = `
-<div class="bg-cyan rad-2 fw-700 tc-white">
-  <div class="area">
+<div class="fw-700 tc-white">
+  <div class="area rad-2">
     <div class="pr-8">
         <p class="bg-cyan tc-white p-4">2rem</p>
     </div>
@@ -39,8 +39,8 @@ export const paddingRight: string = `
 `;
 
 export const paddingTop: string = `
-<div class="bg-cyan rad-2 fw-700 tc-white">
-  <div class="area">
+<div class="fw-700 tc-white">
+  <div class="area rad-2">
     <div class="pt-8">
         <p class="bg-cyan tc-white p-4">2rem</p>
     </div>
@@ -49,8 +49,8 @@ export const paddingTop: string = `
 `;
 
 export const paddingX: string = `
-<div class="bg-cyan rad-2 fw-700 tc-white">
-  <div class="area">
+<div class="fw-700 tc-white">
+  <div class="area rad-2">
     <div class="px-8">
         <p class="bg-cyan tc-white p-4">2rem</p>
     </div>
@@ -59,8 +59,8 @@ export const paddingX: string = `
 `;
 
 export const paddingY: string = `
-<div class="bg-cyan rad-2 fw-700 tc-white">
-  <div class="area">
+<div class="fw-700 tc-white">
+  <div class="area rad-2">
     <div class="py-8">
         <p class="bg-cyan tc-white p-4">2rem</p>
     </div>
