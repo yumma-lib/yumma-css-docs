@@ -7,7 +7,10 @@ import starlightLinksValidator from "starlight-links-validator";
 
 import fs from "node:fs";
 
-const theme = fs.readFileSync(new URL(`./theme.jsonc`, import.meta.url), "utf-8");
+const theme = fs.readFileSync(
+  new URL(`./theme.jsonc`, import.meta.url),
+  "utf-8"
+);
 
 const ariakeTheme = ExpressiveCodeTheme.fromJSONString(theme);
 
@@ -76,7 +79,7 @@ export default defineConfig({
         {
           label: "Getting Started",
           items: [
-            { label: "Installation", link: "docs/installation" },
+            { label: " Installation", link: "docs/installation" },
             { label: "Components", link: "/components" },
             { label: "Playground", link: "https://play.yummacss.com" },
             {

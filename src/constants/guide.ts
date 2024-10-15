@@ -1,4 +1,4 @@
-import { getMinifiedImport } from "../getMinifiedImport";
+import { getMinifiedImport } from "../utils/getMinifiedImport";
 
 export const guide = {
   angular: {
