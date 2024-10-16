@@ -13,8 +13,6 @@
     --sl-color-gray-5: #353841;
     --sl-color-gray-6: #24272f;
     --sl-color-black: #17181c;
-
-    /* Custom */
     --yma-bg-dark: #24272f;
     --yma-bg-darker: #17181c;
 }
@@ -33,8 +31,6 @@
     --sl-color-gray-6: #eceef2;
     --sl-color-gray-7: #f5f6f8;
     --sl-color-black: #ffffff;
-
-    /* Custom */
     --yma-bg-light: #f5f6f8;
     --yma-bg-lighter: #ffffff;
 }
