@@ -140,22 +140,6 @@ export default defineConfig({
           autogenerate: { directory: "box-model" },
         },
         {
-          label: "Effects & Filters",
-          items: [
-            {
-              label: "Effects",
-              items: [{ label: "Backdrop Blur", link: "docs/backdrop-blur" }],
-            },
-            {
-              label: "Filters",
-              items: [
-                { label: "Box Shadow", link: "docs/box-shadow" },
-                { label: "Opacity", link: "docs/opacity" },
-              ],
-            },
-          ],
-        },
-        {
           label: "Flexbox & Grid",
           items: [
             {
@@ -196,6 +180,14 @@ export default defineConfig({
                 { label: "Row Gap", link: "docs/row-gap" },
               ],
             },
+          ],
+        },
+        {
+          label: "FX",
+          items: [
+            { label: "Backdrop Blur", link: "docs/backdrop-blur" },
+            { label: "Box Shadow", link: "docs/box-shadow" },
+            { label: "Opacity", link: "docs/opacity" },
           ],
         },
         {
