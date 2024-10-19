@@ -52,7 +52,7 @@ export default defineConfig({
         }),
       ],
       editLink: {
-        baseUrl: "https://github.com/withastro/starlight/edit/main/docs/",
+        baseUrl: "https://github.com/yumma-lib/yumma-css-docs/tree/release/",
       },
       social: {
         github: "https://github.com/yumma-lib/yumma-css",
