@@ -613,6 +613,17 @@ and had to be restored.
 
 Read before proposing a change to where things live or how a prop is shaped.
 
+**Queued renames and additions, not yet done.** All three are breaking for
+someone: do them together, in one release.
+
+- [ ] `public/ui/r` to `public/ui/registry`. Old path needs a redirect - a
+      published `yummaui.json` pins `registry` as an absolute URL, so every
+      existing install points at `/ui/r`.
+- [ ] `registryDependencies` to `registryDeps`, in the generator, the JSON, and
+      `ui/src/registry.ts`. A CLI reading the new field cannot read old JSON, so
+      the field ships in both shapes for one version or the CLI floor moves.
+- [ ] Add an OTP field component, over `@base-ui/react`'s.
+
 **The registry stays in `docs`, at `src/registry/`.** Served as static JSON from
 `public/ui/r/`, generated at build time by `scripts/generate-registry-json.mjs`
 (gitignored output). The CLI **fetches it over HTTP** and imports nothing. Six
