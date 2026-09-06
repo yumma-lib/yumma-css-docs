@@ -1,4 +1,6 @@
 import type { RegistryMeta } from "@/registry";
+import { baselineFor } from "@/utils/baseline";
+import { COLOR_FAMILIES, SHADE_LABELS } from "@/utils/colors";
 import { fillNormalizeFences } from "@/utils/normalize-rules.mjs";
 import { type Category, categoryGetters } from "@/utils/yummacss";
 
@@ -29,6 +31,7 @@ const CLOSING = /^\s*<\/([A-Za-z][A-Za-z0-9]*)>\s*$/;
 const INLINE = /^\s*<([A-Za-z][A-Za-z0-9]*)((?:\s[^>]*?)?)>(.*)<\/\1>\s*$/;
 
 const ATTRIBUTE = /([A-Za-z][A-Za-z0-9_-]*)="([^"]*)"/g;
+const MDX_IMPORT = /^import\s.*\sfrom\s/;
 const LIST_ITEM = /^\s*[-*+] /;
 
 // The raw HTML that exists purely to lay a docs page out, which markdown can
@@ -179,6 +182,10 @@ function parse(lines: string[]): Node[] {
       continue;
     }
 
+    // MDX machinery, not content. Only outside a fence - `import` inside one is
+    // the code being documented, on nine pages.
+    if (MDX_IMPORT.test(line)) continue;
+
     const selfClosing = line.match(SELF_CLOSING);
     if (selfClosing && unwrappable(selfClosing[1])) {
       flush();
@@ -287,12 +294,46 @@ function buildReferenceTable(category: Category, name: string): string[] {
   }
 }
 
+function buildBaseline(path: string): string[] {
+  const baseline = baselineFor(path);
+  if (!baseline) return [];
+
+  const support = baseline.browsers
+    .map((b) =>
+      b.supported
+        ? `${b.name} ${b.version}${b.desktopOnly ? " (desktop only)" : ""}`
+        : `${b.name} unsupported`,
+    )
+    .join(" · ");
+
+  return [`**${baseline.label}.** ${baseline.description}`, "", support];
+}
+
+// Only the base hex per family: the 13 shades are generated from it by the rule
+// the prose states, and every shade is already listed on each colour utility's
+// own page.
+function buildPalette(): string[] {
+  return [
+    "| Family | Base |",
+    "|--------|------|",
+    ...COLOR_FAMILIES.map((f) => `| ${f.name} | \`${f.color}\` |`),
+  ];
+}
+
 function renderComponent(
   node: Extract<Node, { kind: "component" }>,
   options: RenderOptions,
   stepNumber?: number,
 ): string[] {
   const attrs = parseAttrs(node.attrs);
+
+  if (node.name === "Baseline") {
+    return attrs.path ? buildBaseline(attrs.path) : [];
+  }
+
+  if (node.name === "Palette") {
+    return buildPalette();
+  }
 
   if (node.name === "Reference") {
     const { category, name } = attrs;
@@ -439,5 +480,9 @@ export function mdxToMarkdown(
   );
   const lines = collapseBlankLines(render(parse(source), options));
 
-  return lines.join("\n").trim();
+  return lines
+    .join("\n")
+    .replace(/\{COLOR_FAMILIES\.length\}/g, String(COLOR_FAMILIES.length))
+    .replace(/\{SHADE_LABELS\.length\}/g, String(SHADE_LABELS.length))
+    .trim();
 }

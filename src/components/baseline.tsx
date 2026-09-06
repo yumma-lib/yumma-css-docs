@@ -2,140 +2,67 @@
 
 import { Chrome, Edge, Firefox, Safari } from "@ridemountainpig/svgl-react";
 import { CheckCircle, Sparks, WarningTriangle } from "iconoir-react";
-import data from "web-features/data.json";
+import { baselineFor } from "../utils/baseline";
 
-interface FeatureStatus {
-  baseline: false | "low" | "high";
-  support: {
-    chrome?: string;
-    chrome_android?: string;
-    edge?: string;
-    firefox?: string;
-    firefox_android?: string;
-    safari?: string;
-    safari_ios?: string;
-  };
-}
-
-interface FeatureData {
-  compat_features?: string[];
-  status?: FeatureStatus;
-}
-
-const { features } = data as {
-  features: Record<string, FeatureData>;
-};
+const ICONS = {
+  chrome: Chrome,
+  edge: Edge,
+  firefox: Firefox,
+  safari: Safari,
+} as const;
 
 interface Props {
   path: string;
 }
 
 export default function Baseline({ path }: Props) {
-  const matchingFeature = Object.entries(features).find(([, feature]) => {
-    if ("compat_features" in feature) {
-      return feature.compat_features?.includes(path);
-    }
-    return false;
-  });
+  const baseline = baselineFor(path);
+  if (!baseline) return null;
 
-  if (!matchingFeature) return null;
-
-  const [, feature] = matchingFeature;
-
-  if (!("status" in feature)) return null;
-
-  const status = feature.status;
-  if (!status) return null;
-
-  const baseline = status.baseline;
-  const isHigh = baseline === "high";
-  const isLow = baseline === "low";
-
-  const statusLabel = isHigh
-    ? "Widely available"
-    : isLow
-      ? "Newly available"
-      : "Limited availability";
-
-  const statusDescription = isHigh
-    ? "This feature is well established and works across many devices and browser versions."
-    : isLow
-      ? "This feature works across the latest devices and browser versions. This feature might not work in older devices or browsers."
-      : "This feature does not work in some of the most widely-used browsers.";
-
-  const statusColor = isHigh ? "c-green" : isLow ? "c-green-5" : "c-yellow";
-
-  const StatusIcon = isHigh ? CheckCircle : isLow ? Sparks : WarningTriangle;
-
-  const support = status.support || {};
-
-  const browsers = [
-    {
-      key: "chrome",
-      name: "Chrome",
-      icon: Chrome,
-      mobileKey: "chrome_android",
-    },
-    { key: "edge", name: "Edge", icon: Edge, mobileKey: null },
-    {
-      key: "firefox",
-      name: "Firefox",
-      icon: Firefox,
-      mobileKey: "firefox_android",
-    },
-    { key: "safari", name: "Safari", icon: Safari, mobileKey: "safari_ios" },
-  ].map((b) => {
-    const desktopVersion = support[b.key as keyof typeof support];
-    const mobileVersion = b.mobileKey
-      ? support[b.mobileKey as keyof typeof support]
-      : undefined;
-
-    const isSupported = !!desktopVersion;
-    const isDesktopOnly = isSupported && b.mobileKey !== null && !mobileVersion;
-
-    return {
-      ...b,
-      supported: isSupported,
-      desktopOnly: isDesktopOnly,
-      version: desktopVersion,
-    };
-  });
+  const { level, label, description, browsers } = baseline;
+  const statusColor =
+    level === "high" ? "c-green" : level === "low" ? "c-green-5" : "c-yellow";
+  const StatusIcon =
+    level === "high" ? CheckCircle : level === "low" ? Sparks : WarningTriangle;
 
   return (
     <div className="mb-6 p-4 bc-border bg-surface bw-1">
       <div className="mb-4">
         <div className="d-f ai-c g-2 mb-2">
           <StatusIcon className={`${statusColor} w-5 h-5`} />
-          <h3 className="c-white fs-lg fw-500">{statusLabel}</h3>
+          <h3 className="c-white fs-lg fw-500">{label}</h3>
         </div>
-        <p className="c-white/70">{statusDescription}</p>
+        <p className="c-white/70">{description}</p>
       </div>
 
       <div className="d-g g-4 gtc-1 @sm:gtc-2 @md:gtc-4">
-        {browsers.map((browser) => (
-          <div key={browser.key} className="d-f ai-c g-2">
-            <div
-              className="d-f ai-c jc-c w-6 h-6"
-              style={{
-                filter: !browser.supported ? "grayscale(1)" : "none",
-                opacity: !browser.supported ? 0.5 : 1,
-              }}
-            >
-              <browser.icon className="w-100% h-100%" />
-            </div>
-            <div className="d-f fd-c">
-              <span
-                className="c-white/80"
-                style={{ opacity: !browser.supported ? 0.5 : 1 }}
+        {browsers.map((browser) => {
+          const Icon = ICONS[browser.key as keyof typeof ICONS];
+          return (
+            <div key={browser.key} className="d-f ai-c g-2">
+              <div
+                className="d-f ai-c jc-c w-6 h-6"
+                style={{
+                  filter: !browser.supported ? "grayscale(1)" : "none",
+                  opacity: !browser.supported ? 0.5 : 1,
+                }}
               >
-                {browser.name}
-              </span>
-              {browser.desktopOnly && (
-                <span className="c-white/50 fs-xs">Desktop only</span>
-              )}
+                <Icon className="w-100% h-100%" />
+              </div>
+              <div className="d-f fd-c">
+                <span
+                  className="c-white/80"
+                  style={{ opacity: !browser.supported ? 0.5 : 1 }}
+                >
+                  {browser.name}
+                </span>
+                {browser.desktopOnly && (
+                  <span className="c-white/50 fs-xs">Desktop only</span>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
