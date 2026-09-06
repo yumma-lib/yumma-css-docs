@@ -4,6 +4,7 @@ import { existsSync, readdirSync, writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
 import { isBlock } from "./lib/registry-blocks.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
+import { isUtil } from "./lib/registry-utils.mjs";
 
 const cwd = process.cwd();
 const uiDir = join(cwd, "src/registry/ui");
@@ -12,9 +13,13 @@ const outFile = join(cwd, "src/registry/index.ts");
 
 function getIds(dir) {
   if (!existsSync(dir)) return [];
-  return readdirSync(dir)
-    .filter((f) => f.endsWith(".tsx") || f.endsWith(".ts"))
-    .map((f) => basename(f, f.endsWith(".tsx") ? ".tsx" : ".ts"));
+  return (
+    readdirSync(dir)
+      .filter((f) => f.endsWith(".tsx") || f.endsWith(".ts"))
+      .map((f) => basename(f, f.endsWith(".tsx") ? ".tsx" : ".ts"))
+      // Utilities have nothing to render, so they are not in the preview map.
+      .filter((id) => !isUtil(id))
+  );
 }
 
 const uiIds = getIds(uiDir);

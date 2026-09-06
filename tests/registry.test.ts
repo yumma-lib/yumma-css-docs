@@ -1,6 +1,7 @@
 import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { isUtil } from "../scripts/lib/registry-utils.mjs";
 import { rootDir } from "./helpers";
 
 /**
@@ -16,10 +17,13 @@ import { rootDir } from "./helpers";
 const registryDir = join(rootDir, "src/registry/ui");
 const indexPath = join(rootDir, "src/registry/index.ts");
 
+// Utilities are published but have nothing to render, so they are absent from
+// the preview map on purpose.
 function componentFiles(): string[] {
   return readdirSync(registryDir)
     .filter((file) => file.endsWith(".tsx") || file.endsWith(".ts"))
     .map((file) => file.replace(/\.tsx?$/, ""))
+    .filter((id) => !isUtil(id))
     .sort();
 }
 

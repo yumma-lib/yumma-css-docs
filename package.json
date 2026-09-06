@@ -13,6 +13,7 @@
     "check-types": "tsc --noEmit",
     "dev": "next dev",
     "format": "biome format --write .",
+    "generate:merge-map": "node scripts/generate-merge-map.mjs",
     "generate:registry": "node scripts/generate-registry.mjs",
     "generate:registry-json": "node scripts/generate-registry-json.mjs",
     "lint": "biome check .",

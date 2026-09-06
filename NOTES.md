@@ -507,15 +507,32 @@ declares logical properties: `padding` covers `padding-inline` covers
 `padding-inline-start`. Same for margin, plus `inset`, `gap`, `overflow`,
 `border-*`.
 
-- [ ] **Prototype passes 8/8** including the three real conflicts measured in
-      the built CSS, `h:` variants kept separate from unprefixed, and an
-      unknown class passed through untouched. Written and thrown away; rebuild
-      from this description, it is ~60 lines.
-- [ ] **Where it lives** is the open question. In `@yummacss/core` it is
-      available to everyone but adds runtime weight to a package that is
-      currently build-time only. As a `yummaui add`-able file it stays opt-in
-      and costs core nothing - and Yumma UI is where the problem actually
-      bites. **Lean: ship it in the registry first**, promote it if people ask.
+- [x] **Built and published as a registry util.** `src/registry/ui/ym.ts` plus
+      a generated `merge-map.ts` (217 prefixes, 129 disambiguating values,
+      10KB). `pnpm generate:merge-map`; `tests/ym.test.ts` fails if it is stale.
+      8 tests, each verified to bite.
+- [x] **A prefix alone is not enough - 31 are claimed by twice.** `c` is color
+      **and** cursor, `p` padding and position, `f` fill and flex. Separator
+      sets `c-slate-10` and `c-p` on one element, so a prefix-only map silently
+      eats the colour. The value decides: for each contested prefix the
+      **open-ended** utility (the palette, the spacing scale) is the default and
+      its values are not listed, and the keyword utilities are listed by value.
+      **129 keys instead of 2,258.**
+- [x] **Utilities are a third registry kind.** `scripts/lib/registry-utils.mjs`
+      lists them, like `BLOCKS`. They are `.ts` not `.tsx`, published so a
+      component that imports one gets it (`from "./ym"` already builds
+      `registryDependencies`), but kept out of `index.json` - `yummaui add ym`
+      correctly says unknown. Both generators and `tests/registry.test.ts`
+      needed teaching; the registry test caught it first.
+- [ ] **Nothing imports it yet.** All 36 components join classes inline with
+      `[...].filter(Boolean).join(" ")` and `className` last, which is exactly
+      the pattern that does not work. Swapping that for `ym(...)` is mechanical
+      and makes every component honour an override. Do it in one pass, and
+      **check `c-p` and `p-a` cases by hand** - those are where a wrong map
+      shows up as a missing colour rather than an error.
+- [ ] Decide whether it graduates into `@yummacss/core`. It costs core runtime
+      weight in a package that is build-time only today, so the registry is the
+      right first home; promote it if people outside Yumma UI ask.
 - [ ] Decide against the alternative before building: `@layer` cannot do this,
       because a class is defined once and cannot sit in two layers depending on
       who passed it. An `!important` variant is a separate, blunter escape
