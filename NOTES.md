@@ -74,6 +74,15 @@ broken; the history goes here. **No "Generated with Claude Code" footer** in a
 PR body, commit or comment - the `Co-Authored-By` trailer already says it, and
 saying it twice reads like a signature on someone else's work.
 
+**NOTES.md is the source of truth, and it is only worth credits if it is
+never wrong.** Every change to any of the four repos updates it in the same
+commit - not just the interesting ones. A stale entry has now cost real time
+three times: `ui/customization.mdx` described sections that no longer existed,
+the `.md` entry named three `.tsx` files that never existed, and the `className`
+entry sent someone hunting a string that was not there. **Before acting on an
+entry, check the file it describes**; if it is wrong, fix the entry as part of
+the work rather than working around it.
+
 **Document the change in the same commit that makes it.** A new command, flag,
 script or convention gets its entry here as it lands, not later - a cleared
 chat takes the reasoning with it, and the code alone never says why. `pnpm
@@ -262,9 +271,19 @@ making the id addressable.
       statically**, so `prune` counts those files and says so rather than
       guessing. If someone reports a wrongly-deleted file, look there first.
 
-**Parked, deliberately: whether blocks should exist at all.** Renildo's lean is
-no - quality over quantity, components only, not `dialog-sign-up`. Do not act on
-this yet. What is known if it is revisited: **only 10 of 36 components have
+**Decided: the block/component split is going away.** Renildo's read is that
+these are all just components with a different anatomy, and the test that
+matters is **does it add API surface, or only arrange existing surface**. By
+that test ~18 of the blocks are components nobody has written yet (four
+`button-group`s are one `ButtonGroup` with props) and the dialogs are page
+templates. `dialog-sign-in` and `dialog-new-task` are **deleted** - too
+specific to be worth owning. **Two mechanical consequences before collapsing
+the rest**: `--all` excludes blocks on purpose (each pulls its parents, so
+`--all` would write `dialog` seven times), and `index.json`'s `blocks` key is
+part of the published contract, so it moves in the same release as the
+`registryDeps` rename.
+
+**Old context, still true if it is revisited:** What is known if it is revisited: **only 10 of 36 components have
 blocks** (dialog 7, button 4, checkbox 3, then 1-2 each), and the cost of an
 unused block is **lines you own, not CSS** - dialog goes 246 to 643 lines with
 all 7, while the CSS grows only 2733B to 3409B, because blocks reuse the same
