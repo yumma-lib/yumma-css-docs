@@ -94,7 +94,7 @@
       "description": "A single icon fixed on the trigger, not per option - for the per-option kind, give an option an `avatar` instead."
     },
     {
-      "name": "iconSide",
+      "name": "iconPosition",
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",

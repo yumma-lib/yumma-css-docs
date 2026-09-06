@@ -71,7 +71,7 @@ export function PlaygroundProvider({
     setSeed((current) => {
       const values = { ...current.values, [name]: value };
 
-      // `iconSide` moves an icon. Rather than do nothing until one is switched
+      // `iconPosition` moves an icon. Rather than do nothing until one is switched
       // on, picking a side puts the icon there, so the control does what it
       // says. The schema names the dependency.
       const prop = current.meta?.props.find((entry) => entry.name === name);

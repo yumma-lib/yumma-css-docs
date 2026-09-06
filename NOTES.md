@@ -83,6 +83,11 @@ entry sent someone hunting a string that was not there. **Before acting on an
 entry, check the file it describes**; if it is wrong, fix the entry as part of
 the work rather than working around it.
 
+**TODO.md is now yours, not Cursor's.** The old "leave it alone" rule is
+dead - Renildo moved it over. It is a bug and API-wish list in his words, not a
+plan: verify each item against the code before acting, because several are
+symptoms rather than causes (see the separator entry below).
+
 **Document the change in the same commit that makes it.** A new command, flag,
 script or convention gets its entry here as it lands, not later - a cleared
 chat takes the reasoning with it, and the code alone never says why. `pnpm
@@ -313,6 +318,31 @@ blocks a release.**
       table. Separator is the one that matters: an icon breaks the rule in half
       and centres the glyph in the gap, which is a spatial fact a type cannot
       state.
+
+### Phase 4b - TODO.md, the API-shaped half
+
+- [x] **`iconSide` renamed to `iconPosition`.** Measured: **14 components split
+      across two names for one prop** - `iconPosition` on 9, `iconSide` on 5,
+      identical `leading`/`trailing` values on both. `iconPosition` wins on
+      three counts: the majority, it does not collide with `side` (Popover and
+      Tooltip use that for placement relative to the trigger, a different
+      thing), and `triggerIconPosition` already reads that way.
+      `tests/registry.test.ts` now fails on **any** two prop names that differ
+      only by a `Side`/`Position`/`Placement`/`Align` suffix, so the rule is
+      enforced rather than the one pair banned. Verified to bite.
+- [ ] **The separator entry is two bugs, not the one it describes.** "Both
+      `orientation` and `shape` do nothing": `orientation` works in the plain
+      branch and is **ignored entirely** in the icon/label branch, which
+      hardcodes `h-px`. `shape` never touches a separator at all - it styles
+      the icon **button**, so the prop's name lies. "No lines at all" is
+      neither: every class resolves (`h-px{height:1px}`,
+      `bg-silver-2{background-color:#e1e3e7}`), so the lines render - 1px of
+      near-white on white.
+- [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
+      every meta against its component source: 4 hits, all spread-forwarded
+      false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
+      **wired and ineffective**, which no static check will find. They need the
+      component opened one at a time.
 
 ### Phase 4 - Docs debt
 

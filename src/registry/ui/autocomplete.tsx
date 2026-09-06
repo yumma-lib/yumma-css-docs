@@ -71,7 +71,7 @@ export interface AutocompleteProps {
   shape?: Shape;
   shadow?: Shadow;
   icon?: ReactNode;
-  iconSide?: IconSide;
+  iconPosition?: IconSide;
   disabled?: boolean;
   loading?: boolean;
   autoHighlight?: boolean;
@@ -140,7 +140,7 @@ export default function AutocompleteBase({
   shape = "rounded",
   shadow = "none",
   icon,
-  iconSide = "leading",
+  iconPosition = "leading",
   disabled = false,
   loading = false,
   autoHighlight = false,
@@ -160,7 +160,7 @@ export default function AutocompleteBase({
     fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
-    icon ? ICON_PADDING[iconSide] : "pl-4",
+    icon ? ICON_PADDING[iconPosition] : "pl-4",
     className,
   ]
     .filter(Boolean)
@@ -215,7 +215,7 @@ export default function AutocompleteBase({
         <div className="d-f p-r ai-c">
           {icon && (
             <span
-              className={`d-f p-a ai-c c-slate-5 pe-none ${iconSide === "leading" ? "l-3" : "r-3"}`}
+              className={`d-f p-a ai-c c-slate-5 pe-none ${iconPosition === "leading" ? "l-3" : "r-3"}`}
             >
               {icon}
             </span>

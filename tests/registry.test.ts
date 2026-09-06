@@ -73,6 +73,30 @@ describe("Yumma UI registry", () => {
     expect(mismatched).toEqual([]);
   });
 
+  // `iconSide` on 5 components and `iconPosition` on 9 were one prop with two
+  // names, same `leading`/`trailing` values. Two names for one concept is the
+  // shape of that bug, so the rule is stated rather than the pair banned.
+  it("uses one name per concept across components", () => {
+    const names = new Set<string>();
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      for (const prop of meta.props ?? []) names.add(prop.name);
+    }
+
+    const byStem = new Map<string, string[]>();
+    for (const name of names) {
+      const stem = name.replace(/(Side|Position|Placement|Align)$/, "");
+      if (stem === name) continue;
+      byStem.set(stem, [...(byStem.get(stem) ?? []), name]);
+    }
+
+    const split = [...byStem.values()].filter((group) => group.length > 1);
+
+    expect(split).toEqual([]);
+  });
+
   it("is not empty", () => {
     expect(mappedIds().length).toBeGreaterThan(0);
   });

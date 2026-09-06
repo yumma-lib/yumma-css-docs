@@ -73,7 +73,7 @@ export interface FieldProps
   shadow?: Shadow;
 
   icon?: ReactNode;
-  iconSide?: IconSide;
+  iconPosition?: IconSide;
 
   iconInteractive?: boolean;
 
@@ -95,7 +95,7 @@ export default function FieldBase({
   shape = "rounded",
   shadow = "none",
   icon,
-  iconSide = "leading",
+  iconPosition = "leading",
   iconInteractive = false,
   prefixNode,
   suffix,
@@ -109,7 +109,7 @@ export default function FieldBase({
   const status: Status = error ? "error" : success ? "success" : "default";
   const message = error ?? success ?? description;
   const showDecorativeIcon = Boolean(icon) && status === "default";
-  const activeSide: IconSide = status === "default" ? iconSide : "trailing";
+  const activeSide: IconSide = status === "default" ? iconPosition : "trailing";
   const hasAffix = Boolean(prefixNode) || Boolean(suffix);
 
   const controlClasses = [
@@ -193,7 +193,7 @@ export default function FieldBase({
         <div className="d-f p-r ai-c">
           {showDecorativeIcon && (
             <span
-              className={`d-f p-a ai-c c-slate-5 ${iconInteractive ? "" : "pe-none"} ${iconSide === "leading" ? "l-3" : "r-3"}`}
+              className={`d-f p-a ai-c c-slate-5 ${iconInteractive ? "" : "pe-none"} ${iconPosition === "leading" ? "l-3" : "r-3"}`}
             >
               {icon}
             </span>

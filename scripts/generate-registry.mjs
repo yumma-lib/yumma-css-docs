@@ -98,7 +98,7 @@ export interface RegistryProp {
    */
   exampleIcon?: string;
   /**
-   * A prop this one has no effect without. iconSide moves an icon that may not
+   * A prop this one has no effect without. iconPosition moves an icon that may not
    * be there, so the playground dims it until icon is set.
    */
   dependsOn?: string;

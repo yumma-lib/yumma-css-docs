@@ -17,7 +17,7 @@ export default function FieldPassword() {
       type={visible ? "text" : "password"}
       placeholder="Enter password"
       description="Must be at least 8 characters"
-      iconSide="trailing"
+      iconPosition="trailing"
       iconInteractive
       icon={
         <Toggle

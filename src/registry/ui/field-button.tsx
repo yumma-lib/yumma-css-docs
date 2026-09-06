@@ -9,7 +9,7 @@ export default function FieldButton() {
     <Field
       label="Search tasks"
       placeholder="Search tasks..."
-      iconSide="trailing"
+      iconPosition="trailing"
       iconInteractive
       icon={
         <Button

@@ -16,7 +16,7 @@ export default function AutocompleteIconTrailing() {
       label="Search settings"
       placeholder="Account, Privacy, & more"
       icon={<Search className="w-4 h-4" />}
-      iconSide="trailing"
+      iconPosition="trailing"
       emptyMessage="No settings found."
     />
   );

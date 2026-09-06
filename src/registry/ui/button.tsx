@@ -53,7 +53,7 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   shadow?: Shadow;
   loading?: boolean;
   icon?: ReactNode;
-  iconSide?: IconSide;
+  iconPosition?: IconSide;
   iconOnly?: boolean;
   transition?: boolean;
   children?: ReactNode;
@@ -66,7 +66,7 @@ export default function ButtonBase({
   shadow = "none",
   loading = false,
   icon,
-  iconSide = "leading",
+  iconPosition = "leading",
   iconOnly = false,
   transition = true,
   disabled,
@@ -96,9 +96,9 @@ export default function ButtonBase({
       aria-busy={loading || undefined}
       {...props}
     >
-      {iconSide === "leading" && icon}
+      {iconPosition === "leading" && icon}
       {children}
-      {iconSide === "trailing" && icon}
+      {iconPosition === "trailing" && icon}
     </Button>
   );
 }

@@ -38,7 +38,7 @@ const uiPages = contentPages("ui");
  * Empty since the `feat/yumma-ui` merge. All eleven entries it used to hold
  * were deleted outright by the curation pass, not wired up: each was a single
  * enumerable prop the API reference table already states (`select-icon-leading`
- * is `iconSide`, `collapsible-square` is `shape`), and `select-bordered` was
+ * is `iconPosition`, `collapsible-square` is `shape`), and `select-bordered` was
  * byte-identical to its base. An orphan appearing here again is a real signal
  * now that the baseline is zero.
  */
