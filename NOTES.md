@@ -26,13 +26,13 @@ clearing; keep this file short.
 
 | repo | branch | state |
 | --- | --- | --- |
-| `docs` | `main` | on `3.30.0`, one `source` glob, no `safelist` |
+| `docs` | `main` | on `3.30.0`, needs the bump to `3.31.0` |
 | `play` | `main` | `45f1584`. Dependabot merged, and on `3.30.0` |
-| `yummacss` | `main` | `6e68a5b`. `3.30.0` released and published |
+| `yummacss` | `main` | `3.31.0` released and published, with `yummacss/merge` |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `ui` | `main` | **published, `yummaui@0.2.1`**, with `prune` |
 
-Published: `@yummacss/*` at `3.30.0`, `yummaui` at `0.2.1`. There are eight
+Published: `@yummacss/*` at `3.31.0`, `yummaui` at `0.2.1`. There are eight
 packages, not nine; `language-server` was deleted with the extensions.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
@@ -537,9 +537,7 @@ declares logical properties: `padding` covers `padding-inline` covers
       all of it unnecessary. Recorded so nobody rebuilds it: `git show
       3168890` in `docs` has the whole thing if a registry util is ever
       genuinely needed.
-- [ ] **Blocked on a release, then one pass over 36 components.** `docs` has
-      `yummacss@3.30.0` from npm, so `yummacss/merge` does not exist until
-      **3.31.0** ships. After that: all 36 components join classes inline with
+- [ ] **Unblocked. `3.31.0` is live on npm.** Bump `docs` to it, then: all 36 components join classes inline with
       `[...].filter(Boolean).join(" ")` and `className` last, which is exactly
       the pattern that does not work. Swap for `merge(...)` in one pass and
       **check `c-p` and `p-a` by hand** - a wrong map shows up as a missing
@@ -560,7 +558,6 @@ declares logical properties: `padding` covers `padding-inline` covers
       *changing* an existing prefix's properties, which is a major-version
       event. `yummaui add ym --overwrite` refreshes it; the docs page should
       say so.
-- [ ] **Release `3.31.0`** with the subpath. Everything downstream waits on it.
 - [ ] A docs page for `merge` - what it does, why the cascade needs it, and
       the `p-4 px-8` case that shows it is not just "last one wins". It belongs
       in the **Yumma CSS** docs, not only Yumma UI: the limitation it fixes is
