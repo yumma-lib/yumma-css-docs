@@ -5,6 +5,7 @@ import { Check, Circle, KeyCommand, NavArrowRight } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -148,7 +149,7 @@ export default function MenuBase({
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
-  const triggerClasses = [
+  const triggerClasses = merge(
     "d-f ai-c g-2 h-fc bg-white bc-silver-2 bw-1 fw-500 us-none",
     spec.trigger,
     TRIGGER_SHAPES[shape],
@@ -158,9 +159,7 @@ export default function MenuBase({
       ? "c-slate-4 o-60 c-na"
       : "c-slate-10 c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const popupClasses = [
     "py-1 bg-white bc-silver-2 c-slate-10 bw-1",

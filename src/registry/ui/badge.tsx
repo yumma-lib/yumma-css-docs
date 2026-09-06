@@ -1,6 +1,7 @@
 import { Button } from "@base-ui/react";
 import { Xmark } from "iconoir-react";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Tone = "outline" | "subtle" | "solid";
 type Color = "slate" | "indigo" | "red" | "green" | "yellow" | "orange";
@@ -130,7 +131,7 @@ export default function BadgeBase({
 }: BadgeProps) {
   const { pad, text, icon: iconSize } = SIZES[size];
 
-  const badgeClasses = [
+  const badgeClasses = merge(
     "d-if ai-c g-1",
     pad,
     SHAPES[shape],
@@ -141,9 +142,7 @@ export default function BadgeBase({
         ? [SUBTLE_BG[color], "bw-0"].join(" ")
         : [SOLID_BG[color], "bw-0"].join(" "),
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const contentColor =
     tone === "outline"

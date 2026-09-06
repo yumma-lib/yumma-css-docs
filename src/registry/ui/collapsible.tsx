@@ -5,6 +5,7 @@ import { Lock, Minus, NavArrowRight, Plus } from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "square" | "squircle";
 type Icon = "chevron" | "plus-minus";
@@ -52,13 +53,11 @@ export default function CollapsibleBase({
     onOpenChange?.(next);
   };
 
-  const rootClasses = [
+  const rootClasses = merge(
     "d-f fd-c w-72 c-slate-10",
     disabled ? "o-60 c-na" : "",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const triggerClasses = [
     "d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bc-silver-3 bbw-1 ta-l",

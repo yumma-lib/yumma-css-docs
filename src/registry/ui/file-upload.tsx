@@ -1,5 +1,6 @@
 import { CloudUpload } from "iconoir-react";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -51,16 +52,14 @@ export default function FileUploadBase({
 }: FileUploadProps) {
   const message = error ?? description;
 
-  const zone = [
+  const zone = merge(
     ZONE,
     SHAPES[shape],
     BORDERS[border],
     error ? "bc-red-5" : "bc-silver-2",
     disabled ? "bg-silver-1/50 o-60 c-na" : "",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   return (
     <section className={zone}>

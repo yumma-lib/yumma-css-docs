@@ -4,6 +4,7 @@ import { NumberField } from "@base-ui/react/number-field";
 import { Minus, Plus } from "iconoir-react";
 import type { ComponentProps } from "react";
 import { useId } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -95,14 +96,12 @@ export default function NumberFieldBase({
     .filter(Boolean)
     .join(" ");
 
-  const inputClasses = [
+  const inputClasses = merge(
     "bg-white bc-silver-3 c-slate-10 byw-1 ta-c",
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   return (
     <NumberField.Root

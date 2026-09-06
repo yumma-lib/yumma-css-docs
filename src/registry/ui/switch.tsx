@@ -4,6 +4,7 @@ import { Field } from "@base-ui/react/field";
 import { Switch } from "@base-ui/react/switch";
 import { motion } from "motion/react";
 import { type ReactNode, useId, useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -68,16 +69,14 @@ export default function SwitchBase({
     onCheckedChange?.(next);
   };
 
-  const trackClasses = [
+  const trackClasses = merge(
     "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3",
     track,
     SHAPES[shape],
     checked ? "bg-indigo" : "bg-silver-1",
     disabled ? "" : "c-p",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const thumbClasses = ["bg-white", thumb, SHAPES[shape]]
     .filter(Boolean)

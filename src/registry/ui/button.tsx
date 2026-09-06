@@ -1,5 +1,6 @@
 import { Button } from "@base-ui/react/button";
 import type { ComponentProps, ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Variant = "primary" | "secondary" | "subtle" | "ghost" | "danger" | "link";
 type Size = "sm" | "md" | "lg";
@@ -47,6 +48,8 @@ const SHADOWS: Record<Shadow, string> = {
 };
 
 export interface ButtonProps extends ComponentProps<typeof Button> {
+  // merge composes a string, so the Base UI function form is not accepted here.
+  className?: string;
   variant?: Variant;
   size?: Size;
   shape?: Shape;
@@ -76,7 +79,7 @@ export default function ButtonBase({
 }: ButtonProps) {
   const inactive = disabled || loading;
 
-  const classes = [
+  const classes = merge(
     BASE,
     transition ? MOTION : "",
     VARIANTS[variant],
@@ -85,9 +88,7 @@ export default function ButtonBase({
     SHADOWS[shadow],
     inactive ? "o-60 c-na" : "c-p",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   return (
     <Button

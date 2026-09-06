@@ -6,6 +6,7 @@ import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 import type { ComponentProps, ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Size = "sm" | "md";
@@ -87,7 +88,7 @@ export default function ToggleBase({
       value={value}
       {...pressedProps}
       className={(state) =>
-        [
+        merge(
           "d-f ai-c jc-c us-none c-p fv:oo-2 fv:oc-indigo-5",
           SIZES[size],
           SHAPES[shape],
@@ -96,9 +97,7 @@ export default function ToggleBase({
             : `bw-1 ${state.pressed ? TONES[tone].pressed : TONES[tone].unpressed}`,
           swatchClassName,
           className,
-        ]
-          .filter(Boolean)
-          .join(" ")
+        )
       }
       render={(renderProps, state) =>
         animate ? (

@@ -1,6 +1,7 @@
 import { Button } from "@base-ui/react/button";
 import { Separator } from "@base-ui/react/separator";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle" | "circle";
 
@@ -34,13 +35,11 @@ export default function SeparatorBase({
     return (
       <Separator
         orientation={orientation}
-        className={[
+        className={merge(
           orientation === "vertical" ? "w-px h-100%" : "h-px w-100%",
           "bg-silver-2",
           className,
-        ]
-          .filter(Boolean)
-          .join(" ")}
+        )}
       />
     );
   }
@@ -53,9 +52,7 @@ export default function SeparatorBase({
     .join(" ");
 
   return (
-    <div
-      className={["d-f ai-c g-2 w-100%", className].filter(Boolean).join(" ")}
-    >
+    <div className={merge("d-f ai-c g-2 w-100%", className)}>
       <Separator className="fg-1 h-px bg-silver-2" />
       {icon ? (
         <Button className={buttonClasses} onClick={onIconClick}>

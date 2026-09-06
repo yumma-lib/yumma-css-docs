@@ -6,6 +6,7 @@ import { Select } from "@base-ui/react/select";
 import { ArrowSeparateVertical, Check } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { type ReactNode, useId, useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -154,16 +155,14 @@ export default function SelectBase({
   const [open, setOpen] = useState(false);
   const id = useId();
 
-  const triggerClasses = [
+  const triggerClasses = merge(
     TRIGGER,
     fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     open ? "bg-silver-2/50" : "bg-transparent",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const iconEl = icon && (
     <span className="d-f ai-c c-slate-5" aria-hidden>

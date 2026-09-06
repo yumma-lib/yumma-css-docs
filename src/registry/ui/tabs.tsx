@@ -3,6 +3,7 @@
 import { Tabs } from "@base-ui/react/tabs";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Orientation = "horizontal" | "vertical";
 type Size = "sm" | "md" | "lg";
@@ -78,9 +79,7 @@ export default function TabsBase({
   const isVertical = orientation === "vertical";
   const hasPanels = items.some((item) => item.panel !== undefined);
 
-  const rootClasses = [isVertical ? "d-f ai-s g-4" : "w-fc", className]
-    .filter(Boolean)
-    .join(" ");
+  const rootClasses = merge(isVertical ? "d-f ai-s g-4" : "w-fc", className);
 
   const listClasses = [
     "d-f p-r g-1 p-1 w-fc bg-silver-1 bw-1 bc-silver-2",

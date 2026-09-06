@@ -1,5 +1,6 @@
 import { Button } from "@base-ui/react/button";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type IconTone = "accent" | "neutral";
 type Shape = "rounded" | "square" | "squircle";
@@ -58,15 +59,13 @@ export default function EmptyStateBase({
 
   const gap = icon || hasActions ? "g-4" : "g-1";
 
-  const rootClasses = [
+  const rootClasses = merge(
     "d-f fd-c ai-c jc-c p-8",
     gap,
     isCard ? "bg-white bc-silver-2 br-lg bw-1" : "",
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const badgeClasses = [
     "d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 bw-1",

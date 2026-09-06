@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { merge } from "yummacss/merge";
 
 type Shape = "line" | "block" | "circle";
 type Tone = "default" | "subtle";
@@ -39,9 +40,12 @@ export default function SkeletonBase({
   delay = 0,
   className,
 }: SkeletonProps) {
-  const classes = [RADII[shape], size ?? SIZES[shape], TONES[tone], className]
-    .filter(Boolean)
-    .join(" ");
+  const classes = merge(
+    RADII[shape],
+    size ?? SIZES[shape],
+    TONES[tone],
+    className,
+  );
 
   if (!animate) return <div aria-hidden className={classes} />;
 

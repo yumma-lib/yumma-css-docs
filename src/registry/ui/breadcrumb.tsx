@@ -1,5 +1,6 @@
 import { NavArrowRight } from "iconoir-react";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -49,15 +50,13 @@ export default function BreadcrumbBase({
   separator = "chevron",
   className,
 }: BreadcrumbProps) {
-  const navClasses = [
+  const navClasses = merge(
     "d-f ai-c g-2",
     bordered ? "px-3 py-2 bg-white bc-silver-2 bw-1" : "",
     bordered ? SHAPES[shape] : "",
     bordered && shadow !== "none" ? SHADOWS[shadow] : "",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const labelClasses = [SIZES[size], "fw-400"].filter(Boolean).join(" ");
   const currentClasses = [SIZES[size], "fw-500 c-indigo"]

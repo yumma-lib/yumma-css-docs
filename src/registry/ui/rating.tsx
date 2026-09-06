@@ -6,6 +6,7 @@ import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Shadow = "none" | "inset" | "outset";
 
@@ -78,21 +79,15 @@ export default function RatingBase({
       .join(" ");
 
   const iconClasses = (option: RatingIcon, active: boolean) =>
-    [
+    merge(
       "d-f ai-c jc-c w-12 h-12 bw-0 br-lg us-none",
       disabled ? "c-na o-60" : "c-p fv:oo--1 fv:oc-indigo-5",
       active ? (option.activeClassName ?? "c-yellow-5") : "c-slate-4",
       !disabled && !active ? "h:c-slate-6" : "",
-    ]
-      .filter(Boolean)
-      .join(" ");
+    );
 
   return (
-    <div
-      className={["d-f fd-c ai-c jc-c g-4 p-8 h-56", className]
-        .filter(Boolean)
-        .join(" ")}
-    >
+    <div className={merge("d-f fd-c ai-c jc-c g-4 p-8 h-56", className)}>
       {label && <span className="c-slate-10 fs-sm fw-500">{label}</span>}
 
       <Row

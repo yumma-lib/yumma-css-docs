@@ -26,14 +26,27 @@ clearing; keep this file short.
 
 | repo | branch | state |
 | --- | --- | --- |
-| `docs` | `main` | on `3.30.0`, needs the bump to `3.31.0` |
+| `docs` | `main` | still on `3.30.0` |
+| `docs` | `normalize-source` | **13 unmerged commits**, and the base for Phase 5 |
 | `play` | `main` | `45f1584`. Dependabot merged, and on `3.30.0` |
 | `yummacss` | `main` | `3.31.0` released and published, with `yummacss/merge` |
+| `yummacss` | `merge-perf` | **1 unmerged commit**: the 14x merge speedup, `3.31.1` |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `ui` | `main` | **published, `yummaui@0.2.1`**, with `prune` |
 
 Published: `@yummacss/*` at `3.31.0`, `yummaui` at `0.2.1`. There are eight
 packages, not nine; `language-server` was deleted with the extensions.
+
+**`docs#150` merged at the branch's third commit** and the other 13 were pushed
+after, with no open PR left to carry them. That is the merge-timing trap below,
+for the third time. The `3.31.0` bump, the phase renumbering and
+`tests/merge-safety.test.ts` are all in those 13, so anything reading this file
+has to branch off `normalize-source`, not `main`, until they land.
+
+**`3.31.1` is prepared but not published.** `packages/cli/package.json` says
+`3.31.1`; npm's latest is `3.31.0`, which is the merge that scans all 217
+prefixes per class. `docs` runs on the slow one until `merge-perf` merges and
+ships.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
 `ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
@@ -116,7 +129,7 @@ what people can do with Yumma**, and it now has a working prototype.
 | 2 | Fix negative values | `yummacss` | Done. 72 utilities emitted CSS the parser threw away. |
 | 3 | Yumma UI: `prune` | `ui` | Done. The one thing a real user said she would use. |
 | 4 | Docs debt | `docs` | Nearly done. The corpus the 4.0 codemod runs against first. |
-| **5** | **Class merge (`ym`)** | `yummacss`, `ui`, `docs` | **The documented limitation, and the deal-breaker. Prototype passes 8/8.** |
+| **5** | **Class merge (`yummacss/merge`)** | `yummacss`, `ui`, `docs` | **The documented limitation, and the deal-breaker. Shipped and in use.** |
 | 6 | Yumma UI API | `docs`, `ui` | Collapse blocks into components, then work `TODO.md`. Gated on 5: half the fixes are override bugs. |
 | 7 | One breaking registry release | `docs`, `ui` | `/ui/registry`, `registryDeps`, no `blocks` key, OTP field. Ship together or churn twice. |
 | 8 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
@@ -482,7 +495,7 @@ blocks a release.**
       markers in `blog.html`, the 4.0 post absent from the listing, and its
       route not prerendered at all.
 
-### Phase 5 - Class merge (`ym`)
+### Phase 5 - Class merge (`yummacss/merge`)
 
 **The problem, stated exactly.** Every Yumma utility is a single-class
 selector, so they all have equal specificity and the winner is whichever sits
@@ -550,11 +563,28 @@ declares logical properties: `padding` covers `padding-inline` covers
       planting `c-white c-accent`. It does not cover template literals with
       `${}` or classes a caller passes; those are the ones that are meant to
       override.
-- [ ] **`docs` is on `3.31.0`.** Next: all 36 components join classes inline with
-      `[...].filter(Boolean).join(" ")` and `className` last, which is exactly
-      the pattern that does not work. Swap for `merge(...)` in one pass and
-      **check `c-p` and `p-a` by hand** - a wrong map shows up as a missing
-      colour, not an error.
+- [x] **All 36 components merge instead of joining.** 41 call sites, every one
+      that ended in a caller `className`. The 63 internal-only joins are left
+      as they are: merge cannot change a list nobody overrides, and it is not
+      free. `yummacss` moved from `devDependencies` to `dependencies`, because
+      the components import it at runtime now.
+      **Three states rendered wrong and now do not.** `bg-white` sits after
+      `bg-silver-1` in the stylesheet, so the open Popover trigger, the open
+      Select trigger and the disabled FileUpload dropzone all rendered white
+      against their own state class. `preview-card`'s `td-none` is the fourth
+      drop and changes nothing, `td-u` already won. Those four are the only
+      classes dropped anywhere, and `c-p` and `p-a` survive every combination.
+      **`Button` and `Field` declare `className?: string` now.** Both extend a
+      Base UI props type where `className` may also be a function, which
+      `join(" ")` was stringifying into the class attribute. merge's types are
+      what caught it; the function form never worked.
+- [x] **`tests/merge-composition.test.ts` is the unit merge-safety is not.**
+      One string at a time is the wrong unit once a component merges a base
+      string, a shape map, a state branch and `className` - a drop only happens
+      across those arguments. It resolves each argument to the strings it can
+      hold and merges all 4068 combinations, asserting the four expected drops
+      by name, so a new one fails instead of changing a colour. Verified to bite
+      by planting `c-white` next to `c-p` in `tooltip.tsx`.
 - [x] **Decided: a subpath of `yummacss`. Not a new package, not the CLI, not
       a registry file.**
       **The CLI is impossible, not merely wrong** - `yummaui` runs under `dlx`

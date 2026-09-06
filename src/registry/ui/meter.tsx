@@ -1,5 +1,6 @@
 import { Meter } from "@base-ui/react/meter";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Color = "yellow" | "indigo" | "red" | "green";
 type Shadow = "none" | "inset" | "outset";
@@ -44,15 +45,13 @@ export default function MeterBase({
   const isCard = shadow !== "none";
   const hasHeader = Boolean(icon);
 
-  const rootClasses = [
+  const rootClasses = merge(
     "d-f fd-c w-64",
     hasHeader ? "g-3" : "g-2",
     isCard ? "p-4 bg-white bc-silver-2 br-lg bw-1" : "",
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const indicatorClasses = [
     "d-b h-100% br-9999",
