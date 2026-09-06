@@ -276,8 +276,14 @@ these are all just components with a different anatomy, and the test that
 matters is **does it add API surface, or only arrange existing surface**. By
 that test ~18 of the blocks are components nobody has written yet (four
 `button-group`s are one `ButtonGroup` with props) and the dialogs are page
-templates. `dialog-sign-in` and `dialog-new-task` are **deleted** - too
-specific to be worth owning. **Two mechanical consequences before collapsing
+templates. **19 variants are deleted** - the 5 remaining
+dialogs, the project-management demo scattered across 9 entries (`Acme
+Website`, `Sprint points`, `Dashboard Redesign`), `button-favorite` (11 lines
+of ghost button), and both colour pickers. **84 files down to 65, blocks 25 to
+13.** Five components now have no variants at all: dialog, preview-card,
+onboarding, rating, toolbar - their pages are the playground and the prop
+table, which for dialog and preview-card is the right answer and for
+onboarding is worth a look. **Two mechanical consequences before collapsing
 the rest**: `--all` excludes blocks on purpose (each pulls its parents, so
 `--all` would write `dialog` seven times), and `index.json`'s `blocks` key is
 part of the published contract, so it moves in the same release as the

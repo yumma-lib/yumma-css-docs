@@ -70,7 +70,7 @@ pnpm dlx yummaui prune --write
   folder are never touched.
 </Hint>
 
-A block imports the component it is built on, so "is anything importing this file" would keep a whole unused chain alive: an unused `button-group-pill` makes `button` look used. `prune` asks whether a file is reachable from **outside** your components directory instead. Adding `dialog-sign-up` and never using it leaves `dialog`, `checkbox` and `field` unused too, and all four are reported.
+A block imports the component it is built on, so "is anything importing this file" would keep a whole unused chain alive: an unused `button-group-pill` makes `button` look used. `prune` asks whether a file is reachable from **outside** your components directory instead. Adding `avatar-stacked` and never using it leaves `avatar` and `tooltip` unused too, and all three are reported.
 
 Listing is the default. Deleting takes `--write` and a confirmation.
 

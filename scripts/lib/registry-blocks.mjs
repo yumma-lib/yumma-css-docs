@@ -29,23 +29,13 @@ export const BLOCKS = new Set([
   "button-group-pill",
   "button-group-pill-label",
   "checkbox-group-label",
-  "dialog-edit-profile",
-  "dialog-nested",
-  "dialog-send-invite",
-  "dialog-share-task",
-  "dialog-sign-up",
   "field-button",
-  "preview-card-compact",
-  "preview-card-multiple",
-  "rating-feedback",
 
   // Recipes carrying real logic, not just assembly.
   "autocomplete-loading",
   "checkbox-group-nested-parent",
   "checkbox-parent",
   "field-password",
-  "popover-color-palette",
-  "toggle-color-picker",
   "toggle-group",
 ]);
 
