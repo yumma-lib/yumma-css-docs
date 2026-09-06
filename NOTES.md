@@ -530,9 +530,30 @@ declares logical properties: `padding` covers `padding-inline` covers
       and makes every component honour an override. Do it in one pass, and
       **check `c-p` and `p-a` cases by hand** - those are where a wrong map
       shows up as a missing colour rather than an error.
-- [ ] Decide whether it graduates into `@yummacss/core`. It costs core runtime
-      weight in a package that is build-time only today, so the registry is the
-      right first home; promote it if people outside Yumma UI ask.
+- [x] **Decided: it stays a registry file. Not a package, and not the CLI.**
+      **The CLI is impossible, not merely wrong** - `yummaui` runs under `dlx`
+      and is never installed, while `ym` runs in the browser on every render.
+      The CLI can *write* the file; it cannot export it.
+      **A package that imports core at runtime costs 14.4 KB gzipped against
+      3.7 KB** for the baked map plus `ym`, measured. A package with a *baked*
+      map has the same staleness as a copy, just moved, and the direction of
+      travel is fewer packages - `intellisense` is being retired.
+      **Staleness degrades to today's behaviour, which is what makes the copy
+      safe.** An unknown prefix resolves to null and the class passes through
+      untouched, so a map that has not seen a new utility merges it exactly as
+      badly as Yumma does now - never worse. The one real risk is core
+      *changing* an existing prefix's properties, which is a major-version
+      event. `yummaui add ym --overwrite` refreshes it; the docs page should
+      say so.
+- [ ] **Make utils addressable** - Phase 7, because it changes `index.json`.
+      `yummaui add ym` says "unknown" today, which is wrong for the person
+      using Yumma CSS **without** Yumma UI: they have the same override problem
+      and no component to pull it in. A `utils` key in the index plus
+      `resolveNames` handling, excluded from `--all`.
+- [ ] A **Utils** section in the `ui` sidebar with a page for `ym`: what it
+      does, why the cascade needs it, and the `--overwrite` refresh. Useful the
+      moment components import it, and it is where the copy-paste version lives
+      for people not using the CLI.
 - [ ] Decide against the alternative before building: `@layer` cannot do this,
       because a class is defined once and cannot sit in two layers depending on
       who passed it. An `!important` variant is a separate, blunter escape
