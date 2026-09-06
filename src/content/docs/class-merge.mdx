@@ -1,0 +1,103 @@
+---
+title: Class Merge
+description: "Resolve two utilities that set the same property so the last one wins."
+---
+
+## The Problem
+
+Every Yumma CSS utility is a single-class selector, so every utility has the same specificity. When two of them set the same property, the browser picks whichever sits later **in the generated stylesheet**. The order you write them in the `class` attribute has no effect at all.
+
+```tsx "c-white" "c-accent"
+<span className="c-white c-accent">Accent</span>
+<span className="c-accent c-white">Accent</span>
+```
+
+Both render white, because `c-white` is generated after `c-accent`. Swap the property and the result flips: `bg-red-5` wins over `bg-indigo` either way round. Which of the two wins is a property of the stylesheet, not of your markup, so a class you add last is not a class that takes effect.
+
+That is the whole reason overriding a component from the outside is unreliable. Passing `c-accent` to something that already sets `c-white` silently does nothing.
+
+## Use Merge
+
+`merge` takes class strings and returns one with the losers removed, so the last class wins.
+
+```tsx
+import { merge } from "yummacss/merge";
+
+merge("c-white", "c-accent"); // "c-accent"
+```
+
+It ships with the `yummacss` package, so nothing extra to install & nothing to keep in step with your stylesheet.
+
+```tsx
+<span className={merge("c-white", className)}>Accent</span>
+```
+
+Falsy arguments are skipped, which is what makes conditionals readable.
+
+```tsx
+<div className={merge("d-f ai-c", isOpen && "bg-silver-1", className)}></div>
+```
+
+## What Gets Dropped
+
+A class is dropped only when **everything** it sets is already set by a later class. That is a subset test, not an overlap test, and the difference shows up in shorthands.
+
+```tsx
+merge("px-8 p-4"); // "p-4"
+merge("p-4 px-8"); // "p-4 px-8"
+```
+
+`p-4` sets both axes, so it covers `px-8` entirely & `px-8` goes. Reverse them and both stay, because `px-8` says nothing about the block axis, so `p-4` is still doing work.
+
+The same rule keeps a class whose property nobody else touched.
+
+```tsx
+merge("w-10 h-10", "w-12"); // "h-10 w-12"
+```
+
+## Shared Prefixes
+
+A few prefixes serve more than one property, and the value tells them apart, exactly as in [Naming Convention](/docs/naming-convention). `merge` reads the value too, so `c-p` is a cursor & `c-slate-10` is a color.
+
+```tsx
+merge("c-p c-slate-10"); // "c-p c-slate-10"
+merge("p-a p-4"); // "p-a p-4"
+```
+
+Neither pair collides, so neither loses a class.
+
+## Variants
+
+Classes are compared inside their own variant. A hover class never covers a base class, & the other way round.
+
+```tsx
+merge("h:bg-silver-2", "bg-white"); // "h:bg-silver-2 bg-white"
+merge("h:bg-silver-2", "h:bg-indigo-2"); // "h:bg-indigo-2"
+```
+
+Media queries & every other variant work the same way.
+
+```tsx
+merge("@lg:p-4 p-2", "@lg:p-8"); // "p-2 @lg:p-8"
+```
+
+## Unknown Classes
+
+Anything `merge` does not recognize passes through untouched & in place.
+
+```tsx
+merge("card", "bg-white", "card-active"); // "card bg-white card-active"
+```
+
+<Hint icon="info">
+  That is also what happens to a utility newer than the version of `merge` you
+  have installed: it is kept, so the worst case is the behavior you had before.
+</Hint>
+
+## Alternatives
+
+Two things that look like they would solve this, & why neither does.
+
+`@layer` cannot, because a class is defined once. Layers decide which rule wins between rules, so putting `c-white` in a lower layer than `c-accent` would demote it for every element on the page, not only the one you passed an override to. There is no way for a single definition to sit in two layers depending on who used it.
+
+`!important` is a different tool, not a replacement. It is blunt enough to end the conversation for that property everywhere it appears, and it does not help at all when both classes carry it. `merge` removes the losing class instead, so what reaches the DOM is only what you meant.

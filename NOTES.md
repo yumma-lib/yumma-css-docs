@@ -118,10 +118,11 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phases 1, 2, 3 and most of 4 are done.** `3.30.0` is published and
-`docs` is on it. `yummaui` is published at `0.2.1` with `prune`. Phase 4 has
-three items left. **The class-merge helper (Phase 5) is the one that changes
-what people can do with Yumma**, and it now has a working prototype.
+Status: **Phases 1, 2, 3, most of 4 and most of 5 are done.** `3.31.0` is
+published and the `docs` bump to it is on `normalize-source`. `yummaui` is
+published at `0.2.1` with `prune`. Phase 4 has three items left. **Phase 5 has
+one**: the shorthand table misses physical longhands, and that fix lives in
+`yummacss` and needs a release.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
@@ -502,8 +503,8 @@ selector, so they all have equal specificity and the winner is whichever sits
 later **in the generated stylesheet** - nothing to do with the order you pass
 them. Measured in the built CSS: `bg-red-5` beats `bg-indigo`, `px-8` beats
 `p-4`, but **`c-white` beats `c-accent`**. So `className="c-accent"` on a
-component that already sets `c-white` silently does nothing, and the docs
-currently admit this as a limitation. Tailwind's answer is `tailwind-merge`.
+component that already sets `c-white` silently does nothing. `/docs/class-merge`
+and `ui/customization.mdx` both document the fix now, not the limitation.
 
 **Yumma's version is cheaper than Tailwind's, and that is the interesting
 part.** `tailwind-merge`'s real cost is a large hand-maintained table of
@@ -599,19 +600,40 @@ declares logical properties: `padding` covers `padding-inline` covers
       untouched, so a map that has not seen a new utility merges it exactly as
       badly as Yumma does now - never worse. The one real risk is core
       *changing* an existing prefix's properties, which is a major-version
-      event. `yummaui add ym --overwrite` refreshes it; the docs page should
-      say so.
-- [ ] A docs page for `merge` - what it does, why the cascade needs it, and
-      the `p-4 px-8` case that shows it is not just "last one wins". It belongs
-      in the **Yumma CSS** docs, not only Yumma UI: the limitation it fixes is
-      a CSS-level one. `ui/customization.mdx` currently documents the
-      limitation and should point at it.
-- [ ] Decide against the alternative before building: `@layer` cannot do this,
-      because a class is defined once and cannot sit in two layers depending on
-      who passed it. An `!important` variant is a separate, blunter escape
-      hatch and does not replace this.
-- [ ] `ui/customization.mdx` documents the limitation. It becomes the page that
-      documents the fix.
+      event. There is nothing to refresh: the map ships with the package that
+      generates the stylesheet, so a `pnpm up yummacss` is the whole story.
+- [x] **`/docs/class-merge`**, in Handbook after `negative-values`. Yumma CSS
+      docs, not Yumma UI: the limitation is a CSS-level one and applies to
+      anyone composing class strings. It carries the `p-4 px-8` pair that shows
+      the rule is a subset test rather than "last one wins", the shared-prefix
+      and variant cases, and the two alternatives below so the question is
+      answered on the page rather than asked again.
+- [x] **`@layer` and `!important` are both refused, on the page.** `@layer`
+      cannot do this because a class is defined once: demoting `c-white` to a
+      lower layer demotes it for every element, not for the one that was passed
+      an override, and one definition cannot sit in two layers depending on who
+      used it. `!important` is a blunter escape hatch that ends the
+      conversation for that property everywhere and does nothing when both
+      classes carry it.
+- [x] **`ui/customization.mdx` documents the fix.** The `className` section was
+      a warning that overrides do not reliably work; it is now the opposite,
+      pointing at `/docs/class-merge`, with the prefer-a-prop advice kept as a
+      hint rather than as the reason.
+- [ ] **The shorthand table misses every physical longhand, and `docs` is
+      hitting it.** `merge("px-8 p-4")` drops `px-8`, but `merge("pt-2 p-4")`
+      keeps both, because core declares `p` as `padding` and `px` as
+      `padding-inline` (logical) while `pt` is `padding-top` (physical), and
+      `SHORTHANDS` in `packages/cli/src/merge.ts` only expands the logical
+      side. Same for `ml`/`m`, `btw`/`bw`, `btc`/`bc`, `btlr`/`br`. It fails
+      safe - a kept class is today's behaviour, never worse - which is why
+      nothing rendered wrong and why it is not urgent.
+      **The fix is to expand the true shorthands to their physical leaves as
+      well** (`padding` to the four edges, `margin`, `border-width`,
+      `border-color`, `border-radius` likewise). **Do not do the same to
+      `padding-inline` or `padding-block`**: those map to left/right only in a
+      horizontal writing mode, and Yumma has `wm-*`. `field.tsx` sets `pl-4
+      pr-4 pt-3`, so a caller's `p-2` does not fully override it today.
+      Needs a `yummacss` release to reach `docs`.
 
 ### Phase 6 - Yumma UI API (`TODO.md`)
 

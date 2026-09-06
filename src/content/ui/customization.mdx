@@ -19,22 +19,26 @@ Every component page lists its full API: each prop, its type, its default and wh
 
 ## className
 
-Every component takes `className` and appends it to its own classes.
+Every component takes `className` and merges it into its own classes.
 
 ```tsx
 <Button className="w-100%">Save</Button>
 ```
 
-That works when you are adding something the component does not already set, like width above.
+That works for adding something the component does not set, like width above, and it works for overriding something it does set.
 
-<Hint icon="warning">
-  It does **not** reliably work for overriding something the component already
-  sets. Passing a class later in the attribute does not make it win.
+```tsx
+<Button className="c-accent">Save</Button>
+```
+
+Yumma CSS utilities are all single-class selectors, so they all have the same specificity, and the winner between two of them is whichever comes later **in the generated stylesheet**. Adding `c-accent` to a component that already sets `c-white` used to do nothing at all. Components call [`merge`](/docs/class-merge) instead of appending, which drops the class that loses, so what you pass takes effect.
+
+Only a class that sets the same property is dropped, so nothing you add goes missing.
+
+<Hint icon="info">
+  Reach for a prop first anyway. It says what you mean, it is checked, & it
+  survives an edit to the component's own classes.
 </Hint>
-
-Yumma CSS utilities are all single-class selectors, so they all have the same specificity. When two of them set the same property, the winner is whichever comes later **in the generated stylesheet**, which has nothing to do with the order you wrote them in. `c-white` beats `c-accent` whichever way round you pass them.
-
-So `<Button className="c-accent">` on a component that already sets `c-white` silently does nothing, and the same override on a different property works fine. That inconsistency is the reason to prefer a prop.
 
 When there is no prop for what you need, edit the file.
 
