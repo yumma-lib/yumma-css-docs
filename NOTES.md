@@ -49,8 +49,7 @@ are already in the order to do them.
 
 **Starting a session.** Paste this:
 
-> Working on yummacss/docs. Read NOTES.md first, then start Phase N. TODO.md is
-> Cursor's queue, leave it alone.
+> Working on yummacss/docs. Read NOTES.md first, then start Phase N.
 
 Replace N with the first phase that is not marked done. That is the whole
 message; everything else is in this file on purpose.
@@ -102,25 +101,28 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phases 1, 2 and 3 are done.** `3.30.0` is published and `docs` is on
-it; the config step that closed Phase 1 changed the generated CSS by **nothing
-at all**. `yummaui` is published at `0.2.1` with `prune`. **Phase 4 is next**,
-and the missing CLI reference page joins it.
+Status: **Phases 1, 2, 3 and most of 4 are done.** `3.30.0` is published and
+`docs` is on it. `yummaui` is published at `0.2.1` with `prune`. Phase 4 has
+three items left. **The class-merge helper (Phase 5) is the one that changes
+what people can do with Yumma**, and it now has a working prototype.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
-| 1 | Fix the class scanner | `yummacss`, `docs` | Root-caused, small, and everything downstream writes classes. |
-| 2 | Fix negative values | `yummacss` | Done. 72 utilities emitted CSS the parser threw away; shipping in `3.30.0`. |
-| 3 | Yumma UI: `prune` | `ui` | The one thing a real user said she would use. Everything else on Yumma UI is polish. |
-| 4 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
-| 5 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
-| 6 | v4 decisions | none, design only | These gate the codemod and the canon list. Decide before building. |
-| 6b | Pre-v4 audit | all | Split: the API half gates Phase 7, the cleanup half is genuinely last. |
-| 7 | v4 build | all | The codemod, the canon list, the migration. Gated on 6.
+| 1 | Fix the class scanner | `yummacss`, `docs` | Done. |
+| 2 | Fix negative values | `yummacss` | Done. 72 utilities emitted CSS the parser threw away. |
+| 3 | Yumma UI: `prune` | `ui` | Done. The one thing a real user said she would use. |
+| 4 | Docs debt | `docs` | Nearly done. The corpus the 4.0 codemod runs against first. |
+| **5** | **Class merge (`ym`)** | `yummacss`, `ui`, `docs` | **The documented limitation, and the deal-breaker. Prototype passes 8/8.** |
+| 6 | Yumma UI API | `docs`, `ui` | Collapse blocks into components, then work `TODO.md`. Gated on 5: half the fixes are override bugs. |
+| 7 | One breaking registry release | `docs`, `ui` | `/ui/registry`, `registryDeps`, no `blocks` key, OTP field. Ship together or churn twice. |
+| 8 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
+| 9 | v4 decisions | none, design only | These gate the codemod and the canon list. Decide before building. |
+| 9b | Pre-v4 audit | all | Split: the API half gates the build, the cleanup half is genuinely last. |
+| 10 | v4 build | all | The codemod, the canon list, the migration. Gated on 9. |
 
-**`TODO.md` is Cursor's lane and is not a phase.** It holds per-component API
-fixes Renildo is having Cursor work through. Do not pick items out of it, do not
-fix them in passing, and do not fold them into any phase here.
+**`TODO.md` is a phase now** - Phase 6 - and it is yours, not Cursor's. It is a
+bug and API-wish list in Renildo's words, not a plan: verify each item against
+the code first. Several are symptoms, not causes.
 
 ---
 
@@ -319,31 +321,6 @@ blocks a release.**
       and centres the glyph in the gap, which is a spatial fact a type cannot
       state.
 
-### Phase 4b - TODO.md, the API-shaped half
-
-- [x] **`iconSide` renamed to `iconPosition`.** Measured: **14 components split
-      across two names for one prop** - `iconPosition` on 9, `iconSide` on 5,
-      identical `leading`/`trailing` values on both. `iconPosition` wins on
-      three counts: the majority, it does not collide with `side` (Popover and
-      Tooltip use that for placement relative to the trigger, a different
-      thing), and `triggerIconPosition` already reads that way.
-      `tests/registry.test.ts` now fails on **any** two prop names that differ
-      only by a `Side`/`Position`/`Placement`/`Align` suffix, so the rule is
-      enforced rather than the one pair banned. Verified to bite.
-- [ ] **The separator entry is two bugs, not the one it describes.** "Both
-      `orientation` and `shape` do nothing": `orientation` works in the plain
-      branch and is **ignored entirely** in the icon/label branch, which
-      hardcodes `h-px`. `shape` never touches a separator at all - it styles
-      the icon **button**, so the prop's name lies. "No lines at all" is
-      neither: every class resolves (`h-px{height:1px}`,
-      `bg-silver-2{background-color:#e1e3e7}`), so the lines render - 1px of
-      near-white on white.
-- [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
-      every meta against its component source: 4 hits, all spread-forwarded
-      false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
-      **wired and ineffective**, which no static check will find. They need the
-      component opened one at a time.
-
 ### Phase 4 - Docs debt
 
 - [x] **Done: the 12 undocumented utilities are listed.** Re-measured against
@@ -501,7 +478,98 @@ blocks a release.**
       markers in `blog.html`, the 4.0 post absent from the listing, and its
       route not prerendered at all.
 
-### Phase 5 - Retire `@yummacss/intellisense`
+### Phase 5 - Class merge (`ym`)
+
+**The problem, stated exactly.** Every Yumma utility is a single-class
+selector, so they all have equal specificity and the winner is whichever sits
+later **in the generated stylesheet** - nothing to do with the order you pass
+them. Measured in the built CSS: `bg-red-5` beats `bg-indigo`, `px-8` beats
+`p-4`, but **`c-white` beats `c-accent`**. So `className="c-accent"` on a
+component that already sets `c-white` silently does nothing, and the docs
+currently admit this as a limitation. Tailwind's answer is `tailwind-merge`.
+
+**Yumma's version is cheaper than Tailwind's, and that is the interesting
+part.** `tailwind-merge`'s real cost is a large hand-maintained table of
+conflict groups, needed because Tailwind's prefixes do not map cleanly to
+properties (`text-sm` is font-size, `text-red-500` is color). Yumma's do:
+**every utility in `@yummacss/core` already carries `{ prefix, properties[] }`**,
+so the conflict map is generated, not written. 217 prefixes map straight out
+of the 15 `*Utils` groups.
+
+**The rule is a subset test, not an overlap test.** Walk the class list
+backwards and drop a class only when **everything** it sets is already covered
+by a later one, comparing within the same variant. That gets the case an
+overlap test gets wrong: `px-8 p-4` loses `px-8`, but `p-4 px-8` **keeps
+both**, because `px-8` says nothing about the block axis.
+
+**The only hand-written part is six shorthand expansions**, because core
+declares logical properties: `padding` covers `padding-inline` covers
+`padding-inline-start`. Same for margin, plus `inset`, `gap`, `overflow`,
+`border-*`.
+
+- [ ] **Prototype passes 8/8** including the three real conflicts measured in
+      the built CSS, `h:` variants kept separate from unprefixed, and an
+      unknown class passed through untouched. Written and thrown away; rebuild
+      from this description, it is ~60 lines.
+- [ ] **Where it lives** is the open question. In `@yummacss/core` it is
+      available to everyone but adds runtime weight to a package that is
+      currently build-time only. As a `yummaui add`-able file it stays opt-in
+      and costs core nothing - and Yumma UI is where the problem actually
+      bites. **Lean: ship it in the registry first**, promote it if people ask.
+- [ ] Decide against the alternative before building: `@layer` cannot do this,
+      because a class is defined once and cannot sit in two layers depending on
+      who passed it. An `!important` variant is a separate, blunter escape
+      hatch and does not replace this.
+- [ ] `ui/customization.mdx` documents the limitation. It becomes the page that
+      documents the fix.
+
+### Phase 6 - Yumma UI API (`TODO.md`)
+
+- [x] **`iconSide` renamed to `iconPosition`.** Measured: **14 components split
+      across two names for one prop** - `iconPosition` on 9, `iconSide` on 5,
+      identical `leading`/`trailing` values on both. `iconPosition` wins on
+      three counts: the majority, it does not collide with `side` (Popover and
+      Tooltip use that for placement relative to the trigger, a different
+      thing), and `triggerIconPosition` already reads that way.
+      `tests/registry.test.ts` now fails on **any** two prop names that differ
+      only by a `Side`/`Position`/`Placement`/`Align` suffix, so the rule is
+      enforced rather than the one pair banned. Verified to bite.
+- [ ] **The separator entry is two bugs, not the one it describes.** "Both
+      `orientation` and `shape` do nothing": `orientation` works in the plain
+      branch and is **ignored entirely** in the icon/label branch, which
+      hardcodes `h-px`. `shape` never touches a separator at all - it styles
+      the icon **button**, so the prop's name lies. "No lines at all" is
+      neither: every class resolves (`h-px{height:1px}`,
+      `bg-silver-2{background-color:#e1e3e7}`), so the lines render - 1px of
+      near-white on white.
+- [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
+      every meta against its component source: 4 hits, all spread-forwarded
+      false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
+      **wired and ineffective**, which no static check will find. They need the
+      component opened one at a time.
+
+### Phase 7 - One breaking registry release
+
+All three change something a published `yummaui.json` or an installed CLI
+depends on, so they ship together or the ecosystem churns three times.
+
+- [ ] `public/ui/r` to `public/ui/registry`, with a redirect from the old path:
+      `registry` is stored as an **absolute URL**, so every existing install
+      points at `/ui/r` forever.
+- [ ] `registryDependencies` to `registryDeps` in the generator, the JSON and
+      `ui/src/registry.ts`. A CLI reading the new field cannot read old JSON,
+      so either both ship for one version or the CLI floor moves.
+- [ ] Drop the `blocks` key from `index.json` once Phase 6 collapses the
+      distinction. `resolveNames` reads `index.blocks`, so it moves in the same
+      release. **`--all` currently excludes blocks on purpose** - each pulls its
+      parents, so a flat `--all` would write `dialog` several times over. That
+      guard needs replacing, not deleting.
+- [ ] Add an OTP field component over `@base-ui/react`'s.
+- [ ] **16 `example` entries are still unreachable**: not in `index.json`, not
+      referenced by any page, and `resolveNames` rejects their ids. Publish
+      them in the index or stop generating them - they cannot stay as they are.
+
+### Phase 8 - Retire `@yummacss/intellisense`
 
 The extensions are already deleted (see Rejected). This is the package.
 
@@ -529,7 +597,7 @@ The extensions are already deleted (see Rejected). This is the package.
       `#inline-start`). The docs headings were written to match each slug exactly
       so all 16 anchors land; normalise core and those headings can go uniform.
 
-### Phase 6 - v4 decisions
+### Phase 9 - v4 decisions
 
 - [ ] **Bounded scale or unbounded?** See the 0-384 section below. This one
       decides the shape of canon, so it goes first.
@@ -566,12 +634,12 @@ The extensions are already deleted (see Rejected). This is the package.
       how a shade is derived. Nothing else in core touches `tinycolor2`.
       `docs` uses it separately - `palette.tsx` for display, `utils/colors.ts`
       for a luminance check - and would need its own change. `intellisense`
-      uses it and is being deleted in Phase 5 anyway. **`play` does not depend
+      uses it and is being deleted in Phase 8 anyway. **`play` does not depend
       on it at all.**
       **The catch:** every generated hex changes. That is a visual break for
       anyone who pinned a colour by eye, which is a v4 change, not a 3.x one.
 
-### Phase 6b - The pre-v4 audit
+### Phase 9b - The pre-v4 audit
 
 Renildo's ask: a rundown of the whole codebase for redundancy, performance,
 code reduction and bundle size before v4, plus possibly rewriting how core is
@@ -579,7 +647,7 @@ authored so adding utilities is pleasant.
 
 **Split it in two, because the halves have opposite deadlines.**
 
-- [ ] **Architecture and API - must come BEFORE Phase 7, not last.** How core is
+- [ ] **Architecture and API - must come BEFORE Phase 10, not last.** How core is
       authored decides the canon shape, which the codemod and the docs migration
       are both written against. Doing it after means redoing them. If the
       utility record shape changes at all, it changes here or not until v5.
@@ -600,14 +668,14 @@ runtime 61,457 | cli 39,796 | intellisense 19,589 | nitro 18,897 | canon 3,597 |
 postcss 1,973 | vite 1,727. Core and runtime are where the weight is, and
 `tinycolor2` alone is 27% of core.
 
-### Phase 7 - v4 build
+### Phase 10 - v4 build
 
 - [ ] The 4.0 codemod. Everything else in 4.0 depends on it existing, and it
       gates the release.
-- [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 6 settled.
+- [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 9 settled.
 - [ ] `docs`: every code example. Run the codemod here first; largest real
       corpus, and it has to be migrated anyway.
-- [ ] The config-driven generators, per the Phase 6 answer.
+- [ ] The config-driven generators, per the Phase 9 answer.
 ---
 
 ## The playground
