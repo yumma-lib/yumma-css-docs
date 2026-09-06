@@ -26,7 +26,6 @@ import {
 import { basename, join } from "node:path";
 import { isBlock } from "./lib/registry-blocks.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
-import { isUtil } from "./lib/registry-utils.mjs";
 
 const cwd = process.cwd();
 const uiDir = join(cwd, "src/registry/ui");
@@ -103,13 +102,10 @@ function titleOf(slug) {
   return raw.match(/^title:\s*["']?(.+?)["']?\s*$/m)?.[1] ?? slug;
 }
 
-// Utilities are `.ts`; components are `.tsx`.
 const ids = readdirSync(uiDir)
-  .filter((f) => f.endsWith(".tsx") || f.endsWith(".ts"))
-  .map((f) => basename(f, f.endsWith(".tsx") ? ".tsx" : ".ts"))
+  .filter((f) => f.endsWith(".tsx"))
+  .map((f) => basename(f, ".tsx"))
   .sort();
-
-const extensionOf = (id) => (isUtil(id) ? "ts" : "tsx");
 
 if (existsSync(outDir)) rmSync(outDir, { recursive: true, force: true });
 mkdirSync(outDir, { recursive: true });
@@ -120,22 +116,13 @@ const blocks = [];
 let orphans = 0;
 
 for (const id of ids) {
-  const util = isUtil(id);
-  const { component, variant, orphan } = util
-    ? { component: id, variant: "base", orphan: false }
-    : splitId(id, slugs);
+  const { component, variant, orphan } = splitId(id, slugs);
   if (orphan) orphans++;
 
-  const ext = extensionOf(id);
-  const source = readFileSync(join(uiDir, `${id}.${ext}`), "utf8");
+  const source = readFileSync(join(uiDir, `${id}.tsx`), "utf8");
 
-  const kind = util
-    ? "util"
-    : variant === "base"
-      ? "component"
-      : isBlock(id)
-        ? "block"
-        : "example";
+  const kind =
+    variant === "base" ? "component" : isBlock(id) ? "block" : "example";
 
   const entry = {
     id,
@@ -148,8 +135,8 @@ for (const id of ids) {
     registryDependencies: registryDependenciesOf(source, id, idSet),
     files: [
       {
-        path: `${id}.${ext}`,
-        target: `components/ui/${id}.${ext}`,
+        path: `${id}.tsx`,
+        target: `components/ui/${id}.tsx`,
         content: source,
       },
     ],
@@ -160,8 +147,7 @@ for (const id of ids) {
     `${JSON.stringify(entry, null, 2)}\n`,
   );
 
-  // Utilities have no page, so no title and no place in the index.
-  if (!orphan && !util) {
+  if (!orphan) {
     if (!components.has(component)) {
       components.set(component, {
         component,

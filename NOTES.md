@@ -507,10 +507,19 @@ declares logical properties: `padding` covers `padding-inline` covers
 `padding-inline-start`. Same for margin, plus `inset`, `gap`, `overflow`,
 `border-*`.
 
-- [x] **Built and published as a registry util.** `src/registry/ui/ym.ts` plus
-      a generated `merge-map.ts` (217 prefixes, 129 disambiguating values,
-      10KB). `pnpm generate:merge-map`; `tests/ym.test.ts` fails if it is stale.
-      8 tests, each verified to bite.
+- [x] **Built as `yummacss/merge`**, a subpath of the `yummacss` package
+      (`packages/cli`), on the `merge` branch. **2.6 kB gzipped**, 8 tests in
+      `tests/merge.test.ts`, each verified to bite.
+      **It is not `ym` and not a registry file any more.** `ym` said nothing at
+      a call site; `merge` says what it does. And a copied registry file would
+      have been a second copy of logic that belongs with the CSS it describes -
+      shipping it from the package that generates your stylesheet means it can
+      never be out of step with it, and people using Yumma CSS **without**
+      Yumma UI get it too.
+      **`tsdown.config.ts` is now two configs**, because the `#!/usr/bin/env
+      node` banner applied to every entry and has no business in a browser
+      bundle. `dts: true` on the library half, so the subpath has types - the
+      package shipped none before.
 - [x] **A prefix alone is not enough - 31 are claimed by twice.** `c` is color
       **and** cursor, `p` padding and position, `f` fill and flex. Separator
       sets `c-slate-10` and `c-p` on one element, so a prefix-only map silently
@@ -518,19 +527,21 @@ declares logical properties: `padding` covers `padding-inline` covers
       **open-ended** utility (the palette, the spacing scale) is the default and
       its values are not listed, and the keyword utilities are listed by value.
       **129 keys instead of 2,258.**
-- [x] **Utilities are a third registry kind.** `scripts/lib/registry-utils.mjs`
-      lists them, like `BLOCKS`. They are `.ts` not `.tsx`, published so a
-      component that imports one gets it (`from "./ym"` already builds
-      `registryDependencies`), but kept out of `index.json` - `yummaui add ym`
-      correctly says unknown. Both generators and `tests/registry.test.ts`
-      needed teaching; the registry test caught it first.
-- [ ] **Nothing imports it yet.** All 36 components join classes inline with
+- [x] **The registry-util machinery is reverted.** A third `kind` in the
+      registry, `.ts` support in both generators and a `UTILS` list were built
+      and then deleted the same day, because shipping from the package makes
+      all of it unnecessary. Recorded so nobody rebuilds it: `git show
+      3168890` in `docs` has the whole thing if a registry util is ever
+      genuinely needed.
+- [ ] **Blocked on a release, then one pass over 36 components.** `docs` has
+      `yummacss@3.30.0` from npm, so `yummacss/merge` does not exist until
+      **3.31.0** ships. After that: all 36 components join classes inline with
       `[...].filter(Boolean).join(" ")` and `className` last, which is exactly
-      the pattern that does not work. Swapping that for `ym(...)` is mechanical
-      and makes every component honour an override. Do it in one pass, and
-      **check `c-p` and `p-a` cases by hand** - those are where a wrong map
-      shows up as a missing colour rather than an error.
-- [x] **Decided: it stays a registry file. Not a package, and not the CLI.**
+      the pattern that does not work. Swap for `merge(...)` in one pass and
+      **check `c-p` and `p-a` by hand** - a wrong map shows up as a missing
+      colour, not an error.
+- [x] **Decided: a subpath of `yummacss`. Not a new package, not the CLI, not
+      a registry file.**
       **The CLI is impossible, not merely wrong** - `yummaui` runs under `dlx`
       and is never installed, while `ym` runs in the browser on every render.
       The CLI can *write* the file; it cannot export it.
@@ -545,15 +556,12 @@ declares logical properties: `padding` covers `padding-inline` covers
       *changing* an existing prefix's properties, which is a major-version
       event. `yummaui add ym --overwrite` refreshes it; the docs page should
       say so.
-- [ ] **Make utils addressable** - Phase 7, because it changes `index.json`.
-      `yummaui add ym` says "unknown" today, which is wrong for the person
-      using Yumma CSS **without** Yumma UI: they have the same override problem
-      and no component to pull it in. A `utils` key in the index plus
-      `resolveNames` handling, excluded from `--all`.
-- [ ] A **Utils** section in the `ui` sidebar with a page for `ym`: what it
-      does, why the cascade needs it, and the `--overwrite` refresh. Useful the
-      moment components import it, and it is where the copy-paste version lives
-      for people not using the CLI.
+- [ ] **Release `3.31.0`** with the subpath. Everything downstream waits on it.
+- [ ] A docs page for `merge` - what it does, why the cascade needs it, and
+      the `p-4 px-8` case that shows it is not just "last one wins". It belongs
+      in the **Yumma CSS** docs, not only Yumma UI: the limitation it fixes is
+      a CSS-level one. `ui/customization.mdx` currently documents the
+      limitation and should point at it.
 - [ ] Decide against the alternative before building: `@layer` cannot do this,
       because a class is defined once and cannot sit in two layers depending on
       who passed it. An `!important` variant is a separate, blunter escape
