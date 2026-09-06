@@ -663,6 +663,15 @@ declares logical properties: `padding` covers `padding-inline` covers
       `tests/registry.test.ts` now fails on **any** two prop names that differ
       only by a `Side`/`Position`/`Placement`/`Align` suffix, so the rule is
       enforced rather than the one pair banned. Verified to bite.
+- [ ] **Collapse the 13 blocks into components, first.** The decision is made
+      (see the architecture section): the test is whether a file adds API
+      surface or only arranges existing surface. Four `button-group`s are one
+      `ButtonGroup` with props; `field-password`, `checkbox-parent` and
+      `autocomplete-loading` are props. Do this **before** `TODO.md`, because
+      several of its items are per-variant and disappear with the variant.
+      **`--all` excludes blocks on purpose** - each pulls its parents - so that
+      guard needs replacing, not deleting, and `index.json`'s `blocks` key goes
+      in Phase 7.
 - [ ] **The separator entry is two bugs, not the one it describes.** "Both
       `orientation` and `shape` do nothing": `orientation` works in the plain
       branch and is **ignored entirely** in the icon/label branch, which
