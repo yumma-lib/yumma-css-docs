@@ -69,7 +69,11 @@ the target, and eighty lines is not. **This file is the exception** - it is the
 only place detail is meant to accumulate, because it is what survives a cleared
 chat. A PR or a comment restating it duplicates something that will drift.
 Twelve-line block comments explaining a file's history are this rule being
-broken; the history goes here. **No "Generated with Claude Code" footer** in a
+broken; the history goes here. **Cut every clause that explains rather than
+states.** "Yumma utilities are single-class selectors. Stylesheet order wins
+over `className`. Merge drops the losing class." replaces three sentences of
+reasoning and loses nothing. **Never name another framework** to explain a
+Yumma decision. **No em dashes.** **No "Generated with Claude Code" footer** in a
 PR body, commit or comment - the `Co-Authored-By` trailer already says it, and
 saying it twice reads like a signature on someone else's work.
 
