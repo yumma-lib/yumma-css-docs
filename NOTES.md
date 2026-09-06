@@ -537,6 +537,11 @@ declares logical properties: `padding` covers `padding-inline` covers
       all of it unnecessary. Recorded so nobody rebuilds it: `git show
       3168890` in `docs` has the whole thing if a registry util is ever
       genuinely needed.
+- [x] **`merge` is 5.7us per call for a 16-class string, in `3.31.1`.** It was
+      **79us**: the first version scanned all 217 prefixes per class. It now
+      cuts the base at each dash and looks up directly (longest prefix is 6
+      chars, 15 contain a dash) and caches per class. 1000 elements per render
+      is 5.7ms, not 79ms. Measure before believing a merge is cheap.
 - [x] **`tests/merge-safety.test.ts` answers "how do we know nothing is lost".**
       `merge` removes classes, and a wrong removal throws nothing. The test
       extracts every static class string in `src/registry/ui` and asserts
