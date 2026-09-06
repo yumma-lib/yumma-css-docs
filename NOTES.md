@@ -537,7 +537,15 @@ declares logical properties: `padding` covers `padding-inline` covers
       all of it unnecessary. Recorded so nobody rebuilds it: `git show
       3168890` in `docs` has the whole thing if a registry util is ever
       genuinely needed.
-- [ ] **Unblocked. `3.31.0` is live on npm.** Bump `docs` to it, then: all 36 components join classes inline with
+- [x] **`tests/merge-safety.test.ts` answers "how do we know nothing is lost".**
+      `merge` removes classes, and a wrong removal throws nothing. The test
+      extracts every static class string in `src/registry/ui` and asserts
+      `merge(s) === s`: a component's own classes must never lose one.
+      **767 strings, 0 losses**, run before the pass. Verified to bite by
+      planting `c-white c-accent`. It does not cover template literals with
+      `${}` or classes a caller passes; those are the ones that are meant to
+      override.
+- [ ] **`docs` is on `3.31.0`.** Next: all 36 components join classes inline with
       `[...].filter(Boolean).join(" ")` and `className` last, which is exactly
       the pattern that does not work. Swap for `merge(...)` in one pass and
       **check `c-p` and `p-a` by hand** - a wrong map shows up as a missing
