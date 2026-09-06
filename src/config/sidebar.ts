@@ -295,7 +295,7 @@ export const sidebarConfig = {
     },
     {
       title: "Interactive",
-      items: ["button", "context-menu", "menu", "menubar"],
+      items: ["button", "button-group", "context-menu", "menu", "menubar"],
     },
     { title: "Navigation", items: ["tabs", "toolbar"] },
     {
