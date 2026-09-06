@@ -634,6 +634,23 @@ declares logical properties: `padding` covers `padding-inline` covers
       horizontal writing mode, and Yumma has `wm-*`. `field.tsx` sets `pl-4
       pr-4 pt-3`, so a caller's `p-2` does not fully override it today.
       Needs a `yummacss` release to reach `docs`.
+      **`pl-4 pr-4` should have been `px-4` in the first place.** Fix the
+      component too, not only the table.
+- [ ] **`merge` breaks in v4, and it is the sixth colon-splitter.** v4 classes
+      are `bg:red-5`, `h:bg:red-5`, `@sm:d:b`. `merge` takes the variant with
+      `className.lastIndexOf(":")` and cuts the prefix at dashes, so `bg:red-5`
+      resolves to a variant named `bg`. **`yummacss` commit `b9eb894` on `v4`
+      fixed exactly this in five other places** (hover's `parseUtility`, sort,
+      conflicts, the monaco adapter, `suggestClasses`) and put **one splitter in
+      core** that peels a variant only when what remains is not already a
+      utility. `merge` uses that splitter. It does not grow its own.
+- [ ] **Canon lint: two rules `merge-map` makes nearly free.** **`pl-4 pr-4`
+      should be `px-4`** is "two classes whose properties union equals a
+      shorthand's", needing no data the map does not carry. **A `style`
+      attribute setting a property a utility covers** (`top: -1` when `t--1`
+      exists) is the map inverted to properties-to-prefix; naming the exact
+      replacement needs a value-to-scale lookup, but the warning is worth
+      having without it.
 
 ### Phase 6 - Yumma UI API (`TODO.md`)
 
