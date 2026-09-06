@@ -3,6 +3,7 @@
 import { Progress } from "@base-ui/react/progress";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -38,14 +39,12 @@ export default function ProgressBase({
   const isCard = shadow !== "none";
   const isIndeterminate = value === null;
 
-  const rootClasses = [
+  const rootClasses = merge(
     "d-f fd-c g-2 w-64",
     isCard ? "p-4 bg-white bc-silver-2 br-lg bw-1" : "",
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const trackClasses = ["o-h h-2 bg-silver-2", SHAPES[shape]]
     .filter(Boolean)

@@ -16,7 +16,7 @@ export default function AutocompleteIconLeading() {
       label="Search settings"
       placeholder="Account, Privacy, & more"
       icon={<Search className="w-4 h-4" />}
-      iconSide="leading"
+      iconPosition="leading"
       emptyMessage="No settings found."
     />
   );

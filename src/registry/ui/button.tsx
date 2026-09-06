@@ -1,5 +1,6 @@
 import { Button } from "@base-ui/react/button";
 import type { ComponentProps, ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Variant = "primary" | "secondary" | "subtle" | "ghost" | "danger" | "link";
 type Size = "sm" | "md" | "lg";
@@ -47,13 +48,15 @@ const SHADOWS: Record<Shadow, string> = {
 };
 
 export interface ButtonProps extends ComponentProps<typeof Button> {
+  // merge composes a string, so the Base UI function form is not accepted here.
+  className?: string;
   variant?: Variant;
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
   loading?: boolean;
   icon?: ReactNode;
-  iconSide?: IconSide;
+  iconPosition?: IconSide;
   iconOnly?: boolean;
   transition?: boolean;
   children?: ReactNode;
@@ -66,7 +69,7 @@ export default function ButtonBase({
   shadow = "none",
   loading = false,
   icon,
-  iconSide = "leading",
+  iconPosition = "leading",
   iconOnly = false,
   transition = true,
   disabled,
@@ -76,7 +79,7 @@ export default function ButtonBase({
 }: ButtonProps) {
   const inactive = disabled || loading;
 
-  const classes = [
+  const classes = merge(
     BASE,
     transition ? MOTION : "",
     VARIANTS[variant],
@@ -85,9 +88,7 @@ export default function ButtonBase({
     SHADOWS[shadow],
     inactive ? "o-60 c-na" : "c-p",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   return (
     <Button
@@ -96,9 +97,9 @@ export default function ButtonBase({
       aria-busy={loading || undefined}
       {...props}
     >
-      {iconSide === "leading" && icon}
+      {iconPosition === "leading" && icon}
       {children}
-      {iconSide === "trailing" && icon}
+      {iconPosition === "trailing" && icon}
     </Button>
   );
 }

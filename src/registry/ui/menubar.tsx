@@ -6,6 +6,7 @@ import { Check, Circle, KeyCommand, NavArrowRight } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -123,14 +124,12 @@ export default function MenubarBase({
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
-  const barClasses = [
+  const barClasses = merge(
     "d-f g-1 p-1 bg-white bc-silver-2 bw-1",
     BAR_SHAPES[shape],
     shadowClass,
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const popupClasses = [
     "py-1 w-52 bg-white bc-silver-2 c-slate-10 bw-1",

@@ -10,6 +10,7 @@ import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -108,14 +109,12 @@ export default function ToolbarBase({
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
-  const rootClasses = [
+  const rootClasses = merge(
     "d-f ai-c g-1 p-2 bg-white bc-silver-2 bw-1",
     ROOT_SHAPES[shape],
     shadowClass,
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const control = CONTROL_SHAPES[shape];
 

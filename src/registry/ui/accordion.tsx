@@ -5,6 +5,7 @@ import { Lock, Minus, NavArrowDown, Plus } from "iconoir-react";
 import { type HTMLMotionProps, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Variant = "default" | "bordered" | "ghost" | "subtle";
 type Shape = "rounded" | "square" | "squircle";
@@ -73,7 +74,7 @@ export default function AccordionBase({
 
   const isCard = variant === "default" && shadow !== "none";
 
-  const rootClasses = [
+  const rootClasses = merge(
     "d-f fd-c w-100% max-w-96",
     variant === "bordered" || variant === "subtle" ? "g-2" : "",
     isCard
@@ -82,9 +83,7 @@ export default function AccordionBase({
           .join(" ")
       : "",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   return (
     <Accordion.Root
@@ -262,9 +261,7 @@ function ChevronGlyph({
   if (!animate) {
     return (
       <NavArrowDown
-        className={["fs-0 w-4 h-4", isOpen ? "ro-36" : "ro-0", className]
-          .filter(Boolean)
-          .join(" ")}
+        className={merge("fs-0 w-4 h-4", isOpen ? "ro-36" : "ro-0", className)}
         aria-hidden
       />
     );
@@ -276,10 +273,7 @@ function ChevronGlyph({
       transition={{ duration: 0.15, ease: "easeInOut" }}
       className="d-f"
     >
-      <NavArrowDown
-        className={["fs-0 w-4 h-4", className].filter(Boolean).join(" ")}
-        aria-hidden
-      />
+      <NavArrowDown className={merge("fs-0 w-4 h-4", className)} aria-hidden />
     </motion.span>
   );
 }
@@ -293,7 +287,7 @@ function PlusMinusGlyph({
   animate: boolean;
   className: string;
 }) {
-  const glyphClasses = ["fs-0 w-4 h-4", className].filter(Boolean).join(" ");
+  const glyphClasses = merge("fs-0 w-4 h-4", className);
   const icon = isOpen ? (
     <Minus className={glyphClasses} aria-hidden />
   ) : (

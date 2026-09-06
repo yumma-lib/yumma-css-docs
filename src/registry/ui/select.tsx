@@ -6,6 +6,7 @@ import { Select } from "@base-ui/react/select";
 import { ArrowSeparateVertical, Check } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { type ReactNode, useId, useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -124,7 +125,7 @@ export interface SelectProps {
   shape?: Shape;
   shadow?: Shadow;
   icon?: ReactNode;
-  iconSide?: IconSide;
+  iconPosition?: IconSide;
   disabled?: boolean;
   animate?: boolean;
   fullWidth?: boolean;
@@ -144,7 +145,7 @@ export default function SelectBase({
   shape = "rounded",
   shadow = "none",
   icon,
-  iconSide = "leading",
+  iconPosition = "leading",
   disabled = false,
   animate = true,
   fullWidth = false,
@@ -154,16 +155,14 @@ export default function SelectBase({
   const [open, setOpen] = useState(false);
   const id = useId();
 
-  const triggerClasses = [
+  const triggerClasses = merge(
     TRIGGER,
     fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     open ? "bg-silver-2/50" : "bg-transparent",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const iconEl = icon && (
     <span className="d-f ai-c c-slate-5" aria-hidden>
@@ -232,14 +231,14 @@ export default function SelectBase({
         required={required}
       >
         <Select.Trigger id={id} className={triggerClasses}>
-          {icon && iconSide === "leading" && (
+          {icon && iconPosition === "leading" && (
             <span className="d-f ai-c g-2">
               {iconEl}
               {value_}
             </span>
           )}
-          {(!icon || iconSide !== "leading") && value_}
-          {icon && iconSide === "trailing" ? (
+          {(!icon || iconPosition !== "leading") && value_}
+          {icon && iconPosition === "trailing" ? (
             <span className="d-f ai-c g-1">
               {iconEl}
               {arrow}

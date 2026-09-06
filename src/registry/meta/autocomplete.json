@@ -76,7 +76,7 @@
       "description": "Any icon. It is positioned over the input and the text is padded around it, so pass the glyph and nothing else."
     },
     {
-      "name": "iconSide",
+      "name": "iconPosition",
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",

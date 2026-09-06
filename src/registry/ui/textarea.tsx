@@ -4,6 +4,7 @@ import { Field } from "@base-ui/react/field";
 import { Check, WarningTriangle } from "iconoir-react";
 import type { ChangeEvent, ComponentProps } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -102,7 +103,7 @@ export default function TextareaBase({
     : 0;
   const warn = showCounter && remaining <= WARN_AT;
 
-  const controlClasses = [
+  const controlClasses = merge(
     "h-24 w-64 pt-3 pl-3 bg-white c-slate-10 bw-1 fs-md r-none fv:oo--1",
     showCounter || status !== "default" ? "pr-10" : "pr-3",
     SHAPES[shape],
@@ -110,9 +111,7 @@ export default function TextareaBase({
     STATUS_BORDER[status],
     STATUS_RING[status],
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   return (
     <Field.Root

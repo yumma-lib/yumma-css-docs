@@ -80,6 +80,48 @@ describe("Markdown routes", () => {
     expect(empty).toEqual([]);
   });
 
+  // `<Baseline />` is self-closing, so it fell through the same hole
+  // `<ComponentPlayground />` did: 130 pages served no browser support at all.
+  it("renders browser support wherever the page shows it", () => {
+    const missing = contentPages("docs")
+      .filter(({ source }) => source.includes("<Baseline"))
+      .map(({ slug, source }) => ({ slug, body: mdxToMarkdown(source) }))
+      .filter(
+        ({ body }) =>
+          !/(Widely|Newly) available|Limited availability/.test(body),
+      )
+      .map(({ slug }) => slug);
+
+    expect(missing).toEqual([]);
+  });
+
+  // MDX machinery, and expressions the page interpolates, are not content.
+  it("leaves no unrendered MDX in any page", () => {
+    const leaking = ["docs", "ui"].flatMap((collection) =>
+      contentPages(collection)
+        .map(({ slug, source }) => ({
+          slug: `${collection}/${slug}`,
+          body: mdxToMarkdown(source, {
+            resolveRegistry,
+            resolveMeta,
+            registryId: slug,
+          }),
+        }))
+        // Fenced lines are the code being documented; only the rest is markup.
+        .map(({ slug, body }) => ({
+          slug,
+          bad: body
+            .split(/```[\s\S]*?```/)
+            .join("")
+            .match(/^import\s.*\sfrom\s|\{[A-Z_][A-Za-z_.]*\}/m),
+        }))
+        .filter(({ bad }) => bad)
+        .map(({ slug, bad }) => `${slug}: ${bad?.[0]}`),
+    );
+
+    expect(leaking).toEqual([]);
+  });
+
   it("renders source and an API table for every UI component page", () => {
     const broken = contentPages("ui")
       .filter(({ source }) => source.includes("<ComponentPlayground"))

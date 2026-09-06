@@ -7,10 +7,10 @@
  * heuristic. `autocomplete-lg` is `<Autocomplete size="lg" />`: copying a file
  * for that is exactly the complaint that shadcn's props model answers, so it
  * is an example and the docs point you at `add autocomplete` instead. But
- * `dialog-sign-in` composes Dialog + Field + Checkbox into a working form, and
- * scaffolding that in one command is a real convenience.
+ * `field-password` adds a visibility toggle over Field, and scaffolding that in
+ * one command is a real convenience.
  *
- * A block is addressed by its own id (`yummaui add dialog-sign-in`), never as
+ * A block is addressed by its own id (`yummaui add field-password`), never as
  * a flavour of a component. `registryDependencies` already pulls in whatever
  * it is built from.
  *
@@ -29,25 +29,13 @@ export const BLOCKS = new Set([
   "button-group-pill",
   "button-group-pill-label",
   "checkbox-group-label",
-  "dialog-edit-profile",
-  "dialog-nested",
-  "dialog-new-task",
-  "dialog-send-invite",
-  "dialog-share-task",
-  "dialog-sign-in",
-  "dialog-sign-up",
   "field-button",
-  "preview-card-compact",
-  "preview-card-multiple",
-  "rating-feedback",
 
   // Recipes carrying real logic, not just assembly.
   "autocomplete-loading",
   "checkbox-group-nested-parent",
   "checkbox-parent",
   "field-password",
-  "popover-color-palette",
-  "toggle-color-picker",
   "toggle-group",
 ]);
 

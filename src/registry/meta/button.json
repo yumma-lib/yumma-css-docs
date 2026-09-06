@@ -44,7 +44,7 @@
       "description": "A glyph beside the label. Pass the icon and nothing else; the base gap spaces it for you. With `iconOnly` it becomes the whole button, so give that one an `aria-label`."
     },
     {
-      "name": "iconSide",
+      "name": "iconPosition",
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "leading",

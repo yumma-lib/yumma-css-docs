@@ -1,6 +1,7 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { CheckCircle, User } from "iconoir-react";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "circle" | "square" | "squircle";
@@ -76,15 +77,13 @@ export default function AvatarBase({
   children,
   className,
 }: AvatarProps) {
-  const classes = [
+  const classes = merge(
     ROOT,
     SIZES[size],
     SHAPES[shape],
     tint ? `${TINTS[tint].bg} bw-1` : "bg-silver-1 bc-white bw-1",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const fallbackClasses = [
     "d-f ai-c jc-c w-100% h-100% fw-500",

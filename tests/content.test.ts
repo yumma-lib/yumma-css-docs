@@ -38,7 +38,7 @@ const uiPages = contentPages("ui");
  * Empty since the `feat/yumma-ui` merge. All eleven entries it used to hold
  * were deleted outright by the curation pass, not wired up: each was a single
  * enumerable prop the API reference table already states (`select-icon-leading`
- * is `iconSide`, `collapsible-square` is `shape`), and `select-bordered` was
+ * is `iconPosition`, `collapsible-square` is `shape`), and `select-bordered` was
  * byte-identical to its base. An orphan appearing here again is a real signal
  * now that the baseline is zero.
  */
@@ -56,13 +56,11 @@ const KNOWN_UNLISTED: string[] = [
   "autocomplete-icon-leading",
   "autocomplete-icon-trailing",
   "autocomplete-loading",
-  "avatar-detailed",
   "avatar-edit",
   "avatar-icon-fallback",
   "avatar-initial-fallback",
   "avatar-stack-compact",
   "avatar-stacked",
-  "button-favorite",
   "button-group",
   "button-group-icon",
   "button-group-pill",
@@ -72,33 +70,16 @@ const KNOWN_UNLISTED: string[] = [
   "checkbox-parent",
   "combobox-grouped",
   "combobox-helper",
-  "dialog-edit-profile",
-  "dialog-nested",
-  "dialog-new-task",
-  "dialog-send-invite",
-  "dialog-share-task",
-  "dialog-sign-in",
-  "dialog-sign-up",
   "field-button",
   "field-password",
   "field-prefix",
   "field-suffix",
-  "onboarding-checklist",
-  "onboarding-pagination",
-  "popover-color-palette",
-  "preview-card-compact",
-  "preview-card-multiple",
-  "preview-card-project",
-  "rating-emoji",
-  "rating-feedback",
   "select-grouped",
   "skeleton-activity",
   "skeleton-filters",
   "skeleton-list",
   "skeleton-stats",
-  "toggle-color-picker",
   "toggle-group",
-  "toolbar-input",
 ];
 
 function referencedIds(): Set<string> {

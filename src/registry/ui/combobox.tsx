@@ -6,6 +6,7 @@ import { ArrowSeparateVertical, Check, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useId, useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -141,15 +142,13 @@ export default function ComboboxBase({
   const [open, setOpen] = useState(false);
   const id = useId();
 
-  const inputClasses = [
+  const inputClasses = merge(
     INPUT,
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const popup = (
     <Combobox.Popup

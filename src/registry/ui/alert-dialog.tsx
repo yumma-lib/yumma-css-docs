@@ -6,6 +6,7 @@ import { Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Tone = "danger" | "neutral";
 type Shape = "rounded" | "square" | "squircle";
@@ -93,15 +94,13 @@ export default function AlertDialogBase({
 
   const base = "px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2";
 
-  const triggerClasses = [
+  const triggerClasses = merge(
     "d-if ai-c g-2",
     base,
     BUTTON_SHAPES[shape],
     TONE_BUTTON[triggerTone],
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const popupClasses = [
     "o-h p-r w-96 bg-white bc-silver-2 c-slate-10 bw-1",

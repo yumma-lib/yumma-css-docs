@@ -59,7 +59,7 @@ export interface RadioProps {
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  iconSide?: IconSide;
+  iconPosition?: IconSide;
   disabled?: boolean;
   animate?: boolean;
   className?: string;
@@ -74,7 +74,7 @@ export default function RadioBase({
   size = "md",
   shape = "rounded",
   shadow = "none",
-  iconSide = "leading",
+  iconPosition = "leading",
   disabled = false,
   animate = true,
   className,
@@ -125,7 +125,7 @@ export default function RadioBase({
               }`}
             >
               <div className="d-f ai-c g-2">
-                {option.icon && iconSide === "leading" && (
+                {option.icon && iconPosition === "leading" && (
                   <span className="d-f ai-c c-slate-5">{option.icon}</span>
                 )}
                 <Radio.Root
@@ -144,7 +144,7 @@ export default function RadioBase({
                   {animate ? undefined : indicator}
                 </Radio.Root>
                 <span>{option.label}</span>
-                {option.icon && iconSide === "trailing" && (
+                {option.icon && iconPosition === "trailing" && (
                   <span className="d-f ai-c c-slate-5 ml-auto">
                     {option.icon}
                   </span>

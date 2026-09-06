@@ -3,6 +3,7 @@
 import { Field } from "@base-ui/react/field";
 import { Check, WarningTriangle } from "iconoir-react";
 import type { ComponentProps, ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -61,6 +62,8 @@ const STATUS_MESSAGE: Record<Status, string> = {
 
 export interface FieldProps
   extends Omit<ComponentProps<typeof Field.Control>, "size"> {
+  // merge composes a string, so the Base UI function form is not accepted here.
+  className?: string;
   label?: string;
 
   description?: string;
@@ -73,7 +76,7 @@ export interface FieldProps
   shadow?: Shadow;
 
   icon?: ReactNode;
-  iconSide?: IconSide;
+  iconPosition?: IconSide;
 
   iconInteractive?: boolean;
 
@@ -95,7 +98,7 @@ export default function FieldBase({
   shape = "rounded",
   shadow = "none",
   icon,
-  iconSide = "leading",
+  iconPosition = "leading",
   iconInteractive = false,
   prefixNode,
   suffix,
@@ -109,10 +112,10 @@ export default function FieldBase({
   const status: Status = error ? "error" : success ? "success" : "default";
   const message = error ?? success ?? description;
   const showDecorativeIcon = Boolean(icon) && status === "default";
-  const activeSide: IconSide = status === "default" ? iconSide : "trailing";
+  const activeSide: IconSide = status === "default" ? iconPosition : "trailing";
   const hasAffix = Boolean(prefixNode) || Boolean(suffix);
 
-  const controlClasses = [
+  const controlClasses = merge(
     "bg-white c-slate-10 bw-1 fs-md fv:oo--1",
     fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
     SHAPES[shape],
@@ -123,9 +126,7 @@ export default function FieldBase({
       ? ICON_PADDING[activeSide]
       : "pl-4 pr-4",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const affixControlClasses = [
     "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md fv:oo--1",
@@ -143,16 +144,14 @@ export default function FieldBase({
   const affixBoxClasses =
     "d-f ai-c jc-c px-3 bg-white bc-silver-3 c-slate-6 byw-1 fs-md";
 
-  const multilineClasses = [
+  const multilineClasses = merge(
     "h-20 w-100% pt-3 pl-4 pr-4 r-none bg-white c-slate-10 bw-1 fs-md fv:oo--1",
     SHAPES[shape],
     SHADOWS[shadow],
     STATUS_BORDER[status],
     STATUS_RING[status],
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   return (
     <Field.Root
@@ -193,7 +192,7 @@ export default function FieldBase({
         <div className="d-f p-r ai-c">
           {showDecorativeIcon && (
             <span
-              className={`d-f p-a ai-c c-slate-5 ${iconInteractive ? "" : "pe-none"} ${iconSide === "leading" ? "l-3" : "r-3"}`}
+              className={`d-f p-a ai-c c-slate-5 ${iconInteractive ? "" : "pe-none"} ${iconPosition === "leading" ? "l-3" : "r-3"}`}
             >
               {icon}
             </span>

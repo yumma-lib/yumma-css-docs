@@ -3,6 +3,7 @@
 import { Tooltip } from "@base-ui/react/tooltip";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Side = "top" | "right" | "bottom" | "left";
 type Tone = "light" | "dark";
@@ -69,13 +70,11 @@ export default function TooltipBase({
   className,
   container,
 }: TooltipProps) {
-  const triggerClasses = [
+  const triggerClasses = merge(
     "d-f ai-c jc-c bg-transparent bw-0 c-p fv:oo-2",
     TRIGGER_TONES[triggerTone],
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const popupClasses = [
     "px-3 py-2 fs-sm us-none",

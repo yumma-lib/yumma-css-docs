@@ -7,6 +7,7 @@ import { Search } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -75,13 +76,11 @@ export default function CommandPaletteBase({
 }: CommandPaletteProps) {
   const [open, setOpen] = useState(false);
 
-  const triggerClasses = [
+  const triggerClasses = merge(
     "bg-white d-f ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2 fv:oc-indigo-5",
     ITEM_SHAPES[shape],
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const popupClasses = [
     "o-h w-96 bg-white bc-silver-2 c-slate-10 bw-1",

@@ -1,6 +1,7 @@
 import { Checkbox } from "@base-ui/react/checkbox";
 import { Check, Minus } from "iconoir-react";
 import type { ComponentProps, ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -78,7 +79,7 @@ export default function CheckboxBase({
         <Checkbox.Root
           disabled={disabled}
           className={(state) =>
-            [
+            merge(
               BOX,
               SIZES[size],
               SHAPES[shape],
@@ -86,9 +87,7 @@ export default function CheckboxBase({
 
               state.checked || state.indeterminate ? CHECKED : UNCHECKED,
               className,
-            ]
-              .filter(Boolean)
-              .join(" ")
+            )
           }
           {...props}
         >

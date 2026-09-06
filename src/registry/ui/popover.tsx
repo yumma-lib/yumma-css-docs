@@ -5,6 +5,7 @@ import { Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Side = "top" | "right" | "bottom" | "left";
 type Shape = "rounded" | "square" | "squircle";
@@ -88,15 +89,13 @@ export default function PopoverBase({
     onOpenChange?.(next);
   };
 
-  const triggerClasses = [
+  const triggerClasses = merge(
     "d-f ai-c jc-c bw-1 bc-silver-2 bg-white c-slate-10 us-none c-p h:bg-silver-1 fv:oo-2 fv:oc-indigo-5",
     TRIGGER_VARIANTS[triggerVariant],
     TRIGGER_SHAPES[shape],
     open ? "bg-silver-1" : "",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const popupClasses = [
     "px-4 py-3 w-56 bg-white bc-silver-2 c-slate-10 bw-1",

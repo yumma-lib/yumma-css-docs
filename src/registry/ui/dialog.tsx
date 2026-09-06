@@ -6,6 +6,7 @@ import { Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -106,16 +107,14 @@ export default function DialogBase({
 }: DialogProps) {
   const [open, setOpen] = useState(false);
 
-  const triggerClasses = [
+  const triggerClasses = merge(
     "d-if ai-c g-2",
     BUTTON_BASE,
     TRIGGER_SIZES[triggerSize],
     BUTTON_SHAPES[shape],
     TRIGGER_TONES[triggerTone],
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const popupClasses = [
     "o-h p-r w-96 bg-white bc-silver-2 c-slate-10 bw-1",

@@ -26,14 +26,27 @@ clearing; keep this file short.
 
 | repo | branch | state |
 | --- | --- | --- |
-| `docs` | `main` | on `3.30.0`, one `source` glob, no `safelist` |
+| `docs` | `main` | still on `3.30.0` |
+| `docs` | `normalize-source` | **13 unmerged commits**, and the base for Phase 5 |
 | `play` | `main` | `45f1584`. Dependabot merged, and on `3.30.0` |
-| `yummacss` | `main` | `6e68a5b`. `3.30.0` released and published |
+| `yummacss` | `main` | `3.31.0` released and published, with `yummacss/merge` |
+| `yummacss` | `merge-perf` | **1 unmerged commit**: the 14x merge speedup, `3.31.1` |
 | `yummacss` | `v4` | 4 ahead of `main`: colon-syntax parsing, fixtures migrated |
 | `ui` | `main` | **published, `yummaui@0.2.1`**, with `prune` |
 
-Published: `@yummacss/*` at `3.30.0`, `yummaui` at `0.2.1`. There are eight
+Published: `@yummacss/*` at `3.31.0`, `yummaui` at `0.2.1`. There are eight
 packages, not nine; `language-server` was deleted with the extensions.
+
+**`docs#150` merged at the branch's third commit** and the other 13 were pushed
+after, with no open PR left to carry them. That is the merge-timing trap below,
+for the third time. The `3.31.0` bump, the phase renumbering and
+`tests/merge-safety.test.ts` are all in those 13, so anything reading this file
+has to branch off `normalize-source`, not `main`, until they land.
+
+**`3.31.1` is prepared but not published.** `packages/cli/package.json` says
+`3.31.1`; npm's latest is `3.31.0`, which is the merge that scans all 217
+prefixes per class. `docs` runs on the slow one until `merge-perf` merges and
+ships.
 
 `ui` is a **separate repo** (`github.com/yummacss/ui`). The folder and repo are
 `ui`; the **published npm package is `yummaui`**, because `ui` is taken. Do not
@@ -49,8 +62,7 @@ are already in the order to do them.
 
 **Starting a session.** Paste this:
 
-> Working on yummacss/docs. Read NOTES.md first, then start Phase N. TODO.md is
-> Cursor's queue, leave it alone.
+> Working on yummacss/docs. Read NOTES.md first, then start Phase N.
 
 Replace N with the first phase that is not marked done. That is the whole
 message; everything else is in this file on purpose.
@@ -70,9 +82,27 @@ the target, and eighty lines is not. **This file is the exception** - it is the
 only place detail is meant to accumulate, because it is what survives a cleared
 chat. A PR or a comment restating it duplicates something that will drift.
 Twelve-line block comments explaining a file's history are this rule being
-broken; the history goes here. **No "Generated with Claude Code" footer** in a
+broken; the history goes here. **Cut every clause that explains rather than
+states.** "Yumma utilities are single-class selectors. Stylesheet order wins
+over `className`. Merge drops the losing class." replaces three sentences of
+reasoning and loses nothing. **Never name another framework** to explain a
+Yumma decision. **No em dashes.** **No "Generated with Claude Code" footer** in a
 PR body, commit or comment - the `Co-Authored-By` trailer already says it, and
 saying it twice reads like a signature on someone else's work.
+
+**NOTES.md is the source of truth, and it is only worth credits if it is
+never wrong.** Every change to any of the four repos updates it in the same
+commit - not just the interesting ones. A stale entry has now cost real time
+three times: `ui/customization.mdx` described sections that no longer existed,
+the `.md` entry named three `.tsx` files that never existed, and the `className`
+entry sent someone hunting a string that was not there. **Before acting on an
+entry, check the file it describes**; if it is wrong, fix the entry as part of
+the work rather than working around it.
+
+**TODO.md is now yours, not Cursor's.** The old "leave it alone" rule is
+dead - Renildo moved it over. It is a bug and API-wish list in his words, not a
+plan: verify each item against the code before acting, because several are
+symptoms rather than causes (see the separator entry below).
 
 **Document the change in the same commit that makes it.** A new command, flag,
 script or convention gets its entry here as it lands, not later - a cleared
@@ -88,25 +118,29 @@ them through.
 
 ## The plan, in phases
 
-Status: **Phases 1, 2 and 3 are done.** `3.30.0` is published and `docs` is on
-it; the config step that closed Phase 1 changed the generated CSS by **nothing
-at all**. `yummaui` is published at `0.2.1` with `prune`. **Phase 4 is next**,
-and the missing CLI reference page joins it.
+Status: **Phases 1, 2, 3, most of 4 and most of 5 are done.** `3.31.0` is
+published and the `docs` bump to it is on `normalize-source`. `yummaui` is
+published at `0.2.1` with `prune`. Phase 4 has three items left. **Phase 5 has
+one**: the shorthand table misses physical longhands, and that fix lives in
+`yummacss` and needs a release.
 
 | # | Phase | Repos | Why it sits here |
 | --- | --- | --- | --- |
-| 1 | Fix the class scanner | `yummacss`, `docs` | Root-caused, small, and everything downstream writes classes. |
-| 2 | Fix negative values | `yummacss` | Done. 72 utilities emitted CSS the parser threw away; shipping in `3.30.0`. |
-| 3 | Yumma UI: `prune` | `ui` | The one thing a real user said she would use. Everything else on Yumma UI is polish. |
-| 4 | Docs debt | `docs` | Cheap, mechanical, and the corpus the 4.0 codemod runs against first. |
-| 5 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
-| 6 | v4 decisions | none, design only | These gate the codemod and the canon list. Decide before building. |
-| 6b | Pre-v4 audit | all | Split: the API half gates Phase 7, the cleanup half is genuinely last. |
-| 7 | v4 build | all | The codemod, the canon list, the migration. Gated on 6.
+| 1 | Fix the class scanner | `yummacss`, `docs` | Done. |
+| 2 | Fix negative values | `yummacss` | Done. 72 utilities emitted CSS the parser threw away. |
+| 3 | Yumma UI: `prune` | `ui` | Done. The one thing a real user said she would use. |
+| 4 | Docs debt | `docs` | Nearly done. The corpus the 4.0 codemod runs against first. |
+| **5** | **Class merge (`yummacss/merge`)** | `yummacss`, `ui`, `docs` | **The documented limitation, and the deal-breaker. Shipped and in use.** |
+| 6 | Yumma UI API | `docs`, `ui` | Collapse blocks into components, then work `TODO.md`. Gated on 5: half the fixes are override bugs. |
+| 7 | One breaking registry release | `docs`, `ui` | `/ui/registry`, `registryDeps`, no `blocks` key, OTP field. Ship together or churn twice. |
+| 8 | Retire `@yummacss/intellisense` | `yummacss`, `play` | Frees `play` and closes most of the `any` item. Independent of everything. |
+| 9 | v4 decisions | none, design only | These gate the codemod and the canon list. Decide before building. |
+| 9b | Pre-v4 audit | all | Split: the API half gates the build, the cleanup half is genuinely last. |
+| 10 | v4 build | all | The codemod, the canon list, the migration. Gated on 9. |
 
-**`TODO.md` is Cursor's lane and is not a phase.** It holds per-component API
-fixes Renildo is having Cursor work through. Do not pick items out of it, do not
-fix them in passing, and do not fold them into any phase here.
+**`TODO.md` is a phase now** - Phase 6 - and it is yours, not Cursor's. It is a
+bug and API-wish list in Renildo's words, not a plan: verify each item against
+the code first. Several are symptoms, not causes.
 
 ---
 
@@ -262,9 +296,25 @@ making the id addressable.
       statically**, so `prune` counts those files and says so rather than
       guessing. If someone reports a wrongly-deleted file, look there first.
 
-**Parked, deliberately: whether blocks should exist at all.** Renildo's lean is
-no - quality over quantity, components only, not `dialog-sign-up`. Do not act on
-this yet. What is known if it is revisited: **only 10 of 36 components have
+**Decided: the block/component split is going away.** Renildo's read is that
+these are all just components with a different anatomy, and the test that
+matters is **does it add API surface, or only arrange existing surface**. By
+that test ~18 of the blocks are components nobody has written yet (four
+`button-group`s are one `ButtonGroup` with props) and the dialogs are page
+templates. **19 variants are deleted** - the 5 remaining
+dialogs, the project-management demo scattered across 9 entries (`Acme
+Website`, `Sprint points`, `Dashboard Redesign`), `button-favorite` (11 lines
+of ghost button), and both colour pickers. **84 files down to 65, blocks 25 to
+13.** Five components now have no variants at all: dialog, preview-card,
+onboarding, rating, toolbar - their pages are the playground and the prop
+table, which for dialog and preview-card is the right answer and for
+onboarding is worth a look. **Two mechanical consequences before collapsing
+the rest**: `--all` excludes blocks on purpose (each pulls its parents, so
+`--all` would write `dialog` seven times), and `index.json`'s `blocks` key is
+part of the published contract, so it moves in the same release as the
+`registryDeps` rename.
+
+**Old context, still true if it is revisited:** What is known if it is revisited: **only 10 of 36 components have
 blocks** (dialog 7, button 4, checkbox 3, then 1-2 each), and the cost of an
 unused block is **lines you own, not CSS** - dialog goes 246 to 643 lines with
 all 7, while the CSS grows only 2733B to 3409B, because blocks reuse the same
@@ -288,11 +338,6 @@ blocks a release.**
       table. Separator is the one that matters: an icon breaks the rule in half
       and centres the glyph in the gap, which is a spatial fact a type cannot
       state.
-- [ ] **The ~30 `className` "any utility you pass wins" descriptions cannot be
-      found.** Checked 2026-08-28: zero hits for that phrasing anywhere in `src`,
-      and `className` does not appear in any of the 36 meta schemas at all.
-      **Confirm and delete this entry rather than hunting for a string that is
-      not there.** The cascade gotcha it referred to is still real.
 
 ### Phase 4 - Docs debt
 
@@ -365,9 +410,6 @@ blocks a release.**
       gutting a docs page to frontmatter fails the first. **This is the test
       whose absence let a 965-byte regression be fixed and then silently return
       at 65 bytes.**
-- [ ] **Unreproduced:** radio, select, breadcrumb and onboarding pages reported
-      as erroring. All four returned 200 with no console errors and
-      `/api/ui-md/` 200. Needs the actual error text.
 - [x] **Both span pages deleted**, with 308s to their parents in `redirects.ts`
       (verified live, and both parents still 200). They were duplicate *pages*,
       not a stale API: each rendered the identical
@@ -394,10 +436,22 @@ blocks a release.**
       `c-accent`**, so overriding a colour a component already sets silently
       does nothing. That inconsistency is the argument for props, and it is the
       "cascade gotcha" the old `className` note was circling.
-- [ ] `responsive-variant.tsx`, `hover-state.tsx` and `negative-values.tsx`
-      render JSX rather than text, so their content is absent from the `.md`
-      routes. Possible fix: drive them from `@yummacss/core` so the content is
-      data.
+- [x] **`<Baseline />` and `<Palette />` reach the `.md` routes.** The entry
+      this replaces named three `.tsx` files that **do not exist anywhere** -
+      check the file before working from a note about it, again. The real gap
+      was the same self-closing hole `<ComponentPlayground />` fell through:
+      **142 `<Baseline />` uses across 130 pages** rendered nothing, and
+      `/docs/colors.md` lost the whole palette.
+      `src/utils/baseline.ts` is now the shared lookup, so the component and the
+      `.md` renderer read one source. Markdown gets versions the page does not
+      show (`Chrome 93 (desktop only) · Edge 93 · …`) because an icon does not
+      survive the trip. **The palette is family plus base hex, not 19x13** - the
+      shades are generated by the documented rule and every one of them is
+      already on its own utility page.
+      Two leaks found while measuring: `colors.md` served its raw
+      `import { COLOR_FAMILIES } from "@/utils/colors"` line and the literal
+      text `{COLOR_FAMILIES.length}`. Imports are stripped **outside fences
+      only** - nine pages document an `import` inside one.
 - [x] **`llms-full.txt` is deleted.** Measured before removing it: **2.37 MB,
       about 594,000 tokens**, past most context windows outright. `llms.txt` is
       21 KB (~5,300) and a page `.md` about 15 KB (~3,900), so the index plus
@@ -442,7 +496,209 @@ blocks a release.**
       markers in `blog.html`, the 4.0 post absent from the listing, and its
       route not prerendered at all.
 
-### Phase 5 - Retire `@yummacss/intellisense`
+### Phase 5 - Class merge (`yummacss/merge`)
+
+**The problem, stated exactly.** Every Yumma utility is a single-class
+selector, so they all have equal specificity and the winner is whichever sits
+later **in the generated stylesheet** - nothing to do with the order you pass
+them. Measured in the built CSS: `bg-red-5` beats `bg-indigo`, `px-8` beats
+`p-4`, but **`c-white` beats `c-accent`**. So `className="c-accent"` on a
+component that already sets `c-white` silently does nothing. `/docs/class-merge`
+and `ui/customization.mdx` both document the fix now, not the limitation.
+
+**Yumma's version is cheaper than Tailwind's, and that is the interesting
+part.** `tailwind-merge`'s real cost is a large hand-maintained table of
+conflict groups, needed because Tailwind's prefixes do not map cleanly to
+properties (`text-sm` is font-size, `text-red-500` is color). Yumma's do:
+**every utility in `@yummacss/core` already carries `{ prefix, properties[] }`**,
+so the conflict map is generated, not written. 217 prefixes map straight out
+of the 15 `*Utils` groups.
+
+**The rule is a subset test, not an overlap test.** Walk the class list
+backwards and drop a class only when **everything** it sets is already covered
+by a later one, comparing within the same variant. That gets the case an
+overlap test gets wrong: `px-8 p-4` loses `px-8`, but `p-4 px-8` **keeps
+both**, because `px-8` says nothing about the block axis.
+
+**The only hand-written part is six shorthand expansions**, because core
+declares logical properties: `padding` covers `padding-inline` covers
+`padding-inline-start`. Same for margin, plus `inset`, `gap`, `overflow`,
+`border-*`.
+
+- [x] **Built as `yummacss/merge`**, a subpath of the `yummacss` package
+      (`packages/cli`), on the `merge` branch. **2.6 kB gzipped**, 8 tests in
+      `tests/merge.test.ts`, each verified to bite.
+      **It is not `ym` and not a registry file any more.** `ym` said nothing at
+      a call site; `merge` says what it does. And a copied registry file would
+      have been a second copy of logic that belongs with the CSS it describes -
+      shipping it from the package that generates your stylesheet means it can
+      never be out of step with it, and people using Yumma CSS **without**
+      Yumma UI get it too.
+      **`tsdown.config.ts` is now two configs**, because the `#!/usr/bin/env
+      node` banner applied to every entry and has no business in a browser
+      bundle. `dts: true` on the library half, so the subpath has types - the
+      package shipped none before.
+- [x] **A prefix alone is not enough - 31 are claimed by twice.** `c` is color
+      **and** cursor, `p` padding and position, `f` fill and flex. Separator
+      sets `c-slate-10` and `c-p` on one element, so a prefix-only map silently
+      eats the colour. The value decides: for each contested prefix the
+      **open-ended** utility (the palette, the spacing scale) is the default and
+      its values are not listed, and the keyword utilities are listed by value.
+      **129 keys instead of 2,258.**
+- [x] **The registry-util machinery is reverted.** A third `kind` in the
+      registry, `.ts` support in both generators and a `UTILS` list were built
+      and then deleted the same day, because shipping from the package makes
+      all of it unnecessary. Recorded so nobody rebuilds it: `git show
+      3168890` in `docs` has the whole thing if a registry util is ever
+      genuinely needed.
+- [x] **`merge` is 5.7us per call for a 16-class string, in `3.31.1`.** It was
+      **79us**: the first version scanned all 217 prefixes per class. It now
+      cuts the base at each dash and looks up directly (longest prefix is 6
+      chars, 15 contain a dash) and caches per class. 1000 elements per render
+      is 5.7ms, not 79ms. Measure before believing a merge is cheap.
+- [x] **`tests/merge-safety.test.ts` answers "how do we know nothing is lost".**
+      `merge` removes classes, and a wrong removal throws nothing. The test
+      extracts every static class string in `src/registry/ui` and asserts
+      `merge(s) === s`: a component's own classes must never lose one.
+      **767 strings, 0 losses**, run before the pass. Verified to bite by
+      planting `c-white c-accent`. It does not cover template literals with
+      `${}` or classes a caller passes; those are the ones that are meant to
+      override.
+- [x] **All 36 components merge instead of joining.** 41 call sites, every one
+      that ended in a caller `className`. The 63 internal-only joins are left
+      as they are: merge cannot change a list nobody overrides, and it is not
+      free. `yummacss` moved from `devDependencies` to `dependencies`, because
+      the components import it at runtime now.
+      **Three states rendered wrong and now do not.** `bg-white` sits after
+      `bg-silver-1` in the stylesheet, so the open Popover trigger, the open
+      Select trigger and the disabled FileUpload dropzone all rendered white
+      against their own state class. `preview-card`'s `td-none` is the fourth
+      drop and changes nothing, `td-u` already won. Those four are the only
+      classes dropped anywhere, and `c-p` and `p-a` survive every combination.
+      **`Button` and `Field` declare `className?: string` now.** Both extend a
+      Base UI props type where `className` may also be a function, which
+      `join(" ")` was stringifying into the class attribute. merge's types are
+      what caught it; the function form never worked.
+- [x] **`tests/merge-composition.test.ts` is the unit merge-safety is not.**
+      One string at a time is the wrong unit once a component merges a base
+      string, a shape map, a state branch and `className` - a drop only happens
+      across those arguments. It resolves each argument to the strings it can
+      hold and merges all 4068 combinations, asserting the four expected drops
+      by name, so a new one fails instead of changing a colour. Verified to bite
+      by planting `c-white` next to `c-p` in `tooltip.tsx`.
+- [x] **Decided: a subpath of `yummacss`. Not a new package, not the CLI, not
+      a registry file.**
+      **The CLI is impossible, not merely wrong** - `yummaui` runs under `dlx`
+      and is never installed, while `ym` runs in the browser on every render.
+      The CLI can *write* the file; it cannot export it.
+      **A package that imports core at runtime costs 14.4 KB gzipped against
+      3.7 KB** for the baked map plus `ym`, measured. A package with a *baked*
+      map has the same staleness as a copy, just moved, and the direction of
+      travel is fewer packages - `intellisense` is being retired.
+      **Staleness degrades to today's behaviour, which is what makes the copy
+      safe.** An unknown prefix resolves to null and the class passes through
+      untouched, so a map that has not seen a new utility merges it exactly as
+      badly as Yumma does now - never worse. The one real risk is core
+      *changing* an existing prefix's properties, which is a major-version
+      event. There is nothing to refresh: the map ships with the package that
+      generates the stylesheet, so a `pnpm up yummacss` is the whole story.
+- [x] **`/docs/class-merge`**, in Handbook after `negative-values`. Yumma CSS
+      docs, not Yumma UI: the limitation is a CSS-level one and applies to
+      anyone composing class strings. It carries the `p-4 px-8` pair that shows
+      the rule is a subset test rather than "last one wins", the shared-prefix
+      and variant cases, and the two alternatives below so the question is
+      answered on the page rather than asked again.
+- [x] **`@layer` and `!important` are both refused, on the page.** `@layer`
+      cannot do this because a class is defined once: demoting `c-white` to a
+      lower layer demotes it for every element, not for the one that was passed
+      an override, and one definition cannot sit in two layers depending on who
+      used it. `!important` is a blunter escape hatch that ends the
+      conversation for that property everywhere and does nothing when both
+      classes carry it.
+- [x] **`ui/customization.mdx` documents the fix.** The `className` section was
+      a warning that overrides do not reliably work; it is now the opposite,
+      pointing at `/docs/class-merge`, with the prefer-a-prop advice kept as a
+      hint rather than as the reason.
+- [ ] **The shorthand table misses every physical longhand, and `docs` is
+      hitting it.** `merge("px-8 p-4")` drops `px-8`, but `merge("pt-2 p-4")`
+      keeps both, because core declares `p` as `padding` and `px` as
+      `padding-inline` (logical) while `pt` is `padding-top` (physical), and
+      `SHORTHANDS` in `packages/cli/src/merge.ts` only expands the logical
+      side. Same for `ml`/`m`, `btw`/`bw`, `btc`/`bc`, `btlr`/`br`. It fails
+      safe - a kept class is today's behaviour, never worse - which is why
+      nothing rendered wrong and why it is not urgent.
+      **The fix is to expand the true shorthands to their physical leaves as
+      well** (`padding` to the four edges, `margin`, `border-width`,
+      `border-color`, `border-radius` likewise). **Do not do the same to
+      `padding-inline` or `padding-block`**: those map to left/right only in a
+      horizontal writing mode, and Yumma has `wm-*`. `field.tsx` sets `pl-4
+      pr-4 pt-3`, so a caller's `p-2` does not fully override it today.
+      Needs a `yummacss` release to reach `docs`.
+      **`pl-4 pr-4` should have been `px-4` in the first place.** Fix the
+      component too, not only the table.
+- [ ] **`merge` breaks in v4, and it is the sixth colon-splitter.** v4 classes
+      are `bg:red-5`, `h:bg:red-5`, `@sm:d:b`. `merge` takes the variant with
+      `className.lastIndexOf(":")` and cuts the prefix at dashes, so `bg:red-5`
+      resolves to a variant named `bg`. **`yummacss` commit `b9eb894` on `v4`
+      fixed exactly this in five other places** (hover's `parseUtility`, sort,
+      conflicts, the monaco adapter, `suggestClasses`) and put **one splitter in
+      core** that peels a variant only when what remains is not already a
+      utility. `merge` uses that splitter. It does not grow its own.
+- [ ] **Canon lint: two rules `merge-map` makes nearly free.** **`pl-4 pr-4`
+      should be `px-4`** is "two classes whose properties union equals a
+      shorthand's", needing no data the map does not carry. **A `style`
+      attribute setting a property a utility covers** (`top: -1` when `t--1`
+      exists) is the map inverted to properties-to-prefix; naming the exact
+      replacement needs a value-to-scale lookup, but the warning is worth
+      having without it.
+
+### Phase 6 - Yumma UI API (`TODO.md`)
+
+- [x] **`iconSide` renamed to `iconPosition`.** Measured: **14 components split
+      across two names for one prop** - `iconPosition` on 9, `iconSide` on 5,
+      identical `leading`/`trailing` values on both. `iconPosition` wins on
+      three counts: the majority, it does not collide with `side` (Popover and
+      Tooltip use that for placement relative to the trigger, a different
+      thing), and `triggerIconPosition` already reads that way.
+      `tests/registry.test.ts` now fails on **any** two prop names that differ
+      only by a `Side`/`Position`/`Placement`/`Align` suffix, so the rule is
+      enforced rather than the one pair banned. Verified to bite.
+- [ ] **The separator entry is two bugs, not the one it describes.** "Both
+      `orientation` and `shape` do nothing": `orientation` works in the plain
+      branch and is **ignored entirely** in the icon/label branch, which
+      hardcodes `h-px`. `shape` never touches a separator at all - it styles
+      the icon **button**, so the prop's name lies. "No lines at all" is
+      neither: every class resolves (`h-px{height:1px}`,
+      `bg-silver-2{background-color:#e1e3e7}`), so the lines render - 1px of
+      near-white on white.
+- [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
+      every meta against its component source: 4 hits, all spread-forwarded
+      false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
+      **wired and ineffective**, which no static check will find. They need the
+      component opened one at a time.
+
+### Phase 7 - One breaking registry release
+
+All three change something a published `yummaui.json` or an installed CLI
+depends on, so they ship together or the ecosystem churns three times.
+
+- [ ] `public/ui/r` to `public/ui/registry`, with a redirect from the old path:
+      `registry` is stored as an **absolute URL**, so every existing install
+      points at `/ui/r` forever.
+- [ ] `registryDependencies` to `registryDeps` in the generator, the JSON and
+      `ui/src/registry.ts`. A CLI reading the new field cannot read old JSON,
+      so either both ship for one version or the CLI floor moves.
+- [ ] Drop the `blocks` key from `index.json` once Phase 6 collapses the
+      distinction. `resolveNames` reads `index.blocks`, so it moves in the same
+      release. **`--all` currently excludes blocks on purpose** - each pulls its
+      parents, so a flat `--all` would write `dialog` several times over. That
+      guard needs replacing, not deleting.
+- [ ] Add an OTP field component over `@base-ui/react`'s.
+- [ ] **16 `example` entries are still unreachable**: not in `index.json`, not
+      referenced by any page, and `resolveNames` rejects their ids. Publish
+      them in the index or stop generating them - they cannot stay as they are.
+
+### Phase 8 - Retire `@yummacss/intellisense`
 
 The extensions are already deleted (see Rejected). This is the package.
 
@@ -470,7 +726,7 @@ The extensions are already deleted (see Rejected). This is the package.
       `#inline-start`). The docs headings were written to match each slug exactly
       so all 16 anchors land; normalise core and those headings can go uniform.
 
-### Phase 6 - v4 decisions
+### Phase 9 - v4 decisions
 
 - [ ] **Bounded scale or unbounded?** See the 0-384 section below. This one
       decides the shape of canon, so it goes first.
@@ -507,12 +763,12 @@ The extensions are already deleted (see Rejected). This is the package.
       how a shade is derived. Nothing else in core touches `tinycolor2`.
       `docs` uses it separately - `palette.tsx` for display, `utils/colors.ts`
       for a luminance check - and would need its own change. `intellisense`
-      uses it and is being deleted in Phase 5 anyway. **`play` does not depend
+      uses it and is being deleted in Phase 8 anyway. **`play` does not depend
       on it at all.**
       **The catch:** every generated hex changes. That is a visual break for
       anyone who pinned a colour by eye, which is a v4 change, not a 3.x one.
 
-### Phase 6b - The pre-v4 audit
+### Phase 9b - The pre-v4 audit
 
 Renildo's ask: a rundown of the whole codebase for redundancy, performance,
 code reduction and bundle size before v4, plus possibly rewriting how core is
@@ -520,7 +776,7 @@ authored so adding utilities is pleasant.
 
 **Split it in two, because the halves have opposite deadlines.**
 
-- [ ] **Architecture and API - must come BEFORE Phase 7, not last.** How core is
+- [ ] **Architecture and API - must come BEFORE Phase 10, not last.** How core is
       authored decides the canon shape, which the codemod and the docs migration
       are both written against. Doing it after means redoing them. If the
       utility record shape changes at all, it changes here or not until v5.
@@ -541,14 +797,14 @@ runtime 61,457 | cli 39,796 | intellisense 19,589 | nitro 18,897 | canon 3,597 |
 postcss 1,973 | vite 1,727. Core and runtime are where the weight is, and
 `tinycolor2` alone is 27% of core.
 
-### Phase 7 - v4 build
+### Phase 10 - v4 build
 
 - [ ] The 4.0 codemod. Everything else in 4.0 depends on it existing, and it
       gates the release.
-- [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 6 settled.
+- [ ] `@yummacss/canon`'s canon list, in whatever shape Phase 9 settled.
 - [ ] `docs`: every code example. Run the codemod here first; largest real
       corpus, and it has to be migrated anyway.
-- [ ] The config-driven generators, per the Phase 6 answer.
+- [ ] The config-driven generators, per the Phase 9 answer.
 ---
 
 ## The playground
@@ -612,6 +868,17 @@ and had to be restored.
 ## Yumma UI: architecture and conventions
 
 Read before proposing a change to where things live or how a prop is shaped.
+
+**Queued renames and additions, not yet done.** All three are breaking for
+someone: do them together, in one release.
+
+- [ ] `public/ui/r` to `public/ui/registry`. Old path needs a redirect - a
+      published `yummaui.json` pins `registry` as an absolute URL, so every
+      existing install points at `/ui/r`.
+- [ ] `registryDependencies` to `registryDeps`, in the generator, the JSON, and
+      `ui/src/registry.ts`. A CLI reading the new field cannot read old JSON, so
+      the field ships in both shapes for one version or the CLI floor moves.
+- [ ] Add an OTP field component, over `@base-ui/react`'s.
 
 **The registry stays in `docs`, at `src/registry/`.** Served as static JSON from
 `public/ui/r/`, generated at build time by `scripts/generate-registry-json.mjs`

@@ -3,6 +3,7 @@
 import { PreviewCard } from "@base-ui/react/preview-card";
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -64,13 +65,11 @@ export default function PreviewCardBase({
     >
       <PreviewCard.Trigger
         className={(state) =>
-          [
+          merge(
             "c-indigo c-p fw-500 td-none h:td-u fv:td-u",
             state.open ? "td-u" : "",
             className,
-          ]
-            .filter(Boolean)
-            .join(" ")
+          )
         }
       >
         {trigger}

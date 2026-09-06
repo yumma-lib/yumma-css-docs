@@ -4,6 +4,7 @@ import { Autocomplete } from "@base-ui/react/autocomplete";
 import { Avatar } from "@base-ui/react/avatar";
 import { AnimatePresence, motion } from "motion/react";
 import { type ReactNode, useId, useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -71,7 +72,7 @@ export interface AutocompleteProps {
   shape?: Shape;
   shadow?: Shadow;
   icon?: ReactNode;
-  iconSide?: IconSide;
+  iconPosition?: IconSide;
   disabled?: boolean;
   loading?: boolean;
   autoHighlight?: boolean;
@@ -140,7 +141,7 @@ export default function AutocompleteBase({
   shape = "rounded",
   shadow = "none",
   icon,
-  iconSide = "leading",
+  iconPosition = "leading",
   disabled = false,
   loading = false,
   autoHighlight = false,
@@ -155,16 +156,14 @@ export default function AutocompleteBase({
   const [open, setOpen] = useState(false);
   const id = useId();
 
-  const inputClasses = [
+  const inputClasses = merge(
     INPUT,
     fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
-    icon ? ICON_PADDING[iconSide] : "pl-4",
+    icon ? ICON_PADDING[iconPosition] : "pl-4",
     className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const popup = (
     <Autocomplete.Popup
@@ -215,7 +214,7 @@ export default function AutocompleteBase({
         <div className="d-f p-r ai-c">
           {icon && (
             <span
-              className={`d-f p-a ai-c c-slate-5 pe-none ${iconSide === "leading" ? "l-3" : "r-3"}`}
+              className={`d-f p-a ai-c c-slate-5 pe-none ${iconPosition === "leading" ? "l-3" : "r-3"}`}
             >
               {icon}
             </span>
