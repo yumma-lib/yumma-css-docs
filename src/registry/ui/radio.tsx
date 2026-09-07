@@ -5,6 +5,7 @@ import { RadioGroup } from "@base-ui/react/radio-group";
 import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
 import { type ReactNode, useId } from "react";
+import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
@@ -98,7 +99,7 @@ export default function RadioBase({
         value={value}
         onValueChange={onValueChange}
         disabled={disabled}
-        className={`d-f fd-c g-3 ai-fs ${className ?? ""}`}
+        className={merge("d-f fd-c g-3 ai-fs", className)}
       >
         {options.map((option) => {
           const rootClasses = (checked: boolean) =>

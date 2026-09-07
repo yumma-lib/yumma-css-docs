@@ -754,6 +754,15 @@ declares logical properties: `padding` covers `padding-inline` covers
       **The classes must stay literal.** The scanner reads source, so
       `bg-${'{'}color{'}'}-1` generates no CSS. That constraint is why this is a table
       and not a template.
+- [x] **`radio.tsx` and `slider.tsx` took a `className` and never merged it.**
+      The 36-component pass missed them, so an override silently did nothing on
+      two of the components the feature exists for. `merge-safety` now fails on
+      any component that accepts `className` without calling `merge`, verified
+      by breaking slider.
+- [x] **Meter's `color` is open too**, same shape as Badge: a table, and
+      `type Color = keyof typeof COLORS`. `className` reaches Meter's root and
+      the colour is on the indicator, so the prop had to stay. `indigo` keeps
+      its `-5` rather than the base, which is what it always used.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
