@@ -267,6 +267,7 @@ export const sidebarConfig = {
       items: [
         "autocomplete",
         "checkbox",
+        "checkbox-group",
         "combobox",
         "file-upload",
         "field",
@@ -277,6 +278,7 @@ export const sidebarConfig = {
         "switch",
         "textarea",
         "toggle",
+        "toggle-group",
       ],
     },
     {
@@ -284,9 +286,9 @@ export const sidebarConfig = {
       items: [
         "accordion",
         "avatar",
+        "avatar-stack",
         "badge",
         "breadcrumb",
-        "collapsible",
         "meter",
         "preview-card",
         "progress",
@@ -295,7 +297,7 @@ export const sidebarConfig = {
     },
     {
       title: "Interactive",
-      items: ["button", "context-menu", "menu", "menubar"],
+      items: ["button", "button-group", "context-menu", "menu", "menubar"],
     },
     { title: "Navigation", items: ["tabs", "toolbar"] },
     {

@@ -38,7 +38,7 @@ export interface SwitchProps {
   size?: Size;
   shape?: Shape;
   disabled?: boolean;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
   ariaLabel?: string;
 }
@@ -53,7 +53,7 @@ export default function SwitchBase({
   size = "md",
   shape = "rounded",
   disabled = false,
-  animate = true,
+  animated = true,
   className,
   ariaLabel,
 }: SwitchProps) {
@@ -102,7 +102,7 @@ export default function SwitchBase({
           )}
           <Switch.Thumb
             render={
-              animate ? (
+              animated ? (
                 <motion.span
                   animate={{ x: checked ? travel : 0 }}
                   transition={{ duration: 0.2, ease: "easeInOut" }}
@@ -110,7 +110,7 @@ export default function SwitchBase({
               ) : undefined
             }
             className={
-              animate
+              animated
                 ? thumbClasses
                 : `${thumbClasses} ${checked ? travelClass : "ml-0"}`
             }

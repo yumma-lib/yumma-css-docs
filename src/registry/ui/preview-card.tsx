@@ -33,7 +33,7 @@ export interface PreviewCardProps {
   onOpenChange?: (open: boolean) => void;
   shape?: Shape;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -45,7 +45,7 @@ export default function PreviewCardBase({
   onOpenChange,
   shape = "rounded",
   shadow = "none",
-  animate = true,
+  animated = true,
   className,
   container,
 }: PreviewCardProps) {
@@ -79,7 +79,7 @@ export default function PreviewCardBase({
         <PreviewCard.Positioner sideOffset={8}>
           <PreviewCard.Popup
             render={
-              animate ? (
+              animated ? (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

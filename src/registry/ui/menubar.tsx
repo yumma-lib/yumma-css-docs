@@ -108,7 +108,7 @@ export interface MenubarProps {
   shape?: Shape;
   shadow?: Shadow;
   iconPosition?: IconPosition;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -117,7 +117,7 @@ export default function MenubarBase({
   shape = "rounded",
   shadow = "none",
   iconPosition = "leading",
-  animate = true,
+  animated = true,
   className,
   container,
 }: MenubarProps) {
@@ -309,7 +309,7 @@ export default function MenubarBase({
         <MenubarEntry
           key={menu.label}
           menu={menu}
-          animate={animate}
+          animated={animated}
           popupClasses={popupClasses}
           triggerClasses={triggerClasses}
           renderItems={renderItems}
@@ -322,14 +322,14 @@ export default function MenubarBase({
 
 function MenubarEntry({
   menu,
-  animate,
+  animated,
   popupClasses,
   triggerClasses,
   renderItems,
   container,
 }: {
   menu: MenubarMenu;
-  animate: boolean;
+  animated: boolean;
   popupClasses: string;
   triggerClasses: (disabled: boolean) => (state: { open: boolean }) => string;
   renderItems: (list: MenubarItem[], keyPrefix: string) => ReactNode;
@@ -343,7 +343,7 @@ function MenubarEntry({
       <Menu.Positioner className="ow-0" sideOffset={8}>
         <Menu.Popup
           render={
-            animate ? (
+            animated ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -366,7 +366,7 @@ function MenubarEntry({
         {menu.label}
       </Menu.Trigger>
 
-      {animate ? (
+      {animated ? (
         <AnimatePresence>{open && popup}</AnimatePresence>
       ) : (
         open && popup

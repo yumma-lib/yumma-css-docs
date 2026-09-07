@@ -80,7 +80,7 @@
       "description": "Called with the new state. Required for a controlled menu."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The popup's fade in/out. Turn it off for an instant appearance, or when the user has asked for reduced motion."

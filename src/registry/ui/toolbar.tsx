@@ -95,7 +95,7 @@ export interface ToolbarProps {
   items: ToolbarItem[];
   shape?: Shape;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -103,7 +103,7 @@ export default function ToolbarBase({
   items,
   shape = "rounded",
   shadow = "none",
-  animate = true,
+  animated = true,
   className,
 }: ToolbarProps) {
   const shadowClass =
@@ -138,7 +138,7 @@ export default function ToolbarBase({
               key={key}
               item={item}
               control={control}
-              animate={animate}
+              animated={animated}
             />
           );
         }
@@ -182,7 +182,7 @@ export default function ToolbarBase({
               <NumberField.Group className="d-f ai-c">
                 <NumberField.Decrement
                   render={
-                    animate
+                    animated
                       ? (props) => (
                           <motion.button
                             type="button"
@@ -193,7 +193,7 @@ export default function ToolbarBase({
                         )
                       : undefined
                   }
-                  className={animate ? undefined : stepClasses}
+                  className={animated ? undefined : stepClasses}
                 >
                   <Minus className="w-5 h-5" />
                 </NumberField.Decrement>
@@ -203,7 +203,7 @@ export default function ToolbarBase({
                 />
                 <NumberField.Increment
                   render={
-                    animate
+                    animated
                       ? (props) => (
                           <motion.button
                             type="button"
@@ -214,7 +214,7 @@ export default function ToolbarBase({
                         )
                       : undefined
                   }
-                  className={animate ? undefined : stepClasses}
+                  className={animated ? undefined : stepClasses}
                 >
                   <Plus className="w-5 h-5" />
                 </NumberField.Increment>
@@ -258,7 +258,7 @@ export default function ToolbarBase({
             onClick={button.onClick}
             aria-label={button.iconOnly ? button.label : undefined}
             render={
-              animate && !button.disabled
+              animated && !button.disabled
                 ? (props) => (
                     <motion.button
                       type="button"
@@ -269,7 +269,7 @@ export default function ToolbarBase({
                   )
                 : undefined
             }
-            className={animate && !button.disabled ? undefined : buttonClasses}
+            className={animated && !button.disabled ? undefined : buttonClasses}
           >
             {button.icon}
             {!button.iconOnly && button.label}
@@ -283,11 +283,11 @@ export default function ToolbarBase({
 function ToolbarToggles({
   item,
   control,
-  animate,
+  animated,
 }: {
   item: ToolbarTogglesItem;
   control: string;
-  animate: boolean;
+  animated: boolean;
 }) {
   const [internalValue, setInternalValue] = useState<string[]>(
     item.defaultValue ?? item.value ?? [],
@@ -323,7 +323,7 @@ function ToolbarToggles({
           value={option.value}
           aria-label={option.label}
           render={
-            animate
+            animated
               ? (props, state) => (
                   <motion.button
                     type="button"

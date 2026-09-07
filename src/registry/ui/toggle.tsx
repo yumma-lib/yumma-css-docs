@@ -49,7 +49,7 @@ export interface ToggleProps
 
   swatchClassName?: string;
 
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -63,7 +63,7 @@ export default function ToggleBase({
   size = "md",
   tone = "accent",
   swatchClassName,
-  animate = true,
+  animated = true,
   className,
   value,
   ...props
@@ -100,7 +100,7 @@ export default function ToggleBase({
         )
       }
       render={(renderProps, state) =>
-        animate ? (
+        animated ? (
           <motion.button
             type="button"
             {...(renderProps as HTMLMotionProps<"button">)}

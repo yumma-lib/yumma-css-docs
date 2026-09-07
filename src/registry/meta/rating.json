@@ -55,7 +55,7 @@
       "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card - this is what both shadow demos did."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The press-scale on each star. Turn it off for static stars, or when the user has asked for reduced motion."

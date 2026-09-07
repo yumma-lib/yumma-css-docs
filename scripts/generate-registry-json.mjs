@@ -24,7 +24,6 @@ import {
   writeFileSync,
 } from "node:fs";
 import { basename, join } from "node:path";
-import { isBlock } from "./lib/registry-blocks.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
@@ -112,6 +111,8 @@ mkdirSync(outDir, { recursive: true });
 
 const idSet = new Set(ids);
 const components = new Map();
+// Kept as an empty array until the breaking release drops the key: an
+// installed CLI reads index.blocks and would throw on its absence.
 const blocks = [];
 let orphans = 0;
 
@@ -121,8 +122,7 @@ for (const id of ids) {
 
   const source = readFileSync(join(uiDir, `${id}.tsx`), "utf8");
 
-  const kind =
-    variant === "base" ? "component" : isBlock(id) ? "block" : "example";
+  const kind = variant === "base" ? "component" : "example";
 
   const entry = {
     id,
@@ -159,8 +159,6 @@ for (const id of ids) {
     const group = components.get(component);
     if (variant === "base") group.base = id;
     else if (!group.fallback) group.fallback = id;
-
-    if (kind === "block") blocks.push({ id, component });
   }
 }
 
@@ -182,9 +180,9 @@ writeFileSync(
 );
 
 const missingBase = index.filter((g) => !g.base).length;
-const examples = ids.length - index.length - blocks.length - orphans;
+const examples = ids.length - index.length - orphans;
 console.log(
-  `registry json: ${index.length} components, ${blocks.length} blocks, ${examples} examples -> public/ui/r/`,
+  `registry json: ${index.length} components, ${examples} examples -> public/ui/r/`,
 );
 if (orphans) console.log(`  ${orphans} file(s) match no /ui page`);
 if (missingBase) console.log(`  ${missingBase} component(s) have no base`);

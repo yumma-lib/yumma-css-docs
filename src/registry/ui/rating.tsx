@@ -31,7 +31,7 @@ export interface RatingProps {
   disabled?: boolean;
   readOnly?: boolean;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   emptyHint?: string;
   children?: ReactNode;
   className?: string;
@@ -47,7 +47,7 @@ export default function RatingBase({
   disabled = false,
   readOnly = false,
   shadow = "none",
-  animate = true,
+  animated = true,
   emptyHint = "Click to rate",
   children,
   className,
@@ -107,7 +107,7 @@ export default function RatingBase({
                   aria-label={option.label}
                   className={iconClasses(option, active)}
                   render={
-                    animate && !disabled
+                    animated && !disabled
                       ? (props) => (
                           <motion.button
                             type="button"
@@ -121,7 +121,7 @@ export default function RatingBase({
                       : undefined
                   }
                 >
-                  {animate && !disabled ? undefined : option.icon}
+                  {animated && !disabled ? undefined : option.icon}
                 </Toggle>
               );
             })
@@ -154,7 +154,7 @@ export default function RatingBase({
                     aria-label={`${star} star${star > 1 ? "s" : ""}`}
                     className={starClasses(filled)}
                     render={
-                      animate && !disabled
+                      animated && !disabled
                         ? (props) => (
                             <motion.button
                               type="button"
@@ -168,7 +168,7 @@ export default function RatingBase({
                         : undefined
                     }
                   >
-                    {animate && !disabled ? undefined : icon}
+                    {animated && !disabled ? undefined : icon}
                   </Toggle>
                 );
               },

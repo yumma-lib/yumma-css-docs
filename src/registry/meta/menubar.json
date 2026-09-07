@@ -73,7 +73,7 @@
       "description": "Which end of an item its `icon` sits at. A `shortcut` always trails regardless."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The popups' fade in/out. Turn it off for instant menus, or when the user has asked for reduced motion."

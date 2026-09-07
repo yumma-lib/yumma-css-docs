@@ -1,0 +1,51 @@
+{
+  "summary": "A set of toggles sharing one container, in four shapes and both orientations, pressing one or several at a time.",
+  "props": [
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle", "pill"],
+      "default": "rounded",
+      "description": "Corner radius of the container. The toggles inside carry their own `shape`."
+    },
+    {
+      "name": "orientation",
+      "type": "enum",
+      "values": ["horizontal", "vertical"],
+      "default": "horizontal",
+      "description": "Stacks the toggles and switches the arrow keys that move focus."
+    },
+    {
+      "name": "multiple",
+      "type": "boolean",
+      "default": "false",
+      "description": "More than one toggle can be pressed at a time. Off by default, matching Base UI, so a group is single-choice unless you say otherwise."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Ignores interaction on every toggle in the group."
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "description": "The pressed toggles, controlled. Pair with `onValueChange`."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string[]",
+      "description": "The pressed toggles on first render, uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string[]) => void",
+      "description": "Called with the pressed values whenever they change."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Merged with the group's own classes, so a utility you pass wins."
+    }
+  ]
+}

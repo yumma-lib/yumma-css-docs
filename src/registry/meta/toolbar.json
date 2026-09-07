@@ -38,7 +38,7 @@
       "description": "Depth on the bar."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The press-scale on buttons and toggles. Turn it off for static controls, or when the user has asked for reduced motion."

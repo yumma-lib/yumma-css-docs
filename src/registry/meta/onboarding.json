@@ -79,7 +79,7 @@
       "description": "Depth on the popup."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The slide transition between steps and the popup's scale-in. Turn it off for an instant tour, or when the user has asked for reduced motion."

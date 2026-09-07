@@ -24,7 +24,7 @@ export interface ProgressProps {
   label: ReactNode;
   shape?: Shape;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -33,7 +33,7 @@ export default function ProgressBase({
   label,
   shape = "rounded",
   shadow = "none",
-  animate = true,
+  animated = true,
   className,
 }: ProgressProps) {
   const isCard = shadow !== "none";
@@ -80,7 +80,7 @@ export default function ProgressBase({
         ) : (
           <Progress.Indicator
             render={
-              animate ? (
+              animated ? (
                 <motion.div
                   animate={{ width: `${value}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}

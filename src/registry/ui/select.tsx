@@ -34,12 +34,6 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72 px-4",
 };
 
-const HEIGHTS: Record<Size, string> = {
-  sm: "h-8 px-3",
-  md: "h-10 px-3",
-  lg: "h-12 px-4",
-};
-
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
   md: "w-64",
@@ -127,8 +121,7 @@ export interface SelectProps {
   icon?: ReactNode;
   iconPosition?: IconSide;
   disabled?: boolean;
-  animate?: boolean;
-  fullWidth?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -147,8 +140,7 @@ export default function SelectBase({
   icon,
   iconPosition = "leading",
   disabled = false,
-  animate = true,
-  fullWidth = false,
+  animated = true,
   className,
   container,
 }: SelectProps) {
@@ -157,7 +149,7 @@ export default function SelectBase({
 
   const triggerClasses = merge(
     TRIGGER,
-    fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
+    SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     open ? "bg-silver-2/50" : "bg-transparent",
@@ -256,7 +248,7 @@ export default function SelectBase({
                 alignItemWithTrigger={false}
                 className="zi-10 p-0 ow-0 us-none"
               >
-                {animate ? (
+                {animated ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}

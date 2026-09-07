@@ -116,6 +116,39 @@ them through.
 
 ---
 
+## Handing this to another agent
+
+**The guardrails are real, so a wrong change is usually loud.** `pnpm vitest
+run` is 39 tests and **every one was verified to fail when the thing it checks
+is broken**. Notably: `merge-safety` catches a class silently dropped from any
+component, `registry.test` catches a file added without regenerating,
+`content.test` catches a page that names no registry entry, `markdown-routes`
+catches a `.md` route that renders nothing, and `reference.test` catches an
+undocumented utility. Run all four of `pnpm vitest run`, `pnpm exec tsc
+--noEmit`, `pnpm lint`, `pnpm build` before believing anything.
+
+**Five traps that cost time today:**
+
+- **`pnpm build` prints "Compiled successfully" and *then* the type errors.**
+  A green compile line alone is not a passing typecheck. Run `tsc --noEmit`.
+- **Base UI prop names and defaults are not guessable.** Read the `.d.ts` in
+  `node_modules`. `ToggleGroup` takes `multiple`, not `toggleMultiple`, and it
+  defaults to **false**.
+- **Do not rewrite a file's line endings.** Several are CRLF. A Python
+  `open(p,'w').write(...)` converts them and turns a one-line change into a
+  whole-file diff. Read and write bytes, or use `sed -i`.
+- **Regenerate after touching `src/registry/`.** `node
+  scripts/generate-registry.mjs` then `generate-registry-json.mjs`. The tests
+  catch it, but only after you have wondered why.
+- **Biome formats generated JSON too.** Write the file, then
+  `pnpm exec biome check --write <path>`, or `pnpm lint` fails on format alone.
+
+**An entry here can be stale. Check the file before acting on it.** That has
+cost real time three times, most recently an entry naming three `.tsx` files
+that never existed.
+
+---
+
 ## The plan, in phases
 
 Status: **Phases 1, 2, 3, most of 4 and most of 5 are done.** `3.31.0` is
@@ -663,6 +696,52 @@ declares logical properties: `padding` covers `padding-inline` covers
       `tests/registry.test.ts` now fails on **any** two prop names that differ
       only by a `Side`/`Position`/`Placement`/`Align` suffix, so the rule is
       enforced rather than the one pair banned. Verified to bite.
+- [x] **Blocks are gone. 13 to 0, and the concept with them.** Six became four
+      components with real props - `ButtonGroup`, `ToggleGroup`, `AvatarStack`,
+      `CheckboxGroup` - each with a page, a meta schema and a sidebar entry,
+      which blocks never had. Four were demos of capability that already
+      existed and were deleted with no replacement: `avatar-edit` (Avatar
+      already takes `children`), `field-button` and `autocomplete-loading`
+      (Field's `icon`/`iconInteractive`, Autocomplete's `loading`), and the
+      three checkbox demos. `field-password` became **`revealable` on Field**.
+      `scripts/lib/registry-blocks.mjs` and `isBlock` are deleted.
+      **`index.json` still emits `blocks: []`** - an installed CLI reads
+      `index.blocks` and would throw on its absence. The key goes in Phase 7.
+      **40 components, 16 examples, 56 files** (was 36 + 13 + 84).
+      Two bugs the typecheck caught, both would have shipped silently:
+      Base UI's prop is `multiple` not `toggleMultiple`, and it defaults to
+      **false**, so defaulting to `true` would have turned single-choice groups
+      into multi-choice.
+- [ ] **`merge`'s `ClassValue` is too narrow.** `parentLabel && "ml-6"` where
+      the value is a `ReactNode` can be `0`, and the type rejects it. `clsx`
+      accepts numbers for exactly this reason. Widen to
+      `string | number | boolean | null | undefined` in the next patch;
+      `.filter(Boolean)` already drops them correctly at runtime.
+- [ ] ~~Collapse the 13 blocks into components, first.~~ The decision is made
+      (see the architecture section): the test is whether a file adds API
+      surface or only arranges existing surface. Four `button-group`s are one
+      `ButtonGroup` with props; `field-password`, `checkbox-parent` and
+      `autocomplete-loading` are props. Do this **before** `TODO.md`, because
+      several of its items are per-variant and disappear with the variant.
+      **`--all` excludes blocks on purpose** - each pulls its parents - so that
+      guard needs replacing, not deleting, and `index.json`'s `blocks` key goes
+      in Phase 7.
+- [x] **Global: `animate` is `animated`, `fullWidth` is gone, Collapsible is
+      deleted.** 24 components carried `animate`. **`motion`'s own `animate`
+      prop had to survive the rename** - it takes an object or a variant name
+      where ours is a boolean, and three sites were caught by hand after a
+      regex renamed them: two `animate={` opening a multi-line object, and
+      `animate="center"` naming a variant. Check every `animated=` receiver is
+      one of ours if this is ever redone.
+      **`fullWidth` was `HEIGHTS[size]` plus `w-100%`, which is `SIZES[size]`
+      with the width swapped.** `className="w-100%"` does that now, so the prop
+      only existed because className could not win. `HEIGHTS` stays in
+      `field.tsx` alone: the affix control sits in a flex row and takes height
+      without width.
+      Collapsible is deleted with a 308 to `/ui/components/accordion`, since a
+      single-item Accordion is the same control. **39 components.**
+      `merge-safety`'s floor moved 700 to 600: it guards the regex, not the
+      file count, and deleting a component legitimately lowers it.
 - [ ] **The separator entry is two bugs, not the one it describes.** "Both
       `orientation` and `shape` do nothing": `orientation` works in the plain
       branch and is **ignored entirely** in the icon/label branch, which

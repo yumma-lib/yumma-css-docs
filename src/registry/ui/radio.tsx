@@ -61,7 +61,7 @@ export interface RadioProps {
   shadow?: Shadow;
   iconPosition?: IconSide;
   disabled?: boolean;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -76,7 +76,7 @@ export default function RadioBase({
   shadow = "none",
   iconPosition = "leading",
   disabled = false,
-  animate = true,
+  animated = true,
   className,
 }: RadioProps) {
   const labelId = useId();
@@ -132,7 +132,7 @@ export default function RadioBase({
                   value={option.value}
                   className={(state) => rootClasses(state.checked)}
                   render={
-                    animate
+                    animated
                       ? (props, _) => (
                           <motion.span {...(props as HTMLMotionProps<"span">)}>
                             {indicator}
@@ -141,7 +141,7 @@ export default function RadioBase({
                       : undefined
                   }
                 >
-                  {animate ? undefined : indicator}
+                  {animated ? undefined : indicator}
                 </Radio.Root>
                 <span>{option.label}</span>
                 {option.icon && iconPosition === "trailing" && (

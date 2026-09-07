@@ -1,0 +1,29 @@
+{
+  "summary": "A row of related buttons sharing one border, in four shapes, with optional rules between them.",
+  "props": [
+    {
+      "name": "shape",
+      "type": "enum",
+      "values": ["rounded", "square", "squircle", "pill"],
+      "default": "rounded",
+      "description": "Corner radius of the group. `pill` also insets the buttons, so a pill `Button` inside sits clear of the border."
+    },
+    {
+      "name": "separated",
+      "type": "boolean",
+      "default": "true",
+      "description": "Draws a rule between each pair of buttons. Turn it off when the buttons already carry their own edges."
+    },
+    {
+      "name": "stretch",
+      "type": "boolean",
+      "default": "false",
+      "description": "Buttons share the full width instead of sizing to their labels."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Merged with the group's own classes, so a utility you pass wins."
+    }
+  ]
+}

@@ -75,7 +75,7 @@
       "description": "Depth on the tooltip."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The tooltip's fade and rise. Turn it off for an instant tooltip, or when the user has asked for reduced motion."

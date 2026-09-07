@@ -119,7 +119,7 @@ export interface MenuProps {
   disabled?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -133,7 +133,7 @@ export default function MenuBase({
   disabled = false,
   open: controlledOpen,
   onOpenChange,
-  animate = true,
+  animated = true,
   className,
   container,
 }: MenuProps) {
@@ -154,7 +154,7 @@ export default function MenuBase({
     spec.trigger,
     TRIGGER_SHAPES[shape],
     shadowClass,
-    animate ? "tp-c tdu-150 ttf-io" : "",
+    animated ? "tp-c tdu-150 ttf-io" : "",
     disabled
       ? "c-slate-4 o-60 c-na"
       : "c-slate-10 c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5",
@@ -331,7 +331,7 @@ export default function MenuBase({
       <Menu.Positioner className="ow-0" sideOffset={8}>
         <Menu.Popup
           render={
-            animate ? (
+            animated ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -352,7 +352,7 @@ export default function MenuBase({
     <Menu.Root open={open} onOpenChange={handleOpenChange} disabled={disabled}>
       <Menu.Trigger className={triggerClasses}>{trigger}</Menu.Trigger>
 
-      {animate ? (
+      {animated ? (
         <AnimatePresence>{open && popup}</AnimatePresence>
       ) : (
         open && popup

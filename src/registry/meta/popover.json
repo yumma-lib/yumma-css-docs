@@ -103,7 +103,7 @@
       "description": "Depth on the popup."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The popup's scale-in. Turn it off for an instant popup, or when the user has asked for reduced motion."

@@ -49,7 +49,7 @@ export interface TabsProps {
   size?: Size;
   shape?: Shape;
   iconPosition?: IconPosition;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -62,7 +62,7 @@ export default function TabsBase({
   size = "md",
   shape = "pill",
   iconPosition = "leading",
-  animate = true,
+  animated = true,
   className,
 }: TabsProps) {
   const [internalValue, setInternalValue] = useState(
@@ -93,7 +93,7 @@ export default function TabsBase({
   const indicatorClasses = [
     "p-a l-0 t-0 zi-0 bg-white",
     TAB_SHAPES[shape],
-    animate ? "tp-a tdu-200 ttf-io" : "",
+    animated ? "tp-a tdu-200 ttf-io" : "",
   ]
     .filter(Boolean)
     .join(" ");

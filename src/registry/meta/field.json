@@ -90,12 +90,6 @@
       "description": "Renders a `<textarea>` instead of an `<input>`, for a message or description field. Ignored alongside `icon`/`prefixNode`/`suffix`."
     },
     {
-      "name": "fullWidth",
-      "type": "boolean",
-      "default": false,
-      "description": "Fills the width of the parent instead of `size`'s fixed width, for a field inside a form column that isn't a fixed size itself - a dialog, say."
-    },
-    {
       "name": "disabled",
       "type": "boolean",
       "default": false,
@@ -112,6 +106,12 @@
       "type": "string",
       "default": "text",
       "description": "Native input type. For a password field with a visibility toggle, see the Password recipe rather than `type=\"password\"` here."
+    },
+    {
+      "name": "revealable",
+      "type": "boolean",
+      "default": "false",
+      "description": "Adds a trailing button that shows and hides the value, for password fields. Always trailing and always interactive, so it overrides `iconPosition` and `icon`."
     }
   ]
 }

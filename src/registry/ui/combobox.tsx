@@ -77,7 +77,7 @@ export interface ComboboxProps {
   clearable?: boolean;
   disabled?: boolean;
   loading?: boolean;
-  animate?: boolean;
+  animated?: boolean;
   emptyMessage?: string;
   className?: string;
 }
@@ -134,7 +134,7 @@ export default function ComboboxBase({
   clearable = true,
   disabled = false,
   loading = false,
-  animate = true,
+  animated = true,
   emptyMessage = "No results found.",
   className,
   container,
@@ -248,7 +248,7 @@ export default function ComboboxBase({
         {open && (
           <Combobox.Portal container={container} keepMounted>
             <Combobox.Positioner className="ow-0" sideOffset={8}>
-              {animate ? (
+              {animated ? (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
