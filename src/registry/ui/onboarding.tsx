@@ -27,8 +27,8 @@ const CONTROL_SHAPES: Record<Shape, string> = {
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-sm",
-  outset: "bs-o-xs",
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
 };
 
 const CONTROL_BASE =

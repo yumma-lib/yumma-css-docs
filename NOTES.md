@@ -742,6 +742,70 @@ declares logical properties: `padding` covers `padding-inline` covers
       single-item Accordion is the same control. **39 components.**
       `merge-safety`'s floor moved 700 to 600: it guards the regex, not the
       file count, and deleting a component legitimately lowers it.
+- [x] **Badge's `color` is open, not a longer hardcoded list.** Removing the
+      prop was wrong: it drives **eight** coordinated classes across the badge,
+      its dot, count and close button, so `className` replaces one and leaves
+      seven wrong. The real complaint was the six-value ceiling.
+      Eight parallel maps became one `COLORS` entry per family, and
+      **`type Color = keyof typeof COLORS`** so the table is the only place a
+      family is named. Adding a `theme.colors` family is one block in your own
+      copy and the type follows. Verified: `color="brand"` is rejected before
+      the block exists and accepted after, with no type edit.
+      **The classes must stay literal.** The scanner reads source, so
+      `bg-${'{'}color{'}'}-1` generates no CSS. That constraint is why this is a table
+      and not a template.
+- [x] **`radio.tsx` and `slider.tsx` took a `className` and never merged it.**
+      The 36-component pass missed them, so an override silently did nothing on
+      two of the components the feature exists for. `merge-safety` now fails on
+      any component that accepts `className` without calling `merge`, verified
+      by breaking slider.
+- [x] **Meter's `color` is open too**, same shape as Badge: a table, and
+      `type Color = keyof typeof COLORS`. `className` reaches Meter's root and
+      the colour is on the indicator, so the prop had to stay. `indigo` keeps
+      its `-5` rather than the base, which is what it always used.
+- [x] **`iconPosition` "does nothing" was demo data, not API.** The mechanism
+      was already there twice over: `dependsOn` in the schema, which makes
+      picking a side switch the icon on, and `{"$icon": "Star"}` markers, which
+      let JSON hold an icon. The five components the complaint named
+      (`menu`, `menubar`, `context-menu`, `tabs`, `radio`) simply had example
+      items with **no icons**, so the control had nothing to move.
+      `command-palette` and `onboarding` already had markers and always worked.
+      **Verify a "does nothing" report against the demo data before the code.**
+- [x] **The two real strictness items are done, and they were different
+      kinds.** Avatar's `status` and `verified` do **not** collide - they sit in
+      opposite corners - so nothing was wrong with the API. The demo seeded
+      both, because **`seedValues` takes `example ?? default` and `example` wins**;
+      `verified` now uses the documented `example: null` slot so the demo starts
+      with `status` only.
+      Tabs `pill` + `vertical` was a real bug: `br-9999` on a column resolves
+      against its **width**, so the track became a capsule and square-cornered
+      tabs escaped the curve. A vertical list steps the **track** down to
+      `rounded`; the tabs keep the shape asked for.
+- [x] **"`disabled` has no visual indication" was not a missing style.** All
+      four already applied `o-60 c-na`, and both classes generate real CSS
+      (`opacity:.6`, `cursor:not-allowed`). **Opacity alone is not a disabled
+      state**: 60% of a white box with a crisp border still reads as enabled,
+      and 60% of indigo is still indigo. Each control now gets its own
+      **surface** when disabled - Checkbox `bg-silver-1`/`bg-silver-3`, Switch
+      and Slider swap indigo for `bg-silver-3`, File Upload fills rather than
+      half-tinting a near-white. The opacity stays on top of that.
+- [x] **`shadow` was imperceptible in all 29 components, not two.** The
+      utilities are real (`bs-o-xs` is `0 1px 2px #0000000d`) - **every
+      component had picked the weakest step of the scale**, 5% black at 2px
+      blur. Restepped to `bs-o-sm` and `bs-i-md`, one step up and still subtle,
+      across all 29.
+      File Upload had a second bug: the shadow was on the **40px icon square**,
+      not the drop zone. It is on the zone now.
+      Accordion's `shadow` is gated behind `variant === "default"`, which is
+      correct - the other variants have no card to cast one - and the default
+      variant is `default`, so it was never the cause.
+- [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
+      class on one element** goes: `className` wins now, which is how
+      `fullWidth` died. A prop that **coordinates several elements** stays, and
+      is made open instead. Badge's `color` reaches the container, dot, count
+      and close button; `className` reaches only `badgeClasses`, so deleting it
+      would mean four new `*ClassName` props to replace one. Meter's `color` is
+      the same shape and gets the same treatment.
 - [ ] **The separator entry is two bugs, not the one it describes.** "Both
       `orientation` and `shape` do nothing": `orientation` works in the plain
       branch and is **ignored entirely** in the icon/label branch, which
@@ -1630,6 +1694,29 @@ surface and codemod cases at close to zero cost. Recorded as #20 in the 4.0 draf
 Also known: stacking is order-independent (`@sm:h:` == `h:@sm:`), and **two media
 queries silently collapse** (`@sm:@lg:bg-red` emits only `64rem`, dropping `@sm`
 with no warning).
+
+### Family parity: make `theme.colors` reach the components
+
+**The problem, from the Badge work.** A component that maps a semantic name to
+several classes cannot support a user's own family without literals in source.
+Adding `rose` to `theme.colors` today does not make `<Badge color="rose" />`
+work: you add a `rose` block to your copy of `badge.tsx`, which supplies both
+the type and the literals the scanner needs. One block, and the CSS follows.
+That is the ownership model, and it is defensible, but it is not what someone
+expects after editing config.
+
+**The generator can close it, and only the generator can.** It already reads
+`theme.colors` and already knows which colour utilities are used. If a utility
+is used with any family, emit it for every **configured** family. Then adding
+`rose` makes every Yumma UI component work with it and no file is edited.
+
+- Cost is bounded and proportional: one family's worth of the colour classes
+  already in use, not the whole palette crossed with every utility.
+- It fixes Badge, Meter and anything built later in one place, rather than
+  per component.
+- `safelist` still exists (`nitro/src/config/schema.ts`) and is the manual
+  version of this. That it is the current answer is the argument for the
+  automatic one.
 
 ### Killing custom classes, without arbitrary values
 

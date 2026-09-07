@@ -2,6 +2,7 @@
 
 import { Slider } from "@base-ui/react/slider";
 import { type ReactNode, useState } from "react";
+import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -15,8 +16,8 @@ const SHAPES: Record<Shape, string> = {
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-sm",
-  outset: "bs-o-xs",
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
 };
 
 function defaultFormat(value: Value): ReactNode {
@@ -76,7 +77,7 @@ export default function SliderBase({
     .join(" ");
 
   return (
-    <div className={`d-f fd-c g-2 w-64 ${className ?? ""}`}>
+    <div className={merge("d-f fd-c g-2 w-64", className)}>
       <div className="d-f ai-c jc-sb">
         {label && (
           <label className="c-slate-10 fs-sm fw-500 us-none">
@@ -101,7 +102,12 @@ export default function SliderBase({
           <Slider.Track
             className={`p-r h-2 w-100% bg-silver-1 ${SHAPES[shape]}`}
           >
-            <Slider.Indicator className={`bg-indigo ${SHAPES[shape]}`} />
+            <Slider.Indicator
+              className={merge(
+                disabled ? "bg-silver-3" : "bg-indigo",
+                SHAPES[shape],
+              )}
+            />
             {isRange ? (
               value.map((_, index) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey: positional by design

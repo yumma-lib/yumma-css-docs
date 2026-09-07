@@ -33,7 +33,7 @@
         "silver"
       ],
       "default": "indigo",
-      "description": "Every colour family in the palette. Only visible on the `subtle` and `solid` tones; `outline` stays neutral. It sets the badge, its dot, count and close button together, which is why `className` alone cannot replace it."
+      "description": "The families the shipped `COLORS` table defines. It is your file: add a block there for a `theme.colors` family of your own and the type follows it. The prop sets the badge, its dot, count and close button together, which is why `className` alone cannot replace it."
     },
     {
       "name": "shape",

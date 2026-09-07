@@ -28,8 +28,8 @@ const BUTTON_SHAPES: Record<Shape, string> = {
 };
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-sm",
-  outset: "bs-o-xs",
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
 };
 
 const BUTTON_BASE = "bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2";

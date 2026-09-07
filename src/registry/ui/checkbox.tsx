@@ -41,12 +41,18 @@ const SHAPES: Record<Shape, string> = {
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-sm",
-  outset: "bs-o-xs",
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
 };
 
 const CHECKED = "bg-indigo";
 const UNCHECKED = "bw-1 bc-silver-3 bg-transparent";
+
+// Opacity alone is not a disabled state: 60% of a white box with a crisp
+// border still reads as enabled, and 60% of indigo is still indigo. Disabled
+// gets its own surface.
+const DISABLED_CHECKED = "bg-silver-3";
+const DISABLED_UNCHECKED = "bw-1 bc-silver-2 bg-silver-1";
 
 export interface CheckboxProps
   extends Omit<ComponentProps<typeof Checkbox.Root>, "className"> {
@@ -85,7 +91,13 @@ export default function CheckboxBase({
               SHAPES[shape],
               SHADOWS[shadow],
 
-              state.checked || state.indeterminate ? CHECKED : UNCHECKED,
+              state.checked || state.indeterminate
+                ? disabled
+                  ? DISABLED_CHECKED
+                  : CHECKED
+                : disabled
+                  ? DISABLED_UNCHECKED
+                  : UNCHECKED,
               className,
             )
           }
