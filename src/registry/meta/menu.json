@@ -14,16 +14,32 @@
       "typeName": "MenuItem[]",
       "example": [
         {
-          "label": "Edit"
+          "label": "Edit",
+          "icon": {
+            "$icon": "Wrench",
+            "size": "w-4 h-4"
+          }
         },
         {
-          "label": "Duplicate"
+          "label": "Duplicate",
+          "icon": {
+            "$icon": "PagePlus",
+            "size": "w-4 h-4"
+          }
         },
         {
-          "label": "Bookmark"
+          "label": "Bookmark",
+          "icon": {
+            "$icon": "Bookmark",
+            "size": "w-4 h-4"
+          }
         },
         {
-          "label": "Pin to top"
+          "label": "Pin to top",
+          "icon": {
+            "$icon": "Star",
+            "size": "w-4 h-4"
+          }
         }
       ],
       "description": "A discriminated union. `{ label }` is a plain action (plus optional `icon`, `shortcut`, `destructive`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"group\", label?, items }` wraps a `role=\"group\"` block under a heading. `{ type: \"checkbox\", label, checked, onCheckedChange }` and `{ type: \"radio\", value, onValueChange, options }` are the stateful kinds. `{ type: \"submenu\", label, icon?, items }` nests, recursively."

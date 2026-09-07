@@ -8,15 +8,27 @@
       "example": [
         {
           "value": "subscriptions",
-          "label": "Subscriptions"
+          "label": "Subscriptions",
+          "icon": {
+            "$icon": "BellNotification",
+            "size": "w-4 h-4"
+          }
         },
         {
           "value": "invoices",
-          "label": "Invoices"
+          "label": "Invoices",
+          "icon": {
+            "$icon": "Page",
+            "size": "w-4 h-4"
+          }
         },
         {
           "value": "payments",
-          "label": "Payments"
+          "label": "Payments",
+          "icon": {
+            "$icon": "StatUp",
+            "size": "w-4 h-4"
+          }
         }
       ],
       "description": "Each tab's `value` and `label`, plus optional `icon`, `iconOnly`, `count`, `disabled` and `panel`. `label` stays the accessible name when `iconOnly` hides it."

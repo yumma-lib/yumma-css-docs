@@ -763,6 +763,14 @@ declares logical properties: `padding` covers `padding-inline` covers
       `type Color = keyof typeof COLORS`. `className` reaches Meter's root and
       the colour is on the indicator, so the prop had to stay. `indigo` keeps
       its `-5` rather than the base, which is what it always used.
+- [x] **`iconPosition` "does nothing" was demo data, not API.** The mechanism
+      was already there twice over: `dependsOn` in the schema, which makes
+      picking a side switch the icon on, and `{"$icon": "Star"}` markers, which
+      let JSON hold an icon. The five components the complaint named
+      (`menu`, `menubar`, `context-menu`, `tabs`, `radio`) simply had example
+      items with **no icons**, so the control had nothing to move.
+      `command-palette` and `onboarding` already had markers and always worked.
+      **Verify a "does nothing" report against the demo data before the code.**
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
