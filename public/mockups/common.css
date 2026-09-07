@@ -1,0 +1,415 @@
+/* Shared mockup chrome — yummacss.com indigo-night */
+
+@font-face {
+  font-family: "Esteban";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("./fonts/esteban-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url("./fonts/ia-writer-quattro-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url("./fonts/ia-writer-quattro-latin-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url("./fonts/ia-writer-quattro-latin-700-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "iA Writer Quattro";
+  font-style: italic;
+  font-display: swap;
+  font-weight: 700;
+  src: url("./fonts/ia-writer-quattro-latin-700-italic.woff2") format("woff2");
+}
+
+:root {
+  --page: #151724;
+  --surface: #1a1d2e;
+  --border: #232741;
+  --accent: #bec6f2;
+  --accent-dim: #9aa5ef;
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --grid-line: rgba(190, 198, 242, 0.1);
+  --grid-wash: rgba(190, 198, 242, 0.07);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--page);
+  color: var(--text);
+  font-family: "iA Writer Quattro", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ——— Squared mesh backdrop (mintfolio technique, yummacss colors) ——— */
+
+.mesh {
+  position: absolute;
+  inset: 0 auto auto 50%;
+  z-index: 0;
+  width: 100vw;
+  height: 36rem;
+  transform: translateX(-50%);
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(
+    115% 100% at 50% 0%,
+    #000 0%,
+    #000 40%,
+    transparent 82%
+  );
+  mask-image: radial-gradient(
+    115% 100% at 50% 0%,
+    #000 0%,
+    #000 40%,
+    transparent 82%
+  );
+}
+
+.mesh__wash {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+}
+
+.mesh__lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--grid-line) 0 1px,
+      transparent 1px 32px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      var(--grid-line) 0 1px,
+      transparent 1px 32px
+    );
+}
+
+/* Subtle: two soft accent pools (mintfolio-like) */
+.mesh--subtle .mesh__wash {
+  background-image:
+    radial-gradient(55% 70% at 15% 0%, var(--grid-wash) 0%, transparent 72%),
+    radial-gradient(45% 55% at 85% 8%, var(--grid-wash) 0%, transparent 75%);
+}
+
+/* Brand: same as subtle (atmosphere identical; copy differs) */
+.mesh--brand .mesh__wash {
+  background-image:
+    radial-gradient(55% 70% at 15% 0%, var(--grid-wash) 0%, transparent 72%),
+    radial-gradient(45% 55% at 85% 8%, var(--grid-wash) 0%, transparent 75%);
+}
+
+/* Wash: richer multi-blob (portfolio-inspired dark stops) */
+.mesh--wash {
+  height: 40rem;
+}
+
+.mesh--wash .mesh__wash {
+  opacity: 0.75;
+  background-image:
+    radial-gradient(60% 45% at 12% 0%, #2b3363 0%, transparent 70%),
+    radial-gradient(50% 40% at 48% -5%, #342a52 0%, transparent 70%),
+    radial-gradient(55% 45% at 85% 0%, #23433b 0%, transparent 70%),
+    radial-gradient(40% 35% at 68% 2%, #452c3a 0%, transparent 70%);
+  filter: blur(32px);
+}
+
+.mesh--wash .mesh__lines {
+  --grid-line: rgba(190, 198, 242, 0.12);
+}
+
+/* ——— Page shell ——— */
+
+.page {
+  position: relative;
+  overflow: hidden;
+  min-height: 100dvh;
+}
+
+.nav {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid transparent;
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: clamp(40rem, 80vw, 96rem);
+  margin: 0 auto;
+  padding: 0.5rem 0.75rem;
+}
+
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav__logo {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+}
+
+.nav__links {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav__link {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.nav__link:hover {
+  color: var(--accent);
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav__search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2rem;
+  padding: 0 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: default;
+}
+
+.nav__search kbd {
+  display: none;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.75rem;
+}
+
+.nav__github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--text-muted);
+}
+
+.nav__github:hover {
+  color: var(--accent);
+}
+
+@media (min-width: 64rem) {
+  .nav__links {
+    display: flex;
+  }
+
+  .nav__search {
+    padding: 0 1rem;
+  }
+
+  .nav__search kbd {
+    display: block;
+  }
+}
+
+/* ——— Hero ——— */
+
+.hero {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  max-width: clamp(40rem, 80vw, 96rem);
+  min-height: calc(100dvh - 120px);
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.hero__inner {
+  width: 100%;
+  max-width: 72rem;
+}
+
+.hero__copy {
+  max-width: 40rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+.chip:hover {
+  color: var(--text);
+}
+
+.chip svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.brand-mark {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-family: "Esteban", serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.headline {
+  margin: 0 0 1.5rem;
+  font-family: "Esteban", serif;
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.lede {
+  margin: 0 0 2rem;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+.btn--solid {
+  background: #fff;
+  color: #000;
+}
+
+.btn--ghost {
+  color: var(--text);
+}
+
+.btn--ghost:hover {
+  color: var(--accent);
+}
+
+@media (min-width: 48rem) {
+  .hero {
+    padding-bottom: 0;
+  }
+}
+
+/* ——— Mockup index ——— */
+
+.index {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.index h1 {
+  margin: 0 0 0.75rem;
+  font-family: "Esteban", serif;
+  font-size: 2.25rem;
+  font-weight: 400;
+}
+
+.index p {
+  margin: 0 0 2rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.index ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.index li + li {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.index a {
+  color: var(--accent);
+}
+
+.index a:hover {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+.index strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.index span {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
