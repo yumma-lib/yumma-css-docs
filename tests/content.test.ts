@@ -75,7 +75,6 @@ const KNOWN_UNLISTED: string[] = [
   "skeleton-filters",
   "skeleton-list",
   "skeleton-stats",
-  "toggle-group",
 ];
 
 function referencedIds(): Set<string> {

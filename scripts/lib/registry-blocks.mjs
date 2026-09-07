@@ -32,7 +32,6 @@ export const BLOCKS = new Set([
   "checkbox-group-nested-parent",
   "checkbox-parent",
   "field-password",
-  "toggle-group",
 ]);
 
 export function isBlock(id) {

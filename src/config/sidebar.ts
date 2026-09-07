@@ -277,6 +277,7 @@ export const sidebarConfig = {
         "switch",
         "textarea",
         "toggle",
+        "toggle-group",
       ],
     },
     {
