@@ -754,6 +754,13 @@ declares logical properties: `padding` covers `padding-inline` covers
       **The classes must stay literal.** The scanner reads source, so
       `bg-${'{'}color{'}'}-1` generates no CSS. That constraint is why this is a table
       and not a template.
+- [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
+      class on one element** goes: `className` wins now, which is how
+      `fullWidth` died. A prop that **coordinates several elements** stays, and
+      is made open instead. Badge's `color` reaches the container, dot, count
+      and close button; `className` reaches only `badgeClasses`, so deleting it
+      would mean four new `*ClassName` props to replace one. Meter's `color` is
+      the same shape and gets the same treatment.
 - [ ] **The separator entry is two bugs, not the one it describes.** "Both
       `orientation` and `shape` do nothing": `orientation` works in the plain
       branch and is **ignored entirely** in the icon/label branch, which
