@@ -663,7 +663,28 @@ declares logical properties: `padding` covers `padding-inline` covers
       `tests/registry.test.ts` now fails on **any** two prop names that differ
       only by a `Side`/`Position`/`Placement`/`Align` suffix, so the rule is
       enforced rather than the one pair banned. Verified to bite.
-- [ ] **Collapse the 13 blocks into components, first.** The decision is made
+- [x] **Blocks are gone. 13 to 0, and the concept with them.** Six became four
+      components with real props - `ButtonGroup`, `ToggleGroup`, `AvatarStack`,
+      `CheckboxGroup` - each with a page, a meta schema and a sidebar entry,
+      which blocks never had. Four were demos of capability that already
+      existed and were deleted with no replacement: `avatar-edit` (Avatar
+      already takes `children`), `field-button` and `autocomplete-loading`
+      (Field's `icon`/`iconInteractive`, Autocomplete's `loading`), and the
+      three checkbox demos. `field-password` became **`revealable` on Field**.
+      `scripts/lib/registry-blocks.mjs` and `isBlock` are deleted.
+      **`index.json` still emits `blocks: []`** - an installed CLI reads
+      `index.blocks` and would throw on its absence. The key goes in Phase 7.
+      **40 components, 16 examples, 56 files** (was 36 + 13 + 84).
+      Two bugs the typecheck caught, both would have shipped silently:
+      Base UI's prop is `multiple` not `toggleMultiple`, and it defaults to
+      **false**, so defaulting to `true` would have turned single-choice groups
+      into multi-choice.
+- [ ] **`merge`'s `ClassValue` is too narrow.** `parentLabel && "ml-6"` where
+      the value is a `ReactNode` can be `0`, and the type rejects it. `clsx`
+      accepts numbers for exactly this reason. Widen to
+      `string | number | boolean | null | undefined` in the next patch;
+      `.filter(Boolean)` already drops them correctly at runtime.
+- [ ] ~~Collapse the 13 blocks into components, first.~~ The decision is made
       (see the architecture section): the test is whether a file adds API
       surface or only arranges existing surface. Four `button-group`s are one
       `ButtonGroup` with props; `field-password`, `checkbox-parent` and

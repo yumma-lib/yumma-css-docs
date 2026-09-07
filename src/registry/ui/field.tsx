@@ -1,8 +1,9 @@
 "use client";
 
 import { Field } from "@base-ui/react/field";
-import { Check, WarningTriangle } from "iconoir-react";
-import type { ComponentProps, ReactNode } from "react";
+import { Toggle } from "@base-ui/react/toggle";
+import { Check, Eye, EyeClosed, WarningTriangle } from "iconoir-react";
+import { type ComponentProps, type ReactNode, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
@@ -87,6 +88,9 @@ export interface FieldProps
   multiline?: boolean;
 
   fullWidth?: boolean;
+
+  /** Adds a trailing button that shows and hides the value. Password fields. */
+  revealable?: boolean;
 }
 
 export default function FieldBase({
@@ -104,15 +108,39 @@ export default function FieldBase({
   suffix,
   multiline = false,
   fullWidth = false,
+  revealable = false,
   disabled,
   required,
   className,
+  type,
   ...props
 }: FieldProps) {
+  const [revealed, setRevealed] = useState(false);
   const status: Status = error ? "error" : success ? "success" : "default";
   const message = error ?? success ?? description;
-  const showDecorativeIcon = Boolean(icon) && status === "default";
-  const activeSide: IconSide = status === "default" ? iconPosition : "trailing";
+  const reveal = revealable && !multiline;
+  const controlType = reveal && revealed ? "text" : type;
+  const trailingIcon = reveal ? (
+    <Toggle
+      aria-label={revealed ? "Hide" : "Show"}
+      pressed={revealed}
+      onPressedChange={setRevealed}
+      disabled={disabled}
+      className="d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none fv:oo-2 fv:oc-indigo-5"
+    >
+      {revealed ? (
+        <Eye className="w-4 h-4" />
+      ) : (
+        <EyeClosed className="w-4 h-4" />
+      )}
+    </Toggle>
+  ) : (
+    icon
+  );
+  const activeIcon = reveal ? trailingIcon : icon;
+  const showDecorativeIcon = Boolean(activeIcon) && status === "default";
+  const activeSide: IconSide =
+    reveal || status !== "default" ? "trailing" : iconPosition;
   const hasAffix = Boolean(prefixNode) || Boolean(suffix);
 
   const controlClasses = merge(
@@ -124,7 +152,7 @@ export default function FieldBase({
     STATUS_RING[status],
     showDecorativeIcon || status !== "default"
       ? ICON_PADDING[activeSide]
-      : "pl-4 pr-4",
+      : "px-4",
     className,
   );
 
@@ -181,6 +209,7 @@ export default function FieldBase({
           )}
           <Field.Control
             required={required}
+            type={controlType}
             className={affixControlClasses}
             {...props}
           />
@@ -192,13 +221,18 @@ export default function FieldBase({
         <div className="d-f p-r ai-c">
           {showDecorativeIcon && (
             <span
-              className={`d-f p-a ai-c c-slate-5 ${iconInteractive ? "" : "pe-none"} ${iconPosition === "leading" ? "l-3" : "r-3"}`}
+              className={merge(
+                "d-f p-a ai-c c-slate-5",
+                !(iconInteractive || reveal) && "pe-none",
+                activeSide === "leading" ? "l-3" : "r-3",
+              )}
             >
-              {icon}
+              {activeIcon}
             </span>
           )}
           <Field.Control
             required={required}
+            type={controlType}
             className={controlClasses}
             {...props}
           />

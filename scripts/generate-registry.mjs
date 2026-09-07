@@ -2,7 +2,6 @@
 
 import { existsSync, readdirSync, writeFileSync } from "node:fs";
 import { basename, join } from "node:path";
-import { isBlock } from "./lib/registry-blocks.mjs";
 import { componentSlugs, splitId } from "./lib/registry-ids.mjs";
 
 const cwd = process.cwd();
@@ -38,8 +37,7 @@ const slugs = componentSlugs(contentDir);
 const targetLines = uiIds
   .map((id) => {
     const { component, variant } = splitId(id, slugs);
-    const kind =
-      variant === "base" ? "component" : isBlock(id) ? "block" : "example";
+    const kind = variant === "base" ? "component" : "example";
 
     const install = kind === "block" ? id : component;
     return `  "${id}": { component: "${component}", variant: "${variant}", kind: "${kind}", install: "${install}" },`;

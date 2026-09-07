@@ -112,6 +112,12 @@
       "type": "string",
       "default": "text",
       "description": "Native input type. For a password field with a visibility toggle, see the Password recipe rather than `type=\"password\"` here."
+    },
+    {
+      "name": "revealable",
+      "type": "boolean",
+      "default": "false",
+      "description": "Adds a trailing button that shows and hides the value, for password fields. Always trailing and always interactive, so it overrides `iconPosition` and `icon`."
     }
   ]
 }
