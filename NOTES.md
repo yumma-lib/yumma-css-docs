@@ -789,6 +789,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       **surface** when disabled - Checkbox `bg-silver-1`/`bg-silver-3`, Switch
       and Slider swap indigo for `bg-silver-3`, File Upload fills rather than
       half-tinting a near-white. The opacity stays on top of that.
+- [x] **`shadow` was imperceptible in all 29 components, not two.** The
+      utilities are real (`bs-o-xs` is `0 1px 2px #0000000d`) - **every
+      component had picked the weakest step of the scale**, 5% black at 2px
+      blur. Restepped to `bs-o-sm` and `bs-i-md`, one step up and still subtle,
+      across all 29.
+      File Upload had a second bug: the shadow was on the **40px icon square**,
+      not the drop zone. It is on the zone now.
+      Accordion's `shadow` is gated behind `variant === "default"`, which is
+      correct - the other variants have no card to cast one - and the default
+      variant is `default`, so it was never the cause.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

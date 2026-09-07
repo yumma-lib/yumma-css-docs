@@ -45,8 +45,8 @@ const INCREMENT_SHAPES: Record<Shape, string> = {
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-sm",
-  outset: "bs-o-xs",
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
 };
 
 export interface NumberFieldProps

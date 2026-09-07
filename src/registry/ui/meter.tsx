@@ -34,8 +34,8 @@ const COLORS = {
 type Color = keyof typeof COLORS;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-sm",
-  outset: "bs-o-xs",
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
 };
 
 export interface MeterProps {
