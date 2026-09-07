@@ -116,6 +116,39 @@ them through.
 
 ---
 
+## Handing this to another agent
+
+**The guardrails are real, so a wrong change is usually loud.** `pnpm vitest
+run` is 39 tests and **every one was verified to fail when the thing it checks
+is broken**. Notably: `merge-safety` catches a class silently dropped from any
+component, `registry.test` catches a file added without regenerating,
+`content.test` catches a page that names no registry entry, `markdown-routes`
+catches a `.md` route that renders nothing, and `reference.test` catches an
+undocumented utility. Run all four of `pnpm vitest run`, `pnpm exec tsc
+--noEmit`, `pnpm lint`, `pnpm build` before believing anything.
+
+**Five traps that cost time today:**
+
+- **`pnpm build` prints "Compiled successfully" and *then* the type errors.**
+  A green compile line alone is not a passing typecheck. Run `tsc --noEmit`.
+- **Base UI prop names and defaults are not guessable.** Read the `.d.ts` in
+  `node_modules`. `ToggleGroup` takes `multiple`, not `toggleMultiple`, and it
+  defaults to **false**.
+- **Do not rewrite a file's line endings.** Several are CRLF. A Python
+  `open(p,'w').write(...)` converts them and turns a one-line change into a
+  whole-file diff. Read and write bytes, or use `sed -i`.
+- **Regenerate after touching `src/registry/`.** `node
+  scripts/generate-registry.mjs` then `generate-registry-json.mjs`. The tests
+  catch it, but only after you have wondered why.
+- **Biome formats generated JSON too.** Write the file, then
+  `pnpm exec biome check --write <path>`, or `pnpm lint` fails on format alone.
+
+**An entry here can be stale. Check the file before acting on it.** That has
+cost real time three times, most recently an entry naming three `.tsx` files
+that never existed.
+
+---
+
 ## The plan, in phases
 
 Status: **Phases 1, 2, 3, most of 4 and most of 5 are done.** `3.31.0` is
