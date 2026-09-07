@@ -1,13 +1,18 @@
 "use client";
 
-import type { ComponentType } from "react";
+import type { ComponentType, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
 import { usePlayground } from "@/components/playground/context";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import PreviewSpinner from "@/components/preview-spinner";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryTarget, type RegistryMeta } from "@/registry";
-import { type DemoProps, resolveIcons, seedValues } from "@/utils/demo";
+import {
+  type DemoProps,
+  EXAMPLE_CHILDREN,
+  resolveIcons,
+  seedValues,
+} from "@/utils/demo";
 import {
   getCachedRegistryComponent,
   loadRegistryComponent,
@@ -100,7 +105,7 @@ export default function ComponentPlayground() {
           props={resolveIcons(set) as DemoProps}
           portals={meta.props.some((prop) => prop.name === "container")}
         >
-          {meta.children}
+          {EXAMPLE_CHILDREN[frame.id] ?? meta.children}
         </Mounted>
       </PreviewFrame>
       <TokenBlock
@@ -130,7 +135,7 @@ function Mounted({
   Component: ComponentType<DemoProps>;
   props: DemoProps;
   portals: boolean;
-  children?: string;
+  children?: ReactNode;
 }) {
   const container = usePreviewContainer();
 
