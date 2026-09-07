@@ -742,6 +742,18 @@ declares logical properties: `padding` covers `padding-inline` covers
       single-item Accordion is the same control. **39 components.**
       `merge-safety`'s floor moved 700 to 600: it guards the regex, not the
       file count, and deleting a component legitimately lowers it.
+- [x] **Badge's `color` is open, not a longer hardcoded list.** Removing the
+      prop was wrong: it drives **eight** coordinated classes across the badge,
+      its dot, count and close button, so `className` replaces one and leaves
+      seven wrong. The real complaint was the six-value ceiling.
+      Eight parallel maps became one `COLORS` entry per family, and
+      **`type Color = keyof typeof COLORS`** so the table is the only place a
+      family is named. Adding a `theme.colors` family is one block in your own
+      copy and the type follows. Verified: `color="brand"` is rejected before
+      the block exists and accepted after, with no type edit.
+      **The classes must stay literal.** The scanner reads source, so
+      `bg-${'{'}color{'}'}-1` generates no CSS. That constraint is why this is a table
+      and not a template.
 - [ ] **The separator entry is two bugs, not the one it describes.** "Both
       `orientation` and `shape` do nothing": `orientation` works in the plain
       branch and is **ignored entirely** in the icon/label branch, which

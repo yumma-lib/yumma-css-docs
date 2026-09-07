@@ -4,26 +4,6 @@ import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Tone = "outline" | "subtle" | "solid";
-type Color =
-  | "red"
-  | "orange"
-  | "yellow"
-  | "lime"
-  | "mint"
-  | "green"
-  | "cyan"
-  | "sky"
-  | "blue"
-  | "indigo"
-  | "violet"
-  | "lavender"
-  | "magenta"
-  | "pink"
-  | "coral"
-  | "zinc"
-  | "gray"
-  | "slate"
-  | "silver";
 type Shape = "square" | "rounded" | "pill" | "squircle";
 type Size = "sm" | "md" | "lg";
 type Shadow = "none" | "inset" | "outset";
@@ -60,7 +40,7 @@ interface ColorSet {
 
 // Written out rather than built from the family name: the scanner reads
 // source, so a template literal generates no CSS.
-const COLORS: Record<Color, ColorSet> = {
+const COLORS = {
   red: {
     subtleBg: "bg-red-1",
     subtleText: "c-red-7",
@@ -251,7 +231,13 @@ const COLORS: Record<Color, ColorSet> = {
     dotOutline: "bg-silver-5",
     dotSubtle: "bg-silver-7",
   },
-};
+} satisfies Record<string, ColorSet>;
+
+/**
+ * Add a family here to use it: `theme.colors` is open, so the type follows
+ * the table rather than repeating it.
+ */
+type Color = keyof typeof COLORS;
 
 export interface BadgeProps {
   children: ReactNode;
