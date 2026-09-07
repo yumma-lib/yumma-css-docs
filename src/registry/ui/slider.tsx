@@ -102,7 +102,12 @@ export default function SliderBase({
           <Slider.Track
             className={`p-r h-2 w-100% bg-silver-1 ${SHAPES[shape]}`}
           >
-            <Slider.Indicator className={`bg-indigo ${SHAPES[shape]}`} />
+            <Slider.Indicator
+              className={merge(
+                disabled ? "bg-silver-3" : "bg-indigo",
+                SHAPES[shape],
+              )}
+            />
             {isRange ? (
               value.map((_, index) => (
                 // biome-ignore lint/suspicious/noArrayIndexKey: positional by design

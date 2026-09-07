@@ -73,7 +73,8 @@ export default function SwitchBase({
     "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3",
     track,
     SHAPES[shape],
-    checked ? "bg-indigo" : "bg-silver-1",
+    // Disabled gets its own surface: 60% of indigo is still indigo.
+    checked ? (disabled ? "bg-silver-3" : "bg-indigo") : "bg-silver-1",
     disabled ? "" : "c-p",
     className,
   );

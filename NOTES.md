@@ -781,6 +781,14 @@ declares logical properties: `padding` covers `padding-inline` covers
       against its **width**, so the track became a capsule and square-cornered
       tabs escaped the curve. A vertical list steps the **track** down to
       `rounded`; the tabs keep the shape asked for.
+- [x] **"`disabled` has no visual indication" was not a missing style.** All
+      four already applied `o-60 c-na`, and both classes generate real CSS
+      (`opacity:.6`, `cursor:not-allowed`). **Opacity alone is not a disabled
+      state**: 60% of a white box with a crisp border still reads as enabled,
+      and 60% of indigo is still indigo. Each control now gets its own
+      **surface** when disabled - Checkbox `bg-silver-1`/`bg-silver-3`, Switch
+      and Slider swap indigo for `bg-silver-3`, File Upload fills rather than
+      half-tinting a near-white. The opacity stays on top of that.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

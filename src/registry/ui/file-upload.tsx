@@ -57,7 +57,8 @@ export default function FileUploadBase({
     SHAPES[shape],
     BORDERS[border],
     error ? "bc-red-5" : "bc-silver-2",
-    disabled ? "bg-silver-1/50 o-60 c-na" : "",
+    // A half-opacity near-white on white is not a surface. Fill it.
+    disabled ? "bg-silver-1 o-60 c-na" : "",
     className,
   );
 
