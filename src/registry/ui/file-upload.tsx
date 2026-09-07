@@ -21,8 +21,8 @@ const BORDERS: Record<Border, string> = {
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
-  inset: "bs-i-sm",
-  outset: "bs-o-xs",
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
 };
 
 export interface FileUploadProps {
@@ -57,7 +57,9 @@ export default function FileUploadBase({
     SHAPES[shape],
     BORDERS[border],
     error ? "bc-red-5" : "bc-silver-2",
-    disabled ? "bg-silver-1/50 o-60 c-na" : "",
+    // A half-opacity near-white on white is not a surface. Fill it.
+    disabled ? "bg-silver-1 o-60 c-na" : "",
+    SHADOWS[shadow],
     className,
   );
 
@@ -65,9 +67,10 @@ export default function FileUploadBase({
     <section className={zone}>
       <div className="d-f fd-c ai-c g-2 p-8 ta-c">
         <div
-          className={`d-f ai-c jc-c w-10 h-10 br-lg bw-1 ${SHADOWS[shadow]} ${
-            error ? "bg-red-1/50 bc-red-5" : "bg-white bc-silver-2"
-          }`}
+          className={merge(
+            "d-f ai-c jc-c w-10 h-10 br-lg bw-1",
+            error ? "bg-red-1/50 bc-red-5" : "bg-white bc-silver-2",
+          )}
         >
           {icon ?? (
             <CloudUpload

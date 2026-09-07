@@ -38,6 +38,17 @@ describe("merge against the registry", () => {
     expect(losses).toEqual([]);
   });
 
+  // radio and slider took a className and never merged it, so an override
+  // silently did nothing on exactly the components the feature is for.
+  it("merges the className every component accepts", () => {
+    const unmerged = files.filter((file) => {
+      const source = readFileSync(join(dir, file), "utf8");
+      return source.includes("className?") && !source.includes("merge(");
+    });
+
+    expect(unmerged).toEqual([]);
+  });
+
   // A floor, so the regex above cannot quietly stop matching and pass. Well
   // under the real count, which moves as components come and go.
   it("finds class strings to check", () => {

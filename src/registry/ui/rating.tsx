@@ -17,8 +17,8 @@ export interface RatingIcon {
 }
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bg-white bc-silver-2 bw-1 bs-i-sm",
-  outset: "bg-white bc-silver-2 bw-1 bs-o-xs",
+  inset: "bg-white bc-silver-2 bw-1 bs-i-md",
+  outset: "bg-white bc-silver-2 bw-1 bs-o-sm",
 };
 
 export interface RatingProps {

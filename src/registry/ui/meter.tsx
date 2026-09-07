@@ -2,19 +2,40 @@ import { Meter } from "@base-ui/react/meter";
 import type { ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
-type Color = "yellow" | "indigo" | "red" | "green";
 type Shadow = "none" | "inset" | "outset";
 
-const COLORS: Record<Color, string> = {
-  yellow: "bg-yellow",
-  indigo: "bg-indigo-5",
+const COLORS = {
   red: "bg-red",
+  orange: "bg-orange",
+  yellow: "bg-yellow",
+  lime: "bg-lime",
+  mint: "bg-mint",
   green: "bg-green",
-};
+  cyan: "bg-cyan",
+  sky: "bg-sky",
+  blue: "bg-blue",
+  indigo: "bg-indigo-5",
+  violet: "bg-violet",
+  lavender: "bg-lavender",
+  magenta: "bg-magenta",
+  pink: "bg-pink",
+  coral: "bg-coral",
+  zinc: "bg-zinc",
+  gray: "bg-gray",
+  slate: "bg-slate",
+  silver: "bg-silver",
+} satisfies Record<string, string>;
+
+/**
+ * Add a family here to use it: `theme.colors` is open, so the type follows the
+ * table rather than repeating it. Literal strings, because the scanner reads
+ * source.
+ */
+type Color = keyof typeof COLORS;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
-  inset: "bs-i-sm",
-  outset: "bs-o-xs",
+  inset: "bs-i-md",
+  outset: "bs-o-sm",
 };
 
 export interface MeterProps {
@@ -53,13 +74,11 @@ export default function MeterBase({
     className,
   );
 
-  const indicatorClasses = [
+  const indicatorClasses = merge(
     "d-b h-100% br-9999",
     COLORS[color],
     animated ? "tp-w tdu-500 ttf-io" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   return (
     <Meter.Root className={rootClasses} value={value} min={min} max={max}>

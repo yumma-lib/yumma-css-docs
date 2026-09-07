@@ -39,9 +39,29 @@
     {
       "name": "color",
       "type": "enum",
-      "values": ["yellow", "indigo", "red", "green"],
+      "values": [
+        "red",
+        "orange",
+        "yellow",
+        "lime",
+        "mint",
+        "green",
+        "cyan",
+        "sky",
+        "blue",
+        "indigo",
+        "violet",
+        "lavender",
+        "magenta",
+        "pink",
+        "coral",
+        "zinc",
+        "gray",
+        "slate",
+        "silver"
+      ],
       "default": "yellow",
-      "description": "The indicator's fill color."
+      "description": "The families the shipped `COLORS` table defines. It is your file: add a line there for a `theme.colors` family of your own and the type follows it. `className` reaches the root, not the indicator, which is why this prop exists."
     },
     {
       "name": "shadow",

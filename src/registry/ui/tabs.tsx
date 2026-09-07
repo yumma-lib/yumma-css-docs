@@ -81,22 +81,23 @@ export default function TabsBase({
 
   const rootClasses = merge(isVertical ? "d-f ai-s g-4" : "w-fc", className);
 
-  const listClasses = [
-    "d-f p-r g-1 p-1 w-fc bg-silver-1 bw-1 bc-silver-2",
-    LIST_SHAPES[shape],
-    isVertical ? "fd-c" : "",
-    hasPanels && !isVertical ? "mb-6" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  // `br-9999` on a column resolves against its width, so the track becomes a
+  // capsule and square-cornered tabs escape the curve. The tabs keep their
+  // shape; only the track steps down.
+  const listShape = isVertical && shape === "pill" ? "rounded" : shape;
 
-  const indicatorClasses = [
+  const listClasses = merge(
+    "d-f p-r g-1 p-1 w-fc bg-silver-1 bw-1 bc-silver-2",
+    LIST_SHAPES[listShape],
+    isVertical && "fd-c",
+    hasPanels && !isVertical && "mb-6",
+  );
+
+  const indicatorClasses = merge(
     "p-a l-0 t-0 zi-0 bg-white",
     TAB_SHAPES[shape],
-    animated ? "tp-a tdu-200 ttf-io" : "",
-  ]
-    .filter(Boolean)
-    .join(" ");
+    animated && "tp-a tdu-200 ttf-io",
+  );
 
   return (
     <Tabs.Root
