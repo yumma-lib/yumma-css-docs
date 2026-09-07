@@ -1650,6 +1650,29 @@ Also known: stacking is order-independent (`@sm:h:` == `h:@sm:`), and **two medi
 queries silently collapse** (`@sm:@lg:bg-red` emits only `64rem`, dropping `@sm`
 with no warning).
 
+### Family parity: make `theme.colors` reach the components
+
+**The problem, from the Badge work.** A component that maps a semantic name to
+several classes cannot support a user's own family without literals in source.
+Adding `rose` to `theme.colors` today does not make `<Badge color="rose" />`
+work: you add a `rose` block to your copy of `badge.tsx`, which supplies both
+the type and the literals the scanner needs. One block, and the CSS follows.
+That is the ownership model, and it is defensible, but it is not what someone
+expects after editing config.
+
+**The generator can close it, and only the generator can.** It already reads
+`theme.colors` and already knows which colour utilities are used. If a utility
+is used with any family, emit it for every **configured** family. Then adding
+`rose` makes every Yumma UI component work with it and no file is edited.
+
+- Cost is bounded and proportional: one family's worth of the colour classes
+  already in use, not the whole palette crossed with every utility.
+- It fixes Badge, Meter and anything built later in one place, rather than
+  per component.
+- `safelist` still exists (`nitro/src/config/schema.ts`) and is the manual
+  version of this. That it is the current answer is the argument for the
+  automatic one.
+
 ### Killing custom classes, without arbitrary values
 
 The goal is to remove the *need* to write custom CSS without adopting Tailwind's
