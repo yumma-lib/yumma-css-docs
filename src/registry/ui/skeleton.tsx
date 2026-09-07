@@ -27,7 +27,7 @@ export interface SkeletonProps {
   shape?: Shape;
   tone?: Tone;
   size?: string;
-  animate?: boolean;
+  animated?: boolean;
   delay?: number;
   className?: string;
 }
@@ -36,7 +36,7 @@ export default function SkeletonBase({
   shape = "line",
   tone = "default",
   size,
-  animate = true,
+  animated = true,
   delay = 0,
   className,
 }: SkeletonProps) {
@@ -47,7 +47,7 @@ export default function SkeletonBase({
     className,
   );
 
-  if (!animate) return <div aria-hidden className={classes} />;
+  if (!animated) return <div aria-hidden className={classes} />;
 
   return (
     <motion.div

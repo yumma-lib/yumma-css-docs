@@ -64,7 +64,7 @@
       "description": "Identifies this toggle inside a `ToggleGroup`. When set, Base UI derives `pressed` from the group's own value array instead of this component's internal state."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The press-scale animation. Turn it off for an instant press, or when the user has asked for reduced motion."

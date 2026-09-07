@@ -77,7 +77,7 @@ export interface AutocompleteProps {
   loading?: boolean;
   autoHighlight?: boolean;
   limit?: number;
-  animate?: boolean;
+  animated?: boolean;
   emptyMessage?: string;
   onQueryChange?: (value: string) => void;
   fullWidth?: boolean;
@@ -146,7 +146,7 @@ export default function AutocompleteBase({
   loading = false,
   autoHighlight = false,
   limit = 0,
-  animate = true,
+  animated = true,
   emptyMessage = "No results found.",
   onQueryChange,
   fullWidth = false,
@@ -232,7 +232,7 @@ export default function AutocompleteBase({
         {open && (
           <Autocomplete.Portal container={container} keepMounted>
             <Autocomplete.Positioner className="ow-0" sideOffset={8}>
-              {animate ? (
+              {animated ? (
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}

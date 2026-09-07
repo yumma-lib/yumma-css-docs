@@ -43,7 +43,7 @@ export interface AccordionProps {
   defaultValue?: string[];
   value?: string[];
   onValueChange?: (value: string[]) => void;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -59,7 +59,7 @@ export default function AccordionBase({
   defaultValue,
   value: controlledValue,
   onValueChange,
-  animate = true,
+  animated = true,
   className,
 }: AccordionProps) {
   const [internalValue, setInternalValue] = useState<string[]>(
@@ -185,7 +185,7 @@ export default function AccordionBase({
                 {icon === "plus-minus" && iconPosition === "leading" && (
                   <PlusMinusGlyph
                     isOpen={isOpen}
-                    animate={animate}
+                    animated={animated}
                     className={glyphColor}
                   />
                 )}
@@ -204,21 +204,21 @@ export default function AccordionBase({
                 {icon === "chevron" ? (
                   <ChevronGlyph
                     isOpen={isOpen}
-                    animate={animate}
+                    animated={animated}
                     className={glyphColor}
                   />
                 ) : (
                   iconPosition === "trailing" && (
                     <PlusMinusGlyph
                       isOpen={isOpen}
-                      animate={animate}
+                      animated={animated}
                       className={glyphColor}
                     />
                   )
                 )}
               </Accordion.Trigger>
             </Accordion.Header>
-            {animate ? (
+            {animated ? (
               <Accordion.Panel
                 keepMounted
                 render={(props) => (
@@ -251,14 +251,14 @@ export default function AccordionBase({
 
 function ChevronGlyph({
   isOpen,
-  animate,
+  animated,
   className,
 }: {
   isOpen: boolean;
-  animate: boolean;
+  animated: boolean;
   className: string;
 }) {
-  if (!animate) {
+  if (!animated) {
     return (
       <NavArrowDown
         className={merge("fs-0 w-4 h-4", isOpen ? "ro-36" : "ro-0", className)}
@@ -280,11 +280,11 @@ function ChevronGlyph({
 
 function PlusMinusGlyph({
   isOpen,
-  animate,
+  animated,
   className,
 }: {
   isOpen: boolean;
-  animate: boolean;
+  animated: boolean;
   className: string;
 }) {
   const glyphClasses = merge("fs-0 w-4 h-4", className);
@@ -294,7 +294,7 @@ function PlusMinusGlyph({
     <Plus className={glyphClasses} aria-hidden />
   );
 
-  if (!animate) {
+  if (!animated) {
     return icon;
   }
 

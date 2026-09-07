@@ -50,7 +50,7 @@ export interface TooltipProps {
   delay?: number;
   shape?: Shape;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -66,7 +66,7 @@ export default function TooltipBase({
   delay = 300,
   shape = "rounded",
   shadow = "none",
-  animate = true,
+  animated = true,
   className,
   container,
 }: TooltipProps) {
@@ -88,7 +88,7 @@ export default function TooltipBase({
   const popup = (
     <Tooltip.Popup
       render={
-        animate ? (
+        animated ? (
           <motion.div
             initial={{ opacity: 0, y: 4 }}
             animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export default function TooltipBase({
         </Tooltip.Trigger>
         <Tooltip.Portal container={container}>
           <Tooltip.Positioner side={side} sideOffset={sideOffset}>
-            {animate ? <AnimatePresence>{popup}</AnimatePresence> : popup}
+            {animated ? <AnimatePresence>{popup}</AnimatePresence> : popup}
           </Tooltip.Positioner>
         </Tooltip.Portal>
       </Tooltip.Root>

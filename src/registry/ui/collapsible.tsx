@@ -26,7 +26,7 @@ export interface CollapsibleProps {
   shape?: Shape;
   icon?: Icon;
   iconPosition?: IconPosition;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -40,7 +40,7 @@ export default function CollapsibleBase({
   shape = "square",
   icon = "chevron",
   iconPosition = "trailing",
-  animate = true,
+  animated = true,
   className,
 }: CollapsibleProps) {
   const [internalOpen, setInternalOpen] = useState(
@@ -63,7 +63,7 @@ export default function CollapsibleBase({
     "d-f ai-c jc-sb g-3 w-100% py-3 px-3 bg-white bc-silver-3 bbw-1 ta-l",
     SHAPES[shape],
     disabled ? "" : "c-p fv:oo-1 fv:oc-indigo-5",
-    !animate && !disabled ? "h:bg-silver-1/50" : "",
+    !animated && !disabled ? "h:bg-silver-1/50" : "",
   ]
     .filter(Boolean)
     .join(" ");
@@ -73,9 +73,9 @@ export default function CollapsibleBase({
   const glyph = disabled ? (
     <Lock className="w-3 h-3 c-slate-5" />
   ) : icon === "chevron" ? (
-    <ChevronGlyph open={open} animate={animate} />
+    <ChevronGlyph open={open} animated={animated} />
   ) : (
-    <PlusMinusGlyph open={open} animate={animate} />
+    <PlusMinusGlyph open={open} animated={animated} />
   );
 
   return (
@@ -95,7 +95,7 @@ export default function CollapsibleBase({
         <Collapsible.Panel keepMounted className="d-b o-h h-auto">
           <div className={panelContentClasses}>{children}</div>
         </Collapsible.Panel>
-      ) : animate ? (
+      ) : animated ? (
         <Collapsible.Panel
           keepMounted
           render={(props) => (
@@ -128,8 +128,14 @@ export default function CollapsibleBase({
   );
 }
 
-function ChevronGlyph({ open, animate }: { open: boolean; animate: boolean }) {
-  if (!animate) {
+function ChevronGlyph({
+  open,
+  animated,
+}: {
+  open: boolean;
+  animated: boolean;
+}) {
+  if (!animated) {
     return (
       <NavArrowRight
         className={[
@@ -155,10 +161,10 @@ function ChevronGlyph({ open, animate }: { open: boolean; animate: boolean }) {
 
 function PlusMinusGlyph({
   open,
-  animate,
+  animated,
 }: {
   open: boolean;
-  animate: boolean;
+  animated: boolean;
 }) {
   const icon = open ? (
     <Minus className="w-4 h-4 c-slate-5" aria-hidden />
@@ -166,7 +172,7 @@ function PlusMinusGlyph({
     <Plus className="w-4 h-4 c-slate-5" aria-hidden />
   );
 
-  if (!animate) {
+  if (!animated) {
     return icon;
   }
 

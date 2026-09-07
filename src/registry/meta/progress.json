@@ -30,7 +30,7 @@
       "description": "Wraps the bar in a padded card. `none` renders it bare, with no card at all."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The indicator's width transition as `value` changes. Indeterminate progress always animates regardless of this."

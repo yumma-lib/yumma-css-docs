@@ -26,7 +26,7 @@ export interface MeterProps {
   icon?: ReactNode;
   color?: Color;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -39,7 +39,7 @@ export default function MeterBase({
   icon,
   color = "yellow",
   shadow = "none",
-  animate = true,
+  animated = true,
   className,
 }: MeterProps) {
   const isCard = shadow !== "none";
@@ -56,7 +56,7 @@ export default function MeterBase({
   const indicatorClasses = [
     "d-b h-100% br-9999",
     COLORS[color],
-    animate ? "tp-w tdu-500 ttf-io" : "",
+    animated ? "tp-w tdu-500 ttf-io" : "",
   ]
     .filter(Boolean)
     .join(" ");

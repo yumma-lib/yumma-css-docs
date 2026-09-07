@@ -57,7 +57,7 @@
       "description": "Blocks interaction and dims the whole control, label included."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The thumb's slide when the state changes. Turn it off for an instant jump, or when the user has asked for reduced motion."

@@ -54,7 +54,7 @@
       "dependsOn": "icon"
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The icon's rotation & the panel's height/opacity animation. Turn it off for an instant expand/collapse, or when the user has asked for reduced motion."

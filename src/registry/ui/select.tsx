@@ -127,7 +127,7 @@ export interface SelectProps {
   icon?: ReactNode;
   iconPosition?: IconSide;
   disabled?: boolean;
-  animate?: boolean;
+  animated?: boolean;
   fullWidth?: boolean;
   className?: string;
 }
@@ -147,7 +147,7 @@ export default function SelectBase({
   icon,
   iconPosition = "leading",
   disabled = false,
-  animate = true,
+  animated = true,
   fullWidth = false,
   className,
   container,
@@ -256,7 +256,7 @@ export default function SelectBase({
                 alignItemWithTrigger={false}
                 className="zi-10 p-0 ow-0 us-none"
               >
-                {animate ? (
+                {animated ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}

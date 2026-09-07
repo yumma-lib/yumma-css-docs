@@ -57,7 +57,7 @@ export interface PopoverProps {
   showClose?: boolean;
   shape?: Shape;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -78,7 +78,7 @@ export default function PopoverBase({
   showClose = false,
   shape = "rounded",
   shadow = "none",
-  animate = true,
+  animated = true,
   className,
   container,
 }: PopoverProps) {
@@ -151,7 +151,7 @@ export default function PopoverBase({
       <Popover.Positioner side={side} sideOffset={sideOffset}>
         <Popover.Popup
           render={
-            animate ? (
+            animated ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -179,7 +179,7 @@ export default function PopoverBase({
         {trigger}
       </Popover.Trigger>
 
-      {animate ? (
+      {animated ? (
         <AnimatePresence>{open && popup}</AnimatePresence>
       ) : (
         open && popup

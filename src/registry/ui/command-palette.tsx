@@ -58,7 +58,7 @@ export interface CommandPaletteProps {
   iconPosition?: IconPosition;
   shape?: Shape;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -70,7 +70,7 @@ export default function CommandPaletteBase({
   iconPosition = "leading",
   shape = "rounded",
   shadow = "none",
-  animate = true,
+  animated = true,
   className,
   container,
 }: CommandPaletteProps) {
@@ -104,7 +104,7 @@ export default function CommandPaletteBase({
     <Dialog.Portal container={container} keepMounted>
       <Dialog.Backdrop
         render={
-          animate ? (
+          animated ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -118,7 +118,7 @@ export default function CommandPaletteBase({
       <div className="d-f p-f i-0 ai-c jc-c">
         <Dialog.Popup
           render={
-            animate ? (
+            animated ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -215,7 +215,7 @@ export default function CommandPaletteBase({
         <span>{trigger}</span>
       </Dialog.Trigger>
 
-      {animate ? (
+      {animated ? (
         <AnimatePresence>{open && popup}</AnimatePresence>
       ) : (
         open && popup

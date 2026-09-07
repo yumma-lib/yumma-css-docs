@@ -87,7 +87,7 @@
       "description": "Replaces the results with a loading row, for an async source. The fetching itself is yours; this is only the state."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "Fades the popup in and out. Turn it off for a static popup, or when the user has asked for reduced motion."

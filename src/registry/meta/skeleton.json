@@ -21,7 +21,7 @@
       "description": "`subtle` is one step lighter, for the secondary line in a pair."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The pulse. Turn it off for a static placeholder, or when the user has asked for reduced motion."

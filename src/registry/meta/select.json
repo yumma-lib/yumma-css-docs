@@ -108,7 +108,7 @@
       "description": "Blocks interaction and dims the whole control, label included."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "Fades and scales the popup in and out. Turn it off for a static popup, or when the user has asked for reduced motion."

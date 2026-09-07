@@ -79,7 +79,7 @@
       "description": "Blocks interaction and dims every option."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The dot's transition when selection changes. Turn it off for a static group, or when the user has asked for reduced motion."

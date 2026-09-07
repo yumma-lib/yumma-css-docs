@@ -108,7 +108,7 @@
       "description": "Cap on how many matches are listed. `0` lists them all."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "Fades the popup in and out. Turn it off for a static popup, or when the user has asked for reduced motion."

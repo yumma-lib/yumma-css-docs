@@ -98,7 +98,7 @@ export interface ContextMenuProps {
   disabled?: boolean;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -111,7 +111,7 @@ export default function ContextMenuBase({
   disabled = false,
   open: controlledOpen,
   onOpenChange,
-  animate = true,
+  animated = true,
   className,
   container,
 }: ContextMenuProps) {
@@ -302,7 +302,7 @@ export default function ContextMenuBase({
       <ContextMenu.Positioner className="ow-0">
         <ContextMenu.Popup
           render={
-            animate ? (
+            animated ? (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -329,7 +329,7 @@ export default function ContextMenuBase({
         {trigger}
       </ContextMenu.Trigger>
 
-      {animate ? (
+      {animated ? (
         <AnimatePresence>{open && popup}</AnimatePresence>
       ) : (
         open && popup

@@ -40,7 +40,7 @@
       "description": "Depth on the card. `inset` reads as a well, `outset` as a raised control."
     },
     {
-      "name": "animate",
+      "name": "animated",
       "type": "boolean",
       "default": true,
       "description": "The card's fade in/out. Turn it off for an instant appearance, or when the user has asked for reduced motion."

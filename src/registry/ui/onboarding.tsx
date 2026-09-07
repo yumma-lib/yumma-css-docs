@@ -67,7 +67,7 @@ export interface OnboardingProps {
   dismissible?: boolean;
   shape?: Shape;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -80,7 +80,7 @@ export default function OnboardingBase({
   dismissible = false,
   shape = "rounded",
   shadow = "none",
-  animate = true,
+  animated = true,
   className,
   container,
 }: OnboardingProps) {
@@ -186,7 +186,7 @@ export default function OnboardingBase({
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
         render={
-          animate ? (
+          animated ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -200,7 +200,7 @@ export default function OnboardingBase({
       <div className="d-f p-f i-0 ai-c jc-c">
         <AlertDialog.Popup
           render={
-            animate ? (
+            animated ? (
               <motion.div
                 layout={hasAnyTasks || undefined}
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -262,7 +262,7 @@ export default function OnboardingBase({
             <div
               className={`d-f o-h fd-c ai-c ta-c ${hasAnyTasks ? "" : "jc-c h-48"}`}
             >
-              {animate ? (
+              {animated ? (
                 <AnimatePresence
                   mode={hasAnyTasks ? "popLayout" : "wait"}
                   custom={direction}
@@ -379,7 +379,7 @@ export default function OnboardingBase({
         {triggerIcon && iconPosition === "trailing" && triggerIcon}
       </AlertDialog.Trigger>
 
-      {animate ? (
+      {animated ? (
         <AnimatePresence>{open && popup}</AnimatePresence>
       ) : (
         open && popup

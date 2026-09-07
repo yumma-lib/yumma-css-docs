@@ -67,7 +67,7 @@ export interface AlertDialogProps {
   showClose?: boolean;
   shape?: Shape;
   shadow?: Shadow;
-  animate?: boolean;
+  animated?: boolean;
   className?: string;
 }
 
@@ -86,7 +86,7 @@ export default function AlertDialogBase({
   showClose = true,
   shape = "rounded",
   shadow = "none",
-  animate = true,
+  animated = true,
   className,
   container,
 }: AlertDialogProps) {
@@ -138,7 +138,7 @@ export default function AlertDialogBase({
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
         render={
-          animate ? (
+          animated ? (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -152,7 +152,7 @@ export default function AlertDialogBase({
       <div className="d-f p-f i-0 ai-c jc-c">
         <AlertDialog.Popup
           render={
-            animate ? (
+            animated ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -209,7 +209,7 @@ export default function AlertDialogBase({
         {triggerIcon && triggerIconPosition === "trailing" && triggerIcon}
       </AlertDialog.Trigger>
 
-      {animate ? (
+      {animated ? (
         <AnimatePresence>{open && popup}</AnimatePresence>
       ) : (
         open && popup
