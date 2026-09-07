@@ -217,9 +217,19 @@ const uiRedirects = [
   })),
 ];
 
+// Collapsible was removed: a single-item Accordion is the same control.
+const removedComponents = [
+  {
+    source: "/ui/components/collapsible",
+    destination: "/ui/components/accordion",
+    permanent: true,
+  },
+];
+
 export const redirects = [
   ...docsRedirects,
   ...mergedRedirects,
   ...blogRedirects,
   ...uiRedirects,
+  ...removedComponents,
 ];

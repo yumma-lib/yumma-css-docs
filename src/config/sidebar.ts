@@ -289,7 +289,6 @@ export const sidebarConfig = {
         "avatar-stack",
         "badge",
         "breadcrumb",
-        "collapsible",
         "meter",
         "preview-card",
         "progress",

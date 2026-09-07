@@ -38,7 +38,8 @@ describe("merge against the registry", () => {
     expect(losses).toEqual([]);
   });
 
-  // A floor, so the regex above cannot quietly stop matching and pass.
+  // A floor, so the regex above cannot quietly stop matching and pass. Well
+  // under the real count, which moves as components come and go.
   it("finds class strings to check", () => {
     const count = files.reduce(
       (n, file) =>
@@ -46,6 +47,6 @@ describe("merge against the registry", () => {
       0,
     );
 
-    expect(count).toBeGreaterThan(700);
+    expect(count).toBeGreaterThan(600);
   });
 });

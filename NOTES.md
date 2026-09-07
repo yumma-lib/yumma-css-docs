@@ -726,6 +726,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       **`--all` excludes blocks on purpose** - each pulls its parents - so that
       guard needs replacing, not deleting, and `index.json`'s `blocks` key goes
       in Phase 7.
+- [x] **Global: `animate` is `animated`, `fullWidth` is gone, Collapsible is
+      deleted.** 24 components carried `animate`. **`motion`'s own `animate`
+      prop had to survive the rename** - it takes an object or a variant name
+      where ours is a boolean, and three sites were caught by hand after a
+      regex renamed them: two `animate={` opening a multi-line object, and
+      `animate="center"` naming a variant. Check every `animated=` receiver is
+      one of ours if this is ever redone.
+      **`fullWidth` was `HEIGHTS[size]` plus `w-100%`, which is `SIZES[size]`
+      with the width swapped.** `className="w-100%"` does that now, so the prop
+      only existed because className could not win. `HEIGHTS` stays in
+      `field.tsx` alone: the affix control sits in a flex row and takes height
+      without width.
+      Collapsible is deleted with a 308 to `/ui/components/accordion`, since a
+      single-item Accordion is the same control. **39 components.**
+      `merge-safety`'s floor moved 700 to 600: it guards the regex, not the
+      file count, and deleting a component legitimately lowers it.
 - [ ] **The separator entry is two bugs, not the one it describes.** "Both
       `orientation` and `shape` do nothing": `orientation` works in the plain
       branch and is **ignored entirely** in the icon/label branch, which
