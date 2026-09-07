@@ -11,9 +11,29 @@
     {
       "name": "color",
       "type": "enum",
-      "values": ["slate", "indigo", "red", "green", "yellow", "orange"],
+      "values": [
+        "red",
+        "orange",
+        "yellow",
+        "lime",
+        "mint",
+        "green",
+        "cyan",
+        "sky",
+        "blue",
+        "indigo",
+        "violet",
+        "lavender",
+        "magenta",
+        "pink",
+        "coral",
+        "zinc",
+        "gray",
+        "slate",
+        "silver"
+      ],
       "default": "indigo",
-      "description": "Only visible on the `subtle` & `solid` tones - `outline` stays neutral regardless of what this is set to."
+      "description": "Every colour family in the palette. Only visible on the `subtle` and `solid` tones; `outline` stays neutral. It sets the badge, its dot, count and close button together, which is why `className` alone cannot replace it."
     },
     {
       "name": "shape",

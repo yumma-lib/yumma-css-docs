@@ -238,7 +238,9 @@ export default function AccordionBase({
                 <p className={panelClasses}>{item.content}</p>
               </Accordion.Panel>
             ) : (
-              <Accordion.Panel>
+              // keepMounted either way, so `animated` changes the transition
+              // and not the height of the whole accordion.
+              <Accordion.Panel keepMounted>
                 <p className={panelClasses}>{item.content}</p>
               </Accordion.Panel>
             )}
