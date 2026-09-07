@@ -1,0 +1,51 @@
+{
+  "summary": "A labelled group of checkboxes, optionally led by a parent checkbox that checks and clears every one and sits indeterminate in between.",
+  "props": [
+    {
+      "name": "label",
+      "type": "ReactNode",
+      "description": "Names the group for screen readers and is shown above it."
+    },
+    {
+      "name": "parentLabel",
+      "type": "ReactNode",
+      "description": "Renders a checkbox above the group that checks and clears all of them, and is indeterminate while only some are checked. Needs `allValues`, and indents the group under it."
+    },
+    {
+      "name": "allValues",
+      "type": "string[]",
+      "description": "Every value in the group. Without it the parent cannot tell all-checked from some-checked."
+    },
+    {
+      "name": "value",
+      "type": "string[]",
+      "description": "The checked values, controlled. Pair with `onValueChange`."
+    },
+    {
+      "name": "defaultValue",
+      "type": "string[]",
+      "description": "The checked values on first render, uncontrolled."
+    },
+    {
+      "name": "onValueChange",
+      "type": "(value: string[]) => void",
+      "description": "Called with the checked values whenever they change."
+    },
+    {
+      "name": "disabled",
+      "type": "boolean",
+      "default": "false",
+      "description": "Ignores interaction on every checkbox in the group."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "description": "Form field name for the parent checkbox."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Merged with the group's own classes, so a utility you pass wins."
+    }
+  ]
+}

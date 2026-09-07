@@ -22,13 +22,10 @@
  */
 export const BLOCKS = new Set([
   // Compositions: more than one component, assembled.
-  "checkbox-group-label",
   "field-button",
 
   // Recipes carrying real logic, not just assembly.
   "autocomplete-loading",
-  "checkbox-group-nested-parent",
-  "checkbox-parent",
   "field-password",
 ]);
 

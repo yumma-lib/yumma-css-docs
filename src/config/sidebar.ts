@@ -267,6 +267,7 @@ export const sidebarConfig = {
       items: [
         "autocomplete",
         "checkbox",
+        "checkbox-group",
         "combobox",
         "file-upload",
         "field",
