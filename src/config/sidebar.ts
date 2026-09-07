@@ -285,6 +285,7 @@ export const sidebarConfig = {
       items: [
         "accordion",
         "avatar",
+        "avatar-stack",
         "badge",
         "breadcrumb",
         "collapsible",

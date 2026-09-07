@@ -22,8 +22,6 @@
  */
 export const BLOCKS = new Set([
   // Compositions: more than one component, assembled.
-  "avatar-edit",
-  "avatar-stacked",
   "checkbox-group-label",
   "field-button",
 

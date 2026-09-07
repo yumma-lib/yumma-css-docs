@@ -1,0 +1,29 @@
+{
+  "summary": "Overlapping avatars in one row, with an optional cap that collapses the rest into a +N avatar.",
+  "props": [
+    {
+      "name": "overlap",
+      "type": "enum",
+      "values": ["none", "sm", "md", "lg"],
+      "default": "md",
+      "description": "How far each avatar sits over the one before it. `none` spaces them normally."
+    },
+    {
+      "name": "max",
+      "type": "number",
+      "description": "Show at most this many avatars, then one more reading `+N` for the rest. Unset shows every avatar you pass."
+    },
+    {
+      "name": "size",
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "sm",
+      "description": "Size of the `+N` avatar only. The avatars you pass carry their own `size`."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "description": "Merged with the stack's own classes, so a utility you pass wins."
+    }
+  ]
+}
