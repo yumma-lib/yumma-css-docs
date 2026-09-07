@@ -771,6 +771,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       items with **no icons**, so the control had nothing to move.
       `command-palette` and `onboarding` already had markers and always worked.
       **Verify a "does nothing" report against the demo data before the code.**
+- [x] **The two real strictness items are done, and they were different
+      kinds.** Avatar's `status` and `verified` do **not** collide - they sit in
+      opposite corners - so nothing was wrong with the API. The demo seeded
+      both, because **`seedValues` takes `example ?? default` and `example` wins**;
+      `verified` now uses the documented `example: null` slot so the demo starts
+      with `status` only.
+      Tabs `pill` + `vertical` was a real bug: `br-9999` on a column resolves
+      against its **width**, so the track became a capsule and square-cornered
+      tabs escaped the curve. A vertical list steps the **track** down to
+      `rounded`; the tabs keep the shape asked for.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
