@@ -90,12 +90,6 @@
       "description": "Renders a `<textarea>` instead of an `<input>`, for a message or description field. Ignored alongside `icon`/`prefixNode`/`suffix`."
     },
     {
-      "name": "fullWidth",
-      "type": "boolean",
-      "default": false,
-      "description": "Fills the width of the parent instead of `size`'s fixed width, for a field inside a form column that isn't a fixed size itself - a dialog, say."
-    },
-    {
       "name": "disabled",
       "type": "boolean",
       "default": false,

@@ -87,8 +87,6 @@ export interface FieldProps
 
   multiline?: boolean;
 
-  fullWidth?: boolean;
-
   /** Adds a trailing button that shows and hides the value. Password fields. */
   revealable?: boolean;
 }
@@ -107,7 +105,6 @@ export default function FieldBase({
   prefixNode,
   suffix,
   multiline = false,
-  fullWidth = false,
   revealable = false,
   disabled,
   required,
@@ -145,7 +142,7 @@ export default function FieldBase({
 
   const controlClasses = merge(
     "bg-white c-slate-10 bw-1 fs-md fv:oo--1",
-    fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
+    SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     STATUS_BORDER[status],
@@ -156,18 +153,16 @@ export default function FieldBase({
     className,
   );
 
-  const affixControlClasses = [
+  const affixControlClasses = merge(
     "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md fv:oo--1",
     HEIGHTS[size],
     STATUS_RING[status],
     prefixNode && suffix
-      ? "pl-3 pr-3"
+      ? "px-3"
       : prefixNode
         ? "pl-3 pr-4 brr-lg brw-1"
         : "pl-4 pr-3 blr-lg blw-1",
-  ]
-    .filter(Boolean)
-    .join(" ");
+  );
 
   const affixBoxClasses =
     "d-f ai-c jc-c px-3 bg-white bc-silver-3 c-slate-6 byw-1 fs-md";

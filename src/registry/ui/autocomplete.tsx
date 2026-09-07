@@ -32,8 +32,6 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72",
 };
 
-const HEIGHTS: Record<Size, string> = { sm: "h-8", md: "h-10", lg: "h-12" };
-
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
   md: "w-64",
@@ -80,7 +78,6 @@ export interface AutocompleteProps {
   animated?: boolean;
   emptyMessage?: string;
   onQueryChange?: (value: string) => void;
-  fullWidth?: boolean;
   className?: string;
 }
 
@@ -149,7 +146,6 @@ export default function AutocompleteBase({
   animated = true,
   emptyMessage = "No results found.",
   onQueryChange,
-  fullWidth = false,
   className,
   container,
 }: AutocompleteProps) {
@@ -158,7 +154,7 @@ export default function AutocompleteBase({
 
   const inputClasses = merge(
     INPUT,
-    fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
+    SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     icon ? ICON_PADDING[iconPosition] : "pl-4",

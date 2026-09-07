@@ -34,12 +34,6 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72 px-4",
 };
 
-const HEIGHTS: Record<Size, string> = {
-  sm: "h-8 px-3",
-  md: "h-10 px-3",
-  lg: "h-12 px-4",
-};
-
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
   md: "w-64",
@@ -128,7 +122,6 @@ export interface SelectProps {
   iconPosition?: IconSide;
   disabled?: boolean;
   animated?: boolean;
-  fullWidth?: boolean;
   className?: string;
 }
 
@@ -148,7 +141,6 @@ export default function SelectBase({
   iconPosition = "leading",
   disabled = false,
   animated = true,
-  fullWidth = false,
   className,
   container,
 }: SelectProps) {
@@ -157,7 +149,7 @@ export default function SelectBase({
 
   const triggerClasses = merge(
     TRIGGER,
-    fullWidth ? `${HEIGHTS[size]} w-100%` : SIZES[size],
+    SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     open ? "bg-silver-2/50" : "bg-transparent",
