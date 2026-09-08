@@ -3,6 +3,8 @@
 import { Select } from "@base-ui/react/select";
 import { Switch } from "@base-ui/react/switch";
 import { NavArrowDown } from "iconoir-react";
+import { AnimatePresence, motion } from "motion/react";
+import { useState } from "react";
 import type { RegistryProp } from "@/registry";
 import { exampleIcon } from "@/utils/demo";
 
@@ -45,41 +47,93 @@ export default function Control({ prop, value, onChange }: Props) {
 
   if (prop.type === "enum" && prop.values) {
     return (
-      <Select.Root
+      <EnumSelect
+        name={prop.name}
+        values={prop.values}
         value={typeof value === "string" ? value : null}
-        onValueChange={onChange}
-      >
-        <Select.Trigger
-          aria-label={prop.name}
-          className="d-f fs-0 ai-c jc-sb g-1 px-2 py-1 max-w-32 bc-border bg-transparent c-accent bw-1 ff-m fs-xs c-p us-none fv:oo--1 fv:oc-accent"
-        >
-          <Select.Value className="o-h to-e ws-nw" />
-          <NavArrowDown className="fs-0 w-3 h-3 c-accent-dim" aria-hidden />
-        </Select.Trigger>
-        <Select.Portal>
-          <Select.Positioner sideOffset={4} className="zi-50">
-            <Select.Popup className="p-1 bc-border bg-surface bw-1">
-              {prop.values.map((option) => (
-                <Select.Item
-                  key={option}
-                  value={option}
-                  className={(state) =>
-                    `d-b px-2 py-1 ff-m fs-xs c-p us-none ${
-                      state.highlighted ? "bg-border c-accent" : "c-accent-dim"
-                    }`
-                  }
-                >
-                  <Select.ItemText>{option}</Select.ItemText>
-                </Select.Item>
-              ))}
-            </Select.Popup>
-          </Select.Positioner>
-        </Select.Portal>
-      </Select.Root>
+        onChange={onChange}
+      />
     );
   }
 
   return null;
+}
+
+/** Fixed-width enum select; popup matches trigger, opens below, scrolls. */
+function EnumSelect({
+  name,
+  values,
+  value,
+  onChange,
+}: {
+  name: string;
+  values: string[];
+  value: string | null;
+  onChange: (value: unknown) => void;
+}) {
+  const [open, setOpen] = useState(false);
+
+  const popup = (
+    <Select.Popup
+      className="p-1 bc-border bg-surface bw-1"
+      style={{ width: "var(--anchor-width)" }}
+    >
+      <Select.List className="oy-auto h-40">
+        {values.map((option) => (
+          <Select.Item
+            key={option}
+            value={option}
+            className={(state) =>
+              `d-b px-2 py-1 ff-m fs-xs c-p us-none ${
+                state.highlighted ? "bg-border c-accent" : "c-accent-dim"
+              }`
+            }
+          >
+            <Select.ItemText>{option}</Select.ItemText>
+          </Select.Item>
+        ))}
+      </Select.List>
+    </Select.Popup>
+  );
+
+  return (
+    <Select.Root
+      value={value}
+      onValueChange={onChange}
+      open={open}
+      onOpenChange={setOpen}
+    >
+      <Select.Trigger
+        aria-label={name}
+        className="d-f fs-0 ai-c jc-sb g-1 px-2 py-1 w-32 bc-border bg-transparent c-accent bw-1 ff-m fs-xs c-p us-none fv:oo--1 fv:oc-accent"
+      >
+        <Select.Value className="o-h to-e ws-nw" />
+        <NavArrowDown className="fs-0 w-3 h-3 c-accent-dim" aria-hidden />
+      </Select.Trigger>
+      <AnimatePresence>
+        {open && (
+          <Select.Portal>
+            <Select.Positioner
+              side="bottom"
+              sideOffset={4}
+              alignItemWithTrigger={false}
+              collisionAvoidance={{ side: "none", fallbackAxisSide: "none" }}
+              className="zi-50"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+              >
+                {popup}
+              </motion.div>
+            </Select.Positioner>
+          </Select.Portal>
+        )}
+      </AnimatePresence>
+    </Select.Root>
+  );
 }
 
 /**
