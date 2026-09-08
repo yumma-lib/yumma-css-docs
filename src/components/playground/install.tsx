@@ -13,9 +13,6 @@ const MANAGERS = {
 
 type Manager = keyof typeof MANAGERS;
 
-/** Shared by trigger & popup: hug content, never grow past the rail. */
-const FIT = { width: "fit-content", maxWidth: "8rem" } as const;
-
 /** Copies a `yummaui add` command; menu picks the package manager. */
 export default function Install({ id }: { id: string }) {
   const [open, setOpen] = useState(false);
@@ -32,37 +29,31 @@ export default function Install({ id }: { id: string }) {
   };
 
   const popup = (
-    <Menu.Popup
-      className="p-1 o-h bc-border bg-surface bw-1"
-      style={{ ...FIT, maxHeight: "10rem" }}
-    >
-      <div className="oy-auto">
-        {(Object.keys(MANAGERS) as Manager[]).map((manager) => (
-          <Menu.Item
-            key={manager}
-            onClick={() => copy(manager)}
-            className={(state) =>
-              `d-f ai-c g-2 px-2 py-1 ff-m fs-xs c-p us-none ${
-                state.highlighted ? "bg-border c-accent" : "c-accent-dim"
-              }`
-            }
-          >
-            {(() => {
-              const { Mark } = MANAGERS[manager];
-              return <Mark className="fs-0 w-4 h-4" />;
-            })()}
-            {manager}
-          </Menu.Item>
-        ))}
-      </div>
+    <Menu.Popup className="p-1 oy-auto w-fc max-w-32 max-h-40 bc-border bg-surface bw-1">
+      {(Object.keys(MANAGERS) as Manager[]).map((manager) => (
+        <Menu.Item
+          key={manager}
+          onClick={() => copy(manager)}
+          className={(state) =>
+            `d-f ai-c g-2 px-2 py-1 ff-m fs-xs c-p us-none ${
+              state.highlighted ? "bg-border c-accent" : "c-accent-dim"
+            }`
+          }
+        >
+          {(() => {
+            const { Mark } = MANAGERS[manager];
+            return <Mark className="fs-0 w-4 h-4" />;
+          })()}
+          {manager}
+        </Menu.Item>
+      ))}
     </Menu.Popup>
   );
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
       <Menu.Trigger
-        style={FIT}
-        className="d-if ai-c g-1 bg-transparent bw-0 c-white/70 fs-sm td-none c-p h:c-white fv:oc-white fv:ow-2"
+        className="d-if ai-c g-1 w-fc max-w-32 bg-transparent bw-0 c-white/70 fs-sm td-none c-p h:c-white fv:oc-white fv:ow-2"
         aria-label="Install command"
       >
         {copied ? (
