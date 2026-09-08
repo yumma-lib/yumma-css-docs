@@ -20,8 +20,8 @@ interface Props {
  * Every enum is a select, however few values it has. Segments laid each option
  * out across a rail three columns wide, so `shape` with four ate a line that
  * `size` with three had already crowded. Triggers share a fixed width so the
- * column lines up; the popup matches that width via `--anchor-width`, grows
- * with short lists, and scrolls past 10rem.
+ * column lines up; the popup shares that width (`w-32`), grows with short
+ * lists, and scrolls past `max-h-40`.
  */
 export default function Control({ prop, value, onChange }: Props) {
   if (prop.exampleIcon) {
@@ -74,10 +74,7 @@ function EnumSelect({
   const [open, setOpen] = useState(false);
 
   const popup = (
-    <Select.Popup
-      className="p-1 oy-auto bc-border bg-surface bw-1"
-      style={{ width: "var(--anchor-width)", maxHeight: "10rem" }}
-    >
+    <Select.Popup className="p-1 oy-auto w-32 max-h-40 bc-border bg-surface bw-1">
       <Select.List>
         {values.map((option) => (
           <Select.Item
