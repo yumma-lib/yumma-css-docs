@@ -2,6 +2,7 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Check, NavArrowDown } from "iconoir-react";
+import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { NPM, Pnpm } from "@/components/icons/icons";
 
@@ -12,15 +13,12 @@ const MANAGERS = {
 
 type Manager = keyof typeof MANAGERS;
 
+/** Shared by trigger & popup: hug content, never grow past the rail. */
+const FIT = { width: "fit-content", maxWidth: "8rem" } as const;
+
 /** Copies a `yummaui add` command; menu picks the package manager. */
-export default function Install({
-  id,
-  prominent = false,
-}: {
-  id: string;
-  /** Framed like a page control, for the header beside the pagination arrows. */
-  prominent?: boolean;
-}) {
+export default function Install({ id }: { id: string }) {
+  const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState<Manager | null>(null);
 
   const copy = async (manager: Manager) => {
@@ -33,14 +31,38 @@ export default function Install({
     setTimeout(() => setCopied(null), 2000);
   };
 
+  const popup = (
+    <Menu.Popup
+      className="p-1 o-h bc-border bg-surface bw-1"
+      style={{ ...FIT, maxHeight: "10rem" }}
+    >
+      <div className="oy-auto">
+        {(Object.keys(MANAGERS) as Manager[]).map((manager) => (
+          <Menu.Item
+            key={manager}
+            onClick={() => copy(manager)}
+            className={(state) =>
+              `d-f ai-c g-2 px-2 py-1 ff-m fs-xs c-p us-none ${
+                state.highlighted ? "bg-border c-accent" : "c-accent-dim"
+              }`
+            }
+          >
+            {(() => {
+              const { Mark } = MANAGERS[manager];
+              return <Mark className="fs-0 w-4 h-4" />;
+            })()}
+            {manager}
+          </Menu.Item>
+        ))}
+      </div>
+    </Menu.Popup>
+  );
+
   return (
-    <Menu.Root>
+    <Menu.Root open={open} onOpenChange={setOpen}>
       <Menu.Trigger
-        className={
-          prominent
-            ? "d-f ai-c g-2 pl-3 pr-2 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 fs-sm c-p us-none fv:oc-white fv:oo-2"
-            : "d-f ai-c g-1 px-2 py-1 bg-transparent bw-0 c-accent fs-xs c-p h:c-accent-4 fv:oc-accent fv:ow-2"
-        }
+        style={FIT}
+        className="d-if ai-c g-1 bg-transparent bw-0 c-white/70 fs-sm td-none c-p h:c-white fv:oc-white fv:ow-2"
         aria-label="Install command"
       >
         {copied ? (
@@ -55,29 +77,27 @@ export default function Install({
           </>
         )}
       </Menu.Trigger>
-      <Menu.Portal>
-        <Menu.Positioner sideOffset={4} className="zi-50">
-          <Menu.Popup className="p-1 min-w-28 bc-border bg-surface bw-1">
-            {(Object.keys(MANAGERS) as Manager[]).map((manager) => (
-              <Menu.Item
-                key={manager}
-                onClick={() => copy(manager)}
-                className={(state) =>
-                  `d-f ai-c g-2 px-2 py-1 ff-m fs-xs c-p us-none ${
-                    state.highlighted ? "bg-border c-accent" : "c-accent-dim"
-                  }`
-                }
+      <AnimatePresence>
+        {open && (
+          <Menu.Portal>
+            <Menu.Positioner
+              side="bottom"
+              sideOffset={4}
+              collisionAvoidance={{ side: "none", fallbackAxisSide: "none" }}
+              className="zi-50"
+            >
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
               >
-                {(() => {
-                  const { Mark } = MANAGERS[manager];
-                  return <Mark className="fs-0 w-4 h-4" />;
-                })()}
-                {manager}
-              </Menu.Item>
-            ))}
-          </Menu.Popup>
-        </Menu.Positioner>
-      </Menu.Portal>
+                {popup}
+              </motion.div>
+            </Menu.Positioner>
+          </Menu.Portal>
+        )}
+      </AnimatePresence>
     </Menu.Root>
   );
 }

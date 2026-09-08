@@ -62,22 +62,22 @@ export default async function Page({
         <div className="my-8" data-meta>
           <div className="d-f ai-c jc-sb mb-2">
             <h1 className="min-w-0 c-white fs-4xl fw-400 ow-bw">{ui.title}</h1>
-            <div className="d-f fs-0 ai-c g-2">
-              {/* Beside the pagination arrows: installing is the one thing a
-                  reader does here that is not looking. Prose pages under this
-                  route share the layout & have nothing to install. */}
-              {ui.playground && (
-                <Install id={getRegistryTarget(slug).install} prominent />
-              )}
-              <Pagination
-                previous={navigation.previous}
-                next={navigation.next}
-                basePath="/ui/components"
-              />
-            </div>
+            <Pagination
+              previous={navigation.previous}
+              next={navigation.next}
+              basePath="/ui/components"
+            />
           </div>
           {ui.description && (
             <p className="c-white/70 fs-lg">{ui.description}</p>
+          )}
+          {/* Below the description: installing is the one thing a reader does
+              here that is not looking. Prose pages under this route share the
+              layout & have nothing to install. */}
+          {ui.playground && (
+            <div className="mt-3">
+              <Install id={getRegistryTarget(slug).install} />
+            </div>
           )}
         </div>
       )}
