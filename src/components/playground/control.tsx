@@ -19,9 +19,9 @@ interface Props {
  *
  * Every enum is a select, however few values it has. Segments laid each option
  * out across a rail three columns wide, so `shape` with four ate a line that
- * `size` with three had already crowded. Trigger and popup both size to their
- * content and cap at 8rem / 10rem so short labels stay tight and long lists
- * scroll.
+ * `size` with three had already crowded. Triggers share a fixed width so the
+ * column lines up; the popup matches that width via `--anchor-width`, grows
+ * with short lists, and scrolls past 10rem.
  */
 export default function Control({ prop, value, onChange }: Props) {
   if (prop.exampleIcon) {
@@ -60,9 +60,6 @@ export default function Control({ prop, value, onChange }: Props) {
   return null;
 }
 
-/** Shared by trigger & popup: hug content, never grow past the rail. */
-const FIT = { width: "fit-content", maxWidth: "8rem" } as const;
-
 function EnumSelect({
   name,
   values,
@@ -78,10 +75,10 @@ function EnumSelect({
 
   const popup = (
     <Select.Popup
-      className="p-1 o-h bc-border bg-surface bw-1"
-      style={{ ...FIT, maxHeight: "10rem" }}
+      className="p-1 oy-auto bc-border bg-surface bw-1"
+      style={{ width: "var(--anchor-width)", maxHeight: "10rem" }}
     >
-      <Select.List className="oy-auto">
+      <Select.List>
         {values.map((option) => (
           <Select.Item
             key={option}
@@ -108,8 +105,7 @@ function EnumSelect({
     >
       <Select.Trigger
         aria-label={name}
-        style={FIT}
-        className="d-f fs-0 ai-c g-1 px-2 py-1 bc-border bg-transparent c-accent bw-1 ff-m fs-xs c-p us-none fv:oo--1 fv:oc-accent"
+        className="d-f fs-0 ai-c jc-sb g-1 px-2 py-1 w-32 bc-border bg-transparent c-accent bw-1 ff-m fs-xs c-p us-none fv:oo--1 fv:oc-accent"
       >
         <Select.Value className="o-h to-e ws-nw" />
         <NavArrowDown className="fs-0 w-3 h-3 c-accent-dim" aria-hidden />
