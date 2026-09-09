@@ -76,10 +76,8 @@ export function TabsTab({
   return (
     <BaseTabs.Tab
       value={value}
-      className={`d-f ai-c jc-c bw-0 m-0 px-2 py-0 fs-sm fw-500 us-none ws-nw h-8 a-none ${className}`}
+      className={`d-f ai-c jc-c bw-0 m-0 px-2 py-0 fs-sm fw-500 us-none ws-nw h-8 a-none os-none bg-transparent ${className}`}
       style={{
-        outline: 0,
-        background: "none",
         color: "#989ec2",
         fontFamily: "inherit",
         ...style,
@@ -108,11 +106,8 @@ export function TabsPanel({
   return (
     <BaseTabs.Panel
       value={value}
-      className={`p-r p-4 ${className}`}
-      style={{
-        outline: 0,
-        ...style,
-      }}
+      className={`p-r p-4 os-none ${className}`}
+      style={style}
       {...props}
     >
       {children}
