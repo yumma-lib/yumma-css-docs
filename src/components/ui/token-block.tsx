@@ -18,6 +18,7 @@ export default function TokenBlock({
   expanded = false,
   title,
   installId,
+  height,
 }: {
   tokens: Token[];
   /** Caller supplies frame classes (e.g. no top border under tabs). */
@@ -27,6 +28,11 @@ export default function TokenBlock({
   title?: string;
   /** When set, title bar offers Install + optional Base UI link instead of Copy. */
   installId?: string;
+  /**
+   * Pins the code area to this many pixels and scrolls inside it. Without it an
+   * expanded fold grows the block, which scrolls the page instead.
+   */
+  height?: number;
 }) {
   const [copied, setCopied] = useState(false);
   const pathname = usePathname();
@@ -75,7 +81,10 @@ export default function TokenBlock({
   return (
     <div className={`bg-surface ${className}`}>
       <TitleBar title={title} action={action} />
-      <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
+      <pre
+        className={`ox-auto px-4 py-3 ff-m lh-5 ws-pw ${height ? "oy-auto" : ""}`}
+        style={height ? { height } : undefined}
+      >
         <code>
           <Folded tokens={tokens} expanded={expanded} />
         </code>

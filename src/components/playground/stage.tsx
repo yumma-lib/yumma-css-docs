@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePlayground } from "@/components/playground/context";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import PreviewSpinner from "@/components/preview-spinner";
+import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryTarget, type RegistryMeta } from "@/registry";
 import {
@@ -105,24 +106,38 @@ export default function ComponentPlayground() {
     .map(([name, value]) => `${name}:${JSON.stringify(value)}`)
     .join("|");
 
+  // Preview and code share one height, and the code scrolls inside it. Stacked,
+  // an expanded snippet pushed the page down and put a scrollbar on the window;
+  // the point of the tabs is that the page never scrolls.
   return (
-    <div className="mb-8 bc-border bw-1">
-      <PreviewFrame minHeight={STAGE}>
-        <Mounted
-          key={uncontrolled}
-          Component={Component}
-          props={resolveIcons(set) as DemoProps}
-          portals={meta.props.some((prop) => prop.name === "container")}
-        >
-          {exampleChildren(meta)}
-        </Mounted>
-      </PreviewFrame>
-      <TokenBlock
-        tokens={usage}
-        title="page.tsx"
-        installId={getRegistryTarget(frame.id).install}
-      />
-    </div>
+    <Tabs defaultValue="preview" className="mb-8">
+      <TabsList>
+        <TabsTab value="preview">Preview</TabsTab>
+        <TabsTab value="code">Code</TabsTab>
+      </TabsList>
+
+      <TabsPanel value="preview">
+        <PreviewFrame minHeight={STAGE}>
+          <Mounted
+            key={uncontrolled}
+            Component={Component}
+            props={resolveIcons(set) as DemoProps}
+            portals={meta.props.some((prop) => prop.name === "container")}
+          >
+            {exampleChildren(meta)}
+          </Mounted>
+        </PreviewFrame>
+      </TabsPanel>
+
+      <TabsPanel value="code">
+        <TokenBlock
+          tokens={usage}
+          title="page.tsx"
+          installId={getRegistryTarget(frame.id).install}
+          height={STAGE}
+        />
+      </TabsPanel>
+    </Tabs>
   );
 }
 
