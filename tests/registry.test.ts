@@ -97,6 +97,25 @@ describe("Yumma UI registry", () => {
     expect(split).toEqual([]);
   });
 
+  // `"false"` is truthy, so a boolean default written as a string seeds the
+  // playground with the prop switched on. Four components rendered disabled.
+  it("declares boolean defaults as booleans", () => {
+    const wrong: string[] = [];
+
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      for (const prop of meta.props ?? []) {
+        if (prop.type === "boolean" && typeof prop.default === "string") {
+          wrong.push(`${file}: ${prop.name}`);
+        }
+      }
+    }
+
+    expect(wrong).toEqual([]);
+  });
+
   it("is not empty", () => {
     expect(mappedIds().length).toBeGreaterThan(0);
   });

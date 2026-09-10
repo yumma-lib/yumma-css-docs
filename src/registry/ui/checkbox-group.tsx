@@ -40,7 +40,13 @@ export default function CheckboxGroupBase({
 
   return (
     <CheckboxGroup
-      aria-labelledby={label || parentLabel ? labelId : undefined}
+      // Only a plain `label` names the group by reference. Pointing
+      // `aria-labelledby` at the parent checkbox would make the group's name an
+      // interactive control, so a string `parentLabel` names it by value.
+      aria-labelledby={label ? labelId : undefined}
+      aria-label={
+        !label && typeof parentLabel === "string" ? parentLabel : undefined
+      }
       value={value}
       defaultValue={defaultValue}
       onValueChange={onValueChange}
@@ -53,11 +59,7 @@ export default function CheckboxGroupBase({
           {label}
         </div>
       )}
-      {parentLabel && (
-        <div id={label ? undefined : labelId}>
-          <Checkbox name={name} parent label={parentLabel} />
-        </div>
-      )}
+      {parentLabel && <Checkbox name={name} parent label={parentLabel} />}
       <div className={merge("d-f fd-c g-2", parentLabel ? "ml-6" : undefined)}>
         {children}
       </div>

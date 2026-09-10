@@ -25,5 +25,39 @@
       "type": "string",
       "description": "Merged with the stack's own classes, so a utility you pass wins."
     }
+  ],
+  "childrenExample": [
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Adrian",
+        "fallback": "A"
+      }
+    },
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Jade",
+        "fallback": "J"
+      }
+    },
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Mei",
+        "fallback": "M"
+      }
+    },
+    {
+      "component": "Avatar",
+      "props": {
+        "size": "sm",
+        "name": "Sam",
+        "fallback": "S"
+      }
+    }
   ]
 }

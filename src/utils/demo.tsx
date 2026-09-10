@@ -1,11 +1,9 @@
 import {
   BellNotification,
-  Bold,
   Bookmark,
   Check,
   Folder,
   HalfMoon,
-  Italic,
   Mail,
   Page,
   PagePlus,
@@ -14,7 +12,6 @@ import {
   StatUp,
   SunLight,
   Trash,
-  Underline,
   User,
   UserPlus,
   Wrench,
@@ -131,56 +128,32 @@ export function resolveIcons(value: unknown): unknown {
 }
 
 /**
- * Children for components whose content is other components, so a group does
- * not demo itself as an empty box. Same reason as EXAMPLE_ICONS, one level up:
- * `meta.children` is a string, which cannot express an element.
+ * The components a `childrenExample` entry can name. Curated for the same
+ * reason as EXAMPLE_ICONS: a runtime lookup over the whole registry would pull
+ * every component into the client bundle.
  */
-export const EXAMPLE_CHILDREN: Record<string, ReactNode> = {
-  "button-group": (
-    <>
-      <Button variant="ghost" shape="square">
-        Day
-      </Button>
-      <Button variant="ghost" shape="square">
-        Month
-      </Button>
-      <Button variant="ghost" shape="square">
-        Year
-      </Button>
-    </>
-  ),
-  "toggle-group": (
-    <>
-      <Toggle
-        value="bold"
-        aria-label="Bold"
-        icon={<Bold className="w-4 h-4" />}
-      />
-      <Toggle
-        value="italic"
-        aria-label="Italic"
-        icon={<Italic className="w-4 h-4" />}
-      />
-      <Toggle
-        value="underline"
-        aria-label="Underline"
-        icon={<Underline className="w-4 h-4" />}
-      />
-    </>
-  ),
-  "avatar-stack": (
-    <>
-      <Avatar size="sm" name="Adrian" fallback="A" />
-      <Avatar size="sm" name="Jade" fallback="J" />
-      <Avatar size="sm" name="Mei" fallback="M" />
-      <Avatar size="sm" name="Sam" fallback="S" />
-    </>
-  ),
-  "checkbox-group": (
-    <>
-      <Checkbox value="read" label="Read" />
-      <Checkbox value="write" label="Write" />
-      <Checkbox value="delete" label="Delete" />
-    </>
-  ),
+const CHILD_COMPONENTS: Record<string, ComponentType<DemoProps>> = {
+  Avatar,
+  Button,
+  Checkbox,
+  Toggle,
 };
+
+/**
+ * Renders the children a schema declares. The snippet prints the same
+ * declaration, so the code block and the preview cannot disagree.
+ */
+export function exampleChildren(meta: RegistryMeta): ReactNode {
+  if (!meta.childrenExample) return meta.children;
+
+  return meta.childrenExample.map((child, index) => {
+    const Child = CHILD_COMPONENTS[child.component];
+    if (!Child) return null;
+    return (
+      // biome-ignore lint/suspicious/noArrayIndexKey: position is the identity here
+      <Child key={index} {...(child.props ?? {})}>
+        {child.children}
+      </Child>
+    );
+  });
+}

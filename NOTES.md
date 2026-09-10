@@ -810,6 +810,23 @@ declares logical properties: `padding` covers `padding-inline` covers
       `ICON_ONLY[size]` for `SIZES[size]` and still rendered the label beside
       the icon. It now renders the icon alone, and a string child becomes the
       `aria-label` so the button keeps a name.
+- [x] **A code block must be the preview, not a description of it.** The
+      example-children map I added was a **second** source: the stage rendered
+      three checkboxes and `buildUsage` printed `<CheckboxGroup />`. Children
+      are declared in the schema now as `childrenExample`, and both the stage
+      and the snippet read that one declaration. The snippet imports the child
+      components too, per this file's own rule that a snippet you cannot run is
+      not a snippet.
+- [x] **`"false"` is truthy, and I wrote six of them.** Every meta written
+      today used a **string** for a boolean default while the existing 72 used
+      real booleans, so `checkbox-group` and `toggle-group` rendered disabled,
+      `field` rendered revealable and `button-group` stretched.
+      `tests/registry.test.ts` now rejects a string boolean default.
+- [x] **The group's name must not be an interactive control.** With only a
+      `parentLabel`, `aria-labelledby` pointed at the div wrapping the parent
+      **checkbox**. A string `parentLabel` names the group by value now.
+      `Checkbox` itself already renders a `<label>` wrapper, which is the Base
+      UI pattern, so nothing was wrong there.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

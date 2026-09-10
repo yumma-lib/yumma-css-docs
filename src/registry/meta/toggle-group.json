@@ -18,13 +18,13 @@
     {
       "name": "multiple",
       "type": "boolean",
-      "default": "false",
+      "default": false,
       "description": "More than one toggle can be pressed at a time. Off by default, matching Base UI, so a group is single-choice unless you say otherwise."
     },
     {
       "name": "disabled",
       "type": "boolean",
-      "default": "false",
+      "default": false,
       "description": "Ignores interaction on every toggle in the group."
     },
     {
@@ -46,6 +46,29 @@
       "name": "className",
       "type": "string",
       "description": "Merged with the group's own classes, so a utility you pass wins."
+    }
+  ],
+  "childrenExample": [
+    {
+      "component": "Toggle",
+      "props": {
+        "value": "bold",
+        "aria-label": "Bold"
+      }
+    },
+    {
+      "component": "Toggle",
+      "props": {
+        "value": "italic",
+        "aria-label": "Italic"
+      }
+    },
+    {
+      "component": "Toggle",
+      "props": {
+        "value": "underline",
+        "aria-label": "Underline"
+      }
     }
   ]
 }

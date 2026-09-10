@@ -9,7 +9,7 @@ import TokenBlock from "@/components/ui/token-block";
 import { getRegistryTarget, type RegistryMeta } from "@/registry";
 import {
   type DemoProps,
-  EXAMPLE_CHILDREN,
+  exampleChildren,
   resolveIcons,
   seedValues,
 } from "@/utils/demo";
@@ -114,7 +114,7 @@ export default function ComponentPlayground() {
           props={resolveIcons(set) as DemoProps}
           portals={meta.props.some((prop) => prop.name === "container")}
         >
-          {EXAMPLE_CHILDREN[frame.id] ?? meta.children}
+          {exampleChildren(meta)}
         </Mounted>
       </PreviewFrame>
       <TokenBlock

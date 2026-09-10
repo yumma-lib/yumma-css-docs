@@ -306,6 +306,28 @@ export function buildUsage(
     );
   }
 
+  // Same rule for the children the snippet is about to spell.
+  for (const child of [
+    ...new Set((meta.childrenExample ?? []).map((entry) => entry.component)),
+  ].sort()) {
+    tokens.push(
+      { kind: "keyword", text: "import" },
+      { kind: "text", text: " " },
+      { kind: "tag", text: child },
+      { kind: "text", text: " " },
+      { kind: "keyword", text: "from" },
+      { kind: "text", text: " " },
+      {
+        kind: "string",
+        text: `"@/components/ui/${child
+          .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+          .toLowerCase()}"`,
+      },
+      { kind: "punctuation", text: ";" },
+      { kind: "text", text: "\n" },
+    );
+  }
+
   tokens.push({ kind: "text", text: "\n" });
 
   tokens.push({ kind: "punctuation", text: "<" }, { kind: "tag", text: name });
@@ -320,7 +342,35 @@ export function buildUsage(
 
   // A component whose schema declares no children slot is written self-closing,
   // so the snippet matches how it is actually used.
-  if (meta.children === undefined) {
+  if (meta.childrenExample) {
+    // Printed from the same declaration the stage renders, so the snippet is
+    // what the preview is showing rather than a second description of it.
+    tokens.push({ kind: "punctuation", text: ">" });
+    for (const child of meta.childrenExample) {
+      tokens.push({ kind: "text", text: "\n  " });
+      tokens.push({ kind: "punctuation", text: "<" });
+      tokens.push({ kind: "tag", text: child.component });
+      for (const [key, value] of Object.entries(child.props ?? {})) {
+        tokens.push({ kind: "text", text: " " });
+        tokens.push({ kind: "attribute", text: key });
+        tokens.push({ kind: "punctuation", text: "=" });
+        tokens.push({ kind: "string", text: JSON.stringify(String(value)) });
+      }
+      if (child.children === undefined) {
+        tokens.push({ kind: "punctuation", text: " />" });
+      } else {
+        tokens.push({ kind: "punctuation", text: ">" });
+        tokens.push({ kind: "text", text: child.children });
+        tokens.push({ kind: "punctuation", text: "</" });
+        tokens.push({ kind: "tag", text: child.component });
+        tokens.push({ kind: "punctuation", text: ">" });
+      }
+    }
+    tokens.push({ kind: "text", text: "\n" });
+    tokens.push({ kind: "punctuation", text: "</" });
+    tokens.push({ kind: "tag", text: name });
+    tokens.push({ kind: "punctuation", text: ">" });
+  } else if (meta.children === undefined) {
     tokens.push({ kind: "punctuation", text: " />" });
   } else {
     tokens.push({ kind: "punctuation", text: ">" });
