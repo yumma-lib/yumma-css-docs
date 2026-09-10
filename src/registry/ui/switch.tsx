@@ -73,19 +73,30 @@ export default function SwitchBase({
     "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3",
     track,
     SHAPES[shape],
-    // Disabled gets its own surface: 60% of indigo is still indigo.
-    checked ? (disabled ? "bg-silver-3" : "bg-indigo") : "bg-silver-1",
+    // Disabled is a surface, not a transparency, and it is the same surface
+    // whether the switch is on or off - the thumb's position is what says
+    // which, so a disabled switch still reports its value instead of dimming
+    // into something that could be read as either.
+    disabled
+      ? "bw-1 bc-silver-2 bg-silver-1"
+      : checked
+        ? "bg-indigo"
+        : "bg-silver-1",
     disabled ? "" : "c-p",
     className,
   );
 
-  const thumbClasses = ["bg-white", thumb, SHAPES[shape]]
+  const thumbClasses = [
+    disabled ? "bg-silver-3" : "bg-white",
+    thumb,
+    SHAPES[shape],
+  ]
     .filter(Boolean)
     .join(" ");
 
   return (
     <Field.Root
-      className={`d-f fd-c g-1 ${disabled ? "o-60 c-na" : ""}`}
+      className={`d-f fd-c g-1 ${disabled ? "c-na" : ""}`}
       disabled={disabled}
     >
       <div className="d-f ai-c g-2">
@@ -120,7 +131,9 @@ export default function SwitchBase({
         {label && (
           <Field.Label
             htmlFor={id}
-            className={`c-slate-10 fs-sm fw-500 us-none ${disabled ? "" : "c-p"}`}
+            className={`fs-sm fw-500 us-none ${
+              disabled ? "c-slate-5" : "c-slate-10 c-p"
+            }`}
           >
             {label}
           </Field.Label>

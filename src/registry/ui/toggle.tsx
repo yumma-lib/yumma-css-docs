@@ -23,6 +23,13 @@ const SIZES: Record<Size, string> = {
   md: "w-12 h-12",
 };
 
+// The one state this component had no way to express. Same surface as the
+// other controls, so a disabled Toggle in a Toolbar matches the disabled
+// Checkbox beside it.
+// No cursor here: it is set once below, so `c-na` and `c-p` never reach
+// `merge` as two arguments it has to choose between.
+const DISABLED = "bw-1 bc-silver-2 bg-silver-1 c-slate-4";
+
 const TONES: Record<Tone, { pressed: string; unpressed: string }> = {
   accent: {
     pressed: "bg-indigo bc-indigo-6 c-white",
@@ -49,6 +56,8 @@ export interface ToggleProps
 
   swatchClassName?: string;
 
+  /** Blocks the press and marks the control, keeping its pressed state legible. */
+  disabled?: boolean;
   animated?: boolean;
   className?: string;
 }
@@ -63,6 +72,7 @@ export default function ToggleBase({
   size = "md",
   tone = "accent",
   swatchClassName,
+  disabled = false,
   animated = true,
   className,
   value,
@@ -86,16 +96,20 @@ export default function ToggleBase({
   return (
     <Toggle
       value={value}
+      disabled={disabled}
       {...pressedProps}
       className={(state) =>
         merge(
-          "d-f ai-c jc-c us-none c-p fv:oo-2 fv:oc-indigo-5",
+          "d-f ai-c jc-c us-none fv:oo-2 fv:oc-indigo-5",
+          disabled ? "c-na" : "c-p",
           SIZES[size],
           SHAPES[shape],
-          swatchClassName
-            ? "bw-0"
-            : `bw-1 ${state.pressed ? TONES[tone].pressed : TONES[tone].unpressed}`,
-          swatchClassName,
+          disabled
+            ? DISABLED
+            : swatchClassName
+              ? "bw-0"
+              : `bw-1 ${state.pressed ? TONES[tone].pressed : TONES[tone].unpressed}`,
+          disabled ? "" : swatchClassName,
           className,
         )
       }
@@ -104,7 +118,7 @@ export default function ToggleBase({
           <motion.button
             type="button"
             {...(renderProps as HTMLMotionProps<"button">)}
-            whileTap={{ scale: 0.9 }}
+            whileTap={disabled ? undefined : { scale: 0.9 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
             {state.pressed ? pressedIcon : icon}

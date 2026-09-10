@@ -64,6 +64,12 @@
       "description": "Identifies this toggle inside a `ToggleGroup`. When set, Base UI derives `pressed` from the group's own value array instead of this component's internal state."
     },
     {
+      "name": "disabled",
+      "type": "boolean",
+      "default": false,
+      "description": "Blocks the press and marks the control. The pressed state stays legible, so a disabled toggle still reports its value."
+    },
+    {
       "name": "animated",
       "type": "boolean",
       "default": true,
