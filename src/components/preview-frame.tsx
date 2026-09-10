@@ -101,12 +101,19 @@ interface Props {
    * for whatever the viewport leaves it.
    */
   minHeight?: number | string;
+  /**
+   * Take the height a flex parent gives instead of growing to the content.
+   * A percentage would have to resolve against a flex item, so the frame
+   * becomes a flex child of its own holder rather than asking for `100%`.
+   */
+  fill?: boolean;
   className?: string;
 }
 
 export default function PreviewFrame({
   children,
   minHeight = 240,
+  fill = false,
   className = "",
 }: Props) {
   const holder = useRef<HTMLDivElement>(null);
@@ -118,7 +125,7 @@ export default function PreviewFrame({
   // What the content measures. The floor is applied as `min-height` in CSS,
   // which is what lets it be a `calc()` the browser resolves rather than a
   // number this component would have to work out for itself.
-  const [height, setHeight] = useState(0);
+  const [measured, setMeasured] = useState(0);
 
   useEffect(() => {
     const element = holder.current;
@@ -174,26 +181,30 @@ export default function PreviewFrame({
   }, [near]);
 
   useEffect(() => {
-    if (!body) return;
+    if (!body || fill) return;
 
-    const measure = () => setHeight(Math.ceil(body.scrollHeight));
+    const measure = () => setMeasured(Math.ceil(body.scrollHeight));
 
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(body);
     return () => observer.disconnect();
-  }, [body]);
+  }, [body, fill]);
 
   return (
-    <div ref={holder} className={className} style={{ minHeight }}>
+    <div
+      ref={holder}
+      className={`${fill ? "d-f fd-c" : ""} ${className}`}
+      style={{ minHeight }}
+    >
       {near && (
         <iframe
           ref={frame}
           title="Component preview"
           // No `src`: the document is built here rather than fetched, which is
           // what keeps a frame cheaper than a page.
-          className="d-b w-100% bw-0"
-          style={{ height, minHeight }}
+          className={`d-b w-100% bw-0 ${fill ? "f-1 min-h-0" : ""}`}
+          style={fill ? undefined : { height: measured, minHeight }}
         />
       )}
       {/* Outside the element, not between its tags: the portal renders into

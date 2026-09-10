@@ -56,32 +56,40 @@ export default async function Page({
   const MDXContent = ui.mdx;
   const navigation = getUINavigation(slug);
 
+  // A playground page is its stage: the article is capped to the viewport and
+  // the stage takes whatever the header leaves, so there is no bottom margin to
+  // scroll to and no height to guess at. A prose page keeps flowing.
+  const stage = Boolean(ui.playground);
+
   return (
-    <div className="mb-16">
+    <div className={`d-f fd-c f-1 min-h-0 ${stage ? "" : "mb-16"}`}>
       {ui && (
-        <div className="my-8" data-meta>
+        <div className={`my-8 ${stage ? "fs-0" : ""}`} data-meta>
           <div className="d-f ai-c jc-sb mb-2">
             <h1 className="min-w-0 c-white fs-4xl fw-400 ow-bw">{ui.title}</h1>
-            <Pagination
-              previous={navigation.previous}
-              next={navigation.next}
-              basePath="/ui/components"
-            />
+            <div className="d-f fs-0 ai-c g-2">
+              {/* Installing is a page action, so it sits with the other page
+                  actions rather than inside the stage: the tab bar switches
+                  views and does nothing else. A square the size of the arrows,
+                  so the corner is one group. */}
+              {ui.playground && (
+                <Install id={getRegistryTarget(slug).install} />
+              )}
+              <Pagination
+                previous={navigation.previous}
+                next={navigation.next}
+                basePath="/ui/components"
+              />
+            </div>
           </div>
           {ui.description && (
             <p className="c-white/70 fs-lg">{ui.description}</p>
           )}
-          {/* Below the description: installing is the one thing a reader does
-              here that is not looking. Prose pages under this route share the
-              layout & have nothing to install. */}
-          {ui.playground && (
-            <div className="mt-3">
-              <Install id={getRegistryTarget(slug).install} />
-            </div>
-          )}
         </div>
       )}
-      <MDXContent />
+      <div className={stage ? "d-f fd-c f-1 min-h-0" : ""}>
+        <MDXContent />
+      </div>
       <JsonLd
         data={{
           "@context": "https://schema.org",

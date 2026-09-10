@@ -23,8 +23,12 @@ export default function UIShell({ children }: { children: React.ReactNode }) {
     <div className="d-g gtc-1 g-8 @lg:gtc-12">
       <Sidebar variant="ui" />
 
-      <div className="pt-12 @lg:gc-s-6">
-        <article>{children}</article>
+      <div
+        className={`d-f fd-c pt-12 @lg:gc-s-6 ${
+          playground ? "playground-column" : ""
+        }`}
+      >
+        <article className="d-f fd-c f-1 min-h-0">{children}</article>
       </div>
 
       {playground ? <PlaygroundRail /> : <TableOfContents />}

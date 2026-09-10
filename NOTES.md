@@ -827,6 +827,60 @@ declares logical properties: `padding` covers `padding-inline` covers
       **checkbox**. A string `parentLabel` names the group by value now.
       `Checkbox` itself already renders a `<label>` wrapper, which is the Base
       UI pattern, so nothing was wrong there.
+- [x] **The component page is two tabs: Preview and Code.** Both panels share
+      one height and the code scrolls **inside** itself - stacked, an expanded
+      fold grew the page and put a scrollbar on the window. The panels run edge
+      to edge (`TabsPanel` keeps its `p-4` as a *default* so a caller can drop
+      it): page-coloured margin around a white preview reads as a gap in the
+      frame. The stage fills the column rather than
+      stopping at a fixed 384px.
+      It briefly had a third tab carrying the Vite/Next.js/CSS-entry setup,
+      since a copied component is unstyled until Yumma CSS is generating. That
+      is **gone**, with `src/utils/setup.ts` and the `codeTokens` tokenizer
+      that highlighted it: seven controls in one bar was too much, the
+      installation page already covers all three, and the real fix is for the
+      `yummaui` CLI to **detect** whether Yumma CSS is installed and say so at
+      `add` time. A docs tab nobody asked for cannot do that; the CLI can.
+      The trailing group was `ml-auto`, **not** `ml-a`: the margin value key is
+      `auto`, so `ml-a` generated nothing and the group sat flush against the
+      last tab instead of at the right end. It looked like a layout constraint
+      in `tabs.tsx` and was one character.
+      **Install and the Base UI mark are not in the tab bar at all now.** They
+      were only travelling together because they arrived together. Install is a
+      page action, so it is a square beside the pagination arrows - the same
+      32px box, border and fill - and the corner reads as one group of page
+      actions. The Base UI link answers a question the props raise, so it sits
+      on the **Component API** header, beside the props that page documents.
+      The tab bar switches views and does nothing else.
+      In the title row Install competed with the page title for the widest
+      line; in the code header the Base UI link only existed on the Code tab.
+      `installId` is gone from `TokenBlock` - every block just has Copy now -
+      and `primitiveSlug` moved to `src/utils/primitive.ts` so the tab bar and
+      the code block cannot disagree about whether a page has a primitive.
+- [x] **The page does not scroll on a component page; the three columns do.**
+      The stage was `calc(100dvh - 18rem)`, arithmetic over the header above
+      it, and it held until a description wrapped to two lines - then the
+      window scrolled by exactly the difference, which is what the dead space
+      below the block really was. It is flex now and cannot drift:
+      `.playground-column` caps the article at `100dvh` with `overflow:hidden`
+      (gated to 64rem, like `.playground-rail`, because below it the rail
+      stacks under the article and a cap there would hide the Component API),
+      and `d-f fd-c f-1 min-h-0` runs from that column down through the
+      article, the page body, the `Tabs` root and the panel to the frame.
+      `PreviewFrame` and `TokenBlock` took a `fill` prop for this and gave up
+      `height`: a percentage would have to resolve against a flex item, so each
+      becomes a flex child of its own wrapper instead. The column carries a
+      `padding-bottom` because it ends at the viewport edge, and without it the
+      stage's own bottom border is the row of pixels that gets clipped.
+      Measured, not assumed: `scrollHeight - clientHeight` is 0 on
+      `alert-dialog` and on `checkbox-group`, whose description wraps.
+- [x] **The snippet audit came back clean.** Checked both directions: four
+      components self-close while taking `children` (`avatar`, `dialog`,
+      `popover`, `rating`) and all four are optional slots the demo does not
+      fill, so the snippet is accurate; and **zero** props are passed to a
+      preview without being printed. `checkbox-group` was the only mismatch.
+      A test now fails if `childrenExample` names a component the stage cannot
+      render, which is the same lie in the other direction.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

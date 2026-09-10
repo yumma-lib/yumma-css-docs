@@ -116,6 +116,35 @@ describe("Yumma UI registry", () => {
     expect(wrong).toEqual([]);
   });
 
+  // The snippet prints whatever `childrenExample` names, but the stage can only
+  // render a component in `CHILD_COMPONENTS`. A name in one and not the other
+  // is the code block lying again, in the other direction.
+  it("renders every child the snippet prints", () => {
+    const known = new Set(
+      (
+        readFileSync(join(rootDir, "src/utils/demo.tsx"), "utf-8").match(
+          /const CHILD_COMPONENTS[^{]*\{([^}]*)\}/,
+        )?.[1] ?? ""
+      )
+        .split(",")
+        .map((entry) => entry.trim())
+        .filter(Boolean),
+    );
+
+    const missing: string[] = [];
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      for (const child of meta.childrenExample ?? []) {
+        if (!known.has(child.component))
+          missing.push(`${file}: ${child.component}`);
+      }
+    }
+
+    expect(missing).toEqual([]);
+  });
+
   it("is not empty", () => {
     expect(mappedIds().length).toBeGreaterThan(0);
   });

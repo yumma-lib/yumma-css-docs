@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { usePlayground } from "@/components/playground/context";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import PreviewSpinner from "@/components/preview-spinner";
+import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
 import TokenBlock from "@/components/ui/token-block";
 import { getRegistryTarget, type RegistryMeta } from "@/registry";
 import {
@@ -19,10 +20,13 @@ import {
 } from "@/utils/prefetch-registry";
 import { buildUsage } from "@/utils/snippet";
 
-const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 min-h-64 bg-white";
+const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 bg-white";
 
-/** Tall enough that a modal opening inside the frame is not clipped by it. */
-const STAGE = 384;
+// The stage takes whatever the capped column leaves it, rather than a height
+// worked out from the header above it. That arithmetic was right until a
+// description wrapped to two lines, and then the page scrolled by exactly the
+// difference. Flex cannot drift.
+const FILL = "d-f fd-c f-1 min-h-0";
 
 interface Frame {
   id: string;
@@ -75,11 +79,10 @@ export default function ComponentPlayground() {
 
   if (!frame) {
     return (
-      <div className="mb-8 bc-border bw-1">
-        <div data-preview className={PREVIEW_SHELL}>
+      <div className={`bc-border bw-1 ${FILL}`}>
+        <div data-preview className={`f-1 min-h-0 ${PREVIEW_SHELL}`}>
           <PreviewSpinner />
         </div>
-        <div className="bc-border btw-1 bg-surface min-h-28" aria-hidden />
       </div>
     );
   }
@@ -101,24 +104,33 @@ export default function ComponentPlayground() {
     .map(([name, value]) => `${name}:${JSON.stringify(value)}`)
     .join("|");
 
+  // Preview and code share one height, and the code scrolls inside it. Stacked,
+  // an expanded snippet pushed the page down and put a scrollbar on the window;
+  // the point of the tabs is that the page never scrolls.
   return (
-    <div className="mb-8 bc-border bw-1">
-      <PreviewFrame minHeight={STAGE}>
-        <Mounted
-          key={uncontrolled}
-          Component={Component}
-          props={resolveIcons(set) as DemoProps}
-          portals={meta.props.some((prop) => prop.name === "container")}
-        >
-          {exampleChildren(meta)}
-        </Mounted>
-      </PreviewFrame>
-      <TokenBlock
-        tokens={usage}
-        title="page.tsx"
-        installId={getRegistryTarget(frame.id).install}
-      />
-    </div>
+    <Tabs defaultValue="preview" className={FILL}>
+      <TabsList>
+        <TabsTab value="preview">Preview</TabsTab>
+        <TabsTab value="code">Code</TabsTab>
+      </TabsList>
+
+      <TabsPanel value="preview" className={FILL}>
+        <PreviewFrame className="f-1 min-h-0" minHeight={0} fill>
+          <Mounted
+            key={uncontrolled}
+            Component={Component}
+            props={resolveIcons(set) as DemoProps}
+            portals={meta.props.some((prop) => prop.name === "container")}
+          >
+            {exampleChildren(meta)}
+          </Mounted>
+        </PreviewFrame>
+      </TabsPanel>
+
+      <TabsPanel value="code" className={FILL}>
+        <TokenBlock tokens={usage} title="page.tsx" className={FILL} fill />
+      </TabsPanel>
+    </Tabs>
   );
 }
 

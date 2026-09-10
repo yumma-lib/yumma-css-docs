@@ -1,14 +1,9 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import { allUis } from "content-collections";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { useState } from "react";
-import { BaseUI } from "@/components/icons/icons";
 import { CopyButton, TitleBar } from "@/components/ui/code";
-import { getRegistryTarget } from "@/registry";
 import { TOKEN_COLORS, type Token, tokensToText } from "@/utils/snippet";
 
 /** Hand-highlighted usage snippet; shared by static preview and playground. */
@@ -17,7 +12,7 @@ export default function TokenBlock({
   className = "bc-border btw-1",
   expanded = false,
   title,
-  installId,
+  fill = false,
 }: {
   tokens: Token[];
   /** Caller supplies frame classes (e.g. no top border under tabs). */
@@ -25,11 +20,13 @@ export default function TokenBlock({
   expanded?: boolean;
   /** File label in the title bar, like `Code`. */
   title?: string;
-  /** When set, title bar offers Install + optional Base UI link instead of Copy. */
-  installId?: string;
+  /**
+   * Take the height a flex parent gives, and scroll the code inside it.
+   * Without it an expanded fold grows the block, which scrolls the page.
+   */
+  fill?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
-  const pathname = usePathname();
 
   const copy = async () => {
     try {
@@ -41,41 +38,18 @@ export default function TokenBlock({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const slug = (pathname || "")
-    .replace(/^\/ui\/components\//, "")
-    .replace(/^\/ui\//, "")
-    .replace(/\/$/, "");
-  const page = allUis.find((ui) => ui._meta.path === slug);
-  const primitive = page?.primitive;
-  const primitiveSlug =
-    typeof primitive === "string"
-      ? primitive
-      : primitive
-        ? getRegistryTarget(installId ?? slug).component
-        : null;
-
-  const action: ReactNode = installId ? (
-    <div className="d-f ai-c g-1">
-      {primitiveSlug && (
-        <Link
-          href={`https://base-ui.com/react/components/${primitiveSlug}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Base UI primitive"
-          className="d-f ai-c jc-c p-1 c-accent td-none h:c-accent-4 fv:oc-accent fv:ow-2"
-        >
-          <BaseUI className="w-4 h-4" />
-        </Link>
-      )}
-    </div>
-  ) : (
-    <CopyButton copied={copied} onCopy={copy} />
-  );
+  // Copy on every block. The Base UI link and Install moved to the stage's tab
+  // bar, where they are visible from the Preview tab too.
+  const action: ReactNode = <CopyButton copied={copied} onCopy={copy} />;
 
   return (
     <div className={`bg-surface ${className}`}>
       <TitleBar title={title} action={action} />
-      <pre className="ox-auto px-4 py-3 ff-m lh-5 ws-pw">
+      <pre
+        className={`ox-auto px-4 py-3 ff-m lh-5 ws-pw ${
+          fill ? "f-1 min-h-0 oy-auto" : ""
+        }`}
+      >
         <code>
           <Folded tokens={tokens} expanded={expanded} />
         </code>

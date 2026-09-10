@@ -99,14 +99,17 @@ interface TabsPanelProps extends React.ComponentProps<typeof BaseTabs.Panel> {
 export function TabsPanel({
   children,
   value,
-  className = "",
+  // Padding lives in the default rather than the template so a caller can drop
+  // it. The stage's panels run edge to edge: page-coloured margin around a
+  // white preview reads as a gap in the frame.
+  className = "p-4",
   style,
   ...props
 }: TabsPanelProps) {
   return (
     <BaseTabs.Panel
       value={value}
-      className={`p-r p-4 os-none ${className}`}
+      className={`p-r os-none ${className}`}
       style={style}
       {...props}
     >
