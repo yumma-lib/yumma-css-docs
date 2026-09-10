@@ -881,6 +881,42 @@ declares logical properties: `padding` covers `padding-inline` covers
       preview without being printed. `checkbox-group` was the only mismatch.
       A test now fails if `childrenExample` names a component the stage cannot
       render, which is the same lie in the other direction.
+- [x] **Both arrows were the same bug, and it was not the arrow.** Base UI
+      gives `Arrow` `position:absolute` plus the offset *along* the popup's
+      edge, from floating-ui's arrow middleware; the offset *across* that edge
+      and the rotation are the consumer's, and neither component set either. So
+      the arrow landed on top of the content - "completely out of place". Both
+      now take `style={(state) => ARROW_PLACEMENT[state.side]}`: `style` accepts
+      a function of state, and `state.side` is the side Base UI **actually**
+      placed the popup on, which is not always the `side` prop because it flips
+      on collision. The box is 16x8, so a vertical edge needs `8 + (16-8)/2`;
+      Yumma has no negative inset values, hence a style object and not classes.
+      Tooltip also lacked `p-r` on the popup, so there was nothing for
+      `position:absolute` to resolve against - popover already had it, which is
+      the only reason the two looked like different bugs.
+      **The tooltip arrow was `c-silver-2` regardless of tone**, which is the
+      border colour of the light popup and unrelated to the dark one. It reads
+      the tone now: `f-white s-silver-2` against `bg-white bc-silver-2`,
+      `f-indigo-7 s-indigo-7` against `bg-indigo-7`. Yumma has `f-` (fill) and
+      `s-` (stroke) utilities, so no hex literals - `s-` is stroke for a colour
+      value and scale for a number, one of the 31 prefixes claimed twice.
+      Verified in the browser, not reasoned: arrow `position:absolute`,
+      `rotate:180deg`, top 1px above the popup's bottom edge, centred within
+      1px, fill `rgb(255,255,255)`, stroke `rgb(225,227,231)`.
+- [x] **The popover's close mark was small because the popover ignored the
+      house pattern.** Dialog and Alert Dialog both use a 28px box around a
+      20px mark (`w-7 h-7`, `w-5 h-5`); the popover had 20px around 16px, which
+      is also under the minimum for a hit target. It matches them now, round
+      corner and hover included.
+- [ ] **Should `triggerTone` reach the tooltip popup?** Today `triggerTone`
+      styles the trigger and `tone` styles the popup, so `danger` gives you a
+      red bell above a white tooltip, which is the incoherence the report
+      names. Two ways out: add `danger` to `tone` and let both be set, or let
+      `triggerTone` tint the popup as well. The second is what was asked for
+      and the better answer - a tone is a tone - but it makes `triggerTone` a
+      prop that coordinates two elements, so by the rule below it stays and is
+      made open rather than replaced by class props. Not shipped: it changes
+      the API and is a taste call.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

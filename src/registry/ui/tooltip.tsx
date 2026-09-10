@@ -2,7 +2,7 @@
 
 import { Tooltip } from "@base-ui/react/tooltip";
 import { AnimatePresence, motion } from "motion/react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Side = "top" | "right" | "bottom" | "left";
@@ -30,6 +30,35 @@ const TONES: Record<Tone, string> = {
 const TRIGGER_TONES: Record<TriggerTone, string> = {
   neutral: "c-slate-8 h:c-slate-10 fv:oc-indigo-5",
   danger: "c-red-7 h:c-red-8 fv:oc-red-6",
+};
+
+/** The arrow paints the popup's own surface, so it follows `tone` with it. */
+const ARROW_TONES: Record<Tone, string> = {
+  light: "f-white s-silver-2",
+  dark: "f-indigo-7 s-indigo-7",
+};
+
+/**
+ * Where the arrow sits, and which way it points.
+ *
+ * Base UI gives the arrow `position:absolute` and the offset *along* the
+ * popup's edge; the offset *across* that edge, and the rotation, are the
+ * consumer's - without them the arrow lands on top of the content, which is
+ * what "completely out of place" was. The key is the side Base UI actually
+ * placed the popup on, not the `side` asked for, because it flips on
+ * collision; `style` takes a function of that state for exactly this.
+ *
+ * The box is 16x8. Rotating it a quarter turn leaves the box that shape but
+ * draws it 8x16, so a vertical edge needs 8 + (16 - 8) / 2. Yumma has no
+ * negative inset values, so this is a style object rather than classes.
+ */
+const ARROW_PLACEMENT: Record<string, CSSProperties> = {
+  top: { bottom: -8, rotate: "180deg" },
+  bottom: { top: -8 },
+  left: { right: -12, rotate: "90deg" },
+  right: { left: -12, rotate: "-90deg" },
+  "inline-start": { right: -12, rotate: "90deg" },
+  "inline-end": { left: -12, rotate: "-90deg" },
 };
 
 export interface TooltipProps {
@@ -81,9 +110,14 @@ export default function TooltipBase({
     TONES[tone],
     SHAPES[shape],
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
+    // The arrow is positioned against the popup, so the popup has to be what
+    // `position:absolute` resolves against.
+    arrow ? "p-r" : "",
   ]
     .filter(Boolean)
     .join(" ");
+
+  const arrowTone = ARROW_TONES[tone];
 
   const popup = (
     <Tooltip.Popup
@@ -100,15 +134,13 @@ export default function TooltipBase({
       className={popupClasses}
     >
       {arrow && (
-        <Tooltip.Arrow className="d-f w-4 h-2 c-silver-2">
+        <Tooltip.Arrow
+          className="d-f w-4 h-2"
+          style={(state) => ARROW_PLACEMENT[state.side]}
+        >
           <svg viewBox="0 0 10 5" width="16" height="8">
             <title>Arrow</title>
-            <path
-              d="M0 5 L5 0 L10 5"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth="1"
-            />
+            <path d="M0 5 L5 0 L10 5" strokeWidth="1" className={arrowTone} />
           </svg>
         </Tooltip.Arrow>
       )}
