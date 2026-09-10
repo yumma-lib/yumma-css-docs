@@ -130,8 +130,8 @@ export default function RatingBase({
                 const filled = star <= value;
                 const icon = (
                   <Star
-                    className="w-6 h-6"
-                    style={{ fill: filled ? "currentColor" : "none" }}
+                    className={`w-6 h-6 ${filled ? "f-current" : ""}`}
+                    fill="none"
                   />
                 );
 

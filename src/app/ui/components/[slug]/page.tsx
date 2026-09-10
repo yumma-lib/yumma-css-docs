@@ -73,6 +73,14 @@ export default async function Page({
           {ui.description && (
             <p className="c-white/70 fs-lg">{ui.description}</p>
           )}
+          {/* Below the description: installing is the one thing a reader does
+              here that is not looking. Prose pages under this route share the
+              layout & have nothing to install. */}
+          {ui.playground && (
+            <div className="mt-3">
+              <Install id={getRegistryTarget(slug).install} />
+            </div>
+          )}
         </div>
       )}
       <MDXContent />

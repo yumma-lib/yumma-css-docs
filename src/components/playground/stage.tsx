@@ -85,11 +85,7 @@ export default function ComponentPlayground() {
         <div data-preview className={PREVIEW_SHELL}>
           <PreviewSpinner />
         </div>
-        <div
-          className="bc-border btw-1 bg-surface"
-          style={{ minHeight: "7rem" }}
-          aria-hidden
-        />
+        <div className="bc-border btw-1 bg-surface min-h-28" aria-hidden />
       </div>
     );
   }

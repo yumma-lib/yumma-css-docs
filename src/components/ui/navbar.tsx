@@ -57,8 +57,12 @@ export default function Navbar({
   return (
     <>
       <header
-        className={clsx(navbarVariants({ variant }), className, "zi-10")}
-        style={{ backgroundColor: isLandingPage ? "transparent" : "#151724" }}
+        className={clsx(
+          navbarVariants({ variant }),
+          className,
+          "zi-10",
+          isLandingPage ? "bg-transparent" : "bg-page",
+        )}
       >
         <div className="mx-auto px-3 py-2 docs-container">
           <nav className="d-f ai-c jc-sb">
@@ -129,12 +133,10 @@ export default function Navbar({
                 >
                   <div className="d-f p-r ai-c jc-c w-4 h-4">
                     <Menu
-                      className="p-a w-4 h-4"
-                      style={{ opacity: isSidebarOpen ? 0 : 1 }}
+                      className={`p-a w-4 h-4 ${isSidebarOpen ? "o-0" : "o-100"}`}
                     />
                     <Xmark
-                      className="p-a w-4 h-4"
-                      style={{ opacity: isSidebarOpen ? 1 : 0 }}
+                      className={`p-a w-4 h-4 ${isSidebarOpen ? "o-100" : "o-0"}`}
                     />
                   </div>
                 </Button>
