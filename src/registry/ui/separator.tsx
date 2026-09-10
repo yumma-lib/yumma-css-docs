@@ -18,7 +18,12 @@ export interface SeparatorProps {
   icon?: ReactNode;
   onIconClick?: () => void;
   label?: ReactNode;
-  shape?: Shape;
+  /**
+   * Corner radius on the icon button, which is the only thing here that has
+   * corners: a rule is one pixel across, where a radius draws nothing. It was
+   * called `shape`, and read as a promise the separator could not keep.
+   */
+  iconShape?: Shape;
   orientation?: Orientation;
   className?: string;
 }
@@ -27,41 +32,54 @@ export default function SeparatorBase({
   icon,
   onIconClick,
   label,
-  shape = "rounded",
+  iconShape = "rounded",
   orientation = "horizontal",
   className,
 }: SeparatorProps) {
+  const vertical = orientation === "vertical";
+
+  // A rule fills its container along its own axis. `as-s` covers the common
+  // case - a vertical rule in a flex row, like a button group - where the row
+  // has a height but has not declared one for its children to read.
+  const rule = vertical ? "w-px h-100% as-s" : "h-px w-100%";
+
   if (!icon && !label) {
     return (
       <Separator
         orientation={orientation}
-        className={merge(
-          orientation === "vertical" ? "w-px h-100%" : "h-px w-100%",
-          "bg-silver-2",
-          className,
-        )}
+        className={merge(rule, "bg-silver-2", className)}
       />
     );
   }
 
   const buttonClasses = [
     "d-if ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 bw-1 tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5",
-    SHAPES[shape],
+    SHAPES[iconShape],
   ]
     .filter(Boolean)
     .join(" ");
 
+  // The same rule either way round: the wrapper turns, and each half grows
+  // along whichever axis that leaves. This branch used to hardcode a row and
+  // `h-px`, so `orientation` reached the plain separator and nothing else.
+  const half = `fg-1 bg-silver-2 ${vertical ? "w-px" : "h-px"}`;
+
   return (
-    <div className={merge("d-f ai-c g-2 w-100%", className)}>
-      <Separator className="fg-1 h-px bg-silver-2" />
+    <div
+      className={merge(
+        `d-f ai-c g-2 ${vertical ? "fd-c h-100% as-s" : "w-100%"}`,
+        className,
+      )}
+    >
+      <Separator orientation={orientation} className={half} />
       {icon ? (
         <Button className={buttonClasses} onClick={onIconClick}>
           {icon}
         </Button>
       ) : (
-        <span className="c-slate-6 fs-xs fw-500 tt-u ls-3">{label}</span>
+        <span className="fs-0 c-slate-6 fs-xs fw-500 tt-u ls-3">{label}</span>
       )}
-      <Separator className="fg-1 h-px bg-silver-2" />
+      <Separator orientation={orientation} className={half} />
     </div>
   );
 }

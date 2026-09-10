@@ -881,6 +881,42 @@ declares logical properties: `padding` covers `padding-inline` covers
       preview without being printed. `checkbox-group` was the only mismatch.
       A test now fails if `childrenExample` names a component the stage cannot
       render, which is the same lie in the other direction.
+- [x] **Both arrows were the same bug, and it was not the arrow.** Base UI
+      gives `Arrow` `position:absolute` plus the offset *along* the popup's
+      edge, from floating-ui's arrow middleware; the offset *across* that edge
+      and the rotation are the consumer's, and neither component set either. So
+      the arrow landed on top of the content - "completely out of place". Both
+      now take `style={(state) => ARROW_PLACEMENT[state.side]}`: `style` accepts
+      a function of state, and `state.side` is the side Base UI **actually**
+      placed the popup on, which is not always the `side` prop because it flips
+      on collision. The box is 16x8, so a vertical edge needs `8 + (16-8)/2`;
+      Yumma has no negative inset values, hence a style object and not classes.
+      Tooltip also lacked `p-r` on the popup, so there was nothing for
+      `position:absolute` to resolve against - popover already had it, which is
+      the only reason the two looked like different bugs.
+      **The tooltip arrow was `c-silver-2` regardless of tone**, which is the
+      border colour of the light popup and unrelated to the dark one. It reads
+      the tone now: `f-white s-silver-2` against `bg-white bc-silver-2`,
+      `f-indigo-7 s-indigo-7` against `bg-indigo-7`. Yumma has `f-` (fill) and
+      `s-` (stroke) utilities, so no hex literals - `s-` is stroke for a colour
+      value and scale for a number, one of the 31 prefixes claimed twice.
+      Verified in the browser, not reasoned: arrow `position:absolute`,
+      `rotate:180deg`, top 1px above the popup's bottom edge, centred within
+      1px, fill `rgb(255,255,255)`, stroke `rgb(225,227,231)`.
+- [x] **The popover's close mark was small because the popover ignored the
+      house pattern.** Dialog and Alert Dialog both use a 28px box around a
+      20px mark (`w-7 h-7`, `w-5 h-5`); the popover had 20px around 16px, which
+      is also under the minimum for a hit target. It matches them now, round
+      corner and hover included.
+- [ ] **Should `triggerTone` reach the tooltip popup?** Today `triggerTone`
+      styles the trigger and `tone` styles the popup, so `danger` gives you a
+      red bell above a white tooltip, which is the incoherence the report
+      names. Two ways out: add `danger` to `tone` and let both be set, or let
+      `triggerTone` tint the popup as well. The second is what was asked for
+      and the better answer - a tone is a tone - but it makes `triggerTone` a
+      prop that coordinates two elements, so by the rule below it stays and is
+      made open rather than replaced by class props. Not shipped: it changes
+      the API and is a taste call.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
@@ -888,14 +924,29 @@ declares logical properties: `padding` covers `padding-inline` covers
       and close button; `className` reaches only `badgeClasses`, so deleting it
       would mean four new `*ClassName` props to replace one. Meter's `color` is
       the same shape and gets the same treatment.
-- [ ] **The separator entry is two bugs, not the one it describes.** "Both
-      `orientation` and `shape` do nothing": `orientation` works in the plain
-      branch and is **ignored entirely** in the icon/label branch, which
-      hardcodes `h-px`. `shape` never touches a separator at all - it styles
-      the icon **button**, so the prop's name lies. "No lines at all" is
-      neither: every class resolves (`h-px{height:1px}`,
-      `bg-silver-2{background-color:#e1e3e7}`), so the lines render - 1px of
-      near-white on white.
+- [x] **The separator entry was three bugs, and I had the third one wrong.**
+      "Both `orientation` and `shape` do nothing": `orientation` reached the
+      plain branch and was **ignored entirely** in the icon/label branch, which
+      hardcoded a row and `h-px`. Both branches turn now, each half growing
+      along whichever axis the wrapper leaves, and the inner rules finally
+      carry `orientation` at all - `aria-orientation` was missing from the
+      icon/label form outright. `shape` never touched a separator: it styles
+      the icon **button**, and a rule is one pixel across, where a radius draws
+      nothing. It is `iconShape` now, which is a **breaking rename** for the
+      registry - one for Phase 7's release notes.
+      **"No lines at all" was literal and my earlier reading of it was wrong.**
+      I wrote that the classes all resolve so the lines render as 1px of
+      near-white on white. Measured, they were **0px wide**. The cause was not
+      the component and not the colour: `#root` in the preview frame was
+      shrink-to-fit inside a flex-centred body, so `w-100%` resolved against a
+      114px root in a 558px frame, and `fg-1` split what the label left of a
+      34px box - nothing. `#root` is full width and centres its own child now,
+      and takes `height:100%` too, but **only** on a frame that has a height of
+      its own (`[data-fill]`): an auto-height frame is sized *from* this
+      element, so a percentage back is the loop the file already warns about.
+      Rules went 0px -> 222px horizontal, 263px vertical. Checked the blast
+      radius rather than assuming it: button, badge, avatar, switch, meter and
+      separator previews are all still centred to the pixel.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
