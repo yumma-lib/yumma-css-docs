@@ -117,11 +117,10 @@ function ColorSwatch({
   return (
     <Tooltip.Root open={tooltipOpen} onOpenChange={setTooltipOpen}>
       <Tooltip.Trigger
-        className="p-r w-100% ar-1/1 c-p"
+        className="p-r w-100% ar-1/1 c-p os-none"
         style={{
           backgroundColor: shade,
           border: getBorderColor(shade),
-          outline: "none",
         }}
         onClick={handleClick}
         onMouseEnter={handleMouseEnter}
@@ -145,12 +144,11 @@ function ColorSwatch({
             <svg
               aria-hidden="true"
               viewBox="0 0 10 5"
-              className="p-a b--2 l-50% ml--2 w-4 h-2"
-              style={{ fill: "#1a1d2e" }}
+              className="p-a b--2 l-50% ml--2 w-4 h-2 f-surface"
             >
               <path
                 d="M0 0 L5 5 L10 0"
-                fill="#1a1d2e"
+                className="f-surface"
                 stroke="#232741"
                 strokeWidth="1"
               />

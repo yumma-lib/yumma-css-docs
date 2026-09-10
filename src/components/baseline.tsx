@@ -41,18 +41,15 @@ export default function Baseline({ path }: Props) {
           return (
             <div key={browser.key} className="d-f ai-c g-2">
               <div
-                className="d-f ai-c jc-c w-6 h-6"
-                style={{
-                  filter: !browser.supported ? "grayscale(1)" : "none",
-                  opacity: !browser.supported ? 0.5 : 1,
-                }}
+                className={`d-f ai-c jc-c w-6 h-6 ${
+                  browser.supported ? "" : "fgr-100 o-50"
+                }`}
               >
                 <Icon className="w-100% h-100%" />
               </div>
               <div className="d-f fd-c">
                 <span
-                  className="c-white/80"
-                  style={{ opacity: !browser.supported ? 0.5 : 1 }}
+                  className={`c-white/80 ${browser.supported ? "" : "o-50"}`}
                 >
                   {browser.name}
                 </span>

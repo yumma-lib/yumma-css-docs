@@ -843,7 +843,9 @@ declares logical properties: `padding` covers `padding-inline` covers
       installation page already covers all three, and the real fix is for the
       `yummaui` CLI to **detect** whether Yumma CSS is installed and say so at
       `add` time. A docs tab nobody asked for cannot do that; the CLI can.
-      **Install and the Base UI mark moved into the tab bar's trailing group.**
+      **Install and the Base UI mark live in the tab bar's trailing group.**
+      A parallel change on the branch had put Install back under the page
+      description; the merge kept **one** of them, in the tab bar.
       In the title row Install competed with the page title for the widest
       line; in the code header the Base UI link only existed on the Code tab.
       `installId` is gone from `TokenBlock` - every block just has Copy now -
