@@ -843,6 +843,10 @@ declares logical properties: `padding` covers `padding-inline` covers
       installation page already covers all three, and the real fix is for the
       `yummaui` CLI to **detect** whether Yumma CSS is installed and say so at
       `add` time. A docs tab nobody asked for cannot do that; the CLI can.
+      The trailing group is `ml-auto`, **not** `ml-a`: the margin value key is
+      `auto`, so `ml-a` generates nothing and the group sits flush against the
+      last tab instead of at the right end. It looked like a layout constraint
+      in `tabs.tsx` and was one character.
       **Install and the Base UI mark live in the tab bar's trailing group.**
       A parallel change on the branch had put Install back under the page
       description; the merge kept **one** of them, in the tab bar.

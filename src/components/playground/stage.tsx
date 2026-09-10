@@ -136,7 +136,7 @@ export default function ComponentPlayground() {
         {/* Trailing group: the two things you do here that are not looking.
             In the title row, Install competed with the page title for the
             widest line, and the Base UI link only existed on the Code tab. */}
-        <div className="d-f ai-c g-2 ml-a pr-1 fs-0">
+        <div className="d-f ai-c g-2 ml-auto pr-1 fs-0">
           {primitive && (
             <>
               <Link
