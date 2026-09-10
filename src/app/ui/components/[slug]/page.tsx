@@ -2,7 +2,9 @@ import { allUis } from "content-collections";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/json-ld";
+import Install from "@/components/playground/install";
 import Pagination from "@/components/ui/pagination";
+import { getRegistryTarget } from "@/registry";
 import { getUINavigation } from "@/utils/pagination";
 
 export async function generateMetadata({
@@ -54,15 +56,25 @@ export default async function Page({
   const MDXContent = ui.mdx;
   const navigation = getUINavigation(slug);
 
+  // A playground page is its stage: the article is capped to the viewport and
+  // the stage takes whatever the header leaves, so there is no bottom margin to
+  // scroll to and no height to guess at. A prose page keeps flowing.
+  const stage = Boolean(ui.playground);
+
   return (
-    <div className="mb-16">
+    <div className={`d-f fd-c f-1 min-h-0 ${stage ? "" : "mb-16"}`}>
       {ui && (
-        <div className="my-8" data-meta>
+        <div className={`my-8 ${stage ? "fs-0" : ""}`} data-meta>
           <div className="d-f ai-c jc-sb mb-2">
             <h1 className="min-w-0 c-white fs-4xl fw-400 ow-bw">{ui.title}</h1>
             <div className="d-f fs-0 ai-c g-2">
-              {/* Install lives in the stage's tab bar now: here it competed
-                  with the title for the widest line on the page. */}
+              {/* Installing is a page action, so it sits with the other page
+                  actions rather than inside the stage: the tab bar switches
+                  views and does nothing else. A square the size of the arrows,
+                  so the corner is one group. */}
+              {ui.playground && (
+                <Install id={getRegistryTarget(slug).install} />
+              )}
               <Pagination
                 previous={navigation.previous}
                 next={navigation.next}
@@ -75,7 +87,9 @@ export default async function Page({
           )}
         </div>
       )}
-      <MDXContent />
+      <div className={stage ? "d-f fd-c f-1 min-h-0" : ""}>
+        <MDXContent />
+      </div>
       <JsonLd
         data={{
           "@context": "https://schema.org",

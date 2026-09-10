@@ -2,11 +2,14 @@
 
 import { Button } from "@base-ui/react";
 import { NavArrowDown } from "iconoir-react";
+import Link from "next/link";
 import { useState } from "react";
+import { BaseUI } from "@/components/icons/icons";
 import { usePlayground } from "@/components/playground/context";
 import Control from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
-import type { RegistryProp } from "@/registry";
+import { getRegistryTarget, type RegistryProp } from "@/registry";
+import { primitiveSlug } from "@/utils/primitive";
 import { isControllable, typeOf } from "@/utils/props";
 
 /** Playground rail: all props as controls or type labels. */
@@ -15,6 +18,14 @@ export default function PlaygroundRail() {
   const [open, setOpen] = useState<string | null>(null);
 
   const props = playground?.meta?.props ?? [];
+
+  // The Base UI link belongs on this header rather than on the stage: it
+  // answers a question the props below raise, since those are the props that
+  // page documents.
+  const target = playground ? getRegistryTarget(playground.id) : null;
+  const primitive = target
+    ? primitiveSlug(target.component, target.install)
+    : null;
 
   const toggle = (name: string) =>
     setOpen((current) => (current === name ? null : name));
@@ -26,7 +37,21 @@ export default function PlaygroundRail() {
         <div className="pt-8 pb-12 @lg:pt-0 @lg:px-8">
           {/* No reset: leaving the page & coming back reseeds from the
               schema, which is the only reset this needs. */}
-          <h3 className="mb-3 c-silver-8 fs-xs ls-2 tt-u">Component API</h3>
+          <div className="d-f ai-c jc-sb g-2 mb-3">
+            <h3 className="c-silver-8 fs-xs ls-2 tt-u">Component API</h3>
+            {primitive && (
+              <Link
+                href={`https://base-ui.com/react/components/${primitive}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Base UI reference"
+                aria-label="Base UI reference"
+                className="d-f ai-c jc-c fs-0 c-accent td-none h:c-accent-4 fv:oc-accent fv:ow-2"
+              >
+                <BaseUI className="w-4 h-4" />
+              </Link>
+            )}
+          </div>
 
           {props.map((prop) => (
             <Row

@@ -117,6 +117,21 @@ body {
   }
 }
 
+/* A component page is one stage that already sizes itself to the viewport, so
+   the window must not scroll as well - the three columns scroll, the page does
+   not. Hand-written because it has to stop applying below the breakpoint: on a
+   phone the rail stacks under the article, and a capped column there would put
+   the Component API behind a second scrollbar. */
+@media (min-width: 64rem) {
+  .playground-column {
+    height: 100dvh;
+    /* The column ends at the viewport edge, so without this the stage's own
+       bottom border is the row of pixels that gets clipped. */
+    padding-bottom: 1.5rem;
+    overflow: hidden;
+  }
+}
+
 /* Preview Suspense fallback: reserve space and spin until the chunk loads. */
 @keyframes preview-spin {
   to {

@@ -102,18 +102,18 @@ interface Props {
    */
   minHeight?: number | string;
   /**
-   * A fixed height for the frame. Without it the frame grows to fit whatever
-   * the component measures; with it the frame is the size the caller asks for
-   * and the component centres inside it.
+   * Take the height a flex parent gives instead of growing to the content.
+   * A percentage would have to resolve against a flex item, so the frame
+   * becomes a flex child of its own holder rather than asking for `100%`.
    */
-  height?: number | string;
+  fill?: boolean;
   className?: string;
 }
 
 export default function PreviewFrame({
   children,
   minHeight = 240,
-  height,
+  fill = false,
   className = "",
 }: Props) {
   const holder = useRef<HTMLDivElement>(null);
@@ -181,7 +181,7 @@ export default function PreviewFrame({
   }, [near]);
 
   useEffect(() => {
-    if (!body) return;
+    if (!body || fill) return;
 
     const measure = () => setMeasured(Math.ceil(body.scrollHeight));
 
@@ -189,18 +189,22 @@ export default function PreviewFrame({
     const observer = new ResizeObserver(measure);
     observer.observe(body);
     return () => observer.disconnect();
-  }, [body]);
+  }, [body, fill]);
 
   return (
-    <div ref={holder} className={className} style={{ minHeight }}>
+    <div
+      ref={holder}
+      className={`${fill ? "d-f fd-c" : ""} ${className}`}
+      style={{ minHeight }}
+    >
       {near && (
         <iframe
           ref={frame}
           title="Component preview"
           // No `src`: the document is built here rather than fetched, which is
           // what keeps a frame cheaper than a page.
-          className="d-b w-100% bw-0"
-          style={{ height: height ?? measured, minHeight }}
+          className={`d-b w-100% bw-0 ${fill ? "f-1 min-h-0" : ""}`}
+          style={fill ? undefined : { height: measured, minHeight }}
         />
       )}
       {/* Outside the element, not between its tags: the portal renders into

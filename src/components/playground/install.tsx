@@ -1,7 +1,7 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { Check, NavArrowDown } from "iconoir-react";
+import { Check, Download } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { NPM, Pnpm } from "@/components/icons/icons";
@@ -52,20 +52,19 @@ export default function Install({ id }: { id: string }) {
 
   return (
     <Menu.Root open={open} onOpenChange={setOpen}>
+      {/* A square the size of the pagination arrows beside it, so the corner
+          reads as one group of page actions rather than a button and a pair.
+          An icon alone does not say "install", hence the title as well as the
+          label: the tooltip is the word. */}
       <Menu.Trigger
-        className="d-if ai-c g-1 w-fc max-w-32 bg-transparent bw-0 c-white/70 fs-sm td-none c-p h:c-white fv:oc-white fv:ow-2"
+        className="d-f ai-c jc-c fs-0 w-8 h-8 bc-border bg-surface a:bg-surface-7 c-accent bw-1 c-p fv:oc-white fv:oo-2"
         aria-label="Install command"
+        title="Install"
       >
         {copied ? (
-          <>
-            <Check className="w-4 h-4" aria-hidden />
-            <span>Copied!</span>
-          </>
+          <Check className="w-4 h-4" aria-hidden />
         ) : (
-          <>
-            <span>Install</span>
-            <NavArrowDown className="w-3 h-3" aria-hidden />
-          </>
+          <Download className="w-4 h-4" aria-hidden />
         )}
       </Menu.Trigger>
       <AnimatePresence>
@@ -73,6 +72,7 @@ export default function Install({ id }: { id: string }) {
           <Menu.Portal>
             <Menu.Positioner
               side="bottom"
+              align="end"
               sideOffset={4}
               collisionAvoidance={{ side: "none", fallbackAxisSide: "none" }}
               className="zi-50"

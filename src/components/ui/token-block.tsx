@@ -12,7 +12,7 @@ export default function TokenBlock({
   className = "bc-border btw-1",
   expanded = false,
   title,
-  height,
+  fill = false,
 }: {
   tokens: Token[];
   /** Caller supplies frame classes (e.g. no top border under tabs). */
@@ -21,11 +21,10 @@ export default function TokenBlock({
   /** File label in the title bar, like `Code`. */
   title?: string;
   /**
-   * Pins the code area to this height and scrolls inside it. Without it an
-   * expanded fold grows the block, which scrolls the page instead. A string so
-   * the stage can pass the `calc()` it sizes the whole frame with.
+   * Take the height a flex parent gives, and scroll the code inside it.
+   * Without it an expanded fold grows the block, which scrolls the page.
    */
-  height?: number | string;
+  fill?: boolean;
 }) {
   const [copied, setCopied] = useState(false);
 
@@ -47,8 +46,9 @@ export default function TokenBlock({
     <div className={`bg-surface ${className}`}>
       <TitleBar title={title} action={action} />
       <pre
-        className={`ox-auto px-4 py-3 ff-m lh-5 ws-pw ${height ? "oy-auto" : ""}`}
-        style={height ? { height } : undefined}
+        className={`ox-auto px-4 py-3 ff-m lh-5 ws-pw ${
+          fill ? "f-1 min-h-0 oy-auto" : ""
+        }`}
       >
         <code>
           <Folded tokens={tokens} expanded={expanded} />

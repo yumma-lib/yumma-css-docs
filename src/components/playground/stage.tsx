@@ -1,11 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import type { ComponentType, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
-import { BaseUI } from "@/components/icons/icons";
 import { usePlayground } from "@/components/playground/context";
-import Install from "@/components/playground/install";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import PreviewSpinner from "@/components/preview-spinner";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
@@ -21,23 +18,15 @@ import {
   getCachedRegistryComponent,
   loadRegistryComponent,
 } from "@/utils/prefetch-registry";
-import { primitiveSlug } from "@/utils/primitive";
 import { buildUsage } from "@/utils/snippet";
 
 const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 bg-white";
 
-// The stage fills the column instead of stopping at a fixed height and leaving
-// the page short below it. A viewport-relative height needs an inline style
-// until v4's viewport-minus utilities land; `sidebar-nav` and `toc` do the
-// same thing. The floor is tall enough that a modal opening inside the frame
-// is not clipped by it.
-const STAGE_MIN = 384;
-const STAGE = "calc(100dvh - 18rem)";
-
-// A title bar or a tab strip: `py-2` around a line of `fs-xs`, plus its border.
-// Subtracting it keeps every panel the same height as the preview, so the
-// frame does not resize when you switch tabs.
-const BAR = "2.0625rem";
+// The stage takes whatever the capped column leaves it, rather than a height
+// worked out from the header above it. That arithmetic was right until a
+// description wrapped to two lines, and then the page scrolled by exactly the
+// difference. Flex cannot drift.
+const FILL = "d-f fd-c f-1 min-h-0";
 
 interface Frame {
   id: string;
@@ -90,14 +79,8 @@ export default function ComponentPlayground() {
 
   if (!frame) {
     return (
-      <div className="mb-8 bc-border bw-1">
-        {/* Same height as the loaded stage, so the page does not jump when the
-            component arrives. */}
-        <div
-          data-preview
-          className={PREVIEW_SHELL}
-          style={{ height: STAGE, minHeight: STAGE_MIN }}
-        >
+      <div className={`bc-border bw-1 ${FILL}`}>
+        <div data-preview className={`f-1 min-h-0 ${PREVIEW_SHELL}`}>
           <PreviewSpinner />
         </div>
       </div>
@@ -116,9 +99,6 @@ export default function ComponentPlayground() {
   // `defaultChecked` and friends seed `useState`, which reads a prop once and
   // never again, so changing one in the controls did nothing. Remount instead:
   // 13 components take an uncontrolled default.
-  const target = getRegistryTarget(frame.id);
-  const primitive = primitiveSlug(target.component, target.install);
-
   const uncontrolled = Object.entries(set)
     .filter(([name]) => name.startsWith("default"))
     .map(([name, value]) => `${name}:${JSON.stringify(value)}`)
@@ -128,35 +108,14 @@ export default function ComponentPlayground() {
   // an expanded snippet pushed the page down and put a scrollbar on the window;
   // the point of the tabs is that the page never scrolls.
   return (
-    <Tabs defaultValue="preview" className="mb-8">
+    <Tabs defaultValue="preview" className={FILL}>
       <TabsList>
         <TabsTab value="preview">Preview</TabsTab>
         <TabsTab value="code">Code</TabsTab>
-
-        {/* Trailing group: the two things you do here that are not looking.
-            In the title row, Install competed with the page title for the
-            widest line, and the Base UI link only existed on the Code tab. */}
-        <div className="d-f ai-c g-2 ml-auto pr-1 fs-0">
-          {primitive && (
-            <>
-              <Link
-                href={`https://base-ui.com/react/components/${primitive}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Base UI primitive"
-                className="d-f ai-c jc-c p-1 c-accent td-none h:c-accent-4 fv:oc-accent fv:ow-2"
-              >
-                <BaseUI className="w-4 h-4" />
-              </Link>
-              <span className="w-px h-4 bg-border" aria-hidden="true" />
-            </>
-          )}
-          <Install id={target.install} />
-        </div>
       </TabsList>
 
-      <TabsPanel value="preview" className="">
-        <PreviewFrame minHeight={STAGE_MIN} height={STAGE}>
+      <TabsPanel value="preview" className={FILL}>
+        <PreviewFrame className="f-1 min-h-0" minHeight={0} fill>
           <Mounted
             key={uncontrolled}
             Component={Component}
@@ -168,13 +127,8 @@ export default function ComponentPlayground() {
         </PreviewFrame>
       </TabsPanel>
 
-      <TabsPanel value="code" className="">
-        <TokenBlock
-          tokens={usage}
-          title="page.tsx"
-          className=""
-          height={`calc(${STAGE} - ${BAR})`}
-        />
+      <TabsPanel value="code" className={FILL}>
+        <TokenBlock tokens={usage} title="page.tsx" className={FILL} fill />
       </TabsPanel>
     </Tabs>
   );
