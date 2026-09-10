@@ -55,7 +55,7 @@
       "name": "iconOnly",
       "type": "boolean",
       "default": false,
-      "description": "Equal padding on both axes, for a button whose only child is an icon. Pair it with an `aria-label`."
+      "description": "Renders the icon alone. The label is dropped from the button but becomes its `aria-label`, so a string child still names it for a screen reader. Pass `aria-label` to override."
     },
     {
       "name": "disabled",

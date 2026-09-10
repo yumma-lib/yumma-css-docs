@@ -95,11 +95,22 @@ export default function ButtonBase({
       className={classes}
       disabled={inactive}
       aria-busy={loading || undefined}
+      // A label the eye cannot see still has to reach a screen reader, so a
+      // string child becomes the name unless one is passed.
+      aria-label={
+        iconOnly && typeof children === "string" ? children : undefined
+      }
       {...props}
     >
-      {iconPosition === "leading" && icon}
-      {children}
-      {iconPosition === "trailing" && icon}
+      {iconOnly ? (
+        icon
+      ) : (
+        <>
+          {iconPosition === "leading" && icon}
+          {children}
+          {iconPosition === "trailing" && icon}
+        </>
+      )}
     </Button>
   );
 }

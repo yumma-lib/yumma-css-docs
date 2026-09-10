@@ -97,10 +97,19 @@ export default function ComponentPlayground() {
   const usage = buildUsage(getRegistryTarget(frame.id).component, meta, set);
   const { Component } = frame;
 
+  // `defaultChecked` and friends seed `useState`, which reads a prop once and
+  // never again, so changing one in the controls did nothing. Remount instead:
+  // 13 components take an uncontrolled default.
+  const uncontrolled = Object.entries(set)
+    .filter(([name]) => name.startsWith("default"))
+    .map(([name, value]) => `${name}:${JSON.stringify(value)}`)
+    .join("|");
+
   return (
     <div className="mb-8 bc-border bw-1">
       <PreviewFrame minHeight={STAGE}>
         <Mounted
+          key={uncontrolled}
           Component={Component}
           props={resolveIcons(set) as DemoProps}
           portals={meta.props.some((prop) => prop.name === "container")}
