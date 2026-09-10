@@ -58,13 +58,23 @@
       "name": "animated",
       "type": "boolean",
       "default": true,
-      "description": "The press-scale on each star. Turn it off for static stars, or when the user has asked for reduced motion."
+      "description": "The pop each mark makes as it fills, and the press-scale under the pointer. Turn it off for static stars, or when the user has asked for reduced motion."
     },
     {
       "name": "emptyHint",
       "type": "string",
       "default": "Click to rate",
       "description": "Shown under the stars while nothing is selected. Once a rating is set it reads `3 / 5`."
+    },
+    {
+      "name": "score",
+      "type": "string",
+      "description": "A figure beside the marks rather than under them - an average, where the marks round it."
+    },
+    {
+      "name": "hint",
+      "type": "string",
+      "description": "Replaces the `3 / 5` readout under the marks. A read-only average reports what it is an average of, which a count of filled stars cannot say."
     },
     {
       "name": "children",

@@ -917,6 +917,38 @@ declares logical properties: `padding` covers `padding-inline` covers
       prop that coordinates two elements, so by the rule below it stays and is
       made open rather than replaced by class props. Not shipped: it changes
       the API and is a taste call.
+- [x] **`readOnly` never changed the star size; the interactive star was
+      squashed.** Both boxes are 36x36. Yumma's own normalize sets
+      `button,input,optgroup,select,textarea{padding:.5rem}`, so with
+      `box-sizing:border-box` the button had 20px of content box and the 24px
+      star, a flex item with nothing stopping it, was drawn **20 wide by 24
+      tall**. The read-only star is a `<span>`, which never had that padding
+      and drew at 24x24 - so the correct one looked like the bug. `p-0` on both
+      the star and the icon-set box, `fs-0` on the mark. Both 24x24 now.
+      Swept all 39 component previews for the same signature (an svg whose CSS
+      width exceeds its drawn width): **no other component** is affected.
+- [x] **`animated` did something you could not see.** The only effect was
+      `whileTap`, which lasts exactly as long as the pointer is held: let go
+      and it is over before the star finishes filling. A mark now pops as it
+      fills, via a `Pop` keyed on the filled state - remounting is what
+      replays it, where a keyframe array would be a fresh target every render
+      and could retrigger on its own.
+- [x] **The old read-only rating is reachable again, as props.** Recovered the
+      deleted `rating-readonly.tsx` from git (`4ef86161c^`) rather than
+      guessing at it - the old site is behind the egress proxy. It put the
+      average **beside** the stars and captioned them with what they average,
+      and the component could do neither: the readout under the marks was a
+      hardcoded `${value} / ${count}`. Two additive props, `score` and `hint`.
+      The recipe is
+      `<Rating label="Project rating" defaultValue={4} readOnly score="4.2" hint="Average of 24 reviews" />`,
+      confirmed rendering and confirmed as what the Code tab prints.
+      **Neither is seeded.** A string prop has no control - only enum, boolean
+      and icon slots do - so `example` is the only way to demo one, and
+      seeding these would make every reader's first look a read-only average
+      instead of a rating input. The page cannot carry a second static example
+      either: it is exactly one viewport now, and anything below the stage
+      brings back the scrollbar that was just removed. Worth revisiting with
+      the 16 unreachable examples in Phase 7.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
