@@ -1,8 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import type { ComponentType, ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
+import { BaseUI } from "@/components/icons/icons";
 import { usePlayground } from "@/components/playground/context";
+import Install from "@/components/playground/install";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import PreviewSpinner from "@/components/preview-spinner";
 import { Tabs, TabsList, TabsPanel, TabsTab } from "@/components/tabs";
@@ -18,6 +21,7 @@ import {
   getCachedRegistryComponent,
   loadRegistryComponent,
 } from "@/utils/prefetch-registry";
+import { primitiveSlug } from "@/utils/primitive";
 import { SETUP } from "@/utils/setup";
 import { buildUsage, plainTokens } from "@/utils/snippet";
 
@@ -102,6 +106,9 @@ export default function ComponentPlayground() {
   // `defaultChecked` and friends seed `useState`, which reads a prop once and
   // never again, so changing one in the controls did nothing. Remount instead:
   // 13 components take an uncontrolled default.
+  const target = getRegistryTarget(frame.id);
+  const primitive = primitiveSlug(target.component, target.install);
+
   const uncontrolled = Object.entries(set)
     .filter(([name]) => name.startsWith("default"))
     .map(([name, value]) => `${name}:${JSON.stringify(value)}`)
@@ -120,6 +127,27 @@ export default function ComponentPlayground() {
             {setup.title}
           </TabsTab>
         ))}
+
+        {/* Trailing group: the two things you do here that are not looking.
+            In the title row, Install competed with the page title for the
+            widest line, and the Base UI link only existed on the Code tab. */}
+        <div className="d-f ai-c g-2 ml-a pr-1 fs-0">
+          {primitive && (
+            <>
+              <Link
+                href={`https://base-ui.com/react/components/${primitive}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Base UI primitive"
+                className="d-f ai-c jc-c p-1 c-accent td-none h:c-accent-4 fv:oc-accent fv:ow-2"
+              >
+                <BaseUI className="w-4 h-4" />
+              </Link>
+              <span className="w-px h-4 bg-border" aria-hidden="true" />
+            </>
+          )}
+          <Install id={target.install} />
+        </div>
       </TabsList>
 
       <TabsPanel value="preview">
@@ -136,12 +164,7 @@ export default function ComponentPlayground() {
       </TabsPanel>
 
       <TabsPanel value="code">
-        <TokenBlock
-          tokens={usage}
-          title="page.tsx"
-          installId={getRegistryTarget(frame.id).install}
-          height={STAGE}
-        />
+        <TokenBlock tokens={usage} title="page.tsx" height={STAGE} />
       </TabsPanel>
 
       {/* A copied component is unstyled until Yumma CSS is generating. */}

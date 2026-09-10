@@ -2,9 +2,7 @@ import { allUis } from "content-collections";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import JsonLd from "@/components/json-ld";
-import Install from "@/components/playground/install";
 import Pagination from "@/components/ui/pagination";
-import { getRegistryTarget } from "@/registry";
 import { getUINavigation } from "@/utils/pagination";
 
 export async function generateMetadata({
@@ -63,12 +61,8 @@ export default async function Page({
           <div className="d-f ai-c jc-sb mb-2">
             <h1 className="min-w-0 c-white fs-4xl fw-400 ow-bw">{ui.title}</h1>
             <div className="d-f fs-0 ai-c g-2">
-              {/* Beside the pagination arrows: installing is the one thing a
-                  reader does here that is not looking. Prose pages under this
-                  route share the layout & have nothing to install. */}
-              {ui.playground && (
-                <Install id={getRegistryTarget(slug).install} prominent />
-              )}
+              {/* Install lives in the stage's tab bar now: here it competed
+                  with the title for the widest line on the page. */}
               <Pagination
                 previous={navigation.previous}
                 next={navigation.next}

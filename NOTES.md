@@ -827,6 +827,25 @@ declares logical properties: `padding` covers `padding-inline` covers
       **checkbox**. A string `parentLabel` names the group by value now.
       `Checkbox` itself already renders a `<label>` wrapper, which is the Base
       UI pattern, so nothing was wrong there.
+- [x] **The component page is tabs now: Preview, Code, and the framework
+      setup.** Both panels share one height and the code scrolls **inside**
+      itself - stacked, an expanded fold grew the page and put a scrollbar on
+      the window. Setup snippets live in `src/utils/setup.ts`, declared once
+      rather than written into 39 pages, because a copied component is unstyled
+      until Yumma CSS is generating.
+      **Install and the Base UI mark moved into the tab bar's trailing group.**
+      In the title row Install competed with the page title for the widest
+      line; in the code header the Base UI link only existed on the Code tab.
+      `installId` is gone from `TokenBlock` - every block just has Copy now -
+      and `primitiveSlug` moved to `src/utils/primitive.ts` so the tab bar and
+      the code block cannot disagree about whether a page has a primitive.
+- [x] **The snippet audit came back clean.** Checked both directions: four
+      components self-close while taking `children` (`avatar`, `dialog`,
+      `popover`, `rating`) and all four are optional slots the demo does not
+      fill, so the snippet is accurate; and **zero** props are passed to a
+      preview without being printed. `checkbox-group` was the only mismatch.
+      A test now fails if `childrenExample` names a component the stage cannot
+      render, which is the same lie in the other direction.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
