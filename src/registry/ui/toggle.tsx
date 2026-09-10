@@ -62,6 +62,29 @@ export interface ToggleProps
   className?: string;
 }
 
+/**
+ * The pop a toggle makes as it takes hold.
+ *
+ * `animated` used to mean `whileTap` alone, which lasts exactly as long as the
+ * pointer is held down - press and it is over before you have let go, which is
+ * why it read as no animation at all. Keyed on the state, so remounting is
+ * what replays it: a keyframe array would be a fresh target on every render
+ * and could retrigger on its own.
+ */
+function Pop({ on, children }: { on: boolean; children: ReactNode }) {
+  return (
+    <motion.span
+      key={on ? "on" : "off"}
+      className="d-f"
+      initial={{ scale: on ? 0.8 : 1 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+    >
+      {children}
+    </motion.span>
+  );
+}
+
 export default function ToggleBase({
   icon,
   pressedIcon,
@@ -121,7 +144,7 @@ export default function ToggleBase({
             whileTap={disabled ? undefined : { scale: 0.9 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            {state.pressed ? pressedIcon : icon}
+            <Pop on={state.pressed}>{state.pressed ? pressedIcon : icon}</Pop>
           </motion.button>
         ) : (
           <Button {...(renderProps as ComponentProps<"button">)}>

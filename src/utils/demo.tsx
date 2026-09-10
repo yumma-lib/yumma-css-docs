@@ -1,9 +1,11 @@
 import {
   BellNotification,
+  Bold,
   Bookmark,
   Check,
   Folder,
   HalfMoon,
+  Italic,
   Mail,
   Page,
   PagePlus,
@@ -40,10 +42,12 @@ export const EXAMPLE_ICONS: Record<
   ComponentType<{ className?: string }>
 > = {
   BellNotification,
+  Bold,
   Bookmark,
   Check,
   Folder,
   HalfMoon,
+  Italic,
   Mail,
   Page,
   PagePlus,

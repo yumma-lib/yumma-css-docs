@@ -1007,6 +1007,29 @@ declares logical properties: `padding` covers `padding-inline` covers
       not in the four reported but carried the same `o-60`. The composition
       test flagged the new `bg-white` drop; it is the intended one and is in
       `EXPECTED_DROPS` now with a note.
+- [x] **The `animate` pair was Rating's bug again, twice.** Both meant
+      `whileTap` alone, which lasts exactly as long as the pointer is held:
+      press and it is over before you let go. Toggle and Toolbar's toggles now
+      pop as they take hold, keyed on the pressed state so remounting replays
+      it. Toolbar renders Base UI's `Toggle` directly rather than our
+      component, so it needed its own copy - the icon arrives as `children`
+      there and has to be lifted out of the props before it can be wrapped.
+      The plain buttons and the stepper keep `whileTap` only, which is right
+      for a momentary action: there is no state for them to settle into.
+      Measured mid-flight: scale 0.85 -> 0.90 -> 0.93 -> 0.97 -> 0.99 in both.
+- [x] **Toolbar's demo had nothing with a state.** Two plain buttons, a
+      separator and an input, so `animated` had nothing to show even once it
+      worked. It seeds a toggle pair and a stepper now. Two things fell out:
+      `New Task` wrapped to two lines, making the whole bar two rows tall for
+      one button (`ws-nw`), and its disabled buttons still faded, so they join
+      the surface convention.
+- [x] **A schema could name an icon that silently resolved to nothing.**
+      `resolveIcons` only knows `EXAMPLE_ICONS`, and an unknown name returns
+      `undefined` without a word - which is why the seeded Bold/Italic toggles
+      simply were not there, with no error to explain it. `Bold` and `Italic`
+      are in the list now, and `tests/registry.test.ts` walks every `$icon`
+      marker in every meta against it. Checked that the test can fail: renaming
+      one marker to `NotAnIcon` fails with `toolbar.json: NotAnIcon`.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

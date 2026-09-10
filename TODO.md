@@ -42,7 +42,6 @@
 ### **Toggle**
 
 - `defaultPressed` does nothing?
-- `animate` prop does nothing? originally it had an animation when pressed but now there is none: https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/toggle
 
 ### **Accordion**
 
@@ -81,10 +80,6 @@
 ### Tabs
 
 - when using the `pill` in the `shape` option the the Tabs track turns into a circle and the tab items overflow its container which looks VERY unpleasant to look at. This happens ONLY when using `horizontal` set to `vertical.` this happens because we are not strict at all. you have to look at https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/tabs to understand better the solution.
-
-### Toolbar
-
-- `animate` prop does nothing?
 
 ### Alert Dialog
 
