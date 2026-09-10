@@ -19,6 +19,8 @@ import { rootDir } from "./helpers";
 const CLASSY = /^[@a-z0-9:%._\-/#]+$/i;
 
 const EXPECTED_DROPS = [
+  // The disabled trigger's surface, which is meant to beat the white.
+  "context-menu.tsx: bg-white",
   // The disabled dropzone tint. `bg-white` beat it in the stylesheet.
   "file-upload.tsx: bg-white",
   // The open trigger. Same.
