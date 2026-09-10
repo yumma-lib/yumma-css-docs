@@ -69,7 +69,9 @@ export default function SliderBase({
   };
 
   const thumbClasses = [
-    "w-5 h-5 bg-white bc-silver-3 bw-1 fv:oo-2 fv:oc-indigo-5",
+    "w-5 h-5 bw-1 fv:oo-2 fv:oc-indigo-5",
+    // The same disabled surface the other controls use, rather than a fade.
+    disabled ? "bg-silver-1 bc-silver-2" : "bg-white bc-silver-3",
     SHAPES[shape],
     SHADOWS[shadow],
   ]
@@ -97,7 +99,7 @@ export default function SliderBase({
         disabled={disabled}
       >
         <Slider.Control
-          className={`d-f ai-c py-3 us-none ta-none ${disabled ? "o-60 c-na" : ""}`}
+          className={`d-f ai-c py-3 us-none ta-none ${disabled ? "c-na" : ""}`}
         >
           <Slider.Track
             className={`p-r h-2 w-100% bg-silver-1 ${SHAPES[shape]}`}

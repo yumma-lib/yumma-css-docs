@@ -57,8 +57,11 @@ export default function FileUploadBase({
     SHAPES[shape],
     BORDERS[border],
     error ? "bc-red-5" : "bc-silver-2",
-    // A half-opacity near-white on white is not a surface. Fill it.
-    disabled ? "bg-silver-1 o-60 c-na" : "",
+    // Surface, not fade: the zone fills, so the dashed edge stops reading as
+    // an invitation to drop something on it. No border colour here - the line
+    // above already sets one, and repeating it silently beat `bc-red-5` on a
+    // zone that was both disabled and in error.
+    disabled ? "bg-silver-1 c-slate-5 c-na" : "",
     SHADOWS[shadow],
     className,
   );

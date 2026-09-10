@@ -949,6 +949,36 @@ declares logical properties: `padding` covers `padding-inline` covers
       either: it is exactly one viewport now, and anything below the stage
       brings back the scrollbar that was just removed. Worth revisiting with
       the 16 unreachable examples in Phase 7.
+- [x] **Disabled is a surface now, not a transparency.** Four components
+      reported "no visual indication"; none of them was missing the styling.
+      Each carried a partial disabled surface **and** `o-60` on an outer
+      wrapper, and the fade flattened the very thing it was meant to mark,
+      taking the label's contrast with it. The fade is gone from all four. The
+      body fills `bg-silver-1`, the border drops to `bc-silver-2`, marks go
+      `c-slate-4` and the label `c-slate-5`; `c-na` stays. Checked and unchecked
+      share the surface, so the tick and the thumb position still report the
+      value - which is the point, since a control is usually disabled *because*
+      its value was settled elsewhere.
+      **Toggle had no `disabled` prop at all**, which is why it was the one
+      entry in the cluster that needed code rather than contrast.
+      Measured after: checkbox box `rgb(239,240,242)`, switch track silver-1
+      with a silver-3 thumb still to the right, slider bar silver-3 on silver-1,
+      dropzone filled, toggle silver-1. The only element still under full
+      opacity is Base UI's own hidden `<input>` at 0.5, which is invisible.
+- [x] **`tests/merge-composition.test.ts` earned itself.** The first cut of
+      this change added `bc-silver-2` to file-upload's disabled branch, which
+      sits after `error ? "bc-red-5" : "bc-silver-2"` - so a zone that was both
+      disabled and in error silently lost its red border. The test caught it as
+      a new drop. It also flagged `c-p` against Toggle's `c-na`: unreachable at
+      runtime, but the fix is right anyway, one cursor source instead of two
+      arguments `merge` has to choose between.
+- [ ] **I was wrong that a disabled Switch and an off Switch were the same
+      picture.** The mockup sheet drew the disabled one with its thumb on the
+      left; the component has always driven thumb position from `checked`, and
+      the tracks were different greys (silver-3 disabled, silver-1 off). The
+      complaint about subtlety was fair and the fix stands, but that particular
+      claim was mine and it was not true. Worth re-checking the next time a
+      mockup asserts what the current code does.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

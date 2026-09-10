@@ -20,7 +20,6 @@
 
 - `defaultChecked` and `checked` should turn the checkbox on
 - `indeterminate` should display child checkboxes, just one isn't enough
-- disabled should look disabled, there is no visual indication that it is disabled
 
 ### **Combobox**
 
@@ -29,7 +28,6 @@
 
 ### **File Upload**
 
-- `disabled` should look disabled, there is no visual indication that it is disabled
 - the `shadow` prop isn't working
 
 ### **Field**
@@ -41,18 +39,12 @@
 
 - use the `TriangleFlag` icon instead of the `Folder` icon
 
-### **Slider**
-
-- `disabled` should look disabled, there is no visual indication that it is disabled
-
 ### **Switch**
 
-- `disabled` should look disabled, there is no visual indication that it is disabled
 - `defaultChecked` prop does nothing?
 
 ### **Toggle**
 
-- there is no `disabled` prop
 - `defaultPressed` does nothing?
 - `animate` prop does nothing? originally it had an animation when pressed but now there is none: https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/toggle
 

@@ -48,11 +48,13 @@ const SHADOWS: Record<Shadow, string> = {
 const CHECKED = "bg-indigo";
 const UNCHECKED = "bw-1 bc-silver-3 bg-transparent";
 
-// Opacity alone is not a disabled state: 60% of a white box with a crisp
-// border still reads as enabled, and 60% of indigo is still indigo. Disabled
-// gets its own surface.
-const DISABLED_CHECKED = "bg-silver-3";
-const DISABLED_UNCHECKED = "bw-1 bc-silver-2 bg-silver-1";
+// Disabled is a surface, not a transparency. The fade this used to carry as
+// well took the label's contrast down with it and flattened the very thing it
+// was meant to mark, while the box underneath was already doing the work.
+// Checked and unchecked share the surface: the tick is the difference, and it
+// stays readable, because a control is usually disabled *because* its value
+// was settled elsewhere and that value is what you want to read off it.
+const DISABLED_BOX = "bw-1 bc-silver-2 bg-silver-1";
 
 export interface CheckboxProps
   extends Omit<ComponentProps<typeof Checkbox.Root>, "className"> {
@@ -77,8 +79,8 @@ export default function CheckboxBase({
 }: CheckboxProps) {
   return (
     <label
-      className={`d-f fd-c g-1 c-slate-10 us-none ${
-        disabled ? "o-60 c-na" : "c-p"
+      className={`d-f fd-c g-1 us-none ${
+        disabled ? "c-slate-5 c-na" : "c-slate-10 c-p"
       }`}
     >
       <span className={`d-f ai-c g-2 fw-500 ${LABEL_SIZES[size]}`}>
@@ -91,12 +93,10 @@ export default function CheckboxBase({
               SHAPES[shape],
               SHADOWS[shadow],
 
-              state.checked || state.indeterminate
-                ? disabled
-                  ? DISABLED_CHECKED
-                  : CHECKED
-                : disabled
-                  ? DISABLED_UNCHECKED
+              disabled
+                ? DISABLED_BOX
+                : state.checked || state.indeterminate
+                  ? CHECKED
                   : UNCHECKED,
               className,
             )
@@ -104,7 +104,7 @@ export default function CheckboxBase({
           {...props}
         >
           <Checkbox.Indicator
-            className="d-f c-white"
+            className={`d-f ${disabled ? "c-slate-4" : "c-white"}`}
             render={(indicatorProps, state) => (
               <span {...indicatorProps}>
                 {state.indeterminate ? (
