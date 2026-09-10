@@ -65,11 +65,6 @@ function identify(tokens: Draft[]): Token[] {
   }));
 }
 
-/** A plain block of code as one token, for snippets that are not built up. */
-export function plainTokens(text: string): Token[] {
-  return identify([{ kind: "text", text }]);
-}
-
 /** `alert-dialog` -> `AlertDialog`, the name you would import it under. */
 export function componentName(id: string): string {
   return id

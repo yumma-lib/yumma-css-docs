@@ -21,10 +21,11 @@ export default function TokenBlock({
   /** File label in the title bar, like `Code`. */
   title?: string;
   /**
-   * Pins the code area to this many pixels and scrolls inside it. Without it an
-   * expanded fold grows the block, which scrolls the page instead.
+   * Pins the code area to this height and scrolls inside it. Without it an
+   * expanded fold grows the block, which scrolls the page instead. A string so
+   * the stage can pass the `calc()` it sizes the whole frame with.
    */
-  height?: number;
+  height?: number | string;
 }) {
   const [copied, setCopied] = useState(false);
 

@@ -827,12 +827,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       **checkbox**. A string `parentLabel` names the group by value now.
       `Checkbox` itself already renders a `<label>` wrapper, which is the Base
       UI pattern, so nothing was wrong there.
-- [x] **The component page is tabs now: Preview, Code, and the framework
-      setup.** Both panels share one height and the code scrolls **inside**
-      itself - stacked, an expanded fold grew the page and put a scrollbar on
-      the window. Setup snippets live in `src/utils/setup.ts`, declared once
-      rather than written into 39 pages, because a copied component is unstyled
-      until Yumma CSS is generating.
+- [x] **The component page is two tabs: Preview and Code.** Both panels share
+      one height and the code scrolls **inside** itself - stacked, an expanded
+      fold grew the page and put a scrollbar on the window. The panels run edge
+      to edge (`TabsPanel` keeps its `p-4` as a *default* so a caller can drop
+      it): page-coloured margin around a white preview reads as a gap in the
+      frame. The stage is `calc(100dvh - 18rem)` rather than a fixed 384px, so
+      it fills the column instead of leaving dead space below it, and every
+      panel subtracts its own title bar (`BAR`) so switching tabs does not
+      resize the frame.
+      It briefly had a third tab carrying the Vite/Next.js/CSS-entry setup,
+      since a copied component is unstyled until Yumma CSS is generating. That
+      is **gone**, with `src/utils/setup.ts` and the `codeTokens` tokenizer
+      that highlighted it: seven controls in one bar was too much, the
+      installation page already covers all three, and the real fix is for the
+      `yummaui` CLI to **detect** whether Yumma CSS is installed and say so at
+      `add` time. A docs tab nobody asked for cannot do that; the CLI can.
       **Install and the Base UI mark moved into the tab bar's trailing group.**
       In the title row Install competed with the page title for the widest
       line; in the code header the Base UI link only existed on the Code tab.

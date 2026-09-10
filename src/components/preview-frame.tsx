@@ -101,12 +101,19 @@ interface Props {
    * for whatever the viewport leaves it.
    */
   minHeight?: number | string;
+  /**
+   * A fixed height for the frame. Without it the frame grows to fit whatever
+   * the component measures; with it the frame is the size the caller asks for
+   * and the component centres inside it.
+   */
+  height?: number | string;
   className?: string;
 }
 
 export default function PreviewFrame({
   children,
   minHeight = 240,
+  height,
   className = "",
 }: Props) {
   const holder = useRef<HTMLDivElement>(null);
@@ -118,7 +125,7 @@ export default function PreviewFrame({
   // What the content measures. The floor is applied as `min-height` in CSS,
   // which is what lets it be a `calc()` the browser resolves rather than a
   // number this component would have to work out for itself.
-  const [height, setHeight] = useState(0);
+  const [measured, setMeasured] = useState(0);
 
   useEffect(() => {
     const element = holder.current;
@@ -176,7 +183,7 @@ export default function PreviewFrame({
   useEffect(() => {
     if (!body) return;
 
-    const measure = () => setHeight(Math.ceil(body.scrollHeight));
+    const measure = () => setMeasured(Math.ceil(body.scrollHeight));
 
     measure();
     const observer = new ResizeObserver(measure);
@@ -193,7 +200,7 @@ export default function PreviewFrame({
           // No `src`: the document is built here rather than fetched, which is
           // what keeps a frame cheaper than a page.
           className="d-b w-100% bw-0"
-          style={{ height, minHeight }}
+          style={{ height: height ?? measured, minHeight }}
         />
       )}
       {/* Outside the element, not between its tags: the portal renders into

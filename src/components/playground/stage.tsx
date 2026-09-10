@@ -22,13 +22,22 @@ import {
   loadRegistryComponent,
 } from "@/utils/prefetch-registry";
 import { primitiveSlug } from "@/utils/primitive";
-import { SETUP } from "@/utils/setup";
-import { buildUsage, plainTokens } from "@/utils/snippet";
+import { buildUsage } from "@/utils/snippet";
 
-const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 min-h-64 bg-white";
+const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 bg-white";
 
-/** Tall enough that a modal opening inside the frame is not clipped by it. */
-const STAGE = 384;
+// The stage fills the column instead of stopping at a fixed height and leaving
+// the page short below it. A viewport-relative height needs an inline style
+// until v4's viewport-minus utilities land; `sidebar-nav` and `toc` do the
+// same thing. The floor is tall enough that a modal opening inside the frame
+// is not clipped by it.
+const STAGE_MIN = 384;
+const STAGE = "calc(100dvh - 18rem)";
+
+// A title bar or a tab strip: `py-2` around a line of `fs-xs`, plus its border.
+// Subtracting it keeps every panel the same height as the preview, so the
+// frame does not resize when you switch tabs.
+const BAR = "2.0625rem";
 
 interface Frame {
   id: string;
@@ -82,14 +91,15 @@ export default function ComponentPlayground() {
   if (!frame) {
     return (
       <div className="mb-8 bc-border bw-1">
-        <div data-preview className={PREVIEW_SHELL}>
+        {/* Same height as the loaded stage, so the page does not jump when the
+            component arrives. */}
+        <div
+          data-preview
+          className={PREVIEW_SHELL}
+          style={{ height: STAGE, minHeight: STAGE_MIN }}
+        >
           <PreviewSpinner />
         </div>
-        <div
-          className="bc-border btw-1 bg-surface"
-          style={{ minHeight: "7rem" }}
-          aria-hidden
-        />
       </div>
     );
   }
@@ -122,11 +132,6 @@ export default function ComponentPlayground() {
       <TabsList>
         <TabsTab value="preview">Preview</TabsTab>
         <TabsTab value="code">Code</TabsTab>
-        {SETUP.map((setup) => (
-          <TabsTab key={setup.title} value={setup.title}>
-            {setup.title}
-          </TabsTab>
-        ))}
 
         {/* Trailing group: the two things you do here that are not looking.
             In the title row, Install competed with the page title for the
@@ -150,8 +155,8 @@ export default function ComponentPlayground() {
         </div>
       </TabsList>
 
-      <TabsPanel value="preview">
-        <PreviewFrame minHeight={STAGE}>
+      <TabsPanel value="preview" className="">
+        <PreviewFrame minHeight={STAGE_MIN} height={STAGE}>
           <Mounted
             key={uncontrolled}
             Component={Component}
@@ -163,20 +168,14 @@ export default function ComponentPlayground() {
         </PreviewFrame>
       </TabsPanel>
 
-      <TabsPanel value="code">
-        <TokenBlock tokens={usage} title="page.tsx" height={STAGE} />
+      <TabsPanel value="code" className="">
+        <TokenBlock
+          tokens={usage}
+          title="page.tsx"
+          className=""
+          height={`calc(${STAGE} - ${BAR})`}
+        />
       </TabsPanel>
-
-      {/* A copied component is unstyled until Yumma CSS is generating. */}
-      {SETUP.map((setup) => (
-        <TabsPanel key={setup.title} value={setup.title}>
-          <TokenBlock
-            tokens={plainTokens(setup.code)}
-            title={setup.file}
-            height={STAGE}
-          />
-        </TabsPanel>
-      ))}
     </Tabs>
   );
 }
