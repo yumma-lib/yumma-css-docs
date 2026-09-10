@@ -799,6 +799,17 @@ declares logical properties: `padding` covers `padding-inline` covers
       Accordion's `shadow` is gated behind `variant === "default"`, which is
       correct - the other variants have no card to cast one - and the default
       variant is `default`, so it was never the cause.
+- [x] **`defaultChecked` and `defaultPressed` were the playground, not the
+      components.** `useState(defaultChecked ?? ...)` reads a prop **once**,
+      which is correct React, so changing the control after mount could never
+      do anything. The stage now keys the preview on every `default*` value, so
+      changing one remounts. That covers **13 components** across
+      `defaultChecked`, `defaultPressed`, `defaultOpen` and `defaultValue`, not
+      the two that were reported.
+- [x] **`iconOnly` really did nothing but change padding.** It swapped
+      `ICON_ONLY[size]` for `SIZES[size]` and still rendered the label beside
+      the icon. It now renders the icon alone, and a string child becomes the
+      `aria-label` so the button keeps a name.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
