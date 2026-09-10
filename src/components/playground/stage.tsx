@@ -18,7 +18,8 @@ import {
   getCachedRegistryComponent,
   loadRegistryComponent,
 } from "@/utils/prefetch-registry";
-import { buildUsage } from "@/utils/snippet";
+import { SETUP } from "@/utils/setup";
+import { buildUsage, plainTokens } from "@/utils/snippet";
 
 const PREVIEW_SHELL = "d-f p-r ox-auto ai-c jc-c p-10 min-h-64 bg-white";
 
@@ -114,6 +115,11 @@ export default function ComponentPlayground() {
       <TabsList>
         <TabsTab value="preview">Preview</TabsTab>
         <TabsTab value="code">Code</TabsTab>
+        {SETUP.map((setup) => (
+          <TabsTab key={setup.title} value={setup.title}>
+            {setup.title}
+          </TabsTab>
+        ))}
       </TabsList>
 
       <TabsPanel value="preview">
@@ -137,6 +143,17 @@ export default function ComponentPlayground() {
           height={STAGE}
         />
       </TabsPanel>
+
+      {/* A copied component is unstyled until Yumma CSS is generating. */}
+      {SETUP.map((setup) => (
+        <TabsPanel key={setup.title} value={setup.title}>
+          <TokenBlock
+            tokens={plainTokens(setup.code)}
+            title={setup.file}
+            height={STAGE}
+          />
+        </TabsPanel>
+      ))}
     </Tabs>
   );
 }
