@@ -1030,6 +1030,20 @@ declares logical properties: `padding` covers `padding-inline` covers
       are in the list now, and `tests/registry.test.ts` walks every `$icon`
       marker in every meta against it. Checked that the test can fail: renaming
       one marker to `NotAnIcon` fails with `toolbar.json: NotAnIcon`.
+- [x] **`defaultChecked` and `checked` already worked.** Measured:
+      `aria-checked` false -> true, background to indigo, tick present. The
+      entry was closed by the earlier remount fix - the stage keys the preview
+      on every `default*` value - and TODO was never updated to match.
+- [x] **`indeterminate` had nowhere to mean anything.** "Just one isn't
+      enough" is exactly right: a half-checked box stands for *other* boxes, so
+      alone it says nothing. `CheckboxGroup` has driven it from `allValues`
+      since the parent landed, but `parentLabel`, `allValues` and
+      `defaultValue` were all seeded `null`, so the demo showed a group with no
+      parent and the state was unreachable on either page. Seeded now with one
+      of three children checked, which is the state the parent exists to
+      report: parent `aria-checked="mixed"`, Read true, Write and Delete false,
+      and the Code tab prints the same. Checkbox's own `indeterminate`
+      description says what it means and points at the group.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

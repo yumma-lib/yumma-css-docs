@@ -16,11 +16,6 @@
 - Don't use the `PageSearch` icon, use the `Search` icon instead
 - When you click to open the autocomplete results and then click on disable the menu should close
 
-### **Checkbox**
-
-- `defaultChecked` and `checked` should turn the checkbox on
-- `indeterminate` should display child checkboxes, just one isn't enough
-
 ### **Combobox**
 
 - `multiple` will result in Cannot read properties of null (reading 'map')

@@ -54,7 +54,7 @@
       "name": "indeterminate",
       "type": "boolean",
       "default": false,
-      "description": "Neither on nor off, for a parent whose children disagree. Draws a dash in a filled box, because an empty box would read as \"off\", which is the one thing it does not mean."
+      "description": "The half-checked state, for a box that stands for several others - it means some of them are on, so it says nothing on its own. `CheckboxGroup` drives it from `allValues`, which is where you can see it against real children."
     },
     {
       "name": "disabled",
