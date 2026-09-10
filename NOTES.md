@@ -924,14 +924,29 @@ declares logical properties: `padding` covers `padding-inline` covers
       and close button; `className` reaches only `badgeClasses`, so deleting it
       would mean four new `*ClassName` props to replace one. Meter's `color` is
       the same shape and gets the same treatment.
-- [ ] **The separator entry is two bugs, not the one it describes.** "Both
-      `orientation` and `shape` do nothing": `orientation` works in the plain
-      branch and is **ignored entirely** in the icon/label branch, which
-      hardcodes `h-px`. `shape` never touches a separator at all - it styles
-      the icon **button**, so the prop's name lies. "No lines at all" is
-      neither: every class resolves (`h-px{height:1px}`,
-      `bg-silver-2{background-color:#e1e3e7}`), so the lines render - 1px of
-      near-white on white.
+- [x] **The separator entry was three bugs, and I had the third one wrong.**
+      "Both `orientation` and `shape` do nothing": `orientation` reached the
+      plain branch and was **ignored entirely** in the icon/label branch, which
+      hardcoded a row and `h-px`. Both branches turn now, each half growing
+      along whichever axis the wrapper leaves, and the inner rules finally
+      carry `orientation` at all - `aria-orientation` was missing from the
+      icon/label form outright. `shape` never touched a separator: it styles
+      the icon **button**, and a rule is one pixel across, where a radius draws
+      nothing. It is `iconShape` now, which is a **breaking rename** for the
+      registry - one for Phase 7's release notes.
+      **"No lines at all" was literal and my earlier reading of it was wrong.**
+      I wrote that the classes all resolve so the lines render as 1px of
+      near-white on white. Measured, they were **0px wide**. The cause was not
+      the component and not the colour: `#root` in the preview frame was
+      shrink-to-fit inside a flex-centred body, so `w-100%` resolved against a
+      114px root in a 558px frame, and `fg-1` split what the label left of a
+      34px box - nothing. `#root` is full width and centres its own child now,
+      and takes `height:100%` too, but **only** on a frame that has a height of
+      its own (`[data-fill]`): an auto-height frame is sized *from* this
+      element, so a percentage back is the loop the file already warns about.
+      Rules went 0px -> 222px horizontal, 263px vertical. Checked the blast
+      radius rather than assuming it: button, badge, avatar, switch, meter and
+      separator previews are all still centred to the pixel.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

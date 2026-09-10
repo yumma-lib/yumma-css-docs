@@ -49,7 +49,21 @@ const RESET = `
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
       Arial, sans-serif;
   }
-  #root { padding: 2.5rem; }
+  /* Full width, and centring its own child rather than leaning on the body:
+     a component asking for 100% of its container needs a container with a
+     width. A separator got 0 of a shrink-to-fit root and drew nothing. */
+  #root {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Height is the same story but only safe on a frame that has one of its own.
+     An auto-height frame is sized *from* this element, so handing a percentage
+     back would be the loop described above. */
+  #root[data-fill] { height: 100%; }
 `;
 
 /**
@@ -168,6 +182,7 @@ export default function PreviewFrame({
 
       const root = target.createElement("div");
       root.id = "root";
+      if (fill) root.dataset.fill = "";
       target.body.append(root);
 
       setBody(root);
@@ -178,7 +193,7 @@ export default function PreviewFrame({
     attach();
     element.addEventListener("load", attach);
     return () => element.removeEventListener("load", attach);
-  }, [near]);
+  }, [near, fill]);
 
   useEffect(() => {
     if (!body || fill) return;

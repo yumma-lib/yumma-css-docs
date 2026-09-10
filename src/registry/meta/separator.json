@@ -6,7 +6,7 @@
       "type": "enum",
       "values": ["horizontal", "vertical"],
       "default": "horizontal",
-      "description": "A vertical rule for a row layout, like a button group. Ignored alongside `icon` or `label`, which are a horizontal-only pattern."
+      "description": "A vertical rule for a row layout, like a button group. Applies to the `icon` and `label` forms too, which turn with it."
     },
     {
       "name": "icon",
@@ -28,11 +28,11 @@
       "description": "Renders as plain text in the middle. Ignored if `icon` is set."
     },
     {
-      "name": "shape",
+      "name": "iconShape",
       "type": "enum",
       "values": ["rounded", "square", "squircle", "circle"],
       "default": "rounded",
-      "description": "Corner radius on the icon button. Only visible alongside `icon`."
+      "description": "Corner radius on the icon button, which is the only part with corners. Only visible alongside `icon`."
     }
   ]
 }
