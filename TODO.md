@@ -2,8 +2,6 @@
 
 ### **Global**
 
-- rename `animate` prop to animated
-- remove `fullWidth` prop
 - remove **Collapsible** component entirely
 - having predefined colors is way TOO limiting… remove the color prop
 - what if we split Meter component into two? Meter and Progress? My original idea was to swap these two Base UI primitives using the animate prop but this might be not the best way just because accessibility and their API and overall meaning might be very diff from each other… We need to check if one extends another too to really see if split makes sense
@@ -76,11 +74,6 @@
 
 - **0024eee** before making Yumma UI I had great copy content and now after the migration there is just this lifeless “Card content goes here.” phrase… restore original content please. (use commit ef1b54f or https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ to see the preview of the Yumma UI components if needed
 
-### Separator
-
-- both `orientation` and `shape` do nothing
-- there are no lines at all, it doesn't look like https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/separator
-
 ### Button
 
 - the `iconOnly` doesn’t actually remove the label to become icon only
@@ -116,14 +109,8 @@
 - spacing here looks terrible when it comes to the parent container, copy from Alert Dialog which looks good
 - there is no outbound animation like in https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/dialog
 
-### Popover
-
-- `arrow` is completely out of place
-- `showClose` icon is WAY TOO small… maybe remove default padding or margin?
-
 ### Tooltip
 
-- `arrow` is completely out of place and not it’s NOT matching the tooltip background color
 - shouldn’t the `triggerTone` change the tooltip background color too? to red for example if set to danger?
 
 ### Onboarding
@@ -132,9 +119,4 @@
 - using indicator set to count and dismissible set to true looks weird because the indicator and the X icon are almost kissing each other
 - you missed the checklist in the indicator prop and maybe this prop for this component specifically should be called `type`or get another name like `style` maybe
 there is an intentional grow animation when the onboarding container grows, make that animation a prop
-
-### Rating
-
-- why does marking `readOnly` makes the stars bigger?
-- `animation` prop does nothing?
-- is there any way to reproduce the original https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/rating#read-only variant via props? i really like this structure and i wanted to keep it in Yumma UI
+
