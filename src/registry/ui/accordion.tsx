@@ -72,7 +72,16 @@ export default function AccordionBase({
     onValueChange?.(next);
   };
 
+  // `default` is one surface, so its shadow goes on the root. `bordered` and
+  // `subtle` are a gap-separated stack, where a root shadow would be drawn
+  // around the gaps: those get it per item instead. `ghost` has no surface to
+  // lift at all. Gated to `default` alone, the prop did nothing in three
+  // variants out of four.
   const isCard = variant === "default" && shadow !== "none";
+  const itemShadow =
+    shadow !== "none" && (variant === "bordered" || variant === "subtle")
+      ? SHADOWS[shadow]
+      : "";
 
   const rootClasses = merge(
     "d-f fd-c w-100% max-w-96",
@@ -98,7 +107,7 @@ export default function AccordionBase({
 
         const itemClasses =
           variant === "bordered"
-            ? ["bg-white bc-silver-3 bw-1", SHAPES[shape].item]
+            ? ["bg-white bc-silver-3 bw-1", SHAPES[shape].item, itemShadow]
                 .filter(Boolean)
                 .join(" ")
             : variant === "ghost"
@@ -113,6 +122,7 @@ export default function AccordionBase({
                 ? [
                     "br-lg",
                     isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2",
+                    itemShadow,
                   ]
                     .filter(Boolean)
                     .join(" ")

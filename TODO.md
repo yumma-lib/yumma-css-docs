@@ -26,10 +26,6 @@
 - `multiple` will result in Cannot read properties of null (reading 'map')
 - `clearable` doesn't add a clear button to the combobox to clear the combobox
 
-### **File Upload**
-
-- the `shadow` prop isn't working
-
 ### **Field**
 
 - use the `Folder` icon instead of the `Mail` icon
@@ -50,7 +46,6 @@
 
 ### **Accordion**
 
-- `shadow` prop does nothing?
 - `subtle` from `variant` have its copy content kissing the parent container but `border` and `ghost` have proper spacing?
 
 ### **Avatar**
@@ -73,7 +68,6 @@
 ### **Context Menu**
 
 - when i click to trigger the menu there is an unwanted black thick border around the menu and when i hover over one of the menu items it also shows up
-- `shadow` should only affect the menu not the area
 - `iconSide` won’t work without an icon so having it literally does nothing
 
 ### Menu

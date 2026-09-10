@@ -979,6 +979,34 @@ declares logical properties: `padding` covers `padding-inline` covers
       complaint about subtlety was fair and the fix stands, but that particular
       claim was mine and it was not true. Worth re-checking the next time a
       mockup asserts what the current code does.
+- [x] **The `shadow` cluster was one real bug, one behaviour fix, and one
+      false positive.** Accordion gated it on `variant === "default"`, so it
+      did nothing in three variants out of four. `default` is one surface and
+      keeps its root shadow; `bordered` and `subtle` are a gap-separated stack,
+      where a root shadow would be drawn around the gaps, so they take it per
+      item; `ghost` has no surface to lift and still takes none. Measured:
+      1 shadowed element on default, 3 on bordered, 3 on subtle, 0 on ghost.
+      Context Menu put the shadow on the **trigger** as well as the popup, so
+      the dashed area you right-click looked like the floating thing - the
+      entry was right and it is off the trigger now. **File Upload's shadow
+      works**: `outset` paints a real box-shadow, verified in the browser.
+      Along the way I suspected `bs-` - it is claimed four times across
+      background, border and box-model, and `bs-d` (border-style) sits next to
+      `bs-o-sm` (box-shadow) in that very component. `merge` gets it right:
+      `bs-d bs-i-md` keeps both, `bs-i-md bs-o-sm` collapses to the last.
+- [ ] **The three `iconSide` entries are not reproducible as written.** The
+      prop is `iconPosition`, and it moves the icon in **all three** menus:
+      measured at 8px from the item's left edge on `leading` and 170px of a
+      198px item on `trailing`, in Menu, Menubar and Context Menu alike, with
+      the seeded demo data. Left in TODO rather than deleted, because the
+      entry's real point is probably the API one - a prop whose effect depends
+      on another prop is shown unconditionally - which is the Global entry
+      about disabling option A when option B rules it out. That mechanism would
+      close all three; changing the components would not, since they work.
+- [x] **Context Menu's disabled trigger joined the surface convention.** It was
+      not in the four reported but carried the same `o-60`. The composition
+      test flagged the new `bg-white` drop; it is the intended one and is in
+      `EXPECTED_DROPS` now with a note.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

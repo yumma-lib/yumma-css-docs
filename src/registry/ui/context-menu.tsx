@@ -126,11 +126,16 @@ export default function ContextMenuBase({
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";
 
+  // No shadow here. `shadow` describes the menu that opens, and lifting the
+  // dashed area you right-click made the page look like the area was the
+  // floating thing.
   const triggerClasses = merge(
     "d-f ai-c jc-c h-48 w-60 bg-white bs-d bw-1 fs-sm fw-500 us-none",
     TRIGGER_SHAPES[shape],
-    shadowClass,
-    disabled ? "bc-silver-3 c-slate-4 o-60 c-na" : "bc-slate-3 c-slate-10",
+    // The same disabled surface the other controls use, rather than a fade.
+    disabled
+      ? "bg-silver-1 bc-silver-2 c-slate-4 c-na"
+      : "bc-slate-3 c-slate-10",
     className,
   );
 
