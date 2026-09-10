@@ -34,7 +34,7 @@
     {
       "name": "disabled",
       "type": "boolean",
-      "default": "false",
+      "default": false,
       "description": "Ignores interaction on every checkbox in the group."
     },
     {
@@ -46,6 +46,29 @@
       "name": "className",
       "type": "string",
       "description": "Merged with the group's own classes, so a utility you pass wins."
+    }
+  ],
+  "childrenExample": [
+    {
+      "component": "Checkbox",
+      "props": {
+        "value": "read",
+        "label": "Read"
+      }
+    },
+    {
+      "component": "Checkbox",
+      "props": {
+        "value": "write",
+        "label": "Write"
+      }
+    },
+    {
+      "component": "Checkbox",
+      "props": {
+        "value": "delete",
+        "label": "Delete"
+      }
     }
   ]
 }

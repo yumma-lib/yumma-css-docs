@@ -116,6 +116,15 @@ export interface RegistryMeta {
   props: RegistryProp[];
   /** Default text for components that take children. Absent means they do not. */
   children?: string;
+  /**
+   * Children that are components, not text. The snippet prints these and the
+   * stage renders them, so the code block and the preview cannot disagree.
+   */
+  childrenExample?: {
+    component: string;
+    props?: Record<string, unknown>;
+    children?: string;
+  }[];
 }
 
 export const registryMeta = {

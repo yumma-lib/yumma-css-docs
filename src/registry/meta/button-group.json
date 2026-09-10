@@ -11,19 +11,45 @@
     {
       "name": "separated",
       "type": "boolean",
-      "default": "true",
+      "default": true,
       "description": "Draws a rule between each pair of buttons. Turn it off when the buttons already carry their own edges."
     },
     {
       "name": "stretch",
       "type": "boolean",
-      "default": "false",
+      "default": false,
       "description": "Buttons share the full width instead of sizing to their labels."
     },
     {
       "name": "className",
       "type": "string",
       "description": "Merged with the group's own classes, so a utility you pass wins."
+    }
+  ],
+  "childrenExample": [
+    {
+      "component": "Button",
+      "props": {
+        "variant": "ghost",
+        "shape": "square"
+      },
+      "children": "Day"
+    },
+    {
+      "component": "Button",
+      "props": {
+        "variant": "ghost",
+        "shape": "square"
+      },
+      "children": "Month"
+    },
+    {
+      "component": "Button",
+      "props": {
+        "variant": "ghost",
+        "shape": "square"
+      },
+      "children": "Year"
     }
   ]
 }

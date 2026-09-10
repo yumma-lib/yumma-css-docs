@@ -110,7 +110,7 @@
     {
       "name": "revealable",
       "type": "boolean",
-      "default": "false",
+      "default": false,
       "description": "Adds a trailing button that shows and hides the value, for password fields. Always trailing and always interactive, so it overrides `iconPosition` and `icon`."
     }
   ]
