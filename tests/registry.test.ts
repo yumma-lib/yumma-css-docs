@@ -97,6 +97,45 @@ describe("Yumma UI registry", () => {
     expect(split).toEqual([]);
   });
 
+  // The other half of the rule. `count` was a ReactNode badge on Badge and a
+  // number of stars on Rating; `separator` was a boolean on Accordion and an
+  // enum on Breadcrumb. One name with two control kinds is one name with two
+  // meanings, which reads as one API and is not. Generic names whose shape is
+  // meant to vary by component are listed out.
+  it("gives one name one meaning across components", () => {
+    const GENERIC = new Set([
+      "value",
+      "defaultValue",
+      "onValueChange",
+      "items",
+      "options",
+      "label",
+      "description",
+      "size",
+      "icon",
+    ]);
+
+    const kinds = new Map<string, Set<string>>();
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      for (const prop of meta.props ?? []) {
+        if (GENERIC.has(prop.name)) continue;
+        kinds.set(
+          prop.name,
+          (kinds.get(prop.name) ?? new Set<string>()).add(prop.type),
+        );
+      }
+    }
+
+    const split = [...kinds]
+      .filter(([, types]) => types.size > 1)
+      .map(([name, types]) => `${name}: ${[...types].sort().join(" | ")}`);
+
+    expect(split).toEqual([]);
+  });
+
   // `"false"` is truthy, so a boolean default written as a string seeds the
   // playground with the prop switched on. Four components rendered disabled.
   it("declares boolean defaults as booleans", () => {

@@ -46,10 +46,10 @@
       "description": "Wraps the whole list in a card. Only applies to the `default` variant."
     },
     {
-      "name": "separator",
+      "name": "separated",
       "type": "boolean",
       "default": true,
-      "description": "The divider between items. Only visible on the `default` variant."
+      "description": "Draws a rule between each pair of items. Only visible on the `default` variant."
     },
     {
       "name": "icon",

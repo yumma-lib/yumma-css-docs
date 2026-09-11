@@ -87,7 +87,7 @@ export interface OnboardingProps {
   iconPosition?: IconPosition;
   steps: OnboardingStep[];
   indicator?: Indicator;
-  dismissible?: boolean;
+  showClose?: boolean;
   animatedResize?: boolean;
   shape?: Shape;
   shadow?: Shadow;
@@ -101,7 +101,7 @@ export default function OnboardingBase({
   iconPosition = "leading",
   steps,
   indicator = "count",
-  dismissible = false,
+  showClose = false,
   animatedResize = true,
   shape = "rounded",
   shadow = "none",
@@ -230,14 +230,14 @@ export default function OnboardingBase({
           className={`${popupClasses} ${animated ? "yui-onboarding-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
-          {dismissible && indicator === "dots" && closeButton("p-a l-3 t-3")}
+          {showClose && indicator === "dots" && closeButton("p-a l-3 t-3")}
 
           {indicator !== "dots" && (
             <div className="d-f ai-c jc-sb px-8 pt-5">
               {/* The skip button rides in the header rather than over it. Sat
                   absolute, it landed on top of the "1 / 3". */}
               <div className="d-f ai-c g-2">
-                {dismissible && closeButton("")}
+                {showClose && closeButton("")}
                 {indicator === "count" && (
                   <span className="c-slate-5 fs-xs">
                     {page + 1} / {steps.length}

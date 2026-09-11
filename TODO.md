@@ -50,7 +50,7 @@ do it and the CLI half does.
 - having predefined colors is way TOO limiting… remove the color prop
 - what if we split Meter component into two? Meter and Progress? My original idea was to swap these two Base UI primitives using the animate prop but this might be not the best way just because accessibility and their API and overall meaning might be very diff from each other… We need to check if one extends another too to really see if split makes sense
 - does it really make sense to have `defaultChecked` in the playground? it won’t survive a refresh so what’s the point? how do we solve this?
-- prop names MUST be consistent across ALL other Yumma UI components, I see VERY similar props with diff names and this for an API is VERY UGLY. e.g `iconSide` and `iconPosition` just pick one of them and reuse it across other Yumma UI components
+- two prop names are still one name with two meanings, and both need a call: Accordion's `icon` is an enum picking a built-in glyph (`chevron`/`plus-minus`) while `icon` is a ReactNode on twelve other components, and Skeleton's `size` takes literal utilities (`"w-9 h-9"`) while `size` is an enum on sixteen others
 - we SHOULD be a bit more strict, some options are NOT meant to work with other options e.g. we should disable A if B is enabled when needed… maybe using the `diff-remove` color for the switch track to display that that switch is disabled
 - why not create a prop to control focus? some people don’t like it… we can also create props to change the focus appearance too like outline color and outline offset (all Yumma CSS utilities btw)
 

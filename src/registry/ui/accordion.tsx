@@ -36,7 +36,7 @@ export interface AccordionProps {
   variant?: Variant;
   shape?: Shape;
   shadow?: Shadow;
-  separator?: boolean;
+  separated?: boolean;
   icon?: Icon;
   iconPosition?: IconPosition;
   multiple?: boolean;
@@ -52,7 +52,7 @@ export default function AccordionBase({
   variant = "default",
   shape = "rounded",
   shadow = "none",
-  separator = true,
+  separated = true,
   icon = "chevron",
   iconPosition = "trailing",
   multiple = false,
@@ -126,7 +126,7 @@ export default function AccordionBase({
                   ]
                     .filter(Boolean)
                     .join(" ")
-                : separator && !isLast
+                : separated && !isLast
                   ? "bbw-1 bc-silver-3"
                   : "";
 
@@ -139,7 +139,7 @@ export default function AccordionBase({
         const triggerPadY =
           variant === "ghost"
             ? "py-2"
-            : variant === "default" && !separator
+            : variant === "default" && !separated
               ? "py-3"
               : "py-4";
         const panelPadX = inset ? "px-4" : "";

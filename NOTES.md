@@ -1310,6 +1310,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       true` on the prop keeps the props table row and drops the control.
       Verified all seven: documented, no widget, and Menu's trigger opens
       after the round trip that used to kill it.
+- [x] **Swept every prop name across all 52 schemas.** The `Side`/`Position`
+      rule already holds - **no stem has two spellings left**. The remaining
+      inconsistency was the other direction: **one name, two meanings**.
+      `count` was a ReactNode badge on Badge and a number of stars on Rating;
+      `separator` was a boolean divider on Accordion and a `chevron`/`slash`
+      enum on Breadcrumb; `dismissible` on Onboarding was `showClose` on three
+      other components. Each rename took the spelling that already had more
+      users: `rating.count` -> **`max`** (4 components), `accordion.separator`
+      -> **`separated`** (Button Group), `onboarding.dismissible` ->
+      **`showClose`** (3). A second test states the rule, with the genuinely
+      generic names (`value`, `items`, `label`, `size`, `icon`) listed out.
+      Verified it bites by putting `count` back.
+      **Two left for a decision, both real:** Accordion's `icon` is an enum
+      picking a built-in glyph while `icon` is a ReactNode on twelve others,
+      and Skeleton's `size` takes literal utility classes while `size` is an
+      enum on sixteen others.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

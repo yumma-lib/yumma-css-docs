@@ -59,7 +59,7 @@
       "description": "`count` reads \"1 / 3\" in the header. `progress` draws a filling bar under the slide instead. `dots` moves navigation to a bottom row of step dots between prev/next arrows."
     },
     {
-      "name": "dismissible",
+      "name": "showClose",
       "type": "boolean",
       "default": false,
       "description": "An X in the corner, so the tour can be skipped without walking to the end."

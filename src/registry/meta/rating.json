@@ -8,10 +8,10 @@
       "description": "Text above the stars."
     },
     {
-      "name": "count",
+      "name": "max",
       "type": "number",
       "default": 5,
-      "description": "How many stars to draw. Ignored when `icons` is set."
+      "description": "How many marks to draw, and the top of the scale. Ignored when `icons` is set."
     },
     {
       "name": "icons",
