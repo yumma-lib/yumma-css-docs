@@ -52,6 +52,12 @@ const COMBOBOX_MOTION = `
   }
 `;
 
+const ITEM_SHAPES: Record<Shape, string> = {
+  rounded: "br-md",
+  square: "",
+  squircle: "br-lg cs-s",
+};
+
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
   md: "w-64",
@@ -78,7 +84,7 @@ const SHADOWS: Record<Shadow, string> = {
 
 const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
 
-const ACTION = `d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 ${RING}`;
+const ACTION = `d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 c-p h:c-slate-10 ${RING}`;
 
 export interface ComboboxProps {
   /**
@@ -109,13 +115,13 @@ function isGroupEntry(
   return "items" in entry;
 }
 
-function renderItem(item: ComboboxItem) {
+function renderItem(item: ComboboxItem, shape: Shape) {
   return (
     <Combobox.Item
       key={item.label}
       value={item.label}
       className={(state) =>
-        `d-f ai-c g-2 py-2 px-3 mx-1 br-md fs-sm fw-500 us-none c-p ${
+        `d-f ai-c g-2 py-2 px-3 mx-1 ${ITEM_SHAPES[shape]} fs-sm fw-500 us-none c-p ${
           state.highlighted ? "bg-silver-2/50" : "bg-transparent"
         }`
       }
@@ -199,10 +205,10 @@ export default function ComboboxBase({
                   <Combobox.GroupLabel className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
                     {entry.group}
                   </Combobox.GroupLabel>
-                  {entry.items.map(renderItem)}
+                  {entry.items.map((entry) => renderItem(entry, shape))}
                 </Combobox.Group>
               ) : (
-                renderItem(entry)
+                renderItem(entry, shape)
               )
             }
           </Combobox.List>

@@ -71,7 +71,8 @@ export default function FileUploadBase({
       <div className="d-f fd-c ai-c g-2 p-8 ta-c">
         <div
           className={merge(
-            "d-f ai-c jc-c w-10 h-10 br-lg bw-1",
+            "d-f ai-c jc-c w-10 h-10 bw-1",
+            SHAPES[shape],
             error ? "bg-red-1/50 bc-red-5" : "bg-white bc-silver-2",
           )}
         >

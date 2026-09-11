@@ -4,13 +4,12 @@ import { Radio } from "@base-ui/react/radio";
 import { RadioGroup } from "@base-ui/react/radio-group";
 import type { HTMLMotionProps } from "motion/react";
 import { motion } from "motion/react";
-import { type ReactNode, useId } from "react";
+import { useId } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
-type IconSide = "leading" | "trailing";
 
 export interface RadioOption {
   value: string;

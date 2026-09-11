@@ -8,7 +8,7 @@ const INTENTS = {
   neutral: "bg-slate",
   info: "bg-blue",
   success: "bg-green",
-  warning: "bg-orange",
+  warning: "bg-yellow",
   danger: "bg-red",
 } satisfies Record<string, string>;
 
@@ -54,13 +54,13 @@ export default function MeterBase({
   const rootClasses = merge(
     "d-f fd-c w-64",
     hasHeader ? "g-3" : "g-2",
-    isCard ? "p-4 bg-white bc-silver-2 br-lg bw-1" : "",
+    isCard ? "p-4 bg-white bc-silver-2 bw-1" : "",
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     className,
   );
 
   const indicatorClasses = merge(
-    "d-b h-100% br-9999",
+    "d-b h-100%",
     INTENTS[intent],
     animated ? "tp-w tdu-500 ttf-io" : "",
   );
@@ -69,7 +69,7 @@ export default function MeterBase({
     <Meter.Root className={rootClasses} value={value} min={min} max={max}>
       {hasHeader ? (
         <div className="d-f ai-c g-3">
-          <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-indigo-1 c-indigo br-lg">
+          <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-indigo-1 c-indigo">
             {icon}
           </span>
           <div className="d-f fd-c">
@@ -88,7 +88,7 @@ export default function MeterBase({
         </div>
       )}
 
-      <Meter.Track className="o-h h-2 bg-silver-2 br-9999">
+      <Meter.Track className="o-h h-2 bg-silver-2">
         <Meter.Indicator className={indicatorClasses} />
       </Meter.Track>
 
