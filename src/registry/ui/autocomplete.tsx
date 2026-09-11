@@ -2,7 +2,6 @@
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { Avatar } from "@base-ui/react/avatar";
-import { AnimatePresence, motion } from "motion/react";
 import { type ReactNode, useId, useState } from "react";
 import { merge } from "yummacss/merge";
 
@@ -31,6 +30,28 @@ const SIZES: Record<Size, string> = {
   md: "h-10 w-64",
   lg: "h-12 w-72",
 };
+
+/**
+ * Keyed on Base UI's own transition attributes.
+ *
+ * Base UI asks `getAnimations()` whether anything is running before it closes,
+ * and Motion's animation never appears there - measured zero. So it hid the
+ * positioner in the first frame of the exit and Motion faded a popup that was
+ * already inside a `display:none` parent. CSS transitions do register.
+ */
+const AUTOCOMPLETE_MOTION = `
+  .yui-autocomplete-pop {
+    transition: opacity 150ms ease-out, scale 150ms ease-out;
+  }
+  .yui-autocomplete-pop[data-starting-style],
+  .yui-autocomplete-pop[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-autocomplete-pop { transition: none; }
+  }
+`;
 
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
@@ -163,7 +184,7 @@ export default function AutocompleteBase({
 
   const popup = (
     <Autocomplete.Popup
-      className={`o-h bg-white bc-silver-2 c-slate-10 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]}`}
+      className={`o-h bg-white bc-silver-2 c-slate-10 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-autocomplete-pop" : ""}`}
     >
       {loading ? (
         <div className="py-3 px-4 c-slate-6 fs-sm us-none">Loading...</div>
@@ -215,6 +236,9 @@ export default function AutocompleteBase({
               {icon}
             </span>
           )}
+          <style href="yumma-ui-autocomplete-motion" precedence="default">
+            {AUTOCOMPLETE_MOTION}
+          </style>
           <Autocomplete.Input
             id={id}
             placeholder={placeholder}
@@ -223,27 +247,11 @@ export default function AutocompleteBase({
         </div>
         {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
       </div>
-
-      <AnimatePresence>
-        {open && (
-          <Autocomplete.Portal container={container} keepMounted>
-            <Autocomplete.Positioner className="ow-0" sideOffset={8}>
-              {animated ? (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                >
-                  {popup}
-                </motion.div>
-              ) : (
-                popup
-              )}
-            </Autocomplete.Positioner>
-          </Autocomplete.Portal>
-        )}
-      </AnimatePresence>
+      <Autocomplete.Portal container={container} keepMounted>
+        <Autocomplete.Positioner className="ow-0" sideOffset={8}>
+          {popup}
+        </Autocomplete.Positioner>
+      </Autocomplete.Portal>
     </Autocomplete.Root>
   );
 }

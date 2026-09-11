@@ -1,7 +1,6 @@
 "use client";
 
 import { Tooltip } from "@base-ui/react/tooltip";
-import { AnimatePresence, motion } from "motion/react";
 import type { CSSProperties, ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
@@ -10,6 +9,28 @@ type Tone = "light" | "dark";
 type TriggerTone = "neutral" | "danger";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
+
+/**
+ * Keyed on Base UI's own transition attributes.
+ *
+ * Base UI asks `getAnimations()` whether anything is running before it closes,
+ * and Motion's animation never appears there - measured zero. So it hid the
+ * positioner in the first frame of the exit and Motion faded a popup that was
+ * already inside a `display:none` parent. CSS transitions do register.
+ */
+const TOOLTIP_MOTION = `
+  .yui-tooltip-pop {
+    transition: opacity 150ms ease-out, translate 150ms ease-out, scale 150ms ease-out;
+  }
+  .yui-tooltip-pop[data-starting-style],
+  .yui-tooltip-pop[data-ending-style] {
+    opacity: 0;
+    translate: 0 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-tooltip-pop { transition: none; }
+  }
+`;
 
 const SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
@@ -121,17 +142,7 @@ export default function TooltipBase({
 
   const popup = (
     <Tooltip.Popup
-      render={
-        animated ? (
-          <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 4 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          />
-        ) : undefined
-      }
-      className={popupClasses}
+      className={`${popupClasses} ${animated ? "yui-tooltip-pop" : ""}`}
     >
       {arrow && (
         <Tooltip.Arrow
@@ -151,12 +162,15 @@ export default function TooltipBase({
   return (
     <Tooltip.Provider delay={delay}>
       <Tooltip.Root>
+        <style href="yumma-ui-tooltip-motion" precedence="default">
+          {TOOLTIP_MOTION}
+        </style>
         <Tooltip.Trigger className={triggerClasses} aria-label={triggerLabel}>
           {trigger}
         </Tooltip.Trigger>
         <Tooltip.Portal container={container}>
           <Tooltip.Positioner side={side} sideOffset={sideOffset}>
-            {animated ? <AnimatePresence>{popup}</AnimatePresence> : popup}
+            {popup}
           </Tooltip.Positioner>
         </Tooltip.Portal>
       </Tooltip.Root>

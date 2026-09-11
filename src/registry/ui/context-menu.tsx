@@ -2,7 +2,6 @@
 
 import { ContextMenu } from "@base-ui/react/context-menu";
 import { Check, Circle, KeyCommand, NavArrowRight } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -10,6 +9,27 @@ import { merge } from "yummacss/merge";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
+
+/**
+ * Keyed on Base UI's own transition attributes.
+ *
+ * Base UI asks `getAnimations()` whether anything is running before it closes,
+ * and Motion's animation never appears there - measured zero. So it hid the
+ * positioner in the first frame of the exit and Motion faded a popup that was
+ * already inside a `display:none` parent. CSS transitions do register.
+ */
+const CONTEXT_MENU_MOTION = `
+  .yui-context-menu-pop {
+    transition: opacity 150ms ease-out;
+  }
+  .yui-context-menu-pop[data-starting-style],
+  .yui-context-menu-pop[data-ending-style] {
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-context-menu-pop { transition: none; }
+  }
+`;
 
 const TRIGGER_SHAPES: Record<Shape, string> = {
   rounded: "br-xxl cs-s",
@@ -303,17 +323,7 @@ export default function ContextMenuBase({
     <ContextMenu.Portal container={container} keepMounted>
       <ContextMenu.Positioner className="ow-0">
         <ContextMenu.Popup
-          render={
-            animated ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
-              />
-            ) : undefined
-          }
-          className={popupClasses}
+          className={`${popupClasses} ${animated ? "yui-context-menu-pop" : ""}`}
         >
           {renderItems(items, "item")}
         </ContextMenu.Popup>
@@ -327,15 +337,14 @@ export default function ContextMenuBase({
       onOpenChange={handleOpenChange}
       disabled={disabled}
     >
+      <style href="yumma-ui-context-menu-motion" precedence="default">
+        {CONTEXT_MENU_MOTION}
+      </style>
       <ContextMenu.Trigger className={triggerClasses}>
         {trigger}
       </ContextMenu.Trigger>
 
-      {animated ? (
-        <AnimatePresence>{open && popup}</AnimatePresence>
-      ) : (
-        open && popup
-      )}
+      {popup}
     </ContextMenu.Root>
   );
 }

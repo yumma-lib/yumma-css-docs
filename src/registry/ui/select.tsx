@@ -4,7 +4,6 @@ import { Avatar } from "@base-ui/react/avatar";
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
 import { ArrowSeparateVertical, Check } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
 import { type ReactNode, useId, useState } from "react";
 import { merge } from "yummacss/merge";
 
@@ -33,6 +32,28 @@ const SIZES: Record<Size, string> = {
   md: "h-10 w-64 px-3",
   lg: "h-12 w-72 px-4",
 };
+
+/**
+ * Keyed on Base UI's own transition attributes.
+ *
+ * Base UI asks `getAnimations()` whether anything is running before it closes,
+ * and Motion's animation never appears there - measured zero. So it hid the
+ * positioner in the first frame of the exit and Motion faded a popup that was
+ * already inside a `display:none` parent. CSS transitions do register.
+ */
+const SELECT_MOTION = `
+  .yui-select-pop {
+    transition: opacity 150ms ease-out, scale 150ms ease-out;
+  }
+  .yui-select-pop[data-starting-style],
+  .yui-select-pop[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-select-pop { transition: none; }
+  }
+`;
 
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
@@ -184,7 +205,7 @@ export default function SelectBase({
 
   const popup = (
     <Select.Popup
-      className={`o-h py-1 bg-white bc-silver-2 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]}`}
+      className={`o-h py-1 bg-white bc-silver-2 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-select-pop" : ""}`}
     >
       <Select.List className="p-r o-auto">
         {options.map((entry) =>
@@ -205,6 +226,9 @@ export default function SelectBase({
 
   return (
     <Field.Root className={`d-f fd-c g-2 ${disabled ? "o-60 c-na" : ""}`}>
+      <style href="yumma-ui-select-motion" precedence="default">
+        {SELECT_MOTION}
+      </style>
       {label && (
         <label htmlFor={id} className="c-slate-10 fs-sm fw-500 us-none">
           {label}
@@ -239,31 +263,15 @@ export default function SelectBase({
             arrow
           )}
         </Select.Trigger>
-
-        <AnimatePresence>
-          {open && (
-            <Select.Portal container={container}>
-              <Select.Positioner
-                sideOffset={8}
-                alignItemWithTrigger={false}
-                className="zi-10 p-0 ow-0 us-none"
-              >
-                {animated ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.15, ease: "easeOut" }}
-                  >
-                    {popup}
-                  </motion.div>
-                ) : (
-                  popup
-                )}
-              </Select.Positioner>
-            </Select.Portal>
-          )}
-        </AnimatePresence>
+        <Select.Portal container={container}>
+          <Select.Positioner
+            sideOffset={8}
+            alignItemWithTrigger={false}
+            className="zi-10 p-0 ow-0 us-none"
+          >
+            {popup}
+          </Select.Positioner>
+        </Select.Portal>
       </Select.Root>
 
       {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}

@@ -3,7 +3,6 @@
 import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
 import { ArrowSeparateVertical, Check, Xmark } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useId, useState } from "react";
 import { merge } from "yummacss/merge";
@@ -31,6 +30,28 @@ const SIZES: Record<Size, string> = {
   md: "h-10 w-64",
   lg: "h-12 w-72",
 };
+
+/**
+ * Keyed on Base UI's own transition attributes.
+ *
+ * Base UI asks `getAnimations()` whether anything is running before it closes,
+ * and Motion's animation never appears there - measured zero. So it hid the
+ * positioner in the first frame of the exit and Motion faded a popup that was
+ * already inside a `display:none` parent. CSS transitions do register.
+ */
+const COMBOBOX_MOTION = `
+  .yui-combobox-pop {
+    transition: opacity 150ms ease-out, scale 150ms ease-out;
+  }
+  .yui-combobox-pop[data-starting-style],
+  .yui-combobox-pop[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-combobox-pop { transition: none; }
+  }
+`;
 
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
@@ -152,7 +173,7 @@ export default function ComboboxBase({
 
   const popup = (
     <Combobox.Popup
-      className={`o-h bg-white bc-silver-2 c-slate-10 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]}`}
+      className={`o-h bg-white bc-silver-2 c-slate-10 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-combobox-pop" : ""}`}
     >
       {loading ? (
         <div className="py-4 px-4 c-slate-6 fs-sm us-none">Loading...</div>
@@ -191,6 +212,9 @@ export default function ComboboxBase({
       <div
         className={`d-f p-r fd-c g-2 c-slate-10 fs-sm ${disabled ? "o-60 c-na" : ""}`}
       >
+        <style href="yumma-ui-combobox-motion" precedence="default">
+          {COMBOBOX_MOTION}
+        </style>
         {label && (
           <label htmlFor={id} className="fw-500">
             {label}
@@ -257,27 +281,11 @@ export default function ComboboxBase({
 
         {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
       </div>
-
-      <AnimatePresence>
-        {open && (
-          <Combobox.Portal container={container} keepMounted>
-            <Combobox.Positioner className="ow-0" sideOffset={8}>
-              {animated ? (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15, ease: "easeOut" }}
-                >
-                  {popup}
-                </motion.div>
-              ) : (
-                popup
-              )}
-            </Combobox.Positioner>
-          </Combobox.Portal>
-        )}
-      </AnimatePresence>
+      <Combobox.Portal container={container} keepMounted>
+        <Combobox.Positioner className="ow-0" sideOffset={8}>
+          {popup}
+        </Combobox.Positioner>
+      </Combobox.Portal>
     </Combobox.Root>
   );
 }

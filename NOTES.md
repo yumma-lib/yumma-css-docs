@@ -1127,16 +1127,28 @@ declares logical properties: `padding` covers `padding-inline` covers
       thing still opened. Interaction is now measured explicitly - what
       `elementFromPoint` returns over the closed trigger, whether the dialog's
       own button is the hit target, and that it closes and reopens.
-      **Swept all ten popup components rather than assuming it spread.** It
-      does not, and my "every component has this" was too broad. Measured by
+      **The sweep's first verdict was wrong, twice over.** I called four
+      components "already fine" and three "unknown" - both readings came from
+      looking one level too shallow. The popup's own `display` stays `block`
+      the whole way out; it is the **positioner above it** that Base UI marks
+      `display:none, opacity:0, [hidden]` in the first frame. So the popup
+      faded, correctly, inside a hidden parent. Checking a computed style on
+      one element proves nothing unless you walk its ancestors too, and that
+      is the check that finally settled it.
+      Every popup component had the bug, which is what the original "every
+      component has this" guessed at and could not show. All eight are on the
+      CSS-attribute path now - popover, menu, menubar, context-menu, tooltip,
+      select, autocomplete, combobox - alongside the four dialogs. Measured on
+      each: three frames of visible fade (0.66 -> ~0.3 -> 0.08) with no
+      blocking ancestor at any point, the control still reachable, the popup
+      still opening. Measured by
       opening each and sampling opacity *and* `display` on the way out:
       - **Same bug** (fading while `display:none`): `command-palette` and
         `onboarding`. Both are the dialog shape exactly - a Dialog or
         AlertDialog portal with a hand-written `<div className="d-f p-f i-0">`
         wrapper. Both fixed the same way, Viewport included.
-      - **Already fine**: `popover`, `menu`, `menubar`, `context-menu`. They
-        use Base UI's `Positioner`, which is a real part and is not hidden out
-        from under the animation, so the element stays visible while it fades.
+      - `popover`, `menu`, `menubar`, `context-menu` were **not** fine; the
+        positioner was hidden under them from frame one.
       - **Unknown**: `select`, `autocomplete`, `combobox`. I reported these as
         "no exit animation" on the strength of opacity sitting at 1.00, and
         that reading is **not trustworthy**: the element I was sampling,

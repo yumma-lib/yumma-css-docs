@@ -2,7 +2,6 @@
 
 import { Popover } from "@base-ui/react/popover";
 import { Xmark } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
 import type { CSSProperties, ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -11,6 +10,29 @@ type Side = "top" | "right" | "bottom" | "left";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type TriggerVariant = "icon" | "label";
+
+/**
+ * Keyed on Base UI's own transition attributes.
+ *
+ * Base UI asks `getAnimations()` whether anything is running before it closes
+ * the popup, and Motion's animation never appears there - measured zero. So it
+ * hid the **positioner** in the first frame of the exit and Motion faded a
+ * popup that was already inside a `display:none` parent. CSS transitions do
+ * register, so Base UI waits for these.
+ */
+const POPOVER_MOTION = `
+  .yui-popover-pop {
+    transition: opacity 150ms ease-out, scale 150ms ease-out;
+  }
+  .yui-popover-pop[data-starting-style],
+  .yui-popover-pop[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-popover-pop { transition: none; }
+  }
+`;
 
 const TRIGGER_VARIANTS: Record<TriggerVariant, string> = {
   icon: "w-10 h-10",
@@ -176,17 +198,7 @@ export default function PopoverBase({
     <Popover.Portal container={container} keepMounted>
       <Popover.Positioner side={side} sideOffset={sideOffset}>
         <Popover.Popup
-          render={
-            animated ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
-              />
-            ) : undefined
-          }
-          className={popupClasses}
+          className={`${popupClasses} ${animated ? "yui-popover-pop" : ""}`}
         >
           {body}
         </Popover.Popup>
@@ -196,6 +208,10 @@ export default function PopoverBase({
 
   return (
     <Popover.Root open={open} onOpenChange={setOpen}>
+      <style href="yumma-ui-popover-motion" precedence="default">
+        {POPOVER_MOTION}
+      </style>
+
       <Popover.Trigger
         className={triggerClasses}
         aria-label={triggerLabel}
@@ -205,11 +221,7 @@ export default function PopoverBase({
         {trigger}
       </Popover.Trigger>
 
-      {animated ? (
-        <AnimatePresence>{open && popup}</AnimatePresence>
-      ) : (
-        open && popup
-      )}
+      {popup}
     </Popover.Root>
   );
 }

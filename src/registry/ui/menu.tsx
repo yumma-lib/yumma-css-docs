@@ -2,7 +2,6 @@
 
 import { Menu } from "@base-ui/react/menu";
 import { Check, Circle, KeyCommand, NavArrowRight } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -18,6 +17,27 @@ interface SizeSpec {
   item: string;
   text: string;
 }
+
+/**
+ * Keyed on Base UI's own transition attributes.
+ *
+ * Base UI asks `getAnimations()` whether anything is running before it closes,
+ * and Motion's animation never appears there - measured zero. So it hid the
+ * positioner in the first frame of the exit and Motion faded a popup that was
+ * already inside a `display:none` parent. CSS transitions do register.
+ */
+const MENU_MOTION = `
+  .yui-menu-pop {
+    transition: opacity 150ms ease-out;
+  }
+  .yui-menu-pop[data-starting-style],
+  .yui-menu-pop[data-ending-style] {
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-menu-pop { transition: none; }
+  }
+`;
 
 const SIZES: Record<Size, SizeSpec> = {
   sm: { trigger: "px-2 py-1", popup: "w-44", item: "py-1 px-2", text: "fs-xs" },
@@ -327,17 +347,7 @@ export default function MenuBase({
     <Menu.Portal container={container} keepMounted>
       <Menu.Positioner className="ow-0" sideOffset={8}>
         <Menu.Popup
-          render={
-            animated ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.15, ease: "easeOut" }}
-              />
-            ) : undefined
-          }
-          className={popupClasses}
+          className={`${popupClasses} ${animated ? "yui-menu-pop" : ""}`}
         >
           {renderItems(items, "item")}
         </Menu.Popup>
@@ -347,13 +357,12 @@ export default function MenuBase({
 
   return (
     <Menu.Root open={open} onOpenChange={handleOpenChange} disabled={disabled}>
+      <style href="yumma-ui-menu-motion" precedence="default">
+        {MENU_MOTION}
+      </style>
       <Menu.Trigger className={triggerClasses}>{trigger}</Menu.Trigger>
 
-      {animated ? (
-        <AnimatePresence>{open && popup}</AnimatePresence>
-      ) : (
-        open && popup
-      )}
+      {popup}
     </Menu.Root>
   );
 }
