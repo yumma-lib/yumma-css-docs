@@ -85,8 +85,6 @@ export interface FieldProps
 
   suffix?: ReactNode;
 
-  multiline?: boolean;
-
   /** Adds a trailing button that shows and hides the value. Password fields. */
   revealable?: boolean;
 }
@@ -104,7 +102,6 @@ export default function FieldBase({
   iconInteractive = false,
   prefixNode,
   suffix,
-  multiline = false,
   revealable = false,
   disabled,
   required,
@@ -115,7 +112,7 @@ export default function FieldBase({
   const [revealed, setRevealed] = useState(false);
   const status: Status = error ? "error" : success ? "success" : "default";
   const message = error ?? success ?? description;
-  const reveal = revealable && !multiline;
+  const reveal = revealable;
   const controlType = reveal && revealed ? "text" : type;
   const trailingIcon = reveal ? (
     <Toggle
@@ -167,15 +164,6 @@ export default function FieldBase({
   const affixBoxClasses =
     "d-f ai-c jc-c px-3 bg-white bc-silver-3 c-slate-6 byw-1 fs-md";
 
-  const multilineClasses = merge(
-    "h-20 w-100% pt-3 pl-4 pr-4 r-none bg-white c-slate-10 bw-1 fs-md fv:oo--1",
-    SHAPES[shape],
-    SHADOWS[shadow],
-    STATUS_BORDER[status],
-    STATUS_RING[status],
-    className,
-  );
-
   return (
     <Field.Root
       disabled={disabled}
@@ -188,14 +176,7 @@ export default function FieldBase({
         </Field.Label>
       )}
 
-      {multiline ? (
-        <Field.Control
-          render={<textarea />}
-          required={required}
-          className={multilineClasses}
-          {...props}
-        />
-      ) : hasAffix ? (
+      {hasAffix ? (
         <div className="d-f ai-c">
           {prefixNode && (
             <div className={`${affixBoxClasses} blr-lg blw-1`}>

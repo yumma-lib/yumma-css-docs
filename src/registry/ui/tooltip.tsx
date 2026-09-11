@@ -5,8 +5,7 @@ import type { CSSProperties, ReactNode } from "react";
 import { merge } from "yummacss/merge";
 
 type Side = "top" | "right" | "bottom" | "left";
-type Tone = "light" | "dark";
-type TriggerTone = "neutral" | "danger";
+type Tone = "light" | "dark" | "danger";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
@@ -39,10 +38,13 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 const TONES: Record<Tone, string> = {
   light: "bg-white bc-silver-2 c-slate-10 bw-1",
   dark: "bg-indigo-7 c-white",
+  danger: "bg-red-7 c-white",
 };
 
-const TRIGGER_TONES: Record<TriggerTone, string> = {
-  neutral: "c-slate-8 h:c-slate-10 fv:oc-indigo-5",
+/** One tone, both ends: a destructive trigger opens a destructive tooltip. */
+const TRIGGER_TONES: Record<Tone, string> = {
+  light: "c-slate-8 h:c-slate-10 fv:oc-indigo-5",
+  dark: "c-slate-8 h:c-slate-10 fv:oc-indigo-5",
   danger: "c-red-7 h:c-red-8 fv:oc-red-6",
 };
 
@@ -50,6 +52,7 @@ const TRIGGER_TONES: Record<TriggerTone, string> = {
 const ARROW_TONES: Record<Tone, string> = {
   light: "f-white s-silver-2",
   dark: "f-indigo-7 s-indigo-7",
+  danger: "f-red-7 s-red-7",
 };
 
 /**
@@ -84,7 +87,6 @@ export interface TooltipProps {
   container?: HTMLElement | null;
   trigger: ReactNode;
   triggerLabel?: string;
-  triggerTone?: TriggerTone;
   content: ReactNode;
   side?: Side;
   sideOffset?: number;
@@ -100,7 +102,6 @@ export interface TooltipProps {
 export default function TooltipBase({
   trigger,
   triggerLabel,
-  triggerTone = "neutral",
   content,
   side = "top",
   sideOffset = 8,
@@ -115,7 +116,7 @@ export default function TooltipBase({
 }: TooltipProps) {
   const triggerClasses = merge(
     "d-f ai-c jc-c bg-transparent bw-0 c-p fv:oo-2",
-    TRIGGER_TONES[triggerTone],
+    TRIGGER_TONES[tone],
     className,
   );
 

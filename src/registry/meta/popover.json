@@ -74,7 +74,8 @@
     {
       "name": "open",
       "type": "boolean",
-      "description": "Controlled open state, for closing the popup from inside `children` - after a selection, say. Uncontrolled (the default) if omitted."
+      "description": "Controlled open state, for closing the popup from inside `children` - after a selection, say. Uncontrolled (the default) if omitted.",
+      "controlled": true
     },
     {
       "name": "onOpenChange",

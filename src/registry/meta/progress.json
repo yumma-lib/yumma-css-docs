@@ -33,7 +33,13 @@
       "name": "animated",
       "type": "boolean",
       "default": true,
-      "description": "The indicator's width transition as `value` changes. Indeterminate progress always animates regardless of this."
+      "description": "The indicator's width transition as `value` changes. Indeterminate progress always animates regardless of this.",
+      "conflictsWith": [
+        {
+          "prop": "value",
+          "set": false
+        }
+      ]
     }
   ]
 }

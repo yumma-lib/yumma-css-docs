@@ -59,7 +59,7 @@
       "description": "`count` reads \"1 / 3\" in the header. `progress` draws a filling bar under the slide instead. `dots` moves navigation to a bottom row of step dots between prev/next arrows."
     },
     {
-      "name": "dismissible",
+      "name": "showClose",
       "type": "boolean",
       "default": false,
       "description": "An X in the corner, so the tour can be skipped without walking to the end."
@@ -83,6 +83,18 @@
       "type": "boolean",
       "default": true,
       "description": "The slide transition between steps and the popup's scale-in. Turn it off for an instant tour, or when the user has asked for reduced motion."
+    },
+    {
+      "name": "animatedResize",
+      "type": "boolean",
+      "default": true,
+      "description": "The popup's grow and shrink as steps of different heights come and go. Only steps with `tasks` change height, so this does nothing without them.",
+      "conflictsWith": [
+        {
+          "prop": "animated",
+          "set": false
+        }
+      ]
     },
     {
       "name": "container",

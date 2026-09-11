@@ -46,50 +46,14 @@ do it and the CLI half does.
 
 ### **Global**
 
-- remove **Collapsible** component entirely
-- having predefined colors is way TOO limiting… remove the color prop
-- what if we split Meter component into two? Meter and Progress? My original idea was to swap these two Base UI primitives using the animate prop but this might be not the best way just because accessibility and their API and overall meaning might be very diff from each other… We need to check if one extends another too to really see if split makes sense
 - does it really make sense to have `defaultChecked` in the playground? it won’t survive a refresh so what’s the point? how do we solve this?
-- prop names MUST be consistent across ALL other Yumma UI components, I see VERY similar props with diff names and this for an API is VERY UGLY. e.g `iconSide` and `iconPosition` just pick one of them and reuse it across other Yumma UI components
-- we SHOULD be a bit more strict, some options are NOT meant to work with other options e.g. we should disable A if B is enabled when needed… maybe using the `diff-remove` color for the switch track to display that that switch is disabled
-- in the menu page clicking on the example trigger then click open in the playground option then switching the open playground option will break the trigger in the example… it won’t open anymore for some reason… bug? gotta check other componente to catch similar patterns...
 - why not create a prop to control focus? some people don’t like it… we can also create props to change the focus appearance too like outline color and outline offset (all Yumma CSS utilities btw)
-
-### **Autocomplete**
-
-- When you click to open the autocomplete results and then click on disable the menu should close
-
-### **Field**
-
-- remove the `multiline` prop
 
 ### **Number Field**
 
 - use the `TriangleFlag` icon instead of the `Folder` icon - **blocked**: Number Field has no icon slot at all, it only draws Minus and Plus on its steppers. Either this meant a different component, or it wants an icon prop adding first.
 
-### Preview Card
-
-- **0024eee** before making Yumma UI I had great copy content and now after the migration there is just this lifeless “Card content goes here.” phrase… restore original content please. (use commit ef1b54f or https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ to see the preview of the Yumma UI components if needed
-
-### **Context Menu**
-
-- `iconSide` won’t work without an icon so having it literally does nothing
-
-### Menu
-
-- `iconSide` won’t work without an icon so having it literally does nothing
-
-### Menubar
-
-- `iconSide` won’t work without an icon so having it literally does nothing
-
-### Tooltip
-
-- shouldn’t the `triggerTone` change the tooltip background color too? to red for example if set to danger?
-
 ### Onboarding
 
-- using indicator set to count and dismissible set to true looks weird because the indicator and the X icon are almost kissing each other
 - you missed the checklist in the indicator prop and maybe this prop for this component specifically should be called `type`or get another name like `style` maybe
-there is an intentional grow animation when the onboarding container grows, make that animation a prop
 

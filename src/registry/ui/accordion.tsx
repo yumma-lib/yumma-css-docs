@@ -10,8 +10,8 @@ import { merge } from "yummacss/merge";
 type Variant = "default" | "bordered" | "ghost" | "subtle";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
-type Icon = "chevron" | "plus-minus";
-type IconPosition = "leading" | "trailing";
+type Indicator = "chevron" | "plus-minus";
+type IndicatorPosition = "leading" | "trailing";
 
 export interface AccordionItem {
   value: string;
@@ -36,9 +36,9 @@ export interface AccordionProps {
   variant?: Variant;
   shape?: Shape;
   shadow?: Shadow;
-  separator?: boolean;
-  icon?: Icon;
-  iconPosition?: IconPosition;
+  separated?: boolean;
+  indicator?: Indicator;
+  indicatorPosition?: IndicatorPosition;
   multiple?: boolean;
   defaultValue?: string[];
   value?: string[];
@@ -52,9 +52,9 @@ export default function AccordionBase({
   variant = "default",
   shape = "rounded",
   shadow = "none",
-  separator = true,
-  icon = "chevron",
-  iconPosition = "trailing",
+  separated = true,
+  indicator = "chevron",
+  indicatorPosition = "trailing",
   multiple = false,
   defaultValue,
   value: controlledValue,
@@ -120,13 +120,13 @@ export default function AccordionBase({
                   .join(" ")
               : variant === "subtle"
                 ? [
-                    "br-lg",
+                    SHAPES[shape].item,
                     isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2",
                     itemShadow,
                   ]
                     .filter(Boolean)
                     .join(" ")
-                : separator && !isLast
+                : separated && !isLast
                   ? "bbw-1 bc-silver-3"
                   : "";
 
@@ -139,7 +139,7 @@ export default function AccordionBase({
         const triggerPadY =
           variant === "ghost"
             ? "py-2"
-            : variant === "default" && !separator
+            : variant === "default" && !separated
               ? "py-3"
               : "py-4";
         const panelPadX = inset ? "px-4" : "";
@@ -181,7 +181,7 @@ export default function AccordionBase({
               <Accordion.Trigger
                 className={[
                   "d-f ai-c",
-                  iconPosition === "trailing" ? "jc-sb" : "",
+                  indicatorPosition === "trailing" ? "jc-sb" : "",
                   "g-3 w-100%",
                   triggerPadY,
                   triggerPadX,
@@ -194,13 +194,14 @@ export default function AccordionBase({
                   .filter(Boolean)
                   .join(" ")}
               >
-                {icon === "plus-minus" && iconPosition === "leading" && (
-                  <PlusMinusGlyph
-                    isOpen={isOpen}
-                    animated={animated}
-                    className={glyphColor}
-                  />
-                )}
+                {indicator === "plus-minus" &&
+                  indicatorPosition === "leading" && (
+                    <PlusMinusGlyph
+                      isOpen={isOpen}
+                      animated={animated}
+                      className={glyphColor}
+                    />
+                  )}
                 <div className="d-f ai-c g-3">
                   <span
                     className={["fs-sm fw-500", titleColor]
@@ -213,14 +214,14 @@ export default function AccordionBase({
                     <Lock className="w-3 h-3 c-slate-4" aria-hidden />
                   )}
                 </div>
-                {icon === "chevron" ? (
+                {indicator === "chevron" ? (
                   <ChevronGlyph
                     isOpen={isOpen}
                     animated={animated}
                     className={glyphColor}
                   />
                 ) : (
-                  iconPosition === "trailing" && (
+                  indicatorPosition === "trailing" && (
                     <PlusMinusGlyph
                       isOpen={isOpen}
                       animated={animated}

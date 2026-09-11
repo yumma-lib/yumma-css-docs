@@ -2,7 +2,7 @@
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { Avatar } from "@base-ui/react/avatar";
-import { type ReactNode, useId, useState } from "react";
+import { type ReactNode, useEffect, useId, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
@@ -164,6 +164,11 @@ export default function AutocompleteBase({
   container,
 }: AutocompleteProps) {
   const [open, setOpen] = useState(false);
+
+  // A control that gets disabled while its popup is open should put it away.
+  useEffect(() => {
+    if (disabled) setOpen(false);
+  }, [disabled]);
   const id = useId();
 
   const inputClasses = merge(

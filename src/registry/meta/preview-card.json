@@ -17,7 +17,8 @@
     {
       "name": "open",
       "type": "boolean",
-      "description": "Controlled state."
+      "description": "Controlled state.",
+      "controlled": true
     },
     {
       "name": "onOpenChange",
@@ -52,5 +53,21 @@
       "description": "Where the popup is rendered. Defaults to `document.body`, which is right almost always; pass an element to portal somewhere else, such as inside a frame or a container that owns its own stacking context."
     }
   ],
-  "children": "Card content goes here."
+  "childrenExample": [
+    {
+      "component": "Avatar",
+      "props": {
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
+        "name": "John",
+        "size": "sm",
+        "status": "online"
+      }
+    },
+    {
+      "text": "John, Frontend Developer"
+    },
+    {
+      "text": "3 tasks assigned"
+    }
+  ]
 }

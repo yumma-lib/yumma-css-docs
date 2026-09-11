@@ -10,7 +10,7 @@ import Control from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { primitiveSlug } from "@/utils/primitive";
-import { isControllable, typeOf } from "@/utils/props";
+import { isControllable, isInert, typeOf } from "@/utils/props";
 
 /** Playground rail: all props as controls or type labels. */
 export default function PlaygroundRail() {
@@ -53,26 +53,31 @@ export default function PlaygroundRail() {
             )}
           </div>
 
-          {props.map((prop) => (
-            <Row
-              key={prop.name}
-              prop={prop}
-              open={open === prop.name}
-              onToggle={() => toggle(prop.name)}
-            >
-              {isControllable(prop) ? (
-                <Control
-                  prop={prop}
-                  value={playground?.values[prop.name]}
-                  onChange={(value) => playground?.setValue(prop.name, value)}
-                />
-              ) : (
-                <code className="fs-0 c-white/70 fs-xs ff-m">
-                  {typeOf(prop)}
-                </code>
-              )}
-            </Row>
-          ))}
+          {props.map((prop) => {
+            const inert = isInert(prop, playground?.values ?? {}, props);
+            return (
+              <Row
+                key={prop.name}
+                prop={prop}
+                inert={inert}
+                open={open === prop.name}
+                onToggle={() => toggle(prop.name)}
+              >
+                {isControllable(prop) ? (
+                  <Control
+                    prop={prop}
+                    inert={Boolean(inert)}
+                    value={playground?.values[prop.name]}
+                    onChange={(value) => playground?.setValue(prop.name, value)}
+                  />
+                ) : (
+                  <code className="fs-0 c-white/70 fs-xs ff-m">
+                    {typeOf(prop)}
+                  </code>
+                )}
+              </Row>
+            );
+          })}
         </div>
       </div>
     </aside>
@@ -82,11 +87,13 @@ export default function PlaygroundRail() {
 /** Prop row: name, control, optional description on click. */
 function Row({
   prop,
+  inert,
   open,
   onToggle,
   children,
 }: {
   prop: RegistryProp;
+  inert?: string | null;
   open: boolean;
   onToggle: () => void;
   children: React.ReactNode;
@@ -115,6 +122,12 @@ function Row({
         )}
         {children}
       </div>
+
+      {inert && (
+        <div className="mt-1 c-diff-remove fs-xs">
+          Does nothing while <code className="ff-m">{inert}</code>.
+        </div>
+      )}
 
       {open && (
         <div className="mt-2 c-white/60 fs-sm lh-4">

@@ -36,35 +36,63 @@
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
-      "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them."
+      "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them.",
+      "conflictsWith": [
+        {
+          "prop": "variant",
+          "is": "default"
+        },
+        {
+          "prop": "variant",
+          "is": "ghost"
+        }
+      ]
     },
     {
       "name": "shadow",
       "type": "enum",
       "values": ["none", "inset", "outset"],
       "default": "none",
-      "description": "Wraps the whole list in a card. Only applies to the `default` variant."
+      "description": "Wraps the whole list in a card. Only applies to the `default` variant.",
+      "conflictsWith": [
+        {
+          "prop": "variant",
+          "is": "ghost"
+        }
+      ]
     },
     {
-      "name": "separator",
+      "name": "separated",
       "type": "boolean",
       "default": true,
-      "description": "The divider between items. Only visible on the `default` variant."
+      "description": "Draws a rule between each pair of items. Only visible on the `default` variant.",
+      "conflictsWith": [
+        {
+          "prop": "variant",
+          "not": "default"
+        }
+      ]
     },
     {
-      "name": "icon",
+      "name": "indicator",
       "type": "enum",
       "values": ["chevron", "plus-minus"],
       "default": "chevron",
-      "description": "`chevron` rotates one glyph 180\u00b0. `plus-minus` swaps between two glyphs with a small rotation flourish."
+      "description": "Which built-in open/closed mark the trigger draws. `chevron` rotates one glyph 180 degrees. `plus-minus` swaps between two glyphs with a small rotation flourish."
     },
     {
-      "name": "iconPosition",
+      "name": "indicatorPosition",
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "trailing",
-      "description": "Which end of the trigger the icon sits at.",
-      "dependsOn": "icon"
+      "description": "Which end of the trigger the indicator sits at.",
+      "dependsOn": "indicator",
+      "conflictsWith": [
+        {
+          "prop": "indicator",
+          "is": "chevron"
+        }
+      ]
     },
     {
       "name": "multiple",

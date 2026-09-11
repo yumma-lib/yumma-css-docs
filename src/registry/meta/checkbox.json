@@ -42,7 +42,8 @@
     {
       "name": "checked",
       "type": "boolean",
-      "description": "Controlled state. Passing it without `onCheckedChange` gives a box that cannot be ticked; `readOnly` is the honest way to say that."
+      "description": "Controlled state. Passing it without `onCheckedChange` gives a box that cannot be ticked; `readOnly` is the honest way to say that.",
+      "controlled": true
     },
     {
       "name": "onCheckedChange",

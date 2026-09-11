@@ -63,13 +63,25 @@
       "values": ["leading", "trailing"],
       "default": "leading",
       "description": "Which end `icon` sits at.",
-      "dependsOn": "icon"
+      "dependsOn": "icon",
+      "conflictsWith": [
+        {
+          "prop": "revealable",
+          "is": true
+        }
+      ]
     },
     {
       "name": "iconInteractive",
       "type": "boolean",
       "default": false,
-      "description": "Lets `icon` receive pointer events, for an inline button - a clear or reveal toggle - instead of a decorative glyph."
+      "description": "Lets `icon` receive pointer events, for an inline button - a clear or reveal toggle - instead of a decorative glyph.",
+      "conflictsWith": [
+        {
+          "prop": "revealable",
+          "is": true
+        }
+      ]
     },
     {
       "name": "prefixNode",
@@ -82,12 +94,6 @@
       "type": "none",
       "typeName": "ReactNode",
       "description": "Static content flush against the control's trailing edge, like a domain suffix."
-    },
-    {
-      "name": "multiline",
-      "type": "boolean",
-      "default": false,
-      "description": "Renders a `<textarea>` instead of an `<input>`, for a message or description field. Ignored alongside `icon`/`prefixNode`/`suffix`."
     },
     {
       "name": "disabled",

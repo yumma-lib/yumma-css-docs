@@ -9,31 +9,17 @@
       "description": "`outline` is a neutral bordered badge regardless of `color`. `subtle` and `solid` tint every part of the badge, including the dot, count and close button, to `color`."
     },
     {
-      "name": "color",
+      "name": "intent",
       "type": "enum",
-      "values": [
-        "red",
-        "orange",
-        "yellow",
-        "lime",
-        "mint",
-        "green",
-        "cyan",
-        "sky",
-        "blue",
-        "indigo",
-        "violet",
-        "lavender",
-        "magenta",
-        "pink",
-        "coral",
-        "zinc",
-        "gray",
-        "slate",
-        "silver"
-      ],
-      "default": "indigo",
-      "description": "The families the shipped `COLORS` table defines. It is your file: add a block there for a `theme.colors` family of your own and the type follows it. The prop sets the badge, its dot, count and close button together, which is why `className` alone cannot replace it."
+      "values": ["neutral", "info", "success", "warning", "danger"],
+      "default": "neutral",
+      "description": "What the badge means, not which hue it is. `tone` decides the look; `intent` tints it, including the dot, count and close button. `outline` stays neutral regardless.",
+      "conflictsWith": [
+        {
+          "prop": "tone",
+          "is": "outline"
+        }
+      ]
     },
     {
       "name": "shape",

@@ -6,10 +6,10 @@ export default function SkeletonList() {
       {[0, 1, 2].map((row) => (
         <div key={row} className="d-f ai-c g-4">
           {}
-          <Skeleton shape="block" size="w-9 h-9" delay={row * 0.15} />
+          <Skeleton shape="block" dimensions="w-9 h-9" delay={row * 0.15} />
           <div className="d-f fd-c g-1 fg-1">
-            <Skeleton size="h-3 w-40" delay={row * 0.15} />
-            <Skeleton tone="subtle" size="h-2 w-24" delay={row * 0.15} />
+            <Skeleton dimensions="h-3 w-40" delay={row * 0.15} />
+            <Skeleton tone="subtle" dimensions="h-2 w-24" delay={row * 0.15} />
           </div>
         </div>
       ))}

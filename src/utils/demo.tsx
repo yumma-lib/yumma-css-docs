@@ -155,7 +155,13 @@ export function exampleChildren(meta: RegistryMeta): ReactNode {
   if (!meta.childrenExample) return meta.children;
 
   return meta.childrenExample.map((child, index) => {
-    const Child = CHILD_COMPONENTS[child.component];
+    if (child.text !== undefined) {
+      // A `<span>`, not a bare string: two bare strings in a flex column are
+      // one anonymous flex item, and the snippet spells the span too.
+      // biome-ignore lint/suspicious/noArrayIndexKey: position is the identity here
+      return <span key={index}>{child.text}</span>;
+    }
+    const Child = child.component ? CHILD_COMPONENTS[child.component] : null;
     if (!Child) return null;
     return (
       // biome-ignore lint/suspicious/noArrayIndexKey: position is the identity here

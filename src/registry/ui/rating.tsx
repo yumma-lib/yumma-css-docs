@@ -23,7 +23,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 
 export interface RatingProps {
   label?: string;
-  count?: number;
+  max?: number;
   icons?: RatingIcon[];
   defaultValue?: number;
   value?: number;
@@ -40,7 +40,7 @@ export interface RatingProps {
   score?: ReactNode;
   /**
    * Replaces the `3 / 5` readout under the marks. A read-only average reports
-   * what it is an average *of*, which the count of filled stars cannot say.
+   * what it is an average *of*, which the number of filled stars cannot say.
    */
   hint?: ReactNode;
   children?: ReactNode;
@@ -49,7 +49,7 @@ export interface RatingProps {
 
 export default function RatingBase({
   label,
-  count = 5,
+  max = 5,
   icons,
   defaultValue,
   value: controlledValue,
@@ -111,7 +111,7 @@ export default function RatingBase({
         <Row
           className={`d-f ${icons ? "g-3" : "g-1"}`}
           readOnly={readOnly}
-          label={`${value} out of ${count} stars`}
+          label={`${value} out of ${max} stars`}
         >
           {icons
             ? icons.map((option, index) => {
@@ -143,7 +143,7 @@ export default function RatingBase({
                   </Toggle>
                 );
               })
-            : Array.from({ length: count }, (_, index) => index + 1).map(
+            : Array.from({ length: max }, (_, index) => index + 1).map(
                 (star) => {
                   const filled = star <= value;
                   const mark = (
@@ -202,7 +202,7 @@ export default function RatingBase({
               ? icons[value].label
               : emptyHint
             : value > 0
-              ? `${value} / ${count}`
+              ? `${value} / ${max}`
               : emptyHint)}
       </span>
 

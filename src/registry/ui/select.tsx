@@ -4,7 +4,7 @@ import { Avatar } from "@base-ui/react/avatar";
 import { Field } from "@base-ui/react/field";
 import { Select } from "@base-ui/react/select";
 import { ArrowSeparateVertical, Check } from "iconoir-react";
-import { type ReactNode, useId, useState } from "react";
+import { type ReactNode, useEffect, useId, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
@@ -159,6 +159,11 @@ export default function SelectBase({
   container,
 }: SelectProps) {
   const [open, setOpen] = useState(false);
+
+  // A control that gets disabled while its popup is open should put it away.
+  useEffect(() => {
+    if (disabled) setOpen(false);
+  }, [disabled]);
   const id = useId();
 
   const triggerClasses = merge(

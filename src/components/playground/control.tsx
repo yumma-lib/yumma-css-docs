@@ -12,6 +12,8 @@ interface Props {
   prop: RegistryProp;
   value: unknown;
   onChange: (value: unknown) => void;
+  /** The prop cannot do anything under the current values. */
+  inert?: boolean;
 }
 
 /**
@@ -23,7 +25,7 @@ interface Props {
  * column lines up; the popup shares that width (`w-32`), grows with short
  * lists, and scrolls past `max-h-40`.
  */
-export default function Control({ prop, value, onChange }: Props) {
+export default function Control({ prop, value, onChange, inert }: Props) {
   if (prop.exampleIcon) {
     return (
       <Toggle
@@ -32,6 +34,7 @@ export default function Control({ prop, value, onChange }: Props) {
           onChange(next ? exampleIcon(prop.exampleIcon ?? "") : undefined)
         }
         label={prop.name}
+        inert={inert}
       />
     );
   }
@@ -42,6 +45,7 @@ export default function Control({ prop, value, onChange }: Props) {
         checked={Boolean(value)}
         onCheckedChange={onChange}
         label={prop.name}
+        inert={inert}
       />
     );
   }
@@ -53,6 +57,7 @@ export default function Control({ prop, value, onChange }: Props) {
         values={prop.values}
         value={typeof value === "string" ? value : null}
         onChange={onChange}
+        inert={inert}
       />
     );
   }
@@ -65,11 +70,13 @@ function EnumSelect({
   values,
   value,
   onChange,
+  inert,
 }: {
   name: string;
   values: string[];
   value: string | null;
   onChange: (value: unknown) => void;
+  inert?: boolean;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -102,7 +109,11 @@ function EnumSelect({
     >
       <Select.Trigger
         aria-label={name}
-        className="d-f fs-0 ai-c jc-sb g-1 px-2 py-1 w-32 bc-border bg-transparent c-accent bw-1 ff-m fs-xs c-p us-none fv:oo--1 fv:oc-accent"
+        className={`d-f fs-0 ai-c jc-sb g-1 px-2 py-1 w-32 bg-transparent bw-1 ff-m fs-xs us-none fv:oo--1 fv:oc-accent ${
+          inert
+            ? "bc-diff-remove/40 c-diff-remove c-na"
+            : "bc-border c-accent c-p"
+        }`}
       >
         <Select.Value className="o-h to-e ws-nw" />
         <NavArrowDown className="fs-0 w-3 h-3 c-accent-dim" aria-hidden />
@@ -146,18 +157,22 @@ function Toggle({
   checked,
   onCheckedChange,
   label,
+  inert,
 }: {
   checked: boolean;
   onCheckedChange: (checked: boolean) => void;
   label: string;
+  inert?: boolean;
 }) {
   return (
     <Switch.Root
       checked={checked}
       onCheckedChange={onCheckedChange}
       aria-label={label}
-      className={`d-f fs-0 ai-c px-1 w-7 h-4 bw-0 c-p tp-c tdu-150 ttf-io fv:oo-2 fv:oc-accent ${
-        checked ? "bg-accent-dim" : "bg-border"
+      className={`d-f fs-0 ai-c px-1 w-7 h-4 bw-0 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-accent ${
+        inert
+          ? "bg-diff-remove/30 c-na"
+          : `c-p ${checked ? "bg-accent-dim" : "bg-border"}`
       }`}
     >
       <Switch.Thumb

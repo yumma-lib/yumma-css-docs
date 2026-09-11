@@ -97,6 +97,73 @@ describe("Yumma UI registry", () => {
     expect(split).toEqual([]);
   });
 
+  // A conflict rule naming a prop that is not there is a rule that never
+  // fires, in silence - the same failure as an unknown icon name.
+  it("points every conflict rule at a prop that exists", () => {
+    const broken: string[] = [];
+
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      const names = new Set(
+        (meta.props ?? []).map((p: { name: string }) => p.name),
+      );
+      for (const prop of meta.props ?? []) {
+        for (const rule of prop.conflictsWith ?? []) {
+          if (!names.has(rule.prop)) {
+            broken.push(`${file}: ${prop.name} -> ${rule.prop}`);
+          }
+          const forms = ["is", "not", "set"].filter((key) => key in rule);
+          if (forms.length !== 1) {
+            broken.push(`${file}: ${prop.name} -> ${forms.length} forms`);
+          }
+        }
+      }
+    }
+
+    expect(broken).toEqual([]);
+  });
+
+  // The other half of the rule. `count` was a ReactNode badge on Badge and a
+  // number of stars on Rating; `separator` was a boolean on Accordion and an
+  // enum on Breadcrumb. One name with two control kinds is one name with two
+  // meanings, which reads as one API and is not. Generic names whose shape is
+  // meant to vary by component are listed out.
+  it("gives one name one meaning across components", () => {
+    const GENERIC = new Set([
+      "value",
+      "defaultValue",
+      "onValueChange",
+      "items",
+      "options",
+      "label",
+      "description",
+      "size",
+      "icon",
+    ]);
+
+    const kinds = new Map<string, Set<string>>();
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      for (const prop of meta.props ?? []) {
+        if (GENERIC.has(prop.name)) continue;
+        kinds.set(
+          prop.name,
+          (kinds.get(prop.name) ?? new Set<string>()).add(prop.type),
+        );
+      }
+    }
+
+    const split = [...kinds]
+      .filter(([, types]) => types.size > 1)
+      .map(([name, types]) => `${name}: ${[...types].sort().join(" | ")}`);
+
+    expect(split).toEqual([]);
+  });
+
   // `"false"` is truthy, so a boolean default written as a string seeds the
   // playground with the prop switched on. Four components rendered disabled.
   it("declares boolean defaults as booleans", () => {
@@ -179,6 +246,7 @@ describe("Yumma UI registry", () => {
         readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
       );
       for (const child of meta.childrenExample ?? []) {
+        if (child.text !== undefined) continue;
         if (!known.has(child.component))
           missing.push(`${file}: ${child.component}`);
       }

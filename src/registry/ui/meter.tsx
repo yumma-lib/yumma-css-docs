@@ -4,34 +4,19 @@ import { merge } from "yummacss/merge";
 
 type Shadow = "none" | "inset" | "outset";
 
-const COLORS = {
-  red: "bg-red",
-  orange: "bg-orange",
-  yellow: "bg-yellow",
-  lime: "bg-lime",
-  mint: "bg-mint",
-  green: "bg-green",
-  cyan: "bg-cyan",
-  sky: "bg-sky",
-  blue: "bg-blue",
-  indigo: "bg-indigo-5",
-  violet: "bg-violet",
-  lavender: "bg-lavender",
-  magenta: "bg-magenta",
-  pink: "bg-pink",
-  coral: "bg-coral",
-  zinc: "bg-zinc",
-  gray: "bg-gray",
-  slate: "bg-slate",
-  silver: "bg-silver",
+const INTENTS = {
+  neutral: "bg-slate",
+  info: "bg-blue",
+  success: "bg-green",
+  warning: "bg-orange",
+  danger: "bg-red",
 } satisfies Record<string, string>;
 
 /**
- * Add a family here to use it: `theme.colors` is open, so the type follows the
- * table rather than repeating it. Literal strings, because the scanner reads
- * source.
+ * Five meanings, not nineteen hues. Point one at another family here and the
+ * type follows. Literal strings, because the scanner reads source.
  */
-type Color = keyof typeof COLORS;
+type Intent = keyof typeof INTENTS;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   inset: "bs-i-md",
@@ -45,7 +30,7 @@ export interface MeterProps {
   label: ReactNode;
   description?: string;
   icon?: ReactNode;
-  color?: Color;
+  intent?: Intent;
   shadow?: Shadow;
   animated?: boolean;
   className?: string;
@@ -58,7 +43,7 @@ export default function MeterBase({
   label,
   description,
   icon,
-  color = "yellow",
+  intent = "info",
   shadow = "none",
   animated = true,
   className,
@@ -76,7 +61,7 @@ export default function MeterBase({
 
   const indicatorClasses = merge(
     "d-b h-100% br-9999",
-    COLORS[color],
+    INTENTS[intent],
     animated ? "tp-w tdu-500 ttf-io" : "",
   );
 

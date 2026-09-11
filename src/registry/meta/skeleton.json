@@ -9,7 +9,7 @@
       "description": "Corner radius, plus a default size: `line` for text, `block` for a control or thumbnail, `circle` for an avatar. Change the size with `size`."
     },
     {
-      "name": "size",
+      "name": "dimensions",
       "type": "string",
       "description": "Replaces the shape's default size, as literal width and height utilities: `\"w-9 h-9\"`. It replaces rather than adds to them, because a second width class would not reliably win - which of two utilities applies is decided by the stylesheet's rule order, not by their order in the attribute. Spelled out in full rather than built from a scale value, so the class scanner can see it in your source."
     },

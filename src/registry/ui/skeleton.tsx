@@ -26,7 +26,7 @@ const TONES: Record<Tone, string> = {
 export interface SkeletonProps {
   shape?: Shape;
   tone?: Tone;
-  size?: string;
+  dimensions?: string;
   animated?: boolean;
   delay?: number;
   className?: string;
@@ -35,14 +35,14 @@ export interface SkeletonProps {
 export default function SkeletonBase({
   shape = "line",
   tone = "default",
-  size,
+  dimensions,
   animated = true,
   delay = 0,
   className,
 }: SkeletonProps) {
   const classes = merge(
     RADII[shape],
-    size ?? SIZES[shape],
+    dimensions ?? SIZES[shape],
     TONES[tone],
     className,
   );

@@ -95,7 +95,8 @@
     {
       "name": "open",
       "type": "boolean",
-      "description": "Controlled state. There is no `defaultOpen` - a context menu that starts open before anyone right-clicks was never demonstrated & makes no sense."
+      "description": "Controlled state. There is no `defaultOpen` - a context menu that starts open before anyone right-clicks was never demonstrated & makes no sense.",
+      "controlled": true
     },
     {
       "name": "onOpenChange",

@@ -113,7 +113,9 @@ export default function AvatarBase({
     .join(" ");
 
   return (
-    <span className="d-if p-r va-m">
+    // `w-fc`: the wrapper is a flex item in a column parent, where stretch made
+    // it full width and took the corner badges with it.
+    <span className="d-if p-r w-fc va-m">
       <Avatar.Root className={classes}>
         {src && (
           <Avatar.Image

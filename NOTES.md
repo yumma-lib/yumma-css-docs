@@ -1259,6 +1259,117 @@ declares logical properties: `padding` covers `padding-inline` covers
 - [x] **Avatar's `default` badges were already split.** `ce9c3c4` set
       `verified`'s example to `null`, so only `status` seeds. What was left was
       a description carrying the old sentence and its replacement, both.
+- [x] **Disabling a control left its popup open, in five components.** The TODO
+      named Autocomplete; measured, **Combobox, Select, Menu and Context Menu
+      do the same**. All five hold `open` in their own state and hand it to
+      Base UI, which has no reason to close a popup it does not own. An effect
+      closes it on `disabled`, and Menu and Context Menu also fire
+      `onOpenChange(false)` because their `open` can be controlled. Verified
+      the popup and every ancestor go hidden, on all five.
+- [x] **Field's `multiline` is gone.** It swapped the `<input>` for a
+      `<textarea>` and switched off `revealable`, the icon and the affixes on
+      the way - a second component behind a boolean, and **`Textarea` already
+      exists in the registry**. Removing it costs nothing.
+- [x] **The three `iconSide` entries were stale.** The prop is `iconPosition`
+      everywhere since the rename, and Menu, Menubar and Context Menu all seed
+      icons on their example items. Measured: flipping it moves the glyph from
+      x=8 to x=170 in all three.
+- [x] **Preview Card's content is back, and the schema grew a text child.**
+      `childrenExample` could only name components, so the card's copy had to
+      be the single `children` string, which is how it became "Card content
+      goes here." An entry now carries **`component` or `text`**, and the
+      original profile card is rebuilt from an Avatar and two lines. The text
+      entry renders and prints as a `<span>`: two **bare** strings in a flex
+      column are one anonymous flex item, and the snippet has to spell what
+      renders, so the span is in both or neither.
+- [x] **Avatar's wrapper stretched inside any flex column.** `d-if` sets the
+      wrapper's own display, not how its parent lays it out, so as a flex item
+      it took the parent's full width and **dragged the status and verified
+      badges to the parent's edge** - 260px from the avatar in the preview
+      card. `w-fc` pins it. Measured wrapper against avatar on the Avatar page
+      (48/48) and all four of the stack (32/32), overlap intact.
+- [x] **Onboarding's skip button sat on top of the step count.** Not "almost
+      kissing": measured, the X spanned x 93-121 and the "1 / 3" started at
+      113, **inside it**, at overlapping heights. It was absolutely positioned
+      at `l-3 t-3` while the header row started at `px-8 pt-5`. It rides in the
+      header row now, ahead of the count, and stays absolute only for `dots`,
+      which renders no header. Gap is 8px, and `dots` keeps its corner X.
+- [x] **The popup's grow is `animatedResize`.** Motion's `layout` plus
+      `popLayout` is what makes the popup ease between steps of different
+      heights; only steps with `tasks` change height, so it does nothing
+      without them. Split out of `animated` rather than folded into it.
+- [x] **A controlled prop with a widget is a trap, and seven had one.** The
+      TODO reported Menu's trigger dying after the `open` control was toggled
+      on and off. Cause: toggling it leaves `open: false` in the values bag,
+      the component reads `controlledOpen ?? internalOpen`, and **`false` is
+      not `undefined`** - so it is controlled, shut, and the trigger can never
+      change it. The playground has no handler to pass, so no toggle of a
+      controlled prop can ever work. Not just Menu: **Context Menu, Popover,
+      Preview Card, Checkbox, Switch and Toggle** all shipped the same dead
+      widget, and Checkbox's own description said so out loud. `controlled:
+      true` on the prop keeps the props table row and drops the control.
+      Verified all seven: documented, no widget, and Menu's trigger opens
+      after the round trip that used to kill it.
+- [x] **Swept every prop name across all 52 schemas.** The `Side`/`Position`
+      rule already holds - **no stem has two spellings left**. The remaining
+      inconsistency was the other direction: **one name, two meanings**.
+      `count` was a ReactNode badge on Badge and a number of stars on Rating;
+      `separator` was a boolean divider on Accordion and a `chevron`/`slash`
+      enum on Breadcrumb; `dismissible` on Onboarding was `showClose` on three
+      other components. Each rename took the spelling that already had more
+      users: `rating.count` -> **`max`** (4 components), `accordion.separator`
+      -> **`separated`** (Button Group), `onboarding.dismissible` ->
+      **`showClose`** (3). A second test states the rule, with the genuinely
+      generic names (`value`, `items`, `label`, `size`, `icon`) listed out.
+      Verified it bites by putting `count` back.
+      **Two left for a decision, both real:** Accordion's `icon` is an enum
+      picking a built-in glyph while `icon` is a ReactNode on twelve others,
+      and Skeleton's `size` takes literal utility classes while `size` is an
+      enum on sixteen others.
+- [x] **Collapsible and the Meter/Progress split were both already done.**
+      There is no `collapsible` in the registry - the only `Collapsible` left
+      is the docs site's own file tree, which is not a Yumma UI component.
+      Meter and Progress are two components on two Base UI primitives with
+      different props, and no `animate` swaps between them; the entry was
+      written when the swap was still the plan.
+- [x] **`color` is `intent`, and nineteen hues are five meanings.** Badge and
+      Meter each carried a 19-family `color` enum. They now take
+      `neutral | info | success | warning | danger`, mapped to slate, blue,
+      green, orange and red in a table that is still yours to repoint. The
+      prop is renamed because `color="success"` is not a colour, and a prop
+      called `color` invites "give me pink" - the opposite of the direction
+      colour is going. Badge's default was `indigo` and is `neutral`; Meter's
+      was `yellow` and is `info`. **Warning is orange, not yellow**, because
+      the solid tone paints white on the fill and white on yellow is the
+      contrast complaint already on the list.
+- [x] **Tooltip has one `tone` covering both ends.** It was `light | dark` for
+      the popup and a separate `neutral | danger` for the trigger, two axes
+      under one word. One enum now: `light | dark | danger`, where `danger`
+      reads red at the trigger, the popup and the arrow. **Alert Dialog and
+      Dialog keep their split**, which their docs argue for: a neutral button
+      can open a destructive dialog.
+- [x] **The last two name collisions are settled.** Accordion's `icon` picked
+      a built-in glyph while `icon` is a ReactNode on twelve others: it is
+      `indicator` now, matching Onboarding's word for the same idea, and
+      `iconPosition` follows it to `indicatorPosition`. Skeleton's `size` took
+      literal utilities while `size` is an enum on sixteen others: it is
+      `dimensions`. Four variant files passed it and were updated with it.
+- [x] **`conflictsWith`: a control that cannot do anything says so.**
+      `dependsOn` only covered "needs X set". A rule is
+      `{ prop, is | not | set }` and any entry matching dims the control to
+      `diff-remove`, blocks the pointer, and prints why under it - "Does
+      nothing while `variant` is `ghost`". Three forms because **an icon slot
+      holds an element, not `true`**, so presence had to be its own test.
+      Found the pairs by reading the schemas' own prose for "ignored when",
+      "only visible", "regardless": **ten rules across eight components**, all
+      of them behaviour that was already documented and already invisible.
+      A test rejects a rule naming a prop that is not there, or carrying two
+      forms at once; it caught `tabs.iconPosition -> iconOnly` on its first
+      run, because `iconOnly` is a field of `TabItem` and not a prop.
+      Two things fell out of the sweep: Accordion's `shape` did nothing on
+      three variants out of four, because **`subtle` hardcoded `br-lg`**
+      rather than reading `SHAPES`. It reads it now, so `shape` is inert on
+      `default` and `ghost` only.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
