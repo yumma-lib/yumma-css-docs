@@ -62,10 +62,6 @@ A separate pass from the API fixes. All three want mockups before any code.
 
 - **0024eee** before making Yumma UI I had great copy content and now after the migration there is just this lifeless “Card content goes here.” phrase… restore original content please. (use commit ef1b54f or https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ to see the preview of the Yumma UI components if needed
 
-### Button
-
-- the `iconOnly` doesn’t actually remove the label to become icon only
-
 ### **Context Menu**
 
 - when i click to trigger the menu there is an unwanted black thick border around the menu and when i hover over one of the menu items it also shows up

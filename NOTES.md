@@ -1076,6 +1076,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       **Number Field is blocked**: it has no icon slot to change, only Minus
       and Plus on the steppers, so "TriangleFlag instead of Folder" has no
       target. Left in TODO with that noted.
+- [x] **`iconOnly` removed the label correctly; it was what came next that
+      was wrong.** With no `icon` set it dropped the label and put nothing in
+      its place, and `ICON_ONLY` is padding rather than a fixed size, so the
+      button collapsed to an **empty 18x18 box**. Since `icon` is seeded off,
+      that is what a reader hits the moment they flip the prop. It yields now:
+      no icon, no effect. Measured - iconOnly without an icon leaves the
+      button at 69x37 with its label, and with an icon gives 38x38, no text,
+      `aria-label="Label"`. This is the first case of the Global "disable A
+      when B rules it out" entry, handled inside the component rather than in
+      the playground.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
