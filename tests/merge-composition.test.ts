@@ -28,6 +28,9 @@ const EXPECTED_DROPS = [
   "select.tsx: bg-white",
   // No visual change: `td-u` already won.
   "preview-card.tsx: td-none",
+  // The focused thumb goes opaque, so it beats both resting fills.
+  "slider.tsx: bg-slate-12/25",
+  "slider.tsx: bg-slate-12/45",
 ];
 
 function topLevel(source: string, char: string, from = 0): number {

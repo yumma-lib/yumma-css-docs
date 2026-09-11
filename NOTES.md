@@ -1582,6 +1582,20 @@ declares logical properties: `padding` covers `padding-inline` covers
 - [x] **Number Field rings each part that takes focus**, steppers included,
       the way the docs rail's own stepper does.
 - [x] **Meter's `warning` is yellow**, and Rating's `max` floor is 3.
+- [x] **Number Field is a field with a chevron column.** The steppers left the
+      two ends and became a stacked `NavArrowUp`/`NavArrowDown` pair at the
+      trailing edge, divided from the input by one border and from each other
+      by another. The number gets the room and reads left-aligned; the icons
+      went from `w-3` to `w-4` at `md`.
+- [x] **The Slider fill is the indicator.** A 20px track with the thumb reduced
+      to a 4px hairline at the fill's edge, so nothing is perched on the rail.
+      Two findings came out of building it: **the colour scale stops at 12**,
+      not 13, so `bg-slate-13/45` generated no rule and the hairline rendered
+      transparent; and **`fv:` can never match a Slider thumb**, because Base
+      UI puts the focusable `<input type="range">` inside the thumb div. The
+      ring is driven from that input's `onFocus`, gated on `:focus-visible` so
+      it follows the browser's own rule rather than every focus. `shadow` moved
+      from the hairline to the track, where it is visible at all.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

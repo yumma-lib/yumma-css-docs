@@ -1,7 +1,7 @@
 "use client";
 
 import { NumberField } from "@base-ui/react/number-field";
-import { Minus, Plus } from "iconoir-react";
+import { NavArrowDown, NavArrowUp } from "iconoir-react";
 import type { ComponentProps } from "react";
 import { useId } from "react";
 import { merge } from "yummacss/merge";
@@ -10,24 +10,26 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const BUTTON =
-  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
+// A number field is a field that happens to step, so the number gets the room
+// and the steppers become a column at the trailing edge.
+const STEP =
+  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2 fv:os-s fv:ow-3 fv:oo--1 fv:oc-indigo-2/60 fv:bc-indigo-3";
 
-const BUTTON_SIZES: Record<Size, string> = {
-  sm: "w-8 h-8",
-  md: "w-10 h-10",
-  lg: "w-12 h-12",
+const STEP_SIZES: Record<Size, string> = {
+  sm: "w-6 h-4",
+  md: "w-7 h-5",
+  lg: "w-8 h-6",
 };
 
 const INPUT_SIZES: Record<Size, string> = {
-  sm: "h-8 w-28 fs-sm",
-  md: "h-10 w-32 fs-md",
-  lg: "h-12 w-36 fs-lg",
+  sm: "h-8 w-28 pl-3 fs-sm",
+  md: "h-10 w-32 pl-3 fs-md",
+  lg: "h-12 w-36 pl-4 fs-lg",
 };
 
 const ICON_SIZES: Record<Size, string> = {
   sm: "w-3 h-3",
-  md: "w-3 h-3",
+  md: "w-4 h-4",
   lg: "w-4 h-4",
 };
 
@@ -37,18 +39,6 @@ const GROUP_SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
   square: "",
   squircle: "br-xxl cs-s",
-};
-
-const DECREMENT_SHAPES: Record<Shape, string> = {
-  rounded: "blr-lg",
-  square: "",
-  squircle: "blr-xxl cs-s",
-};
-
-const INCREMENT_SHAPES: Record<Shape, string> = {
-  rounded: "brr-lg",
-  square: "",
-  squircle: "brr-xxl cs-s",
 };
 
 const SHADOWS: Record<Shadow, string> = {
@@ -84,26 +74,10 @@ export default function NumberFieldBase({
 }: NumberFieldProps) {
   const id = useId();
 
-  const decrementClasses = [
-    BUTTON,
-    BUTTON_SIZES[size],
-    DECREMENT_SHAPES[shape],
-    SHADOWS[shadow],
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  const incrementClasses = [
-    BUTTON,
-    BUTTON_SIZES[size],
-    INCREMENT_SHAPES[shape],
-    SHADOWS[shadow],
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const stepClasses = [STEP, STEP_SIZES[size]].join(" ");
 
   const inputClasses = merge(
-    "bg-white bc-transparent c-slate-10 bw-1 ta-c fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+    "bg-white bc-transparent c-slate-10 bw-1 ta-l fv:os-s fv:ow-3 fv:oo--1 fv:oc-indigo-2/60 fv:bc-indigo-3",
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,
@@ -128,13 +102,17 @@ export default function NumberFieldBase({
       <NumberField.Group
         className={`d-f o-h bc-silver-3 bw-1 ${GROUP_SHAPES[shape]}`}
       >
-        <NumberField.Decrement className={decrementClasses}>
-          <Minus className={ICON_SIZES[size]} />
-        </NumberField.Decrement>
         <NumberField.Input required={required} className={inputClasses} />
-        <NumberField.Increment className={incrementClasses}>
-          <Plus className={ICON_SIZES[size]} />
-        </NumberField.Increment>
+        <span className="d-f fd-c blc-silver-3 blw-1">
+          <NumberField.Increment className={stepClasses}>
+            <NavArrowUp className={ICON_SIZES[size]} />
+          </NumberField.Increment>
+          <NumberField.Decrement
+            className={`${stepClasses} btc-silver-3 btw-1`}
+          >
+            <NavArrowDown className={ICON_SIZES[size]} />
+          </NumberField.Decrement>
+        </span>
       </NumberField.Group>
 
       {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}

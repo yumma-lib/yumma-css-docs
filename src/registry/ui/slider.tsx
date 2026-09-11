@@ -1,7 +1,7 @@
 "use client";
 
 import { Slider } from "@base-ui/react/slider";
-import { type ReactNode, useState } from "react";
+import { type FocusEvent, type ReactNode, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
@@ -60,6 +60,7 @@ export default function SliderBase({
   const [internalValue, setInternalValue] = useState<Value>(
     defaultValue ?? controlledValue ?? 0,
   );
+  const [focused, setFocused] = useState(-1);
   const value = controlledValue ?? internalValue;
   const isRange = Array.isArray(value);
 
@@ -68,15 +69,26 @@ export default function SliderBase({
     onValueChange?.(next);
   };
 
-  const thumbClasses = [
-    "w-5 h-5 bw-1 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
-    // The same disabled surface the other controls use, rather than a fade.
-    disabled ? "bg-silver-1 bc-silver-2" : "bg-white bc-silver-3",
-    SHAPES[shape],
-    SHADOWS[shadow],
-  ]
-    .filter(Boolean)
-    .join(" ");
+  // The fill is the indicator: the thumb is a hairline the height of the track,
+  // so there is nothing perched on top of it to knock out of line.
+  //
+  // Focus is held in state because `fv:` never matches here: Base UI puts the
+  // focusable `<input type="range">` inside the thumb, so the ring has to be
+  // driven from the input's own focus.
+  const thumbClasses = (index: number) =>
+    merge(
+      "w-1 h-5",
+      disabled ? "bg-slate-12/25" : "bg-slate-12/45",
+      SHAPES[shape],
+      focused === index ? "os-s ow-3 oo-0 oc-indigo-2/60 bg-slate-12" : "",
+    );
+
+  const focusProps = (index: number) => ({
+    onFocus: (event: FocusEvent<HTMLInputElement>) => {
+      if (event.target.matches(":focus-visible")) setFocused(index);
+    },
+    onBlur: () => setFocused(-1),
+  });
 
   return (
     <div className={merge("d-f fd-c g-2 w-64", className)}>
@@ -99,10 +111,14 @@ export default function SliderBase({
         disabled={disabled}
       >
         <Slider.Control
-          className={`d-f ai-c py-3 us-none ta-none ${disabled ? "c-na" : ""}`}
+          className={`d-f ai-c py-2 us-none ta-none ${disabled ? "c-na" : ""}`}
         >
           <Slider.Track
-            className={`p-r h-2 w-100% bg-silver-1 ${SHAPES[shape]}`}
+            className={merge(
+              "p-r h-5 w-100% bg-silver-1",
+              SHAPES[shape],
+              SHADOWS[shadow],
+            )}
           >
             <Slider.Indicator
               className={merge(
@@ -112,11 +128,16 @@ export default function SliderBase({
             />
             {isRange ? (
               value.map((_, index) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: positional by design
-                <Slider.Thumb key={index} className={thumbClasses} />
+                <Slider.Thumb
+                  // biome-ignore lint/suspicious/noArrayIndexKey: positional by design
+                  key={index}
+                  index={index}
+                  className={thumbClasses(index)}
+                  {...focusProps(index)}
+                />
               ))
             ) : (
-              <Slider.Thumb className={thumbClasses} />
+              <Slider.Thumb className={thumbClasses(0)} {...focusProps(0)} />
             )}
           </Slider.Track>
         </Slider.Control>
