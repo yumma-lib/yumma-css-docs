@@ -1165,6 +1165,18 @@ declares logical properties: `padding` covers `padding-inline` covers
       what breaks it, because nothing tells that div to hide. Yumma has no `data-*` variants, which is what
       forces a raw `<style>` here - a concrete argument for adding attribute
       variants in v4.
+- [x] **The "black thick border" is the browser's own focus ring.** Measured
+      `outline: rgb(16, 16, 16) auto 1px` - Chrome's default, on two different
+      elements. Base UI focuses the **popup** when a menu opens, so the ring
+      landed around the whole menu; and it focuses each **item** as it becomes
+      highlighted, hover included, so the ring followed the pointer down the
+      list. Neither element was ever tabbed to. `os-none` on both, in
+      context-menu, menu and menubar - the open menu and the `data-highlighted`
+      background are the signals, and they are untouched. Measured after:
+      `outline-style: none`, `outline-width: 0px` on popup and item, with the
+      item still reporting `data-highlighted`.
+      Reported against Context Menu only; the same ring was on Menu's items and
+      Menubar's, so all three are fixed.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

@@ -181,8 +181,11 @@ export default function MenuBase({
     className,
   );
 
+  // `os-none`: Base UI focuses the popup when it opens, and the browser
+  // paints its own dark `auto` ring on it. Nothing was tabbed to, and the
+  // open menu is its own signal.
   const popupClasses = [
-    "py-1 bg-white bc-silver-2 c-slate-10 bw-1",
+    "py-1 bg-white bc-silver-2 c-slate-10 bw-1 os-none",
     spec.popup,
     POPUP_SHAPES[shape],
     shadowClass,
@@ -194,7 +197,10 @@ export default function MenuBase({
     (destructive: boolean, spread: boolean) =>
     (state: { highlighted: boolean }) =>
       [
-        "d-f ai-c g-2 us-none c-p mx-1 fw-500",
+        // Highlighting focuses the item, hover included, so the browser
+        // drew its ring on every item the pointer crossed. The highlight
+        // background is the signal.
+        "d-f ai-c g-2 us-none c-p mx-1 fw-500 os-none",
         spec.item,
         spec.text,
         spread ? "jc-sb" : "",
