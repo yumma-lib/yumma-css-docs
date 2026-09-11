@@ -36,20 +36,42 @@
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
       "default": "rounded",
-      "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them."
+      "description": "Corner radius on `bordered` items. The other variants use a fixed radius, since no shape was ever paired with them.",
+      "conflictsWith": [
+        {
+          "prop": "variant",
+          "is": "default"
+        },
+        {
+          "prop": "variant",
+          "is": "ghost"
+        }
+      ]
     },
     {
       "name": "shadow",
       "type": "enum",
       "values": ["none", "inset", "outset"],
       "default": "none",
-      "description": "Wraps the whole list in a card. Only applies to the `default` variant."
+      "description": "Wraps the whole list in a card. Only applies to the `default` variant.",
+      "conflictsWith": [
+        {
+          "prop": "variant",
+          "is": "ghost"
+        }
+      ]
     },
     {
       "name": "separated",
       "type": "boolean",
       "default": true,
-      "description": "Draws a rule between each pair of items. Only visible on the `default` variant."
+      "description": "Draws a rule between each pair of items. Only visible on the `default` variant.",
+      "conflictsWith": [
+        {
+          "prop": "variant",
+          "not": "default"
+        }
+      ]
     },
     {
       "name": "indicator",
@@ -64,7 +86,13 @@
       "values": ["leading", "trailing"],
       "default": "trailing",
       "description": "Which end of the trigger the indicator sits at.",
-      "dependsOn": "indicator"
+      "dependsOn": "indicator",
+      "conflictsWith": [
+        {
+          "prop": "indicator",
+          "is": "chevron"
+        }
+      ]
     },
     {
       "name": "multiple",

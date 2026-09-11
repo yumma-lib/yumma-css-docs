@@ -13,7 +13,13 @@
       "type": "enum",
       "values": ["neutral", "info", "success", "warning", "danger"],
       "default": "neutral",
-      "description": "What the badge means, not which hue it is. `tone` decides the look; `intent` tints it, including the dot, count and close button. `outline` stays neutral regardless."
+      "description": "What the badge means, not which hue it is. `tone` decides the look; `intent` tints it, including the dot, count and close button. `outline` stays neutral regardless.",
+      "conflictsWith": [
+        {
+          "prop": "tone",
+          "is": "outline"
+        }
+      ]
     },
     {
       "name": "shape",

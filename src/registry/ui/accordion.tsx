@@ -120,7 +120,7 @@ export default function AccordionBase({
                   .join(" ")
               : variant === "subtle"
                 ? [
-                    "br-lg",
+                    SHAPES[shape].item,
                     isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2",
                     itemShadow,
                   ]

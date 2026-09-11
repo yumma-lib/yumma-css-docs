@@ -88,7 +88,13 @@
       "name": "animatedResize",
       "type": "boolean",
       "default": true,
-      "description": "The popup's grow and shrink as steps of different heights come and go. Only steps with `tasks` change height, so this does nothing without them."
+      "description": "The popup's grow and shrink as steps of different heights come and go. Only steps with `tasks` change height, so this does nothing without them.",
+      "conflictsWith": [
+        {
+          "prop": "animated",
+          "set": false
+        }
+      ]
     },
     {
       "name": "container",

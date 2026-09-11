@@ -11,7 +11,13 @@
       "name": "max",
       "type": "number",
       "default": 5,
-      "description": "How many marks to draw, and the top of the scale. Ignored when `icons` is set."
+      "description": "How many marks to draw, and the top of the scale. Ignored when `icons` is set.",
+      "conflictsWith": [
+        {
+          "prop": "icons",
+          "set": true
+        }
+      ]
     },
     {
       "name": "icons",

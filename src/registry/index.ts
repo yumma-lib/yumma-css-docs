@@ -109,6 +109,19 @@ export interface RegistryProp {
    */
   dependsOn?: string;
   /**
+   * States of other props that make this one inert. `is` conflicts when the
+   * other prop equals the value, `not` when it does not, `set` when it has
+   * one at all. Any entry matching dims the control and says which prop is
+   * doing it, so a prop that cannot do anything right now says so instead of
+   * looking broken.
+   */
+  conflictsWith?: {
+    prop: string;
+    is?: unknown;
+    not?: unknown;
+    set?: boolean;
+  }[];
+  /**
    * A prop that only works alongside a handler the playground cannot pass, so
    * the props table documents it and the rail offers no control. Toggling one
    * hands the component a controlled value it can never change back, which is

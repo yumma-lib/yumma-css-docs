@@ -47,7 +47,6 @@ do it and the CLI half does.
 ### **Global**
 
 - does it really make sense to have `defaultChecked` in the playground? it won’t survive a refresh so what’s the point? how do we solve this?
-- we SHOULD be a bit more strict, some options are NOT meant to work with other options e.g. we should disable A if B is enabled when needed… maybe using the `diff-remove` color for the switch track to display that that switch is disabled
 - why not create a prop to control focus? some people don’t like it… we can also create props to change the focus appearance too like outline color and outline offset (all Yumma CSS utilities btw)
 
 ### **Number Field**

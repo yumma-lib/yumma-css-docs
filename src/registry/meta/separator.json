@@ -25,7 +25,13 @@
       "type": "none",
       "typeName": "ReactNode",
       "example": "or",
-      "description": "Renders as plain text in the middle. Ignored if `icon` is set."
+      "description": "Renders as plain text in the middle. Ignored if `icon` is set.",
+      "conflictsWith": [
+        {
+          "prop": "icon",
+          "set": true
+        }
+      ]
     },
     {
       "name": "iconShape",

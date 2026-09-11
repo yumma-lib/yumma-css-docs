@@ -97,6 +97,34 @@ describe("Yumma UI registry", () => {
     expect(split).toEqual([]);
   });
 
+  // A conflict rule naming a prop that is not there is a rule that never
+  // fires, in silence - the same failure as an unknown icon name.
+  it("points every conflict rule at a prop that exists", () => {
+    const broken: string[] = [];
+
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      const names = new Set(
+        (meta.props ?? []).map((p: { name: string }) => p.name),
+      );
+      for (const prop of meta.props ?? []) {
+        for (const rule of prop.conflictsWith ?? []) {
+          if (!names.has(rule.prop)) {
+            broken.push(`${file}: ${prop.name} -> ${rule.prop}`);
+          }
+          const forms = ["is", "not", "set"].filter((key) => key in rule);
+          if (forms.length !== 1) {
+            broken.push(`${file}: ${prop.name} -> ${forms.length} forms`);
+          }
+        }
+      }
+    }
+
+    expect(broken).toEqual([]);
+  });
+
   // The other half of the rule. `count` was a ReactNode badge on Badge and a
   // number of stars on Rating; `separator` was a boolean on Accordion and an
   // enum on Breadcrumb. One name with two control kinds is one name with two

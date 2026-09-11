@@ -1354,6 +1354,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       `iconPosition` follows it to `indicatorPosition`. Skeleton's `size` took
       literal utilities while `size` is an enum on sixteen others: it is
       `dimensions`. Four variant files passed it and were updated with it.
+- [x] **`conflictsWith`: a control that cannot do anything says so.**
+      `dependsOn` only covered "needs X set". A rule is
+      `{ prop, is | not | set }` and any entry matching dims the control to
+      `diff-remove`, blocks the pointer, and prints why under it - "Does
+      nothing while `variant` is `ghost`". Three forms because **an icon slot
+      holds an element, not `true`**, so presence had to be its own test.
+      Found the pairs by reading the schemas' own prose for "ignored when",
+      "only visible", "regardless": **ten rules across eight components**, all
+      of them behaviour that was already documented and already invisible.
+      A test rejects a rule naming a prop that is not there, or carrying two
+      forms at once; it caught `tabs.iconPosition -> iconOnly` on its first
+      run, because `iconOnly` is a field of `TabItem` and not a prop.
+      Two things fell out of the sweep: Accordion's `shape` did nothing on
+      three variants out of four, because **`subtle` hardcoded `br-lg`**
+      rather than reading `SHAPES`. It reads it now, so `shape` is inert on
+      `default` and `ghost` only.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
