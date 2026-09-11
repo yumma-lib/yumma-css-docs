@@ -1127,9 +1127,23 @@ declares logical properties: `padding` covers `padding-inline` covers
       thing still opened. Interaction is now measured explicitly - what
       `elementFromPoint` returns over the closed trigger, whether the dialog's
       own button is the hit target, and that it closes and reopens.
-      **This is not only about dialogs.** Every component animating a Base UI
-      popup with Motion has the same exit problem, and every one of them will
-      want these attributes. Yumma has no `data-*` variants, which is what
+      **Swept all ten popup components rather than assuming it spread.** It
+      does not, and my "every component has this" was too broad. Measured by
+      opening each and sampling opacity *and* `display` on the way out:
+      - **Same bug** (fading while `display:none`): `command-palette` and
+        `onboarding`. Both are the dialog shape exactly - a Dialog or
+        AlertDialog portal with a hand-written `<div className="d-f p-f i-0">`
+        wrapper. Both fixed the same way, Viewport included.
+      - **Already fine**: `popover`, `menu`, `menubar`, `context-menu`. They
+        use Base UI's `Positioner`, which is a real part and is not hidden out
+        from under the animation, so the element stays visible while it fades.
+      - **No exit at all** (snaps away, never fades): `select`, `autocomplete`,
+        `combobox`. Opacity sits at 1.00 and then the element is simply gone.
+        A different problem from the dialogs' and still open.
+      - `tooltip` could not be opened from a synthetic hover, so it is
+        unmeasured rather than clean.
+      The dividing line is the wrapper: a hand-written div around the Popup is
+      what breaks it, because nothing tells that div to hide. Yumma has no `data-*` variants, which is what
       forces a raw `<style>` here - a concrete argument for adding attribute
       variants in v4.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one

@@ -4,7 +4,6 @@ import { Button } from "@base-ui/react/button";
 import { Combobox } from "@base-ui/react/combobox";
 import { Dialog } from "@base-ui/react/dialog";
 import { Search } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -24,6 +23,29 @@ const ITEM_SHAPES: Record<Shape, string> = {
   square: "",
   squircle: "br-xxl cs-s",
 };
+
+/** Keyed on Base UI's own transition attributes, which is what it waits for. */
+const PALETTE_MOTION = `
+  .yui-palette-pop {
+    transition: opacity 200ms ease-out, scale 200ms ease-out;
+  }
+  .yui-palette-pop[data-starting-style],
+  .yui-palette-pop[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+  .yui-palette-fade {
+    transition: opacity 200ms ease-out;
+  }
+  .yui-palette-fade[data-starting-style],
+  .yui-palette-fade[data-ending-style] {
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-palette-pop,
+    .yui-palette-fade { transition: none; }
+  }
+`;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   inset: "bs-i-md",
@@ -103,31 +125,11 @@ export default function CommandPaletteBase({
   const popup = (
     <Dialog.Portal container={container} keepMounted>
       <Dialog.Backdrop
-        render={
-          animated ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            />
-          ) : undefined
-        }
-        className="p-f i-0 min-h-dvh bg-black/5 bf-b-xs"
+        className={`p-f i-0 min-h-dvh bg-black/5 bf-b-xs ${animated ? "yui-palette-fade" : ""}`}
       />
-      <div className="d-f p-f i-0 ai-c jc-c">
+      <Dialog.Viewport className="d-f p-f i-0 ai-c jc-c">
         <Dialog.Popup
-          render={
-            animated ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-              />
-            ) : undefined
-          }
-          className={popupClasses}
+          className={`${popupClasses} ${animated ? "yui-palette-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           <Combobox.Root inline items={groups} autoHighlight>
@@ -204,22 +206,25 @@ export default function CommandPaletteBase({
             </div>
           </Combobox.Root>
         </Dialog.Popup>
-      </div>
+      </Dialog.Viewport>
     </Dialog.Portal>
   );
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
+      {/* Base UI hides the popup as soon as `getAnimations()` finds nothing,
+          and Motion's animation never registers there - so the exit played on
+          an element that was already `display:none`. CSS transitions do
+          register. */}
+      <style href="yumma-ui-command-palette-motion" precedence="default">
+        {PALETTE_MOTION}
+      </style>
       <Dialog.Trigger render={<Button className={triggerClasses} />}>
         <Search className="w-4 h-4" />
         <span>{trigger}</span>
       </Dialog.Trigger>
 
-      {animated ? (
-        <AnimatePresence>{open && popup}</AnimatePresence>
-      ) : (
-        open && popup
-      )}
+      {popup}
     </Dialog.Root>
   );
 }
