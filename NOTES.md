@@ -1177,6 +1177,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       item still reporting `data-highlighted`.
       Reported against Context Menu only; the same ring was on Menu's items and
       Menubar's, so all three are fixed.
+- [x] **The `pill` track was already fixed, and I broke it trying to fix it
+      again.** Swept shape x orientation x size: all six combinations give a
+      sensible radius with nothing escaping the track. The guard that does it
+      is in the file, and its comment describes the reported bug almost word
+      for word - a vertical `br-9999` resolves against the narrow axis, so the
+      track becomes a capsule and the tabs escape the curve. It steps `pill`
+      down to `rounded` when vertical.
+      I judged that a prop quietly meaning something else, removed the guard
+      and clipped with `o-h` instead. The numbers agreed: radius back to
+      `9999px`, `tabsEscape: false`. The picture did not - the track becomes a
+      fat blob and the selected tab's white indicator is sliced into a crescent
+      by the curve. Reverted. **`tabsEscape: false` is not the same question as
+      "does this look right"**, and on a shape change the screenshot is the
+      measurement, not the supporting evidence.
+      What stands: the downgrade is documented on the `shape` prop now, so it
+      is a stated behaviour rather than a silent one.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

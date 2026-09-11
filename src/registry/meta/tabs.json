@@ -68,7 +68,7 @@
       "type": "enum",
       "values": ["pill", "rounded", "square", "squircle"],
       "default": "pill",
-      "description": "Corner radius on the list, the tabs and the indicator. The list takes one step more than the tabs inside it, so a tab's corner never pokes past the container's. A `vertical` list steps `pill` down to `rounded` for the track only: a full radius on a column resolves against its width and the tabs escape the curve. The tabs keep the shape you asked for."
+      "description": "Corner radius on the track and the tabs. `pill` steps down to `rounded` when `orientation` is vertical: a capsule resolves its radius against the narrow axis, so the track becomes a blob and the selected tab's indicator is clipped to the curve."
     },
     {
       "name": "iconPosition",
