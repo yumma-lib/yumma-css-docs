@@ -1094,14 +1094,32 @@ declares logical properties: `padding` covers `padding-inline` covers
       bottom padding now, which is what Alert Dialog was already doing and why
       that one "looks good". Both popups now sit their first child 41px below
       the top edge, measured.
-- [ ] **Both dialogs already animate out.** Measured popup and backdrop
-      together: opacity 0.76 -> 0.54 -> 0.25 -> 0.10 -> 0.00 -> gone, over
-      ~200ms, in Dialog and Alert Dialog alike. So "there is no outbound
-      animation" is not reproducible as written. The likely reading is that
-      the exit is an exact mirror of the entrance and the scale change is only
-      5%, so at 200ms it reads as simply vanishing. Changing it is a taste
-      call and wants either the old reference or a decision, so both entries
-      stay in TODO with the numbers attached.
+- [x] **Motion cannot animate a Base UI popup out, and my first measurement
+      hid that.** I sampled opacity alone, saw it fall 0.76 -> 0.00, and
+      called the entry not reproducible. Opacity was falling on an element
+      that was already `display:none`: Base UI sets `hidden` the moment the
+      popup closes, so there was nothing on screen to see. Sampling `display`,
+      `visibility` and the box as well is what showed it - `disp=none h=0
+      HIDDEN` from the first frame after the click.
+      The mechanism: Base UI asks the element `getAnimations()` and waits for
+      what it finds. Motion's animation **never appears there** - measured
+      zero - so Base UI concludes nothing is running and hides in the same
+      frame; Motion then fades something invisible. The entrance looks right
+      only because the element is visible on the way in. Neither documented
+      Motion recipe helps, because both lose the same race: with
+      `AnimatePresence` and without it, `getAnimations()` is still 0.
+      CSS transitions **do** register, so both dialogs use Base UI's own
+      `data-starting-style` / `data-ending-style` attributes now, carried in a
+      `<style href precedence>` that React hoists and de-duplicates - which
+      keeps a copied component self-contained. Measured after: the popup stays
+      `display:block` and visible for the whole 200ms, opacity 0.74 -> 0.41 ->
+      0.23 -> 0.04 with the height shrinking 193 -> 184 as it scales, and only
+      then `hidden`.
+      **This is not only about dialogs.** Every component animating a Base UI
+      popup with Motion has the same exit problem, and every one of them will
+      want these attributes. Yumma has no `data-*` variants, which is what
+      forces a raw `<style>` here - a concrete argument for adding attribute
+      variants in v4.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

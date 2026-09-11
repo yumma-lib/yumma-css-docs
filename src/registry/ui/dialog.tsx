@@ -3,7 +3,6 @@
 import { Button } from "@base-ui/react/button";
 import { Dialog } from "@base-ui/react/dialog";
 import { Xmark } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -26,6 +25,29 @@ const BUTTON_SHAPES: Record<Shape, string> = {
   square: "",
   squircle: "br-xxl cs-s",
 };
+
+/** Keyed on Base UI's own transition attributes, which is what it waits for. */
+const DIALOG_MOTION = `
+  .yui-dialog-pop {
+    transition: opacity 200ms ease-out, scale 200ms ease-out;
+  }
+  .yui-dialog-pop[data-starting-style],
+  .yui-dialog-pop[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+  .yui-dialog-fade {
+    transition: opacity 200ms ease-out;
+  }
+  .yui-dialog-fade[data-starting-style],
+  .yui-dialog-fade[data-ending-style] {
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-dialog-pop,
+    .yui-dialog-fade { transition: none; }
+  }
+`;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   inset: "bs-i-md",
@@ -145,31 +167,13 @@ export default function DialogBase({
   const popup = (
     <Dialog.Portal container={container} keepMounted>
       <Dialog.Backdrop
-        render={
-          animated ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            />
-          ) : undefined
-        }
-        className="p-f i-0 min-h-dvh bg-black/5 bf-b-xs"
+        className={`p-f i-0 min-h-dvh bg-black/5 bf-b-xs ${
+          animated ? "yui-dialog-fade" : ""
+        }`}
       />
       <div className="d-f p-f i-0 ai-c jc-c">
         <Dialog.Popup
-          render={
-            animated ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-              />
-            ) : undefined
-          }
-          className={popupClasses}
+          className={`${popupClasses} ${animated ? "yui-dialog-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           {showClose && (
@@ -232,6 +236,21 @@ export default function DialogBase({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
+      {/*
+        Base UI decides when the popup may disappear by asking the element
+        `getAnimations()`. Motion's animation never showed up there - measured
+        zero - so it concluded nothing was running and set `hidden` in the same
+        frame, leaving Motion to fade an element that was already
+        `display:none`. The open animation looked fine because the element is
+        visible on the way in.
+
+        CSS transitions do register, so Base UI waits for these. React hoists
+        and de-duplicates a `<style href>`, so a copied component still brings
+        its own rules with it.
+      */}
+      <style href="yumma-ui-dialog-motion" precedence="default">
+        {DIALOG_MOTION}
+      </style>
       <Dialog.Trigger
         onClick={onTriggerClick}
         render={<Button className={triggerClasses} />}
@@ -241,11 +260,7 @@ export default function DialogBase({
         {triggerIcon && triggerIconPosition === "trailing" && triggerIcon}
       </Dialog.Trigger>
 
-      {animated ? (
-        <AnimatePresence>{open && popup}</AnimatePresence>
-      ) : (
-        open && popup
-      )}
+      {popup}
     </Dialog.Root>
   );
 }
