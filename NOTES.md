@@ -1193,6 +1193,19 @@ declares logical properties: `padding` covers `padding-inline` covers
       measurement, not the supporting evidence.
       What stands: the downgrade is documented on the `shape` prop now, so it
       is a stated behaviour rather than a silent one.
+- [x] **`squircle` really was a circle, at one size.** The shape map used a
+      flat `br-xxl`, and `1rem` is a third of the large avatar but **exactly
+      half** of the small one - and a radius at half the side is a circle,
+      whatever `corner-shape: squircle` says. `corner-shape` itself was fine:
+      supported, applied, and drawing a proper superellipse at `lg`. So the
+      report was right and only true at `sm`, which is where avatars mostly
+      live - the stack included.
+      The radius scales with the size now, holding about a quarter of the side
+      throughout: `sm` 8/32, `md` 12/48, `lg` 16/56.
+      The composition test earned itself again: my first cut passed the radius
+      as a **second** argument to `merge`, which silently dropped `br-0` and
+      `br-9999` in the combinations where they met. One argument now, built
+      inline, the same fix as Toggle's cursor.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
