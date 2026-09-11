@@ -15,20 +15,16 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  67
-    Open    43
-    Done    61%
+    Closed  73
+    Open    33
+    Done    69%
 
 ---
 
 ## Phase 1 - Broken
 
-Things that do the wrong thing today. No decisions needed, no mockups.
+Empty. Everything reported broken is fixed or moved to Decisions.
 
-- [ ] **Toolbar** plus and minus buttons get in the way of the Number Field
-      part, and the focus ring paints behind the soft silver background.
-- [ ] **Onboarding** `animatedResize` fades up and down inside the dialog; it
-      should resize the dialog itself.
 
 ## Phase 2 - Content model
 

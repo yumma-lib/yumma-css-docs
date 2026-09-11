@@ -161,7 +161,7 @@ export default function ToolbarBase({
 
         if ("type" in item && item.type === "number") {
           const stepClasses = [
-            "d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-7 bw-0 us-none c-p h:bg-silver-1 h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+            "d-f ai-c jc-c w-9 h-9 bg-transparent c-slate-7 bw-0 us-none c-p h:bg-silver-1 h:c-slate-10",
             control,
           ]
             .filter(Boolean)
@@ -179,7 +179,7 @@ export default function ToolbarBase({
               max={item.max}
               aria-label={item.label}
             >
-              <NumberField.Group className="d-f ai-c">
+              <NumberField.Group className="d-f ai-c br-lg fw:os-s fw:ow-3 fw:oo-0 fw:oc-indigo-2/60 fw:bc-indigo-3">
                 <NumberField.Decrement
                   render={
                     animated
@@ -199,7 +199,7 @@ export default function ToolbarBase({
                 </NumberField.Decrement>
                 <Toolbar.Input
                   render={<NumberField.Input />}
-                  className="w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3"
+                  className="w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500"
                 />
                 <NumberField.Increment
                   render={

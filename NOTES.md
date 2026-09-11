@@ -1462,6 +1462,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       Not an Alert Dialog bug: `bs-i-md` is a Yumma CSS token and every
       component using it has the same problem. Needs a decision, so it moved
       out of Phase 1.
+- [x] **Toolbar's number field rang the wrong box.** The input and each
+      stepper carried their own ring, so focusing the input drew a square
+      flush around the number **between** the minus and the plus, leaving them
+      outside it. That is the "buttons get in the way" report, and the reason
+      it looked lost against the bar. The ring moved to the Group on `fw:`,
+      matching the standalone Number Field.
+- [x] **`layout` cannot resize a dialog.** Motion's `layout` animates with
+      **transforms**, which move nothing around them, so the slide eased while
+      the popup jumped - exactly the report. `popLayout` made it worse: the
+      box held **both** slides for the whole 200ms (measured 256 -> 494 -> 348)
+      and a positioned parent did not change that. The fix is a real height:
+      `mode="wait"` so one slide is mounted at a time, a ResizeObserver on an
+      inner auto-height wrapper, and `animate={{ height }}` on the outer box.
+      Measured thirteen eased frames from 256 to 348. `animate` falls back to
+      `height: "auto"` rather than `undefined`, or turning the prop off
+      mid-tour leaves the last animated height on the element.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
