@@ -1137,9 +1137,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       - **Already fine**: `popover`, `menu`, `menubar`, `context-menu`. They
         use Base UI's `Positioner`, which is a real part and is not hidden out
         from under the animation, so the element stays visible while it fades.
-      - **No exit at all** (snaps away, never fades): `select`, `autocomplete`,
-        `combobox`. Opacity sits at 1.00 and then the element is simply gone.
-        A different problem from the dialogs' and still open.
+      - **Unknown**: `select`, `autocomplete`, `combobox`. I reported these as
+        "no exit animation" on the strength of opacity sitting at 1.00, and
+        that reading is **not trustworthy**: the element I was sampling,
+        `[role="listbox"]`, carries no Base UI data attributes at all, open or
+        closed, so it is not the Popup part. I was measuring the list inside
+        it. The attempted fix was reverted rather than shipped unverified -
+        it changed behaviour (the popup stayed in the DOM at height 0 when
+        closed) without demonstrably fixing anything. Redo this by finding the
+        element that actually carries `data-open` / `data-ending-style` first,
+        then measuring that one.
       - `tooltip` could not be opened from a synthetic hover, so it is
         unmeasured rather than clean.
       The dividing line is the wrapper: a hand-written div around the Popup is
