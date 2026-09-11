@@ -59,8 +59,9 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 const TONE_BUTTON: Record<Tone, string> = {
-  danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-6",
-  neutral: "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-indigo-5",
+  danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-2/60 fv:bc-red-3",
+  neutral:
+    "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-indigo-2/60 fv:bc-indigo-3",
 };
 
 const TONE_BADGE: Record<Tone, string> = {
@@ -114,7 +115,8 @@ export default function AlertDialogBase({
 }: AlertDialogProps) {
   const [open, setOpen] = useState(false);
 
-  const base = "px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2";
+  const base =
+    "px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0";
 
   const triggerClasses = merge(
     "d-if ai-c g-2",
@@ -141,7 +143,7 @@ export default function AlertDialogBase({
     .join(" ");
 
   const cancelClasses = [
-    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2",
+    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
     BUTTON_SHAPES[shape],
     TONE_BUTTON.neutral,
   ]
@@ -149,7 +151,7 @@ export default function AlertDialogBase({
     .join(" ");
 
   const confirmClasses = [
-    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:oo-2",
+    "px-4 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
     BUTTON_SHAPES[shape],
     TONE_BUTTON[tone],
   ]
@@ -171,7 +173,7 @@ export default function AlertDialogBase({
           {showClose && (
             <AlertDialog.Close
               render={
-                <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
+                <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3" />
               }
               aria-label="Close"
             >

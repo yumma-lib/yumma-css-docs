@@ -43,9 +43,9 @@ const TONES: Record<Tone, string> = {
 
 /** One tone, both ends: a destructive trigger opens a destructive tooltip. */
 const TRIGGER_TONES: Record<Tone, string> = {
-  light: "c-slate-8 h:c-slate-10 fv:oc-indigo-5",
-  dark: "c-slate-8 h:c-slate-10 fv:oc-indigo-5",
-  danger: "c-red-7 h:c-red-8 fv:oc-red-6",
+  light: "c-slate-8 h:c-slate-10 fv:oc-indigo-2/60 fv:bc-indigo-3",
+  dark: "c-slate-8 h:c-slate-10 fv:oc-indigo-2/60 fv:bc-indigo-3",
+  danger: "c-red-7 h:c-red-8 fv:oc-red-2/60 fv:bc-red-3",
 };
 
 /** The arrow paints the popup's own surface, so it follows `tone` with it. */
@@ -115,7 +115,7 @@ export default function TooltipBase({
   container,
 }: TooltipProps) {
   const triggerClasses = merge(
-    "d-f ai-c jc-c bg-transparent bw-0 c-p fv:oo-2",
+    "d-f ai-c jc-c bg-transparent bw-0 c-p fv:os-s fv:ow-3 fv:oo-0",
     TRIGGER_TONES[tone],
     className,
   );

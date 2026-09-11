@@ -31,6 +31,14 @@ const ICON_SIZES: Record<Size, string> = {
   lg: "w-4 h-4",
 };
 
+// The outline follows the group's own radius, and the group had none: the
+// corners live on the end buttons, so the focus ring drew a square.
+const GROUP_SHAPES: Record<Shape, string> = {
+  rounded: "br-lg",
+  square: "",
+  squircle: "br-xxl cs-s",
+};
+
 const DECREMENT_SHAPES: Record<Shape, string> = {
   rounded: "blr-lg",
   square: "",
@@ -119,7 +127,9 @@ export default function NumberFieldBase({
         </NumberField.ScrubArea>
       )}
 
-      <NumberField.Group className="d-f fw:oo--1 fw:oc-indigo-5">
+      <NumberField.Group
+        className={`d-f fw:os-s fw:ow-3 fw:oo-0 fw:oc-indigo-2/60 fw:bc-indigo-3 ${GROUP_SHAPES[shape]}`}
+      >
         <NumberField.Decrement className={decrementClasses}>
           <Minus className={ICON_SIZES[size]} />
         </NumberField.Decrement>

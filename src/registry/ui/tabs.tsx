@@ -111,7 +111,7 @@ export default function TabsBase({
           const isSelected = value === item.value;
 
           const tabClasses = [
-            "p-r zi-10 fg-1 d-f ai-c jc-c bg-transparent us-none fv:oo--1 fv:oc-indigo",
+            "p-r zi-10 fg-1 d-f ai-c jc-c bg-transparent us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
             item.icon && !item.iconOnly ? "g-2" : "",
             item.count !== undefined ? "g-2" : "",
             spec.tab,

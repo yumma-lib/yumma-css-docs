@@ -8,18 +8,21 @@ type Shape = "rounded" | "square" | "squircle" | "pill";
 type Shadow = "none" | "inset" | "outset";
 type IconSide = "leading" | "trailing";
 
-const BASE = "d-if ai-c jc-c g-2 bw-1 fw-500 us-none fv:oo-2";
+const BASE = "d-if ai-c jc-c g-2 bw-1 fw-500 us-none fv:os-s fv:ow-3 fv:oo-0";
 
 const MOTION = "tp-c tdu-150 ttf-io";
 
 const VARIANTS: Record<Variant, string> = {
-  primary: "bg-indigo h:bg-indigo-8 bc-indigo-7 c-white fv:oc-indigo-3",
-  secondary: "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-indigo-3",
-  subtle: "bg-silver-1 bc-transparent c-slate-7 h:bg-silver-2 fv:oc-indigo-3",
+  primary:
+    "bg-indigo h:bg-indigo-8 bc-indigo-7 c-white fv:oc-indigo-2/60 fv:bc-indigo-3",
+  secondary:
+    "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-indigo-2/60 fv:bc-indigo-3",
+  subtle:
+    "bg-silver-1 bc-transparent c-slate-7 h:bg-silver-2 fv:oc-indigo-2/60 fv:bc-indigo-3",
   ghost:
-    "bg-transparent bc-transparent c-slate-10 h:bg-silver-1/50 h:c-slate-7 fv:oc-indigo-3",
-  danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-3",
-  link: "bg-transparent bc-transparent c-slate-10 tuo-2 h:td-u fv:oc-indigo-3",
+    "bg-transparent bc-transparent c-slate-10 h:bg-silver-1/50 h:c-slate-7 fv:oc-indigo-2/60 fv:bc-indigo-3",
+  danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-2/60 fv:bc-red-3",
+  link: "bg-transparent bc-transparent c-slate-10 tuo-2 h:td-u fv:oc-indigo-2/60 fv:bc-indigo-3",
 };
 
 const SIZES: Record<Size, string> = {

@@ -5,12 +5,11 @@ A separate pass from the API fixes. All three want mockups before any code.
 ### **Look and feel**
 
 - default every component to `square`, so Yumma UI matches the Yumma CSS docs
-- rework focus entirely. The solid outline is what everyone ships and it reads
-  as unconsidered - a friend scored it 4/10. The direction is a soft outline
-  plus a border-colour shift, drafted on play.yummacss.com:
-  `fv:oc-indigo-2/60 fv:bc-indigo-3` over `bc-gray-2 bw-1`. Pairs with the
-  existing Global entry about a focus prop. Contrast against WCAG 2.1 is a
-  known concern, deliberately left until the look is settled.
+- **done.** Focus is treatment A everywhere. Contrast is knowingly below
+  WCAG 2.1 1.4.11 and deferred; the same treatment one or two shades down the
+  indigo scale would pass, if it ever matters.
+- coloured box-shadow utilities, for v4 or v4.1. Without them the halo-plus-ring
+  focus variant cannot be written at all.
 - make every component dark-theme compatible. Yumma CSS has handled dark
   since 3.29.0, so this is a Yumma UI concern now, and it is big enough to be
   the headline of **1.0** rather than a patch. The mockups need a theme

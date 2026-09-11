@@ -53,7 +53,7 @@ export default function SeparatorBase({
   }
 
   const buttonClasses = [
-    "d-if ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 bw-1 tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:oo-2 fv:oc-indigo-5",
+    "d-if ai-c jc-c w-8 h-8 bg-white bc-silver-2 c-slate-10 bw-1 tp-c tdu-150 ttf-io us-none c-p h:bg-silver-1/50 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
     SHAPES[iconShape],
   ]
     .filter(Boolean)

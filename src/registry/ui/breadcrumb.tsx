@@ -78,7 +78,7 @@ export default function BreadcrumbBase({
 
         const linkClasses = [
           item.icon ? "d-f ai-c g-2" : "",
-          "c-slate-6 h:c-slate-10 fv:oo-2 fv:oc-indigo-5",
+          "c-slate-6 h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
         ]
           .filter(Boolean)
           .join(" ");

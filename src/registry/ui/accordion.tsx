@@ -189,7 +189,7 @@ export default function AccordionBase({
                   triggerRadius,
                   "ta-l",
                   item.disabled ? "c-na o-60" : "c-p",
-                  "fv:oo-1 fv:oc-indigo-5",
+                  "fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
                 ]
                   .filter(Boolean)
                   .join(" ")}

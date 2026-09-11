@@ -123,7 +123,7 @@ export default function ToggleBase({
       {...pressedProps}
       className={(state) =>
         merge(
-          "d-f ai-c jc-c us-none fv:oo-2 fv:oc-indigo-5",
+          "d-f ai-c jc-c us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
           disabled ? "c-na" : "c-p",
           SIZES[size],
           SHAPES[shape],

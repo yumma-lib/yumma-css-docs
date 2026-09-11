@@ -23,7 +23,7 @@ const ICON_TONES: Record<IconTone, string> = {
 };
 
 const BUTTON_BASE =
-  "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p fv:oo-2 fv:oc-indigo-5";
+  "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
 
 export interface EmptyStateProps {
   icon?: ReactNode;

@@ -44,9 +44,9 @@ const STATUS_BORDER: Record<Status, string> = {
 };
 
 const STATUS_RING: Record<Status, string> = {
-  default: "fv:oc-indigo-5",
-  error: "fv:oc-red-5",
-  success: "fv:oc-green-5",
+  default: "fv:oc-indigo-2/60 fv:bc-indigo-3",
+  error: "fv:oc-red-2/60 fv:bc-red-3",
+  success: "fv:oc-green-2/60 fv:bc-green-3",
 };
 
 const STATUS_ICON: Record<Status, string> = {
@@ -120,7 +120,7 @@ export default function FieldBase({
       pressed={revealed}
       onPressedChange={setRevealed}
       disabled={disabled}
-      className="d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none fv:oo-2 fv:oc-indigo-5"
+      className="d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3"
     >
       {revealed ? (
         <Eye className="w-4 h-4" />
@@ -138,7 +138,7 @@ export default function FieldBase({
   const hasAffix = Boolean(prefixNode) || Boolean(suffix);
 
   const controlClasses = merge(
-    "bg-white c-slate-10 bw-1 fs-md fv:oo--1",
+    "bg-white c-slate-10 bw-1 fs-md fv:os-s fv:ow-3 fv:oo-0",
     SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
@@ -151,7 +151,7 @@ export default function FieldBase({
   );
 
   const affixControlClasses = merge(
-    "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md fv:oo--1",
+    "fg-1 bg-white bc-silver-3 c-slate-10 byw-1 fs-md fv:os-s fv:ow-3 fv:oo-0",
     HEIGHTS[size],
     STATUS_RING[status],
     prefixNode && suffix
