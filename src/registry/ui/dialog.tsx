@@ -171,7 +171,7 @@ export default function DialogBase({
           animated ? "yui-dialog-fade" : ""
         }`}
       />
-      <div className="d-f p-f i-0 ai-c jc-c">
+      <Dialog.Viewport className="d-f p-f i-0 ai-c jc-c">
         <Dialog.Popup
           className={`${popupClasses} ${animated ? "yui-dialog-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
@@ -230,7 +230,7 @@ export default function DialogBase({
             </div>
           )}
         </Dialog.Popup>
-      </div>
+      </Dialog.Viewport>
     </Dialog.Portal>
   );
 

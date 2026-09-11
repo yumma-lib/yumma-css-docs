@@ -163,7 +163,7 @@ export default function AlertDialogBase({
           animated ? "yui-alert-fade" : ""
         }`}
       />
-      <div className="d-f p-f i-0 ai-c jc-c">
+      <AlertDialog.Viewport className="d-f p-f i-0 ai-c jc-c">
         <AlertDialog.Popup
           className={`${popupClasses} ${animated ? "yui-alert-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
@@ -201,7 +201,7 @@ export default function AlertDialogBase({
             </AlertDialog.Close>
           </div>
         </AlertDialog.Popup>
-      </div>
+      </AlertDialog.Viewport>
     </AlertDialog.Portal>
   );
 

@@ -1115,6 +1115,18 @@ declares logical properties: `padding` covers `padding-inline` covers
       `display:block` and visible for the whole 200ms, opacity 0.74 -> 0.41 ->
       0.23 -> 0.04 with the height shrinking 193 -> 184 as it scales, and only
       then `hidden`.
+      **The first cut of this broke both dialogs completely.** Dropping
+      `{open && popup}` left the portal always mounted, which is the point -
+      but the popup sat inside a plain `<div className="d-f p-f i-0">` that I
+      wrote, and a bare div is never told to hide. So a full-viewport fixed
+      overlay stayed in the DOM at all times and swallowed every click,
+      including the one on the trigger. `Dialog.Viewport` and
+      `AlertDialog.Viewport` are exactly that container and carry
+      `hidden: !mounted`, so they are the parts to use. The lesson is the
+      check, not the fix: I verified the animation and never verified that the
+      thing still opened. Interaction is now measured explicitly - what
+      `elementFromPoint` returns over the closed trigger, whether the dialog's
+      own button is the hit target, and that it closes and reopens.
       **This is not only about dialogs.** Every component animating a Base UI
       popup with Motion has the same exit problem, and every one of them will
       want these attributes. Yumma has no `data-*` variants, which is what
