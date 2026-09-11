@@ -47,6 +47,12 @@ const AUTOCOMPLETE_MOTION = `
   }
 `;
 
+const ITEM_SHAPES: Record<Shape, string> = {
+  rounded: "br-md",
+  square: "",
+  squircle: "br-lg cs-s",
+};
+
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
   md: "w-64",
@@ -102,7 +108,7 @@ function isGroupEntry(
   return "items" in entry;
 }
 
-function renderItem(item: AutocompleteItem) {
+function renderItem(item: AutocompleteItem, shape: Shape) {
   return (
     <Autocomplete.Item
       key={item.label}
@@ -110,7 +116,7 @@ function renderItem(item: AutocompleteItem) {
       render={(props, state) => (
         <div
           {...props}
-          className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 br-md fs-sm us-none c-p ${
+          className={`d-f ai-c g-3 py-2 px-3 mx-1 c-slate-10 ${ITEM_SHAPES[shape]} fs-sm us-none c-p ${
             state.highlighted ? "bg-silver-2/50" : "bg-transparent"
           }`}
         >
@@ -211,10 +217,10 @@ export default function AutocompleteBase({
                   <Autocomplete.GroupLabel className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
                     {entry.group}
                   </Autocomplete.GroupLabel>
-                  {entry.items.map(renderItem)}
+                  {entry.items.map((entry) => renderItem(entry, shape))}
                 </Autocomplete.Group>
               ) : (
-                renderItem(entry)
+                renderItem(entry, shape)
               )
             }
           </Autocomplete.List>

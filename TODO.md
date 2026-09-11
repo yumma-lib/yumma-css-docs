@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  87
+    Closed  91
     Open    23
-    Done    79%
+    Done    80%
 
 ---
 
@@ -45,6 +45,9 @@ first or they get done twice.
 Breaking for the registry, so they ship together in one release with the
 renames already on `main`.
 
+- [ ] **Field and Textarea: the label should be optional.** The counter half
+      is done, at `maxLength: 0`. The label needs a way to be turned off that
+      is not a text control: strings are documented, not driven.
 - [ ] **A prop to control focus.** Some people do not want a ring at all, and
       the appearance could be props too: outline colour, outline offset, all
       Yumma CSS utilities. **Do it with the indigo change, not before**: both
@@ -109,8 +112,6 @@ Blocked on Renildo. Each one holds up the entry beside it.
       least functional component in the set.
 - [ ] **Avatar:** should `verified` and `status` be mutually exclusive rather
       than both at once?
-- [ ] **Meter:** should `warning` be `yellow` rather than `orange`? Orange was
-      chosen because the solid tone paints white on the fill.
 - [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
       npm, a dropdown, or is a dialog overkill?
 - [ ] **`bs-i-md` is invisible.** Alert Dialog's `inset` shadow is applied and

@@ -48,6 +48,12 @@ const SELECT_MOTION = `
   }
 `;
 
+const ITEM_SHAPES: Record<Shape, string> = {
+  rounded: "br-md",
+  square: "",
+  squircle: "br-lg cs-s",
+};
+
 const POPUP_SIZES: Record<Size, string> = {
   sm: "w-56",
   md: "w-64",
@@ -78,13 +84,13 @@ function flattenOptions(
   );
 }
 
-function renderOption(option: SelectOption) {
+function renderOption(option: SelectOption, shape: Shape) {
   return (
     <Select.Item
       key={option.value}
       value={option.value}
       className={(state) =>
-        `d-f ai-c g-3 py-2 px-3 mx-1 br-md fs-sm fw-500 us-none c-p c-slate-10 ${
+        `d-f ai-c g-3 py-2 px-3 mx-1 ${ITEM_SHAPES[shape]} fs-sm fw-500 us-none c-p c-slate-10 ${
           state.highlighted ? "bg-silver-2/50" : "bg-transparent"
         }`
       }
@@ -212,10 +218,10 @@ export default function SelectBase({
               <Select.GroupLabel className="px-3 pt-2 pb-1 fs-xs fw-500 c-slate-5 us-none">
                 {entry.group}
               </Select.GroupLabel>
-              {entry.items.map(renderOption)}
+              {entry.items.map((entry) => renderOption(entry, shape))}
             </Select.Group>
           ) : (
-            renderOption(entry)
+            renderOption(entry, shape)
           ),
         )}
       </Select.List>

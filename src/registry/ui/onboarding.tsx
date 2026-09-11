@@ -6,7 +6,7 @@ import { Tabs } from "@base-ui/react/tabs";
 import { ArrowLeft, ArrowRight, Check, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Indicator = "count" | "progress" | "dots" | "checklist";
@@ -48,6 +48,12 @@ const ONBOARDING_MOTION = `
     .yui-onboarding-fade { transition: none; }
   }
 `;
+
+const CLOSE_SHAPES: Record<Shape, string> = {
+  rounded: "br-9999",
+  square: "",
+  squircle: "br-lg cs-s",
+};
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   inset: "bs-i-md",
@@ -126,26 +132,27 @@ export default function OnboardingBase({
   const tasks = showTasks ? step.tasks : undefined;
   const allTasksDone = !tasks || doneCount >= tasks.length;
 
-  const hasAnyTasks =
-    showTasks && steps.some((s) => (s.tasks?.length ?? 0) > 0);
-
   // `layout` animates with transforms, which move nothing around them, so the
   // popup jumped while the slide eased inside it. A measured height is the
   // only kind the popup follows.
-  const resizes = animated && animatedResize && hasAnyTasks;
-  const contentRef = useRef<HTMLDivElement>(null);
+  const resizes = animated && animatedResize;
+  const watcher = useRef<ResizeObserver | null>(null);
   const [contentHeight, setContentHeight] = useState<number | null>(null);
 
-  useEffect(() => {
-    const element = contentRef.current;
-    if (!element || !resizes) return;
-
-    const measure = () => setContentHeight(element.offsetHeight);
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(element);
-    return () => observer.disconnect();
-  }, [resizes]);
+  const contentRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      watcher.current?.disconnect();
+      if (!node || !resizes) {
+        setContentHeight(null);
+        return;
+      }
+      const measure = () => setContentHeight(node.offsetHeight);
+      measure();
+      watcher.current = new ResizeObserver(measure);
+      watcher.current.observe(node);
+    },
+    [resizes],
+  );
 
   const go = (next: number) => {
     setDirection(next > page ? 1 : -1);
@@ -236,7 +243,7 @@ export default function OnboardingBase({
     <AlertDialog.Close
       render={
         <Button
-          className={`d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3 ${position}`}
+          className={`d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 ${CLOSE_SHAPES[shape]} h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3 ${position}`}
         />
       }
       aria-label="Skip"
@@ -315,7 +322,7 @@ export default function OnboardingBase({
                   : { height: "auto" }
               }
               transition={{ duration: 0.2, ease: "easeOut" }}
-              className={`d-f p-r o-h fd-c ${hasAnyTasks ? "" : "jc-c h-48"}`}
+              className="d-f p-r o-h fd-c jc-c"
             >
               <div ref={contentRef} className="d-f fd-c ai-c w-100% ta-c">
                 {animated ? (
