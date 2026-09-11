@@ -9,13 +9,13 @@ export default function SkeletonActivity() {
         <div key={entry.id} className="d-f ai-c g-4">
           <Skeleton
             shape="circle"
-            size="w-9 h-9"
+            dimensions="w-9 h-9"
             delay={row * 0.15}
             className="fs-0"
           />
           <div className="d-f fd-c g-1 fg-1">
-            <Skeleton size="h-3 w-48" delay={row * 0.15} />
-            <Skeleton tone="subtle" size="h-2 w-32" delay={row * 0.15} />
+            <Skeleton dimensions="h-3 w-48" delay={row * 0.15} />
+            <Skeleton tone="subtle" dimensions="h-2 w-32" delay={row * 0.15} />
           </div>
         </div>
       ))}

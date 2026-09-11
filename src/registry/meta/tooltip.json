@@ -15,13 +15,6 @@
       "description": "The trigger's `aria-label`. An icon-only trigger has no accessible name without it."
     },
     {
-      "name": "triggerTone",
-      "type": "enum",
-      "values": ["neutral", "danger"],
-      "default": "neutral",
-      "description": "The trigger's colour. `danger` reads red, for a destructive action."
-    },
-    {
       "name": "content",
       "type": "none",
       "typeName": "ReactNode",
@@ -44,9 +37,9 @@
     {
       "name": "tone",
       "type": "enum",
-      "values": ["light", "dark"],
+      "values": ["light", "dark", "danger"],
       "default": "light",
-      "description": "`light` is a bordered white card; `dark` is a solid indigo chip with no border."
+      "description": "The tooltip's surface and its trigger together. `light` and `dark` are the two neutral surfaces; `danger` reads red at both ends, for a destructive action."
     },
     {
       "name": "arrow",

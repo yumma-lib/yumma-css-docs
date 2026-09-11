@@ -37,31 +37,11 @@
       "description": "A leading avatar. Setting this switches the header to a grouped icon+label+description block & moves the value display below the track instead of beside the label. It sits in a fixed 32px tile that colors the glyph but does not resize it, so pass one sized to fit (`w-4 h-4`)."
     },
     {
-      "name": "color",
+      "name": "intent",
       "type": "enum",
-      "values": [
-        "red",
-        "orange",
-        "yellow",
-        "lime",
-        "mint",
-        "green",
-        "cyan",
-        "sky",
-        "blue",
-        "indigo",
-        "violet",
-        "lavender",
-        "magenta",
-        "pink",
-        "coral",
-        "zinc",
-        "gray",
-        "slate",
-        "silver"
-      ],
-      "default": "yellow",
-      "description": "The families the shipped `COLORS` table defines. It is your file: add a line there for a `theme.colors` family of your own and the type follows it. `className` reaches the root, not the indicator, which is why this prop exists."
+      "values": ["neutral", "info", "success", "warning", "danger"],
+      "default": "info",
+      "description": "What the reading means, not which hue it is. The five map to Yumma families in the shipped `INTENTS` table; point one somewhere else and the type follows."
     },
     {
       "name": "shadow",

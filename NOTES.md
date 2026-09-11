@@ -1332,6 +1332,28 @@ declares logical properties: `padding` covers `padding-inline` covers
       Meter and Progress are two components on two Base UI primitives with
       different props, and no `animate` swaps between them; the entry was
       written when the swap was still the plan.
+- [x] **`color` is `intent`, and nineteen hues are five meanings.** Badge and
+      Meter each carried a 19-family `color` enum. They now take
+      `neutral | info | success | warning | danger`, mapped to slate, blue,
+      green, orange and red in a table that is still yours to repoint. The
+      prop is renamed because `color="success"` is not a colour, and a prop
+      called `color` invites "give me pink" - the opposite of the direction
+      colour is going. Badge's default was `indigo` and is `neutral`; Meter's
+      was `yellow` and is `info`. **Warning is orange, not yellow**, because
+      the solid tone paints white on the fill and white on yellow is the
+      contrast complaint already on the list.
+- [x] **Tooltip has one `tone` covering both ends.** It was `light | dark` for
+      the popup and a separate `neutral | danger` for the trigger, two axes
+      under one word. One enum now: `light | dark | danger`, where `danger`
+      reads red at the trigger, the popup and the arrow. **Alert Dialog and
+      Dialog keep their split**, which their docs argue for: a neutral button
+      can open a destructive dialog.
+- [x] **The last two name collisions are settled.** Accordion's `icon` picked
+      a built-in glyph while `icon` is a ReactNode on twelve others: it is
+      `indicator` now, matching Onboarding's word for the same idea, and
+      `iconPosition` follows it to `indicatorPosition`. Skeleton's `size` took
+      literal utilities while `size` is an enum on sixteen others: it is
+      `dimensions`. Four variant files passed it and were updated with it.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

@@ -52,19 +52,19 @@
       "description": "Draws a rule between each pair of items. Only visible on the `default` variant."
     },
     {
-      "name": "icon",
+      "name": "indicator",
       "type": "enum",
       "values": ["chevron", "plus-minus"],
       "default": "chevron",
-      "description": "`chevron` rotates one glyph 180\u00b0. `plus-minus` swaps between two glyphs with a small rotation flourish."
+      "description": "Which built-in open/closed mark the trigger draws. `chevron` rotates one glyph 180 degrees. `plus-minus` swaps between two glyphs with a small rotation flourish."
     },
     {
-      "name": "iconPosition",
+      "name": "indicatorPosition",
       "type": "enum",
       "values": ["leading", "trailing"],
       "default": "trailing",
-      "description": "Which end of the trigger the icon sits at.",
-      "dependsOn": "icon"
+      "description": "Which end of the trigger the indicator sits at.",
+      "dependsOn": "indicator"
     },
     {
       "name": "multiple",
