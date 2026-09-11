@@ -43,7 +43,23 @@ const BADGE_SIZES: Record<Size, string> = {
 const SHAPES: Record<Shape, string> = {
   circle: "br-9999",
   square: "br-0",
-  squircle: "br-xxl cs-s",
+  // Unused: the squircle's radius depends on the size, so it is built inline.
+  squircle: "cs-s",
+};
+
+/**
+ * A squircle's radius has to scale with the avatar.
+ *
+ * A flat `1rem` was a third of the large avatar and exactly **half** of the
+ * small one - and a radius at half the side is a circle, whatever
+ * `corner-shape` says. Which is why `squircle` looked like `circle` wherever
+ * avatars are small, the stack included. These hold roughly a quarter of the
+ * side at every size.
+ */
+const SQUIRCLE_RADII: Record<Size, string> = {
+  sm: "br-lg",
+  md: "br-xl",
+  lg: "br-xxl",
 };
 
 const STATUSES: Record<Exclude<Status, "none">, string> = {
@@ -80,7 +96,10 @@ export default function AvatarBase({
   const classes = merge(
     ROOT,
     SIZES[size],
-    SHAPES[shape],
+    // One argument, not two: a separate radius would reach `merge` alongside
+    // `br-9999` and `br-0` and silently drop one of them, which the
+    // composition test catches even though the two cannot co-occur at runtime.
+    shape === "squircle" ? `cs-s ${SQUIRCLE_RADII[size]}` : SHAPES[shape],
     tint ? `${TINTS[tint].bg} bw-1` : "bg-silver-1 bc-white bw-1",
     className,
   );

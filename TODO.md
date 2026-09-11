@@ -73,7 +73,6 @@ do it and the CLI half does.
 
 ### **Avatar**
 
-- `squircle` is just a `circle` in the when set
 - `default`options should either set `status` or `verified` not both at the same time
 
 ### **Breadcrumb**
