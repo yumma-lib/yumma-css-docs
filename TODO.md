@@ -1,3 +1,20 @@
+## **Visual direction**
+
+A separate pass from the API fixes. All three want mockups before any code.
+
+### **Look and feel**
+
+- default every component to `square`, so Yumma UI matches the Yumma CSS docs
+- rework focus entirely. The solid outline is what everyone ships and it reads
+  as unconsidered - a friend scored it 4/10. The direction is a soft outline
+  plus a border-colour shift, drafted on play.yummacss.com:
+  `fv:oc-indigo-2/60 fv:bc-indigo-3` over `bc-gray-2 bw-1`. Pairs with the
+  existing Global entry about a focus prop. Contrast against WCAG 2.1 is a
+  known concern, deliberately left until the look is settled.
+- drop indigo as the primary. It is an opinionated colour; black or dark grey
+  instead, with colour kept for the places it carries meaning - red for
+  destructive, blue for links. Wants other takes alongside the grayscale one.
+
 ## **API changes**
 
 ### **Global**
@@ -15,11 +32,6 @@
 
 - Don't use the `PageSearch` icon, use the `Search` icon instead
 - When you click to open the autocomplete results and then click on disable the menu should close
-
-### **Combobox**
-
-- `multiple` will result in Cannot read properties of null (reading 'map')
-- `clearable` doesn't add a clear button to the combobox to clear the combobox
 
 ### **Field**
 

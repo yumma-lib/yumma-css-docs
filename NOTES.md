@@ -1044,6 +1044,24 @@ declares logical properties: `padding` covers `padding-inline` covers
       report: parent `aria-checked="mixed"`, Read true, Write and Delete false,
       and the Code tab prints the same. Checkbox's own `indeterminate`
       description says what it means and points at the group.
+- [x] **`multiple` was two crashes stacked, and the second only showed once
+      the first was gone.** `Combobox.Value`'s callback is typed `any` by Base
+      UI and hands you `null`, not `[]`, until something is selected - so
+      `.map` threw the moment the prop was turned on, and TypeScript had
+      nothing to say about it. Guarding that got an empty multiple combobox
+      rendering, and selecting the first item then threw
+      `Cannot destructure property 'setHighlightedChipIndex'`: `Chip` reads a
+      context off `Combobox.Chips`, which we never rendered. The documented
+      shape has `Chips` **wrapping** `Value` - the list of chips is the value -
+      not the other way round, which is how it was written.
+- [x] **`clearable` was doing its job.** Base UI unmounts `Clear` while there
+      is nothing to clear, which is right: an X on an empty field does nothing.
+      So the button arrives with the first selection, not with the prop, and
+      toggling it on an empty combobox looks like nothing happening. The
+      description says so now. One real fix alongside it: the button was gated
+      `clearable && !multiple`, so a multiple combobox had no way to empty its
+      chips at once. Measured after: single picks up `Clear selection` on the
+      first choice; multiple shows two chips, two `Remove` buttons and `Clear`.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
