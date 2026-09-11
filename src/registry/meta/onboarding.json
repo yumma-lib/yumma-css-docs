@@ -39,14 +39,30 @@
             "$icon": "Bookmark"
           },
           "title": "Build your first page",
-          "description": "Drop in a component, adjust its props, and watch it update."
+          "description": "Drop in a component, adjust its props, and watch it update.",
+          "tasks": [
+            {
+              "id": "drop",
+              "label": "Drop a component onto the page"
+            },
+            {
+              "id": "props",
+              "label": "Change one of its props"
+            }
+          ]
         },
         {
           "icon": {
             "$icon": "User"
           },
           "title": "Invite your team",
-          "description": "Share a link and everyone edits the same draft."
+          "description": "Share a link and everyone edits the same draft.",
+          "tasks": [
+            {
+              "id": "invite",
+              "label": "Send an invite link"
+            }
+          ]
         }
       ],
       "description": "Each step's `icon`, `title` and `description`. Steps advance one at a time and the dialog resets to the first when it closes."
@@ -54,9 +70,9 @@
     {
       "name": "indicator",
       "type": "enum",
-      "values": ["count", "progress", "dots"],
+      "values": ["count", "progress", "dots", "checklist"],
       "default": "count",
-      "description": "`count` reads \"1 / 3\" in the header. `progress` draws a filling bar under the slide instead. `dots` moves navigation to a bottom row of step dots between prev/next arrows."
+      "description": "`count` reads \"1 / 3\" in the header. `progress` draws a filling bar under the slide. `dots` moves navigation to a bottom row of step dots between prev/next arrows. `checklist` counts the current step's `tasks` instead of the steps, and falls back to the step count on a step with none."
     },
     {
       "name": "showClose",
