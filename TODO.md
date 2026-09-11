@@ -1,187 +1,157 @@
-## **Visual direction**
+# Yumma UI and Yumma CSS: the list
 
-A separate pass from the API fixes. All three want mockups before any code.
+One list, ordered by what blocks what. Phase 1 is what stops a release; Phase
+6 is what happens after v4. Inside a phase, order is the order to do them in.
 
-### **Look and feel**
+**Verify every entry against the code before acting on it.** Most are right
+about the symptom and wrong about the cause, and several have turned out to
+be already fixed.
 
-- default every component to `square`, so Yumma UI matches the Yumma CSS docs
-- **done.** Focus is treatment A everywhere. Contrast is knowingly below
-  WCAG 2.1 1.4.11 and deferred; the same treatment one or two shades down the
-  indigo scale would pass, if it ever matters.
-- coloured box-shadow utilities, for v4 or v4.1. Without them the halo-plus-ring
-  focus variant cannot be written at all.
-- make every component dark-theme compatible. Yumma CSS has handled dark
-  since 3.29.0, so this is a Yumma UI concern now, and it is big enough to be
-  the headline of **1.0** rather than a patch. The mockups need a theme
-  toggle from the start: the focus treatment was drafted against a light
-  input, and a near-black primary changes what reads on a dark ground.
-- replace the stage's tab bar with the **browser window** treatment from the
-  earlier mockups, redrawn in Yumma CSS's own colours rather than the generic
-  chrome that was drafted. The flat tab strip is the weakest part of the
-  component page. Wants 3 fresh mockups first, and is **not urgent** - it goes
-  after the bugs, whenever the remaining work is light enough.
-- drop indigo as the primary. It is an opinionated colour; black or dark grey
-  instead, with colour kept for the places it carries meaning - red for
-  destructive, blue for links. Wants other takes alongside the grayscale one.
+When an entry is done it leaves this file and the finding goes in NOTES.md,
+so the open count alone would flatter the progress. `Closed` is the number of
+`- [x]` findings under **Phase 6** in NOTES.md, which is the record of the
+work actually finished; `Open` is the `- [ ]` count here. Recount both rather
+than adjusting the numbers by hand:
 
-## **State-of-Yumma-UI report**
+    grep -c '^- \[ \]' TODO.md
 
-Renildo's pass over the whole library, 2026-09-11. Verify each against the
-code before acting: most are right about the symptom.
+    Closed  67
+    Open    43
+    Done    61%
 
-### **Copy and context, library-wide**
+---
 
-- **Define one content model and apply it everywhere.** Drop the SaaS framing
-  the old copy-and-paste system used. With the CLI the examples should be as
-  neutral and simple as possible. Covers copywriting **and** icon choices, and
-  every component follows the same model once it exists. Do this first: the
-  per-component copy items below are instances of it.
-- `Autocomplete`: "Assign member" is too much context, and the avatars are not
-  needed. Same for `Combobox`.
+## Phase 1 - Broken
 
-### **Docs site**
+Things that do the wrong thing today. No decisions needed, no mockups.
 
-- The button beside the navigation that copies the install command uses an
-  arrow-down icon; it should be a copy icon. With no label it says nothing
-  about what it does. **Open question:** a dialog offering yarn, bun and the
-  rest alongside pnpm and npm, or is a dropdown enough, or is a dialog
-  overkill?
-- `/ui/components/accordion` shows `shape` and `indicatorPosition` in red on
-  arrival, because `variant` defaults to `default`. The inert message should
-  only appear once the user tries to interact with the control.
+- [ ] **Toggle Group** renders no icons inside its buttons; only border and
+      background colours apply.
+- [ ] **Separator** `iconShape` draws no `square`, `circle` or `squircle`
+      around the "Or".
+- [ ] **Button** `iconOnly` does nothing until `icon` is also set.
+- [ ] **Alert Dialog** `inset` shadow does nothing.
+- [ ] **Avatar Stack** shows initials rather than avatars, so every one is
+      falling back.
+- [ ] **Combobox** `multiple` shifts the layout: the component moves up when
+      enabled and down when disabled. The chips row mounts empty and the
+      parent's `gap` counts it. The throw is fixed.
+- [ ] **Toolbar** plus and minus buttons get in the way of the Number Field
+      part, and the focus ring paints behind the soft silver background.
+- [ ] **Onboarding** `animatedResize` fades up and down inside the dialog; it
+      should resize the dialog itself.
+- [ ] **Onboarding** renders checkboxes by default. They belong only to
+      `indicator: "checklist"`.
+- [ ] **Field** with `revealable` on, `iconPosition` and `iconInteractive` go
+      red but stay clickable. An inert control should be locked, not just
+      coloured.
+- [ ] **Docs site** `/ui/components/accordion` shows `shape` and
+      `indicatorPosition` in red on arrival, because `variant` defaults to
+      `default`. The inert message should wait until the control is touched.
 
-### **Autocomplete**
+## Phase 2 - Content model
 
-- No spinner when `loading` is `true`. Add one, and respect `animated`.
+The per-component copy items are all instances of the first one, so it goes
+first or they get done twice.
 
-### **Checkbox**
+- [ ] **Define one content model and apply it everywhere.** Drop the SaaS
+      framing the copy-and-paste system used. With the CLI the examples should
+      be neutral and simple. Covers copywriting **and** icon choices.
+- [ ] **Autocomplete** "Assign member" is too much context and the avatars are
+      not needed. Same for **Combobox**.
+- [ ] **Docs site** the button beside the navigation that copies the install
+      command uses an arrow-down icon; it should be a copy icon, and with no
+      label it says nothing about what it does.
 
-- The toggle should drive `checked`, not `defaultChecked`. Same for `Switch`.
-- `indeterminate` makes no sense here - `Checkbox Group` already supports it.
-  Keep the prop, remove its control, describe it as a boolean in the API.
+## Phase 3 - API changes
 
-### **Combobox**
+Breaking for the registry, so they ship together in one release with the
+renames already on `main`.
 
-- Toggling `multiple` still shifts the layout: the whole component moves up
-  when enabled and down when disabled. The chips row mounts empty, and the
-  parent's gap counts it. The throw is fixed.
+- [ ] **Checkbox and Switch** the toggle should drive `checked`, not
+      `defaultChecked`.
+- [ ] **Checkbox** `indeterminate` belongs to Checkbox Group. Keep the prop,
+      drop its control, describe it as a boolean.
+- [ ] **Radio** remove the leading and trailing icons.
+- [ ] **Toggle** remove `tone`. It and `swatchClassName` are both too strict.
+- [ ] **Empty State** `shape` controls the icon, not the buttons. Rename it
+      `iconShape`.
+- [ ] **Field and Textarea** the label and the character count should be
+      optional.
+- [ ] **Avatar** `fallback` should be controllable from the API sidebar.
+- [ ] **Popover and Tooltip** should use `arrow` by default.
+- [ ] **Autocomplete** no spinner when `loading` is `true`. Add one, and
+      respect `animated`.
+- [ ] **A prop to control focus.** Some people do not want a ring at all, and
+      the appearance could be props too: outline colour, outline offset, all
+      Yumma CSS utilities. Now unblocked, focus is settled.
+- [ ] **JSDoc warnings** for interactions that lock each other, so the block
+      and the reason reach anyone reading the source, not just the playground.
 
-### **File Upload**
+## Phase 4 - Wants mockups
 
-- Barely customisable: the dashed border and the icon should both be the
-  user's choice.
-- Barely functional: drag and drop does not work, and the upload button does
-  nothing. Dragging a file over it should change the border colour, and there
-  is more visual feedback it should have.
-- **Open question:** Base UI ships no primitive for this. Remove it from
-  Yumma UI?
+Design decisions. Nothing here starts without them.
 
-### **Field**
+- [ ] **Number Field** visual revamp. **5 mockups.** The plus and minus icons
+      are too small. (The focus ring around the whole component is done.)
+- [ ] **Slider** should look like `Switch` with a longer track. **5 mockups.**
+- [ ] **File Upload** barely customisable: the dashed border and the icon
+      should both be the user's choice. Barely functional: drag and drop does
+      nothing, the upload button does nothing, and dragging a file over it
+      should change the border colour.
+- [ ] Default every component to `square`, so Yumma UI matches the Yumma CSS
+      docs.
+- [ ] Drop indigo as the primary. Black or dark grey, with colour kept where
+      it carries meaning: red for destructive, blue for links. Wants other
+      takes alongside the grayscale one.
+- [ ] Replace the stage's tab bar with the **browser window** treatment,
+      redrawn in Yumma CSS's own colours. **3 mockups.** Not urgent.
 
-- With `revealable` on, `iconPosition` and `iconInteractive` go red but stay
-  clickable. An inert control should be locked, not just coloured.
-- Warn about these interactions in JSDoc too, so the block and the reason
-  reach anyone reading the source.
-- The label and the character count should be optional. Same for `Textarea`.
+## Phase 5 - Infrastructure
 
-### **Number Field**
+Nothing here blocks a release, and all of it makes the next change cheaper.
 
-- Wants a visual revamp. **5 mockups.** A focus outline around the whole
-  component has never worked, and the plus and minus icons are too small.
+- [ ] **Shared icons module.** Every icon re-exported from one file, so
+      changing icon library is one edit. Two half-versions exist already:
+      `EXAMPLE_ICONS` in `src/utils/demo.tsx`, and per-component imports
+      everywhere else.
+- [ ] **Shared messages module.** The same for user-facing strings: empty
+      states, hints, error copy. They sit inline as defaults today.
+- [ ] Roll both out to `docs`, `play`, `yummacss` and `ui`.
+- [ ] **Playground state in the URL.** Nothing survives a reload: every value
+      reseeds from the schema. Right for a shared link, but you cannot send
+      anyone the configuration you are looking at.
 
-### **Radio**
+## Phase 6 - After v4
 
-- Remove the leading and trailing icons.
+- [ ] **Coloured box-shadow utilities**, v4 or v4.1. Without them a
+      halo-plus-ring focus treatment cannot be written at all.
+- [ ] **Dark theme across every component.** Yumma CSS has handled dark since
+      3.29.0, so this is a Yumma UI concern now. Big enough to be the headline
+      of **1.0**. Mockups need a theme toggle from the start.
+- [ ] **Remove Skeleton**, in favour of a new prop on every component.
+- [ ] `snippets` joins the shared-constants rollout.
 
-### **Slider**
+## Decisions
 
-- Should look like `Switch` with a longer track. **5 mockups.**
+Blocked on Renildo. Each one holds up the entry beside it.
 
-### **Toggle**
+- [ ] **File Upload: remove it?** Base UI ships no primitive, and it is the
+      least functional component in the set.
+- [ ] **Avatar:** should `verified` and `status` be mutually exclusive rather
+      than both at once?
+- [ ] **Meter:** should `warning` be `yellow` rather than `orange`? Orange was
+      chosen because the solid tone paints white on the fill.
+- [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
+      npm, a dropdown, or is a dialog overkill?
 
-- Remove `tone`. It and `swatchClassName` are both too strict.
+## Known and accepted
 
-### **Toggle Group**
+Not bugs. Written down so they stop being rediscovered.
 
-- No icons render inside the toggle buttons; only border and background
-  colours are applied.
-
-### **Avatar**
-
-- `fallback` should be controllable from the API sidebar.
-- `verified` and `status` should not work together. **Open question:** either
-  A or B rather than both?
-
-### **Avatar Stack**
-
-- Shows initials rather than avatars, so every one of them is falling back.
-
-### **Meter**
-
-- Should `warning` be `yellow` rather than `orange`?
-
-
-### **Separator**
-
-- `iconShape` draws no `square`, `circle` or `squircle` around the "Or".
-
-### **Button**
-
-- `iconOnly` does nothing until `icon` is also set.
-
-### **Toolbar**
-
-- The plus and minus buttons get in the way of the Number Field part, and the
-  focus ring paints behind the soft silver background.
-
-### **Alert Dialog**
-
-- `inset` shadow does nothing.
-
-### **Popover and Tooltip**
-
-- Both should use `arrow` by default.
-
-### **Empty State**
-
-- `shape` controls the icon's shape, not the buttons'. Rename it `iconShape`.
-
-### **Onboarding**
-
-- `animatedResize` fades up and down inside the dialog; it should resize the
-  dialog itself.
-- It renders checkboxes by default. They should only appear when `indicator`
-  is `checklist`.
-
-### **Skeleton**
-
-- Already slated for removal, in favour of a new prop on every component.
-
-## **Shared constants**
-
-One file per kind of thing that gets swapped wholesale, so swapping it is one
-edit instead of a hunt. Not a new idea - it is the adapter/barrel pattern, and
-shadcn/ui ships exactly an `icons.tsx` for this reason - but Yumma UI does not
-do it and the CLI half does.
-
-- **icons**: every icon the project uses, re-exported from one module, so
-  changing icon library means editing that file and nothing else. Today a
-  migration means finding every occurrence and matching each name by hand.
-  Yumma UI has two half-versions already: `EXAMPLE_ICONS` in `src/utils/demo.tsx`
-  for the playground, and per-component imports everywhere else.
-- **messages**: the same treatment for user-facing strings - empty states,
-  hints, error copy. Today they sit inline in each component as defaults.
-- rolls out to `docs`, `play`, `yummacss` and `ui`. `snippets` later; it does
-  not touch v4 or Yumma UI so it is out of scope for now.
-
-## **API changes**
-
-### **Global**
-
-- **playground state in the URL.** Nothing survives a reload today: every
-  value reseeds from the schema. That is right for a link someone shares, but
-  it means you cannot send anyone the configuration you are looking at. Encode
-  the non-default values as a query string and read them back on mount.
-- why not create a prop to control focus? some people don’t like it… we can also create props to change the focus appearance too like outline color and outline offset (all Yumma CSS utilities btw)
-
-
+- Focus is treatment A and sits below WCAG 2.1 1.4.11. Measured at 1.21:1 for
+  the outline and 1.80:1 for the border. Deferred deliberately: no users, and
+  a CSS change is reversible. The same treatment one or two shades down the
+  indigo scale would pass.
+- Nothing in the playground survives a reload, by design, until the URL entry
+  in Phase 5 lands.
