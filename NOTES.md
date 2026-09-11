@@ -1206,6 +1206,13 @@ declares logical properties: `padding` covers `padding-inline` covers
       as a **second** argument to `merge`, which silently dropped `br-0` and
       `br-9999` in the combinations where they met. One argument now, built
       inline, the same fix as Toggle's cursor.
+- [x] **The writing conventions were never written down.** They only existed
+      in conversation, so every new session started without them. They are in
+      `AGENTS.md` now, next to the Next.js block that tool keeps re-adding -
+      `upsertAgentRulesBlock` only manages its own block, so the rest survives.
+      Along with it, the `getAnimations()` explanation that had been copied
+      into twelve component files is one line pointing here: 97 lines out, 12
+      in.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

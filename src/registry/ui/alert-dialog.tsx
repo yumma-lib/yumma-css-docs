@@ -30,7 +30,7 @@ const BUTTON_SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
-/** Keyed on Base UI's own transition attributes, which is what it waits for. */
+/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const ALERT_MOTION = `
   .yui-alert-pop {
     transition: opacity 200ms ease-out, scale 200ms ease-out;
@@ -207,13 +207,6 @@ export default function AlertDialogBase({
 
   return (
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
-      {/*
-        Base UI decides when the popup may disappear by asking the element
-        `getAnimations()`. Motion's animation never showed up there - measured
-        zero - so it set `hidden` in the same frame and Motion faded an element
-        that was already `display:none`. CSS transitions do register, so Base
-        UI waits for these. React hoists and de-duplicates a `<style href>`.
-      */}
       <style href="yumma-ui-alert-dialog-motion" precedence="default">
         {ALERT_MOTION}
       </style>
