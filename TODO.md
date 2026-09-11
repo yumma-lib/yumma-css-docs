@@ -11,6 +11,11 @@ A separate pass from the API fixes. All three want mockups before any code.
   `fv:oc-indigo-2/60 fv:bc-indigo-3` over `bc-gray-2 bw-1`. Pairs with the
   existing Global entry about a focus prop. Contrast against WCAG 2.1 is a
   known concern, deliberately left until the look is settled.
+- make every component dark-theme compatible. Yumma CSS has handled dark
+  since 3.29.0, so this is a Yumma UI concern now, and it is big enough to be
+  the headline of **1.0** rather than a patch. The mockups need a theme
+  toggle from the start: the focus treatment was drafted against a light
+  input, and a near-black primary changes what reads on a dark ground.
 - drop indigo as the primary. It is an opinionated colour; black or dark grey
   instead, with colour kept for the places it carries meaning - red for
   destructive, blue for links. Wants other takes alongside the grayscale one.
@@ -30,25 +35,15 @@ A separate pass from the API fixes. All three want mockups before any code.
 
 ### **Autocomplete**
 
-- Don't use the `PageSearch` icon, use the `Search` icon instead
 - When you click to open the autocomplete results and then click on disable the menu should close
 
 ### **Field**
 
-- use the `Folder` icon instead of the `Mail` icon
 - remove the `multiline` prop
 
 ### **Number Field**
 
-- use the `TriangleFlag` icon instead of the `Folder` icon
-
-### **Switch**
-
-- `defaultChecked` prop does nothing?
-
-### **Toggle**
-
-- `defaultPressed` does nothing?
+- use the `TriangleFlag` icon instead of the `Folder` icon - **blocked**: Number Field has no icon slot at all, it only draws Minus and Plus on its steppers. Either this meant a different component, or it wants an icon prop adding first.
 
 ### **Accordion**
 
@@ -103,7 +98,6 @@ A separate pass from the API fixes. All three want mockups before any code.
 
 ### Onboarding
 
-- don’t use the `Star` icon use the `SparksSolid` icon
 - using indicator set to count and dismissible set to true looks weird because the indicator and the X icon are almost kissing each other
 - you missed the checklist in the indicator prop and maybe this prop for this component specifically should be called `type`or get another name like `style` maybe
 there is an intentional grow animation when the onboarding container grows, make that animation a prop

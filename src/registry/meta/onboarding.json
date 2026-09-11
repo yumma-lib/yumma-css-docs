@@ -12,7 +12,7 @@
       "name": "triggerIcon",
       "type": "none",
       "typeName": "ReactNode",
-      "exampleIcon": "Star",
+      "exampleIcon": "SparksSolid",
       "description": "A glyph beside the trigger's label."
     },
     {
@@ -29,7 +29,7 @@
       "example": [
         {
           "icon": {
-            "$icon": "Star"
+            "$icon": "SparksSolid"
           },
           "title": "Welcome aboard",
           "description": "A short tour of what you can do here, three screens long."
