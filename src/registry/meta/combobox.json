@@ -72,7 +72,7 @@
       "name": "clearable",
       "type": "boolean",
       "default": true,
-      "description": "A clear button beside the trigger. Ignored when `multiple`, where each chip removes itself and a clear-all would be a second way to do the same thing at a different scale."
+      "description": "Adds a button that empties the selection. It appears with the first selection rather than with the prop, because an X on an empty field has nothing to do. Works alongside `multiple`, where it clears every chip."
     },
     {
       "name": "disabled",

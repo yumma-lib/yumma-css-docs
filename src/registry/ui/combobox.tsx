@@ -206,8 +206,13 @@ export default function ComboboxBase({
           <div
             className={`d-f p-a r-2 b-0 ai-c jc-c c-slate-6 ${ACTION_HEIGHTS[size]}`}
           >
-            {}
-            {clearable && !multiple && (
+            {/* Base UI unmounts `Clear` while there is nothing to clear, which
+                is right - an X on an empty field does nothing - so the button
+                appears with the first selection rather than with the prop.
+                It works in `multiple` too: clearing the chips is the same
+                gesture, and excluding it there left no way to empty them at
+                once. */}
+            {clearable && (
               <Combobox.Clear className={ACTION} aria-label="Clear selection">
                 <Xmark className="w-4 h-4" />
               </Combobox.Clear>
@@ -218,27 +223,36 @@ export default function ComboboxBase({
           </div>
         </div>
 
+        {/* `Chips` is not decoration: `Chip` reads a context off it, and
+            without it the first selection threw on
+            `setHighlightedChipIndex`. It wraps `Value`, not the other way
+            round - the list of chips is the value. */}
         {multiple && (
-          <Combobox.Value>
-            {(selected: string[]) => (
-              <div className="d-f fw-w ai-c g-1">
-                {selected.map((chip) => (
-                  <Combobox.Chip
-                    key={chip}
-                    className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-9999 fs-xs fw-500"
-                  >
-                    {chip}
-                    <Combobox.ChipRemove
-                      className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
-                      aria-label={`Remove ${chip}`}
+          <Combobox.Chips className="d-f fw-w ai-c g-1">
+            <Combobox.Value>
+              {/* `null` until something is selected, not an empty array - the
+                  callback is typed `any` by Base UI, so nothing warned, and
+                  `.map` on it threw the moment `multiple` was turned on. */}
+              {(selected: string[] | null) => (
+                <>
+                  {(selected ?? []).map((chip) => (
+                    <Combobox.Chip
+                      key={chip}
+                      className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-9999 fs-xs fw-500"
                     >
-                      <Xmark className="w-3 h-3" />
-                    </Combobox.ChipRemove>
-                  </Combobox.Chip>
-                ))}
-              </div>
-            )}
-          </Combobox.Value>
+                      {chip}
+                      <Combobox.ChipRemove
+                        className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
+                        aria-label={`Remove ${chip}`}
+                      >
+                        <Xmark className="w-3 h-3" />
+                      </Combobox.ChipRemove>
+                    </Combobox.Chip>
+                  ))}
+                </>
+              )}
+            </Combobox.Value>
+          </Combobox.Chips>
         )}
 
         {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}

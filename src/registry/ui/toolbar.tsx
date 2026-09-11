@@ -243,10 +243,15 @@ export default function ToolbarBase({
 
         const button = item as ToolbarButtonItem;
         const buttonClasses = [
-          "d-f ai-c jc-c bg-transparent c-slate-7 bw-0 us-none fv:oo-2 fv:oc-indigo-5",
+          // `ws-nw`: a toolbar is a row of controls, and a label that wraps
+          // makes the whole bar two lines tall to fit one button.
+          "d-f ai-c jc-c ws-nw bg-transparent c-slate-7 bw-0 us-none fv:oo-2 fv:oc-indigo-5",
           button.iconOnly ? "w-9 h-9" : "g-1 h-9 px-3 fs-sm fw-500",
           control,
-          button.disabled ? "o-60 c-na" : "c-p h:bg-silver-1 h:c-slate-10",
+          // Surface, not fade, matching the rest of the library.
+          button.disabled
+            ? "bg-silver-1 c-slate-4 c-na"
+            : "c-p h:bg-silver-1 h:c-slate-10",
         ]
           .filter(Boolean)
           .join(" ");
@@ -277,6 +282,28 @@ export default function ToolbarBase({
         );
       })}
     </Toolbar.Root>
+  );
+}
+
+/**
+ * The pop a toggle makes as it takes hold.
+ *
+ * `animated` meant `whileTap` alone, which lasts exactly as long as the pointer
+ * is held down, so a click was over before you saw it. The plain buttons and
+ * the stepper keep only `whileTap`, which is right for a momentary action -
+ * there is no state for them to settle into. A toggle has one.
+ */
+function Pop({ on, children }: { on: boolean; children: ReactNode }) {
+  return (
+    <motion.span
+      key={on ? "on" : "off"}
+      className="d-f"
+      initial={{ scale: on ? 0.8 : 1 }}
+      animate={{ scale: 1 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+    >
+      {children}
+    </motion.span>
   );
 }
 
@@ -324,14 +351,22 @@ function ToolbarToggles({
           aria-label={option.label}
           render={
             animated
-              ? (props, state) => (
-                  <motion.button
-                    type="button"
-                    {...(props as HTMLMotionProps<"button">)}
-                    whileTap={{ scale: 0.92 }}
-                    className={toggleClasses(state.pressed)}
-                  />
-                )
+              ? (props, state) => {
+                  // The icon arrives as `children`, so it has to be lifted out
+                  // to be wrapped rather than spread straight onto the button.
+                  const { children, ...rest } =
+                    props as HTMLMotionProps<"button">;
+                  return (
+                    <motion.button
+                      type="button"
+                      {...rest}
+                      whileTap={{ scale: 0.92 }}
+                      className={toggleClasses(state.pressed)}
+                    >
+                      <Pop on={state.pressed}>{children as ReactNode}</Pop>
+                    </motion.button>
+                  );
+                }
               : (props, state) => (
                   <Button {...props} className={toggleClasses(state.pressed)} />
                 )

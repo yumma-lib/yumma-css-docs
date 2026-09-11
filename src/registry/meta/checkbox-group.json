@@ -9,12 +9,14 @@
     {
       "name": "parentLabel",
       "type": "ReactNode",
-      "description": "Renders a checkbox above the group that checks and clears all of them, and is indeterminate while only some are checked. Needs `allValues`, and indents the group under it."
+      "description": "Renders a checkbox above the group that checks and clears all of them, and is indeterminate while only some are checked. Needs `allValues`, and indents the group under it.",
+      "example": "Permissions"
     },
     {
       "name": "allValues",
       "type": "string[]",
-      "description": "Every value in the group. Without it the parent cannot tell all-checked from some-checked."
+      "description": "Every value in the group. Without it the parent cannot tell all-checked from some-checked.",
+      "example": ["read", "write", "delete"]
     },
     {
       "name": "value",
@@ -24,7 +26,8 @@
     {
       "name": "defaultValue",
       "type": "string[]",
-      "description": "The checked values on first render, uncontrolled."
+      "description": "The checked values on first render, uncontrolled.",
+      "example": ["read"]
     },
     {
       "name": "onValueChange",

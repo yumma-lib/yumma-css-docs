@@ -16,6 +16,41 @@
           "type": "separator"
         },
         {
+          "type": "toggles",
+          "defaultValue": ["bold"],
+          "options": [
+            {
+              "value": "bold",
+              "label": "Bold",
+              "icon": {
+                "$icon": "Bold",
+                "size": "w-4 h-4"
+              }
+            },
+            {
+              "value": "italic",
+              "label": "Italic",
+              "icon": {
+                "$icon": "Italic",
+                "size": "w-4 h-4"
+              }
+            }
+          ]
+        },
+        {
+          "type": "separator"
+        },
+        {
+          "type": "number",
+          "label": "Zoom",
+          "defaultValue": 100,
+          "min": 50,
+          "max": 200
+        },
+        {
+          "type": "separator"
+        },
+        {
           "type": "input",
           "label": "Search tasks",
           "placeholder": "Search tasks..."

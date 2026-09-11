@@ -116,6 +116,48 @@ describe("Yumma UI registry", () => {
     expect(wrong).toEqual([]);
   });
 
+  // Same shape one level down: a schema can name any icon it likes, but
+  // `resolveIcons` only knows the ones in `EXAMPLE_ICONS`, and an unknown name
+  // resolves to `undefined` in silence - the toolbar's toggles simply did not
+  // render, with nothing to say why.
+  it("resolves every icon a schema names", () => {
+    const known = new Set(
+      (
+        readFileSync(join(rootDir, "src/utils/demo.tsx"), "utf-8").match(
+          /export const EXAMPLE_ICONS[^{]*\{[^}]*\}[^{]*\{([^}]*)\}/,
+        )?.[1] ?? ""
+      )
+        .split(",")
+        .map((entry) => entry.trim())
+        .filter(Boolean),
+    );
+
+    expect(known.size).toBeGreaterThan(0);
+
+    const named: string[] = [];
+    const walk = (value: unknown) => {
+      if (Array.isArray(value)) return value.forEach(walk);
+      if (typeof value !== "object" || value === null) return;
+      const marker = (value as Record<string, unknown>).$icon;
+      if (typeof marker === "string") named.push(marker);
+      for (const nested of Object.values(value)) walk(nested);
+    };
+
+    const missing: string[] = [];
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      named.length = 0;
+      walk(meta);
+      for (const name of named) {
+        if (!known.has(name)) missing.push(`${file}: ${name}`);
+      }
+    }
+
+    expect(missing).toEqual([]);
+  });
+
   // The snippet prints whatever `childrenExample` names, but the stage can only
   // render a component in `CHILD_COMPONENTS`. A name in one and not the other
   // is the code block lying again, in the other direction.

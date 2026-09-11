@@ -1007,6 +1007,61 @@ declares logical properties: `padding` covers `padding-inline` covers
       not in the four reported but carried the same `o-60`. The composition
       test flagged the new `bg-white` drop; it is the intended one and is in
       `EXPECTED_DROPS` now with a note.
+- [x] **The `animate` pair was Rating's bug again, twice.** Both meant
+      `whileTap` alone, which lasts exactly as long as the pointer is held:
+      press and it is over before you let go. Toggle and Toolbar's toggles now
+      pop as they take hold, keyed on the pressed state so remounting replays
+      it. Toolbar renders Base UI's `Toggle` directly rather than our
+      component, so it needed its own copy - the icon arrives as `children`
+      there and has to be lifted out of the props before it can be wrapped.
+      The plain buttons and the stepper keep `whileTap` only, which is right
+      for a momentary action: there is no state for them to settle into.
+      Measured mid-flight: scale 0.85 -> 0.90 -> 0.93 -> 0.97 -> 0.99 in both.
+- [x] **Toolbar's demo had nothing with a state.** Two plain buttons, a
+      separator and an input, so `animated` had nothing to show even once it
+      worked. It seeds a toggle pair and a stepper now. Two things fell out:
+      `New Task` wrapped to two lines, making the whole bar two rows tall for
+      one button (`ws-nw`), and its disabled buttons still faded, so they join
+      the surface convention.
+- [x] **A schema could name an icon that silently resolved to nothing.**
+      `resolveIcons` only knows `EXAMPLE_ICONS`, and an unknown name returns
+      `undefined` without a word - which is why the seeded Bold/Italic toggles
+      simply were not there, with no error to explain it. `Bold` and `Italic`
+      are in the list now, and `tests/registry.test.ts` walks every `$icon`
+      marker in every meta against it. Checked that the test can fail: renaming
+      one marker to `NotAnIcon` fails with `toolbar.json: NotAnIcon`.
+- [x] **`defaultChecked` and `checked` already worked.** Measured:
+      `aria-checked` false -> true, background to indigo, tick present. The
+      entry was closed by the earlier remount fix - the stage keys the preview
+      on every `default*` value - and TODO was never updated to match.
+- [x] **`indeterminate` had nowhere to mean anything.** "Just one isn't
+      enough" is exactly right: a half-checked box stands for *other* boxes, so
+      alone it says nothing. `CheckboxGroup` has driven it from `allValues`
+      since the parent landed, but `parentLabel`, `allValues` and
+      `defaultValue` were all seeded `null`, so the demo showed a group with no
+      parent and the state was unreachable on either page. Seeded now with one
+      of three children checked, which is the state the parent exists to
+      report: parent `aria-checked="mixed"`, Read true, Write and Delete false,
+      and the Code tab prints the same. Checkbox's own `indeterminate`
+      description says what it means and points at the group.
+- [x] **`multiple` was two crashes stacked, and the second only showed once
+      the first was gone.** `Combobox.Value`'s callback is typed `any` by Base
+      UI and hands you `null`, not `[]`, until something is selected - so
+      `.map` threw the moment the prop was turned on, and TypeScript had
+      nothing to say about it. Guarding that got an empty multiple combobox
+      rendering, and selecting the first item then threw
+      `Cannot destructure property 'setHighlightedChipIndex'`: `Chip` reads a
+      context off `Combobox.Chips`, which we never rendered. The documented
+      shape has `Chips` **wrapping** `Value` - the list of chips is the value -
+      not the other way round, which is how it was written.
+- [x] **`clearable` was doing its job.** Base UI unmounts `Clear` while there
+      is nothing to clear, which is right: an X on an empty field does nothing.
+      So the button arrives with the first selection, not with the prop, and
+      toggling it on an empty combobox looks like nothing happening. The
+      description says so now. One real fix alongside it: the button was gated
+      `clearable && !multiple`, so a multiple combobox had no way to empty its
+      chips at once. Measured after: single picks up `Clear selection` on the
+      first choice; multiple shows two chips, two `Remove` buttons and `Clear`.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
