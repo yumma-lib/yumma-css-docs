@@ -1086,6 +1086,85 @@ declares logical properties: `padding` covers `padding-inline` covers
       `aria-label="Label"`. This is the first case of the Global "disable A
       when B rules it out" entry, handled inside the component rather than in
       the playground.
+- [x] **Dialog's spacing was three padded blocks pretending to be a column.**
+      Title, description and children each carried their own `py-`, so the gap
+      between them was two paddings stacked, and the space *above* the title
+      was a single `py-2` - which is what put it against the top edge whenever
+      there was no header. It is one `d-f fd-c g-3` column with real top and
+      bottom padding now, which is what Alert Dialog was already doing and why
+      that one "looks good". Both popups now sit their first child 41px below
+      the top edge, measured.
+- [x] **Motion cannot animate a Base UI popup out, and my first measurement
+      hid that.** I sampled opacity alone, saw it fall 0.76 -> 0.00, and
+      called the entry not reproducible. Opacity was falling on an element
+      that was already `display:none`: Base UI sets `hidden` the moment the
+      popup closes, so there was nothing on screen to see. Sampling `display`,
+      `visibility` and the box as well is what showed it - `disp=none h=0
+      HIDDEN` from the first frame after the click.
+      The mechanism: Base UI asks the element `getAnimations()` and waits for
+      what it finds. Motion's animation **never appears there** - measured
+      zero - so Base UI concludes nothing is running and hides in the same
+      frame; Motion then fades something invisible. The entrance looks right
+      only because the element is visible on the way in. Neither documented
+      Motion recipe helps, because both lose the same race: with
+      `AnimatePresence` and without it, `getAnimations()` is still 0.
+      CSS transitions **do** register, so both dialogs use Base UI's own
+      `data-starting-style` / `data-ending-style` attributes now, carried in a
+      `<style href precedence>` that React hoists and de-duplicates - which
+      keeps a copied component self-contained. Measured after: the popup stays
+      `display:block` and visible for the whole 200ms, opacity 0.74 -> 0.41 ->
+      0.23 -> 0.04 with the height shrinking 193 -> 184 as it scales, and only
+      then `hidden`.
+      **The first cut of this broke both dialogs completely.** Dropping
+      `{open && popup}` left the portal always mounted, which is the point -
+      but the popup sat inside a plain `<div className="d-f p-f i-0">` that I
+      wrote, and a bare div is never told to hide. So a full-viewport fixed
+      overlay stayed in the DOM at all times and swallowed every click,
+      including the one on the trigger. `Dialog.Viewport` and
+      `AlertDialog.Viewport` are exactly that container and carry
+      `hidden: !mounted`, so they are the parts to use. The lesson is the
+      check, not the fix: I verified the animation and never verified that the
+      thing still opened. Interaction is now measured explicitly - what
+      `elementFromPoint` returns over the closed trigger, whether the dialog's
+      own button is the hit target, and that it closes and reopens.
+      **The sweep's first verdict was wrong, twice over.** I called four
+      components "already fine" and three "unknown" - both readings came from
+      looking one level too shallow. The popup's own `display` stays `block`
+      the whole way out; it is the **positioner above it** that Base UI marks
+      `display:none, opacity:0, [hidden]` in the first frame. So the popup
+      faded, correctly, inside a hidden parent. Checking a computed style on
+      one element proves nothing unless you walk its ancestors too, and that
+      is the check that finally settled it.
+      Every popup component had the bug, which is what the original "every
+      component has this" guessed at and could not show. All eight are on the
+      CSS-attribute path now - popover, menu, menubar, context-menu, tooltip,
+      select, autocomplete, combobox - alongside the four dialogs. Measured on
+      each: three frames of visible fade (0.66 -> ~0.3 -> 0.08) with no
+      blocking ancestor at any point, the control still reachable, the popup
+      still opening. Measured by
+      opening each and sampling opacity *and* `display` on the way out:
+      - **Same bug** (fading while `display:none`): `command-palette` and
+        `onboarding`. Both are the dialog shape exactly - a Dialog or
+        AlertDialog portal with a hand-written `<div className="d-f p-f i-0">`
+        wrapper. Both fixed the same way, Viewport included.
+      - `popover`, `menu`, `menubar`, `context-menu` were **not** fine; the
+        positioner was hidden under them from frame one.
+      - **Unknown**: `select`, `autocomplete`, `combobox`. I reported these as
+        "no exit animation" on the strength of opacity sitting at 1.00, and
+        that reading is **not trustworthy**: the element I was sampling,
+        `[role="listbox"]`, carries no Base UI data attributes at all, open or
+        closed, so it is not the Popup part. I was measuring the list inside
+        it. The attempted fix was reverted rather than shipped unverified -
+        it changed behaviour (the popup stayed in the DOM at height 0 when
+        closed) without demonstrably fixing anything. Redo this by finding the
+        element that actually carries `data-open` / `data-ending-style` first,
+        then measuring that one.
+      - `tooltip` could not be opened from a synthetic hover, so it is
+        unmeasured rather than clean.
+      The dividing line is the wrapper: a hand-written div around the Popup is
+      what breaks it, because nothing tells that div to hide. Yumma has no `data-*` variants, which is what
+      forces a raw `<style>` here - a concrete argument for adding attribute
+      variants in v4.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

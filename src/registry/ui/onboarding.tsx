@@ -26,6 +26,29 @@ const CONTROL_SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
+/** Keyed on Base UI's own transition attributes, which is what it waits for. */
+const ONBOARDING_MOTION = `
+  .yui-onboarding-pop {
+    transition: opacity 200ms ease-out, scale 200ms ease-out;
+  }
+  .yui-onboarding-pop[data-starting-style],
+  .yui-onboarding-pop[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+  .yui-onboarding-fade {
+    transition: opacity 200ms ease-out;
+  }
+  .yui-onboarding-fade[data-starting-style],
+  .yui-onboarding-fade[data-ending-style] {
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-onboarding-pop,
+    .yui-onboarding-fade { transition: none; }
+  }
+`;
+
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   inset: "bs-i-md",
   outset: "bs-o-sm",
@@ -185,36 +208,11 @@ export default function OnboardingBase({
   const popup = (
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
-        render={
-          animated ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            />
-          ) : undefined
-        }
-        className="p-f i-0 min-h-dvh bg-black/5 bf-b-xs"
+        className={`p-f i-0 min-h-dvh bg-black/5 bf-b-xs ${animated ? "yui-onboarding-fade" : ""}`}
       />
-      <div className="d-f p-f i-0 ai-c jc-c">
+      <AlertDialog.Viewport className="d-f p-f i-0 ai-c jc-c">
         <AlertDialog.Popup
-          render={
-            animated ? (
-              <motion.div
-                layout={hasAnyTasks || undefined}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{
-                  duration: 0.2,
-                  ease: "easeOut",
-                  layout: { duration: 0.25, ease: "easeOut" },
-                }}
-              />
-            ) : undefined
-          }
-          className={popupClasses}
+          className={`${popupClasses} ${animated ? "yui-onboarding-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           {dismissible && (
@@ -357,7 +355,7 @@ export default function OnboardingBase({
             </div>
           )}
         </AlertDialog.Popup>
-      </div>
+      </AlertDialog.Viewport>
     </AlertDialog.Portal>
   );
 
@@ -373,17 +371,22 @@ export default function OnboardingBase({
         }
       }}
     >
+      {/* Base UI hides the popup as soon as `getAnimations()` finds nothing,
+          and Motion's animation never registers there - so the exit played on
+          an element that was already `display:none`. CSS transitions do
+          register. The inner `AnimatePresence` further down is a different
+          thing: it moves between steps while the popup stays open. */}
+      <style href="yumma-ui-onboarding-motion" precedence="default">
+        {ONBOARDING_MOTION}
+      </style>
+
       <AlertDialog.Trigger render={<Button className={triggerClasses} />}>
         {triggerIcon && iconPosition === "leading" && triggerIcon}
         <span>{trigger}</span>
         {triggerIcon && iconPosition === "trailing" && triggerIcon}
       </AlertDialog.Trigger>
 
-      {animated ? (
-        <AnimatePresence>{open && popup}</AnimatePresence>
-      ) : (
-        open && popup
-      )}
+      {popup}
     </AlertDialog.Root>
   );
 }

@@ -3,7 +3,6 @@
 import { AlertDialog } from "@base-ui/react/alert-dialog";
 import { Button } from "@base-ui/react/button";
 import { Xmark } from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
@@ -30,6 +29,29 @@ const BUTTON_SHAPES: Record<Shape, string> = {
   square: "",
   squircle: "br-xxl cs-s",
 };
+
+/** Keyed on Base UI's own transition attributes, which is what it waits for. */
+const ALERT_MOTION = `
+  .yui-alert-pop {
+    transition: opacity 200ms ease-out, scale 200ms ease-out;
+  }
+  .yui-alert-pop[data-starting-style],
+  .yui-alert-pop[data-ending-style] {
+    opacity: 0;
+    scale: 0.95;
+  }
+  .yui-alert-fade {
+    transition: opacity 200ms ease-out;
+  }
+  .yui-alert-fade[data-starting-style],
+  .yui-alert-fade[data-ending-style] {
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .yui-alert-pop,
+    .yui-alert-fade { transition: none; }
+  }
+`;
 
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   inset: "bs-i-md",
@@ -137,31 +159,13 @@ export default function AlertDialogBase({
   const popup = (
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
-        render={
-          animated ? (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            />
-          ) : undefined
-        }
-        className="p-f i-0 min-h-dvh bg-black/5 bf-b-xs"
+        className={`p-f i-0 min-h-dvh bg-black/5 bf-b-xs ${
+          animated ? "yui-alert-fade" : ""
+        }`}
       />
-      <div className="d-f p-f i-0 ai-c jc-c">
+      <AlertDialog.Viewport className="d-f p-f i-0 ai-c jc-c">
         <AlertDialog.Popup
-          render={
-            animated ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.2, ease: "easeOut" }}
-              />
-            ) : undefined
-          }
-          className={popupClasses}
+          className={`${popupClasses} ${animated ? "yui-alert-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
           {showClose && (
@@ -197,23 +201,29 @@ export default function AlertDialogBase({
             </AlertDialog.Close>
           </div>
         </AlertDialog.Popup>
-      </div>
+      </AlertDialog.Viewport>
     </AlertDialog.Portal>
   );
 
   return (
     <AlertDialog.Root open={open} onOpenChange={setOpen}>
+      {/*
+        Base UI decides when the popup may disappear by asking the element
+        `getAnimations()`. Motion's animation never showed up there - measured
+        zero - so it set `hidden` in the same frame and Motion faded an element
+        that was already `display:none`. CSS transitions do register, so Base
+        UI waits for these. React hoists and de-duplicates a `<style href>`.
+      */}
+      <style href="yumma-ui-alert-dialog-motion" precedence="default">
+        {ALERT_MOTION}
+      </style>
       <AlertDialog.Trigger render={<Button className={triggerClasses} />}>
         {triggerIcon && triggerIconPosition === "leading" && triggerIcon}
         {trigger}
         {triggerIcon && triggerIconPosition === "trailing" && triggerIcon}
       </AlertDialog.Trigger>
 
-      {animated ? (
-        <AnimatePresence>{open && popup}</AnimatePresence>
-      ) : (
-        open && popup
-      )}
+      {popup}
     </AlertDialog.Root>
   );
 }

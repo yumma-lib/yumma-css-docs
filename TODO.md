@@ -79,15 +79,6 @@ A separate pass from the API fixes. All three want mockups before any code.
 
 - when using the `pill` in the `shape` option the the Tabs track turns into a circle and the tab items overflow its container which looks VERY unpleasant to look at. This happens ONLY when using `horizontal` set to `vertical.` this happens because we are not strict at all. you have to look at https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/tabs to understand better the solution.
 
-### Alert Dialog
-
-- there is no outbound animation like in https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/alert-dialog
-
-### Dialog
-
-- spacing here looks terrible when it comes to the parent container, copy from Alert Dialog which looks good
-- there is no outbound animation like in https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/dialog
-
 ### Tooltip
 
 - shouldn’t the `triggerTone` change the tooltip background color too? to red for example if set to danger?
