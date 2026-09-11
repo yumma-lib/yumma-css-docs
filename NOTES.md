@@ -1243,6 +1243,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       Rules went 0px -> 222px horizontal, 263px vertical. Checked the blast
       radius rather than assuming it: button, badge, avatar, switch, meter and
       separator previews are all still centred to the pixel.
+- [x] **Neither breadcrumb separator followed `size`.** The chevron was a fixed
+      `w-4 h-4` and the slash inherited the frame's 16px, so at `sm` the
+      separator was **larger than the label it separated**. The chevron also
+      reads smaller than the slash at the same box: measured with `getBBox`,
+      its ink is 13.5 of 24 user units, **56% of the box**, against a slash
+      that fills its em. Both follow `size` now and the chevron gets a box a
+      step up (16/20/24), which puts the ink ratio at 0.75-0.84 instead of
+      0.56. Screenshotted at `sm` and `lg`, both separators.
+- [x] **Accordion `subtle` had a tinted surface and no gutter.** `bordered`
+      took `px-4` and `subtle` fell through to `px-0`, so its copy sat on the
+      fill's left edge while `ghost` was indented by its own `pl-4`. One
+      `inset` flag covers all three surfaces now. Title gap went 0 -> 16px,
+      matching `bordered`'s 17.
+- [x] **Avatar's `default` badges were already split.** `ce9c3c4` set
+      `verified`'s example to `null`, so only `status` seeds. What was left was
+      a description carrying the old sentence and its replacement, both.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
