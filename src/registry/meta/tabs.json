@@ -67,7 +67,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["pill", "rounded", "square", "squircle"],
-      "default": "pill",
+      "default": "square",
       "description": "Corner radius on the track and the tabs. `pill` steps down to `rounded` when `orientation` is vertical: a capsule resolves its radius against the narrow axis, so the track becomes a blob and the selected tab's indicator is clipped to the curve."
     },
     {

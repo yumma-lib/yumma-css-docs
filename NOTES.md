@@ -1557,6 +1557,26 @@ declares logical properties: `padding` covers `padding-inline` covers
 - [x] **Autocomplete has a spinner.** Motion rather than a keyframe class:
       Yumma has no animation utility, and this is not a Base UI enter or exit,
       which is the one case Motion cannot serve.
+- [x] **Square did not reach the parts that never read `shape`.** The hover
+      fill on popup items was a hardcoded `br-md` in Autocomplete, Combobox
+      and Select, so a square component rounded under the cursor; the item
+      renderers are module-level functions and had to be handed `shape`. Close
+      buttons on Alert Dialog, Dialog and Onboarding were `br-9999` circles.
+      Empty State's card and buttons, Meter's card, track and indicator, File
+      Upload's icon tile and Combobox's action buttons were all fixed radii.
+      **Tabs defaulted to `pill`**, not `rounded`, which is why the sweep that
+      changed 31 components missed it.
+- [x] **`animatedResize` never ran, for three reasons at once.** It required
+      `hasAnyTasks`, which became checklist-only when tasks moved under that
+      indicator. Every slide was pinned to `h-48`, so no two could differ.
+      And the observer was attached in an effect that ran **before the
+      portalled content existed** and never re-ran, leaving the height `null`
+      and the box on `height: auto`. A callback ref attaches when the node
+      appears. Measured 256 to 298 across thirteen eased frames on the default
+      indicator.
+- [x] **Number Field rings each part that takes focus**, steppers included,
+      the way the docs rail's own stepper does.
+- [x] **Meter's `warning` is yellow**, and Rating's `max` floor is 3.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
