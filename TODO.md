@@ -46,9 +46,7 @@ do it and the CLI half does.
 
 ### **Global**
 
-- remove **Collapsible** component entirely
 - having predefined colors is way TOO limiting… remove the color prop
-- what if we split Meter component into two? Meter and Progress? My original idea was to swap these two Base UI primitives using the animate prop but this might be not the best way just because accessibility and their API and overall meaning might be very diff from each other… We need to check if one extends another too to really see if split makes sense
 - does it really make sense to have `defaultChecked` in the playground? it won’t survive a refresh so what’s the point? how do we solve this?
 - two prop names are still one name with two meanings, and both need a call: Accordion's `icon` is an enum picking a built-in glyph (`chevron`/`plus-minus`) while `icon` is a ReactNode on twelve other components, and Skeleton's `size` takes literal utilities (`"w-9 h-9"`) while `size` is an enum on sixteen others
 - we SHOULD be a bit more strict, some options are NOT meant to work with other options e.g. we should disable A if B is enabled when needed… maybe using the `diff-remove` color for the switch track to display that that switch is disabled

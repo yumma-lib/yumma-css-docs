@@ -1326,6 +1326,12 @@ declares logical properties: `padding` covers `padding-inline` covers
       picking a built-in glyph while `icon` is a ReactNode on twelve others,
       and Skeleton's `size` takes literal utility classes while `size` is an
       enum on sixteen others.
+- [x] **Collapsible and the Meter/Progress split were both already done.**
+      There is no `collapsible` in the registry - the only `Collapsible` left
+      is the docs site's own file tree, which is not a Yumma UI component.
+      Meter and Progress are two components on two Base UI primitives with
+      different props, and no `animate` swaps between them; the entry was
+      written when the swap was still the plan.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
