@@ -74,7 +74,7 @@ export default function TextareaBase({
   error,
   success,
   maxLength,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   disabled,
   className,

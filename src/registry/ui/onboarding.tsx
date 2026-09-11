@@ -6,7 +6,7 @@ import { Tabs } from "@base-ui/react/tabs";
 import { ArrowLeft, ArrowRight, Check, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Indicator = "count" | "progress" | "dots" | "checklist";
@@ -103,7 +103,7 @@ export default function OnboardingBase({
   indicator = "count",
   showClose = false,
   animatedResize = true,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   animated = true,
   className,
@@ -118,9 +118,33 @@ export default function OnboardingBase({
   const isFirst = page === 0;
   const isLast = page === steps.length - 1;
   const doneCount = checked[page]?.size ?? 0;
-  const allTasksDone = !step.tasks || doneCount >= step.tasks.length;
 
-  const hasAnyTasks = steps.some((s) => (s.tasks?.length ?? 0) > 0);
+  // Tasks belong to the checklist indicator. A step can carry them under any
+  // other indicator and they stay out of the way, gate and all.
+  const showTasks = indicator === "checklist";
+  const tasks = showTasks ? step.tasks : undefined;
+  const allTasksDone = !tasks || doneCount >= tasks.length;
+
+  const hasAnyTasks =
+    showTasks && steps.some((s) => (s.tasks?.length ?? 0) > 0);
+
+  // `layout` animates with transforms, which move nothing around them, so the
+  // popup jumped while the slide eased inside it. A measured height is the
+  // only kind the popup follows.
+  const resizes = animated && animatedResize && hasAnyTasks;
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [contentHeight, setContentHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    const element = contentRef.current;
+    if (!element || !resizes) return;
+
+    const measure = () => setContentHeight(element.offsetHeight);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [resizes]);
 
   const go = (next: number) => {
     setDirection(next > page ? 1 : -1);
@@ -175,9 +199,9 @@ export default function OnboardingBase({
       </div>
       <span className="c-slate-10 fs-md fw-500">{step.title}</span>
       <p className="m-0 c-slate-6 fs-sm lh-4">{step.description}</p>
-      {step.tasks && step.tasks.length > 0 && (
+      {tasks && tasks.length > 0 && (
         <div className="d-f fd-c g-2 w-100% pt-2 ta-l">
-          {step.tasks.map((task) => {
+          {tasks.map((task) => {
             const isChecked = checked[page]?.has(task.id) ?? false;
             return (
               <Button
@@ -246,8 +270,8 @@ export default function OnboardingBase({
                 {indicator === "checklist" && (
                   <span className="c-slate-5 fs-xs">
                     {/* A step with nothing to tick reports the tour instead. */}
-                    {step.tasks?.length
-                      ? `${doneCount} / ${step.tasks.length} done`
+                    {tasks?.length
+                      ? `${doneCount} / ${tasks.length} done`
                       : `${page + 1} / ${steps.length}`}
                   </span>
                 )}
@@ -278,32 +302,41 @@ export default function OnboardingBase({
           )}
 
           <div className="px-8 pt-4 pb-10">
-            <div
-              className={`d-f o-h fd-c ai-c ta-c ${hasAnyTasks ? "" : "jc-c h-48"}`}
+            {/* `layout` belongs to the box that changes height, not the slide
+                inside it: on the slide it eased the content while the popup
+                jumped. `popLayout` takes the outgoing slide out of flow so the
+                height this animates to is the incoming one. */}
+            <motion.div
+              initial={false}
+              animate={
+                resizes && contentHeight !== null
+                  ? { height: contentHeight }
+                  : { height: "auto" }
+              }
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className={`d-f p-r o-h fd-c ${hasAnyTasks ? "" : "jc-c h-48"}`}
             >
-              {animated ? (
-                <AnimatePresence
-                  mode={hasAnyTasks && animatedResize ? "popLayout" : "wait"}
-                  custom={direction}
-                >
-                  <motion.div
-                    key={page}
-                    custom={direction}
-                    layout={(hasAnyTasks && animatedResize) || undefined}
-                    variants={slideVariants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    transition={{ duration: 0.2, ease: "easeOut" }}
-                    className="d-f fd-c ai-c g-3"
-                  >
-                    {slide}
-                  </motion.div>
-                </AnimatePresence>
-              ) : (
-                slide
-              )}
-            </div>
+              <div ref={contentRef} className="d-f fd-c ai-c w-100% ta-c">
+                {animated ? (
+                  <AnimatePresence mode="wait" custom={direction}>
+                    <motion.div
+                      key={page}
+                      custom={direction}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.2, ease: "easeOut" }}
+                      className="d-f fd-c ai-c g-3"
+                    >
+                      {slide}
+                    </motion.div>
+                  </AnimatePresence>
+                ) : (
+                  slide
+                )}
+              </div>
+            </motion.div>
           </div>
 
           {indicator === "progress" && (

@@ -140,7 +140,7 @@ export default function MenuBase({
   trigger,
   items,
   size = "md",
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   iconPosition = "leading",
   disabled = false,

@@ -99,6 +99,9 @@ function Row({
   children: React.ReactNode;
 }) {
   const name = <code className="c-code fs-xs ff-m">{prop.name}</code>;
+  // The reason waits for someone to reach for the control. Shown on arrival it
+  // is a wall of red on a page nobody has touched yet.
+  const [attempted, setAttempted] = useState(false);
 
   return (
     <div className="py-2 bc-border bbw-1">
@@ -120,10 +123,17 @@ function Row({
         ) : (
           name
         )}
-        {children}
+        {/* The control is locked, so the press never reaches it; the wrapper
+            is what hears the attempt. */}
+        <span
+          onPointerDownCapture={() => inert && setAttempted(true)}
+          onFocusCapture={() => inert && setAttempted(true)}
+        >
+          {children}
+        </span>
       </div>
 
-      {inert && (
+      {inert && attempted && (
         <div className="mt-1 c-diff-remove fs-xs">
           Does nothing while <code className="ff-m">{inert}</code>.
         </div>

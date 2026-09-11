@@ -75,7 +75,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "rounded",
+      "default": "square",
       "description": "Corner radius, applied to the trigger and the popup together. `squircle` uses `corner-shape`."
     },
     {

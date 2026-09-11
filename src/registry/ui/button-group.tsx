@@ -26,7 +26,7 @@ export interface ButtonGroupProps {
 export default function ButtonGroup({
   className,
   children,
-  shape = "rounded",
+  shape = "square",
   separated = true,
   stretch = false,
 }: ButtonGroupProps) {

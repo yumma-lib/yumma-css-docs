@@ -108,7 +108,7 @@ export default function TooltipBase({
   tone = "light",
   arrow = false,
   delay = 300,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   animated = true,
   className,

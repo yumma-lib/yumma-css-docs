@@ -122,7 +122,7 @@ export default function DialogBase({
   onConfirm,
   confirmTone = "primary",
   showClose = true,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   animated = true,
   className,

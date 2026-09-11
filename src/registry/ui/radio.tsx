@@ -74,7 +74,7 @@ export default function RadioBase({
   value,
   onValueChange,
   size = "md",
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   iconPosition = "leading",
   disabled = false,

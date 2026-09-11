@@ -5,7 +5,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle", "pill"],
-      "default": "rounded",
+      "default": "square",
       "description": "Corner radius of the container. The toggles inside carry their own `shape`."
     },
     {
@@ -53,21 +53,33 @@
       "component": "Toggle",
       "props": {
         "value": "bold",
-        "aria-label": "Bold"
+        "aria-label": "Bold",
+        "icon": {
+          "$icon": "Bold",
+          "size": "w-4 h-4"
+        }
       }
     },
     {
       "component": "Toggle",
       "props": {
         "value": "italic",
-        "aria-label": "Italic"
+        "aria-label": "Italic",
+        "icon": {
+          "$icon": "Italic",
+          "size": "w-4 h-4"
+        }
       }
     },
     {
       "component": "Toggle",
       "props": {
         "value": "underline",
-        "aria-label": "Underline"
+        "aria-label": "Underline",
+        "icon": {
+          "$icon": "Underline",
+          "size": "w-4 h-4"
+        }
       }
     }
   ]

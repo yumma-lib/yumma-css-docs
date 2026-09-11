@@ -102,7 +102,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "rounded",
+      "default": "square",
       "description": "Corner radius on the trigger, the popup and its items."
     },
     {

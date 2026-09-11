@@ -10,6 +10,7 @@ import {
   Page,
   PagePlus,
   PageSearch,
+  Plus,
   Search,
   SparksSolid,
   Star,
@@ -17,6 +18,7 @@ import {
   SunLight,
   Trash,
   TriangleFlag,
+  Underline,
   User,
   UserPlus,
   Wrench,
@@ -52,9 +54,11 @@ export const EXAMPLE_ICONS: Record<
   TriangleFlag,
   HalfMoon,
   Italic,
+  Underline,
   Mail,
   Page,
   PagePlus,
+  Plus,
   PageSearch,
   Search,
   SparksSolid,
@@ -167,7 +171,7 @@ export function exampleChildren(meta: RegistryMeta): ReactNode {
     if (!Child) return null;
     return (
       // biome-ignore lint/suspicious/noArrayIndexKey: position is the identity here
-      <Child key={index} {...(child.props ?? {})}>
+      <Child key={index} {...(resolveIcons(child.props ?? {}) as DemoProps)}>
         {child.children}
       </Child>
     );

@@ -15,39 +15,18 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  67
-    Open    43
-    Done    61%
+    Closed  79
+    Open    34
+    Done    70%
 
 ---
 
 ## Phase 1 - Broken
 
-Things that do the wrong thing today. No decisions needed, no mockups.
+- [ ] **Combobox** chips sit under the popup and are hidden while it is open.
+      Move them inside the input, in the input's own white and silver, rather
+      than in a row beneath it.
 
-- [ ] **Toggle Group** renders no icons inside its buttons; only border and
-      background colours apply.
-- [ ] **Separator** `iconShape` draws no `square`, `circle` or `squircle`
-      around the "Or".
-- [ ] **Button** `iconOnly` does nothing until `icon` is also set.
-- [ ] **Alert Dialog** `inset` shadow does nothing.
-- [ ] **Avatar Stack** shows initials rather than avatars, so every one is
-      falling back.
-- [ ] **Combobox** `multiple` shifts the layout: the component moves up when
-      enabled and down when disabled. The chips row mounts empty and the
-      parent's `gap` counts it. The throw is fixed.
-- [ ] **Toolbar** plus and minus buttons get in the way of the Number Field
-      part, and the focus ring paints behind the soft silver background.
-- [ ] **Onboarding** `animatedResize` fades up and down inside the dialog; it
-      should resize the dialog itself.
-- [ ] **Onboarding** renders checkboxes by default. They belong only to
-      `indicator: "checklist"`.
-- [ ] **Field** with `revealable` on, `iconPosition` and `iconInteractive` go
-      red but stay clickable. An inert control should be locked, not just
-      coloured.
-- [ ] **Docs site** `/ui/components/accordion` shows `shape` and
-      `indicatorPosition` in red on arrival, because `variant` defaults to
-      `default`. The inert message should wait until the control is touched.
 
 ## Phase 2 - Content model
 
@@ -99,8 +78,6 @@ Design decisions. Nothing here starts without them.
       should both be the user's choice. Barely functional: drag and drop does
       nothing, the upload button does nothing, and dragging a file over it
       should change the border colour.
-- [ ] Default every component to `square`, so Yumma UI matches the Yumma CSS
-      docs.
 - [ ] Drop indigo as the primary. Black or dark grey, with colour kept where
       it carries meaning: red for destructive, blue for links. Wants other
       takes alongside the grayscale one.
@@ -126,6 +103,10 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 - [ ] **Coloured box-shadow utilities**, v4 or v4.1. Without them a
       halo-plus-ring focus treatment cannot be written at all.
+- [ ] **Attribute variants**, v4. Base UI marks popup enter and exit with
+      `data-starting-style` and `data-ending-style`, and Yumma has no variant
+      that can select an attribute. They are the last hand-written classes in
+      the registry: without them the popup animations cannot be utilities.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Big enough to be the headline
       of **1.0**. Mockups need a theme toggle from the start.
@@ -144,6 +125,10 @@ Blocked on Renildo. Each one holds up the entry beside it.
       chosen because the solid tone paints white on the fill.
 - [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
       npm, a dropdown, or is a dialog overkill?
+- [ ] **`bs-i-md` is invisible.** Alert Dialog's `inset` shadow is applied and
+      unreadable: 10% black at 4px blur inside a white panel. It is a Yumma
+      CSS token, so every component using it is the same. Strengthen the
+      token, drop `inset` from the surfaces it cannot show on, or leave it?
 
 ## Known and accepted
 
@@ -155,3 +140,9 @@ Not bugs. Written down so they stop being rediscovered.
   indigo scale would pass.
 - Nothing in the playground survives a reload, by design, until the URL entry
   in Phase 5 lands.
+- Number Field and Toolbar ring their group with `fw:` (`:focus-within`), not
+  `fv:`. `:focus-visible` matches the element that has focus, and the group
+  never does: focus lands on the input inside it. The only `fv:` alternative
+  rings the bare input and leaves the steppers outside the ring.
+- The focus ring's transition needs `outline-color` in `tp-c`, which landed in
+  the yummacss repo. It reaches the docs on the next Yumma CSS release.

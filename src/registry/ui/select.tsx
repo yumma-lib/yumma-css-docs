@@ -149,7 +149,7 @@ export default function SelectBase({
   value,
   onValueChange,
   size = "md",
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   icon,
   iconPosition = "leading",

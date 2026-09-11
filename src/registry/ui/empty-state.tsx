@@ -50,7 +50,7 @@ export default function EmptyStateBase({
   onPrimary,
   secondaryLabel,
   onSecondary,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   className,
 }: EmptyStateProps) {

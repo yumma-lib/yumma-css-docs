@@ -72,7 +72,7 @@ export default function CheckboxBase({
   label,
   description,
   size = "md",
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   disabled = false,
   className,

@@ -1425,6 +1425,98 @@ declares logical properties: `padding` covers `padding-inline` covers
       drew a **square** ring, because an outline follows the element's own
       radius and the corners live on the end buttons; the Group carries the
       radius now.
+- [x] **Four "prop does nothing" reports, one cause each, none in the
+      component.** Toggle Group's `childrenExample` passed `value` and
+      `aria-label` and **no content at all**, so the buttons really were just
+      borders. Separator's `icon` had no `exampleIcon`, so `iconShape` had no
+      button to shape. Avatar Stack's children carried `fallback` and no
+      `src`, so every one fell back on purpose. Button's `iconOnly` behaves
+      correctly and simply never said it was inert.
+      Two mechanisms were missing underneath: **child props could not carry an
+      icon** (`exampleChildren` spread them raw, so a `$icon` marker reached
+      the DOM as an object, and the snippet printed `[object Object]`), and
+      the icon test **only walked `$icon` markers, never `exampleIcon`** - so
+      an unknown name there resolved to undefined in silence, the same failure
+      one field over. Both closed; verified the widened test bites.
+- [x] **Inert controls are locked, and the reason waits to be asked for.**
+      Shown on arrival the red was a wall of it on a page nobody had touched:
+      Accordion opens on `variant: "default"`, which makes two controls inert
+      before anyone does anything. The note now appears on the first press or
+      focus, and the control itself is `disabled` rather than merely tinted.
+      **A disabled control fires no events**, so the press is heard by a
+      wrapper around it, not the control.
+- [x] **Combobox's layout shift: an empty child still gets its gap.** Base UI
+      keeps the chip list mounted with nothing in it. Measured: zero children,
+      zero height, and the wrapper still went 69px to 77px, which is exactly
+      the column's `g-2`. `:empty { display: none }` removes it from layout,
+      gaps included. Hung off a **data attribute**, not a class: the canon
+      test reads class strings and rejects anything that is not a Yumma
+      utility.
+- [x] **Onboarding's tasks belong to `checklist`.** They rendered on any
+      indicator, gate on the forward button included, once the example seeded
+      them. Tied to the indicator now.
+- [ ] **Alert Dialog `inset` renders and cannot be seen.** Measured
+      `rgba(0, 0, 0, 0.1) 0px 2px 4px 0px inset`, present and applied; two
+      screenshots against `none` are indistinguishable. 10% black at 4px blur
+      inside a white panel with a light border has nothing to read against.
+      Not an Alert Dialog bug: `bs-i-md` is a Yumma CSS token and every
+      component using it has the same problem. Needs a decision, so it moved
+      out of Phase 1.
+- [x] **Toolbar's number field rang the wrong box.** The input and each
+      stepper carried their own ring, so focusing the input drew a square
+      flush around the number **between** the minus and the plus, leaving them
+      outside it. That is the "buttons get in the way" report, and the reason
+      it looked lost against the bar. The ring moved to the Group on `fw:`,
+      matching the standalone Number Field.
+- [x] **`layout` cannot resize a dialog.** Motion's `layout` animates with
+      **transforms**, which move nothing around them, so the slide eased while
+      the popup jumped - exactly the report. `popLayout` made it worse: the
+      box held **both** slides for the whole 200ms (measured 256 -> 494 -> 348)
+      and a positioned parent did not change that. The fix is a real height:
+      `mode="wait"` so one slide is mounted at a time, a ResizeObserver on an
+      inner auto-height wrapper, and `animate={{ height }}` on the outer box.
+      Measured thirteen eased frames from 256 to 348. `animate` falls back to
+      `height: "auto"` rather than `undefined`, or turning the prop off
+      mid-tour leaves the last animated height on the element.
+- [x] **Square is the default, on all 31 components and 32 schemas.**
+- [x] **The `yui-` classes are not a config prefix.** `yumma.config.mjs` sets
+      no `prefix` at all; they are plain CSS in each component's `<style>`
+      block. One of the two uses is gone: the empty chip list now drops out
+      with **`e:d-none`**, because Yumma has an `e:` variant for `:empty` and
+      `display` takes the base variant stack. The other cannot go yet, below.
+- [x] **Toggle Group's icon vanished when pressed.** Not a colour problem: the
+      button reads `state.pressed ? pressedIcon : icon`, and `pressedIcon` is
+      optional, so pressing emptied the button whenever it was not set. The
+      colour was already right (white on indigo). It falls back to `icon` now.
+- [x] **An inert prop gives up its value.** Dimming it and refusing the
+      pointer left it reading as switched on and doing nothing, which is the
+      thing the flag exists to stop. Booleans go to false, everything else to
+      its default, the moment a `conflictsWith` rule starts matching.
+- [x] **Number Field's border never changed because the group had none.** The
+      border was assembled from each child's edges (`byw-1` on all three,
+      `blw-1` and `brw-1` on the ends), so a focus colour on the group had
+      nothing of its own to recolour. The group owns the border now and the
+      children own none: measured silver-3 at rest, indigo-3 on focus.
+- [x] **`tp-c` omitted `outline-color`.** A transition group called "colors"
+      that skips the one colour a focus ring animates. Added in the yummacss
+      repo; the smooth focus appears in the docs on the next release, since
+      docs installs the published package.
+- [ ] **`fv:` cannot ring a composite control, and `fw:` is not a style
+      choice.** `focus-visible` matches **the element that has focus**. In
+      Number Field and Toolbar the focus lands on the `<input>`; the box that
+      should show the ring is the group wrapping the input and both steppers,
+      and it never receives focus itself. `focus-within` matches an ancestor
+      of the focused element, which is the only selector that can do this. The
+      alternative is a ring around the bare input with the steppers outside
+      it, which is the bug that was just fixed. Renildo asked for `fv:` only;
+      this is the reason it is still `fw:` in exactly two places.
+- [ ] **The popup enter and exit CSS cannot become utilities.** Base UI marks
+      those states with `data-starting-style` and `data-ending-style`
+      **attributes**, and Yumma's variant list is pseudo-classes,
+      pseudo-elements, media queries and opacity - **no attribute variants**.
+      Verified in `defaults/variants/`. Until Yumma has them, the
+      `yui-*-pop` classes stay; Motion is not an alternative, because Base UI
+      waits on `getAnimations()` and never sees it.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

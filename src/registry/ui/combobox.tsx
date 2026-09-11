@@ -142,7 +142,7 @@ export default function ComboboxBase({
   description,
   placeholder = "Search",
   size = "md",
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   multiple = false,
   clearable = true,
@@ -250,7 +250,7 @@ export default function ComboboxBase({
             `setHighlightedChipIndex`. It wraps `Value`, not the other way
             round - the list of chips is the value. */}
         {multiple && (
-          <Combobox.Chips className="d-f fw-w ai-c g-1">
+          <Combobox.Chips className="d-f fw-w ai-c g-1 e:d-none">
             <Combobox.Value>
               {/* Three shapes, not two: `null`, the array, and the single
                   string left over from single-select. Base UI types the

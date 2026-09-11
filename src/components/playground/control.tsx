@@ -191,6 +191,7 @@ function EnumSelect({
     <Select.Root
       value={value}
       onValueChange={onChange}
+      disabled={inert}
       open={open}
       onOpenChange={setOpen}
     >
@@ -255,6 +256,7 @@ function Toggle({
     <Switch.Root
       checked={checked}
       onCheckedChange={onCheckedChange}
+      disabled={inert}
       aria-label={label}
       className={`d-f fs-0 ai-c px-1 w-7 h-4 bw-0 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-accent ${
         inert

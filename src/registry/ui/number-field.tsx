@@ -11,7 +11,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
 const BUTTON =
-  "d-f ai-c jc-c bg-white bc-silver-3 c-slate-10 byw-1 us-none c-p h:bg-silver-1/50 a:bg-silver-2";
+  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2";
 
 const BUTTON_SIZES: Record<Size, string> = {
   sm: "w-8 h-8",
@@ -76,7 +76,7 @@ export default function NumberFieldBase({
   required = false,
   description,
   size = "md",
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   disabled = false,
   className,
@@ -87,7 +87,6 @@ export default function NumberFieldBase({
   const decrementClasses = [
     BUTTON,
     BUTTON_SIZES[size],
-    "blw-1",
     DECREMENT_SHAPES[shape],
     SHADOWS[shadow],
   ]
@@ -97,7 +96,6 @@ export default function NumberFieldBase({
   const incrementClasses = [
     BUTTON,
     BUTTON_SIZES[size],
-    "brw-1",
     INCREMENT_SHAPES[shape],
     SHADOWS[shadow],
   ]
@@ -105,7 +103,7 @@ export default function NumberFieldBase({
     .join(" ");
 
   const inputClasses = merge(
-    "bg-white bc-silver-3 c-slate-10 byw-1 ta-c",
+    "bg-white c-slate-10 ta-c",
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,
@@ -128,7 +126,7 @@ export default function NumberFieldBase({
       )}
 
       <NumberField.Group
-        className={`d-f fw:os-s fw:ow-3 fw:oo-0 fw:oc-indigo-2/60 fw:bc-indigo-3 ${GROUP_SHAPES[shape]}`}
+        className={`d-f o-h bc-silver-3 bw-1 fw:os-s fw:ow-3 fw:oo-0 fw:oc-indigo-2/60 fw:bc-indigo-3 ${GROUP_SHAPES[shape]}`}
       >
         <NumberField.Decrement className={decrementClasses}>
           <Minus className={ICON_SIZES[size]} />

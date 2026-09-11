@@ -22,7 +22,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "rounded",
+      "default": "square",
       "description": "Corner radius on both the track and the indicator."
     },
     {

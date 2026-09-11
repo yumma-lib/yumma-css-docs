@@ -51,7 +51,7 @@ export default function SwitchBase({
   onCheckedChange,
   icon,
   size = "md",
-  shape = "rounded",
+  shape = "square",
   disabled = false,
   animated = true,
   className,

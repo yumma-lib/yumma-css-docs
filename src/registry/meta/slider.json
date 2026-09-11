@@ -68,7 +68,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
-      "default": "rounded",
+      "default": "square",
       "description": "Corner radius, applied to the track, the indicator and the thumb together. `squircle` uses `corner-shape`."
     },
     {

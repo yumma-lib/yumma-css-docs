@@ -95,7 +95,7 @@ export default function FieldBase({
   error,
   success,
   size = "md",
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   icon,
   iconPosition = "leading",

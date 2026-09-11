@@ -91,7 +91,7 @@ export default function ToggleBase({
   defaultPressed,
   pressed: controlledPressed,
   onPressedChange,
-  shape = "rounded",
+  shape = "square",
   size = "md",
   tone = "accent",
   swatchClassName,
@@ -144,11 +144,13 @@ export default function ToggleBase({
             whileTap={disabled ? undefined : { scale: 0.9 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            <Pop on={state.pressed}>{state.pressed ? pressedIcon : icon}</Pop>
+            <Pop on={state.pressed}>
+              {(state.pressed && pressedIcon) || icon}
+            </Pop>
           </motion.button>
         ) : (
           <Button {...(renderProps as ComponentProps<"button">)}>
-            {state.pressed ? pressedIcon : icon}
+            {(state.pressed && pressedIcon) || icon}
           </Button>
         )
       }

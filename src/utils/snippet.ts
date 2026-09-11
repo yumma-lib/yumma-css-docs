@@ -280,12 +280,16 @@ export function buildUsage(
   // Icons the snippet is about to spell inline need importing too, or the
   // thing you copied does not compile.
   const icons = [
-    ...new Set(
-      props.flatMap((prop) => [
+    ...new Set([
+      ...props.flatMap((prop) => [
         ...(prop.exampleIcon ? [prop.exampleIcon] : []),
         ...markedIcons(values[prop.name]),
       ]),
-    ),
+      // Children carry markers too, and their glyphs need the same import.
+      ...(meta.childrenExample ?? []).flatMap((child) =>
+        markedIcons(child.props ?? {}),
+      ),
+    ]),
   ].sort();
 
   if (icons.length) {
@@ -368,6 +372,15 @@ export function buildUsage(
         tokens.push({ kind: "text", text: " " });
         tokens.push({ kind: "attribute", text: key });
         tokens.push({ kind: "punctuation", text: "=" });
+        const marker = iconMarker(value);
+        if (marker) {
+          tokens.push({ kind: "brace", text: "{" });
+          tokens.push({ kind: "punctuation", text: "<" });
+          tokens.push({ kind: "tag", text: marker.name });
+          tokens.push({ kind: "punctuation", text: " />" });
+          tokens.push({ kind: "brace", text: "}" });
+          continue;
+        }
         tokens.push({ kind: "string", text: JSON.stringify(String(value)) });
       }
       if (child.children === undefined) {

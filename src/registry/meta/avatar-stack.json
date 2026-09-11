@@ -36,7 +36,8 @@
       "props": {
         "size": "sm",
         "name": "Adrian",
-        "fallback": "A"
+        "fallback": "A",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=DAF0B9"
       }
     },
     {
@@ -44,7 +45,8 @@
       "props": {
         "size": "sm",
         "name": "Jade",
-        "fallback": "J"
+        "fallback": "J",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=C0AEDE"
       }
     },
     {
@@ -52,7 +54,8 @@
       "props": {
         "size": "sm",
         "name": "Mei",
-        "fallback": "M"
+        "fallback": "M",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Mei&backgroundColor=B6E3F4"
       }
     },
     {
@@ -60,7 +63,8 @@
       "props": {
         "size": "sm",
         "name": "Sam",
-        "fallback": "S"
+        "fallback": "S",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Sam&backgroundColor=FFD5DC"
       }
     }
   ]

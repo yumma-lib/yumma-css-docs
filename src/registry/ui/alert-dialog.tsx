@@ -107,7 +107,7 @@ export default function AlertDialogBase({
   confirmLabel,
   onConfirm,
   showClose = true,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   animated = true,
   className,

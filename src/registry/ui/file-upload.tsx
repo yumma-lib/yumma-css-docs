@@ -43,7 +43,7 @@ export default function FileUploadBase({
   hint = "Drag and drop files here",
   description,
   icon,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   border = "dashed",
   error,

@@ -43,7 +43,7 @@ export default function PreviewCardBase({
   defaultOpen,
   open,
   onOpenChange,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   animated = true,
   className,
