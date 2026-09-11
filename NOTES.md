@@ -1566,6 +1566,10 @@ declares logical properties: `padding` covers `padding-inline` covers
       Upload's icon tile and Combobox's action buttons were all fixed radii.
       **Tabs defaulted to `pill`**, not `rounded`, which is why the sweep that
       changed 31 components missed it.
+      Biome caught the one that would have shipped broken: in Alert Dialog and
+      Dialog the new `${CLOSE_SHAPES[shape]}` sat inside a **plain string**,
+      not a template literal, so it would have reached the DOM as that text.
+      It reads as an unused variable, which is how it surfaced.
 - [x] **`animatedResize` never ran, for three reasons at once.** It required
       `hasAnyTasks`, which became checklist-only when tasks moved under that
       indicator. Every slide was pinned to `h-48`, so no two could differ.

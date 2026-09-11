@@ -6,7 +6,7 @@ import { Tabs } from "@base-ui/react/tabs";
 import { ArrowLeft, ArrowRight, Check, Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { ReactNode } from "react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Indicator = "count" | "progress" | "dots" | "checklist";
@@ -131,9 +131,6 @@ export default function OnboardingBase({
   const showTasks = indicator === "checklist";
   const tasks = showTasks ? step.tasks : undefined;
   const allTasksDone = !tasks || doneCount >= tasks.length;
-
-  const hasAnyTasks =
-    showTasks && steps.some((s) => (s.tasks?.length ?? 0) > 0);
 
   // `layout` animates with transforms, which move nothing around them, so the
   // popup jumped while the slide eased inside it. A measured height is the
