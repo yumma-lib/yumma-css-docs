@@ -10,7 +10,6 @@ import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
 type Size = "sm" | "md";
-type Tone = "accent" | "ghost";
 
 const SHAPES: Record<Shape, string> = {
   rounded: "br-9999",
@@ -30,16 +29,8 @@ const SIZES: Record<Size, string> = {
 // `merge` as two arguments it has to choose between.
 const DISABLED = "bw-1 bc-silver-2 bg-silver-1 c-slate-4";
 
-const TONES: Record<Tone, { pressed: string; unpressed: string }> = {
-  accent: {
-    pressed: "bg-indigo bc-indigo-6 c-white",
-    unpressed: "bg-white bc-indigo-3 c-indigo h:bg-indigo-1",
-  },
-  ghost: {
-    pressed: "bg-indigo c-white",
-    unpressed: "bg-transparent c-slate-8 h:bg-silver-1 h:c-slate-10",
-  },
-};
+const PRESSED = "bg-indigo bc-indigo-6 c-white";
+const UNPRESSED = "bg-white bc-indigo-3 c-indigo h:bg-indigo-1";
 
 export interface ToggleProps
   extends Omit<ComponentProps<"button">, "className" | "value">,
@@ -52,9 +43,6 @@ export interface ToggleProps
   onPressedChange?: (pressed: boolean) => void;
   shape?: Shape;
   size?: Size;
-  tone?: Tone;
-
-  swatchClassName?: string;
 
   /** Blocks the press and marks the control, keeping its pressed state legible. */
   disabled?: boolean;
@@ -93,8 +81,6 @@ export default function ToggleBase({
   onPressedChange,
   shape = "square",
   size = "md",
-  tone = "accent",
-  swatchClassName,
   disabled = false,
   animated = true,
   className,
@@ -127,12 +113,7 @@ export default function ToggleBase({
           disabled ? "c-na" : "c-p",
           SIZES[size],
           SHAPES[shape],
-          disabled
-            ? DISABLED
-            : swatchClassName
-              ? "bw-0"
-              : `bw-1 ${state.pressed ? TONES[tone].pressed : TONES[tone].unpressed}`,
-          disabled ? "" : swatchClassName,
+          disabled ? DISABLED : `bw-1 ${state.pressed ? PRESSED : UNPRESSED}`,
           className,
         )
       }

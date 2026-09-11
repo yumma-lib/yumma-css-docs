@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  81
-    Open    33
-    Done    71%
+    Closed  87
+    Open    23
+    Done    79%
 
 ---
 
@@ -45,25 +45,11 @@ first or they get done twice.
 Breaking for the registry, so they ship together in one release with the
 renames already on `main`.
 
-- [ ] **Checkbox and Switch** the toggle should drive `checked`, not
-      `defaultChecked`.
-- [ ] **Checkbox** `indeterminate` belongs to Checkbox Group. Keep the prop,
-      drop its control, describe it as a boolean.
-- [ ] **Radio** remove the leading and trailing icons.
-- [ ] **Toggle** remove `tone`. It and `swatchClassName` are both too strict.
-- [ ] **Empty State** `shape` controls the icon, not the buttons. Rename it
-      `iconShape`.
-- [ ] **Field and Textarea** the label and the character count should be
-      optional.
-- [ ] **Avatar** `fallback` should be controllable from the API sidebar.
-- [ ] **Popover and Tooltip** should use `arrow` by default.
-- [ ] **Autocomplete** no spinner when `loading` is `true`. Add one, and
-      respect `animated`.
 - [ ] **A prop to control focus.** Some people do not want a ring at all, and
       the appearance could be props too: outline colour, outline offset, all
-      Yumma CSS utilities. Now unblocked, focus is settled.
-- [ ] **JSDoc warnings** for interactions that lock each other, so the block
-      and the reason reach anyone reading the source, not just the playground.
+      Yumma CSS utilities. **Do it with the indigo change, not before**: both
+      rewrite the same focus classes in the same 26 files, and doing them
+      separately means writing them twice.
 - [ ] **Drop indigo.** Decided, not a proposal: the primary becomes black or a
       dark grey, and colour is kept only where it carries meaning, red for
       destructive and blue for links. Square is already the default. The one

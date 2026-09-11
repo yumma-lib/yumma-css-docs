@@ -96,7 +96,7 @@ export default function TextareaBase({
   const status: Status = error ? "error" : success ? "success" : "default";
   const message = error ?? success ?? description;
 
-  const showCounter = maxLength !== undefined;
+  const showCounter = maxLength !== undefined && maxLength > 0;
   const remaining = showCounter ? maxLength - value.length : 0;
   const percent = showCounter
     ? Math.min((value.length / maxLength) * 100, 100)

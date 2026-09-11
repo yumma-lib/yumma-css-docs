@@ -34,10 +34,14 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 export interface AccordionProps {
   items: AccordionItem[];
   variant?: Variant;
+  /** Does nothing while `variant` is `default` or `variant` is `ghost`. */
   shape?: Shape;
+  /** Does nothing while `variant` is `ghost`. */
   shadow?: Shadow;
+  /** Does nothing while `variant` is not `default`. */
   separated?: boolean;
   indicator?: Indicator;
+  /** Does nothing while `indicator` is `chevron`. */
   indicatorPosition?: IndicatorPosition;
   multiple?: boolean;
   defaultValue?: string[];

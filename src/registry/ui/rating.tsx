@@ -23,6 +23,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 
 export interface RatingProps {
   label?: string;
+  /** Does nothing while `icons` is set. */
   max?: number;
   icons?: RatingIcon[];
   defaultValue?: number;

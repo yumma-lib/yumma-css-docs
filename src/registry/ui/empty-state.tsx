@@ -35,7 +35,7 @@ export interface EmptyStateProps {
   onPrimary?: () => void;
   secondaryLabel?: string;
   onSecondary?: () => void;
-  shape?: Shape;
+  iconShape?: Shape;
   shadow?: Shadow;
   className?: string;
 }
@@ -50,7 +50,7 @@ export default function EmptyStateBase({
   onPrimary,
   secondaryLabel,
   onSecondary,
-  shape = "square",
+  iconShape = "square",
   shadow = "none",
   className,
 }: EmptyStateProps) {
@@ -70,7 +70,7 @@ export default function EmptyStateBase({
   const badgeClasses = [
     "d-f ai-c jc-c w-10 h-10 bg-white bc-silver-3 bw-1",
     ICON_TONES[iconTone],
-    BADGE_SHAPES[shape],
+    BADGE_SHAPES[iconShape],
   ]
     .filter(Boolean)
     .join(" ");

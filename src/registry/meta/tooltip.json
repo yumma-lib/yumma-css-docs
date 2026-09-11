@@ -47,7 +47,7 @@
     {
       "name": "arrow",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "A pointer notched into the tooltip's edge, aimed back at the trigger. It re-aims itself when `side` changes."
     },
     {

@@ -60,6 +60,7 @@ export interface ButtonProps extends ComponentProps<typeof Button> {
   loading?: boolean;
   icon?: ReactNode;
   iconPosition?: IconSide;
+  /** Does nothing while `icon` is not set. */
   iconOnly?: boolean;
   transition?: boolean;
   children?: ReactNode;

@@ -18,7 +18,8 @@
       "name": "open",
       "type": "boolean",
       "description": "Controlled state.",
-      "controlled": true
+      "controlled": true,
+      "handler": "onOpenChange"
     },
     {
       "name": "onOpenChange",

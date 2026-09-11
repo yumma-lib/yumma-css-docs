@@ -78,13 +78,6 @@
       "description": "Depth on an unselected circle. A selected one is already a solid fill, so it does not carry the shadow - stacking one on top muddies the colour."
     },
     {
-      "name": "iconPosition",
-      "type": "enum",
-      "values": ["leading", "trailing"],
-      "default": "leading",
-      "description": "Which side each option's `icon` sits on, when it has one."
-    },
-    {
       "name": "disabled",
       "type": "boolean",
       "default": false,

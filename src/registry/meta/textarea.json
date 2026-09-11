@@ -32,22 +32,30 @@
       "name": "maxLength",
       "type": "number",
       "example": 200,
-      "description": "Sets the control's native character limit and shows a live remaining-character counter with a progress bar underneath. The counter turns red once 20 characters remain.",
-      "min": 40,
+      "description": "Caps the value and draws the counter under the field. Zero draws neither.",
+      "min": 0,
       "max": 400,
       "step": 20
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["rounded", "square", "squircle"],
+      "values": [
+        "rounded",
+        "square",
+        "squircle"
+      ],
       "default": "square",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "shadow",
       "type": "enum",
-      "values": ["none", "inset", "outset"],
+      "values": [
+        "none",
+        "inset",
+        "outset"
+      ],
       "default": "none",
       "description": "Depth on the control. `inset` reads as a well, `outset` as a raised control."
     },

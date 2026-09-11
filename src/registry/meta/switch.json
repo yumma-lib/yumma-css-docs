@@ -16,14 +16,15 @@
       "name": "defaultChecked",
       "type": "boolean",
       "default": false,
-      "example": true,
-      "description": "Starting state when you are not controlling it. Pair `checked` with `onCheckedChange` instead if you are."
+      "description": "Starting state when you are not controlling it. Pair `checked` with `onCheckedChange` instead if you are.",
+      "controlled": true
     },
     {
       "name": "checked",
       "type": "boolean",
       "description": "Controlled state.",
-      "controlled": true
+      "controlled": true,
+      "handler": "onCheckedChange"
     },
     {
       "name": "onCheckedChange",

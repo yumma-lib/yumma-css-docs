@@ -107,7 +107,7 @@ export default function PopoverBase({
   children,
   side = "bottom",
   sideOffset = 8,
-  arrow = false,
+  arrow = true,
   openOnHover = false,
   delay = 300,
   open: controlledOpen,

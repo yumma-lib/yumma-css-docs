@@ -28,7 +28,9 @@ Short. These were said out loud enough times to belong in a file.
 
 # Working
 
-- PRs, never direct commits to `main`.
+- PRs, never direct commits to `main`. One PR per phase, on a branch named
+  `feat/`, `fix/` or `chore/` plus a word or two of plain English. No hashes,
+  no generated suffixes, nothing long.
 - Update NOTES.md in the same commit as the change. It is the source of truth;
   TODO.md is the list, one phase per blocking level, ordered within a phase.
 - A closed entry leaves TODO.md and its finding goes in NOTES.md under the

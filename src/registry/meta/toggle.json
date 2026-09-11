@@ -19,13 +19,15 @@
       "name": "defaultPressed",
       "type": "boolean",
       "default": false,
-      "description": "Starting state when you are not controlling it. Pair `pressed` with `onPressedChange` instead if you are."
+      "description": "Starting state when you are not controlling it. Pair `pressed` with `onPressedChange` instead if you are.",
+      "controlled": true
     },
     {
       "name": "pressed",
       "type": "boolean",
       "description": "Controlled state.",
-      "controlled": true
+      "controlled": true,
+      "handler": "onPressedChange"
     },
     {
       "name": "onPressedChange",
@@ -46,18 +48,6 @@
       "values": ["sm", "md"],
       "default": "md",
       "description": "The button's footprint."
-    },
-    {
-      "name": "tone",
-      "type": "enum",
-      "values": ["accent", "ghost"],
-      "default": "accent",
-      "description": "`accent` is a standalone toggle: bordered and tinted even unpressed. `ghost` is for one that already sits inside a bordered group - plain until pressed."
-    },
-    {
-      "name": "swatchClassName",
-      "type": "string",
-      "description": "Replaces `tone` entirely rather than adding to it, for a color-picker swatch where the color IS the toggle and stays constant whether pressed or not - `pressedIcon` shows selection there instead."
     },
     {
       "name": "value",
