@@ -3,7 +3,7 @@
 import { Menu } from "@base-ui/react/menu";
 import { Check, Circle, KeyCommand, NavArrowRight } from "iconoir-react";
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
@@ -157,6 +157,13 @@ export default function MenuBase({
     setInternalOpen(next);
     onOpenChange?.(next);
   };
+
+  // A control that gets disabled while its popup is open should put it away.
+  useEffect(() => {
+    if (!disabled || !open) return;
+    setInternalOpen(false);
+    onOpenChange?.(false);
+  }, [disabled, open, onOpenChange]);
 
   const spec = SIZES[size];
   const shadowClass =

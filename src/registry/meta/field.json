@@ -84,12 +84,6 @@
       "description": "Static content flush against the control's trailing edge, like a domain suffix."
     },
     {
-      "name": "multiline",
-      "type": "boolean",
-      "default": false,
-      "description": "Renders a `<textarea>` instead of an `<input>`, for a message or description field. Ignored alongside `icon`/`prefixNode`/`suffix`."
-    },
-    {
       "name": "disabled",
       "type": "boolean",
       "default": false,

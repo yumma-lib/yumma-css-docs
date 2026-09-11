@@ -4,7 +4,7 @@ import { Avatar } from "@base-ui/react/avatar";
 import { Combobox } from "@base-ui/react/combobox";
 import { ArrowSeparateVertical, Check, Xmark } from "iconoir-react";
 import type { ReactNode } from "react";
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
@@ -154,6 +154,11 @@ export default function ComboboxBase({
   container,
 }: ComboboxProps) {
   const [open, setOpen] = useState(false);
+
+  // A control that gets disabled while its popup is open should put it away.
+  useEffect(() => {
+    if (disabled) setOpen(false);
+  }, [disabled]);
   const id = useId();
 
   const inputClasses = merge(

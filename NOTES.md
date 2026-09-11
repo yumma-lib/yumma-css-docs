@@ -1259,6 +1259,21 @@ declares logical properties: `padding` covers `padding-inline` covers
 - [x] **Avatar's `default` badges were already split.** `ce9c3c4` set
       `verified`'s example to `null`, so only `status` seeds. What was left was
       a description carrying the old sentence and its replacement, both.
+- [x] **Disabling a control left its popup open, in five components.** The TODO
+      named Autocomplete; measured, **Combobox, Select, Menu and Context Menu
+      do the same**. All five hold `open` in their own state and hand it to
+      Base UI, which has no reason to close a popup it does not own. An effect
+      closes it on `disabled`, and Menu and Context Menu also fire
+      `onOpenChange(false)` because their `open` can be controlled. Verified
+      the popup and every ancestor go hidden, on all five.
+- [x] **Field's `multiline` is gone.** It swapped the `<input>` for a
+      `<textarea>` and switched off `revealable`, the icon and the affixes on
+      the way - a second component behind a boolean, and **`Textarea` already
+      exists in the registry**. Removing it costs nothing.
+- [x] **The three `iconSide` entries were stale.** The prop is `iconPosition`
+      everywhere since the rename, and Menu, Menubar and Context Menu all seed
+      icons on their example items. Measured: flipping it moves the glyph from
+      x=8 to x=170 in all three.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

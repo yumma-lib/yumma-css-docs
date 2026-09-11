@@ -3,7 +3,7 @@
 import { ContextMenu } from "@base-ui/react/context-menu";
 import { Check, Circle, KeyCommand, NavArrowRight } from "iconoir-react";
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
@@ -135,6 +135,13 @@ export default function ContextMenuBase({
     setInternalOpen(next);
     onOpenChange?.(next);
   };
+
+  // A control that gets disabled while its popup is open should put it away.
+  useEffect(() => {
+    if (!disabled || !open) return;
+    setInternalOpen(false);
+    onOpenChange?.(false);
+  }, [disabled, open, onOpenChange]);
 
   const shadowClass =
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "";

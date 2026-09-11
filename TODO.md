@@ -55,14 +55,6 @@ do it and the CLI half does.
 - in the menu page clicking on the example trigger then click open in the playground option then switching the open playground option will break the trigger in the example… it won’t open anymore for some reason… bug? gotta check other componente to catch similar patterns...
 - why not create a prop to control focus? some people don’t like it… we can also create props to change the focus appearance too like outline color and outline offset (all Yumma CSS utilities btw)
 
-### **Autocomplete**
-
-- When you click to open the autocomplete results and then click on disable the menu should close
-
-### **Field**
-
-- remove the `multiline` prop
-
 ### **Number Field**
 
 - use the `TriangleFlag` icon instead of the `Folder` icon - **blocked**: Number Field has no icon slot at all, it only draws Minus and Plus on its steppers. Either this meant a different component, or it wants an icon prop adding first.
@@ -70,18 +62,6 @@ do it and the CLI half does.
 ### Preview Card
 
 - **0024eee** before making Yumma UI I had great copy content and now after the migration there is just this lifeless “Card content goes here.” phrase… restore original content please. (use commit ef1b54f or https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ to see the preview of the Yumma UI components if needed
-
-### **Context Menu**
-
-- `iconSide` won’t work without an icon so having it literally does nothing
-
-### Menu
-
-- `iconSide` won’t work without an icon so having it literally does nothing
-
-### Menubar
-
-- `iconSide` won’t work without an icon so having it literally does nothing
 
 ### Tooltip
 
