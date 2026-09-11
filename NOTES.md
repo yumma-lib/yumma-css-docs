@@ -1517,6 +1517,19 @@ declares logical properties: `padding` covers `padding-inline` covers
       Verified in `defaults/variants/`. Until Yumma has them, the
       `yui-*-pop` classes stay; Motion is not an alternative, because Base UI
       waits on `getAnimations()` and never sees it.
+- [x] **`fw:` is gone; both composite controls ring with `fv:`.** Renildo
+      chose the narrower ring knowingly, so Number Field and Toolbar put the
+      cluster on the input that takes focus rather than on the group around
+      it. Number Field's input carries a transparent 1px border so the
+      colour half of the ring has something to paint.
+- [x] **Combobox's chips live inside the field.** They sat in a row under the
+      input, which the popup covered the moment it opened. `Combobox.Chips`
+      wraps the input as well as the chips, so the box wears the input's own
+      look and the input becomes a borderless flex child inside it. Chips are
+      white on a silver border rather than indigo, which is also one fewer
+      thing to repaint when indigo goes. The input keeps a `min-w-24` floor:
+      without one it squeezed to two letters of the placeholder instead of
+      wrapping to its own row.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
