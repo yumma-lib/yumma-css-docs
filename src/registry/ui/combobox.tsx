@@ -31,6 +31,12 @@ const SIZES: Record<Size, string> = {
   lg: "h-12 w-72",
 };
 
+const CHIPS_SIZES: Record<Size, string> = {
+  sm: "min-h-8 w-56 fs-sm",
+  md: "min-h-10 w-64 fs-md",
+  lg: "min-h-12 w-72 fs-lg",
+};
+
 /** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const COMBOBOX_MOTION = `
   .yui-combobox-pop {
@@ -70,8 +76,9 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-sm",
 };
 
-const ACTION =
-  "d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
+
+const ACTION = `d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 ${RING}`;
 
 export interface ComboboxProps {
   /**
@@ -161,6 +168,14 @@ export default function ComboboxBase({
   }, [disabled]);
   const id = useId();
 
+  const chipsClasses = merge(
+    "d-f fw-w ai-c g-1 py-1 pl-2 pr-16 bg-white bc-silver-3 c-slate-10 bw-1",
+    CHIPS_SIZES[size],
+    SHAPES[shape],
+    SHADOWS[shadow],
+    className,
+  );
+
   const inputClasses = merge(
     INPUT,
     SIZES[size],
@@ -220,11 +235,48 @@ export default function ComboboxBase({
         )}
 
         <div className="p-r">
-          <Combobox.Input
-            id={id}
-            placeholder={placeholder}
-            className={inputClasses}
-          />
+          {/* `Chips` is not decoration: `Chip` reads a context off it, and
+              without it the first selection threw on
+              `setHighlightedChipIndex`. It wraps the input as well as the
+              chips, which is what puts them inside the field. */}
+          {multiple ? (
+            <Combobox.Chips className={chipsClasses}>
+              <Combobox.Value>
+                {/* Three shapes, not two: `null`, the array, and the single
+                    string left over from single-select. Base UI types the
+                    callback `any`, so nothing warned. See NOTES.md. */}
+                {(selected: string[] | string | null) => (
+                  <>
+                    {toChips(selected).map((chip) => (
+                      <Combobox.Chip
+                        key={chip}
+                        className="d-f ai-c g-1 px-2 py-0 h-6 bg-white bc-silver-3 c-slate-10 bw-1 fs-xs fw-500"
+                      >
+                        {chip}
+                        <Combobox.ChipRemove
+                          className="d-f b-0 ai-c jc-c p-0 bg-transparent c-slate-6 c-p h:c-slate-10"
+                          aria-label={`Remove ${chip}`}
+                        >
+                          <Xmark className="w-3 h-3" />
+                        </Combobox.ChipRemove>
+                      </Combobox.Chip>
+                    ))}
+                  </>
+                )}
+              </Combobox.Value>
+              <Combobox.Input
+                id={id}
+                placeholder={placeholder}
+                className={`fg-1 w-24 min-w-24 bg-transparent c-slate-10 bw-0 ${RING}`}
+              />
+            </Combobox.Chips>
+          ) : (
+            <Combobox.Input
+              id={id}
+              placeholder={placeholder}
+              className={inputClasses}
+            />
+          )}
           <div
             className={`d-f p-a r-2 b-0 ai-c jc-c c-slate-6 ${ACTION_HEIGHTS[size]}`}
           >
@@ -244,38 +296,6 @@ export default function ComboboxBase({
             </Combobox.Trigger>
           </div>
         </div>
-
-        {/* `Chips` is not decoration: `Chip` reads a context off it, and
-            without it the first selection threw on
-            `setHighlightedChipIndex`. It wraps `Value`, not the other way
-            round - the list of chips is the value. */}
-        {multiple && (
-          <Combobox.Chips className="d-f fw-w ai-c g-1 e:d-none">
-            <Combobox.Value>
-              {/* Three shapes, not two: `null`, the array, and the single
-                  string left over from single-select. Base UI types the
-                  callback `any`, so nothing warned. See NOTES.md. */}
-              {(selected: string[] | string | null) => (
-                <>
-                  {toChips(selected).map((chip) => (
-                    <Combobox.Chip
-                      key={chip}
-                      className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-9999 fs-xs fw-500"
-                    >
-                      {chip}
-                      <Combobox.ChipRemove
-                        className="d-f b-0 ai-c jc-c p-0 bg-transparent c-indigo-5 c-p h:c-indigo-8"
-                        aria-label={`Remove ${chip}`}
-                      >
-                        <Xmark className="w-3 h-3" />
-                      </Combobox.ChipRemove>
-                    </Combobox.Chip>
-                  ))}
-                </>
-              )}
-            </Combobox.Value>
-          </Combobox.Chips>
-        )}
 
         {description && <p className="m-0 c-slate-6 fs-xs">{description}</p>}
       </div>
