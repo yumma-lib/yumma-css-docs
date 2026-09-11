@@ -184,29 +184,36 @@ export default function DialogBase({
           )}
 
           {header && (
-            <div className="d-f fd-c ai-c jc-c g-3 px-4 py-5 bg-white">
+            <div className="d-f fd-c ai-c jc-c g-3 px-4 pt-5 bg-white">
               {header}
             </div>
           )}
 
-          <div className="px-4 py-2 bg-white">
+          {/* One padded column with a gap, the way Alert Dialog does it. Title,
+              description and children each carried their own `py-` before, so
+              the space between them was two paddings stacked and the space
+              above the title was a single `py-2` - which is what put it
+              against the top edge when there is no header. */}
+          <div
+            className={`d-f fd-c g-3 px-4 pb-6 bg-white ${
+              header ? "pt-5" : "pt-10"
+            }`}
+          >
             <Dialog.Title className="c-slate-10 fs-md fw-500 ta-c">
               {title}
             </Dialog.Title>
-          </div>
 
-          {description && (
-            <div className="px-4 py-3 bg-white">
-              <Dialog.Description className="c-slate-7 fs-sm lh-4 ta-c">
+            {description && (
+              <Dialog.Description className="m-0 c-slate-7 fs-sm lh-4 ta-c">
                 {description}
               </Dialog.Description>
-            </div>
-          )}
+            )}
 
-          {children && <div className="px-4 py-3 bg-white">{children}</div>}
+            {children}
+          </div>
 
           {confirmLabel && (
-            <div className="d-g gtc-2 g-3 px-4 py-4 bg-white">
+            <div className="d-g gtc-2 g-3 px-4 pb-4 bg-white">
               <Dialog.Close render={<Button className={cancelClasses} />}>
                 {cancelLabel}
               </Dialog.Close>

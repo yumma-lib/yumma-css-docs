@@ -81,12 +81,11 @@ A separate pass from the API fixes. All three want mockups before any code.
 
 ### Alert Dialog
 
-- there is no outbound animation like in https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/alert-dialog
+- there is no outbound animation like in https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/alert-dialog - **measured: both do animate out**, popup and backdrop together, opacity 0.76 -> 0.54 -> 0.25 -> 0.10 -> gone over ~200ms. The exit is a mirror of the entrance (5% scale), which may be what reads as nothing. Needs a reference or a call on making it more pronounced.
 
 ### Dialog
 
-- spacing here looks terrible when it comes to the parent container, copy from Alert Dialog which looks good
-- there is no outbound animation like in https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/dialog
+- there is no outbound animation like in https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/dialog - **measured: both do animate out**, popup and backdrop together, opacity 0.76 -> 0.54 -> 0.25 -> 0.10 -> gone over ~200ms. The exit is a mirror of the entrance (5% scale), which may be what reads as nothing. Needs a reference or a call on making it more pronounced.
 
 ### Tooltip
 

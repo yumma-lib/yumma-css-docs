@@ -1086,6 +1086,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       `aria-label="Label"`. This is the first case of the Global "disable A
       when B rules it out" entry, handled inside the component rather than in
       the playground.
+- [x] **Dialog's spacing was three padded blocks pretending to be a column.**
+      Title, description and children each carried their own `py-`, so the gap
+      between them was two paddings stacked, and the space *above* the title
+      was a single `py-2` - which is what put it against the top edge whenever
+      there was no header. It is one `d-f fd-c g-3` column with real top and
+      bottom padding now, which is what Alert Dialog was already doing and why
+      that one "looks good". Both popups now sit their first child 41px below
+      the top edge, measured.
+- [ ] **Both dialogs already animate out.** Measured popup and backdrop
+      together: opacity 0.76 -> 0.54 -> 0.25 -> 0.10 -> 0.00 -> gone, over
+      ~200ms, in Dialog and Alert Dialog alike. So "there is no outbound
+      animation" is not reproducible as written. The likely reading is that
+      the exit is an exact mirror of the entrance and the scale change is only
+      5%, so at 200ms it reads as simply vanishing. Changing it is a taste
+      call and wants either the old reference or a decision, so both entries
+      stay in TODO with the numbers attached.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and
