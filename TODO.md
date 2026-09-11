@@ -52,7 +52,6 @@ do it and the CLI half does.
 - does it really make sense to have `defaultChecked` in the playground? it won’t survive a refresh so what’s the point? how do we solve this?
 - prop names MUST be consistent across ALL other Yumma UI components, I see VERY similar props with diff names and this for an API is VERY UGLY. e.g `iconSide` and `iconPosition` just pick one of them and reuse it across other Yumma UI components
 - we SHOULD be a bit more strict, some options are NOT meant to work with other options e.g. we should disable A if B is enabled when needed… maybe using the `diff-remove` color for the switch track to display that that switch is disabled
-- in the menu page clicking on the example trigger then click open in the playground option then switching the open playground option will break the trigger in the example… it won’t open anymore for some reason… bug? gotta check other componente to catch similar patterns...
 - why not create a prop to control focus? some people don’t like it… we can also create props to change the focus appearance too like outline color and outline offset (all Yumma CSS utilities btw)
 
 ### **Number Field**

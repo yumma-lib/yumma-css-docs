@@ -1298,6 +1298,18 @@ declares logical properties: `padding` covers `padding-inline` covers
       `popLayout` is what makes the popup ease between steps of different
       heights; only steps with `tasks` change height, so it does nothing
       without them. Split out of `animated` rather than folded into it.
+- [x] **A controlled prop with a widget is a trap, and seven had one.** The
+      TODO reported Menu's trigger dying after the `open` control was toggled
+      on and off. Cause: toggling it leaves `open: false` in the values bag,
+      the component reads `controlledOpen ?? internalOpen`, and **`false` is
+      not `undefined`** - so it is controlled, shut, and the trigger can never
+      change it. The playground has no handler to pass, so no toggle of a
+      controlled prop can ever work. Not just Menu: **Context Menu, Popover,
+      Preview Card, Checkbox, Switch and Toggle** all shipped the same dead
+      widget, and Checkbox's own description said so out loud. `controlled:
+      true` on the prop keeps the props table row and drops the control.
+      Verified all seven: documented, no widget, and Menu's trigger opens
+      after the round trip that used to kill it.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

@@ -24,7 +24,8 @@
     {
       "name": "pressed",
       "type": "boolean",
-      "description": "Controlled state."
+      "description": "Controlled state.",
+      "controlled": true
     },
     {
       "name": "onPressedChange",

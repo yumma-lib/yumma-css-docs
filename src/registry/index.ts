@@ -108,6 +108,13 @@ export interface RegistryProp {
    * be there, so the playground dims it until icon is set.
    */
   dependsOn?: string;
+  /**
+   * A prop that only works alongside a handler the playground cannot pass, so
+   * the props table documents it and the rail offers no control. Toggling one
+   * hands the component a controlled value it can never change back, which is
+   * how Menu's trigger came to stop opening.
+   */
+  controlled?: boolean;
   description?: string;
 }
 
