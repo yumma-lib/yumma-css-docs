@@ -179,6 +179,7 @@ describe("Yumma UI registry", () => {
         readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
       );
       for (const child of meta.childrenExample ?? []) {
+        if (child.text !== undefined) continue;
         if (!known.has(child.component))
           missing.push(`${file}: ${child.component}`);
       }

@@ -308,7 +308,11 @@ export function buildUsage(
 
   // Same rule for the children the snippet is about to spell.
   for (const child of [
-    ...new Set((meta.childrenExample ?? []).map((entry) => entry.component)),
+    ...new Set(
+      (meta.childrenExample ?? [])
+        .map((entry) => entry.component)
+        .filter((entry): entry is string => Boolean(entry)),
+    ),
   ].sort()) {
     tokens.push(
       { kind: "keyword", text: "import" },
@@ -348,6 +352,16 @@ export function buildUsage(
     tokens.push({ kind: "punctuation", text: ">" });
     for (const child of meta.childrenExample) {
       tokens.push({ kind: "text", text: "\n  " });
+      if (child.text !== undefined || !child.component) {
+        tokens.push({ kind: "punctuation", text: "<" });
+        tokens.push({ kind: "tag", text: "span" });
+        tokens.push({ kind: "punctuation", text: ">" });
+        tokens.push({ kind: "text", text: child.text ?? "" });
+        tokens.push({ kind: "punctuation", text: "</" });
+        tokens.push({ kind: "tag", text: "span" });
+        tokens.push({ kind: "punctuation", text: ">" });
+        continue;
+      }
       tokens.push({ kind: "punctuation", text: "<" });
       tokens.push({ kind: "tag", text: child.component });
       for (const [key, value] of Object.entries(child.props ?? {})) {

@@ -1274,6 +1274,20 @@ declares logical properties: `padding` covers `padding-inline` covers
       everywhere since the rename, and Menu, Menubar and Context Menu all seed
       icons on their example items. Measured: flipping it moves the glyph from
       x=8 to x=170 in all three.
+- [x] **Preview Card's content is back, and the schema grew a text child.**
+      `childrenExample` could only name components, so the card's copy had to
+      be the single `children` string, which is how it became "Card content
+      goes here." An entry now carries **`component` or `text`**, and the
+      original profile card is rebuilt from an Avatar and two lines. The text
+      entry renders and prints as a `<span>`: two **bare** strings in a flex
+      column are one anonymous flex item, and the snippet has to spell what
+      renders, so the span is in both or neither.
+- [x] **Avatar's wrapper stretched inside any flex column.** `d-if` sets the
+      wrapper's own display, not how its parent lays it out, so as a flex item
+      it took the parent's full width and **dragged the status and verified
+      badges to the parent's edge** - 260px from the avatar in the preview
+      card. `w-fc` pins it. Measured wrapper against avatar on the Avatar page
+      (48/48) and all four of the stack (32/32), overlap intact.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

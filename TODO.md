@@ -59,10 +59,6 @@ do it and the CLI half does.
 
 - use the `TriangleFlag` icon instead of the `Folder` icon - **blocked**: Number Field has no icon slot at all, it only draws Minus and Plus on its steppers. Either this meant a different component, or it wants an icon prop adding first.
 
-### Preview Card
-
-- **0024eee** before making Yumma UI I had great copy content and now after the migration there is just this lifeless “Card content goes here.” phrase… restore original content please. (use commit ef1b54f or https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ to see the preview of the Yumma UI components if needed
-
 ### Tooltip
 
 - shouldn’t the `triggerTone` change the tooltip background color too? to red for example if set to danger?

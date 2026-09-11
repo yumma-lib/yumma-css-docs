@@ -117,13 +117,16 @@ export interface RegistryMeta {
   /** Default text for components that take children. Absent means they do not. */
   children?: string;
   /**
-   * Children that are components, not text. The snippet prints these and the
-   * stage renders them, so the code block and the preview cannot disagree.
+   * Children that are more than one string: components, and the prose between
+   * them. The snippet prints these and the stage renders them, so the code
+   * block and the preview cannot disagree. An entry carries `component` or
+   * `text`, never both.
    */
   childrenExample?: {
-    component: string;
+    component?: string;
     props?: Record<string, unknown>;
     children?: string;
+    text?: string;
   }[];
 }
 
