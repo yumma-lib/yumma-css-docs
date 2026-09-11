@@ -13,6 +13,14 @@ const SIZES: Record<Size, string> = {
   lg: "fs-md",
 };
 
+// Both separators are quieter than the label and both follow it. The chevron
+// needs a bigger box to get there: its ink fills a little over half of one.
+const SEPARATOR_SIZES: Record<Size, string> = {
+  sm: "w-4 h-4",
+  md: "w-5 h-5",
+  lg: "w-6 h-6",
+};
+
 const SHAPES: Record<Shape, string> = {
   rounded: "br-lg",
   square: "",
@@ -99,9 +107,12 @@ export default function BreadcrumbBase({
             )}
             {!isLast &&
               (separator === "chevron" ? (
-                <NavArrowRight className="w-4 h-4 c-slate-4" />
+                <NavArrowRight
+                  className={`c-slate-4 ${SEPARATOR_SIZES[size]}`}
+                  aria-hidden="true"
+                />
               ) : (
-                <span className="c-slate-4" aria-hidden="true">
+                <span className={`c-slate-4 ${SIZES[size]}`} aria-hidden="true">
                   /
                 </span>
               ))}

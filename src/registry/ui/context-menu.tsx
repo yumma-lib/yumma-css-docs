@@ -10,14 +10,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 type IconPosition = "leading" | "trailing";
 
-/**
- * Keyed on Base UI's own transition attributes.
- *
- * Base UI asks `getAnimations()` whether anything is running before it closes,
- * and Motion's animation never appears there - measured zero. So it hid the
- * positioner in the first frame of the exit and Motion faded a popup that was
- * already inside a `display:none` parent. CSS transitions do register.
- */
+/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const CONTEXT_MENU_MOTION = `
   .yui-context-menu-pop {
     transition: opacity 150ms ease-out;

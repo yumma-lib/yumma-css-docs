@@ -40,7 +40,7 @@
       "type": "boolean",
       "default": false,
       "example": null,
-      "description": "A verification check in the top right corner. It sits opposite `status` so the two can be shown together. Sits in the opposite corner to `status`, so both can be on, but the demo starts with only `status` set."
+      "description": "A verification check in the top right corner. It sits in the opposite corner to `status`, so both can be on, but the demo starts with only `status`."
     }
   ]
 }

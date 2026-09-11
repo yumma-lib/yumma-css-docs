@@ -132,15 +132,17 @@ export default function AccordionBase({
 
         const triggerRadius =
           variant === "bordered" ? SHAPES[shape].trigger : "br-sm";
-        const triggerPadX =
-          variant === "bordered" ? "px-4" : isCard ? "px-4" : "px-0";
+        // `subtle` is a tinted surface like `bordered`, so its copy needs the
+        // same gutter. Without it the text sat on the fill's left edge.
+        const inset = variant === "bordered" || variant === "subtle" || isCard;
+        const triggerPadX = inset ? "px-4" : "px-0";
         const triggerPadY =
           variant === "ghost"
             ? "py-2"
             : variant === "default" && !separator
               ? "py-3"
               : "py-4";
-        const panelPadX = variant === "bordered" || isCard ? "px-4" : "";
+        const panelPadX = inset ? "px-4" : "";
 
         const titleColor = item.disabled
           ? "c-slate-4"

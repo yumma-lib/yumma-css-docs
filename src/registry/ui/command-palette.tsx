@@ -24,7 +24,7 @@ const ITEM_SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
-/** Keyed on Base UI's own transition attributes, which is what it waits for. */
+/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const PALETTE_MOTION = `
   .yui-palette-pop {
     transition: opacity 200ms ease-out, scale 200ms ease-out;
@@ -212,10 +212,6 @@ export default function CommandPaletteBase({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      {/* Base UI hides the popup as soon as `getAnimations()` finds nothing,
-          and Motion's animation never registers there - so the exit played on
-          an element that was already `display:none`. CSS transitions do
-          register. */}
       <style href="yumma-ui-command-palette-motion" precedence="default">
         {PALETTE_MOTION}
       </style>

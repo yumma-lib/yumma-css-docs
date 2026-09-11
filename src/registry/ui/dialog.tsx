@@ -26,7 +26,7 @@ const BUTTON_SHAPES: Record<Shape, string> = {
   squircle: "br-xxl cs-s",
 };
 
-/** Keyed on Base UI's own transition attributes, which is what it waits for. */
+/** Base UI waits on `getAnimations()`, which never sees Motion. See NOTES.md. */
 const DIALOG_MOTION = `
   .yui-dialog-pop {
     transition: opacity 200ms ease-out, scale 200ms ease-out;
@@ -236,18 +236,6 @@ export default function DialogBase({
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
-      {/*
-        Base UI decides when the popup may disappear by asking the element
-        `getAnimations()`. Motion's animation never showed up there - measured
-        zero - so it concluded nothing was running and set `hidden` in the same
-        frame, leaving Motion to fade an element that was already
-        `display:none`. The open animation looked fine because the element is
-        visible on the way in.
-
-        CSS transitions do register, so Base UI waits for these. React hoists
-        and de-duplicates a `<style href>`, so a copied component still brings
-        its own rules with it.
-      */}
       <style href="yumma-ui-dialog-motion" precedence="default">
         {DIALOG_MOTION}
       </style>
