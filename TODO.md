@@ -46,14 +46,10 @@ do it and the CLI half does.
 
 ### **Global**
 
-- does it really make sense to have `defaultChecked` in the playground? it won’t survive a refresh so what’s the point? how do we solve this?
+- **playground state in the URL.** Nothing survives a reload today: every
+  value reseeds from the schema. That is right for a link someone shares, but
+  it means you cannot send anyone the configuration you are looking at. Encode
+  the non-default values as a query string and read them back on mount.
 - why not create a prop to control focus? some people don’t like it… we can also create props to change the focus appearance too like outline color and outline offset (all Yumma CSS utilities btw)
 
-### **Number Field**
-
-- use the `TriangleFlag` icon instead of the `Folder` icon - **blocked**: Number Field has no icon slot at all, it only draws Minus and Plus on its steppers. Either this meant a different component, or it wants an icon prop adding first.
-
-### Onboarding
-
-- you missed the checklist in the indicator prop and maybe this prop for this component specifically should be called `type`or get another name like `style` maybe
 

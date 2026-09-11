@@ -54,7 +54,7 @@
       "type": "none",
       "typeName": "ReactNode",
       "example": null,
-      "exampleIcon": "Folder",
+      "exampleIcon": "TriangleFlag",
       "description": "Any icon. It is positioned over the control, so pass the glyph and nothing else. Hidden once `error` or `success` is set, which claim the trailing slot for their own icon."
     },
     {

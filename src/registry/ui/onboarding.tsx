@@ -9,7 +9,7 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import { merge } from "yummacss/merge";
 
-type Indicator = "count" | "progress" | "dots";
+type Indicator = "count" | "progress" | "dots" | "checklist";
 type IconPosition = "leading" | "trailing";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
@@ -241,6 +241,14 @@ export default function OnboardingBase({
                 {indicator === "count" && (
                   <span className="c-slate-5 fs-xs">
                     {page + 1} / {steps.length}
+                  </span>
+                )}
+                {indicator === "checklist" && (
+                  <span className="c-slate-5 fs-xs">
+                    {/* A step with nothing to tick reports the tour instead. */}
+                    {step.tasks?.length
+                      ? `${doneCount} / ${step.tasks.length} done`
+                      : `${page + 1} / ${steps.length}`}
                   </span>
                 )}
               </div>

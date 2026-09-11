@@ -1370,6 +1370,29 @@ declares logical properties: `padding` covers `padding-inline` covers
       three variants out of four, because **`subtle` hardcoded `br-lg`**
       rather than reading `SHAPES`. It reads it now, so `shape` is inert on
       `default` and `ghost` only.
+- [x] **Onboarding has a `checklist` indicator, and the demo has tasks at
+      all.** The entry also asked whether the prop should be `type` or
+      `style`: it stays `indicator`, because Accordion's built-in glyph picker
+      was renamed to `indicator` in the same sweep and the two are the same
+      idea. The bigger find was the example: **not one of the three steps had
+      `tasks`**, so the checklist, the gate on the forward button and the
+      `animatedResize` prop were all unreachable from the playground. Two
+      steps carry tasks now. `checklist` counts the current step's tasks and
+      falls back to the step count on a step with none, verified 1/3 ->
+      0/2 done -> 1/2 done.
+- [x] **The Number Field icon entry meant Field.** Number Field draws Minus
+      and Plus on its steppers and has no icon slot, so there was no Folder
+      icon to replace. **Field is its neighbour in the sidebar and is the one
+      with `exampleIcon: "Folder"`**, so that is what changed to
+      `TriangleFlag`. Select also uses Folder if this turns out to be the one
+      meant; it is a one-word change.
+- [x] **`defaultChecked` works, and nothing survives a refresh by design.**
+      Measured on Checkbox, Switch and Toggle: flipping the control moves the
+      preview and the snippet both. The premise of the entry is that it should
+      persist, but **no prop persists** - a reload reseeds every value from the
+      schema, which is what makes a shared component link open on the
+      documented example rather than on someone's fiddling. If persistence is
+      wanted it is a different feature, URL state, now its own TODO entry.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
