@@ -64,7 +64,6 @@ A separate pass from the API fixes. All three want mockups before any code.
 
 ### **Context Menu**
 
-- when i click to trigger the menu there is an unwanted black thick border around the menu and when i hover over one of the menu items it also shows up
 - `iconSide` won’t work without an icon so having it literally does nothing
 
 ### Menu
