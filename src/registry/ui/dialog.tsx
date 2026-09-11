@@ -49,6 +49,12 @@ const DIALOG_MOTION = `
   }
 `;
 
+const CLOSE_SHAPES: Record<Shape, string> = {
+  rounded: "br-9999",
+  square: "",
+  squircle: "br-lg cs-s",
+};
+
 const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
   inset: "bs-i-md",
   outset: "bs-o-sm",
@@ -180,7 +186,7 @@ export default function DialogBase({
           {showClose && (
             <Dialog.Close
               render={
-                <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3" />
+                <Button className="d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 ${CLOSE_SHAPES[shape]} h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3" />
               }
               aria-label="Close"
             >

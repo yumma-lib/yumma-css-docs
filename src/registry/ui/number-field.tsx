@@ -11,7 +11,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
 const BUTTON =
-  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2";
+  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
 
 const BUTTON_SIZES: Record<Size, string> = {
   sm: "w-8 h-8",

@@ -39,7 +39,7 @@
             "$icon": "Bookmark"
           },
           "title": "Build your first page",
-          "description": "Drop in a component, adjust its props, and watch it update.",
+          "description": "Drop in a component, adjust its props, and watch it update. Everything on the page is a real control, so what you see is what the snippet says.",
           "tasks": [
             {
               "id": "drop",

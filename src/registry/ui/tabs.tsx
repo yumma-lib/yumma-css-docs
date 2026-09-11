@@ -60,7 +60,7 @@ export default function TabsBase({
   onValueChange,
   orientation = "horizontal",
   size = "md",
-  shape = "pill",
+  shape = "square",
   iconPosition = "leading",
   animated = true,
   className,

@@ -62,7 +62,7 @@ export default function EmptyStateBase({
   const rootClasses = merge(
     "d-f fd-c ai-c jc-c p-8",
     gap,
-    isCard ? "bg-white bc-silver-2 br-lg bw-1" : "",
+    isCard ? "bg-white bc-silver-2 bw-1" : "",
     shadow === "inset" || shadow === "outset" ? SHADOWS[shadow] : "",
     className,
   );
@@ -91,7 +91,7 @@ export default function EmptyStateBase({
               onClick={onSecondary}
               className={[
                 BUTTON_BASE,
-                "bg-white bc-silver-2 c-slate-10 br-lg h:bg-silver-1/50",
+                "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50",
               ].join(" ")}
             >
               {secondaryLabel}
@@ -102,7 +102,7 @@ export default function EmptyStateBase({
               onClick={onPrimary}
               className={[
                 BUTTON_BASE,
-                "g-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white br-lg",
+                "g-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white",
               ].join(" ")}
             >
               {primaryIcon}

@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  87
-    Open    23
-    Done    79%
+    Closed  91
+    Open    22
+    Done    81%
 
 ---
 
@@ -109,8 +109,6 @@ Blocked on Renildo. Each one holds up the entry beside it.
       least functional component in the set.
 - [ ] **Avatar:** should `verified` and `status` be mutually exclusive rather
       than both at once?
-- [ ] **Meter:** should `warning` be `yellow` rather than `orange`? Orange was
-      chosen because the solid tone paints white on the fill.
 - [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
       npm, a dropdown, or is a dialog overkill?
 - [ ] **`bs-i-md` is invisible.** Alert Dialog's `inset` shadow is applied and
