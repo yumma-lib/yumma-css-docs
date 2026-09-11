@@ -1550,10 +1550,11 @@ declares logical properties: `padding` covers `padding-inline` covers
       keeps one surface rather than a table of two plus an escape hatch.
       Empty State's `shape` is `iconShape`. Popover and Tooltip default
       `arrow` to true.
-- [x] **A text control, so an optional string can be turned off.** Emptying it
-      drops the prop. `label` on Field and Textarea take it, Avatar gains the
-      `fallback` the component always had and the schema never mentioned, and
-      Textarea's counter goes away at `maxLength: 0`.
+- [x] **Textarea's counter goes away at `maxLength: 0`**, and Avatar's schema
+      finally documents the `fallback` the component always had.
+      **A text control was the wrong answer to "make the label optional"** and
+      is reverted: strings stay documented rather than driven. The label half
+      of that entry is open again.
 - [x] **Autocomplete has a spinner.** Motion rather than a keyframe class:
       Yumma has no animation utility, and this is not a Base UI enter or exit,
       which is the one case Motion cannot serve.

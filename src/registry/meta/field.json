@@ -3,9 +3,10 @@
   "props": [
     {
       "name": "label",
-      "type": "string",
+      "type": "none",
       "example": "Project name",
-      "description": "Text above the control. `Field.Root` and `Field.Label` associate it automatically, so no `id`/`htmlFor` bookkeeping is needed."
+      "description": "Text above the control. `Field.Root` and `Field.Label` associate it automatically, so no `id`/`htmlFor` bookkeeping is needed.",
+      "typeName": "string"
     },
     {
       "name": "required",

@@ -16,8 +16,8 @@ than adjusting the numbers by hand:
     grep -c '^- \[ \]' TODO.md
 
     Closed  91
-    Open    22
-    Done    81%
+    Open    23
+    Done    80%
 
 ---
 
@@ -45,6 +45,9 @@ first or they get done twice.
 Breaking for the registry, so they ship together in one release with the
 renames already on `main`.
 
+- [ ] **Field and Textarea: the label should be optional.** The counter half
+      is done, at `maxLength: 0`. The label needs a way to be turned off that
+      is not a text control: strings are documented, not driven.
 - [ ] **A prop to control focus.** Some people do not want a ring at all, and
       the appearance could be props too: outline colour, outline offset, all
       Yumma CSS utilities. **Do it with the indigo change, not before**: both

@@ -15,9 +15,10 @@
     },
     {
       "name": "fallback",
-      "type": "string",
+      "type": "none",
       "example": "AL",
-      "description": "What shows when there is no image, in place of the initials. Leave it empty for the initials, or for the person icon when there is no `name` either."
+      "description": "What shows when there is no image, in place of the initials. Leave it empty for the initials, or for the person icon when there is no `name` either.",
+      "typeName": "ReactNode"
     },
     {
       "name": "size",
