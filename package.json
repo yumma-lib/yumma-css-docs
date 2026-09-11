@@ -5,7 +5,7 @@
   "description": "Yumma CSS documentation",
   "homepage": "https://yummacss.com",
   "license": "MIT",
-  "author": "John Pereira",
+  "author": "Renildo Pereira",
   "type": "module",
   "scripts": {
     "build": "node scripts/check-sidebar.mjs && node scripts/generate-registry-json.mjs && next build",
