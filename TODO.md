@@ -65,7 +65,5 @@ do it and the CLI half does.
 
 ### Onboarding
 
-- using indicator set to count and dismissible set to true looks weird because the indicator and the X icon are almost kissing each other
 - you missed the checklist in the indicator prop and maybe this prop for this component specifically should be called `type`or get another name like `style` maybe
-there is an intentional grow animation when the onboarding container grows, make that animation a prop
 

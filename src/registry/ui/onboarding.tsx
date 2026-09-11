@@ -88,6 +88,7 @@ export interface OnboardingProps {
   steps: OnboardingStep[];
   indicator?: Indicator;
   dismissible?: boolean;
+  animatedResize?: boolean;
   shape?: Shape;
   shadow?: Shadow;
   animated?: boolean;
@@ -101,6 +102,7 @@ export default function OnboardingBase({
   steps,
   indicator = "count",
   dismissible = false,
+  animatedResize = true,
   shape = "rounded",
   shadow = "none",
   animated = true,
@@ -205,6 +207,19 @@ export default function OnboardingBase({
     </div>
   );
 
+  const closeButton = (position: string) => (
+    <AlertDialog.Close
+      render={
+        <Button
+          className={`d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5 ${position}`}
+        />
+      }
+      aria-label="Skip"
+    >
+      <Xmark aria-hidden className="w-4 h-4" />
+    </AlertDialog.Close>
+  );
+
   const popup = (
     <AlertDialog.Portal container={container} keepMounted>
       <AlertDialog.Backdrop
@@ -215,22 +230,20 @@ export default function OnboardingBase({
           className={`${popupClasses} ${animated ? "yui-onboarding-pop" : ""}`}
           style={{ maxWidth: "90vw" }}
         >
-          {dismissible && (
-            <AlertDialog.Close
-              render={
-                <Button className="d-f p-a l-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 br-9999 h:bg-silver-1/50 h:c-slate-7 fv:oo-2 fv:oc-indigo-5" />
-              }
-              aria-label="Skip"
-            >
-              <Xmark aria-hidden className="w-4 h-4" />
-            </AlertDialog.Close>
-          )}
+          {dismissible && indicator === "dots" && closeButton("p-a l-3 t-3")}
 
           {indicator !== "dots" && (
             <div className="d-f ai-c jc-sb px-8 pt-5">
-              <span className="c-slate-5 fs-xs">
-                {indicator === "count" ? `${page + 1} / ${steps.length}` : ""}
-              </span>
+              {/* The skip button rides in the header rather than over it. Sat
+                  absolute, it landed on top of the "1 / 3". */}
+              <div className="d-f ai-c g-2">
+                {dismissible && closeButton("")}
+                {indicator === "count" && (
+                  <span className="c-slate-5 fs-xs">
+                    {page + 1} / {steps.length}
+                  </span>
+                )}
+              </div>
               <div className="d-f g-2">
                 {!isFirst && (
                   <Button onClick={() => go(page - 1)} className={backClasses}>
@@ -262,13 +275,13 @@ export default function OnboardingBase({
             >
               {animated ? (
                 <AnimatePresence
-                  mode={hasAnyTasks ? "popLayout" : "wait"}
+                  mode={hasAnyTasks && animatedResize ? "popLayout" : "wait"}
                   custom={direction}
                 >
                   <motion.div
                     key={page}
                     custom={direction}
-                    layout={hasAnyTasks || undefined}
+                    layout={(hasAnyTasks && animatedResize) || undefined}
                     variants={slideVariants}
                     initial="enter"
                     animate="center"

@@ -1288,6 +1288,16 @@ declares logical properties: `padding` covers `padding-inline` covers
       badges to the parent's edge** - 260px from the avatar in the preview
       card. `w-fc` pins it. Measured wrapper against avatar on the Avatar page
       (48/48) and all four of the stack (32/32), overlap intact.
+- [x] **Onboarding's skip button sat on top of the step count.** Not "almost
+      kissing": measured, the X spanned x 93-121 and the "1 / 3" started at
+      113, **inside it**, at overlapping heights. It was absolutely positioned
+      at `l-3 t-3` while the header row started at `px-8 pt-5`. It rides in the
+      header row now, ahead of the count, and stays absolute only for `dots`,
+      which renders no header. Gap is 8px, and `dots` keeps its corner X.
+- [x] **The popup's grow is `animatedResize`.** Motion's `layout` plus
+      `popLayout` is what makes the popup ease between steps of different
+      heights; only steps with `tasks` change height, so it does nothing
+      without them. Split out of `animated` rather than folded into it.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

@@ -85,6 +85,12 @@
       "description": "The slide transition between steps and the popup's scale-in. Turn it off for an instant tour, or when the user has asked for reduced motion."
     },
     {
+      "name": "animatedResize",
+      "type": "boolean",
+      "default": true,
+      "description": "The popup's grow and shrink as steps of different heights come and go. Only steps with `tasks` change height, so this does nothing without them."
+    },
+    {
       "name": "container",
       "type": "none",
       "typeName": "HTMLElement | null",
