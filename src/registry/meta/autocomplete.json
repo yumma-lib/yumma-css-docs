@@ -72,7 +72,7 @@
       "type": "none",
       "typeName": "ReactNode",
       "example": null,
-      "exampleIcon": "PageSearch",
+      "exampleIcon": "Search",
       "description": "Any icon. It is positioned over the input and the text is padded around it, so pass the glyph and nothing else."
     },
     {

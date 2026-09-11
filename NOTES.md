@@ -1062,6 +1062,30 @@ declares logical properties: `padding` covers `padding-inline` covers
       `clearable && !multiple`, so a multiple combobox had no way to empty its
       chips at once. Measured after: single picks up `Clear selection` on the
       first choice; multiple shows two chips, two `Remove` buttons and `Clear`.
+- [x] **Switch's `defaultChecked` and Toggle's `defaultPressed` already
+      worked**, like Checkbox's before them - all three were closed by the
+      remount fix and TODO was never updated. Measured: switch true -> false,
+      toggle false -> true. Switch's demo starts **on** deliberately, seeded
+      `example: true`, which is the state worth showing.
+- [x] **Three of the four icon swaps are done.** `PageSearch` -> `Search` on
+      Autocomplete, `Mail` -> `Folder` on Field, `Star` -> `SparksSolid` on
+      Onboarding. The new names had to go into `EXAMPLE_ICONS` as well, which
+      the test added last session now enforces - without it they would have
+      resolved to nothing and simply not drawn. `PageSearch` stays in the list
+      because Command Palette still names it.
+      **Number Field is blocked**: it has no icon slot to change, only Minus
+      and Plus on the steppers, so "TriangleFlag instead of Folder" has no
+      target. Left in TODO with that noted.
+- [x] **`iconOnly` removed the label correctly; it was what came next that
+      was wrong.** With no `icon` set it dropped the label and put nothing in
+      its place, and `ICON_ONLY` is padding rather than a fixed size, so the
+      button collapsed to an **empty 18x18 box**. Since `icon` is seeded off,
+      that is what a reader hits the moment they flip the prop. It yields now:
+      no icon, no effect. Measured - iconOnly without an icon leaves the
+      button at 69x37 with its label, and with an icon gives 38x38, no text,
+      `aria-label="Label"`. This is the first case of the Global "disable A
+      when B rules it out" entry, handled inside the component rather than in
+      the playground.
 - [ ] **The rule for whether a prop survives `merge`.** A prop that sets **one
       class on one element** goes: `className` wins now, which is how
       `fullWidth` died. A prop that **coordinates several elements** stays, and

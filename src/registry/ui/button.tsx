@@ -78,12 +78,17 @@ export default function ButtonBase({
   ...props
 }: ButtonProps) {
   const inactive = disabled || loading;
+  // `iconOnly` needs an icon to be only. Without one it dropped the label and
+  // put nothing in its place, and `ICON_ONLY` is padding rather than a fixed
+  // size - so the button collapsed to an empty 18px box. The prop yields
+  // instead: no icon, no effect.
+  const iconOnlyActive = iconOnly && Boolean(icon);
 
   const classes = merge(
     BASE,
     transition ? MOTION : "",
     VARIANTS[variant],
-    iconOnly ? ICON_ONLY[size] : SIZES[size],
+    iconOnlyActive ? ICON_ONLY[size] : SIZES[size],
     SHAPES[shape],
     SHADOWS[shadow],
     inactive ? "o-60 c-na" : "c-p",
@@ -98,11 +103,11 @@ export default function ButtonBase({
       // A label the eye cannot see still has to reach a screen reader, so a
       // string child becomes the name unless one is passed.
       aria-label={
-        iconOnly && typeof children === "string" ? children : undefined
+        iconOnlyActive && typeof children === "string" ? children : undefined
       }
       {...props}
     >
-      {iconOnly ? (
+      {iconOnlyActive ? (
         icon
       ) : (
         <>
