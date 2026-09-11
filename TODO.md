@@ -25,22 +25,10 @@ than adjusting the numbers by hand:
 
 Things that do the wrong thing today. No decisions needed, no mockups.
 
-- [ ] **Alert Dialog** `inset` shadow does nothing.
-- [ ] **Combobox** `multiple` shifts the layout: the component moves up when
-      enabled and down when disabled. The chips row mounts empty and the
-      parent's `gap` counts it. The throw is fixed.
 - [ ] **Toolbar** plus and minus buttons get in the way of the Number Field
       part, and the focus ring paints behind the soft silver background.
 - [ ] **Onboarding** `animatedResize` fades up and down inside the dialog; it
       should resize the dialog itself.
-- [ ] **Onboarding** renders checkboxes by default. They belong only to
-      `indicator: "checklist"`.
-- [ ] **Field** with `revealable` on, `iconPosition` and `iconInteractive` go
-      red but stay clickable. An inert control should be locked, not just
-      coloured.
-- [ ] **Docs site** `/ui/components/accordion` shows `shape` and
-      `indicatorPosition` in red on arrival, because `variant` defaults to
-      `default`. The inert message should wait until the control is touched.
 
 ## Phase 2 - Content model
 
@@ -137,6 +125,10 @@ Blocked on Renildo. Each one holds up the entry beside it.
       chosen because the solid tone paints white on the fill.
 - [ ] **Install command:** a dialog offering yarn and bun alongside pnpm and
       npm, a dropdown, or is a dialog overkill?
+- [ ] **`bs-i-md` is invisible.** Alert Dialog's `inset` shadow is applied and
+      unreadable: 10% black at 4px blur inside a white panel. It is a Yumma
+      CSS token, so every component using it is the same. Strengthen the
+      token, drop `inset` from the surfaces it cannot show on, or leave it?
 
 ## Known and accepted
 

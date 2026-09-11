@@ -44,6 +44,10 @@ const COMBOBOX_MOTION = `
   @media (prefers-reduced-motion: reduce) {
     .yui-combobox-pop { transition: none; }
   }
+  /* Base UI keeps the chip list mounted with nothing in it, and the column's
+     gap counts a zero-height child, so turning \`multiple\` on shifted the
+     whole component by 8px. */
+  [data-yui-chips]:empty { display: none; }
 `;
 
 const POPUP_SIZES: Record<Size, string> = {
@@ -250,7 +254,7 @@ export default function ComboboxBase({
             `setHighlightedChipIndex`. It wraps `Value`, not the other way
             round - the list of chips is the value. */}
         {multiple && (
-          <Combobox.Chips className="d-f fw-w ai-c g-1">
+          <Combobox.Chips data-yui-chips className="d-f fw-w ai-c g-1">
             <Combobox.Value>
               {/* Three shapes, not two: `null`, the array, and the single
                   string left over from single-select. Base UI types the

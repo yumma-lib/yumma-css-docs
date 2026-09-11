@@ -118,9 +118,15 @@ export default function OnboardingBase({
   const isFirst = page === 0;
   const isLast = page === steps.length - 1;
   const doneCount = checked[page]?.size ?? 0;
-  const allTasksDone = !step.tasks || doneCount >= step.tasks.length;
 
-  const hasAnyTasks = steps.some((s) => (s.tasks?.length ?? 0) > 0);
+  // Tasks belong to the checklist indicator. A step can carry them under any
+  // other indicator and they stay out of the way, gate and all.
+  const showTasks = indicator === "checklist";
+  const tasks = showTasks ? step.tasks : undefined;
+  const allTasksDone = !tasks || doneCount >= tasks.length;
+
+  const hasAnyTasks =
+    showTasks && steps.some((s) => (s.tasks?.length ?? 0) > 0);
 
   const go = (next: number) => {
     setDirection(next > page ? 1 : -1);
@@ -175,9 +181,9 @@ export default function OnboardingBase({
       </div>
       <span className="c-slate-10 fs-md fw-500">{step.title}</span>
       <p className="m-0 c-slate-6 fs-sm lh-4">{step.description}</p>
-      {step.tasks && step.tasks.length > 0 && (
+      {tasks && tasks.length > 0 && (
         <div className="d-f fd-c g-2 w-100% pt-2 ta-l">
-          {step.tasks.map((task) => {
+          {tasks.map((task) => {
             const isChecked = checked[page]?.has(task.id) ?? false;
             return (
               <Button
@@ -246,8 +252,8 @@ export default function OnboardingBase({
                 {indicator === "checklist" && (
                   <span className="c-slate-5 fs-xs">
                     {/* A step with nothing to tick reports the tour instead. */}
-                    {step.tasks?.length
-                      ? `${doneCount} / ${step.tasks.length} done`
+                    {tasks?.length
+                      ? `${doneCount} / ${tasks.length} done`
                       : `${page + 1} / ${steps.length}`}
                   </span>
                 )}

@@ -1438,6 +1438,30 @@ declares logical properties: `padding` covers `padding-inline` covers
       the icon test **only walked `$icon` markers, never `exampleIcon`** - so
       an unknown name there resolved to undefined in silence, the same failure
       one field over. Both closed; verified the widened test bites.
+- [x] **Inert controls are locked, and the reason waits to be asked for.**
+      Shown on arrival the red was a wall of it on a page nobody had touched:
+      Accordion opens on `variant: "default"`, which makes two controls inert
+      before anyone does anything. The note now appears on the first press or
+      focus, and the control itself is `disabled` rather than merely tinted.
+      **A disabled control fires no events**, so the press is heard by a
+      wrapper around it, not the control.
+- [x] **Combobox's layout shift: an empty child still gets its gap.** Base UI
+      keeps the chip list mounted with nothing in it. Measured: zero children,
+      zero height, and the wrapper still went 69px to 77px, which is exactly
+      the column's `g-2`. `:empty { display: none }` removes it from layout,
+      gaps included. Hung off a **data attribute**, not a class: the canon
+      test reads class strings and rejects anything that is not a Yumma
+      utility.
+- [x] **Onboarding's tasks belong to `checklist`.** They rendered on any
+      indicator, gate on the forward button included, once the example seeded
+      them. Tied to the indicator now.
+- [ ] **Alert Dialog `inset` renders and cannot be seen.** Measured
+      `rgba(0, 0, 0, 0.1) 0px 2px 4px 0px inset`, present and applied; two
+      screenshots against `none` are indistinguishable. 10% black at 4px blur
+      inside a white panel with a light border has nothing to read against.
+      Not an Alert Dialog bug: `bs-i-md` is a Yumma CSS token and every
+      component using it has the same problem. Needs a decision, so it moved
+      out of Phase 1.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
