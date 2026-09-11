@@ -32,7 +32,10 @@
       "name": "sideOffset",
       "type": "number",
       "default": 8,
-      "description": "Gap between the trigger and the tooltip, in pixels."
+      "description": "Gap between the trigger and the tooltip, in pixels.",
+      "min": 0,
+      "max": 24,
+      "step": 2
     },
     {
       "name": "tone",
@@ -51,7 +54,10 @@
       "name": "delay",
       "type": "number",
       "default": 300,
-      "description": "How long a hover must rest before it opens, in ms. Set to `0` to open on contact."
+      "description": "How long a hover must rest before it opens, in ms. Set to `0` to open on contact.",
+      "min": 0,
+      "max": 1000,
+      "step": 100
     },
     {
       "name": "shape",

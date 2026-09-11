@@ -1393,6 +1393,21 @@ declares logical properties: `padding` covers `padding-inline` covers
       schema, which is what makes a shared component link open on the
       documented example rather than on someone's fiddling. If persistence is
       wanted it is a different feature, URL state, now its own TODO entry.
+- [x] **Combobox's `multiple` crash: the value has three shapes, not two.**
+      The guard was `(selected ?? [])`, which covers `null` and the array and
+      **not the single string left over from single-select**. Turn `multiple`
+      on with something already chosen and `"Apple".map` throws. Base UI types
+      the callback `any`, so nothing warned. `toChips` handles all three.
+- [x] **Progress's `animated` was never broken; nothing could change `value`.**
+      Caught mid-transition at 69.77% easing from 68 to 73, so the motion is
+      working. The report reads as a Progress bug and is a **playground gap**:
+      `type: "number"` had no control at all, so **21 number props across 11
+      components** were documented and unreachable. A stepper closes that.
+      A range input was the other option and loses: half these props have no
+      bound, and an unbounded slider has no position to show. `progress.value`
+      was typed `none` only because `null` is legal; it is `number` now, and
+      the indeterminate case stays documented in the description, as it
+      already was.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

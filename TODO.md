@@ -25,6 +25,139 @@ A separate pass from the API fixes. All three want mockups before any code.
   instead, with colour kept for the places it carries meaning - red for
   destructive, blue for links. Wants other takes alongside the grayscale one.
 
+## **State-of-Yumma-UI report**
+
+Renildo's pass over the whole library, 2026-09-11. Verify each against the
+code before acting: most are right about the symptom.
+
+### **Copy and context, library-wide**
+
+- **Define one content model and apply it everywhere.** Drop the SaaS framing
+  the old copy-and-paste system used. With the CLI the examples should be as
+  neutral and simple as possible. Covers copywriting **and** icon choices, and
+  every component follows the same model once it exists. Do this first: the
+  per-component copy items below are instances of it.
+- `Autocomplete`: "Assign member" is too much context, and the avatars are not
+  needed. Same for `Combobox`.
+
+### **Docs site**
+
+- The button beside the navigation that copies the install command uses an
+  arrow-down icon; it should be a copy icon. With no label it says nothing
+  about what it does. **Open question:** a dialog offering yarn, bun and the
+  rest alongside pnpm and npm, or is a dropdown enough, or is a dialog
+  overkill?
+- `/ui/components/accordion` shows `shape` and `indicatorPosition` in red on
+  arrival, because `variant` defaults to `default`. The inert message should
+  only appear once the user tries to interact with the control.
+
+### **Autocomplete**
+
+- No spinner when `loading` is `true`. Add one, and respect `animated`.
+
+### **Checkbox**
+
+- The toggle should drive `checked`, not `defaultChecked`. Same for `Switch`.
+- `indeterminate` makes no sense here - `Checkbox Group` already supports it.
+  Keep the prop, remove its control, describe it as a boolean in the API.
+
+### **Combobox**
+
+- Toggling `multiple` still shifts the layout: the whole component moves up
+  when enabled and down when disabled. The chips row mounts empty, and the
+  parent's gap counts it. The throw is fixed.
+
+### **File Upload**
+
+- Barely customisable: the dashed border and the icon should both be the
+  user's choice.
+- Barely functional: drag and drop does not work, and the upload button does
+  nothing. Dragging a file over it should change the border colour, and there
+  is more visual feedback it should have.
+- **Open question:** Base UI ships no primitive for this. Remove it from
+  Yumma UI?
+
+### **Field**
+
+- With `revealable` on, `iconPosition` and `iconInteractive` go red but stay
+  clickable. An inert control should be locked, not just coloured.
+- Warn about these interactions in JSDoc too, so the block and the reason
+  reach anyone reading the source.
+- The label and the character count should be optional. Same for `Textarea`.
+
+### **Number Field**
+
+- Wants a visual revamp. **5 mockups.** A focus outline around the whole
+  component has never worked, and the plus and minus icons are too small.
+
+### **Radio**
+
+- Remove the leading and trailing icons.
+
+### **Slider**
+
+- Should look like `Switch` with a longer track. **5 mockups.**
+
+### **Toggle**
+
+- Remove `tone`. It and `swatchClassName` are both too strict.
+
+### **Toggle Group**
+
+- No icons render inside the toggle buttons; only border and background
+  colours are applied.
+
+### **Avatar**
+
+- `fallback` should be controllable from the API sidebar.
+- `verified` and `status` should not work together. **Open question:** either
+  A or B rather than both?
+
+### **Avatar Stack**
+
+- Shows initials rather than avatars, so every one of them is falling back.
+
+### **Meter**
+
+- Should `warning` be `yellow` rather than `orange`?
+
+
+### **Separator**
+
+- `iconShape` draws no `square`, `circle` or `squircle` around the "Or".
+
+### **Button**
+
+- `iconOnly` does nothing until `icon` is also set.
+
+### **Toolbar**
+
+- The plus and minus buttons get in the way of the Number Field part, and the
+  focus ring paints behind the soft silver background.
+
+### **Alert Dialog**
+
+- `inset` shadow does nothing.
+
+### **Popover and Tooltip**
+
+- Both should use `arrow` by default.
+
+### **Empty State**
+
+- `shape` controls the icon's shape, not the buttons'. Rename it `iconShape`.
+
+### **Onboarding**
+
+- `animatedResize` fades up and down inside the dialog; it should resize the
+  dialog itself.
+- It renders checkboxes by default. They should only appear when `indicator`
+  is `checklist`.
+
+### **Skeleton**
+
+- Already slated for removal, in favour of a new prop on every component.
+
 ## **Shared constants**
 
 One file per kind of thing that gets swapped wholesale, so swapping it is one

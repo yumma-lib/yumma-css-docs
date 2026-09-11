@@ -252,12 +252,12 @@ export default function ComboboxBase({
         {multiple && (
           <Combobox.Chips className="d-f fw-w ai-c g-1">
             <Combobox.Value>
-              {/* `null` until something is selected, not an empty array - the
-                  callback is typed `any` by Base UI, so nothing warned, and
-                  `.map` on it threw the moment `multiple` was turned on. */}
-              {(selected: string[] | null) => (
+              {/* Three shapes, not two: `null`, the array, and the single
+                  string left over from single-select. Base UI types the
+                  callback `any`, so nothing warned. See NOTES.md. */}
+              {(selected: string[] | string | null) => (
                 <>
-                  {(selected ?? []).map((chip) => (
+                  {toChips(selected).map((chip) => (
                     <Combobox.Chip
                       key={chip}
                       className="d-f ai-c g-1 px-2 py-0 h-6 bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1 br-9999 fs-xs fw-500"
@@ -286,4 +286,9 @@ export default function ComboboxBase({
       </Combobox.Portal>
     </Combobox.Root>
   );
+}
+
+function toChips(selected: string[] | string | null): string[] {
+  if (Array.isArray(selected)) return selected;
+  return selected ? [selected] : [];
 }

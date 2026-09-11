@@ -7,12 +7,14 @@ export function typeOf(prop: RegistryProp): string {
   return prop.type;
 }
 
-/** Enums, booleans, and icon slots only - not strings/numbers, and never a
- * prop the component expects a handler alongside. */
+/** Enums, booleans, numbers and icon slots - not strings, and never a prop
+ * the component expects a handler alongside. */
 export function isControllable(prop: RegistryProp): boolean {
   if (prop.controlled) return false;
   if (prop.exampleIcon) return true;
-  return prop.type === "enum" || prop.type === "boolean";
+  return (
+    prop.type === "enum" || prop.type === "boolean" || prop.type === "number"
+  );
 }
 
 /**

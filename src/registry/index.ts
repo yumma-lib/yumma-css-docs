@@ -87,6 +87,10 @@ export interface RegistryProp {
   /** Shown in the Type column instead of `type`, when the two differ. */
   typeName?: string;
   values?: string[];
+  /** Bounds for a `number` control. `step` defaults to 1; a missing bound does not clamp. */
+  min?: number;
+  max?: number;
+  step?: number;
   default?: string | boolean | number;
   /**
    * A representative value for the demo, for a prop the component cannot

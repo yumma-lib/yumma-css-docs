@@ -17,7 +17,10 @@
           "prop": "icons",
           "set": true
         }
-      ]
+      ],
+      "min": 1,
+      "max": 10,
+      "step": 1
     },
     {
       "name": "icons",
@@ -28,7 +31,11 @@
     {
       "name": "defaultValue",
       "type": "number",
-      "description": "The rating on first render. Pair `value` with `onValueChange` instead if you are controlling it."
+      "description": "The rating on first render. Pair `value` with `onValueChange` instead if you are controlling it.",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "example": 3
     },
     {
       "name": "value",

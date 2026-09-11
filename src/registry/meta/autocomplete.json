@@ -105,7 +105,10 @@
       "name": "limit",
       "type": "number",
       "default": 0,
-      "description": "Cap on how many matches are listed. `0` lists them all."
+      "description": "Cap on how many matches are listed. `0` lists them all.",
+      "min": 0,
+      "max": 10,
+      "step": 1
     },
     {
       "name": "animated",

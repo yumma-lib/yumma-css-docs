@@ -11,7 +11,11 @@
     {
       "name": "max",
       "type": "number",
-      "description": "Show at most this many avatars, then one more reading `+N` for the rest. Unset shows every avatar you pass."
+      "description": "Show at most this many avatars, then one more reading `+N` for the rest. Unset shows every avatar you pass.",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "example": 4
     },
     {
       "name": "size",
