@@ -102,6 +102,7 @@ type Intent = keyof typeof INTENTS;
 export interface BadgeProps {
   children: ReactNode;
   tone?: Tone;
+  /** Does nothing while `tone` is `outline`. */
   intent?: Intent;
   shape?: Shape;
   size?: Size;

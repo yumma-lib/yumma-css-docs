@@ -16,7 +16,6 @@ export interface RadioOption {
   value: string;
   label: string;
   description?: string;
-  icon?: ReactNode;
 }
 
 const BASE =
@@ -61,7 +60,6 @@ export interface RadioProps {
   size?: Size;
   shape?: Shape;
   shadow?: Shadow;
-  iconPosition?: IconSide;
   disabled?: boolean;
   animated?: boolean;
   className?: string;
@@ -76,7 +74,6 @@ export default function RadioBase({
   size = "md",
   shape = "square",
   shadow = "none",
-  iconPosition = "leading",
   disabled = false,
   animated = true,
   className,
@@ -127,9 +124,6 @@ export default function RadioBase({
               }`}
             >
               <div className="d-f ai-c g-2">
-                {option.icon && iconPosition === "leading" && (
-                  <span className="d-f ai-c c-slate-5">{option.icon}</span>
-                )}
                 <Radio.Root
                   value={option.value}
                   className={(state) => rootClasses(state.checked)}
@@ -146,11 +140,6 @@ export default function RadioBase({
                   {animated ? undefined : indicator}
                 </Radio.Root>
                 <span>{option.label}</span>
-                {option.icon && iconPosition === "trailing" && (
-                  <span className="d-f ai-c c-slate-5 ml-auto">
-                    {option.icon}
-                  </span>
-                )}
               </div>
               {option.description && (
                 <p className="pl-6 m-0 c-slate-6 fs-xs fw-400">

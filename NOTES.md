@@ -1517,6 +1517,46 @@ declares logical properties: `padding` covers `padding-inline` covers
       Verified in `defaults/variants/`. Until Yumma has them, the
       `yui-*-pop` classes stay; Motion is not an alternative, because Base UI
       waits on `getAnimations()` and never sees it.
+- [x] **`fw:` is gone; both composite controls ring with `fv:`.** Renildo
+      chose the narrower ring knowingly, so Number Field and Toolbar put the
+      cluster on the input that takes focus rather than on the group around
+      it. Number Field's input carries a transparent 1px border so the
+      colour half of the ring has something to paint.
+- [x] **Combobox's chips live inside the field.** They sat in a row under the
+      input, which the popup covered the moment it opened. `Combobox.Chips`
+      wraps the input as well as the chips, so the box wears the input's own
+      look and the input becomes a borderless flex child inside it. Chips are
+      white on a silver border rather than indigo, which is also one fewer
+      thing to repaint when indigo goes. The input keeps a `min-w-24` floor:
+      without one it squeezed to two letters of the placeholder instead of
+      wrapping to its own row.
+- [x] **A controlled prop works when the schema names its handler.** `handler`
+      on the prop and the playground supplies it, so `checked`, `pressed` and
+      `open` are drivable instead of documented-only. Two things had to come
+      with it. The handler map is **memoised**: a fresh identity each render
+      made Base UI re-report its own state and overwrite what the control had
+      just set. And a prop that is `controlled` with no handler is **not
+      seeded** at all, or `defaultChecked` reaches the component beside
+      `checked` and wins.
+- [x] **Checkbox ignored a controlled `checked` arriving through a spread.**
+      Read off the fiber, `Checkbox.Root` had `checked={true}` and rendered
+      `aria-checked="false"` with `data-unchecked`. Switch and Toggle hold the
+      value and pass it by name, and they worked; Checkbox now does the same.
+      It needed `"use client"` for the first time, being stateless until now.
+- [x] **JSDoc for every conflict rule, generated from the schema.** Fourteen
+      props say in the source what the playground says in the rail, and a test
+      fails if a rule exists without a comment above the prop.
+- [x] **Radio's icons, Toggle's `tone` and `swatchClassName` are gone.** Toggle
+      keeps one surface rather than a table of two plus an escape hatch.
+      Empty State's `shape` is `iconShape`. Popover and Tooltip default
+      `arrow` to true.
+- [x] **A text control, so an optional string can be turned off.** Emptying it
+      drops the prop. `label` on Field and Textarea take it, Avatar gains the
+      `fallback` the component always had and the schema never mentioned, and
+      Textarea's counter goes away at `maxLength: 0`.
+- [x] **Autocomplete has a spinner.** Motion rather than a keyframe class:
+      Yumma has no animation utility, and this is not a Base UI enter or exit,
+      which is the one case Motion cannot serve.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

@@ -24,6 +24,7 @@ export interface ProgressProps {
   label: ReactNode;
   shape?: Shape;
   shadow?: Shadow;
+  /** Does nothing while `value` is not set. */
   animated?: boolean;
   className?: string;
 }

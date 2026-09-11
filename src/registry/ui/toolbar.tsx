@@ -179,7 +179,7 @@ export default function ToolbarBase({
               max={item.max}
               aria-label={item.label}
             >
-              <NumberField.Group className="d-f ai-c br-lg fw:os-s fw:ow-3 fw:oo-0 fw:oc-indigo-2/60 fw:bc-indigo-3">
+              <NumberField.Group className="d-f ai-c">
                 <NumberField.Decrement
                   render={
                     animated
@@ -199,7 +199,7 @@ export default function ToolbarBase({
                 </NumberField.Decrement>
                 <Toolbar.Input
                   render={<NumberField.Input />}
-                  className="w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500"
+                  className="w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3"
                 />
                 <NumberField.Increment
                   render={

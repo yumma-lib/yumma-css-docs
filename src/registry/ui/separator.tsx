@@ -17,6 +17,7 @@ type Orientation = "horizontal" | "vertical";
 export interface SeparatorProps {
   icon?: ReactNode;
   onIconClick?: () => void;
+  /** Does nothing while `icon` is set. */
   label?: ReactNode;
   /**
    * Corner radius on the icon button, which is the only thing here that has

@@ -15,17 +15,15 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  79
-    Open    34
-    Done    70%
+    Closed  87
+    Open    23
+    Done    79%
 
 ---
 
 ## Phase 1 - Broken
 
-- [ ] **Combobox** chips sit under the popup and are hidden while it is open.
-      Move them inside the input, in the input's own white and silver, rather
-      than in a row beneath it.
+Empty.
 
 
 ## Phase 2 - Content model
@@ -47,25 +45,18 @@ first or they get done twice.
 Breaking for the registry, so they ship together in one release with the
 renames already on `main`.
 
-- [ ] **Checkbox and Switch** the toggle should drive `checked`, not
-      `defaultChecked`.
-- [ ] **Checkbox** `indeterminate` belongs to Checkbox Group. Keep the prop,
-      drop its control, describe it as a boolean.
-- [ ] **Radio** remove the leading and trailing icons.
-- [ ] **Toggle** remove `tone`. It and `swatchClassName` are both too strict.
-- [ ] **Empty State** `shape` controls the icon, not the buttons. Rename it
-      `iconShape`.
-- [ ] **Field and Textarea** the label and the character count should be
-      optional.
-- [ ] **Avatar** `fallback` should be controllable from the API sidebar.
-- [ ] **Popover and Tooltip** should use `arrow` by default.
-- [ ] **Autocomplete** no spinner when `loading` is `true`. Add one, and
-      respect `animated`.
 - [ ] **A prop to control focus.** Some people do not want a ring at all, and
       the appearance could be props too: outline colour, outline offset, all
-      Yumma CSS utilities. Now unblocked, focus is settled.
-- [ ] **JSDoc warnings** for interactions that lock each other, so the block
-      and the reason reach anyone reading the source, not just the playground.
+      Yumma CSS utilities. **Do it with the indigo change, not before**: both
+      rewrite the same focus classes in the same 26 files, and doing them
+      separately means writing them twice.
+- [ ] **Drop indigo.** Decided, not a proposal: the primary becomes black or a
+      dark grey, and colour is kept only where it carries meaning, red for
+      destructive and blue for links. Square is already the default. The one
+      open question is the shade, and it decides the focus ring too, which is
+      `indigo-2/60` over `indigo-3` today. Touches every component: 58 focus
+      pairs, the Toggle and Badge fills, the Progress and Meter indicators,
+      Tabs, Rating, Onboarding and the Combobox chips.
 
 ## Phase 4 - Wants mockups
 
@@ -78,9 +69,6 @@ Design decisions. Nothing here starts without them.
       should both be the user's choice. Barely functional: drag and drop does
       nothing, the upload button does nothing, and dragging a file over it
       should change the border colour.
-- [ ] Drop indigo as the primary. Black or dark grey, with colour kept where
-      it carries meaning: red for destructive, blue for links. Wants other
-      takes alongside the grayscale one.
 - [ ] Replace the stage's tab bar with the **browser window** treatment,
       redrawn in Yumma CSS's own colours. **3 mockups.** Not urgent.
 
@@ -140,9 +128,8 @@ Not bugs. Written down so they stop being rediscovered.
   indigo scale would pass.
 - Nothing in the playground survives a reload, by design, until the URL entry
   in Phase 5 lands.
-- Number Field and Toolbar ring their group with `fw:` (`:focus-within`), not
-  `fv:`. `:focus-visible` matches the element that has focus, and the group
-  never does: focus lands on the input inside it. The only `fv:` alternative
-  rings the bare input and leaves the steppers outside the ring.
+- Number Field and Toolbar ring the input, not the group around it, so the
+  steppers sit outside the ring. Chosen knowingly: `fv:` everywhere is worth
+  more than a ring that wraps the whole control, which only `fw:` can draw.
 - The focus ring's transition needs `outline-color` in `tp-c`, which landed in
   the yummacss repo. It reaches the docs on the next Yumma CSS release.

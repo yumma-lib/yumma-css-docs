@@ -59,7 +59,7 @@
     {
       "name": "arrow",
       "type": "boolean",
-      "default": false,
+      "default": true,
       "description": "A pointer notched into the popup's edge, aimed back at the trigger. It re-aims itself when `side` changes."
     },
     {
@@ -81,7 +81,8 @@
       "name": "open",
       "type": "boolean",
       "description": "Controlled open state, for closing the popup from inside `children` - after a selection, say. Uncontrolled (the default) if omitted.",
-      "controlled": true
+      "controlled": true,
+      "handler": "onOpenChange"
     },
     {
       "name": "onOpenChange",

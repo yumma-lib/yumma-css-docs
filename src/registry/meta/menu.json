@@ -82,7 +82,8 @@
       "name": "open",
       "type": "boolean",
       "description": "Controlled state. There is no `defaultOpen` - a dropdown that starts open before anyone presses its trigger was never demonstrated.",
-      "controlled": true
+      "controlled": true,
+      "handler": "onOpenChange"
     },
     {
       "name": "onOpenChange",

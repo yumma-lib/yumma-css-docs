@@ -2,6 +2,7 @@
 
 import { Autocomplete } from "@base-ui/react/autocomplete";
 import { Avatar } from "@base-ui/react/avatar";
+import { motion } from "motion/react";
 import { type ReactNode, useEffect, useId, useState } from "react";
 import { merge } from "yummacss/merge";
 
@@ -185,7 +186,22 @@ export default function AutocompleteBase({
       className={`o-h bg-white bc-silver-2 c-slate-10 bw-1 ${POPUP_SIZES[size]} ${SHAPES[shape]} ${animated ? "yui-autocomplete-pop" : ""}`}
     >
       {loading ? (
-        <div className="py-3 px-4 c-slate-6 fs-sm us-none">Loading...</div>
+        <div
+          className="d-f py-3 px-4 ai-c g-2 c-slate-6 fs-sm us-none"
+          role="status"
+        >
+          <motion.span
+            aria-hidden
+            className="d-b w-4 h-4 bc-silver-3 btc-slate-8 bw-2 br-9999"
+            animate={animated ? { rotate: 360 } : undefined}
+            transition={{
+              duration: 0.7,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+          />
+          Loading
+        </div>
       ) : (
         <>
           <Autocomplete.List className="oy-auto max-h-72 py-1 ow-0">

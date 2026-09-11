@@ -58,7 +58,7 @@
       "description": "Called when the secondary button is pressed."
     },
     {
-      "name": "shape",
+      "name": "iconShape",
       "type": "enum",
       "values": ["rounded", "square", "squircle"],
       "default": "square",

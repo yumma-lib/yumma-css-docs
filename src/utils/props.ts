@@ -7,13 +7,16 @@ export function typeOf(prop: RegistryProp): string {
   return prop.type;
 }
 
-/** Enums, booleans, numbers and icon slots - not strings, and never a prop
- * the component expects a handler alongside. */
+/** Everything a JSON schema can offer a control for, and never a prop the
+ * component expects a handler alongside unless the schema names it. */
 export function isControllable(prop: RegistryProp): boolean {
-  if (prop.controlled) return false;
+  if (prop.controlled && !prop.handler) return false;
   if (prop.exampleIcon) return true;
   return (
-    prop.type === "enum" || prop.type === "boolean" || prop.type === "number"
+    prop.type === "enum" ||
+    prop.type === "boolean" ||
+    prop.type === "number" ||
+    prop.type === "string"
   );
 }
 

@@ -37,13 +37,15 @@
       "name": "defaultChecked",
       "type": "boolean",
       "default": false,
-      "description": "Starting state when you are not controlling it. Pair `checked` with `onCheckedChange` instead if you are."
+      "description": "Starting state when you are not controlling it. Pair `checked` with `onCheckedChange` instead if you are.",
+      "controlled": true
     },
     {
       "name": "checked",
       "type": "boolean",
       "description": "Controlled state. Passing it without `onCheckedChange` gives a box that cannot be ticked; `readOnly` is the honest way to say that.",
-      "controlled": true
+      "controlled": true,
+      "handler": "onCheckedChange"
     },
     {
       "name": "onCheckedChange",
@@ -55,7 +57,8 @@
       "name": "indeterminate",
       "type": "boolean",
       "default": false,
-      "description": "The half-checked state, for a box that stands for several others - it means some of them are on, so it says nothing on its own. `CheckboxGroup` drives it from `allValues`, which is where you can see it against real children."
+      "description": "Draws the dash that means a partial selection. Checkbox Group derives it from its children, which is where it earns its place; on a lone checkbox you set it yourself.",
+      "controlled": true
     },
     {
       "name": "disabled",

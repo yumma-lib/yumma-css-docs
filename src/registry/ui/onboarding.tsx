@@ -88,6 +88,7 @@ export interface OnboardingProps {
   steps: OnboardingStep[];
   indicator?: Indicator;
   showClose?: boolean;
+  /** Does nothing while `animated` is not set. */
   animatedResize?: boolean;
   shape?: Shape;
   shadow?: Shadow;

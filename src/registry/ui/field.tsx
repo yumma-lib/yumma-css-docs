@@ -77,8 +77,10 @@ export interface FieldProps
   shadow?: Shadow;
 
   icon?: ReactNode;
+  /** Does nothing while `revealable` is true. */
   iconPosition?: IconSide;
 
+  /** Does nothing while `revealable` is true. */
   iconInteractive?: boolean;
 
   prefixNode?: ReactNode;

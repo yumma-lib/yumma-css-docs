@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentType, ReactNode } from "react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { usePlayground } from "@/components/playground/context";
 import PreviewFrame, { usePreviewContainer } from "@/components/preview-frame";
 import PreviewSpinner from "@/components/preview-spinner";
@@ -77,6 +77,25 @@ export default function ComponentPlayground() {
     };
   }, [playground?.id, playground?.meta]);
 
+  // A controlled prop cannot move without its handler, so the playground is
+  // the thing that owns it. Memoised: a fresh identity each render made Base UI
+  // re-report its own state and overwrite what the control had just set. The
+  // snippet never prints these; they belong to the demo.
+  const handlerProps = playground?.meta?.props;
+  const handlers = useMemo(
+    () =>
+      Object.fromEntries(
+        (handlerProps ?? [])
+          .filter((prop) => prop.handler)
+          .map((prop) => [
+            prop.handler as string,
+            (value: unknown) =>
+              playgroundRef.current?.setValue(prop.name, value),
+          ]),
+      ),
+    [handlerProps],
+  );
+
   if (!frame) {
     return (
       <div className={`bc-border bw-1 ${FILL}`}>
@@ -119,7 +138,7 @@ export default function ComponentPlayground() {
           <Mounted
             key={uncontrolled}
             Component={Component}
-            props={resolveIcons(set) as DemoProps}
+            props={{ ...(resolveIcons(set) as DemoProps), ...handlers }}
             portals={meta.props.some((prop) => prop.name === "container")}
           >
             {exampleChildren(meta)}

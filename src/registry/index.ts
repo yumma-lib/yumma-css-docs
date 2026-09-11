@@ -119,6 +119,12 @@ export interface RegistryProp {
    * doing it, so a prop that cannot do anything right now says so instead of
    * looking broken.
    */
+  /**
+   * The change handler that pairs with a controlled prop. Named here, the
+   * playground supplies it and the prop gets a working control; without it a
+   * controlled prop is documented and has none.
+   */
+  handler?: string;
   conflictsWith?: {
     prop: string;
     is?: unknown;

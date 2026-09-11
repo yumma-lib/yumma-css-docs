@@ -101,6 +101,10 @@ export function seedValues(meta: RegistryMeta): DemoProps {
     // snippet would open with a glyph the component does not default to.
     if (prop.example === null) continue;
 
+    // Documented and not driven: seeding it would hand the component a second
+    // source for one piece of state, and `defaultChecked` beat `checked`.
+    if (prop.controlled && !prop.handler) continue;
+
     if (prop.exampleIcon) {
       const icon = exampleIcon(prop.exampleIcon);
       if (icon) {

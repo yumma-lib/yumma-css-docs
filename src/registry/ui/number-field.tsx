@@ -103,7 +103,7 @@ export default function NumberFieldBase({
     .join(" ");
 
   const inputClasses = merge(
-    "bg-white c-slate-10 ta-c",
+    "bg-white bc-transparent c-slate-10 bw-1 ta-c fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,
@@ -126,7 +126,7 @@ export default function NumberFieldBase({
       )}
 
       <NumberField.Group
-        className={`d-f o-h bc-silver-3 bw-1 fw:os-s fw:ow-3 fw:oo-0 fw:oc-indigo-2/60 fw:bc-indigo-3 ${GROUP_SHAPES[shape]}`}
+        className={`d-f o-h bc-silver-3 bw-1 ${GROUP_SHAPES[shape]}`}
       >
         <NumberField.Decrement className={decrementClasses}>
           <Minus className={ICON_SIZES[size]} />

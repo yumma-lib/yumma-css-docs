@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { rootDir } from "./helpers";
@@ -123,6 +123,37 @@ describe("Yumma UI registry", () => {
     }
 
     expect(broken).toEqual([]);
+  });
+
+  // The playground shows the block; the source should say it too, or someone
+  // reading the component has no idea the prop can go quiet.
+  it("documents every conflict rule in the component", () => {
+    const undocumented: string[] = [];
+
+    for (const file of readdirSync(join(rootDir, "src/registry/meta"))) {
+      const meta = JSON.parse(
+        readFileSync(join(rootDir, "src/registry/meta", file), "utf-8"),
+      );
+      const component = join(
+        rootDir,
+        "src/registry/ui",
+        file.replace(".json", ".tsx"),
+      );
+      if (!existsSync(component)) continue;
+      const source = readFileSync(component, "utf-8");
+
+      for (const prop of meta.props ?? []) {
+        if (!prop.conflictsWith) continue;
+        const declaration = source.indexOf(`  ${prop.name}?:`);
+        if (declaration === -1) continue;
+        const above = source.slice(0, declaration);
+        if (!/\*\/\s*$/.test(above)) {
+          undocumented.push(`${file}: ${prop.name}`);
+        }
+      }
+    }
+
+    expect(undocumented).toEqual([]);
   });
 
   // The other half of the rule. `count` was a ReactNode badge on Badge and a

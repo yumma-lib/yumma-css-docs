@@ -1,6 +1,9 @@
+"use client";
+
 import { Checkbox } from "@base-ui/react/checkbox";
 import { Check, Minus } from "iconoir-react";
 import type { ComponentProps, ReactNode } from "react";
+import { useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
@@ -75,9 +78,26 @@ export default function CheckboxBase({
   shape = "square",
   shadow = "none",
   disabled = false,
+  checked: controlledChecked,
+  defaultChecked,
+  onCheckedChange,
   className,
   ...props
 }: CheckboxProps) {
+  // Spread through `...props`, a controlled `checked` reached Base UI and was
+  // ignored. Held here and passed by name it behaves, the way Switch does.
+  const [internalChecked, setInternalChecked] = useState(
+    defaultChecked ?? false,
+  );
+  const checked = controlledChecked ?? internalChecked;
+
+  const handleChange: NonNullable<CheckboxProps["onCheckedChange"]> = (
+    next,
+    details,
+  ) => {
+    setInternalChecked(next);
+    onCheckedChange?.(next, details);
+  };
   return (
     <label
       className={`d-f fd-c g-1 us-none ${
@@ -87,6 +107,8 @@ export default function CheckboxBase({
       <span className={`d-f ai-c g-2 fw-500 ${LABEL_SIZES[size]}`}>
         <Checkbox.Root
           disabled={disabled}
+          checked={checked}
+          onCheckedChange={handleChange}
           className={(state) =>
             merge(
               BOX,

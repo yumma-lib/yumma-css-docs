@@ -14,23 +14,42 @@
       "description": "Alt text for the image, and the source of the initials when there is no image. Without it the fallback is a generic person icon."
     },
     {
+      "name": "fallback",
+      "type": "string",
+      "example": "AL",
+      "description": "What shows when there is no image, in place of the initials. Leave it empty for the initials, or for the person icon when there is no `name` either."
+    },
+    {
       "name": "size",
       "type": "enum",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Diameter, and the size of the initials or icon inside it."
     },
     {
       "name": "shape",
       "type": "enum",
-      "values": ["circle", "square", "squircle"],
+      "values": [
+        "circle",
+        "square",
+        "squircle"
+      ],
       "default": "circle",
       "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "status",
       "type": "enum",
-      "values": ["none", "online", "offline", "busy"],
+      "values": [
+        "none",
+        "online",
+        "offline",
+        "busy"
+      ],
       "default": "none",
       "example": "online",
       "description": "A presence dot in the bottom right corner. It carries meaning, so it is labelled for screen readers rather than left decorative."

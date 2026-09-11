@@ -42,7 +42,9 @@ export interface BreadcrumbItem {
 export interface BreadcrumbProps {
   items: BreadcrumbItem[];
   bordered?: boolean;
+  /** Does nothing while `bordered` is not set. */
   shape?: Shape;
+  /** Does nothing while `bordered` is not set. */
   shadow?: Shadow;
   size?: Size;
   separator?: Separator;

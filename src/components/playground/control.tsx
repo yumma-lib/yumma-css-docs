@@ -51,6 +51,17 @@ export default function Control({ prop, value, onChange, inert }: Props) {
     );
   }
 
+  if (prop.type === "string") {
+    return (
+      <Text
+        name={prop.name}
+        value={typeof value === "string" ? value : ""}
+        onChange={onChange}
+        inert={inert}
+      />
+    );
+  }
+
   if (prop.type === "number") {
     return (
       <Stepper
@@ -80,6 +91,32 @@ export default function Control({ prop, value, onChange, inert }: Props) {
   }
 
   return null;
+}
+
+/** Emptying it removes the prop, which is how an optional string is turned off. */
+function Text({
+  name,
+  value,
+  onChange,
+  inert,
+}: {
+  name: string;
+  value: string;
+  onChange: (value: unknown) => void;
+  inert?: boolean;
+}) {
+  return (
+    <input
+      type="text"
+      aria-label={name}
+      value={value}
+      disabled={inert}
+      onChange={(event) => onChange(event.target.value)}
+      className={`px-2 py-1 w-32 bg-transparent bw-1 ff-m fs-xs fv:oo--1 fv:oc-accent ${
+        inert ? "bc-diff-remove/40 c-diff-remove" : "bc-border c-accent"
+      }`}
+    />
+  );
 }
 
 /**
