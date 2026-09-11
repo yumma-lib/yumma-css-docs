@@ -55,7 +55,13 @@
       "name": "iconOnly",
       "type": "boolean",
       "default": false,
-      "description": "Drops the label and draws the icon alone, keeping the label as the accessible name. Needs `icon`: without one there would be nothing left to show, so the prop has no effect."
+      "description": "Drops the label and draws the icon alone, keeping the label as the accessible name. Needs `icon`: without one there would be nothing left to show, so the prop has no effect.",
+      "conflictsWith": [
+        {
+          "prop": "icon",
+          "set": false
+        }
+      ]
     },
     {
       "name": "disabled",

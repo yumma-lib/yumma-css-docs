@@ -1425,6 +1425,19 @@ declares logical properties: `padding` covers `padding-inline` covers
       drew a **square** ring, because an outline follows the element's own
       radius and the corners live on the end buttons; the Group carries the
       radius now.
+- [x] **Four "prop does nothing" reports, one cause each, none in the
+      component.** Toggle Group's `childrenExample` passed `value` and
+      `aria-label` and **no content at all**, so the buttons really were just
+      borders. Separator's `icon` had no `exampleIcon`, so `iconShape` had no
+      button to shape. Avatar Stack's children carried `fallback` and no
+      `src`, so every one fell back on purpose. Button's `iconOnly` behaves
+      correctly and simply never said it was inert.
+      Two mechanisms were missing underneath: **child props could not carry an
+      icon** (`exampleChildren` spread them raw, so a `$icon` marker reached
+      the DOM as an object, and the snippet printed `[object Object]`), and
+      the icon test **only walked `$icon` markers, never `exampleIcon`** - so
+      an unknown name there resolved to undefined in silence, the same failure
+      one field over. Both closed; verified the widened test bites.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

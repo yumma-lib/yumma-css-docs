@@ -25,14 +25,7 @@ than adjusting the numbers by hand:
 
 Things that do the wrong thing today. No decisions needed, no mockups.
 
-- [ ] **Toggle Group** renders no icons inside its buttons; only border and
-      background colours apply.
-- [ ] **Separator** `iconShape` draws no `square`, `circle` or `squircle`
-      around the "Or".
-- [ ] **Button** `iconOnly` does nothing until `icon` is also set.
 - [ ] **Alert Dialog** `inset` shadow does nothing.
-- [ ] **Avatar Stack** shows initials rather than avatars, so every one is
-      falling back.
 - [ ] **Combobox** `multiple` shifts the layout: the component moves up when
       enabled and down when disabled. The chips row mounts empty and the
       parent's `gap` counts it. The throw is fixed.

@@ -217,6 +217,9 @@ describe("Yumma UI registry", () => {
       );
       named.length = 0;
       walk(meta);
+      for (const prop of meta.props ?? []) {
+        if (prop.exampleIcon) named.push(prop.exampleIcon);
+      }
       for (const name of named) {
         if (!known.has(name)) missing.push(`${file}: ${name}`);
       }

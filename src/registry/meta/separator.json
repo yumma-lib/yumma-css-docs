@@ -12,7 +12,9 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "Renders as a clickable button in the middle, sized & shaped to match. Wins over `label` if both are set."
+      "description": "Renders as a clickable button in the middle, sized & shaped to match. Wins over `label` if both are set.",
+      "exampleIcon": "Plus",
+      "example": null
     },
     {
       "name": "onIconClick",
@@ -38,7 +40,13 @@
       "type": "enum",
       "values": ["rounded", "square", "squircle", "circle"],
       "default": "rounded",
-      "description": "Corner radius on the icon button, which is the only part with corners. Only visible alongside `icon`."
+      "description": "Corner radius on the icon button, which is the only part with corners. Only visible alongside `icon`.",
+      "conflictsWith": [
+        {
+          "prop": "icon",
+          "set": false
+        }
+      ]
     }
   ]
 }
