@@ -96,10 +96,6 @@ do it and the CLI half does.
 
 - `iconSide` won’t work without an icon so having it literally does nothing
 
-### Tabs
-
-- when using the `pill` in the `shape` option the the Tabs track turns into a circle and the tab items overflow its container which looks VERY unpleasant to look at. This happens ONLY when using `horizontal` set to `vertical.` this happens because we are not strict at all. you have to look at https://docs-97eq39ar2-rrenildopereiraas-projects.vercel.app/ui/components/tabs to understand better the solution.
-
 ### Tooltip
 
 - shouldn’t the `triggerTone` change the tooltip background color too? to red for example if set to danger?
