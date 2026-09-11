@@ -30,7 +30,10 @@
       "name": "delay",
       "type": "number",
       "default": 0,
-      "description": "Seconds to offset the pulse by. Stagger a list with `delay={index * 0.15}` so its rows do not beat in unison."
+      "description": "Seconds to offset the pulse by. Stagger a list with `delay={index * 0.15}` so its rows do not beat in unison.",
+      "min": 0,
+      "max": 2,
+      "step": 0.2
     }
   ]
 }

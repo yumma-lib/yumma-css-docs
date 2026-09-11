@@ -51,7 +51,10 @@
       "name": "sideOffset",
       "type": "number",
       "default": 8,
-      "description": "Gap between the trigger and the popup, in pixels."
+      "description": "Gap between the trigger and the popup, in pixels.",
+      "min": 0,
+      "max": 24,
+      "step": 2
     },
     {
       "name": "arrow",
@@ -69,7 +72,10 @@
       "name": "delay",
       "type": "number",
       "default": 300,
-      "description": "How long a hover must rest before the popup opens, in ms. Ignored unless `openOnHover` is set."
+      "description": "How long a hover must rest before the popup opens, in ms. Ignored unless `openOnHover` is set.",
+      "min": 0,
+      "max": 1000,
+      "step": 100
     },
     {
       "name": "open",

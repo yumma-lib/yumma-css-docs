@@ -32,7 +32,10 @@
       "name": "maxLength",
       "type": "number",
       "example": 200,
-      "description": "Sets the control's native character limit and shows a live remaining-character counter with a progress bar underneath. The counter turns red once 20 characters remain."
+      "description": "Sets the control's native character limit and shows a live remaining-character counter with a progress bar underneath. The counter turns red once 20 characters remain.",
+      "min": 40,
+      "max": 400,
+      "step": 20
     },
     {
       "name": "shape",

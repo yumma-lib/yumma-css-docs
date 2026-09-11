@@ -41,19 +41,28 @@
       "name": "min",
       "type": "number",
       "default": 0,
-      "description": "Lower bound."
+      "description": "Lower bound.",
+      "min": 0,
+      "max": 100,
+      "step": 10
     },
     {
       "name": "max",
       "type": "number",
       "default": 100,
-      "description": "Upper bound."
+      "description": "Upper bound.",
+      "min": 0,
+      "max": 200,
+      "step": 10
     },
     {
       "name": "step",
       "type": "number",
       "default": 1,
-      "description": "Amount each keyboard press or drag increment changes the value by."
+      "description": "Amount each keyboard press or drag increment changes the value by.",
+      "min": 1,
+      "max": 25,
+      "step": 1
     },
     {
       "name": "shape",

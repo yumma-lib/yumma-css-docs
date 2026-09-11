@@ -5,17 +5,28 @@
       "name": "value",
       "type": "number",
       "example": 68,
-      "description": "The current value."
+      "description": "The current value.",
+      "min": 0,
+      "max": 100,
+      "step": 5
     },
     {
       "name": "min",
       "type": "number",
-      "description": "Defaults to Base UI's own Meter minimum (0)."
+      "description": "Defaults to Base UI's own Meter minimum (0).",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "example": 0
     },
     {
       "name": "max",
       "type": "number",
-      "description": "Defaults to Base UI's own Meter maximum (100)."
+      "description": "Defaults to Base UI's own Meter maximum (100).",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "example": 100
     },
     {
       "name": "label",

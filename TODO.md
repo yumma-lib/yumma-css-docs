@@ -63,9 +63,9 @@ code before acting: most are right about the symptom.
 
 ### **Combobox**
 
-- Toggling `multiple` sometimes throws `(e ?? []).map is not a function`, and
-  usually shifts the layout: the whole component moves up when enabled and
-  down when disabled.
+- Toggling `multiple` still shifts the layout: the whole component moves up
+  when enabled and down when disabled. The chips row mounts empty, and the
+  parent's gap counts it. The throw is fixed.
 
 ### **File Upload**
 
@@ -121,10 +121,6 @@ code before acting: most are right about the symptom.
 
 - Should `warning` be `yellow` rather than `orange`?
 
-### **Progress**
-
-- The bar does not move with `animated` set to `true`. Compare against
-  https://base-ui.com/react/components/progress
 
 ### **Separator**
 

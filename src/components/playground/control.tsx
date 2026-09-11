@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@base-ui/react";
 import { Select } from "@base-ui/react/select";
 import { Switch } from "@base-ui/react/switch";
 import { NavArrowDown } from "iconoir-react";
@@ -50,6 +51,22 @@ export default function Control({ prop, value, onChange, inert }: Props) {
     );
   }
 
+  if (prop.type === "number") {
+    return (
+      <Stepper
+        name={prop.name}
+        value={
+          typeof value === "number" ? value : ((prop.default as number) ?? 0)
+        }
+        min={prop.min}
+        max={prop.max}
+        step={prop.step ?? 1}
+        onChange={onChange}
+        inert={inert}
+      />
+    );
+  }
+
   if (prop.type === "enum" && prop.values) {
     return (
       <EnumSelect
@@ -63,6 +80,76 @@ export default function Control({ prop, value, onChange, inert }: Props) {
   }
 
   return null;
+}
+
+/**
+ * Minus, the value, plus. A range input would read the bound off the schema
+ * too, but half of these props have no bound and an unbounded slider has no
+ * position to show.
+ */
+function Stepper({
+  name,
+  value,
+  min,
+  max,
+  step,
+  onChange,
+  inert,
+}: {
+  name: string;
+  value: number;
+  min?: number;
+  max?: number;
+  step: number;
+  onChange: (value: unknown) => void;
+  inert?: boolean;
+}) {
+  const clamp = (next: number) =>
+    Math.min(
+      max ?? Number.POSITIVE_INFINITY,
+      Math.max(min ?? Number.NEGATIVE_INFINITY, next),
+    );
+
+  const atMin = min !== undefined && value <= min;
+  const atMax = max !== undefined && value >= max;
+
+  const button = (spent: boolean) =>
+    `d-f fs-0 ai-c jc-c w-6 h-6 bw-0 bg-transparent ff-m fs-xs fv:oo--1 fv:oc-accent ${
+      inert || spent ? "c-white/25 c-na" : "c-accent-dim h:c-accent c-p"
+    }`;
+
+  return (
+    <div
+      className={`d-f fs-0 ai-c jc-sb w-32 bw-1 ${
+        inert ? "bc-diff-remove/40" : "bc-border"
+      }`}
+    >
+      <Button
+        type="button"
+        aria-label={`Decrease ${name}`}
+        disabled={inert || atMin}
+        onClick={() => onChange(clamp(value - step))}
+        className={button(atMin)}
+      >
+        &minus;
+      </Button>
+      <span
+        aria-live="polite"
+        className={`ff-m fs-xs ${inert ? "c-diff-remove" : "c-accent"}`}
+      >
+        {value}
+      </span>
+      <Button
+        type="button"
+        aria-label={`Increase ${name}`}
+        disabled={inert || atMax}
+        onClick={() => onChange(clamp(value + step))}
+        className={button(atMax)}
+      >
+        +
+      </Button>
+    </div>
+  );
 }
 
 function EnumSelect({
