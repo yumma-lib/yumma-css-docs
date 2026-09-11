@@ -52,7 +52,7 @@ export interface BreadcrumbProps {
 export default function BreadcrumbBase({
   items,
   bordered = false,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   size = "md",
   separator = "chevron",

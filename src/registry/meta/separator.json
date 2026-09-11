@@ -39,7 +39,7 @@
       "name": "iconShape",
       "type": "enum",
       "values": ["rounded", "square", "squircle", "circle"],
-      "default": "rounded",
+      "default": "square",
       "description": "Corner radius on the icon button, which is the only part with corners. Only visible alongside `icon`.",
       "conflictsWith": [
         {

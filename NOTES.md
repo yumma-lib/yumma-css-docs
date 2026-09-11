@@ -1478,6 +1478,45 @@ declares logical properties: `padding` covers `padding-inline` covers
       Measured thirteen eased frames from 256 to 348. `animate` falls back to
       `height: "auto"` rather than `undefined`, or turning the prop off
       mid-tour leaves the last animated height on the element.
+- [x] **Square is the default, on all 31 components and 32 schemas.**
+- [x] **The `yui-` classes are not a config prefix.** `yumma.config.mjs` sets
+      no `prefix` at all; they are plain CSS in each component's `<style>`
+      block. One of the two uses is gone: the empty chip list now drops out
+      with **`e:d-none`**, because Yumma has an `e:` variant for `:empty` and
+      `display` takes the base variant stack. The other cannot go yet, below.
+- [x] **Toggle Group's icon vanished when pressed.** Not a colour problem: the
+      button reads `state.pressed ? pressedIcon : icon`, and `pressedIcon` is
+      optional, so pressing emptied the button whenever it was not set. The
+      colour was already right (white on indigo). It falls back to `icon` now.
+- [x] **An inert prop gives up its value.** Dimming it and refusing the
+      pointer left it reading as switched on and doing nothing, which is the
+      thing the flag exists to stop. Booleans go to false, everything else to
+      its default, the moment a `conflictsWith` rule starts matching.
+- [x] **Number Field's border never changed because the group had none.** The
+      border was assembled from each child's edges (`byw-1` on all three,
+      `blw-1` and `brw-1` on the ends), so a focus colour on the group had
+      nothing of its own to recolour. The group owns the border now and the
+      children own none: measured silver-3 at rest, indigo-3 on focus.
+- [x] **`tp-c` omitted `outline-color`.** A transition group called "colors"
+      that skips the one colour a focus ring animates. Added in the yummacss
+      repo; the smooth focus appears in the docs on the next release, since
+      docs installs the published package.
+- [ ] **`fv:` cannot ring a composite control, and `fw:` is not a style
+      choice.** `focus-visible` matches **the element that has focus**. In
+      Number Field and Toolbar the focus lands on the `<input>`; the box that
+      should show the ring is the group wrapping the input and both steppers,
+      and it never receives focus itself. `focus-within` matches an ancestor
+      of the focused element, which is the only selector that can do this. The
+      alternative is a ring around the bare input with the steppers outside
+      it, which is the bug that was just fixed. Renildo asked for `fv:` only;
+      this is the reason it is still `fw:` in exactly two places.
+- [ ] **The popup enter and exit CSS cannot become utilities.** Base UI marks
+      those states with `data-starting-style` and `data-ending-style`
+      **attributes**, and Yumma's variant list is pseudo-classes,
+      pseudo-elements, media queries and opacity - **no attribute variants**.
+      Verified in `defaults/variants/`. Until Yumma has them, the
+      `yui-*-pop` classes stay; Motion is not an alternative, because Base UI
+      waits on `getAnimations()` and never sees it.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

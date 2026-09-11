@@ -31,7 +31,7 @@ export interface ProgressProps {
 export default function ProgressBase({
   value,
   label,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   animated = true,
   className,

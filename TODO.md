@@ -15,15 +15,17 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  73
-    Open    33
-    Done    69%
+    Closed  79
+    Open    34
+    Done    70%
 
 ---
 
 ## Phase 1 - Broken
 
-Empty. Everything reported broken is fixed or moved to Decisions.
+- [ ] **Combobox** chips sit under the popup and are hidden while it is open.
+      Move them inside the input, in the input's own white and silver, rather
+      than in a row beneath it.
 
 
 ## Phase 2 - Content model
@@ -76,8 +78,6 @@ Design decisions. Nothing here starts without them.
       should both be the user's choice. Barely functional: drag and drop does
       nothing, the upload button does nothing, and dragging a file over it
       should change the border colour.
-- [ ] Default every component to `square`, so Yumma UI matches the Yumma CSS
-      docs.
 - [ ] Drop indigo as the primary. Black or dark grey, with colour kept where
       it carries meaning: red for destructive, blue for links. Wants other
       takes alongside the grayscale one.
@@ -103,6 +103,10 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 - [ ] **Coloured box-shadow utilities**, v4 or v4.1. Without them a
       halo-plus-ring focus treatment cannot be written at all.
+- [ ] **Attribute variants**, v4. Base UI marks popup enter and exit with
+      `data-starting-style` and `data-ending-style`, and Yumma has no variant
+      that can select an attribute. They are the last hand-written classes in
+      the registry: without them the popup animations cannot be utilities.
 - [ ] **Dark theme across every component.** Yumma CSS has handled dark since
       3.29.0, so this is a Yumma UI concern now. Big enough to be the headline
       of **1.0**. Mockups need a theme toggle from the start.
@@ -136,3 +140,9 @@ Not bugs. Written down so they stop being rediscovered.
   indigo scale would pass.
 - Nothing in the playground survives a reload, by design, until the URL entry
   in Phase 5 lands.
+- Number Field and Toolbar ring their group with `fw:` (`:focus-within`), not
+  `fv:`. `:focus-visible` matches the element that has focus, and the group
+  never does: focus lands on the input inside it. The only `fv:` alternative
+  rings the bare input and leaves the steppers outside the ring.
+- The focus ring's transition needs `outline-color` in `tp-c`, which landed in
+  the yummacss repo. It reaches the docs on the next Yumma CSS release.

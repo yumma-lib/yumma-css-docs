@@ -32,7 +32,7 @@ export interface ToggleGroupProps {
 export default function ToggleGroupBase({
   className,
   children,
-  shape = "rounded",
+  shape = "square",
   orientation = "horizontal",
   multiple = false,
   disabled = false,

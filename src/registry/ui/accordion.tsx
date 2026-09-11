@@ -50,7 +50,7 @@ export interface AccordionProps {
 export default function AccordionBase({
   items,
   variant = "default",
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   separated = true,
   indicator = "chevron",

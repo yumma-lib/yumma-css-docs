@@ -51,7 +51,7 @@ export default function SliderBase({
   min = 0,
   max = 100,
   step = 1,
-  shape = "rounded",
+  shape = "square",
   shadow = "none",
   disabled = false,
   formatValue = defaultFormat,

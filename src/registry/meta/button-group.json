@@ -5,7 +5,7 @@
       "name": "shape",
       "type": "enum",
       "values": ["rounded", "square", "squircle", "pill"],
-      "default": "rounded",
+      "default": "square",
       "description": "Corner radius of the group. `pill` also insets the buttons, so a pill `Button` inside sits clear of the border."
     },
     {

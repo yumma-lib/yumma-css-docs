@@ -12,6 +12,7 @@ import {
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
 import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
 import { prefetchRegistry } from "@/utils/prefetch-registry";
+import { isInert } from "@/utils/props";
 
 /** Playground state shared between stage (MDX) and rail (layout column). */
 interface Playground {
@@ -81,6 +82,18 @@ export function PlaygroundProvider({
 
       if (needs?.exampleIcon && !current.values[needs.name]) {
         values[needs.name] = exampleIcon(needs.exampleIcon);
+      }
+
+      // A prop that just became inert gives up its value. Left on, it reads as
+      // switched on and doing nothing, which is the thing the flag exists to
+      // stop. Booleans go off; everything else returns to its default.
+      const all = current.meta?.props ?? [];
+      for (const entry of all) {
+        if (entry.name === name) continue;
+        if (!isInert(entry, values, all)) continue;
+        if (entry.type === "boolean") values[entry.name] = false;
+        else if (entry.default !== undefined)
+          values[entry.name] = entry.default;
       }
 
       return { ...current, values };
