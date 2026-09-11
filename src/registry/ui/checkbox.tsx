@@ -7,7 +7,8 @@ type Size = "sm" | "md" | "lg";
 type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
-const BOX = "d-f ai-c jc-c fs-0 fv:oo-2 fv:oc-indigo-5";
+const BOX =
+  "d-f ai-c jc-c fs-0 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
 
 const SIZES: Record<Size, string> = {
   sm: "w-3 h-3",

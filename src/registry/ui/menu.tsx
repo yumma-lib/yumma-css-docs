@@ -177,7 +177,7 @@ export default function MenuBase({
     animated ? "tp-c tdu-150 ttf-io" : "",
     disabled
       ? "c-slate-4 o-60 c-na"
-      : "c-slate-10 c-p h:bg-silver-1/50 fv:oo--1 fv:oc-indigo-5",
+      : "c-slate-10 c-p h:bg-silver-1/50 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
     className,
   );
 

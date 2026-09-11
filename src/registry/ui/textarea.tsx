@@ -29,9 +29,9 @@ const STATUS_BORDER: Record<Status, string> = {
 };
 
 const STATUS_RING: Record<Status, string> = {
-  default: "fv:oc-indigo-5",
-  error: "fv:oc-red-5",
-  success: "fv:oc-green-5",
+  default: "fv:oc-indigo-2/60 fv:bc-indigo-3",
+  error: "fv:oc-red-2/60 fv:bc-red-3",
+  success: "fv:oc-green-2/60 fv:bc-green-3",
 };
 
 const STATUS_ICON: Record<Status, string> = {
@@ -104,7 +104,7 @@ export default function TextareaBase({
   const warn = showCounter && remaining <= WARN_AT;
 
   const controlClasses = merge(
-    "h-24 w-64 pt-3 pl-3 bg-white c-slate-10 bw-1 fs-md r-none fv:oo--1",
+    "h-24 w-64 pt-3 pl-3 bg-white c-slate-10 bw-1 fs-md r-none fv:os-s fv:ow-3 fv:oo-0",
     showCounter || status !== "default" ? "pr-10" : "pr-3",
     SHAPES[shape],
     SHADOWS[shadow],

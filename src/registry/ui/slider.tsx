@@ -69,7 +69,7 @@ export default function SliderBase({
   };
 
   const thumbClasses = [
-    "w-5 h-5 bw-1 fv:oo-2 fv:oc-indigo-5",
+    "w-5 h-5 bw-1 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
     // The same disabled surface the other controls use, rather than a fade.
     disabled ? "bg-silver-1 bc-silver-2" : "bg-white bc-silver-3",
     SHAPES[shape],

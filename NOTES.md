@@ -1408,6 +1408,23 @@ declares logical properties: `padding` covers `padding-inline` covers
       was typed `none` only because `null` is legal; it is `number` now, and
       the indeterminate case stays documented in the description, as it
       already was.
+- [x] **Focus is treatment A, library-wide.** Chosen with the contrast
+      failure known and accepted: 0 users, and a CSS change is reversible.
+      Spelled in real Yumma, which the mockup got wrong - there are no
+      arbitrary values and **no coloured box-shadow utilities yet**, so the
+      halo variant was never buildable and the shape is
+      `fv:os-s fv:ow-3 fv:oo-0` with `fv:oc-indigo-2/60 fv:bc-indigo-3`.
+      **The ring shape lives on the merged base and the hue on the variant**:
+      putting the whole cluster on both made `merge` drop one copy in seven
+      components, which the composition test caught. Semantic hues follow the
+      same shape in red and green. 67 lines across 26 files, measured on
+      twelve components.
+      Two things fell out. Number Field uses **`fw:` (focus-within)**, not
+      `fv:`, so the sweep missed it: that is the "could never get an outline
+      around the whole component" entry, and it renders now. Its Group then
+      drew a **square** ring, because an outline follows the element's own
+      radius and the corners live on the end buttons; the Group carries the
+      radius now.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

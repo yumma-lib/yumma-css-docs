@@ -188,7 +188,7 @@ export default function BadgeBase({
       : tone === "subtle"
         ? INTENTS[intent].subtleHover
         : INTENTS[intent].solidHover,
-    "fv:oo-2 fv:oc-indigo-5",
+    "fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
   ]
     .filter(Boolean)
     .join(" ");

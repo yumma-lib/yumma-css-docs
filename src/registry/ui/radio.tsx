@@ -19,7 +19,8 @@ export interface RadioOption {
   icon?: ReactNode;
 }
 
-const BASE = "d-f ai-c jc-c p-0 m-0 fv:oo-2 fv:oc-indigo-5";
+const BASE =
+  "d-f ai-c jc-c p-0 m-0 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
 
 const SIZES: Record<Size, string> = {
   sm: "w-3 h-3",

@@ -70,7 +70,7 @@ export default function SwitchBase({
   };
 
   const trackClasses = merge(
-    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:oo-2 fv:oc-indigo-3",
+    "p-r d-f ai-c m-0 px-1 tp-c tdu-150 ttf-io fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
     track,
     SHAPES[shape],
     // Disabled is a surface, not a transparency, and it is the same surface

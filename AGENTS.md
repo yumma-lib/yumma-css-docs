@@ -30,6 +30,10 @@ Short. These were said out loud enough times to belong in a file.
 
 - PRs, never direct commits to `main`.
 - Update NOTES.md in the same commit as the change. It is the source of truth;
-  TODO.md is the inbox.
+  TODO.md is the list, one phase per blocking level, ordered within a phase.
+- A closed entry leaves TODO.md and its finding goes in NOTES.md under the
+  phase it belongs to. Then recount TODO.md's header block: closed is the
+  `- [x]` count under NOTES.md's Phase 6, open is `- [ ]` in TODO.md. Report
+  that percentage with every PR.
 - Verify a TODO or NOTES entry against the code before acting on it. Most
   entries are right about the symptom and wrong about the cause.

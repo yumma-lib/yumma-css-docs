@@ -25,7 +25,7 @@ export interface SelectGroup {
 }
 
 const TRIGGER =
-  "d-f ai-c jc-sb bw-1 bc-silver-3 bg-white c-slate-10 us-none c-p fv:oo--1 fv:oc-indigo-5";
+  "d-f ai-c jc-sb bw-1 bc-silver-3 bg-white c-slate-10 us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
 
 const SIZES: Record<Size, string> = {
   sm: "h-8 w-56 px-3",

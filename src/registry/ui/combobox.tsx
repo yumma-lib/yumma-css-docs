@@ -23,7 +23,7 @@ export interface ComboboxGroup {
 }
 
 const INPUT =
-  "pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 fs-md fv:oo--1 fv:oc-indigo-5";
+  "pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 fs-md fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
 
 const SIZES: Record<Size, string> = {
   sm: "h-8 w-56",
@@ -71,7 +71,7 @@ const SHADOWS: Record<Shadow, string> = {
 };
 
 const ACTION =
-  "d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:oo--1 fv:oc-indigo-5";
+  "d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 br-sm c-p h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
 
 export interface ComboboxProps {
   /**
