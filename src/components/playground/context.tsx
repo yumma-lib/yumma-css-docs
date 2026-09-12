@@ -7,10 +7,12 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
 import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
+import { fromQuery, toQuery } from "@/utils/playground-url";
 import { prefetchRegistry } from "@/utils/prefetch-registry";
 import { isInert } from "@/utils/props";
 
@@ -45,12 +47,24 @@ export function PlaygroundProvider({
 }) {
   const [seed, setSeed] = useState<Seed>(EMPTY);
 
+  // The query this page was opened with, captured once during the first render.
+  // Reading it in the effect instead would lose it: an effect runs twice in
+  // development, and the second pass would see an address bar the first pass
+  // had already rewritten.
+  const opened = useRef<{ id: string; query: string } | null>(null);
+  if (opened.current === null && typeof window !== "undefined") {
+    opened.current = { id, query: window.location.search };
+  }
+
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
     if (!importMeta) {
       setSeed(EMPTY);
       return;
     }
+
+    // A query captured under another component's id belongs to that one.
+    const query = opened.current?.id === id ? opened.current.query : "";
 
     // Drop the outgoing schema; the stage keeps its last visual frame.
     setSeed(EMPTY);
@@ -60,13 +74,28 @@ export function PlaygroundProvider({
     importMeta().then((module) => {
       if (!live) return;
       const meta = module.default;
-      setSeed({ meta, values: seedValues(meta) });
+      setSeed({
+        meta,
+        values: fromQuery(meta, query, seedValues(meta), exampleIcon),
+      });
     });
 
     return () => {
       live = false;
     };
   }, [id]);
+
+  // `replaceState` rather than a router push: a control is not a navigation,
+  // and the back button belongs to the pages someone visited.
+  useEffect(() => {
+    if (!seed.meta) return;
+    const query = toQuery(seed.meta, seed.values, seedValues(seed.meta));
+    window.history.replaceState(
+      null,
+      "",
+      query ? `${window.location.pathname}?${query}` : window.location.pathname,
+    );
+  }, [seed.meta, seed.values]);
 
   const setValue = useCallback((name: string, value: unknown) => {
     setSeed((current) => {
@@ -100,7 +129,6 @@ export function PlaygroundProvider({
     });
   }, []);
 
-  // No reset: leaving the page & coming back reseeds from the schema.
   const playground = useMemo(
     () => ({ id, meta: seed.meta, values: seed.values, setValue }),
     [id, seed.meta, seed.values, setValue],
