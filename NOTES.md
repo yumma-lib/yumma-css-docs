@@ -1587,23 +1587,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       trailing edge, divided from the input by one border and from each other
       by another. The number gets the room and reads left-aligned; the icons
       went from `w-3` to `w-4` at `md`.
-- [x] **The Slider fill is the indicator.** A 20px track with the thumb reduced
-      to a 4px hairline at the fill's edge, so nothing is perched on the rail.
-      Two findings came out of building it: **the colour scale stops at 12**,
-      not 13, so `bg-slate-13/45` generated no rule and the hairline rendered
-      transparent; and **`fv:` can never match a Slider thumb**, because Base
-      UI puts the focusable `<input type="range">` inside the thumb div. The
-      ring is driven from that input's `onFocus`, gated on `:focus-visible` so
-      it follows the browser's own rule rather than every focus. `shadow` moved
-      from the hairline to the track, where it is visible at all.
-- [x] **The thumb is per shape, because a 4px hairline cannot be round.** At
-      that width `br-9999` clamps to a 2px radius and reads square, so only
-      `square` keeps the hairline. `rounded` and `squircle` take Switch's
-      thumb instead: inset to 12px of the 20px track, and square in the width
-      so it still marks a point rather than a span. Their focus is treatment
-      A proper, ring plus `bc-indigo-3`, since the knob has a border to hue.
-      One cost: `tests/merge-composition.test.ts` resolves `const X = MAP[key]`
-      to nothing, so the thumb's overrides are now outside what it checks.
+- [x] **The Slider is Switch with a longer track, literally.** Same 20px track
+      and the same `w-4 h-3` white thumb, carrying `SHAPES[shape]` the way
+      Switch's does, so all three shapes read as themselves. The fill runs up
+      to the thumb, and `thumbAlignment="edge"` on the root keeps the thumb
+      inside the track at both ends instead of centring it on the value and
+      hanging half of it over the edge; it also bounds the indicator to the
+      thumb, which is what makes the fill read as the volume. `shadow` moved
+      to the track, where it is visible at all.
+- [x] **`fv:` can never match a Slider thumb.** Base UI puts the focusable
+      `<input type="range">` inside the thumb div, so the ring has to be
+      driven from that input's `onFocus`, gated on `:focus-visible` so it
+      follows the browser's own rule rather than every focus. It rings the
+      thumb rather than the track, which Switch rings, because a range
+      slider's track cannot say which of two thumbs has focus.
+- [x] **The colour scale stops at 12**, not 13. `bg-slate-13/45` generated no
+      rule at all and the element it was on rendered transparent.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
