@@ -34,6 +34,10 @@ Short. These were said out loud enough times to belong in a file.
 - PRs, never direct commits to `main`. One PR per phase, on a branch named
   `feat/`, `fix/` or `chore/` plus a word or two of plain English. No hashes,
   no generated suffixes, nothing long.
+- Base UI primitives over raw HTML. A `<button>`, `<input>`, `<fieldset>` or
+  anything else with a primitive uses it; where a primitive has to render a
+  different element, that is its `render` prop, not a raw tag. Raw tags are for
+  what Base UI has no part for: layout, text, lists.
 - Update NOTES.md in the same commit as the change. It is the source of truth;
   TODO.md is the list, one phase per blocking level, ordered within a phase.
 - A closed entry leaves TODO.md and its finding goes in NOTES.md under the

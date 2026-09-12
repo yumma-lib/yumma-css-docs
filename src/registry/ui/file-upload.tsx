@@ -1,5 +1,8 @@
 "use client";
 
+import { Button } from "@base-ui/react/button";
+import { Fieldset } from "@base-ui/react/fieldset";
+import { Input } from "@base-ui/react/input";
 import { CloudUpload, Xmark } from "iconoir-react";
 import type { ChangeEvent, DragEvent, ReactNode } from "react";
 import { useId, useRef, useState } from "react";
@@ -136,7 +139,7 @@ export default function FileUploadBase({
   );
 
   return (
-    <fieldset
+    <Fieldset.Root
       aria-label={label}
       className={zone}
       onDragEnter={onDragOver}
@@ -144,7 +147,7 @@ export default function FileUploadBase({
       onDragLeave={onDragLeave}
       onDrop={onDrop}
     >
-      <input
+      <Input
         ref={input}
         id={id}
         type="file"
@@ -172,8 +175,7 @@ export default function FileUploadBase({
         </div>
         <div className="d-f fd-c ai-c g-1">
           <span className={`fs-sm fw-500 ${error ? "c-red-5" : "c-slate-10"}`}>
-            <button
-              type="button"
+            <Button
               disabled={disabled}
               onClick={() => input.current?.click()}
               className={merge(
@@ -182,7 +184,7 @@ export default function FileUploadBase({
               )}
             >
               {label}
-            </button>{" "}
+            </Button>{" "}
             or drag and drop
           </span>
           <span className={`fs-xs fw-400 ${error ? "c-red-5" : "c-slate-6"}`}>
@@ -206,8 +208,7 @@ export default function FileUploadBase({
               </span>
               <span className="d-f ai-c g-2 fs-xs c-slate-6">
                 {formatSize(file.size)}
-                <button
-                  type="button"
+                <Button
                   aria-label={`Remove ${file.name}`}
                   disabled={disabled}
                   onClick={() =>
@@ -219,7 +220,7 @@ export default function FileUploadBase({
                   )}
                 >
                   <Xmark className="w-4 h-4" />
-                </button>
+                </Button>
               </span>
             </div>
           ))}
@@ -233,6 +234,6 @@ export default function FileUploadBase({
           {message}
         </p>
       )}
-    </fieldset>
+    </Fieldset.Root>
   );
 }

@@ -1619,10 +1619,18 @@ declares logical properties: `padding` covers `padding-inline` covers
       it, and lists what it holds with a size and a remove control. The half
       of the entry about customisation was stale: `border` and `icon` have
       been props all along.
-- [x] **The zone is a `<fieldset>`.** Drag handlers on a `<section>` are a
-      static element with interaction, and the role that fixes it is `group`,
-      which is a fieldset. Its UA margin, padding and `min-inline-size` come
-      off in `ZONE`.
+- [x] **The zone is `Fieldset.Root`, the trigger and the remove control are
+      `Button`, the file input is `Input`.** Drag handlers on a `<section>`
+      are a static element with interaction, and the role that fixes it is
+      `group`, which is a fieldset; Base UI has the part. The fieldset's UA
+      margin, padding and `min-inline-size` come off in `ZONE`. `Input` is a
+      value-tracking control and a file input's value is a fake path, so the
+      worry was that clearing `target.value` after a pick, which is what lets
+      the same file be picked twice running, would fight it. Checked: it does
+      not. `Button` defaults to `type="button"`, so there is none to write.
+      Audited the other 41 components for raw tags with a primitive behind
+      them: none. Textarea already reaches `<textarea>` through
+      `Field.Control`'s `render`, which is the way.
 - [x] **Two drifts the rewrite surfaced.** `shadow` was documented as depth on
       the icon tile and applied to the zone, which is the thing the
       description says must not have it; it now lands on the tile. And the
