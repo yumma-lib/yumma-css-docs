@@ -1591,15 +1591,18 @@ declares logical properties: `padding` covers `padding-inline` covers
       and the same `w-4 h-3` white thumb, carrying `SHAPES[shape]` the way
       Switch's does, so all three shapes read as themselves. `shadow` moved to
       the track, where it is visible at all.
-- [x] **The thumb rides inside the fill, not astride its end.**
+- [x] **The thumb rides inside the fill with a padding to spare.**
       `thumbAlignment="edge"` on the root keeps the thumb within the track at
       both ends, but it bounds the indicator to the thumb's *centre*, which
       leaves half the thumb on indigo and half on silver. Base UI publishes
       the thumb position as `--start-position` (and `--relative-size` for a
-      range), so the indicator takes half a thumb more on the trailing side
-      and, for a range, half a thumb more on each. Measured: thumb and fill
-      share a trailing edge to the pixel at 0, 50, 60 and 100, and both range
-      thumbs sit inside the band.
+      range), so the indicator takes half a thumb box more on the trailing
+      side, and on both sides for a range. The thumb itself is Switch's,
+      centred in a `w-6 h-5 p-1` box: Base UI measures the box, so that one
+      padding is what holds the thumb off the end of the fill and off the ends
+      of the track, the same job Switch's `px-1` does. Measured at 0, 50 and
+      100: 4px of fill past the thumb every time, and the fill never overruns
+      the track.
 - [x] **`fv:` can never match a Slider thumb.** Base UI puts the focusable
       `<input type="range">` inside the thumb div, so the ring has to be
       driven from that input's `onFocus`, gated on `:focus-visible` so it

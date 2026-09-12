@@ -20,11 +20,14 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-sm",
 };
 
-// The thumb is `w-4`, and Base UI's `--start-position` puts the fill at the
-// thumb's centre. Half a thumb more carries it to the trailing edge, so the
-// thumb sits inside the fill rather than astride the end of it.
-const THUMB = "1rem";
-const HALF_THUMB = "0.5rem";
+// Switch's thumb sits in a box a padding wider on every side, the way Switch's
+// own `px-1` holds it off the ends of its track. Base UI measures that box, so
+// the same padding is what keeps the fill clear of the thumb: the indicator
+// takes half a box past `--start-position`, which is the box's edge and a
+// padding beyond the thumb's.
+const THUMB_BOX = "d-f ai-c jc-c w-6 h-5 p-1";
+const BOX = "1.5rem";
+const HALF_BOX = "0.75rem";
 
 function defaultFormat(value: Value): ReactNode {
   return Array.isArray(value) ? `${value[0]} - ${value[1]}` : `${value}%`;
@@ -75,10 +78,9 @@ export default function SliderBase({
     onValueChange?.(next);
   };
 
-  // Switch's thumb at `md`, on a track the same height. Focus is held in state
-  // because `fv:` never matches here: Base UI puts the focusable
-  // `<input type="range">` inside the thumb, so the ring has to be driven from
-  // the input's own focus.
+  // Focus is held in state because `fv:` never matches here: Base UI puts the
+  // focusable `<input type="range">` inside the thumb, so the ring has to be
+  // driven from the input's own focus.
   const thumbClasses = (index: number) =>
     merge(
       "w-4 h-3 bg-white",
@@ -128,10 +130,10 @@ export default function SliderBase({
               style={
                 isRange
                   ? {
-                      insetInlineStart: `calc(var(--start-position) - ${HALF_THUMB})`,
-                      width: `calc(var(--relative-size) + ${THUMB})`,
+                      insetInlineStart: `calc(var(--start-position) - ${HALF_BOX})`,
+                      width: `calc(var(--relative-size) + ${BOX})`,
                     }
-                  : { width: `calc(var(--start-position) + ${HALF_THUMB})` }
+                  : { width: `calc(var(--start-position) + ${HALF_BOX})` }
               }
               className={merge(
                 disabled ? "bg-silver-3" : "bg-indigo",
@@ -144,12 +146,16 @@ export default function SliderBase({
                   // biome-ignore lint/suspicious/noArrayIndexKey: positional by design
                   key={index}
                   index={index}
-                  className={thumbClasses(index)}
+                  className={THUMB_BOX}
                   {...focusProps(index)}
-                />
+                >
+                  <span className={thumbClasses(index)} />
+                </Slider.Thumb>
               ))
             ) : (
-              <Slider.Thumb className={thumbClasses(0)} {...focusProps(0)} />
+              <Slider.Thumb className={THUMB_BOX} {...focusProps(0)}>
+                <span className={thumbClasses(0)} />
+              </Slider.Thumb>
             )}
           </Slider.Track>
         </Slider.Control>
