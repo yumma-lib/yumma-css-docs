@@ -5,7 +5,8 @@
       "name": "label",
       "type": "string",
       "example": "Brightness",
-      "description": "Text beside the value, above the track."
+      "description": "Text beside the value, above the track.",
+      "optional": true
     },
     {
       "name": "required",

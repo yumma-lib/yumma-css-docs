@@ -40,6 +40,19 @@ export default function Control({ prop, value, onChange, inert }: Props) {
     );
   }
 
+  // An optional string is on or off, never typed into: the words are the
+  // schema's, and turning one off is what the component's own guard reads.
+  if (prop.optional) {
+    return (
+      <Toggle
+        checked={Boolean(value)}
+        onCheckedChange={(next) => onChange(next ? prop.example : "")}
+        label={prop.name}
+        inert={inert}
+      />
+    );
+  }
+
   if (prop.type === "boolean") {
     return (
       <Toggle

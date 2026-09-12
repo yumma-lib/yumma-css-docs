@@ -5,7 +5,8 @@
       "name": "label",
       "type": "string",
       "example": "Quantity",
-      "description": "Text above the control. Also a scrub area: drag left or right on it to change the value."
+      "description": "Text above the control. Also a scrub area: drag left or right on it to change the value.",
+      "optional": true
     },
     {
       "name": "required",

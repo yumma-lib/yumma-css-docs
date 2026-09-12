@@ -29,7 +29,8 @@
       "name": "label",
       "type": "string",
       "example": "City",
-      "description": "Field label above the input. Leave it out and the input is described by its placeholder alone."
+      "description": "Field label above the input. Leave it out and the input is described by its placeholder alone.",
+      "optional": true
     },
     {
       "name": "description",

@@ -16,7 +16,7 @@ type Values = Record<string, unknown>;
 
 /** The parser for one prop, or null when its value cannot travel in a URL. */
 function parserFor(prop: RegistryProp, seeded: unknown) {
-  if (prop.exampleIcon) {
+  if (prop.exampleIcon || prop.optional) {
     return parseAsBoolean.withDefault(Boolean(seeded));
   }
   if (prop.type === "boolean") {
@@ -84,6 +84,11 @@ export function applyQuery(
       continue;
     }
 
+    if (prop.optional) {
+      values[prop.name] = value ? prop.example : "";
+      continue;
+    }
+
     // A parser with no default reports null when the URL says nothing.
     if (value !== null) values[prop.name] = value;
   }
@@ -106,7 +111,7 @@ export function queryFor(
   for (const prop of meta.props) {
     if (!isControllable(prop)) continue;
 
-    if (prop.exampleIcon || prop.type === "boolean") {
+    if (prop.exampleIcon || prop.optional || prop.type === "boolean") {
       query[prop.name] = Boolean(values[prop.name]);
       continue;
     }

@@ -29,7 +29,8 @@
       "name": "label",
       "type": "string",
       "example": "Sort by",
-      "description": "Text above the trigger."
+      "description": "Text above the trigger.",
+      "optional": true
     },
     {
       "name": "required",

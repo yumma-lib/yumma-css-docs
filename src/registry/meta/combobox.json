@@ -29,7 +29,8 @@
       "name": "label",
       "type": "string",
       "example": "City",
-      "description": "Field label above the input."
+      "description": "Field label above the input.",
+      "optional": true
     },
     {
       "name": "description",

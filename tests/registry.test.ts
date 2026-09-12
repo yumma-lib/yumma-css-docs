@@ -289,6 +289,39 @@ describe("Yumma UI registry", () => {
     expect(missing).toEqual([]);
   });
 
+  /**
+   * A toggle that cannot put the string back, or one whose component prints it
+   * either way, is a control that does nothing. Both halves are checkable.
+   */
+  it("gives an optional string an example and a guard to read it", () => {
+    const wrong: string[] = [];
+    const metaDir = join(rootDir, "src/registry/meta");
+    const uiDir = join(rootDir, "src/registry/ui");
+
+    for (const file of readdirSync(metaDir).filter((f) =>
+      f.endsWith(".json"),
+    )) {
+      const id = file.replace(/\.json$/, "");
+      const meta = JSON.parse(readFileSync(join(metaDir, file), "utf-8"));
+
+      for (const prop of meta.props ?? []) {
+        if (!prop.optional) continue;
+
+        if (typeof prop.example !== "string" || prop.example === "") {
+          wrong.push(`${id}:${prop.name} has no example to switch back on`);
+        }
+
+        const source = readFileSync(join(uiDir, `${id}.tsx`), "utf-8");
+        const guard = new RegExp(`\\{\\s*${prop.name}\\s*&&`);
+        if (!guard.test(source)) {
+          wrong.push(`${id}:${prop.name} is rendered either way`);
+        }
+      }
+    }
+
+    expect(wrong).toEqual([]);
+  });
+
   it("is not empty", () => {
     expect(mappedIds().length).toBeGreaterThan(0);
   });

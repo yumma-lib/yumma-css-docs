@@ -41,7 +41,8 @@ function seed(meta: RegistryMeta): Values {
       values[prop.name] = GLYPH;
       continue;
     }
-    if (prop.default !== undefined) values[prop.name] = prop.default;
+    const value = prop.example ?? prop.default;
+    if (value !== undefined) values[prop.name] = value;
   }
 
   return values;
@@ -57,6 +58,8 @@ function changed(meta: RegistryMeta): Values {
     if (prop.exampleIcon) {
       if (values[prop.name]) delete values[prop.name];
       else values[prop.name] = GLYPH;
+    } else if (prop.optional) {
+      values[prop.name] = values[prop.name] ? "" : prop.example;
     } else if (prop.type === "boolean") {
       values[prop.name] = !values[prop.name];
     } else if (prop.type === "number") {
@@ -124,13 +127,13 @@ describe("playground url", () => {
 
       for (const prop of meta.props) {
         if (!isControllable(prop)) continue;
-        // An icon is an element either side; only its presence travels.
-        const before = prop.exampleIcon
+        // An icon is an element and an optional string is words; either way
+        // only presence travels.
+        const presence = prop.exampleIcon || prop.optional;
+        const before = presence
           ? Boolean(wanted[prop.name])
           : wanted[prop.name];
-        const after = prop.exampleIcon
-          ? Boolean(back[prop.name])
-          : back[prop.name];
+        const after = presence ? Boolean(back[prop.name]) : back[prop.name];
 
         if (before !== after) {
           lost.push(
@@ -163,7 +166,7 @@ describe("playground url", () => {
 
       for (const prop of meta.props) {
         if (!isControllable(prop)) continue;
-        if (prop.exampleIcon || prop.type === "boolean") {
+        if (prop.exampleIcon || prop.optional || prop.type === "boolean") {
           expect(query[prop.name]).toBe(false);
         } else {
           expect(prop.name in query).toBe(false);

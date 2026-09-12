@@ -6,7 +6,8 @@
       "type": "none",
       "example": "Message",
       "description": "Text above the control. `Field.Root` and `Field.Label` associate it automatically, so no `id`/`htmlFor` bookkeeping is needed.",
-      "typeName": "string"
+      "typeName": "string",
+      "optional": true
     },
     {
       "name": "required",

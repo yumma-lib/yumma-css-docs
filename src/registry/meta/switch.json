@@ -5,7 +5,8 @@
       "name": "label",
       "type": "string",
       "example": "Autosave",
-      "description": "Text beside the track."
+      "description": "Text beside the track.",
+      "optional": true
     },
     {
       "name": "description",
