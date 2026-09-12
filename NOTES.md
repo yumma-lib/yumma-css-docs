@@ -2140,6 +2140,13 @@ only exists where a schema backs it.
 
 The expensive ones, in rough order of how much time they have cost.
 
+**The session link in a PR body is appended server side.** Not by the model, and
+`.claude/settings.json`'s `attribution.pr` does not reach it: that setting is
+why the commits are clean while the bodies are not. Anything the GitHub
+integration opens or edits gets it, and re-sending a body without it gets it
+appended again. It comes off by hand, or wherever that integration is
+configured.
+
 **A published GitHub Release does not mean a published npm package.** `3.30.0`
 was tagged and released on 2026-08-29 and the publish run **failed** the first
 time: build
