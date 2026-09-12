@@ -2,8 +2,8 @@
 
 import { Button, Input } from "@base-ui/react";
 import { Accordion } from "@base-ui/react/accordion";
-import { Plus, Search } from "iconoir-react";
 import { useMemo, useState } from "react";
+import { Plus, Search } from "@/icons";
 import {
   type Category,
   getReferenceData,

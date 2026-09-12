@@ -1,8 +1,8 @@
 "use client";
 
-import { PageEdit } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { PageEdit } from "@/icons";
 
 export default function EditPage() {
   const pathname = usePathname();

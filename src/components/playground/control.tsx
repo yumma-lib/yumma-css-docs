@@ -3,9 +3,9 @@
 import { Button } from "@base-ui/react";
 import { Select } from "@base-ui/react/select";
 import { Switch } from "@base-ui/react/switch";
-import { NavArrowDown } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
+import { NavArrowDown } from "@/icons";
 import type { RegistryProp } from "@/registry";
 import { exampleIcon } from "@/utils/demo";
 

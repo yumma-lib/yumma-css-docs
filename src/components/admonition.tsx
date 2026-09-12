@@ -1,5 +1,5 @@
-import { CheckCircle, InfoCircle, WarningTriangle } from "iconoir-react";
 import type { ReactNode } from "react";
+import { CheckCircle, InfoCircle, WarningTriangle } from "@/icons";
 
 type Kind = "note" | "warning" | "success";
 
