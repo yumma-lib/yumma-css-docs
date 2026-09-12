@@ -2174,6 +2174,13 @@ only exists where a schema backs it.
 
 The expensive ones, in rough order of how much time they have cost.
 
+**A stacked PR can report itself merged and still never reach `main`.** Three
+PRs each based on the one below it. The bottom two merged, which carried the
+chain to `main`; the top one then merged into a base branch that had already
+been folded in, so its commit landed on a branch nobody reads. GitHub said
+merged, the work was not on `main`, and only `git cat-file -e origin/main:<file>`
+showed it. Branch from `main`, target `main`.
+
 **The session link in a PR body is appended server side.** Not by the model, and
 `.claude/settings.json`'s `attribution.pr` does not reach it: that setting is
 why the commits are clean while the bodies are not. Anything the GitHub
