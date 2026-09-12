@@ -66,7 +66,7 @@ export default function PreviewCardBase({
       <PreviewCard.Trigger
         className={(state) =>
           merge(
-            "c-indigo c-p fw-500 td-none h:td-u fv:td-u",
+            "c-blue c-p fw-500 td-none h:td-u fv:td-u",
             state.open ? "td-u" : "",
             className,
           )

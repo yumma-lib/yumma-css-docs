@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  96
-    Open    21
-    Done    82%
+    Closed  103
+    Open    19
+    Done    84%
 
 ---
 
@@ -50,25 +50,14 @@ renames already on `main`.
       is not a text control: strings are documented, not driven.
 - [ ] **A prop to control focus.** Some people do not want a ring at all, and
       the appearance could be props too: outline colour, outline offset, all
-      Yumma CSS utilities. **Do it with the indigo change, not before**: both
-      rewrite the same focus classes in the same 26 files, and doing them
-      separately means writing them twice.
-- [ ] **Drop indigo.** Decided, not a proposal: the primary becomes black or a
-      dark grey, and colour is kept only where it carries meaning, red for
-      destructive and blue for links. Square is already the default. The one
-      open question is the shade, and it decides the focus ring too, which is
-      `indigo-2/60` over `indigo-3` today. Touches every component: 58 focus
-      pairs, the Toggle and Badge fills, the Progress and Meter indicators,
-      Tabs, Rating, Onboarding and the Combobox chips.
+      Yumma CSS utilities. The indigo change has been and gone, so the pairing
+      this entry was waiting for is spent: the focus classes get rewritten a
+      second time whenever this lands.
 
 ## Phase 4 - Wants mockups
 
 Design decisions. Nothing here starts without them.
 
-- [ ] **File Upload** barely customisable: the dashed border and the icon
-      should both be the user's choice. Barely functional: drag and drop does
-      nothing, the upload button does nothing, and dragging a file over it
-      should change the border colour.
 - [ ] Replace the stage's tab bar with the **browser window** treatment,
       redrawn in Yumma CSS's own colours. **3 mockups.** Not urgent.
 
@@ -120,10 +109,10 @@ Blocked on Renildo. Each one holds up the entry beside it.
 
 Not bugs. Written down so they stop being rediscovered.
 
-- Focus is treatment A and sits below WCAG 2.1 1.4.11. Measured at 1.21:1 for
-  the outline and 1.80:1 for the border. Deferred deliberately: no users, and
-  a CSS change is reversible. The same treatment one or two shades down the
-  indigo scale would pass.
+- Focus is treatment A and sits below WCAG 2.1 1.4.11. It was 1.21:1 for the
+  outline and 1.80:1 for the border on indigo, and the silver pair that
+  replaced it is no better. Deferred deliberately: no users, and a CSS change
+  is reversible. A darker ring, `slate-4` or lower, would pass.
 - Nothing in the playground survives a reload, by design, until the URL entry
   in Phase 5 lands.
 - Number Field and Toolbar ring the input, not the group around it, so the

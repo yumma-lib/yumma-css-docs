@@ -148,7 +148,7 @@ export default function ToolbarBase({
             <Toolbar.Input
               key={key}
               className={[
-                "h-9 w-40 pl-3 bg-transparent bw-0 fs-sm fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+                "h-9 w-40 pl-3 bg-transparent bw-0 fs-sm fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
                 control,
               ]
                 .filter(Boolean)
@@ -199,7 +199,7 @@ export default function ToolbarBase({
                 </NumberField.Decrement>
                 <Toolbar.Input
                   render={<NumberField.Input />}
-                  className="w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3"
+                  className="w-16 bg-transparent c-slate-10 bw-0 ta-c fs-sm fw-500 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5"
                 />
                 <NumberField.Increment
                   render={
@@ -229,7 +229,7 @@ export default function ToolbarBase({
               key={key}
               href={item.href}
               className={[
-                "d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+                "d-f ai-c g-1 h-9 px-3 c-slate-7 fs-sm fw-500 td-none h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
                 control,
               ]
                 .filter(Boolean)
@@ -245,7 +245,7 @@ export default function ToolbarBase({
         const buttonClasses = [
           // `ws-nw`: a toolbar is a row of controls, and a label that wraps
           // makes the whole bar two lines tall to fit one button.
-          "d-f ai-c jc-c ws-nw bg-transparent c-slate-7 bw-0 us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+          "d-f ai-c jc-c ws-nw bg-transparent c-slate-7 bw-0 us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
           button.iconOnly ? "w-9 h-9" : "g-1 h-9 px-3 fs-sm fw-500",
           control,
           // Surface, not fade, matching the rest of the library.
@@ -328,10 +328,10 @@ function ToolbarToggles({
 
   const toggleClasses = (pressed: boolean) =>
     [
-      "d-f w-9 h-9 ai-c jc-c bw-0 us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+      "d-f w-9 h-9 ai-c jc-c bw-0 us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
       control,
       pressed
-        ? "bg-indigo-1 bc-indigo-2 c-indigo-7 bw-1"
+        ? "bg-silver-1 bc-silver-3 c-slate-12 bw-1"
         : "bg-transparent c-slate-7 h:bg-silver-1 h:c-slate-10",
     ]
       .filter(Boolean)

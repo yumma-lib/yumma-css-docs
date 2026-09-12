@@ -23,7 +23,7 @@ export interface ComboboxGroup {
 }
 
 const INPUT =
-  "pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 fs-md fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
+  "pl-4 pr-16 bg-white bc-silver-3 c-slate-10 bw-1 fs-md fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const SIZES: Record<Size, string> = {
   sm: "h-8 w-56",
@@ -82,7 +82,7 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-sm",
 };
 
-const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
+const RING = "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const ACTION = `d-f b-0 ai-c jc-c w-6 h-6 p-0 bg-transparent c-slate-6 c-p h:c-slate-10 ${RING}`;
 
@@ -142,7 +142,7 @@ function renderItem(item: ComboboxItem, shape: Shape) {
       {item.description && (
         <span className="fs-0 c-slate-6 fw-400">{item.description}</span>
       )}
-      <Combobox.ItemIndicator className="d-f ml-auto c-indigo">
+      <Combobox.ItemIndicator className="d-f ml-auto c-slate-12">
         <Check className="w-3 h-3" />
       </Combobox.ItemIndicator>
     </Combobox.Item>

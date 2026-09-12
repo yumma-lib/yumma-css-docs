@@ -71,7 +71,7 @@ export default function ProgressBase({
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className={["h-100% bg-indigo", SHAPES[shape]]
+                className={["h-100% bg-slate-12", SHAPES[shape]]
                   .filter(Boolean)
                   .join(" ")}
               />
@@ -92,7 +92,7 @@ export default function ProgressBase({
               [
                 "h-100%",
                 SHAPES[shape],
-                state.status === "complete" ? "bg-green" : "bg-indigo",
+                state.status === "complete" ? "bg-green" : "bg-slate-12",
               ]
                 .filter(Boolean)
                 .join(" ")

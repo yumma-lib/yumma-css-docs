@@ -18,12 +18,12 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 const ICON_TONES: Record<IconTone, string> = {
-  accent: "c-indigo",
+  accent: "c-slate-12",
   neutral: "c-slate-5",
 };
 
 const BUTTON_BASE =
-  "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
+  "d-if ai-c px-3 py-2 bw-1 fw-500 tp-c tdu-150 ttf-io us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 export interface EmptyStateProps {
   icon?: ReactNode;
@@ -102,7 +102,7 @@ export default function EmptyStateBase({
               onClick={onPrimary}
               className={[
                 BUTTON_BASE,
-                "g-2 bg-indigo h:bg-indigo-8 bc-indigo-7 c-white",
+                "g-2 bg-slate-12 h:bg-slate-11 bc-slate-12 c-white",
               ].join(" ")}
             >
               {primaryIcon}

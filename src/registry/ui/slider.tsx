@@ -83,9 +83,10 @@ export default function SliderBase({
   // driven from the input's own focus.
   const thumbClasses = (index: number) =>
     merge(
-      "w-4 h-3 bg-white",
+      "w-4 h-3",
+      disabled ? "bg-silver-5" : "bg-slate-10",
       SHAPES[shape],
-      focused === index ? "os-s ow-3 oo-0 oc-indigo-2/60" : "",
+      focused === index ? "os-s ow-3 oo-0 oc-silver-3/60" : "",
     );
 
   const focusProps = (index: number) => ({
@@ -121,7 +122,10 @@ export default function SliderBase({
         >
           <Slider.Track
             className={merge(
-              "p-r h-5 w-100% bg-silver-1",
+              // The edge is an outline, not a border: Base UI measures the
+              // control and positions the thumb inside the track's padding
+              // box, so a border would put the two out by its own width.
+              "p-r h-5 w-100% bg-white os-s ow-1 oo-0 oc-silver-3",
               SHAPES[shape],
               SHADOWS[shadow],
             )}
@@ -136,7 +140,7 @@ export default function SliderBase({
                   : { width: `calc(var(--start-position) + ${HALF_BOX})` }
               }
               className={merge(
-                disabled ? "bg-silver-3" : "bg-indigo",
+                disabled ? "bg-silver-1" : "bg-silver-2 brc-silver-3 brw-1",
                 SHAPES[shape],
               )}
             />

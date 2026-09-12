@@ -61,7 +61,7 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 };
 
 const CONTROL_BASE =
-  "d-f ai-c jc-c w-8 h-8 bw-1 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
+  "d-f ai-c jc-c w-8 h-8 bw-1 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const slideVariants = {
   enter: (d: number) => ({ x: d > 0 ? 40 : -40, opacity: 0 }),
@@ -169,7 +169,7 @@ export default function OnboardingBase({
   };
 
   const triggerClasses = merge(
-    "bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+    "bg-white d-if ai-c g-2 px-3 py-2 bc-silver-2 c-slate-10 bw-1 fw-500 tp-c tdu-150 ttf-io us-none h:bg-silver-1/50 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
     CONTROL_SHAPES[shape],
     className,
   );
@@ -192,7 +192,7 @@ export default function OnboardingBase({
     CONTROL_BASE,
     CONTROL_SHAPES[shape],
     allTasksDone
-      ? "bg-indigo h:bg-indigo-8 bc-indigo-7 c-white"
+      ? "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white"
       : "bg-silver-1 bc-silver-2 c-slate-4",
   ].join(" ");
 
@@ -215,7 +215,7 @@ export default function OnboardingBase({
               <Button
                 key={task.id}
                 onClick={() => toggleTask(task.id)}
-                className={`d-f ai-c g-2 px-3 py-2 w-100% br-lg bw-0 fs-sm ta-l us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3 ${
+                className={`d-f ai-c g-2 px-3 py-2 w-100% br-lg bw-0 fs-sm ta-l us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${
                   isChecked ? "bg-green-1/30" : "bg-silver-1/50"
                 }`}
               >
@@ -243,7 +243,7 @@ export default function OnboardingBase({
     <AlertDialog.Close
       render={
         <Button
-          className={`d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 ${CLOSE_SHAPES[shape]} h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3 ${position}`}
+          className={`d-f ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 ${CLOSE_SHAPES[shape]} h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${position}`}
         />
       }
       aria-label="Skip"
@@ -351,7 +351,7 @@ export default function OnboardingBase({
             <div className="d-f jc-c pb-6">
               <div className="p-r o-h w-32 h-1 bg-silver-2 br-9999">
                 <motion.div
-                  className="p-a l-0 t-0 h-100% bg-indigo br-9999"
+                  className="p-a l-0 t-0 h-100% bg-slate-12 br-9999"
                   initial={false}
                   animate={{
                     width: `${((page + 1) / steps.length) * 100}%`,
@@ -367,7 +367,7 @@ export default function OnboardingBase({
               <Button
                 onClick={() => go(page - 1)}
                 disabled={isFirst}
-                className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3 ${
+                className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${
                   isFirst
                     ? "c-slate-3"
                     : "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
@@ -386,8 +386,8 @@ export default function OnboardingBase({
                       key={String(index)}
                       value={String(index)}
                       className={(state) =>
-                        `d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3 ${
-                          state.active ? "bg-indigo" : "bg-silver-2"
+                        `d-f ai-c jc-c w-4 h-4 br-9999 bw-0 us-none c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${
+                          state.active ? "bg-slate-12" : "bg-silver-2"
                         }`
                       }
                     />
@@ -404,7 +404,7 @@ export default function OnboardingBase({
                 <Button
                   onClick={() => go(page + 1)}
                   disabled={!allTasksDone}
-                  className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3 ${
+                  className={`d-f ai-c jc-c w-8 h-8 bw-0 br-lg us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5 ${
                     allTasksDone
                       ? "c-slate-6 h:bg-silver-1 h:c-slate-10 c-p"
                       : "c-slate-3"

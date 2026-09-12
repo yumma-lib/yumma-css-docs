@@ -89,7 +89,7 @@ export default function RatingBase({
       shadowClass || "bw-0",
       disabled ? "c-na o-60" : "",
       !disabled && !readOnly
-        ? "c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3"
+        ? "c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5"
         : "",
       pressed ? "c-yellow-5" : "c-slate-4",
       !disabled && !readOnly && !pressed ? "h:c-slate-6" : "",
@@ -103,7 +103,7 @@ export default function RatingBase({
       "d-f ai-c jc-c p-0 w-12 h-12 bw-0 br-lg us-none",
       disabled
         ? "c-na o-60"
-        : "c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+        : "c-p fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
       active ? (option.activeClassName ?? "c-yellow-5") : "c-slate-4",
       !disabled && !active ? "h:c-slate-6" : "",
     );

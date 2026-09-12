@@ -237,7 +237,7 @@ function EnumSelect({
  *
  * The geometry is Yumma UI's own switch at `sm` - a `px-1` track, a thumb that
  * travels `ml-0` to `ml-2` - because that is the part worth borrowing. Its
- * colours are not: `bg-indigo` on a white track is the library's look, and in
+ * colours are not: `bg-slate-12` on a white track is the library's look, and in
  * the rail it read as a saturated blue stripe with a thumb you could barely
  * find. These are the page's own accent and border.
  */

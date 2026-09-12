@@ -1611,6 +1611,60 @@ declares logical properties: `padding` covers `padding-inline` covers
       slider's track cannot say which of two thumbs has focus.
 - [x] **The colour scale stops at 12**, not 13. `bg-slate-13/45` generated no
       rule at all and the element it was on rendered transparent.
+- [x] **File Upload was a picture of a drop zone.** No `<input type="file">`
+      at all: the prompt was an `<a>` with no href, so it was neither
+      focusable nor clickable, and nothing listened for a drag. It now holds a
+      hidden input driven by a real button, takes `accept`, `multiple` and
+      `onFilesChange`, paints `bc-indigo bg-indigo-1/50` while a file is over
+      it, and lists what it holds with a size and a remove control. The half
+      of the entry about customisation was stale: `border` and `icon` have
+      been props all along.
+- [x] **The zone is `Fieldset.Root`, the trigger and the remove control are
+      `Button`, the file input is `Input`.** Drag handlers on a `<section>`
+      are a static element with interaction, and the role that fixes it is
+      `group`, which is a fieldset; Base UI has the part. The fieldset's UA
+      margin, padding and `min-inline-size` come off in `ZONE`. `Input` is a
+      value-tracking control and a file input's value is a fake path, so the
+      worry was that clearing `target.value` after a pick, which is what lets
+      the same file be picked twice running, would fight it. Checked: it does
+      not. `Button` defaults to `type="button"`, so there is none to write.
+      Audited the other 41 components for raw tags with a primitive behind
+      them: none. Textarea already reaches `<textarea>` through
+      `Field.Control`'s `render`, which is the way.
+- [x] **Two drifts the rewrite surfaced.** `shadow` was documented as depth on
+      the icon tile and applied to the zone, which is the thing the
+      description says must not have it; it now lands on the tile. And the
+      trigger stayed indigo inside a red zone, so it takes the error colour
+      and a red ring with everything else.
+- [x] **The canon test caught five invented classes in one file**, which is
+      the most it has ever caught at once: `d-n`, `ff-i`, `ls-none`, `tof-e`
+      and a `d:c-p-na` that is not a class in any shape. Two of them have no
+      Yumma spelling at all. `list-style-type` carries `c`, `d` and `s` and no
+      `none`, so a flat list is a `<div>`, not a stripped `<ul>`; and
+      `font-family` carries only `d` and `m`, so nothing inherits a font by
+      class.
+
+- [x] **Indigo is gone from the library.** 91 lines across 35 files. The
+      primary is `slate-12` and the ring pair is `oc-silver-3/60` over
+      `bc-silver-5`, replacing `oc-indigo-2/60` over `bc-indigo-3` in 51
+      places. Hover on a primary now goes *lighter*, `h:bg-slate-11`, because
+      12 is the floor of the scale and there is nothing darker to go to. Two
+      families survive because they carry meaning: `red-5` stays destructive,
+      and the Preview Card trigger, the one real link in the registry, took
+      `c-blue` rather than the primary.
+- [x] **One indigo is left on purpose.** Avatar's `tint` is a decorative
+      palette a caller picks, `lime | cyan | indigo`, not the primary. Whether
+      three coloured tints belong in a monochrome library is a different
+      question from what replaces the accent, so the sweep skipped that one
+      record and left the prop alone.
+- [x] **The Slider's track edge is an outline, not a border.** A white track
+      needs an edge on a white page, but Base UI measures the control and
+      positions the thumb inside the track's *padding* box, so a border puts
+      the two out by its own width at both ends. `os-s ow-1 oo-0 oc-silver-3`
+      draws the same line and takes no layout. Track white, fill `silver-2`
+      closed by a `brc-silver-3` hairline, thumb `slate-10`. The 4px of fill
+      past the thumb survived the retheme: measured 136 and 140 at 50%.
+
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
@@ -2106,6 +2160,13 @@ only exists where a schema backs it.
 ## Traps
 
 The expensive ones, in rough order of how much time they have cost.
+
+**The session link in a PR body is appended server side.** Not by the model, and
+`.claude/settings.json`'s `attribution.pr` does not reach it: that setting is
+why the commits are clean while the bodies are not. Anything the GitHub
+integration opens or edits gets it, and re-sending a body without it gets it
+appended again. It comes off by hand, or wherever that integration is
+configured.
 
 **A published GitHub Release does not mean a published npm package.** `3.30.0`
 was tagged and released on 2026-08-29 and the publish run **failed** the first
