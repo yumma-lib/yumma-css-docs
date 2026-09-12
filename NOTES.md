@@ -1692,6 +1692,25 @@ declares logical properties: `padding` covers `padding-inline` covers
       ellipsis as three dots while the site spells it as one character. All
       fixed, and the suite now covers them.
 
+- [x] **The playground configuration is in the URL.** Only what differs from
+      the seed is written, so a default page has a clean address and a link
+      carries only what someone changed. `toQuery` and `fromQuery` take the
+      seed and an icon factory as arguments rather than importing them: the
+      moment they reached into `demo.tsx` they pulled JSX into the test run,
+      and the app's `jsx: preserve` is not something esbuild can parse.
+      Passing them in made the pair pure and the test trivial, which is the
+      better shape anyway. An icon slot travels as the only thing its control
+      offers, whether there is one.
+- [x] **The query has to be captured during render, not in the effect.** An
+      effect runs twice in development, and the second pass read an address
+      bar the first pass had already rewritten, so a reload landed on the seed
+      every time. A ref initialised during the first render holds the query
+      and the id it arrived under; a query captured under another component's
+      id is dropped rather than applied. Checked in the browser: clean on
+      arrival, written as controls move, restored on reload in both the rail
+      and the preview, and cleared when navigating to another component.
+      Nonsense in the address bar is dropped silently.
+
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
