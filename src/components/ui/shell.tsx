@@ -2,6 +2,7 @@
 
 import { allUis } from "content-collections";
 import { usePathname } from "next/navigation";
+import { Suspense } from "react";
 import { PlaygroundProvider } from "@/components/playground/context";
 import PlaygroundRail from "@/components/playground/rail";
 import Sidebar from "@/components/ui/sidebar";
@@ -37,5 +38,11 @@ export default function UIShell({ children }: { children: React.ReactNode }) {
 
   if (!playground) return grid;
 
-  return <PlaygroundProvider id={playground}>{grid}</PlaygroundProvider>;
+  // The provider reads the query, and reading the query is what makes a page
+  // dynamic. Only the playground pays that; the grid renders either way.
+  return (
+    <Suspense fallback={grid}>
+      <PlaygroundProvider id={playground}>{grid}</PlaygroundProvider>
+    </Suspense>
+  );
 }

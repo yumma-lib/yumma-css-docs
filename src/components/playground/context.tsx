@@ -1,5 +1,6 @@
 "use client";
 
+import { useQueryStates } from "nuqs";
 import {
   createContext,
   type ReactNode,
@@ -7,12 +8,11 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useRef,
   useState,
 } from "react";
 import { getRegistryMeta, type RegistryMeta } from "@/registry";
 import { type DemoProps, exampleIcon, seedValues } from "@/utils/demo";
-import { fromQuery, toQuery } from "@/utils/playground-url";
+import { applyQuery, keyMapFor, queryFor } from "@/utils/playground-url";
 import { prefetchRegistry } from "@/utils/prefetch-registry";
 import { isInert } from "@/utils/props";
 
@@ -47,24 +47,12 @@ export function PlaygroundProvider({
 }) {
   const [seed, setSeed] = useState<Seed>(EMPTY);
 
-  // The query this page was opened with, captured once during the first render.
-  // Reading it in the effect instead would lose it: an effect runs twice in
-  // development, and the second pass would see an address bar the first pass
-  // had already rewritten.
-  const opened = useRef<{ id: string; query: string } | null>(null);
-  if (opened.current === null && typeof window !== "undefined") {
-    opened.current = { id, query: window.location.search };
-  }
-
   useEffect(() => {
     const importMeta = getRegistryMeta(id);
     if (!importMeta) {
       setSeed(EMPTY);
       return;
     }
-
-    // A query captured under another component's id belongs to that one.
-    const query = opened.current?.id === id ? opened.current.query : "";
 
     // Drop the outgoing schema; the stage keeps its last visual frame.
     setSeed(EMPTY);
@@ -73,11 +61,7 @@ export function PlaygroundProvider({
     let live = true;
     importMeta().then((module) => {
       if (!live) return;
-      const meta = module.default;
-      setSeed({
-        meta,
-        values: fromQuery(meta, query, seedValues(meta), exampleIcon),
-      });
+      setSeed({ meta: module.default, values: seedValues(module.default) });
     });
 
     return () => {
@@ -85,53 +69,65 @@ export function PlaygroundProvider({
     };
   }, [id]);
 
-  // `replaceState` rather than a router push: a control is not a navigation,
-  // and the back button belongs to the pages someone visited.
-  useEffect(() => {
-    if (!seed.meta) return;
-    const query = toQuery(seed.meta, seed.values, seedValues(seed.meta));
-    window.history.replaceState(
-      null,
-      "",
-      query ? `${window.location.pathname}?${query}` : window.location.pathname,
-    );
-  }, [seed.meta, seed.values]);
+  // One parser per controllable prop, each defaulting to the schema's own seed.
+  // nuqs drops a parameter that matches its default, which is what keeps an
+  // untouched page on a clean address.
+  const keyMap = useMemo(
+    () => (seed.meta ? keyMapFor(seed.meta, seed.values) : {}),
+    [seed.meta, seed.values],
+  );
 
-  const setValue = useCallback((name: string, value: unknown) => {
-    setSeed((current) => {
-      const values = { ...current.values, [name]: value };
+  const [query, setQuery] = useQueryStates(keyMap, {
+    history: "replace",
+    clearOnDefault: true,
+    shallow: true,
+  });
 
-      // `iconPosition` moves an icon. Rather than do nothing until one is switched
-      // on, picking a side puts the icon there, so the control does what it
-      // says. The schema names the dependency.
-      const prop = current.meta?.props.find((entry) => entry.name === name);
+  const values = useMemo(
+    () =>
+      seed.meta
+        ? applyQuery(seed.meta, query, seed.values, exampleIcon)
+        : seed.values,
+    [seed.meta, seed.values, query],
+  );
+
+  const setValue = useCallback(
+    (name: string, value: unknown) => {
+      const meta = seed.meta;
+      if (!meta) return;
+
+      const next = { ...values, [name]: value };
+
+      // `iconPosition` moves an icon. Rather than do nothing until one is
+      // switched on, picking a side puts the icon there, so the control does
+      // what it says. The schema names the dependency.
+      const prop = meta.props.find((entry) => entry.name === name);
       const needs = prop?.dependsOn
-        ? current.meta?.props.find((entry) => entry.name === prop.dependsOn)
+        ? meta.props.find((entry) => entry.name === prop.dependsOn)
         : undefined;
 
-      if (needs?.exampleIcon && !current.values[needs.name]) {
-        values[needs.name] = exampleIcon(needs.exampleIcon);
+      if (needs?.exampleIcon && !values[needs.name]) {
+        next[needs.name] = exampleIcon(needs.exampleIcon);
       }
 
       // A prop that just became inert gives up its value. Left on, it reads as
       // switched on and doing nothing, which is the thing the flag exists to
       // stop. Booleans go off; everything else returns to its default.
-      const all = current.meta?.props ?? [];
-      for (const entry of all) {
+      for (const entry of meta.props) {
         if (entry.name === name) continue;
-        if (!isInert(entry, values, all)) continue;
-        if (entry.type === "boolean") values[entry.name] = false;
-        else if (entry.default !== undefined)
-          values[entry.name] = entry.default;
+        if (!isInert(entry, next, meta.props)) continue;
+        if (entry.type === "boolean") next[entry.name] = false;
+        else if (entry.default !== undefined) next[entry.name] = entry.default;
       }
 
-      return { ...current, values };
-    });
-  }, []);
+      setQuery(queryFor(meta, next));
+    },
+    [seed.meta, values, setQuery],
+  );
 
   const playground = useMemo(
-    () => ({ id, meta: seed.meta, values: seed.values, setValue }),
-    [id, seed.meta, seed.values, setValue],
+    () => ({ id, meta: seed.meta, values, setValue }),
+    [id, seed.meta, values, setValue],
   );
 
   return <PlaygroundContext value={playground}>{children}</PlaygroundContext>;

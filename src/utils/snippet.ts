@@ -113,6 +113,9 @@ function markedIcons(value: unknown): string[] {
   if (marker) return [marker.name];
   if (Array.isArray(value)) return value.flatMap(markedIcons);
   if (typeof value === "object" && value !== null) {
+    // A React element carries an owner fiber when it was made during a render,
+    // and that graph is cyclic. Walking into one overflows the stack.
+    if ("$$typeof" in value) return [];
     return Object.values(value).flatMap(markedIcons);
   }
   return [];

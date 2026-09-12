@@ -1692,24 +1692,36 @@ declares logical properties: `padding` covers `padding-inline` covers
       ellipsis as three dots while the site spells it as one character. All
       fixed, and the suite now covers them.
 
-- [x] **The playground configuration is in the URL.** Only what differs from
-      the seed is written, so a default page has a clean address and a link
-      carries only what someone changed. `toQuery` and `fromQuery` take the
-      seed and an icon factory as arguments rather than importing them: the
-      moment they reached into `demo.tsx` they pulled JSX into the test run,
-      and the app's `jsx: preserve` is not something esbuild can parse.
-      Passing them in made the pair pure and the test trivial, which is the
-      better shape anyway. An icon slot travels as the only thing its control
-      offers, whether there is one.
-- [x] **The query has to be captured during render, not in the effect.** An
-      effect runs twice in development, and the second pass read an address
-      bar the first pass had already rewritten, so a reload landed on the seed
-      every time. A ref initialised during the first render holds the query
-      and the id it arrived under; a query captured under another component's
-      id is dropped rather than applied. Checked in the browser: clean on
-      arrival, written as controls move, restored on reload in both the rail
-      and the preview, and cleared when navigating to another component.
-      Nonsense in the address bar is dropped silently.
+- [x] **The playground configuration is in the URL, on nuqs.** The schema half
+      is all this repo owns now: one parser per controllable prop, each
+      defaulting to the value the page opens on. nuqs drops a parameter that
+      equals its default, so an untouched page keeps a clean address and a
+      link carries only what someone changed, and that came free rather than
+      as hand-rolled diffing. The default is the *seed*, not the documented
+      default: a prop the seed leaves out has nothing to rest on, and a parser
+      with no default stays out of the URL instead of inventing a zero. An
+      icon slot travels as whether there is one, and the caller hands over the
+      factory that turns that back into a glyph, which keeps the module pure
+      and its test free of anything rendered.
+- [x] **`markedIcons` walked into a React element and blew the stack.** Moving
+      the value merge into a `useMemo` meant `exampleIcon` ran during a render,
+      and an element made during a render carries an owner fiber, which is a
+      cyclic graph. The snippet builder recursed into it until the stack went.
+      It had the same hole all along and only never met an element with an
+      owner. It now stops at `$$typeof`, the way `resolveIcons` already did.
+      Any walk over a value bag needs that guard.
+- [x] **The provider needs a Suspense boundary, and only the provider.** The
+      nuqs adapter reads `useSearchParams`, which fails a static prerender
+      without one, so all 42 component pages stopped building. Wrapping the
+      whole app would have taken the rest of the site dynamic with it; the
+      boundary sits on `PlaygroundProvider` alone, with the grid as its own
+      fallback so the page renders either way. All 42 still come out SSG.
+- [x] **Nonsense in the address bar stays there now, and that is the better
+      behaviour.** The hand-rolled version rewrote the query and wiped what it
+      did not recognise. nuqs leaves a parameter it does not own alone and
+      simply rejects it at the parser, so the preview falls back to the seed
+      while an unrelated parameter survives. Checked: `?size=enormous` leaves
+      the button on `px-3 py-2 fs-md`.
 
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
