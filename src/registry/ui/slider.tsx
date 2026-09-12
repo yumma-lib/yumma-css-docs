@@ -20,6 +20,37 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-sm",
 };
 
+interface ThumbSpec {
+  size: string;
+  resting: string;
+  disabled: string;
+  focused: string;
+}
+
+// A 4px hairline has nothing for a radius to round, so only square keeps one.
+// The other two take Switch's thumb: inset to 12px of the 20px track, and
+// square in the width so it still marks a point rather than a span.
+const THUMBS: Record<Shape, ThumbSpec> = {
+  square: {
+    size: "w-1 h-5",
+    resting: "bg-slate-12/45",
+    disabled: "bg-slate-12/25",
+    focused: "bg-slate-12",
+  },
+  rounded: {
+    size: "w-3 h-3 br-9999",
+    resting: "bw-1 bg-white bc-silver-3",
+    disabled: "bw-1 bg-silver-1 bc-silver-2",
+    focused: "bc-indigo-3",
+  },
+  squircle: {
+    size: "w-3 h-3 br-xxl cs-s",
+    resting: "bw-1 bg-white bc-silver-3",
+    disabled: "bw-1 bg-silver-1 bc-silver-2",
+    focused: "bc-indigo-3",
+  },
+};
+
 function defaultFormat(value: Value): ReactNode {
   return Array.isArray(value) ? `${value[0]} - ${value[1]}` : `${value}%`;
 }
@@ -69,18 +100,15 @@ export default function SliderBase({
     onValueChange?.(next);
   };
 
-  // The fill is the indicator: the thumb is a hairline the height of the track,
-  // so there is nothing perched on top of it to knock out of line.
-  //
   // Focus is held in state because `fv:` never matches here: Base UI puts the
   // focusable `<input type="range">` inside the thumb, so the ring has to be
   // driven from the input's own focus.
+  const thumb = THUMBS[shape];
   const thumbClasses = (index: number) =>
     merge(
-      "w-1 h-5",
-      disabled ? "bg-slate-12/25" : "bg-slate-12/45",
-      SHAPES[shape],
-      focused === index ? "os-s ow-3 oo-0 oc-indigo-2/60 bg-slate-12" : "",
+      thumb.size,
+      disabled ? thumb.disabled : thumb.resting,
+      focused === index ? `os-s ow-3 oo-0 oc-indigo-2/60 ${thumb.focused}` : "",
     );
 
   const focusProps = (index: number) => ({
