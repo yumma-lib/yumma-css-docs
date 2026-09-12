@@ -1761,6 +1761,36 @@ declares logical properties: `padding` covers `padding-inline` covers
       URL test built its own seed and read `prop.default`, where the real
       `seedValues` reads `prop.example ?? prop.default`. Nothing failed
       because nothing optional had an example before. It matches now.
+- [x] **Radio has no `shape` prop, and should never have had one.** It was
+      defaulting to `square`, so the shipped radio was a checkbox to anyone who
+      has filled in a form: round means one of these, square means any of
+      these, and that is an affordance rather than a style axis. The square
+      sweep put it there and nothing was watching. `tests/registry.test.ts`
+      refuses the prop, its type and its map coming back.
+- [x] **The shape vocabulary is written down and half of it is checkable.**
+      `rounded` genuinely does mean different radii by control, `br-sm` on a
+      checkbox and `br-9999` on a switch, and that is correct rather than
+      drift: a switch's natural round *is* a capsule. What is not allowed is
+      `pill` and `rounded` collapsing into each other where a component offers
+      both, or a `squircle` without `cs-s`. Both are tested. Renaming the
+      nine `rounded: br-9999` maps was considered and dropped as churn.
+- [x] **Radio carried `icon` in its examples for months after the icons were
+      removed.** `RadioOption` has no such field and the component never read
+      one, but the example kept passing them and the props table kept printing
+      them, and the content model pass copied the shape forward rather than
+      noticing. An example object's keys are now checked against the interface
+      its `typeName` names. Checked it bites.
+
+- [x] **`cva` was considered and declined, on dates and on evidence.**
+      `class-variance-authority` last shipped 0.7.1 in November 2024 and is
+      still 0.x; `tailwind-variants` is the maintained equivalent but is built
+      around tailwind-merge rather than `yummacss/merge`. The deciding fact was
+      local: a grep for conditions crossing two props across all 41 components
+      returns nothing, so the compound variants and typed defaults that `cva`
+      buys over a `Record<K, string>` lookup are unused here, and the cost is a
+      runtime dependency in every component someone installs. Reopen if
+      compound variants appear; a twenty-line local `variants()` helper gets
+      the ergonomics without the dependency.
 
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded

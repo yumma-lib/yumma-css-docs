@@ -15,7 +15,7 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  114
+    Closed  118
     Open    14
     Done    89%
 
@@ -75,12 +75,13 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 Blocked on Renildo. Each one holds up the entry beside it.
 
-- [ ] **`cva` for the variant maps?** Every component builds its classes from
-      `Record<Variant, string>` maps merged in order, which is what `cva` is.
-      It would bring typed variants, defaults in one place and compound
-      variants. The cost is that a registry component ships verbatim, so `cva`
-      becomes a runtime dependency of every component someone installs,
-      alongside Base UI, iconoir, motion and yummacss.
+- [ ] **`cva` for the variant maps?** Answered no for now, on evidence:
+      `class-variance-authority` last shipped 0.7.1 in November 2024 and is
+      still 0.x, `tailwind-variants` is the maintained equivalent but is built
+      around tailwind-merge rather than `yummacss/merge`, and there is no
+      compound-variant logic anywhere in the 41 components for either to
+      replace. Reopen if compound variants appear, or take a local
+      `variants()` helper rather than a dependency in every installed file.
 - [ ] **An `accent` prop?** Whether it is a real prop on the components, which
       is 41 files and a value that ships with the copied source, or a
       playground-only setting that recolours the preview without changing what

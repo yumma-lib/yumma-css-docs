@@ -1,5 +1,5 @@
 {
-  "summary": "A single choice from a group, in three sizes, three shapes and three shadows, with an optional description and icon per option.",
+  "summary": "A single choice from a short list, always round, with an optional icon and description on each option.",
   "props": [
     {
       "name": "options",
@@ -8,27 +8,15 @@
       "example": [
         {
           "value": "light",
-          "label": "Light",
-          "icon": {
-            "$icon": "SunLight",
-            "size": "w-4 h-4"
-          }
+          "label": "Light"
         },
         {
           "value": "dark",
-          "label": "Dark",
-          "icon": {
-            "$icon": "HalfMoon",
-            "size": "w-4 h-4"
-          }
+          "label": "Dark"
         },
         {
           "value": "system",
-          "label": "System",
-          "icon": {
-            "$icon": "Wrench",
-            "size": "w-4 h-4"
-          }
+          "label": "System"
         }
       ],
       "description": "The choices. `value` and `label` are required; `description` and `icon` are optional per option. The shape is fixed rather than generic because you own the file: data that does not fit is an edit to the option body, not an API."
@@ -63,13 +51,6 @@
       "values": ["sm", "md", "lg"],
       "default": "md",
       "description": "The circle, the dot and the label together."
-    },
-    {
-      "name": "shape",
-      "type": "enum",
-      "values": ["rounded", "square", "squircle"],
-      "default": "square",
-      "description": "Corner radius. `squircle` uses `corner-shape`, which degrades to a rounded square where that is unsupported."
     },
     {
       "name": "shadow",

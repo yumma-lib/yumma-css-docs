@@ -8,7 +8,6 @@ import { useId } from "react";
 import { merge } from "yummacss/merge";
 
 type Size = "sm" | "md" | "lg";
-type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
 export interface RadioOption {
@@ -38,11 +37,10 @@ const LABEL_SIZES: Record<Size, string> = {
   lg: "fs-md",
 };
 
-const SHAPES: Record<Shape, string> = {
-  rounded: "br-9999",
-  square: "",
-  squircle: "br-xxl cs-s",
-};
+// Round, and not a prop. A square radio is a checkbox to anyone who has used
+// a form before, and the two do different things: one of these, or any of
+// these. The shape is the affordance, so it is not a style axis.
+const ROUND = "br-9999";
 
 const SHADOWS: Record<Shadow, string> = {
   none: "",
@@ -57,7 +55,6 @@ export interface RadioProps {
   value?: string;
   onValueChange?: (value: string) => void;
   size?: Size;
-  shape?: Shape;
   shadow?: Shadow;
   disabled?: boolean;
   animated?: boolean;
@@ -71,7 +68,6 @@ export default function RadioBase({
   value,
   onValueChange,
   size = "md",
-  shape = "square",
   shadow = "none",
   disabled = false,
   animated = true,
@@ -80,7 +76,7 @@ export default function RadioBase({
   const labelId = useId();
 
   const dotClasses = (checked: boolean) =>
-    checked ? `${DOT_SIZES[size]} ${SHAPES[shape]} bg-white` : "d-none";
+    checked ? `${DOT_SIZES[size]} ${ROUND} bg-white` : "d-none";
 
   return (
     <div className="d-f fd-c g-2">
@@ -103,7 +99,7 @@ export default function RadioBase({
             [
               BASE,
               SIZES[size],
-              SHAPES[shape],
+              ROUND,
               checked
                 ? "bg-slate-12"
                 : `bg-white bw-1 bc-silver-3 ${SHADOWS[shadow]}`,
