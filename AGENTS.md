@@ -34,6 +34,9 @@ Short. These were said out loud enough times to belong in a file.
 - PRs, never direct commits to `main`. One PR per phase, on a branch named
   `feat/`, `fix/` or `chore/` plus a word or two of plain English. No hashes,
   no generated suffixes, nothing long.
+- Do not open the PR. Push the branch and hand over the body to paste. The
+  GitHub integration appends a session link to anything it opens or edits, and
+  nothing in this repo can reach that; a body pasted by hand has no footer.
 - Base UI primitives over raw HTML. A `<button>`, `<input>`, `<fieldset>` or
   anything else with a primitive uses it; where a primitive has to render a
   different element, that is its `render` prop, not a raw tag. Raw tags are for
