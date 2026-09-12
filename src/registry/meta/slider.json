@@ -23,7 +23,7 @@
       "type": "none",
       "typeName": "number | number[]",
       "example": 50,
-      "description": "A single number for one thumb, or a two-item array for a range with two. Whichever shape you start with is the shape the slider keeps - it does not switch thumb count at runtime."
+      "description": "A single number for one thumb, or a two-item array for a range with two. Whichever shape you start with is the shape the slider keeps. It does not switch thumb count at runtime."
     },
     {
       "name": "value",

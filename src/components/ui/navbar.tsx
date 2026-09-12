@@ -3,10 +3,10 @@
 import { Button } from "@base-ui/react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { clsx } from "clsx";
-import { Github, Menu, Search, Xmark } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { lazy, type ReactNode, Suspense, useEffect, useState } from "react";
+import { Github, Menu, Search, Xmark } from "@/icons";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 import { SearchDialog } from "./search-dialog";
 

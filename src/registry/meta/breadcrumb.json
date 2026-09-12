@@ -22,7 +22,7 @@
           "label": "Board"
         }
       ],
-      "description": "Each item's `label`, `href`, optional `icon` and `iconOnly`. The last item is always rendered as the current page - a plain span with `aria-current=\"page\"`, never a link - regardless of whether it has an `href`."
+      "description": "Each item's `label`, `href`, optional `icon` and `iconOnly`. The last item is always rendered as the current page: a plain span with `aria-current=\"page\"`, never a link, regardless of whether it has an `href`."
     },
     {
       "name": "bordered",

@@ -1,3 +1,4 @@
+import type { ComponentType, ReactNode } from "react";
 import {
   BellNotification,
   Bold,
@@ -22,8 +23,7 @@ import {
   User,
   UserPlus,
   Wrench,
-} from "iconoir-react";
-import type { ComponentType, ReactNode } from "react";
+} from "@/icons";
 import type { RegistryMeta } from "@/registry";
 import Avatar from "@/registry/ui/avatar";
 import Button from "@/registry/ui/button";

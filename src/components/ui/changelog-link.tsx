@@ -1,8 +1,8 @@
 "use client";
 
-import { Github } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Github } from "@/icons";
 
 /**
  * Linked as a file rather than an anchor.

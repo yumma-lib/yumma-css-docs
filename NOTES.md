@@ -1665,6 +1665,33 @@ declares logical properties: `padding` covers `padding-inline` covers
       closed by a `brc-silver-3` hairline, thumb `slate-10`. The 4px of fill
       past the thumb survived the retheme: measured 136 and 140 at 50%.
 
+- [x] **The icons module stops at the registry's edge, and has to.** 53 icons
+      across 20 site files now come from `src/icons.ts`, so changing icon
+      library is one edit. The registry's 23 components are pointedly outside
+      it: `generate-registry-json.mjs` ships each component's source verbatim
+      and only follows `./<id>` imports of other registry files, so `@/icons`
+      would resolve to nothing in a consumer's project. Making the module a
+      registry entry to get around that would push a 53-icon re-export into
+      someone's repo for every single component they install, which is worse
+      than the duplication it removes. `tests/icons.test.ts` asserts both
+      halves, and the registry half matters more: it fails as a broken install
+      rather than a broken build, so nothing catches it here. Checked both
+      guards bite.
+
+- [x] **A messages module is the wrong shape, and the copy tests were the
+      right one.** The strings the entry names, `emptyMessage`, `hint`,
+      `placeholder`, `label`, are all registry defaults, which is the one place
+      a shared module cannot reach: a component ships verbatim, and a user who
+      wants different copy passes the prop. Centralising them would help this
+      repo and break every install. What was actually missing is that
+      `tests/copywriting.test.ts` only ever read `.mdx`, so the 554 strings a
+      reader meets on the component pages, every default and every schema
+      description, had never been checked against the same rules. They had
+      drifted: 22 spaced hyphens used as dashes, 5 British spellings, 2
+      contractions, and `Search commands...` and `Select...` spelling an
+      ellipsis as three dots while the site spells it as one character. All
+      fixed, and the suite now covers them.
+
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are
@@ -2160,6 +2187,13 @@ only exists where a schema backs it.
 ## Traps
 
 The expensive ones, in rough order of how much time they have cost.
+
+**A stacked PR can report itself merged and still never reach `main`.** Three
+PRs each based on the one below it. The bottom two merged, which carried the
+chain to `main`; the top one then merged into a base branch that had already
+been folded in, so its commit landed on a branch nobody reads. GitHub said
+merged, the work was not on `main`, and only `git cat-file -e origin/main:<file>`
+showed it. Branch from `main`, target `main`.
 
 **The session link in a PR body is appended server side.** Not by the model, and
 `.claude/settings.json`'s `attribution.pr` does not reach it: that setting is

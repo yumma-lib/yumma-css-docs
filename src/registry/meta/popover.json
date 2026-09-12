@@ -5,7 +5,7 @@
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "The trigger's content - an icon, usually. Pair it with `triggerLabel` when there is no text.",
+      "description": "The trigger's content, an icon usually. Pair it with `triggerLabel` when there is no text.",
       "exampleIcon": "BellNotification"
     },
     {
@@ -38,7 +38,7 @@
       "name": "children",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "Extra content below the description - a swatch grid, say. Style it yourself."
+      "description": "Extra content below the description: a swatch grid, say. Style it yourself."
     },
     {
       "name": "side",

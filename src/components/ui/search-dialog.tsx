@@ -3,6 +3,9 @@
 import { Button } from "@base-ui/react";
 import { Dialog } from "@base-ui/react/dialog";
 import { Input } from "@base-ui/react/input";
+import { AnimatePresence, motion } from "motion/react";
+import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ComponentSolid,
   LogOut,
@@ -11,10 +14,7 @@ import {
   NavArrowUp,
   OpenBook,
   Search,
-} from "iconoir-react";
-import { AnimatePresence, motion } from "motion/react";
-import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+} from "@/icons";
 import { getBorderColor } from "@/utils/colors";
 import {
   CATEGORY_LABELS,

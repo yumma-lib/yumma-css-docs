@@ -42,13 +42,13 @@
       "name": "onTriggerClick",
       "type": "none",
       "typeName": "() => void",
-      "description": "Fires when the trigger is pressed, before the dialog opens - for capturing which row triggered it, say, in a dialog reused across a list."
+      "description": "Fires when the trigger is pressed, before the dialog opens, for capturing which row triggered it, say, in a dialog reused across a list."
     },
     {
       "name": "header",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "Content above the title - an avatar and name block, say. Centred in its own padded row."
+      "description": "Content above the title: an avatar and name block, say. Centered in its own padded row."
     },
     {
       "name": "title",
@@ -67,7 +67,7 @@
       "name": "children",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "The body, below the description. Form fields and anything else go here - style them yourself."
+      "description": "The body, below the description. Form fields and anything else go here. Style them yourself."
     },
     {
       "name": "cancelLabel",

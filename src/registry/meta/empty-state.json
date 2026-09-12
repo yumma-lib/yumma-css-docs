@@ -13,7 +13,7 @@
       "type": "enum",
       "values": ["accent", "neutral"],
       "default": "accent",
-      "description": "`accent` for an invitation to act, `neutral` for a plain absence - nothing found, nothing to do."
+      "description": "`accent` for an invitation to act, `neutral` for a plain absence: nothing found, nothing to do."
     },
     {
       "name": "title",

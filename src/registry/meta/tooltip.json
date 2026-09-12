@@ -6,7 +6,7 @@
       "type": "none",
       "typeName": "ReactNode",
       "exampleIcon": "BellNotification",
-      "description": "The trigger's content - an icon, usually. Pair it with `triggerLabel` when there is no text."
+      "description": "The trigger's content, an icon usually. Pair it with `triggerLabel` when there is no text."
     },
     {
       "name": "triggerLabel",

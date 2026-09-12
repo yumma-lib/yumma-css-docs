@@ -87,7 +87,7 @@
       "type": "enum",
       "values": ["none", "inset", "outset"],
       "default": "none",
-      "description": "Depth on the bar and its popups. Not on the individual buttons inside the bar - they are transparent, so a shadow on each one reads as noise."
+      "description": "Depth on the bar and its popups. Not on the individual buttons inside the bar: they are transparent, so a shadow on each one reads as noise."
     },
     {
       "name": "iconPosition",

@@ -58,14 +58,14 @@
       "name": "readOnly",
       "type": "boolean",
       "default": false,
-      "description": "A rating that only reports one - an average, someone else's score. It draws at full strength and stays out of the tab order, announced once as a single value rather than as five controls. That is the difference from `disabled`, which dims, because it means \"you could, but not now\"."
+      "description": "A rating that only reports one: an average, someone else's score. It draws at full strength and stays out of the tab order, announced once as a single value rather than as five controls. That is the difference from `disabled`, which dims, because it means \"you could, but not now\"."
     },
     {
       "name": "shadow",
       "type": "enum",
       "values": ["none", "inset", "outset"],
       "default": "none",
-      "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card - this is what both shadow demos did."
+      "description": "Depth on each star, which becomes a bordered chip. There is no surrounding card, which is what both shadow demos did."
     },
     {
       "name": "animated",
@@ -82,7 +82,7 @@
     {
       "name": "score",
       "type": "string",
-      "description": "A figure beside the marks rather than under them - an average, where the marks round it."
+      "description": "A figure beside the marks rather than under them: an average, where the marks round it."
     },
     {
       "name": "hint",

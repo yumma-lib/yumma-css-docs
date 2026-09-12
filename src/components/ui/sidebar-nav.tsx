@@ -1,8 +1,8 @@
 "use client";
 
-import { ArrowUpRight } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ArrowUpRight } from "@/icons";
 
 interface NavItem {
   slug: string;

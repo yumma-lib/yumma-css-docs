@@ -22,7 +22,7 @@
       "name": "icon",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "Replaces the cloud glyph in the tile. It is sized and coloured by the zone, so pass the glyph and nothing else."
+      "description": "Replaces the cloud glyph in the tile. It is sized and colored by the zone, so pass the glyph and nothing else."
     },
     {
       "name": "accept",

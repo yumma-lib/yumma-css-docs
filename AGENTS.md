@@ -34,6 +34,10 @@ Short. These were said out loud enough times to belong in a file.
 - PRs, never direct commits to `main`. One PR per phase, on a branch named
   `feat/`, `fix/` or `chore/` plus a word or two of plain English. No hashes,
   no generated suffixes, nothing long.
+- Every branch starts at `main` and every PR targets `main`. Never stack one on
+  another: a stacked PR merged after its base has already gone up the chain
+  lands on a dead branch and never reaches `main`, and it reports itself
+  merged. Wait for `main` instead.
 - Base UI primitives over raw HTML. A `<button>`, `<input>`, `<fieldset>` or
   anything else with a primitive uses it; where a primitive has to render a
   different element, that is its `render` prop, not a raw tag. Raw tags are for

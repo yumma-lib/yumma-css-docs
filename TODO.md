@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  103
-    Open    19
-    Done    84%
+    Closed  105
+    Open    17
+    Done    86%
 
 ---
 
@@ -65,13 +65,9 @@ Design decisions. Nothing here starts without them.
 
 Nothing here blocks a release, and all of it makes the next change cheaper.
 
-- [ ] **Shared icons module.** Every icon re-exported from one file, so
-      changing icon library is one edit. Two half-versions exist already:
-      `EXAMPLE_ICONS` in `src/utils/demo.tsx`, and per-component imports
-      everywhere else.
-- [ ] **Shared messages module.** The same for user-facing strings: empty
-      states, hints, error copy. They sit inline as defaults today.
-- [ ] Roll both out to `docs`, `play`, `yummacss` and `ui`.
+- [ ] Give `play`, `yummacss` and `ui` their own icons module, and their own
+      copy tests. Each repo gets its own file. This is not one module shared
+      across four repos.
 - [ ] **Playground state in the URL.** Nothing survives a reload: every value
       reseeds from the schema. Right for a shared link, but you cannot send
       anyone the configuration you are looking at.

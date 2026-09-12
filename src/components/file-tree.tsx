@@ -1,8 +1,8 @@
 "use client";
 
 import { Collapsible } from "@base-ui/react/collapsible";
-import { Folder, NavArrowDown, NavArrowRight, Page } from "iconoir-react";
 import { useState } from "react";
+import { Folder, NavArrowDown, NavArrowRight, Page } from "@/icons";
 
 interface Entry {
   name: string;

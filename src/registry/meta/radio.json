@@ -75,7 +75,7 @@
       "type": "enum",
       "values": ["none", "inset", "outset"],
       "default": "none",
-      "description": "Depth on an unselected circle. A selected one is already a solid fill, so it does not carry the shadow - stacking one on top muddies the colour."
+      "description": "Depth on an unselected circle. A selected one is already a solid fill, so it does not carry the shadow: stacking one on top muddies the color."
     },
     {
       "name": "disabled",
