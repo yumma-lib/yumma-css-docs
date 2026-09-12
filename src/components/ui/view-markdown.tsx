@@ -1,8 +1,8 @@
 "use client";
 
-import { Page } from "iconoir-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Page } from "@/icons";
 
 export default function ViewMarkdown() {
   const pathname = usePathname();

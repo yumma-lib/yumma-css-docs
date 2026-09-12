@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@base-ui/react/button";
-import { NavArrowLeft, NavArrowRight } from "iconoir-react";
 import Link from "next/link";
+import { NavArrowLeft, NavArrowRight } from "@/icons";
 
 interface Props {
   previous: { slug: string; title: string } | null;

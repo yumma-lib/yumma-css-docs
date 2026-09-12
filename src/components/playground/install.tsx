@@ -1,10 +1,10 @@
 "use client";
 
 import { Menu } from "@base-ui/react/menu";
-import { Check, Download } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { NPM, Pnpm } from "@/components/icons/icons";
+import { Check, Download } from "@/icons";
 
 const MANAGERS = {
   pnpm: { command: (id: string) => `pnpm dlx yummaui add ${id}`, Mark: Pnpm },

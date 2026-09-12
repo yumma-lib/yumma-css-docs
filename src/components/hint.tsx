@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import {
   CursorPointer,
   Heart,
@@ -13,8 +14,7 @@ import {
   RulerCombine,
   StyleBorderSolid,
   WarningTriangle,
-} from "iconoir-react";
-import type { ReactNode } from "react";
+} from "@/icons";
 
 const icons = {
   cursor_click: OpenSelectHandGesture,

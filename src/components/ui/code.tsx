@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import { Check, Copy } from "iconoir-react";
 import { type ReactNode, useRef, useState } from "react";
+import { Check, Copy } from "@/icons";
 
 interface Props {
   title?: string;

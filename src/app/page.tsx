@@ -1,7 +1,7 @@
-import { NavArrowRight } from "iconoir-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/ui/navbar";
+import { NavArrowRight } from "@/icons";
 
 const title = "Yumma CSS - Get faster at CSS while you use it";
 const description =
