@@ -7,24 +7,20 @@
       "typeName": "AutocompleteItem[]",
       "example": [
         {
-          "label": "Adrian",
-          "description": "Product Designer",
-          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE"
+          "label": "Berlin",
+          "description": "Germany"
         },
         {
-          "label": "Aidan",
-          "description": "Frontend Developer",
-          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Aidan&backgroundColor=FFD4DE"
+          "label": "Lisbon",
+          "description": "Portugal"
         },
         {
-          "label": "Jade",
-          "description": "Backend Developer",
-          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=DAF0B9"
+          "label": "Nairobi",
+          "description": "Kenya"
         },
         {
-          "label": "Jessica",
-          "description": "UX Researcher",
-          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Jessica&backgroundColor=DAF0B9"
+          "label": "Osaka",
+          "description": "Japan"
         }
       ],
       "description": "What to search. `label` is matched and shown; `description` and `avatar` are optional. The shape is fixed rather than generic because you own the file: data that does not fit is an edit to the item body, not an API."
@@ -32,7 +28,7 @@
     {
       "name": "label",
       "type": "string",
-      "example": "Assign member",
+      "example": "City",
       "description": "Field label above the input. Leave it out and the input is described by its placeholder alone."
     },
     {

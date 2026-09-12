@@ -3,30 +3,30 @@ import Combobox, { type ComboboxItem } from "./combobox";
 export default function ComboboxHelper() {
   return (
     <Combobox
-      items={users}
+      items={cities}
       label={
         <>
-          Assign member <span className="c-red-5">*</span>
+          City <span className="c-red-5">*</span>
         </>
       }
-      placeholder="Search members"
-      description="Only project members can be assigned."
-      emptyMessage="No users found."
+      placeholder="Search cities"
+      description="Start typing to narrow the list."
+      emptyMessage="No cities found."
     />
   );
 }
 
-const users: ComboboxItem[] = [
-  "Adrian",
-  "Aidan",
-  "Jade",
-  "Jessica",
-  "Jocelyn",
-  "John",
-  "Katherine",
-  "Liam",
-  "Liliana",
-  "Maria",
-  "Melanie",
-  "Noah",
+const cities: ComboboxItem[] = [
+  "Athens",
+  "Berlin",
+  "Cairo",
+  "Dakar",
+  "Helsinki",
+  "Lisbon",
+  "Nairobi",
+  "Osaka",
+  "Quito",
+  "Reykjavik",
+  "Seville",
+  "Valparaiso",
 ].map((label) => ({ label }));

@@ -3,82 +3,37 @@ import Combobox, { type ComboboxGroup } from "./combobox";
 export default function ComboboxGrouped() {
   return (
     <Combobox
-      items={teamGroups}
+      items={cityGroups}
       label="Advanced search"
-      placeholder="Search by name or role..."
-      emptyMessage="No members found."
+      placeholder="Search by city or country"
+      emptyMessage="No cities found."
     />
   );
 }
 
-const teamGroups: ComboboxGroup[] = [
+const cityGroups: ComboboxGroup[] = [
   {
-    group: "Frontend",
+    group: "Europe",
     items: [
-      {
-        label: "John",
-        description: "Frontend Developer",
-        avatar:
-          "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
-      },
-      {
-        label: "Noah",
-        description: "UI Engineer",
-        avatar:
-          "https://api.dicebear.com/9.x/notionists/svg?seed=Noah&backgroundColor=D0D1FB",
-      },
-      {
-        label: "Melanie",
-        description: "React Developer",
-        avatar:
-          "https://api.dicebear.com/9.x/notionists/svg?seed=Melanie&backgroundColor=DCCEFC",
-      },
+      { label: "Athens", description: "Greece" },
+      { label: "Berlin", description: "Germany" },
+      { label: "Lisbon", description: "Portugal" },
     ],
   },
   {
-    group: "Backend",
+    group: "Africa",
     items: [
-      {
-        label: "Adrian",
-        description: "Backend Developer",
-        avatar:
-          "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE",
-      },
-      {
-        label: "Maria",
-        description: "API Engineer",
-        avatar:
-          "https://api.dicebear.com/9.x/notionists/svg?seed=Maria&backgroundColor=DCCEFC",
-      },
-      {
-        label: "Liam",
-        description: "Node.js Developer",
-        avatar:
-          "https://api.dicebear.com/9.x/notionists/svg?seed=Liam&backgroundColor=D0D1FB",
-      },
+      { label: "Cairo", description: "Egypt" },
+      { label: "Dakar", description: "Senegal" },
+      { label: "Nairobi", description: "Kenya" },
     ],
   },
   {
-    group: "DevOps",
+    group: "Asia",
     items: [
-      {
-        label: "Jessica",
-        description: "DevOps Engineer",
-        avatar:
-          "https://api.dicebear.com/9.x/notionists/svg?seed=Jessica&backgroundColor=DAF0B9",
-      },
-      {
-        label: "Aiden",
-        description: "SRE",
-        avatar:
-          "https://api.dicebear.com/9.x/notionists/svg?seed=Aiden&backgroundColor=B4E9F2",
-      },
-      {
-        label: "Wyatt",
-        description: "Platform Engineer",
-        avatar:
-          "https://api.dicebear.com/9.x/notionists/svg?seed=Wyatt&backgroundColor=FFD4DE",
-      },
+      { label: "Osaka", description: "Japan" },
+      { label: "Seoul", description: "South Korea" },
+      { label: "Taipei", description: "Taiwan" },
     ],
   },
 ];

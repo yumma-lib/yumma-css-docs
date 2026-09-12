@@ -5,7 +5,7 @@
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Right-click task",
+      "example": "Right-click here",
       "description": "The right-clickable area's label."
     },
     {

@@ -11,15 +11,15 @@
           "href": "#"
         },
         {
-          "label": "Projects",
+          "label": "Documents",
           "href": "#"
         },
         {
-          "label": "Team",
+          "label": "Notes",
           "href": "#"
         },
         {
-          "label": "Board"
+          "label": "readme.md"
         }
       ],
       "description": "Each item's `label`, `href`, optional `icon` and `iconOnly`. The last item is always rendered as the current page: a plain span with `aria-current=\"page\"`, never a link, regardless of whether it has an `href`."

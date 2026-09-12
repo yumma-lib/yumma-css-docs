@@ -15,7 +15,7 @@
       "name": "label",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Sprint progress",
+      "example": "Uploading",
       "description": "Text above the track, correctly wired to it via Base UI's own Progress.Label."
     },
     {

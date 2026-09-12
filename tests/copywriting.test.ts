@@ -219,6 +219,14 @@ describe("shipped copy", () => {
       if (prop.description) {
         strings.push({ where: `${file}:${prop.name}`, text: prop.description });
       }
+      // A documented default is copy the component ships and the props table
+      // prints, and it drifted from the component once already.
+      if (typeof prop.default === "string" && prop.default.length > 2) {
+        strings.push({
+          where: `${file}:${prop.name} default`,
+          text: prop.default,
+        });
+      }
     }
   }
 

@@ -1723,6 +1723,28 @@ declares logical properties: `padding` covers `padding-inline` covers
       while an unrelated parameter survives. Checked: `?size=enormous` leaves
       the button on `px-3 py-2 fs-md`.
 
+- [x] **One content model, and it is in AGENTS.md.** The examples were a SaaS
+      product: teams, members, invitations, plans, invoices, sprints, a board,
+      and a cast of twelve colleagues with generated avatars. They are now one
+      world, a person looking after their own files and settings, across 37
+      example props and the five example variants. People are kept to the
+      three components that are about a person, Avatar, Avatar Stack and
+      Preview Card, and to one person rather than a cast.
+      `tests/content-model.test.ts` holds the mechanical half: the words that
+      give the old world away, avatars outside those three, and every `$icon`
+      an example names resolving to a glyph the preview has. Checked the guard
+      bites.
+- [x] **The copy tests were reading half the shipped copy.** `Select...` and
+      `Search commands...` were fixed in the components a phase ago and left
+      standing in the schemas, where `default` is what the props table prints
+      and what the playground seeds from, so the preview kept rendering three
+      dots. The suite read `summary` and `description` and never `default`.
+      It reads defaults now.
+- [x] **The install button copies, so it is a copy icon.** It was a download
+      glyph. The other half of that entry was stale: it has had an
+      `aria-label` and a `title` for a while, though both said "Install"
+      rather than what pressing it does.
+
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

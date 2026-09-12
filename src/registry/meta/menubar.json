@@ -7,24 +7,24 @@
       "typeName": "MenubarMenu[]",
       "example": [
         {
-          "label": "Project",
+          "label": "File",
           "items": [
             {
-              "label": "New task",
+              "label": "New file",
               "icon": {
                 "$icon": "PagePlus",
                 "size": "w-4 h-4"
               }
             },
             {
-              "label": "Import tasks",
+              "label": "Import",
               "icon": {
                 "$icon": "Folder",
                 "size": "w-4 h-4"
               }
             },
             {
-              "label": "Export tasks",
+              "label": "Export",
               "icon": {
                 "$icon": "Page",
                 "size": "w-4 h-4"
@@ -33,26 +33,26 @@
           ]
         },
         {
-          "label": "Assign",
+          "label": "Edit",
           "items": [
             {
-              "label": "Assign task",
+              "label": "Rename",
               "icon": {
-                "$icon": "UserPlus",
+                "$icon": "Wrench",
                 "size": "w-4 h-4"
               }
             },
             {
-              "label": "Reassign task",
+              "label": "Duplicate",
               "icon": {
-                "$icon": "User",
+                "$icon": "PagePlus",
                 "size": "w-4 h-4"
               }
             },
             {
-              "label": "Bulk assign",
+              "label": "Move to folder",
               "icon": {
-                "$icon": "UserPlus",
+                "$icon": "Folder",
                 "size": "w-4 h-4"
               }
             }
@@ -62,13 +62,13 @@
           "label": "View",
           "items": [
             {
-              "label": "Board view"
+              "label": "List"
             },
             {
-              "label": "List view"
+              "label": "Grid"
             },
             {
-              "label": "Keyframes view"
+              "label": "Columns"
             }
           ]
         }

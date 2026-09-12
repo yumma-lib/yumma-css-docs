@@ -29,6 +29,22 @@ Short. These were said out loud enough times to belong in a file.
 - No em dashes.
 - Never name another framework to explain a Yumma decision.
 
+# Content model
+
+What the examples are *about*, which is a separate question from how the copy
+is written.
+
+- One world: a person looking after their own files and settings. Files,
+  folders, documents, search, themes, shortcuts, formatting.
+- No organisations. No teams, members, roles, invitations, plans, billing,
+  invoices, subscriptions, sprints or boards. A component demo that needs a
+  second person to make sense is the wrong demo.
+- People appear only where the component is about a person: Avatar, Avatar
+  Stack, Preview Card. One person, not a cast, and nowhere else.
+- Icons name the thing they sit beside. An icon chosen for decoration is a
+  content decision, not a visual one, and belongs to this list.
+- `tests/content-model.test.ts` holds the mechanical half.
+
 # Working
 
 - PRs, never direct commits to `main`. One PR per phase, on a branch named

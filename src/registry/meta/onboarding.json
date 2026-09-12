@@ -5,7 +5,7 @@
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Start your journey",
+      "example": "Take the tour",
       "description": "The trigger button's label."
     },
     {
@@ -31,7 +31,7 @@
           "icon": {
             "$icon": "SparksSolid"
           },
-          "title": "Welcome aboard",
+          "title": "Welcome",
           "description": "A short tour of what you can do here, three screens long."
         },
         {
@@ -53,14 +53,14 @@
         },
         {
           "icon": {
-            "$icon": "User"
+            "$icon": "Folder"
           },
-          "title": "Invite your team",
-          "description": "Share a link and everyone edits the same draft.",
+          "title": "Keep it somewhere",
+          "description": "Pick the folder your files live in. You can move it later.",
           "tasks": [
             {
-              "id": "invite",
-              "label": "Send an invite link"
+              "id": "folder",
+              "label": "Choose a folder"
             }
           ]
         }

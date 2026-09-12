@@ -7,19 +7,20 @@
       "typeName": "ComboboxItem[]",
       "example": [
         {
-          "label": "Adrian",
-          "description": "Product Designer",
-          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Adrian&backgroundColor=FFD4DE"
+          "label": "Berlin",
+          "description": "Germany"
         },
         {
-          "label": "Aidan",
-          "description": "Frontend Developer",
-          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Aidan&backgroundColor=FFD4DE"
+          "label": "Lisbon",
+          "description": "Portugal"
         },
         {
-          "label": "Jade",
-          "description": "Backend Developer",
-          "avatar": "https://api.dicebear.com/9.x/notionists/svg?seed=Jade&backgroundColor=DAF0B9"
+          "label": "Nairobi",
+          "description": "Kenya"
+        },
+        {
+          "label": "Osaka",
+          "description": "Japan"
         }
       ],
       "description": "What to choose from. Same shape as Autocomplete's: `label` is matched and shown, `description` and `avatar` are optional."
@@ -27,7 +28,7 @@
     {
       "name": "label",
       "type": "string",
-      "example": "Assign member",
+      "example": "City",
       "description": "Field label above the input."
     },
     {

@@ -4,7 +4,7 @@
     {
       "name": "label",
       "type": "string",
-      "example": "Unsubscribe email",
+      "example": "Autosave",
       "description": "Text beside the track."
     },
     {

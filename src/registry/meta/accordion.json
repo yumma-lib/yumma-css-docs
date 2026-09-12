@@ -7,19 +7,19 @@
       "typeName": "AccordionItem[]",
       "example": [
         {
-          "value": "access",
-          "title": "How do I control team access?",
-          "content": "Go to Team Settings to manage roles. Assign Admin, Member, or Viewer roles."
+          "value": "storage",
+          "title": "Where are my files kept?",
+          "content": "In the folder you chose on setup. Move it any time from Settings."
         },
         {
           "value": "notifications",
-          "title": "How do I customize notifications?",
-          "content": "Visit Settings > Notifications. Choose what triggers email or in-app alerts."
+          "title": "How do I change notifications?",
+          "content": "Open Settings, then Notifications, and pick what raises an alert."
         },
         {
-          "value": "sprints",
-          "title": "How do I manage sprints?",
-          "content": "Create sprints from the Sprint page. Track progress with the burndown chart."
+          "value": "shortcuts",
+          "title": "Can I change the shortcuts?",
+          "content": "Every shortcut is editable in Settings. Clear a field to drop one."
         }
       ],
       "description": "Each item's `value`, `title`, `content` and optional `disabled`. `value` is what `defaultValue`/`value` reference to control which items are open."

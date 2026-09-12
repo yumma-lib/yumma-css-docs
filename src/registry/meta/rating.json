@@ -4,7 +4,7 @@
     {
       "name": "label",
       "type": "string",
-      "example": "Rate this project",
+      "example": "Rating",
       "description": "Text above the stars."
     },
     {
