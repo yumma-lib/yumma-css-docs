@@ -1,5 +1,7 @@
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { contentPages } from "./helpers";
+import { contentPages, rootDir } from "./helpers";
 
 /** Mechanical COPYWRITING.md rules enforced by regex. */
 const collections = ["docs", "ui", "blog"] as const;
@@ -180,5 +182,86 @@ describe("copywriting", () => {
     }
 
     expect(bad).toEqual([]);
+  });
+});
+
+/**
+ * The copy the library actually ships: a component's default string props, and
+ * the schema descriptions that render in every props table. The rules above
+ * only ever saw `.mdx`, so 554 strings a reader meets on the component pages
+ * were going unchecked, and had drifted.
+ *
+ * Inline code is stripped first. A range written `20 - 80` is a format, not a
+ * sentence with a dash in it.
+ */
+describe("shipped copy", () => {
+  const registryDir = join(rootDir, "src/registry/ui");
+  const metaDir = join(rootDir, "src/registry/meta");
+
+  const strings: { where: string; text: string }[] = [];
+
+  for (const file of readdirSync(registryDir).filter((f) =>
+    f.endsWith(".tsx"),
+  )) {
+    const source = readFileSync(join(registryDir, file), "utf8");
+    for (const [, prop, text] of source.matchAll(
+      /^\s+([a-zA-Z]+) = "([^"]{3,})",?$/gm,
+    )) {
+      strings.push({ where: `${file}:${prop}`, text });
+    }
+  }
+
+  for (const file of readdirSync(metaDir).filter((f) => f.endsWith(".json"))) {
+    const meta = JSON.parse(readFileSync(join(metaDir, file), "utf8"));
+    if (meta.summary)
+      strings.push({ where: `${file}:summary`, text: meta.summary });
+    for (const prop of meta.props ?? []) {
+      if (prop.description) {
+        strings.push({ where: `${file}:${prop.name}`, text: prop.description });
+      }
+    }
+  }
+
+  /** `where  ->  match` for every shipped string matching `pattern`. */
+  function offenders(pattern: RegExp): string[] {
+    return strings.flatMap(({ where, text }) => {
+      const match = text.replace(/`[^`]*`/g, "~").match(pattern);
+      return match ? [`${where}  ->  "${match[0]}"`] : [];
+    });
+  }
+
+  it("has copy to check", () => {
+    expect(strings.length).toBeGreaterThan(400);
+  });
+
+  it("uses no em dashes", () => {
+    expect(offenders(/.{0,30}—.{0,30}/)).toEqual([]);
+  });
+
+  it("uses no spaced hyphen as a dash", () => {
+    expect(offenders(/\w\s+-\s+(?!>)\w.{0,20}/)).toEqual([]);
+  });
+
+  it("uses no contractions", () => {
+    expect(offenders(/\b\w+(?:n't|'re|'ll|'ve|'d)\b|\bit's\b/i)).toEqual([]);
+  });
+
+  it("spells `cannot` as one word", () => {
+    expect(offenders(/\bcan not\b/)).toEqual([]);
+  });
+
+  it("uses US spelling", () => {
+    expect(
+      offenders(/\b\w*(?:behaviour|colour|recognis|normalis|centre)\w*/i),
+    ).toEqual([]);
+  });
+
+  it("never mentions Tailwind", () => {
+    expect(offenders(/\btailwind\b/i)).toEqual([]);
+  });
+
+  /** One ellipsis character, the way the site's own placeholders spell it. */
+  it("spells an ellipsis as one character", () => {
+    expect(offenders(/\.{3}/)).toEqual([]);
   });
 });

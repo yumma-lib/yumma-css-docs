@@ -1678,6 +1678,20 @@ declares logical properties: `padding` covers `padding-inline` covers
       rather than a broken build, so nothing catches it here. Checked both
       guards bite.
 
+- [x] **A messages module is the wrong shape, and the copy tests were the
+      right one.** The strings the entry names, `emptyMessage`, `hint`,
+      `placeholder`, `label`, are all registry defaults, which is the one place
+      a shared module cannot reach: a component ships verbatim, and a user who
+      wants different copy passes the prop. Centralising them would help this
+      repo and break every install. What was actually missing is that
+      `tests/copywriting.test.ts` only ever read `.mdx`, so the 554 strings a
+      reader meets on the component pages, every default and every schema
+      description, had never been checked against the same rules. They had
+      drifted: 22 spaced hyphens used as dashes, 5 British spellings, 2
+      contractions, and `Search commands...` and `Select...` spelling an
+      ellipsis as three dots while the site spells it as one character. All
+      fixed, and the suite now covers them.
+
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

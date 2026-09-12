@@ -150,7 +150,7 @@ export default function SelectBase({
   label,
   required = false,
   description,
-  placeholder = "Select...",
+  placeholder = "Select…",
   defaultValue = null,
   value,
   onValueChange,

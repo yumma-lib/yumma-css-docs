@@ -6,7 +6,7 @@
       "type": "none",
       "typeName": "ReactNode",
       "example": "Actions",
-      "description": "The button's content. Pass a chevron yourself if you want one - it is not added for you, so an avatar, a name and an icon compose as freely as a plain string."
+      "description": "The button's content. Pass a chevron yourself if you want one. It is not added for you, so an avatar, a name and an icon compose as freely as a plain string."
     },
     {
       "name": "items",

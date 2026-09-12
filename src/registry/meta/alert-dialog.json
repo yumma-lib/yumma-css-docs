@@ -29,7 +29,7 @@
       "type": "enum",
       "values": ["danger", "neutral"],
       "default": "danger",
-      "description": "The trigger's own colour, independent of the dialog's `tone` - a neutral button can still open a destructive dialog."
+      "description": "The trigger's own color, independent of the dialog's `tone` - a neutral button can still open a destructive dialog."
     },
     {
       "name": "icon",
@@ -42,7 +42,7 @@
       "type": "enum",
       "values": ["danger", "neutral"],
       "default": "danger",
-      "description": "Colours the badge and the confirm button together."
+      "description": "Colors the badge and the confirm button together."
     },
     {
       "name": "title",

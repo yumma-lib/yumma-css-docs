@@ -76,7 +76,7 @@
       "name": "iconInteractive",
       "type": "boolean",
       "default": false,
-      "description": "Lets `icon` receive pointer events, for an inline button - a clear or reveal toggle - instead of a decorative glyph.",
+      "description": "Lets `icon` receive pointer events, for an inline button, a clear or reveal toggle, instead of a decorative glyph.",
       "conflictsWith": [
         {
           "prop": "revealable",
@@ -88,7 +88,7 @@
       "name": "prefixNode",
       "type": "none",
       "typeName": "ReactNode",
-      "description": "Static content flush against the control's leading edge, like a URL scheme. Mutually exclusive with `icon`/`suffix` in practice - each claims the same row."
+      "description": "Static content flush against the control's leading edge, like a URL scheme. Mutually exclusive with `icon`/`suffix` in practice: each claims the same row."
     },
     {
       "name": "suffix",

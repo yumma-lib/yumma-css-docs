@@ -87,7 +87,7 @@ export interface CommandPaletteProps {
 export default function CommandPaletteBase({
   trigger,
   groups,
-  placeholder = "Search commands...",
+  placeholder = "Search commands…",
   emptyMessage = "No commands found.",
   iconPosition = "leading",
   shape = "square",

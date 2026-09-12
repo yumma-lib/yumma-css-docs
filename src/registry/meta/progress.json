@@ -6,7 +6,7 @@
       "type": "number",
       "typeName": "number | null",
       "example": 68,
-      "description": "The current value, 0-100. Pass `null` for an indeterminate, always-animated sliding bar - there's no fill level to show, so the schema here can't demo it, but the prop accepts it.",
+      "description": "The current value, 0-100. Pass `null` for an indeterminate, always-animated sliding bar. There is no fill level to show, so the schema here cannot demo it, but the prop accepts it.",
       "min": 0,
       "max": 100,
       "step": 5
