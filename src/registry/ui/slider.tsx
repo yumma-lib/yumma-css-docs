@@ -20,6 +20,12 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-sm",
 };
 
+// The thumb is `w-4`, and Base UI's `--start-position` puts the fill at the
+// thumb's centre. Half a thumb more carries it to the trailing edge, so the
+// thumb sits inside the fill rather than astride the end of it.
+const THUMB = "1rem";
+const HALF_THUMB = "0.5rem";
+
 function defaultFormat(value: Value): ReactNode {
   return Array.isArray(value) ? `${value[0]} - ${value[1]}` : `${value}%`;
 }
@@ -119,6 +125,14 @@ export default function SliderBase({
             )}
           >
             <Slider.Indicator
+              style={
+                isRange
+                  ? {
+                      insetInlineStart: `calc(var(--start-position) - ${HALF_THUMB})`,
+                      width: `calc(var(--relative-size) + ${THUMB})`,
+                    }
+                  : { width: `calc(var(--start-position) + ${HALF_THUMB})` }
+              }
               className={merge(
                 disabled ? "bg-silver-3" : "bg-indigo",
                 SHAPES[shape],

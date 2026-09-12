@@ -1589,12 +1589,17 @@ declares logical properties: `padding` covers `padding-inline` covers
       went from `w-3` to `w-4` at `md`.
 - [x] **The Slider is Switch with a longer track, literally.** Same 20px track
       and the same `w-4 h-3` white thumb, carrying `SHAPES[shape]` the way
-      Switch's does, so all three shapes read as themselves. The fill runs up
-      to the thumb, and `thumbAlignment="edge"` on the root keeps the thumb
-      inside the track at both ends instead of centring it on the value and
-      hanging half of it over the edge; it also bounds the indicator to the
-      thumb, which is what makes the fill read as the volume. `shadow` moved
-      to the track, where it is visible at all.
+      Switch's does, so all three shapes read as themselves. `shadow` moved to
+      the track, where it is visible at all.
+- [x] **The thumb rides inside the fill, not astride its end.**
+      `thumbAlignment="edge"` on the root keeps the thumb within the track at
+      both ends, but it bounds the indicator to the thumb's *centre*, which
+      leaves half the thumb on indigo and half on silver. Base UI publishes
+      the thumb position as `--start-position` (and `--relative-size` for a
+      range), so the indicator takes half a thumb more on the trailing side
+      and, for a range, half a thumb more on each. Measured: thumb and fill
+      share a trailing edge to the pixel at 0, 50, 60 and 100, and both range
+      thumbs sit inside the band.
 - [x] **`fv:` can never match a Slider thumb.** Base UI puts the focusable
       `<input type="range">` inside the thumb div, so the ring has to be
       driven from that input's `onFocus`, gated on `:focus-visible` so it
