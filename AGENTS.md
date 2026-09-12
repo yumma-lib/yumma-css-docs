@@ -12,6 +12,9 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 Short. These were said out loud enough times to belong in a file.
 
+- **PR bodies**: link every component you name to its page,
+  `https://www.yummacss.com/ui/components/<id>`, with the link on the bold
+  heading itself.
 - **PR bodies**: one short block per topic, each under its own bold heading,
   then the checks line (`tsc`, test count, biome, `next build`). A sentence or
   two per topic saying **what changed**, and nothing else. No cause, no

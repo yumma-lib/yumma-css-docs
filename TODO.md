@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  91
-    Open    23
-    Done    80%
+    Closed  96
+    Open    21
+    Done    82%
 
 ---
 
@@ -65,9 +65,6 @@ renames already on `main`.
 
 Design decisions. Nothing here starts without them.
 
-- [ ] **Number Field** visual revamp. **5 mockups.** The plus and minus icons
-      are too small. (The focus ring around the whole component is done.)
-- [ ] **Slider** should look like `Switch` with a longer track. **5 mockups.**
 - [ ] **File Upload** barely customisable: the dashed border and the icon
       should both be the user's choice. Barely functional: drag and drop does
       nothing, the upload button does nothing, and dragging a file over it

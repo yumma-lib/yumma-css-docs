@@ -1582,6 +1582,35 @@ declares logical properties: `padding` covers `padding-inline` covers
 - [x] **Number Field rings each part that takes focus**, steppers included,
       the way the docs rail's own stepper does.
 - [x] **Meter's `warning` is yellow**, and Rating's `max` floor is 3.
+- [x] **Number Field is a field with a chevron column.** The steppers left the
+      two ends and became a stacked `NavArrowUp`/`NavArrowDown` pair at the
+      trailing edge, divided from the input by one border and from each other
+      by another. The number gets the room and reads left-aligned; the icons
+      went from `w-3` to `w-4` at `md`.
+- [x] **The Slider is Switch with a longer track, literally.** Same 20px track
+      and the same `w-4 h-3` white thumb, carrying `SHAPES[shape]` the way
+      Switch's does, so all three shapes read as themselves. `shadow` moved to
+      the track, where it is visible at all.
+- [x] **The thumb rides inside the fill with a padding to spare.**
+      `thumbAlignment="edge"` on the root keeps the thumb within the track at
+      both ends, but it bounds the indicator to the thumb's *centre*, which
+      leaves half the thumb on indigo and half on silver. Base UI publishes
+      the thumb position as `--start-position` (and `--relative-size` for a
+      range), so the indicator takes half a thumb box more on the trailing
+      side, and on both sides for a range. The thumb itself is Switch's,
+      centred in a `w-6 h-5 p-1` box: Base UI measures the box, so that one
+      padding is what holds the thumb off the end of the fill and off the ends
+      of the track, the same job Switch's `px-1` does. Measured at 0, 50 and
+      100: 4px of fill past the thumb every time, and the fill never overruns
+      the track.
+- [x] **`fv:` can never match a Slider thumb.** Base UI puts the focusable
+      `<input type="range">` inside the thumb div, so the ring has to be
+      driven from that input's `onFocus`, gated on `:focus-visible` so it
+      follows the browser's own rule rather than every focus. It rings the
+      thumb rather than the track, which Switch rings, because a range
+      slider's track cannot say which of two thumbs has focus.
+- [x] **The colour scale stops at 12**, not 13. `bg-slate-13/45` generated no
+      rule at all and the element it was on rendered transparent.
 - [ ] **The "does nothing" cluster is not schema drift.** Checked every prop in
       every meta against its component source: 4 hits, all spread-forwarded
       false positives. So `shadow`, `animate`, `defaultPressed` and the rest are

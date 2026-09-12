@@ -1,7 +1,7 @@
 "use client";
 
 import { Slider } from "@base-ui/react/slider";
-import { type ReactNode, useState } from "react";
+import { type FocusEvent, type ReactNode, useState } from "react";
 import { merge } from "yummacss/merge";
 
 type Shape = "rounded" | "square" | "squircle";
@@ -19,6 +19,15 @@ const SHADOWS: Record<Shadow, string> = {
   inset: "bs-i-md",
   outset: "bs-o-sm",
 };
+
+// Switch's thumb sits in a box a padding wider on every side, the way Switch's
+// own `px-1` holds it off the ends of its track. Base UI measures that box, so
+// the same padding is what keeps the fill clear of the thumb: the indicator
+// takes half a box past `--start-position`, which is the box's edge and a
+// padding beyond the thumb's.
+const THUMB_BOX = "d-f ai-c jc-c w-6 h-5 p-1";
+const BOX = "1.5rem";
+const HALF_BOX = "0.75rem";
 
 function defaultFormat(value: Value): ReactNode {
   return Array.isArray(value) ? `${value[0]} - ${value[1]}` : `${value}%`;
@@ -60,6 +69,7 @@ export default function SliderBase({
   const [internalValue, setInternalValue] = useState<Value>(
     defaultValue ?? controlledValue ?? 0,
   );
+  const [focused, setFocused] = useState(-1);
   const value = controlledValue ?? internalValue;
   const isRange = Array.isArray(value);
 
@@ -68,15 +78,22 @@ export default function SliderBase({
     onValueChange?.(next);
   };
 
-  const thumbClasses = [
-    "w-5 h-5 bw-1 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
-    // The same disabled surface the other controls use, rather than a fade.
-    disabled ? "bg-silver-1 bc-silver-2" : "bg-white bc-silver-3",
-    SHAPES[shape],
-    SHADOWS[shadow],
-  ]
-    .filter(Boolean)
-    .join(" ");
+  // Focus is held in state because `fv:` never matches here: Base UI puts the
+  // focusable `<input type="range">` inside the thumb, so the ring has to be
+  // driven from the input's own focus.
+  const thumbClasses = (index: number) =>
+    merge(
+      "w-4 h-3 bg-white",
+      SHAPES[shape],
+      focused === index ? "os-s ow-3 oo-0 oc-indigo-2/60" : "",
+    );
+
+  const focusProps = (index: number) => ({
+    onFocus: (event: FocusEvent<HTMLInputElement>) => {
+      if (event.target.matches(":focus-visible")) setFocused(index);
+    },
+    onBlur: () => setFocused(-1),
+  });
 
   return (
     <div className={merge("d-f fd-c g-2 w-64", className)}>
@@ -97,14 +114,27 @@ export default function SliderBase({
         max={max}
         step={step}
         disabled={disabled}
+        thumbAlignment="edge"
       >
         <Slider.Control
-          className={`d-f ai-c py-3 us-none ta-none ${disabled ? "c-na" : ""}`}
+          className={`d-f ai-c py-2 us-none ta-none ${disabled ? "c-na" : ""}`}
         >
           <Slider.Track
-            className={`p-r h-2 w-100% bg-silver-1 ${SHAPES[shape]}`}
+            className={merge(
+              "p-r h-5 w-100% bg-silver-1",
+              SHAPES[shape],
+              SHADOWS[shadow],
+            )}
           >
             <Slider.Indicator
+              style={
+                isRange
+                  ? {
+                      insetInlineStart: `calc(var(--start-position) - ${HALF_BOX})`,
+                      width: `calc(var(--relative-size) + ${BOX})`,
+                    }
+                  : { width: `calc(var(--start-position) + ${HALF_BOX})` }
+              }
               className={merge(
                 disabled ? "bg-silver-3" : "bg-indigo",
                 SHAPES[shape],
@@ -112,11 +142,20 @@ export default function SliderBase({
             />
             {isRange ? (
               value.map((_, index) => (
-                // biome-ignore lint/suspicious/noArrayIndexKey: positional by design
-                <Slider.Thumb key={index} className={thumbClasses} />
+                <Slider.Thumb
+                  // biome-ignore lint/suspicious/noArrayIndexKey: positional by design
+                  key={index}
+                  index={index}
+                  className={THUMB_BOX}
+                  {...focusProps(index)}
+                >
+                  <span className={thumbClasses(index)} />
+                </Slider.Thumb>
               ))
             ) : (
-              <Slider.Thumb className={thumbClasses} />
+              <Slider.Thumb className={THUMB_BOX} {...focusProps(0)}>
+                <span className={thumbClasses(0)} />
+              </Slider.Thumb>
             )}
           </Slider.Track>
         </Slider.Control>
