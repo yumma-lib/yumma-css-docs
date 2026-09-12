@@ -227,7 +227,7 @@ export default function ContextMenuBase({
           >
             <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-sm bw-1">
               <ContextMenu.CheckboxItemIndicator>
-                <Check className="w-3 h-3 c-indigo" />
+                <Check className="w-3 h-3 c-slate-12" />
               </ContextMenu.CheckboxItemIndicator>
             </span>
             {item.label}
@@ -250,7 +250,7 @@ export default function ContextMenuBase({
               >
                 <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                   <ContextMenu.RadioItemIndicator>
-                    <Circle className="w-2 h-2 c-indigo f-current" />
+                    <Circle className="w-2 h-2 c-slate-12 f-current" />
                   </ContextMenu.RadioItemIndicator>
                 </span>
                 {option.label}

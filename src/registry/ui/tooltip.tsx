@@ -37,21 +37,21 @@ const SHADOWS: Record<Exclude<Shadow, "none">, string> = {
 
 const TONES: Record<Tone, string> = {
   light: "bg-white bc-silver-2 c-slate-10 bw-1",
-  dark: "bg-indigo-7 c-white",
+  dark: "bg-slate-12 c-white",
   danger: "bg-red-7 c-white",
 };
 
 /** One tone, both ends: a destructive trigger opens a destructive tooltip. */
 const TRIGGER_TONES: Record<Tone, string> = {
-  light: "c-slate-8 h:c-slate-10 fv:oc-indigo-2/60 fv:bc-indigo-3",
-  dark: "c-slate-8 h:c-slate-10 fv:oc-indigo-2/60 fv:bc-indigo-3",
+  light: "c-slate-8 h:c-slate-10 fv:oc-silver-3/60 fv:bc-silver-5",
+  dark: "c-slate-8 h:c-slate-10 fv:oc-silver-3/60 fv:bc-silver-5",
   danger: "c-red-7 h:c-red-8 fv:oc-red-2/60 fv:bc-red-3",
 };
 
 /** The arrow paints the popup's own surface, so it follows `tone` with it. */
 const ARROW_TONES: Record<Tone, string> = {
   light: "f-white s-silver-2",
-  dark: "f-indigo-7 s-indigo-7",
+  dark: "f-slate-12 s-slate-12",
   danger: "f-red-7 s-red-7",
 };
 

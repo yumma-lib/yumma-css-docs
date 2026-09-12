@@ -117,7 +117,7 @@ export default function AccordionBase({
             : variant === "ghost"
               ? [
                   "blw-2 pl-4",
-                  isOpen ? "blc-indigo-5" : "blc-silver-3",
+                  isOpen ? "blc-slate-12" : "blc-silver-3",
                   isLast ? "" : "mb-3",
                 ]
                   .filter(Boolean)
@@ -125,7 +125,7 @@ export default function AccordionBase({
               : variant === "subtle"
                 ? [
                     SHAPES[shape].item,
-                    isOpen ? "bg-indigo-1" : "bg-silver-1 h:bg-silver-2",
+                    isOpen ? "bg-silver-1" : "bg-silver-1 h:bg-silver-2",
                     itemShadow,
                   ]
                     .filter(Boolean)
@@ -152,15 +152,15 @@ export default function AccordionBase({
           ? "c-slate-4"
           : variant === "ghost"
             ? isOpen
-              ? "c-indigo-6"
+              ? "c-slate-12"
               : "c-slate-8"
             : variant === "subtle"
               ? isOpen
-                ? "c-indigo-7"
+                ? "c-slate-12"
                 : "c-slate-8"
               : "c-slate-8";
         const contentColor =
-          variant === "subtle" && isOpen ? "c-indigo-9" : "c-slate-6";
+          variant === "subtle" && isOpen ? "c-slate-12" : "c-slate-6";
         const panelClasses = ["m-0 pb-4", panelPadX, "fs-sm lh-4", contentColor]
           .filter(Boolean)
           .join(" ");
@@ -168,10 +168,10 @@ export default function AccordionBase({
           ? "c-slate-4"
           : variant === "ghost"
             ? isOpen
-              ? "c-indigo-5"
+              ? "c-slate-10"
               : "c-slate-6"
             : variant === "subtle" && isOpen
-              ? "c-indigo-5"
+              ? "c-slate-10"
               : "c-slate-6";
 
         return (
@@ -193,7 +193,7 @@ export default function AccordionBase({
                   triggerRadius,
                   "ta-l",
                   item.disabled ? "c-na o-60" : "c-p",
-                  "fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+                  "fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
                 ]
                   .filter(Boolean)
                   .join(" ")}

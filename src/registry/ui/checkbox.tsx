@@ -11,7 +11,7 @@ type Shape = "rounded" | "square" | "squircle";
 type Shadow = "none" | "inset" | "outset";
 
 const BOX =
-  "d-f ai-c jc-c fs-0 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3";
+  "d-f ai-c jc-c fs-0 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const SIZES: Record<Size, string> = {
   sm: "w-3 h-3",
@@ -49,7 +49,7 @@ const SHADOWS: Record<Shadow, string> = {
   outset: "bs-o-sm",
 };
 
-const CHECKED = "bg-indigo";
+const CHECKED = "bg-slate-12";
 const UNCHECKED = "bw-1 bc-silver-3 bg-transparent";
 
 // Disabled is a surface, not a transparency. The fade this used to carry as

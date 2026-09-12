@@ -144,7 +144,7 @@ export default function AvatarBase({
           aria-label="Verified"
           className={`d-f p-a t-0 r-0 ai-c jc-c bg-white bc-white br-9999 bw-1 ${BADGE_SIZES[size]}`}
         >
-          <CheckCircle className="w-100% h-100% c-indigo" />
+          <CheckCircle className="w-100% h-100% c-slate-12" />
         </span>
       )}
 

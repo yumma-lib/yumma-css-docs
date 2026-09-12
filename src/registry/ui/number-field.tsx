@@ -13,7 +13,7 @@ type Shadow = "none" | "inset" | "outset";
 // A number field is a field that happens to step, so the number gets the room
 // and the steppers become a column at the trailing edge.
 const STEP =
-  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2 fv:os-s fv:ow-3 fv:oo--1 fv:oc-indigo-2/60 fv:bc-indigo-3";
+  "d-f ai-c jc-c bg-white c-slate-10 us-none c-p h:bg-silver-1/50 a:bg-silver-2 fv:os-s fv:ow-3 fv:oo--1 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const STEP_SIZES: Record<Size, string> = {
   sm: "w-6 h-4",
@@ -77,7 +77,7 @@ export default function NumberFieldBase({
   const stepClasses = [STEP, STEP_SIZES[size]].join(" ");
 
   const inputClasses = merge(
-    "bg-white bc-transparent c-slate-10 bw-1 ta-l fv:os-s fv:ow-3 fv:oo--1 fv:oc-indigo-2/60 fv:bc-indigo-3",
+    "bg-white bc-transparent c-slate-10 bw-1 ta-l fv:os-s fv:ow-3 fv:oo--1 fv:oc-silver-3/60 fv:bc-silver-5",
     INPUT_SIZES[size],
     SHADOWS[shadow],
     className,

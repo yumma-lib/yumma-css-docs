@@ -64,10 +64,10 @@ const BUTTON_BASE =
   "bw-1 fw-500 tp-c tdu-150 ttf-io us-none fv:os-s fv:ow-3 fv:oo-0";
 
 const NEUTRAL_BUTTON =
-  "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-indigo-2/60 fv:bc-indigo-3";
+  "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-silver-3/60 fv:bc-silver-5";
 
 const PRIMARY_BUTTON =
-  "bg-indigo h:bg-indigo-8 bc-indigo-7 c-white fv:oc-indigo-2/60 fv:bc-indigo-3";
+  "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white fv:oc-silver-3/60 fv:bc-silver-5";
 
 const TRIGGER_TONES: Record<TriggerTone, string> = {
   neutral: NEUTRAL_BUTTON,
@@ -187,7 +187,7 @@ export default function DialogBase({
             <Dialog.Close
               render={
                 <Button
-                  className={`d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 ${CLOSE_SHAPES[shape]} h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3`}
+                  className={`d-f p-a r-3 t-3 ai-c jc-c w-7 h-7 p-0 c-slate-6 bw-0 ${CLOSE_SHAPES[shape]} h:bg-silver-1/50 h:c-slate-7 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5`}
                 />
               }
               aria-label="Close"
