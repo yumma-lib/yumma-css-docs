@@ -7,26 +7,26 @@
       "typeName": "TabItem[]",
       "example": [
         {
-          "value": "subscriptions",
-          "label": "Subscriptions",
+          "value": "general",
+          "label": "General",
           "icon": {
-            "$icon": "BellNotification",
+            "$icon": "Wrench",
             "size": "w-4 h-4"
           }
         },
         {
-          "value": "invoices",
-          "label": "Invoices",
+          "value": "appearance",
+          "label": "Appearance",
           "icon": {
-            "$icon": "Page",
+            "$icon": "SunLight",
             "size": "w-4 h-4"
           }
         },
         {
-          "value": "payments",
-          "label": "Payments",
+          "value": "shortcuts",
+          "label": "Shortcuts",
           "icon": {
-            "$icon": "StatUp",
+            "$icon": "Bookmark",
             "size": "w-4 h-4"
           }
         }

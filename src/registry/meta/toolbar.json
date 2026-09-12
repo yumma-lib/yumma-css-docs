@@ -7,7 +7,7 @@
       "typeName": "ToolbarItem[]",
       "example": [
         {
-          "label": "New Task"
+          "label": "New file"
         },
         {
           "label": "Sort"
@@ -52,8 +52,8 @@
         },
         {
           "type": "input",
-          "label": "Search tasks",
-          "placeholder": "Search tasks..."
+          "label": "Search files",
+          "placeholder": "Search files…"
         }
       ],
       "description": "A discriminated union. `{ label }` is a button (plus optional `icon`, `iconOnly`, `disabled`, `onClick`). `{ type: \"separator\" }` divides. `{ type: \"toggles\", options }` is an icon toggle group. `{ type: \"input\", label }` and `{ type: \"link\", label, href }` are the remaining kinds."

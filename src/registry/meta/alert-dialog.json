@@ -5,7 +5,7 @@
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Remove member",
+      "example": "Delete file",
       "description": "The trigger button's label."
     },
     {
@@ -47,13 +47,13 @@
     {
       "name": "title",
       "type": "string",
-      "example": "Remove member?",
+      "example": "Delete file?",
       "description": "The dialog's heading, wired up by Base UI's own AlertDialog.Title."
     },
     {
       "name": "description",
       "type": "string",
-      "example": "This will remove Sarah from the team and revoke all project access.",
+      "example": "This deletes readme.md. It cannot be undone.",
       "description": "The body text, wired up by Base UI's own AlertDialog.Description."
     },
     {
@@ -65,7 +65,7 @@
     {
       "name": "confirmLabel",
       "type": "string",
-      "example": "Remove",
+      "example": "Delete",
       "description": "The confirming button's label."
     },
     {

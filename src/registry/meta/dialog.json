@@ -5,7 +5,7 @@
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Request access",
+      "example": "Rename file",
       "description": "The trigger button's label."
     },
     {
@@ -53,14 +53,14 @@
     {
       "name": "title",
       "type": "string",
-      "example": "Invitation request",
+      "example": "Rename file",
       "description": "The dialog's heading, wired up by Base UI's own Dialog.Title."
     },
     {
       "name": "description",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "Your Sales Site project now has a pending collaboration request from John.",
+      "example": "Choose a new name for readme.md.",
       "description": "The body text, wired up by Base UI's own Dialog.Description."
     },
     {
@@ -78,7 +78,7 @@
     {
       "name": "confirmLabel",
       "type": "string",
-      "example": "Accept",
+      "example": "Rename",
       "description": "The confirming button's label. No footer renders without this, so an informational dialog closes by its X alone."
     },
     {

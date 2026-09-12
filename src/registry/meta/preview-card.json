@@ -5,7 +5,7 @@
       "name": "trigger",
       "type": "none",
       "typeName": "ReactNode",
-      "example": "John",
+      "example": "Ada",
       "description": "The inline content that opens the card on hover or focus."
     },
     {
@@ -58,17 +58,17 @@
     {
       "component": "Avatar",
       "props": {
-        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=John&backgroundColor=DAF0B9",
-        "name": "John",
+        "src": "https://api.dicebear.com/9.x/notionists/svg?seed=Ada&backgroundColor=DAF0B9",
+        "name": "Ada Lovelace",
         "size": "sm",
         "status": "online"
       }
     },
     {
-      "text": "John, Frontend Developer"
+      "text": "Ada Lovelace"
     },
     {
-      "text": "3 tasks assigned"
+      "text": "Joined in 1843"
     }
   ]
 }

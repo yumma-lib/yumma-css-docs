@@ -18,19 +18,19 @@
     {
       "name": "title",
       "type": "string",
-      "example": "No members found",
+      "example": "No files yet",
       "description": "The heading."
     },
     {
       "name": "description",
       "type": "string",
-      "example": "Invite team members to collaborate on projects.",
+      "example": "Anything you add shows up here.",
       "description": "A line under the title."
     },
     {
       "name": "primaryLabel",
       "type": "string",
-      "example": "Invite users",
+      "example": "Add file",
       "description": "The filled button. Omit it for a state with nothing to do."
     },
     {

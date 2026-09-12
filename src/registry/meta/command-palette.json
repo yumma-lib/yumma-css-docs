@@ -17,26 +17,26 @@
           "label": "Actions",
           "items": [
             {
-              "id": "new-doc",
-              "label": "New doc",
+              "id": "new-file",
+              "label": "New file",
               "icon": {
                 "$icon": "PagePlus",
                 "size": "w-4 h-4"
               },
-              "shortcut": "\u2318N"
+              "shortcut": "⌘N"
             },
             {
-              "id": "drafts",
-              "label": "Drafts",
+              "id": "open",
+              "label": "Open recent",
               "icon": {
                 "$icon": "Page",
                 "size": "w-4 h-4"
               },
-              "shortcut": "\u2318D"
+              "shortcut": "⌘O"
             },
             {
-              "id": "templates",
-              "label": "Templates",
+              "id": "folder",
+              "label": "New folder",
               "icon": {
                 "$icon": "Folder",
                 "size": "w-4 h-4"
@@ -45,34 +45,34 @@
           ]
         },
         {
-          "label": "Pages",
+          "label": "Settings",
           "items": [
             {
-              "id": "knowledge-base",
-              "label": "Knowledge base",
+              "id": "search",
+              "label": "Search",
               "icon": {
                 "$icon": "PageSearch",
                 "size": "w-4 h-4"
               },
-              "description": "Everything the team has written down"
+              "description": "Look through every file at once"
             },
             {
-              "id": "analytics",
-              "label": "Analytics",
+              "id": "appearance",
+              "label": "Appearance",
               "icon": {
-                "$icon": "StatUp",
+                "$icon": "SunLight",
                 "size": "w-4 h-4"
               },
-              "description": "Views, referrers and search terms"
+              "description": "Theme, type size and density"
             },
             {
-              "id": "settings",
-              "label": "Settings",
+              "id": "shortcuts",
+              "label": "Shortcuts",
               "icon": {
                 "$icon": "Wrench",
                 "size": "w-4 h-4"
               },
-              "description": "Workspace, members and billing"
+              "description": "Rebind anything, or clear it"
             }
           ]
         }
@@ -82,7 +82,7 @@
     {
       "name": "placeholder",
       "type": "string",
-      "default": "Search commands...",
+      "default": "Search commands…",
       "description": "The search input's placeholder."
     },
     {

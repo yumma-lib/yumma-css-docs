@@ -4,7 +4,7 @@
     {
       "name": "label",
       "type": "none",
-      "example": "Project name",
+      "example": "File name",
       "description": "Text above the control. `Field.Root` and `Field.Label` associate it automatically, so no `id`/`htmlFor` bookkeeping is needed.",
       "typeName": "string"
     },
@@ -105,7 +105,7 @@
     {
       "name": "placeholder",
       "type": "string",
-      "example": "Enter project name",
+      "example": "readme.md",
       "description": "Placeholder text."
     },
     {

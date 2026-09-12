@@ -4,7 +4,7 @@
     {
       "name": "label",
       "type": "string",
-      "example": "Mark task as complete",
+      "example": "Show hidden files",
       "description": "The text beside the box. The whole thing is one `<label>`, so clicking the text toggles it."
     },
     {

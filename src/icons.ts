@@ -18,7 +18,6 @@ export {
   ComponentSolid,
   Copy,
   CursorPointer,
-  Download,
   Folder,
   Github,
   HalfMoon,

@@ -3,29 +3,29 @@ import Autocomplete, { type AutocompleteItem } from "./autocomplete";
 export default function AutocompleteHelper() {
   return (
     <Autocomplete
-      items={teamMembers}
+      items={cities}
       label={
         <>
-          Assign member <span className="c-red-5">*</span>
+          City <span className="c-red-5">*</span>
         </>
       }
-      placeholder="Search members"
-      description="Only project members can be assigned."
+      placeholder="Search cities"
+      description="Start typing to narrow the list."
     />
   );
 }
 
-const teamMembers: AutocompleteItem[] = [
-  "Adrian",
-  "Aidan",
-  "Jade",
-  "Jessica",
-  "Jocelyn",
-  "John",
-  "Katherine",
-  "Liam",
-  "Liliana",
-  "Maria",
-  "Melanie",
-  "Noah",
+const cities: AutocompleteItem[] = [
+  "Athens",
+  "Berlin",
+  "Cairo",
+  "Dakar",
+  "Helsinki",
+  "Lisbon",
+  "Nairobi",
+  "Osaka",
+  "Quito",
+  "Reykjavik",
+  "Seville",
+  "Valparaiso",
 ].map((label) => ({ label }));

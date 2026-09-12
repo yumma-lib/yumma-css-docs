@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  109
-    Open    16
-    Done    87%
+    Closed  112
+    Open    13
+    Done    90%
 
 ---
 
@@ -28,17 +28,8 @@ Empty.
 
 ## Phase 2 - Content model
 
-The per-component copy items are all instances of the first one, so it goes
-first or they get done twice.
+Empty.
 
-- [ ] **Define one content model and apply it everywhere.** Drop the SaaS
-      framing the copy-and-paste system used. With the CLI the examples should
-      be neutral and simple. Covers copywriting **and** icon choices.
-- [ ] **Autocomplete** "Assign member" is too much context and the avatars are
-      not needed. Same for **Combobox**.
-- [ ] **Docs site** the button beside the navigation that copies the install
-      command uses an arrow-down icon; it should be a copy icon, and with no
-      label it says nothing about what it does.
 
 ## Phase 3 - API changes
 

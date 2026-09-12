@@ -7,26 +7,26 @@
       "typeName": "RadioOption[]",
       "example": [
         {
-          "value": "free",
-          "label": "Free plan",
+          "value": "light",
+          "label": "Light",
           "icon": {
-            "$icon": "User",
+            "$icon": "SunLight",
             "size": "w-4 h-4"
           }
         },
         {
-          "value": "pro",
-          "label": "Pro plan",
+          "value": "dark",
+          "label": "Dark",
           "icon": {
-            "$icon": "Star",
+            "$icon": "HalfMoon",
             "size": "w-4 h-4"
           }
         },
         {
-          "value": "max",
-          "label": "Max plan",
+          "value": "system",
+          "label": "System",
           "icon": {
-            "$icon": "StatUp",
+            "$icon": "Wrench",
             "size": "w-4 h-4"
           }
         }
@@ -36,13 +36,13 @@
     {
       "name": "label",
       "type": "string",
-      "example": "Choose a plan",
+      "example": "Theme",
       "description": "A caption above the group, correctly wired to it via `aria-labelledby`. Without one the group has no accessible name at all."
     },
     {
       "name": "defaultValue",
       "type": "string",
-      "example": "free",
+      "example": "light",
       "description": "The option selected when you are not controlling the group. Pair `value` with `onValueChange` instead if you are."
     },
     {
