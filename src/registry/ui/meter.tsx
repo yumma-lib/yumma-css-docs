@@ -69,7 +69,7 @@ export default function MeterBase({
     <Meter.Root className={rootClasses} value={value} min={min} max={max}>
       {hasHeader ? (
         <div className="d-f ai-c g-3">
-          <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-indigo-1 c-indigo">
+          <span className="d-f ai-c jc-c fs-0 w-8 h-8 bg-silver-1 c-slate-12">
             {icon}
           </span>
           <div className="d-f fd-c">

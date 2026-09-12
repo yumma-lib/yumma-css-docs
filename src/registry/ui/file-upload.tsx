@@ -133,7 +133,7 @@ export default function FileUploadBase({
     disabled
       ? "bg-silver-1 c-slate-5 c-na"
       : dragging
-        ? "bc-indigo bg-indigo-1/50"
+        ? "bc-slate-12 bg-silver-2/50"
         : "",
     className,
   );
@@ -180,7 +180,9 @@ export default function FileUploadBase({
               onClick={() => input.current?.click()}
               className={merge(
                 "p-0 bg-transparent bw-0 fs-sm fw-500 c-p d:c-na fv:os-s fv:ow-3 fv:oo-1",
-                error ? "c-red-5 fv:oc-red-2/60" : "c-indigo fv:oc-indigo-2/60",
+                error
+                  ? "c-red-5 fv:oc-red-2/60"
+                  : "c-slate-12 fv:oc-silver-3/60",
               )}
             >
               {label}
@@ -215,7 +217,7 @@ export default function FileUploadBase({
                     commit(files.filter((entry) => entry !== file))
                   }
                   className={merge(
-                    "d-f ai-c jc-c w-5 h-5 p-0 bg-transparent bw-0 c-slate-6 c-p h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60",
+                    "d-f ai-c jc-c w-5 h-5 p-0 bg-transparent bw-0 c-slate-6 c-p h:c-slate-10 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60",
                     SHAPES[shape],
                   )}
                 >

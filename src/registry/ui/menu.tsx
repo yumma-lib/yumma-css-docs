@@ -177,7 +177,7 @@ export default function MenuBase({
     animated ? "tp-c tdu-150 ttf-io" : "",
     disabled
       ? "c-slate-4 o-60 c-na"
-      : "c-slate-10 c-p h:bg-silver-1/50 fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+      : "c-slate-10 c-p h:bg-silver-1/50 fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
     className,
   );
 
@@ -249,7 +249,7 @@ export default function MenuBase({
           >
             <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-sm bw-1">
               <Menu.CheckboxItemIndicator>
-                <Check className="w-3 h-3 c-indigo" />
+                <Check className="w-3 h-3 c-slate-12" />
               </Menu.CheckboxItemIndicator>
             </span>
             {item.label}
@@ -272,7 +272,7 @@ export default function MenuBase({
               >
                 <span className="d-f ai-c jc-c fs-0 w-4 h-4 bc-silver-3 br-9999 bw-1">
                   <Menu.RadioItemIndicator>
-                    <Circle className="w-2 h-2 c-indigo f-current" />
+                    <Circle className="w-2 h-2 c-slate-12 f-current" />
                   </Menu.RadioItemIndicator>
                 </span>
                 {option.label}

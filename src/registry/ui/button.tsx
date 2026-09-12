@@ -14,15 +14,15 @@ const MOTION = "tp-c tdu-150 ttf-io";
 
 const VARIANTS: Record<Variant, string> = {
   primary:
-    "bg-indigo h:bg-indigo-8 bc-indigo-7 c-white fv:oc-indigo-2/60 fv:bc-indigo-3",
+    "bg-slate-12 h:bg-slate-11 bc-slate-12 c-white fv:oc-silver-3/60 fv:bc-silver-5",
   secondary:
-    "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-indigo-2/60 fv:bc-indigo-3",
+    "bg-white bc-silver-2 c-slate-10 h:bg-silver-1/50 fv:oc-silver-3/60 fv:bc-silver-5",
   subtle:
-    "bg-silver-1 bc-transparent c-slate-7 h:bg-silver-2 fv:oc-indigo-2/60 fv:bc-indigo-3",
+    "bg-silver-1 bc-transparent c-slate-7 h:bg-silver-2 fv:oc-silver-3/60 fv:bc-silver-5",
   ghost:
-    "bg-transparent bc-transparent c-slate-10 h:bg-silver-1/50 h:c-slate-7 fv:oc-indigo-2/60 fv:bc-indigo-3",
+    "bg-transparent bc-transparent c-slate-10 h:bg-silver-1/50 h:c-slate-7 fv:oc-silver-3/60 fv:bc-silver-5",
   danger: "bg-red h:bg-red-8 bc-red-7 c-white fv:oc-red-2/60 fv:bc-red-3",
-  link: "bg-transparent bc-transparent c-slate-10 tuo-2 h:td-u fv:oc-indigo-2/60 fv:bc-indigo-3",
+  link: "bg-transparent bc-transparent c-slate-10 tuo-2 h:td-u fv:oc-silver-3/60 fv:bc-silver-5",
 };
 
 const SIZES: Record<Size, string> = {

@@ -29,7 +29,7 @@ const STATUS_BORDER: Record<Status, string> = {
 };
 
 const STATUS_RING: Record<Status, string> = {
-  default: "fv:oc-indigo-2/60 fv:bc-indigo-3",
+  default: "fv:oc-silver-3/60 fv:bc-silver-5",
   error: "fv:oc-red-2/60 fv:bc-red-3",
   success: "fv:oc-green-2/60 fv:bc-green-3",
 };
@@ -167,7 +167,7 @@ export default function TextareaBase({
           </div>
           <div className="w-100% h-1 bg-silver-2 br-9999 o-h">
             <div
-              className={`h-100% br-9999 ${warn ? "bg-red" : "bg-indigo"}`}
+              className={`h-100% br-9999 ${warn ? "bg-red" : "bg-slate-12"}`}
               style={{ width: `${percent}%` }}
             />
           </div>

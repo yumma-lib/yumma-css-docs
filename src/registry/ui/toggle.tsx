@@ -29,8 +29,8 @@ const SIZES: Record<Size, string> = {
 // `merge` as two arguments it has to choose between.
 const DISABLED = "bw-1 bc-silver-2 bg-silver-1 c-slate-4";
 
-const PRESSED = "bg-indigo bc-indigo-6 c-white";
-const UNPRESSED = "bg-white bc-indigo-3 c-indigo h:bg-indigo-1";
+const PRESSED = "bg-slate-12 bc-slate-12 c-white";
+const UNPRESSED = "bg-white bc-silver-5 c-slate-12 h:bg-silver-1";
 
 export interface ToggleProps
   extends Omit<ComponentProps<"button">, "className" | "value">,
@@ -109,7 +109,7 @@ export default function ToggleBase({
       {...pressedProps}
       className={(state) =>
         merge(
-          "d-f ai-c jc-c us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3",
+          "d-f ai-c jc-c us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5",
           disabled ? "c-na" : "c-p",
           SIZES[size],
           SHAPES[shape],

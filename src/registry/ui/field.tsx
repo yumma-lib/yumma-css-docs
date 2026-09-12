@@ -44,7 +44,7 @@ const STATUS_BORDER: Record<Status, string> = {
 };
 
 const STATUS_RING: Record<Status, string> = {
-  default: "fv:oc-indigo-2/60 fv:bc-indigo-3",
+  default: "fv:oc-silver-3/60 fv:bc-silver-5",
   error: "fv:oc-red-2/60 fv:bc-red-3",
   success: "fv:oc-green-2/60 fv:bc-green-3",
 };
@@ -122,7 +122,7 @@ export default function FieldBase({
       pressed={revealed}
       onPressedChange={setRevealed}
       disabled={disabled}
-      className="d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-indigo-2/60 fv:bc-indigo-3"
+      className="d-f ai-c jc-c p-0 bg-transparent bw-0 c-slate-6 c-p us-none fv:os-s fv:ow-3 fv:oo-0 fv:oc-silver-3/60 fv:bc-silver-5"
     >
       {revealed ? (
         <Eye className="w-4 h-4" />
