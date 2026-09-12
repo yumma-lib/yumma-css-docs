@@ -108,6 +108,12 @@ export interface RegistryProp {
    */
   exampleIcon?: string;
   /**
+   * A string the component renders only when it has one, so the playground can
+   * offer its presence as a toggle. Strings stay documented rather than typed
+   * into: the control is not which words but whether there are any.
+   */
+  optional?: boolean;
+  /**
    * A prop this one has no effect without. iconPosition moves an icon that may not
    * be there, so the playground dims it until icon is set.
    */

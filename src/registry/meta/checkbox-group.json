@@ -10,7 +10,8 @@
       "name": "parentLabel",
       "type": "ReactNode",
       "description": "Renders a checkbox above the group that checks and clears all of them, and is indeterminate while only some are checked. Needs `allValues`, and indents the group under it.",
-      "example": "Permissions"
+      "example": "Permissions",
+      "optional": true
     },
     {
       "name": "allValues",

@@ -25,7 +25,8 @@
       "name": "label",
       "type": "string",
       "example": "Theme",
-      "description": "A caption above the group, correctly wired to it via `aria-labelledby`. Without one the group has no accessible name at all."
+      "description": "A caption above the group, correctly wired to it via `aria-labelledby`. Without one the group has no accessible name at all.",
+      "optional": true
     },
     {
       "name": "defaultValue",

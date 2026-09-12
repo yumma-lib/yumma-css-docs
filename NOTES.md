@@ -1745,6 +1745,22 @@ declares logical properties: `padding` covers `padding-inline` covers
       `aria-label` and a `title` for a while, though both said "Install"
       rather than what pressing it does.
 
+- [x] **The label was already optional; the playground could not say so.**
+      Ten components guard theirs with `{label && ...}`, so passing nothing
+      has always hidden it. What was missing was a way to turn it off from the
+      rail, and the entry was right that a text control is the wrong answer.
+      A schema flag, `optional`, makes a string's *presence* the control, the
+      way `exampleIcon` already does for a slot: on gives the example, off
+      gives `""`, which is the guard the component already reads, and which
+      `buildUsage` already drops rather than printing `label=""`. Filed under
+      API changes and breaking nothing: no component signature moved.
+      `tests/registry.test.ts` refuses the flag on a prop with no example to
+      switch back on, or on one the component prints either way, which is the
+      shape of every "prop does nothing" report so far. Checked it bites.
+- [x] **A test helper had been seeding from `default` only.** The playground
+      URL test built its own seed and read `prop.default`, where the real
+      `seedValues` reads `prop.example ?? prop.default`. Nothing failed
+      because nothing optional had an example before. It matches now.
 - [x] **Radio has no `shape` prop, and should never have had one.** It was
       defaulting to `square`, so the shipped radio was a checkbox to anyone who
       has filled in a form: round means one of these, square means any of

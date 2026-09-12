@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  116
-    Open    13
-    Done    90%
+    Closed  118
+    Open    14
+    Done    89%
 
 ---
 
@@ -36,9 +36,6 @@ Empty.
 Breaking for the registry, so they ship together in one release with the
 renames already on `main`.
 
-- [ ] **Field and Textarea: the label should be optional.** The counter half
-      is done, at `maxLength: 0`. The label needs a way to be turned off that
-      is not a text control: strings are documented, not driven.
 - [ ] **A prop to control focus.** Some people do not want a ring at all, and
       the appearance could be props too: outline colour, outline offset, all
       Yumma CSS utilities. The indigo change has been and gone, so the pairing
@@ -78,6 +75,17 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 
 Blocked on Renildo. Each one holds up the entry beside it.
 
+- [ ] **`cva` for the variant maps?** Answered no for now, on evidence:
+      `class-variance-authority` last shipped 0.7.1 in November 2024 and is
+      still 0.x, `tailwind-variants` is the maintained equivalent but is built
+      around tailwind-merge rather than `yummacss/merge`, and there is no
+      compound-variant logic anywhere in the 41 components for either to
+      replace. Reopen if compound variants appear, or take a local
+      `variants()` helper rather than a dependency in every installed file.
+- [ ] **An `accent` prop?** Whether it is a real prop on the components, which
+      is 41 files and a value that ships with the copied source, or a
+      playground-only setting that recolours the preview without changing what
+      anyone installs.
 - [ ] **File Upload: remove it?** Base UI ships no primitive, and it is the
       least functional component in the set.
 - [ ] **Avatar:** should `verified` and `status` be mutually exclusive rather

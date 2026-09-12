@@ -7,11 +7,12 @@ export function typeOf(prop: RegistryProp): string {
   return prop.type;
 }
 
-/** Enums, booleans, numbers and icon slots. Strings are documented, not
- * driven, and a controlled prop needs its handler named to be either. */
+/** Enums, booleans, numbers, icon slots and optional strings. A string's
+ * words stay documented; only its presence is driven, and a controlled prop
+ * needs its handler named to be either. */
 export function isControllable(prop: RegistryProp): boolean {
   if (prop.controlled && !prop.handler) return false;
-  if (prop.exampleIcon) return true;
+  if (prop.exampleIcon || prop.optional) return true;
   return (
     prop.type === "enum" || prop.type === "boolean" || prop.type === "number"
   );
