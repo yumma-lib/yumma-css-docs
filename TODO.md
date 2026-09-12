@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  105
-    Open    17
-    Done    86%
+    Closed  107
+    Open    16
+    Done    87%
 
 ---
 
@@ -68,9 +68,6 @@ Nothing here blocks a release, and all of it makes the next change cheaper.
 - [ ] Give `play`, `yummacss` and `ui` their own icons module, and their own
       copy tests. Each repo gets its own file. This is not one module shared
       across four repos.
-- [ ] **Playground state in the URL.** Nothing survives a reload: every value
-      reseeds from the schema. Right for a shared link, but you cannot send
-      anyone the configuration you are looking at.
 
 ## Phase 6 - After v4
 
