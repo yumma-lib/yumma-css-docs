@@ -15,9 +15,9 @@ than adjusting the numbers by hand:
 
     grep -c '^- \[ \]' TODO.md
 
-    Closed  96
-    Open    21
-    Done    82%
+    Closed  100
+    Open    20
+    Done    83%
 
 ---
 
@@ -65,10 +65,6 @@ renames already on `main`.
 
 Design decisions. Nothing here starts without them.
 
-- [ ] **File Upload** barely customisable: the dashed border and the icon
-      should both be the user's choice. Barely functional: drag and drop does
-      nothing, the upload button does nothing, and dragging a file over it
-      should change the border colour.
 - [ ] Replace the stage's tab bar with the **browser window** treatment,
       redrawn in Yumma CSS's own colours. **3 mockups.** Not urgent.
 

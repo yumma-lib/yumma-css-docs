@@ -23,6 +23,10 @@ const EXPECTED_DROPS = [
   "context-menu.tsx: bg-white",
   // The disabled dropzone tint. `bg-white` beat it in the stylesheet.
   "file-upload.tsx: bg-white",
+  // A zone being dragged over says so, over the resting edge and over the
+  // error one.
+  "file-upload.tsx: bc-red-5",
+  "file-upload.tsx: bc-silver-2",
   // The open trigger. Same.
   "popover.tsx: bg-white",
   "select.tsx: bg-white",
