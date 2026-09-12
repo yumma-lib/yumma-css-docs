@@ -289,6 +289,104 @@ describe("Yumma UI registry", () => {
     expect(missing).toEqual([]);
   });
 
+  /** The shape vocabulary in AGENTS.md, as far as a regex can hold it. */
+  it("keeps one meaning per shape name", () => {
+    const wrong: string[] = [];
+    const uiDir = join(rootDir, "src/registry/ui");
+
+    for (const file of readdirSync(uiDir).filter((f) => f.endsWith(".tsx"))) {
+      const source = readFileSync(join(uiDir, file), "utf-8");
+
+      for (const [, name, body] of source.matchAll(
+        /const (\w*SHAPES?\w*): Record<[^>]+> = \{([\s\S]*?)\n\};/g,
+      )) {
+        const entries = new Map(
+          [...body.matchAll(/(\w+):\s*"([^"]*)"/g)].map((m) => [m[1], m[2]]),
+        );
+
+        const squircle = entries.get("squircle");
+        if (squircle !== undefined && !squircle.includes("cs-s")) {
+          wrong.push(`${file}:${name} squircle is not a squircle`);
+        }
+
+        const pill = entries.get("pill");
+        const rounded = entries.get("rounded");
+        if (pill !== undefined && rounded !== undefined && pill === rounded) {
+          wrong.push(`${file}:${name} pill and rounded are the same`);
+        }
+        if (pill !== undefined && !pill.includes("br-9999")) {
+          wrong.push(`${file}:${name} pill is not fully round`);
+        }
+      }
+    }
+
+    expect(wrong).toEqual([]);
+  });
+
+  /**
+   * An example key the component's own type does not have is a field nothing
+   * reads. Radio carried `icon` markers for months after the icons were taken
+   * out, and the props table documented them the whole time.
+   */
+  it("keeps example objects to the fields their type declares", () => {
+    const wrong: string[] = [];
+    const metaDir = join(rootDir, "src/registry/meta");
+    const uiDir = join(rootDir, "src/registry/ui");
+
+    for (const file of readdirSync(metaDir).filter((f) =>
+      f.endsWith(".json"),
+    )) {
+      const id = file.replace(/\.json$/, "");
+      const component = join(uiDir, `${id}.tsx`);
+      if (!existsSync(component)) continue;
+
+      const source = readFileSync(component, "utf-8");
+      const meta = JSON.parse(readFileSync(join(metaDir, file), "utf-8"));
+
+      for (const prop of meta.props ?? []) {
+        const named = /^(\w+)\[\]$/.exec(prop.typeName ?? "");
+        if (!named || !Array.isArray(prop.example)) continue;
+
+        const declared = new RegExp(
+          `export interface ${named[1]}\\s*\\{([\\s\\S]*?)\\n\\}`,
+        ).exec(source);
+        if (!declared) continue;
+
+        const fields = new Set(
+          [...declared[1].matchAll(/^\s{2}(\w+)\??:/gm)].map((m) => m[1]),
+        );
+
+        for (const entry of prop.example) {
+          if (typeof entry !== "object" || entry === null) continue;
+          for (const key of Object.keys(entry)) {
+            if (!fields.has(key)) {
+              wrong.push(`${id}:${prop.name} has ${key}, ${named[1]} does not`);
+            }
+          }
+        }
+      }
+    }
+
+    expect(wrong).toEqual([]);
+  });
+
+  /** Round means one of these; square means any of these. */
+  it("gives the radio no shape prop", () => {
+    const meta = JSON.parse(
+      readFileSync(join(rootDir, "src/registry/meta/radio.json"), "utf-8"),
+    );
+    const source = readFileSync(
+      join(rootDir, "src/registry/ui/radio.tsx"),
+      "utf-8",
+    );
+
+    expect(meta.props.map((prop: { name: string }) => prop.name)).not.toContain(
+      "shape",
+    );
+    // The word is allowed in prose; the prop, its type and its map are not.
+    expect(source).not.toMatch(/shape\s*[?:=]|SHAPES|\bShape\b/);
+  });
+
   it("is not empty", () => {
     expect(mappedIds().length).toBeGreaterThan(0);
   });
