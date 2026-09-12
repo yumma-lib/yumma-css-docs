@@ -1,5 +1,5 @@
-import { RssFeed } from "iconoir-react";
 import Link from "next/link";
+import { RssFeed } from "@/icons";
 
 export default function RssLink() {
   return (

@@ -1,13 +1,13 @@
 "use client";
 
 import { Button } from "@base-ui/react";
-import { NavArrowDown } from "iconoir-react";
 import Link from "next/link";
 import { useState } from "react";
 import { BaseUI } from "@/components/icons/icons";
 import { usePlayground } from "@/components/playground/context";
 import Control from "@/components/playground/control";
 import PropDescription from "@/components/prop-description";
+import { NavArrowDown } from "@/icons";
 import { getRegistryTarget, type RegistryProp } from "@/registry";
 import { primitiveSlug } from "@/utils/primitive";
 import { isControllable, isInert, typeOf } from "@/utils/props";

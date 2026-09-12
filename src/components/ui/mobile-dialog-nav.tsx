@@ -1,10 +1,10 @@
 "use client";
 
 import { Dialog } from "@base-ui/react/dialog";
-import { Xmark } from "iconoir-react";
 import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Xmark } from "@/icons";
 import { YummaCSSDark } from "../icons/yummacss-dark";
 
 interface NavItem {

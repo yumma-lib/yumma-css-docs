@@ -1,7 +1,7 @@
 "use client";
 
 import { Chrome, Edge, Firefox, Safari } from "@ridemountainpig/svgl-react";
-import { CheckCircle, Sparks, WarningTriangle } from "iconoir-react";
+import { CheckCircle, Sparks, WarningTriangle } from "@/icons";
 import { baselineFor } from "../utils/baseline";
 
 const ICONS = {
