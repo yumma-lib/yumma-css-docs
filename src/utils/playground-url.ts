@@ -1,110 +1,121 @@
+import { parseAsBoolean, parseAsInteger, parseAsStringLiteral } from "nuqs";
 import type { RegistryMeta, RegistryProp } from "@/registry";
 import { isControllable } from "@/utils/props";
 
 /**
- * The playground's configuration as a query string, and back.
+ * The playground's configuration as nuqs parsers, one per controllable prop.
  *
- * Only what differs from the schema's own seed is written, so the default
- * configuration has a clean URL and a link only ever carries what someone
- * actually changed. An icon slot holds an element, which a URL cannot, so it
- * travels as the only thing its control offers: whether there is one, and the
- * caller hands over the factory that turns that back into a glyph.
+ * Each parser carries the schema's own seed as its default, and nuqs drops a
+ * parameter that matches its default, so a page nobody has touched keeps a
+ * clean address and a link carries only what someone changed. An icon slot
+ * holds an element, which a URL cannot, so it travels as the only thing its
+ * control offers: whether there is one.
  */
 
 type Values = Record<string, unknown>;
 
-function isIcon(prop: RegistryProp): boolean {
-  return Boolean(prop.exampleIcon);
-}
-
-/** One prop's value as text, or null when it cannot travel. */
-function encode(prop: RegistryProp, value: unknown): string | null {
-  if (isIcon(prop) || prop.type === "boolean") {
-    return value ? "true" : "false";
+/** The parser for one prop, or null when its value cannot travel in a URL. */
+function parserFor(prop: RegistryProp, seeded: unknown) {
+  if (prop.exampleIcon) {
+    return parseAsBoolean.withDefault(Boolean(seeded));
   }
+  if (prop.type === "boolean") {
+    return parseAsBoolean.withDefault(Boolean(seeded));
+  }
+  // A default is whatever the page opens on, which is the seed and not the
+  // documented default: a prop the seed leaves out has nothing to rest on, and
+  // nuqs then keeps it out of the URL rather than inventing a value for it.
   if (prop.type === "number") {
-    return typeof value === "number" && Number.isFinite(value)
-      ? String(value)
-      : null;
+    return typeof seeded === "number"
+      ? parseAsInteger.withDefault(seeded)
+      : parseAsInteger;
   }
-  if (prop.type === "enum") {
-    return typeof value === "string" && prop.values?.includes(value)
-      ? value
-      : null;
+  if (prop.type === "enum" && prop.values?.length) {
+    const values = prop.values as [string, ...string[]];
+    const parser = parseAsStringLiteral(values);
+    return values.includes(seeded as string)
+      ? parser.withDefault(seeded as string)
+      : parser;
   }
   return null;
 }
 
-/** The changed props as `size=lg&disabled=true`, or "" when nothing differs. */
-export function toQuery(
+export type PlaygroundParser = NonNullable<ReturnType<typeof parserFor>>;
+
+export type PlaygroundKeyMap = Record<string, PlaygroundParser>;
+
+/** Every controllable prop of a schema, as parsers keyed by prop name. */
+export function keyMapFor(
   meta: RegistryMeta,
-  values: Values,
   seeded: Values,
-): string {
-  const params = new URLSearchParams();
+): PlaygroundKeyMap {
+  const map: PlaygroundKeyMap = {};
 
   for (const prop of meta.props) {
     if (!isControllable(prop)) continue;
-
-    const now = encode(prop, values[prop.name]);
-    if (now === null) continue;
-    if (now === encode(prop, seeded[prop.name])) continue;
-
-    params.set(prop.name, now);
+    const parser = parserFor(prop, seeded[prop.name]);
+    if (parser) map[prop.name] = parser;
   }
 
-  return params.toString();
+  return map;
 }
 
 /**
- * The seeded values with a query string applied over them.
+ * The seeded values with the parsed query applied over them.
  *
- * Anything the schema does not name, or names with a value it does not take,
- * is dropped rather than trusted: the query comes off someone's address bar.
+ * nuqs has already rejected anything the parsers do not take, so what arrives
+ * here is a value the schema names or the seed it fell back to.
  */
-export function fromQuery(
+export function applyQuery(
   meta: RegistryMeta,
-  query: string,
+  query: Values,
   seeded: Values,
   icon: (name: string) => unknown,
 ): Values {
   const values = { ...seeded };
-  const params = new URLSearchParams(query);
+
+  for (const prop of meta.props) {
+    if (!(prop.name in query)) continue;
+    const value = query[prop.name];
+
+    if (prop.exampleIcon) {
+      if (value) values[prop.name] = icon(prop.exampleIcon);
+      else delete values[prop.name];
+      continue;
+    }
+
+    // A parser with no default reports null when the URL says nothing.
+    if (value !== null) values[prop.name] = value;
+  }
+
+  return values;
+}
+
+/**
+ * What the query has to say for a value bag, with icons back down to a flag.
+ *
+ * A prop the bag has nothing for is left out rather than sent as `undefined`,
+ * so its parser keeps the default it was built with.
+ */
+export function queryFor(
+  meta: RegistryMeta,
+  values: Values,
+): Record<string, string | number | boolean> {
+  const query: Record<string, string | number | boolean> = {};
 
   for (const prop of meta.props) {
     if (!isControllable(prop)) continue;
 
-    const text = params.get(prop.name);
-    if (text === null) continue;
-
-    if (isIcon(prop)) {
-      if (text === "true" && prop.exampleIcon) {
-        values[prop.name] = icon(prop.exampleIcon);
-      } else if (text === "false") {
-        delete values[prop.name];
-      }
+    if (prop.exampleIcon || prop.type === "boolean") {
+      query[prop.name] = Boolean(values[prop.name]);
       continue;
     }
 
-    if (prop.type === "boolean") {
-      if (text === "true" || text === "false")
-        values[prop.name] = text === "true";
-      continue;
-    }
-
-    if (prop.type === "number") {
-      const value = Number(text);
-      if (!Number.isFinite(value)) continue;
-      if (prop.min !== undefined && value < prop.min) continue;
-      if (prop.max !== undefined && value > prop.max) continue;
-      values[prop.name] = value;
-      continue;
-    }
-
-    if (prop.type === "enum" && prop.values?.includes(text)) {
-      values[prop.name] = text;
+    const value = values[prop.name];
+    if (typeof value === "string" || typeof value === "number") {
+      query[prop.name] = value;
     }
   }
 
-  return values;
+  return query;
 }
