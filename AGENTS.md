@@ -45,6 +45,18 @@ is written.
   content decision, not a visual one, and belongs to this list.
 - `tests/content-model.test.ts` holds the mechanical half.
 
+# Shape
+
+- `square` is no radius, `squircle` is `br-xxl cs-s`, and `rounded` is the
+  natural round for that control: `br-sm` on a checkbox, `br-lg` on a panel,
+  `br-9999` on a switch or a track, which is already a capsule at that height.
+- `pill` appears only where a smaller `rounded` also makes sense, so a
+  component offering both keeps them different. Never add `pill` as a synonym.
+- Shape is not a style axis where it is the affordance. A radio is round
+  because round means *one of these* and square means *any of these*, so it
+  has no `shape` prop at all. Ask that question before adding one.
+- `tests/registry.test.ts` holds the mechanical half.
+
 # Working
 
 - PRs, never direct commits to `main`. One PR per phase, on a branch named
